@@ -1,0 +1,1251 @@
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+This is DQS job relwfn_.252561
+----- GAMESS execution script 'rungms' -----
+This job is running on host cu.msg.chem.iastate.edu
+under operating system Linux at Fri Dec 2 16:55:06 CST 2016
+Available scratch disk space (Kbyte units) at beginning of the job is
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/md0             249208740  56894152 192314588  23% /scr
+GAMESS temporary binary files will be written to /scr/sarom
+GAMESS supplementary output files will be written to /u1/sarom/scr
+Copying input file relwfn_fm-dk.inp to your run's scratch directory...
+cp relwfn_fm-dk.inp /scr/sarom/relwfn_fm-dk.F05
+unset echo
+/u1/mike/gamess/ddikick.x /u1/mike/gamess/gamess.133.x relwfn_fm-dk -ddi 1 1 cu.msg.chem.iastate.edu -scr /scr/sarom
+
+ Distributed Data Interface kickoff program.
+ Initiating 1 compute processes on 1 nodes to run the following command:
+ /u1/mike/gamess/gamess.133.x relwfn_fm-dk 
+
+          ******************************************************
+          *         GAMESS VERSION = 18 AUG 2016 (R1)          *
+          *             FROM IOWA STATE UNIVERSITY             *
+          * M.W.SCHMIDT, K.K.BALDRIDGE, J.A.BOATZ, S.T.ELBERT, *
+          *   M.S.GORDON, J.H.JENSEN, S.KOSEKI, N.MATSUNAGA,   *
+          *          K.A.NGUYEN, S.J.SU, T.L.WINDUS,           *
+          *       TOGETHER WITH M.DUPUIS, J.A.MONTGOMERY       *
+          *         J.COMPUT.CHEM.  14, 1347-1363(1993)        *
+          **************** 64 BIT INTEL VERSION ****************
+
+  SINCE 1993, STUDENTS AND POSTDOCS WORKING AT IOWA STATE UNIVERSITY
+  AND ALSO IN THEIR VARIOUS JOBS AFTER LEAVING ISU HAVE MADE IMPORTANT
+  CONTRIBUTIONS TO THE CODE:
+     IVANA ADAMOVIC, CHRISTINE AIKENS, YURI ALEXEEV, POOJA ARORA,
+     ANDREY ASADCHEV, ROB BELL, PRADIPTA BANDYOPADHYAY, JONATHAN BENTZ,
+     BRETT BODE, KURT BRORSEN, CALEB CARLIN, GALINA CHABAN, WEI CHEN,
+     CHEOL HO CHOI, PAUL DAY, ALBERT DEFUSCO, NUWAN DESILVA, TIM DUDLEY,
+     DMITRI FEDOROV, GRAHAM FLETCHER, MARK FREITAG, KURT GLAESEMANN,
+     DAN KEMP, GRANT MERRILL, NORIYUKI MINEZAWA, JONATHAN MULLIN,
+     TAKESHI NAGATA, SEAN NEDD, HEATHER NETZLOFF, BOSILJKA NJEGIC, RYAN OLSON,
+     MIKE PAK, SPENCER PRUITT, LUKE ROSKOP, JIM SHOEMAKER, LYUDMILA SLIPCHENKO,
+     TONY SMITH, SAROM SOK LEANG, JIE SONG, TETSUYA TAKETSUGU, SIMON WEBB,
+     PENG XU, SOOHAENG YOO, FEDERICO ZAHARIEV
+
+  ADDITIONAL CODE HAS BEEN PROVIDED BY COLLABORATORS IN OTHER GROUPS:
+     IOWA STATE UNIVERSITY:
+          JOE IVANIC, AARON WEST, LAIMUTIS BYTAUTAS, KLAUS RUEDENBERG
+     UNIVERSITY OF TOKYO: KIMIHIKO HIRAO, TAKAHITO NAKAJIMA,
+          TAKAO TSUNEDA, MUNEAKI KAMIYA, SUSUMU YANAGISAWA,
+          KIYOSHI YAGI, MAHITO CHIBA, SEIKEN TOKURA, NAOAKI KAWAKAMI
+     UNIVERSITY OF AARHUS: FRANK JENSEN
+     UNIVERSITY OF IOWA: VISVALDAS KAIRYS, HUI LI
+     NATIONAL INST. OF STANDARDS AND TECHNOLOGY: WALT STEVENS, DAVID GARMER
+     UNIVERSITY OF PISA: BENEDETTA MENNUCCI, JACOPO TOMASI
+     UNIVERSITY OF MEMPHIS: HENRY KURTZ, PRAKASHAN KORAMBATH
+     UNIVERSITY OF ALBERTA: TOBY ZENG, MARIUSZ KLOBUKOWSKI
+     UNIVERSITY OF NEW ENGLAND: MARK SPACKMAN
+     MIE UNIVERSITY: HIROAKI UMEDA
+     NAT. INST. OF ADVANCED INDUSTRIAL SCIENCE AND TECHNOLOGY: KAZUO KITAURA
+     MICHIGAN STATE UNIVERSITY:
+          KAROL KOWALSKI, MARTA WLOCH, JEFFREY GOUR, JESSE LUTZ,
+          WEI LI, PIOTR PIECUCH
+     UNIVERSITY OF SILESIA: MONIKA MUSIAL, STANISLAW KUCHARSKI
+     FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX:
+          OLIVIER QUINET, BENOIT CHAMPAGNE
+     UNIVERSITY OF CALIFORNIA - SANTA BARBARA: BERNARD KIRTMAN
+     INSTITUTE FOR MOLECULAR SCIENCE:
+          KAZUYA ISHIMURA, MICHIO KATOUDA, AND SHIGERU NAGASE
+     UNIVERSITY OF NOTRE DAME: ANNA POMOGAEVA, DAN CHIPMAN
+     KYUSHU UNIVERSITY:
+          HARUYUKI NAKANO,
+          FENG LONG GU, JACEK KORCHOWIEC, MARCIN MAKOWSKI, AND YURIKO AOKI,
+          HIROTOSHI MORI AND EISAKU MIYOSHI
+     PENNSYLVANIA STATE UNIVERSITY:
+          TZVETELIN IORDANOV, CHET SWALINA, JONATHAN SKONE,
+          SHARON HAMMES-SCHIFFER
+     WASEDA UNIVERSITY:
+          MASATO KOBAYASHI, TOMOKO AKAMA, TSUGUKI TOUMA,
+          TAKESHI YOSHIKAWA, YASUHIRO IKABATA, JUNJI SEINO,
+          YUYA NAKAJIMA, HIROMI NAKAI
+     NANJING UNIVERSITY: SHUHUA LI
+     UNIVERSITY OF NEBRASKA:
+          PEIFENG SU, DEJUN SI, NANDUN THELLAMUREGE, YALI WANG, HUI LI
+     UNIVERSITY OF ZURICH: ROBERTO PEVERATI, KIM BALDRIDGE
+     N. COPERNICUS UNIVERSITY AND JACKSON STATE UNIVERSITY:
+          MARIA BARYSZ
+     UNIVERSITY OF COPENHAGEN: Jimmy Kromann, CASPER STEINMANN
+     TOKYO INSTITUTE OF TECHNOLOGY: HIROYA NAKATA
+     NAGOYA UNIVERSITY: YOSHIO NISHIMOTO, STEPHAN IRLE
+     MOSCOW STATE UNIVERSITY: VLADIMIR MIRONOV
+
+ EXECUTION OF GAMESS BEGUN Fri Dec  2 16:55:07 2016
+
+            ECHO OF THE FIRST FEW INPUT CARDS -
+ INPUT CARD>!   Fm+99...A test of a one electron relativistic atom with Z=100.              
+ INPUT CARD>!   IOTC gives exact 1s-1/2 solution to the 1-particle Dirac eqn.               
+ INPUT CARD>!                                                                               
+ INPUT CARD>!      FINAL energy= -5942.3695056262 (using 50s and q.p. RI)                   
+ INPUT CARD>!                                                                               
+ INPUT CARD>!   This run takes 1 second on 2.66 GHz Cloverton (16 Apr 2015)                 
+ INPUT CARD>!   results more or less the same since creation in 2009                        
+ INPUT CARD>!                                                                               
+ INPUT CARD>!   ----------------------------------------------------------------            
+ INPUT CARD>!   The goal is to reproduce results in Table III and Table IV of               
+ INPUT CARD>!   A.Wolf, M.Reiher, B.A.Hess  J.Chem.Phys. 117, 9215-26(2002)                 
+ INPUT CARD>!   The 32s "universal basis set" used here is that of                          
+ INPUT CARD>!   G.L.Malli, A.B.F.Da Silva, Y.Ishikawa  Phys.Rev.A 47, 143-6(1993)           
+ INPUT CARD>!   which gives Hartree-Fock energies for the Dirac-Coulomb and                 
+ INPUT CARD>!   Dirac-Breit equations for a few neutral atoms (but not Z=100).              
+ INPUT CARD>!                                                                               
+ INPUT CARD>!            d.p. RI           q.p. RI            Wolf/Reiher/Hess              
+ INPUT CARD>!              32s               50s               32s        50s               
+ INPUT CARD>!    NR: -4999.9997739258   -4999.999947*         n/a     -4999.9998            
+ INPUT CARD>!   DK1: -6461.9346710239   -6472.4027028863   -6461.94   -6472.4026            
+ INPUT CARD>!   DK2: -5905.2611075425   -5906.1918980396   -5905.26   -5906.1918            
+ INPUT CARD>!   DK3: -5940.9219751287   -5942.3695056052   -5940.92   -5942.3694            
+ INPUT CARD>!   DK4:                                       -5935.12   -5936.4739            
+ INPUT CARD>!   DK5:                                       -5939.63   -5941.5285            
+ INPUT CARD>!  IOTC: -5937.6345640423   -5939.1951362171                                    
+ INPUT CARD>!                                                                               
+ INPUT CARD>!   Dirac equation exact result: -5939.195 from the following formula:          
+ INPUT CARD>!     E=mc**2/sqrt(1 + [(Z*a)/(n - (j+1/2) + sqrt((j+1/2)**2 - (Z*a)**2]**2)    
+ INPUT CARD>!   using rest mass of e, mc**2=   8.18710565(10)e-14 Joule                     
+ INPUT CARD>!                                 /4.35974434(19)×10−18 Joule/Hartree        
+ INPUT CARD>!                              =  +18,778.866 Hartree                           
+ INPUT CARD>!   and a (alpha) fine structure constant 1/137 = 7.2973525664(17)e-3           
+ INPUT CARD>!   Using Z=100, n=1, and j=1/2 gives E= +12,839.671                            
+ INPUT CARD>!   subtracting the rest mass gives the internal energy, -5,939.195             
+ INPUT CARD>!   but it is clear that we are relying on dubious numbers of figures.          
+ INPUT CARD>!                                                                               
+ INPUT CARD>!   virial ratio.  In relativity,                                               
+ INPUT CARD>!      T=(gamma-1)*m*c**2, gamma=1/sqrt(1-beta**2), beta = v/c                  
+ INPUT CARD>!   but GAMESS formally computes a Schrodinger KE. as 1/2 p -dot- v,            
+ INPUT CARD>!   although these runs do modify the KE integrals.                             
+ INPUT CARD>!   Special relativity then has -2<T>/<V> in the interval from 1 to 2,          
+ INPUT CARD>!   for a -1 power potential as we have here.                                   
+ INPUT CARD>!   The IOTC run prints <V>= -15093.7416627655,                                 
+ INPUT CARD>!   a somewhat dubious <T>= 9154.5465265026, so |<V>/<T>| is 1.6487699985       
+ INPUT CARD>!   but much more thought should be given to this paragraph!                    
+ INPUT CARD>!                                                                               
+ INPUT CARD>!   * doesn't converge ("HF" should be h diagonalization for 1e- atom)!         
+ INPUT CARD>!   The use of d.p. changes the energy at 1d-8 for 32s, but 3d-4 for 50s        
+ INPUT CARD>!                                                                               
+ INPUT CARD> $contrl scftyp=rohf mult=2 icharg=+99 $end                                     
+    2000000 WORDS OF MEMORY AVAILABLE
+
+
+     RUN TITLE
+     ---------
+ hydrogenic ion Fm+99...test of DK for 1e- case                                  
+
+ THE POINT GROUP OF THE MOLECULE IS C1      
+ THE ORDER OF THE PRINCIPAL AXIS IS     0
+
+ ATOM      ATOMIC                      COORDINATES (BOHR)
+           CHARGE         X                   Y                   Z
+ FERMIUM   100.0     0.0000000000        0.0000000000        0.0000000000
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 FERM  
+
+   1 FERM    0.0000000  
+
+  * ... LESS THAN  3.000
+
+
+     ATOMIC BASIS SET
+     ----------------
+ THE CONTRACTED PRIMITIVE FUNCTIONS HAVE BEEN UNNORMALIZED
+ THE CONTRACTED BASIS FUNCTIONS ARE NOW NORMALIZED TO UNITY
+
+  SHELL TYPE  PRIMITIVE        EXPONENT          CONTRACTION COEFFICIENT(S)
+
+ FERMIUM   
+
+      1   S       1             0.0214940    1.000000000000
+
+      2   S       2             0.0441570    1.000000000000
+
+      3   S       3             0.0907180    1.000000000000
+
+      4   S       4             0.1863740    1.000000000000
+
+      5   S       5             0.3828930    1.000000000000
+
+      6   S       6             0.7866280    1.000000000000
+
+      7   S       7             1.6160740    1.000000000000
+
+      8   S       8             3.3201170    1.000000000000
+
+      9   S       9             6.8209580    1.000000000000
+
+     10   S      10            14.0132040    1.000000000000
+
+     11   S      11            28.7891910    1.000000000000
+
+     12   S      12            59.1454700    1.000000000000
+
+     13   S      13           121.5104180    1.000000000000
+
+     14   S      14           249.6350370    1.000000000000
+
+     15   S      15           512.8585110    1.000000000000
+
+     16   S      16          1053.6335570    1.000000000000
+
+     17   S      17          2164.6197720    1.000000000000
+
+     18   S      18          4447.0667480    1.000000000000
+
+     19   S      19          9136.2016160    1.000000000000
+
+     20   S      20         18769.7160200    1.000000000000
+
+     21   S      21         38561.1279460    1.000000000000
+
+     22   S      22         79221.2618910    1.000000000000
+
+     23   S      23        162754.7914190    1.000000000000
+
+     24   S      24        334368.8486830    1.000000000000
+
+     25   S      25        686938.4673380    1.000000000000
+
+     26   S      26       1411269.2009690    1.000000000000
+
+     27   S      27       2899358.3156290    1.000000000000
+
+     28   S      28       5956538.0131850    1.000000000000
+
+     29   S      29      12237309.5147490    1.000000000000
+
+     30   S      30      25140735.0760290    1.000000000000
+
+     31   S      31      51649961.0801940    1.000000000000
+
+     32   S      32     106111395.3716150    1.000000000000
+
+     33   S      33     218002100.0000000    1.000000000000
+
+     34   S      34     447870700.0000000    1.000000000000
+
+     35   S      35     920120400.0000001    1.000000000000
+
+     36   S      36    1890326000.0000000    1.000000000000
+
+     37   S      37    3883547000.0000000    1.000000000000
+
+     38   S      38    7978488000.0000000    1.000000000000
+
+     39   S      39   16391270000.0000000    1.000000000000
+
+     40   S      40   33674760000.0000000    1.000000000000
+
+     41   S      41   69182550000.0000000    1.000000000000
+
+     42   S      42  142130900000.0000000    1.000000000000
+
+     43   S      43  291998400000.0000000    1.000000000000
+
+     44   S      44  599891200000.0000000    1.000000000000
+
+     45   S      45 1232435999999.9997559    1.000000000000
+
+     46   S      46 2531958000000.0000000    1.000000000000
+
+     47   S      47 5201738000000.0000000    1.000000000000
+
+     48   S      4810686620000000.0000000    1.000000000000
+
+     49   S      4921954950000000.0039062    1.000000000000
+
+     50   S      5045104970000000.0000000    1.000000000000
+
+ TOTAL NUMBER OF BASIS SET SHELLS             =   50
+ NUMBER OF CARTESIAN GAUSSIAN BASIS FUNCTIONS =   50
+ NUMBER OF ELECTRONS                          =    1
+ CHARGE OF MOLECULE                           =   99
+ SPIN MULTIPLICITY                            =    2
+ NUMBER OF OCCUPIED ORBITALS (ALPHA)          =    1
+ NUMBER OF OCCUPIED ORBITALS (BETA )          =    0
+ TOTAL NUMBER OF ATOMS                        =    1
+ THE NUCLEAR REPULSION ENERGY IS        0.0000000000
+
+     ---------------------------------
+     RELATIVISTIC WAVEFUNCTION OPTIONS
+     ---------------------------------
+     METHOD=DK       NORDER= 3       NESOC=  0      MODEQR=      8
+     NRATOM=  0      QMTTOL= 1.000E-10      QRTOL= 1.000E-02
+     CLIGHT=137.03598950     TAU= 3.500E+00
+ 64 BIT EPSILON: 0.22E-15 AND 128 BIT EPSILON: 0.19E-33
+
+
+ THIS MOLECULE IS RECOGNIZED AS BEING LINEAR,
+ ORBITAL LZ DEGENERACY TOLERANCE ETOLLZ= 1.00E-06
+
+     $CONTRL OPTIONS
+     ---------------
+ SCFTYP=ROHF         RUNTYP=ENERGY       EXETYP=RUN     
+ MPLEVL=       0     CITYP =NONE         CCTYP =NONE         VBTYP =NONE    
+ DFTTYP=NONE         TDDFT =NONE    
+ MULT  =       2     ICHARG=      99     NZVAR =       0     COORD =UNIQUE  
+ PP    =NONE         RELWFN=DK           LOCAL =NONE         NUMGRD=       F
+ ISPHER=      -1     NOSYM =       0     MAXIT =      30     UNITS =ANGS    
+ PLTORB=       F     MOLPLT=       F     AIMPAC=       F     FRIEND=        
+ NPRINT=       7     IREST =       0     GEOM  =INPUT   
+ NORMF =       0     NORMP =       0     ITOL  =      20     ICUT  =       9
+ INTTYP=BEST         GRDTYP=BEST         QMTTOL= 1.0E-06
+
+     $SYSTEM OPTIONS
+     ---------------
+  REPLICATED MEMORY=     2000000 WORDS (ON EVERY NODE).
+ DISTRIBUTED MEMDDI=           0 MILLION WORDS IN AGGREGATE,
+ MEMDDI DISTRIBUTED OVER   1 PROCESSORS IS           0 WORDS/PROCESSOR.
+ TOTAL MEMORY REQUESTED ON EACH PROCESSOR=     2000000 WORDS.
+ TIMLIM=         100.00 MINUTES, OR       0.1 DAYS.
+ PARALL= F  BALTYP=  DLB     KDIAG=    0  COREFL= F
+ MXSEQ2=     300 MXSEQ3=     150  mem10=         0
+
+          ----------------
+          PROPERTIES INPUT
+          ----------------
+
+     MOMENTS            FIELD           POTENTIAL          DENSITY
+ IEMOM =       1   IEFLD =       0   IEPOT =       0   IEDEN =       0
+ WHERE =COMASS     WHERE =NUCLEI     WHERE =NUCLEI     WHERE =NUCLEI  
+ OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH    
+ IEMINT=       0   IEFINT=       0                     IEDINT=       0
+                                                       MORB  =       0
+          EXTRAPOLATION IN EFFECT
+ ORBITAL PRINTING OPTION: NPREO=     1    50     2     1
+
+     -------------------------------
+     INTEGRAL TRANSFORMATION OPTIONS
+     -------------------------------
+     NWORD  =            0
+     CUTOFF = 1.0E-09     MPTRAN =       0
+     DIRTRF =       F     AOINTS =DUP     
+
+          ----------------------
+          INTEGRAL INPUT OPTIONS
+          ----------------------
+ NOPK  =       1 NORDER=       0 SCHWRZ=       F
+
+     ------------------------------------------
+     THE POINT GROUP IS C1 , NAXIS= 0, ORDER= 1
+     ------------------------------------------
+
+     DIMENSIONS OF THE SYMMETRY SUBSPACES ARE
+ A   =   50
+
+ ..... DONE SETTING UP THE RUN .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS   0.00%
+
+          ********************
+          1 ELECTRON INTEGRALS
+          ********************
+ QUADRUPLE PRECISION RELATIVISTIC INTEGRALS WILL BE USED.
+ TIME TO DO ORDINARY INTEGRALS=      0.01
+
+ ------------------------------------------------------------------
+ 3RD ORDER DOUGLAS-KROLL-HESS RELATIVISTIC ONE-ELECTRON HAMILTONIAN
+            CODED BY TAKAHITO NAKAJIMA AND DMITRI FEDOROV
+ ------------------------------------------------------------------
+
+ TIME TO DO  RELATIVISTIC INTS=      0.49
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.50 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  94.34%
+
+          -------------
+          GUESS OPTIONS
+          -------------
+          GUESS =HCORE             NORB  =       0          NORDER=       0
+          MIX   =       F          PRTMO =       F          PUNMO =       F
+          TOLZ  = 1.0E-08          TOLE  = 1.0E-05
+          SYMDEN=       F          PURIFY=       F
+
+ INITIAL GUESS ORBITALS GENERATED BY HCORE    ROUTINE.
+
+ SYMMETRIES FOR INITIAL GUESS ORBITALS FOLLOW.  ALPHA SET(S).
+     1 ORBITALS ARE OCCUPIED (   43 CORE ORBITALS).
+
+ ...... END OF INITIAL ORBITAL SELECTION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  92.59%
+
+                    ----------------------
+                    AO INTEGRAL TECHNOLOGY
+                    ----------------------
+     S,P,L SHELL ROTATED AXIS INTEGRALS, REPROGRAMMED BY
+        KAZUYA ISHIMURA (IMS) AND JOSE SIERRA (SYNSTAR).
+     S,P,D,L SHELL ROTATED AXIS INTEGRALS PROGRAMMED BY
+        KAZUYA ISHIMURA (INSTITUTE FOR MOLECULAR SCIENCE).
+     S,P,D,F,G SHELL TO TOTAL QUARTET ANGULAR MOMENTUM SUM 5,
+        ERIC PROGRAM BY GRAHAM FLETCHER (ELORET AND NASA ADVANCED
+        SUPERCOMPUTING DIVISION, AMES RESEARCH CENTER).
+     S,P,D,F,G,L SHELL GENERAL RYS QUADRATURE PROGRAMMED BY
+        MICHEL DUPUIS (PACIFIC NORTHWEST NATIONAL LABORATORY).
+
+          --------------------
+          2 ELECTRON INTEGRALS
+          --------------------
+
+ THE -PK- OPTION IS OFF, THE INTEGRALS ARE NOT IN SUPERMATRIX FORM.
+ STORING   15000 INTEGRALS/RECORD ON DISK, USING 12 BYTES/INTEGRAL.
+ TWO ELECTRON INTEGRAL EVALUATION REQUIRES   90631 WORDS OF MEMORY.
+ II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    7
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   22
+ II,JST,KST,LST =  5  1  1  1 NREC =         1 INTLOC =   56
+ II,JST,KST,LST =  6  1  1  1 NREC =         1 INTLOC =  121
+ II,JST,KST,LST =  7  1  1  1 NREC =         1 INTLOC =  232
+ II,JST,KST,LST =  8  1  1  1 NREC =         1 INTLOC =  407
+ II,JST,KST,LST =  9  1  1  1 NREC =         1 INTLOC =  667
+ II,JST,KST,LST = 10  1  1  1 NREC =         1 INTLOC = 1036
+ II,JST,KST,LST = 11  1  1  1 NREC =         1 INTLOC = 1541
+ II,JST,KST,LST = 12  1  1  1 NREC =         1 INTLOC = 2212
+ II,JST,KST,LST = 13  1  1  1 NREC =         1 INTLOC = 3082
+ II,JST,KST,LST = 14  1  1  1 NREC =         1 INTLOC = 4187
+ II,JST,KST,LST = 15  1  1  1 NREC =         1 INTLOC = 5566
+ II,JST,KST,LST = 16  1  1  1 NREC =         1 INTLOC = 7261
+ II,JST,KST,LST = 17  1  1  1 NREC =         1 INTLOC = 9317
+ II,JST,KST,LST = 18  1  1  1 NREC =         1 INTLOC =11782
+ II,JST,KST,LST = 19  1  1  1 NREC =         1 INTLOC =14707
+ II,JST,KST,LST = 20  1  1  1 NREC =         2 INTLOC = 3146
+ II,JST,KST,LST = 21  1  1  1 NREC =         2 INTLOC = 7156
+ II,JST,KST,LST = 22  1  1  1 NREC =         2 INTLOC =11797
+ II,JST,KST,LST = 23  1  1  1 NREC =         3 INTLOC = 2132
+ II,JST,KST,LST = 24  1  1  1 NREC =         3 INTLOC = 8227
+ II,JST,KST,LST = 25  1  1  1 NREC =         4 INTLOC =  151
+ II,JST,KST,LST = 26  1  1  1 NREC =         4 INTLOC = 7976
+ II,JST,KST,LST = 27  1  1  1 NREC =         5 INTLOC = 1777
+ II,JST,KST,LST = 28  1  1  1 NREC =         5 INTLOC =11632
+ II,JST,KST,LST = 29  1  1  1 NREC =         6 INTLOC = 7622
+ II,JST,KST,LST = 30  1  1  1 NREC =         7 INTLOC = 4831
+ II,JST,KST,LST = 31  1  1  1 NREC =         8 INTLOC = 3345
+ II,JST,KST,LST = 32  1  1  1 NREC =         9 INTLOC = 3249
+ II,JST,KST,LST = 33  1  1  1 NREC =        10 INTLOC = 4625
+ II,JST,KST,LST = 34  1  1  1 NREC =        11 INTLOC = 7551
+ II,JST,KST,LST = 35  1  1  1 NREC =        12 INTLOC =12097
+ II,JST,KST,LST = 36  1  1  1 NREC =        14 INTLOC = 3336
+ II,JST,KST,LST = 37  1  1  1 NREC =        15 INTLOC =11333
+ II,JST,KST,LST = 38  1  1  1 NREC =        17 INTLOC = 6143
+ II,JST,KST,LST = 39  1  1  1 NREC =        19 INTLOC = 2830
+ II,JST,KST,LST = 40  1  1  1 NREC =        21 INTLOC = 1443
+ II,JST,KST,LST = 41  1  1  1 NREC =        23 INTLOC = 2022
+ II,JST,KST,LST = 42  1  1  1 NREC =        25 INTLOC = 4625
+ II,JST,KST,LST = 43  1  1  1 NREC =        27 INTLOC = 9300
+ II,JST,KST,LST = 44  1  1  1 NREC =        30 INTLOC = 1084
+ II,JST,KST,LST = 45  1  1  1 NREC =        32 INTLOC =10041
+ II,JST,KST,LST = 46  1  1  1 NREC =        35 INTLOC = 6218
+ II,JST,KST,LST = 47  1  1  1 NREC =        38 INTLOC = 4652
+ II,JST,KST,LST = 48  1  1  1 NREC =        41 INTLOC = 5410
+ II,JST,KST,LST = 49  1  1  1 NREC =        44 INTLOC = 8541
+ II,JST,KST,LST = 50  1  1  1 NREC =        47 INTLOC =14079
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =              757096
+         51 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.30 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS  96.39%
+
+          ---------------------------
+                 ROHF SCF CALCULATION
+          ---------------------------
+
+     NUCLEAR ENERGY =         0.0000000000
+     MAXIT = 30     NPUNCH=  2     MULT=  2
+     EXTRAP=T  DAMP=F  SHIFT=F  RSTRCT=F  DIIS=F  SOSCF=F
+     DENSITY MATRIX CONV=  1.00E-05
+     ROHF CANONICALIZATION PARAMETERS
+             C-C     O-O     V-V
+     ALPHA -0.5000  0.5000  1.5000
+     BETA   1.5000  0.5000 -0.5000
+     MEMORY REQUIRED FOR UHF/ROHF ITERS=     53250 WORDS.
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0    -5942.3695056262 -5942.3695056262   0.000000000   0.000000000
+   2  1    -5942.3695056262     0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL ROHF ENERGY IS    -5942.3695056262 AFTER   2 ITERATIONS
+
+          --------------------
+          SPIN SZ   =    0.500
+          S-SQUARED =    0.750
+          --------------------
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     4 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     5 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     6 (    6) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     8 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     9 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    10 (   10) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    11 (   11) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    12 (   12) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    13 (   13) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    14 (   14) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    15 (   15) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    16 (   16) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    17 (   17) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    18 (   18) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (   19) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    20 (   20) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    21 (   21) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    22 (   22) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    23 (   23) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    24 (   24) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    25 (   25) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    26 (   26) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    27 (   27) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    28 (   28) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    29 (   29) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    30 (   30) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    31 (   31) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    32 (   32) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    33 (   33) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    34 (   34) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    35 (   35) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    36 (   36) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    37 (   37) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    38 (   38) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    39 (   39) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    40 (   40) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    41 (   41) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    42 (   42) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    43 (   43) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    44 (   44) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    45 (   45) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    46 (   46) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    47 (   47) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    48 (   48) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    49 (   49) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    50 (   50) HAS LZ(WEIGHT)= 0.00(100.0%) 
+
+          ------------
+          EIGENVECTORS
+          ------------
+
+                      1          2          3          4          5
+                -5942.3695 -1524.3928  -646.2309  -351.3003  -219.5886
+                     A          A          A          A          A   
+    1  FM 1  S   -0.000001  -0.000002  -0.000225   0.000481   0.000073
+    2  FM 1  S    0.000003   0.000010   0.000879  -0.001885  -0.000278
+    3  FM 1  S   -0.000006  -0.000021  -0.001977   0.004251   0.000584
+    4  FM 1  S    0.000011   0.000038   0.003534  -0.007606  -0.000880
+    5  FM 1  S   -0.000017  -0.000060  -0.005683   0.012221   0.000820
+    6  FM 1  S    0.000026   0.000090   0.008705  -0.018583   0.000858
+    7  FM 1  S   -0.000039  -0.000128  -0.013032   0.027137  -0.009151
+    8  FM 1  S    0.000057   0.000169   0.019288  -0.037152   0.048125
+    9  FM 1  S   -0.000082  -0.000190  -0.028283   0.039708  -0.421965
+   10  FM 1  S    0.000117   0.000091   0.040274   0.167615  -2.631268
+   11  FM 1  S   -0.000162   0.000491  -0.009751   1.933784   4.517461
+   12  FM 1  S    0.000212  -0.001798   0.931869  -1.473844  -1.436877
+   13  FM 1  S   -0.000233   0.120775   0.549172  -1.083195  -1.276443
+   14  FM 1  S    0.000366   0.542515  -0.721783   0.703519   0.634691
+   15  FM 1  S    0.021602   0.435086  -0.443141   0.328157   0.233005
+   16  FM 1  S    0.138183   0.020026  -0.046498   0.051179   0.050388
+   17  FM 1  S    0.253261  -0.146693   0.086413  -0.061840  -0.048893
+   18  FM 1  S    0.256608  -0.148714   0.084819  -0.052882  -0.035422
+   19  FM 1  S    0.199637  -0.106809   0.061126  -0.040887  -0.030101
+   20  FM 1  S    0.138406  -0.070273   0.039191  -0.024807  -0.017096
+   21  FM 1  S    0.091730  -0.044665   0.024946  -0.016352  -0.011818
+   22  FM 1  S    0.059781  -0.028428   0.015679  -0.009973  -0.006943
+   23  FM 1  S    0.038809  -0.018104   0.010003  -0.006493  -0.004649
+   24  FM 1  S    0.025186  -0.011630   0.006384  -0.004073  -0.002852
+   25  FM 1  S    0.016368  -0.007492   0.004119  -0.002661  -0.001895
+   26  FM 1  S    0.010645  -0.004853   0.002659  -0.001699  -0.001193
+   27  FM 1  S    0.006926  -0.003146   0.001726  -0.001113  -0.000790
+   28  FM 1  S    0.004505  -0.002044   0.001119  -0.000716  -0.000503
+   29  FM 1  S    0.002927  -0.001327   0.000727  -0.000468  -0.000332
+   30  FM 1  S    0.001900  -0.000862   0.000472  -0.000302  -0.000212
+   31  FM 1  S    0.001231  -0.000558   0.000306  -0.000197  -0.000140
+   32  FM 1  S    0.000796  -0.000361   0.000198  -0.000127  -0.000089
+   33  FM 1  S    0.000514  -0.000233   0.000128  -0.000082  -0.000058
+   34  FM 1  S    0.000331  -0.000151   0.000082  -0.000053  -0.000037
+   35  FM 1  S    0.000212  -0.000097   0.000053  -0.000034  -0.000024
+   36  FM 1  S    0.000136  -0.000062   0.000034  -0.000022  -0.000015
+   37  FM 1  S    0.000087  -0.000040   0.000022  -0.000014  -0.000010
+   38  FM 1  S    0.000056  -0.000025   0.000014  -0.000009  -0.000006
+   39  FM 1  S    0.000035  -0.000016   0.000009  -0.000006  -0.000004
+   40  FM 1  S    0.000023  -0.000010   0.000006  -0.000004  -0.000003
+   41  FM 1  S    0.000014  -0.000006   0.000003  -0.000002  -0.000002
+   42  FM 1  S    0.000009  -0.000004   0.000002  -0.000002  -0.000001
+   43  FM 1  S    0.000005  -0.000002   0.000001  -0.000001  -0.000001
+   44  FM 1  S    0.000004  -0.000002   0.000001  -0.000001   0.000000
+   45  FM 1  S    0.000001  -0.000001   0.000000   0.000000   0.000000
+   46  FM 1  S    0.000002  -0.000001   0.000001   0.000000   0.000000
+   47  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+   48  FM 1  S    0.000002  -0.000001   0.000000   0.000000   0.000000
+   49  FM 1  S   -0.000001   0.000000   0.000000   0.000000   0.000000
+   50  FM 1  S    0.000001   0.000000   0.000000   0.000000   0.000000
+
+                      6          7          8          9         10
+                 -149.9133  -108.5434   -80.9121   -59.9375   -43.5060
+                     A          A          A          A          A   
+    1  FM 1  S   -0.001289   0.017871  -0.069941   0.160589  -0.296278
+    2  FM 1  S    0.005070  -0.071067   0.280654  -0.652782   1.229273
+    3  FM 1  S   -0.011483   0.164217  -0.658387   1.564807  -3.048740
+    4  FM 1  S    0.020596  -0.305816   1.257772  -3.099672   6.383471
+    5  FM 1  S   -0.032829   0.525240  -2.259632   5.932996 -13.293156
+    6  FM 1  S    0.047633  -0.898390   4.225475 -12.655823  17.371307
+    7  FM 1  S   -0.054814   1.658029 -10.444620  17.351830 -14.972654
+    8  FM 1  S   -0.092395  -6.807228  15.798904 -15.583921   9.922364
+    9  FM 1  S   -3.870758  12.085726 -14.803956  10.390156  -5.427653
+   10  FM 1  S    7.922158 -11.202264   9.402987  -5.172660   2.192349
+   11  FM 1  S   -6.031763   5.651219  -3.508693   1.291304  -0.111068
+   12  FM 1  S    1.087584  -0.447524  -0.315664   0.772665  -0.855938
+   13  FM 1  S    1.315191  -1.329693   1.250728  -1.041939   0.813189
+   14  FM 1  S   -0.574214   0.543341  -0.495569   0.406224  -0.313152
+   15  FM 1  S   -0.159788   0.086384  -0.013718  -0.029533   0.040749
+   16  FM 1  S   -0.050527   0.056051  -0.059965   0.054601  -0.044310
+   17  FM 1  S    0.041899  -0.039467   0.036646  -0.030462   0.023551
+   18  FM 1  S    0.024288  -0.014764   0.005846  -0.000200  -0.001813
+   19  FM 1  S    0.023740  -0.019608   0.015492  -0.011234   0.007971
+   20  FM 1  S    0.012303  -0.008493   0.004912  -0.002332   0.001068
+   21  FM 1  S    0.009124  -0.007263   0.005435  -0.003727   0.002537
+   22  FM 1  S    0.005082  -0.003650   0.002300  -0.001272   0.000715
+   23  FM 1  S    0.003547  -0.002765   0.002003  -0.001326   0.000878
+   24  FM 1  S    0.002107  -0.001544   0.001011  -0.000591   0.000352
+   25  FM 1  S    0.001437  -0.001106   0.000787  -0.000509   0.000332
+   26  FM 1  S    0.000886  -0.000656   0.000437  -0.000262   0.000160
+   27  FM 1  S    0.000597  -0.000457   0.000321  -0.000206   0.000133
+   28  FM 1  S    0.000375  -0.000279   0.000187  -0.000113   0.000070
+   29  FM 1  S    0.000251  -0.000191   0.000134  -0.000085   0.000055
+   30  FM 1  S    0.000158  -0.000118   0.000080  -0.000048   0.000030
+   31  FM 1  S    0.000105  -0.000080   0.000056  -0.000036   0.000023
+   32  FM 1  S    0.000066  -0.000050   0.000033  -0.000020   0.000013
+   33  FM 1  S    0.000044  -0.000033   0.000023  -0.000015   0.000010
+   34  FM 1  S    0.000028  -0.000021   0.000014  -0.000008   0.000005
+   35  FM 1  S    0.000018  -0.000014   0.000010  -0.000006   0.000004
+   36  FM 1  S    0.000011  -0.000009   0.000006  -0.000003   0.000002
+   37  FM 1  S    0.000007  -0.000006   0.000004  -0.000003   0.000002
+   38  FM 1  S    0.000005  -0.000003   0.000002  -0.000001   0.000001
+   39  FM 1  S    0.000003  -0.000002   0.000002  -0.000001   0.000001
+   40  FM 1  S    0.000002  -0.000001   0.000001  -0.000001   0.000000
+   41  FM 1  S    0.000001  -0.000001   0.000001   0.000000   0.000000
+   42  FM 1  S    0.000001  -0.000001   0.000000   0.000000   0.000000
+   43  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+   44  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+   45  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+   46  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+   47  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+   48  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+   49  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+   50  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+
+                     11         12         13         14         15
+                  -31.0521   -21.8657   -15.1523   -10.1578    15.1620
+                     A          A          A          A          A   
+    1  FM 1  S    0.515073  -0.914650   1.795058  -4.652981   0.330542
+    2  FM 1  S   -2.207945   4.119484  -8.487019   9.267863  -1.224063
+    3  FM 1  S    5.765248 -11.320998  13.062306  -9.004500   2.562778
+    4  FM 1  S  -12.849249  15.390032 -11.505131   6.306965  -4.190861
+    5  FM 1  S   16.700469 -13.026543   7.650196  -3.830027   6.083199
+    6  FM 1  S  -14.084591   8.513175  -4.486409   2.186868  -8.320858
+    7  FM 1  S    9.223328  -4.902805   2.468337  -1.187666  11.038801
+    8  FM 1  S   -5.222303   2.577612  -1.243768   0.575172 -14.361318
+    9  FM 1  S    2.526013  -1.120772   0.472898  -0.178147  18.232542
+   10  FM 1  S   -0.768042   0.178712   0.036587  -0.091671 -22.006362
+   11  FM 1  S   -0.312595   0.395213  -0.346909   0.255958  23.891451
+   12  FM 1  S    0.755342  -0.598018   0.438071  -0.294093 -21.268818
+   13  FM 1  S   -0.615082   0.450266  -0.315448   0.205918  13.465914
+   14  FM 1  S    0.234270  -0.169891   0.118120  -0.076639  -4.834126
+   15  FM 1  S   -0.037090   0.029196  -0.021093   0.013958   0.900124
+   16  FM 1  S    0.033836  -0.024707   0.017204  -0.011157  -0.690590
+   17  FM 1  S   -0.017553   0.012657  -0.008751   0.005651   0.345164
+   18  FM 1  S    0.002060  -0.001731   0.001282  -0.000858  -0.055023
+   19  FM 1  S   -0.005673   0.003993  -0.002724   0.001746   0.104690
+   20  FM 1  S   -0.000534   0.000295  -0.000173   0.000101   0.005370
+   21  FM 1  S   -0.001763   0.001224  -0.000829   0.000529   0.031395
+   22  FM 1  S   -0.000437   0.000282  -0.000184   0.000115   0.006717
+   23  FM 1  S   -0.000600   0.000413  -0.000278   0.000177   0.010441
+   24  FM 1  S   -0.000225   0.000149  -0.000099   0.000062   0.003668
+   25  FM 1  S   -0.000224   0.000154  -0.000103   0.000066   0.003862
+   26  FM 1  S   -0.000104   0.000069  -0.000046   0.000029   0.001714
+   27  FM 1  S   -0.000089   0.000061  -0.000041   0.000026   0.001535
+   28  FM 1  S   -0.000045   0.000031  -0.000020   0.000013   0.000755
+   29  FM 1  S   -0.000037   0.000025  -0.000017   0.000011   0.000633
+   30  FM 1  S   -0.000019   0.000013  -0.000009   0.000005   0.000323
+   31  FM 1  S   -0.000015   0.000011  -0.000007   0.000004   0.000265
+   32  FM 1  S   -0.000008   0.000006  -0.000004   0.000002   0.000136
+   33  FM 1  S   -0.000006   0.000004  -0.000003   0.000002   0.000111
+   34  FM 1  S   -0.000003   0.000002  -0.000002   0.000001   0.000056
+   35  FM 1  S   -0.000003   0.000002  -0.000001   0.000001   0.000046
+   36  FM 1  S   -0.000001   0.000001  -0.000001   0.000000   0.000023
+   37  FM 1  S   -0.000001   0.000001  -0.000001   0.000000   0.000019
+   38  FM 1  S   -0.000001   0.000000   0.000000   0.000000   0.000009
+   39  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000008
+   40  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000004
+   41  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000003
+   42  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000002
+   43  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000001
+   44  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000001
+   45  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+   46  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+   47  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+   48  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+   49  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+   50  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+
+                     16         17         18         19         20
+                  604.9852  2222.9589  5636.1280 11785.1913 21786.8189
+                     A          A          A          A          A   
+    1  FM 1  S    0.055963   0.026431  -0.014949   0.009193  -0.005923
+    2  FM 1  S   -0.217814  -0.103058   0.058310  -0.035863   0.023107
+    3  FM 1  S    0.486795   0.230919  -0.130729   0.080419  -0.051818
+    4  FM 1  S   -0.861662  -0.410168   0.232383  -0.142986   0.092143
+    5  FM 1  S    1.369025   0.654581  -0.371206   0.228470  -0.147246
+    6  FM 1  S   -2.066416  -0.993357   0.563920  -0.347185   0.223779
+    7  FM 1  S    3.044117   1.472420  -0.836743   0.515264  -0.332132
+    8  FM 1  S   -4.435025  -2.160027   1.228389  -0.756409   0.487520
+    9  FM 1  S    6.430119   3.158086  -1.796080   1.105317  -0.712085
+   10  FM 1  S   -9.275718  -4.620400   2.625924  -1.613454   1.038321
+   11  FM 1  S   13.145659   6.772527  -3.849825   2.358640  -1.514592
+   12  FM 1  S  -17.598089  -9.886030   5.668340  -3.460874   2.214270
+   13  FM 1  S   20.479588  14.005592  -8.353442   5.105325  -3.250926
+   14  FM 1  S  -18.101135 -18.010950  12.090400  -7.554946   4.801142
+   15  FM 1  S   10.108908  18.536163 -16.253034  11.041998  -7.121208
+   16  FM 1  S   -3.099981 -12.724970  18.067783 -15.169016  10.461931
+   17  FM 1  S    1.252191   4.897893 -13.879406  17.559725 -14.537229
+   18  FM 1  S   -0.752501  -1.707328   6.088792 -14.356600  17.200373
+   19  FM 1  S    0.178356   1.029204  -2.052383   6.796090 -14.558924
+   20  FM 1  S   -0.188654  -0.285925   1.206577  -2.284533   7.201111
+   21  FM 1  S    0.020152   0.244702  -0.367465   1.314410  -2.430788
+   22  FM 1  S   -0.052114  -0.045413   0.281907  -0.423729   1.379014
+   23  FM 1  S   -0.001963   0.065902  -0.066198   0.305617  -0.460764
+   24  FM 1  S   -0.016403  -0.004300   0.075432  -0.081735   0.320564
+   25  FM 1  S   -0.002931   0.020356  -0.010239   0.081829  -0.092682
+   26  FM 1  S   -0.005838   0.001192   0.023203  -0.015141   0.086068
+   27  FM 1  S   -0.001655   0.007144  -0.000749   0.025211  -0.018830
+   28  FM 1  S   -0.002267   0.001093   0.008119  -0.002497   0.026599
+   29  FM 1  S   -0.000775   0.002751   0.000374   0.008835  -0.003877
+   30  FM 1  S   -0.000924   0.000564   0.003123  -0.000311   0.009345
+   31  FM 1  S   -0.000337   0.001118   0.000272   0.003404  -0.000868
+   32  FM 1  S   -0.000385   0.000249   0.001271  -0.000013   0.003609
+   33  FM 1  S   -0.000140   0.000466   0.000124   0.001388  -0.000248
+   34  FM 1  S   -0.000162   0.000102   0.000532   0.000001   0.001476
+   35  FM 1  S   -0.000057   0.000196   0.000047   0.000583  -0.000101
+   36  FM 1  S   -0.000068   0.000040   0.000225  -0.000007   0.000622
+   37  FM 1  S   -0.000023   0.000083   0.000015   0.000248  -0.000052
+   38  FM 1  S   -0.000028   0.000015   0.000096  -0.000009   0.000266
+   39  FM 1  S   -0.000009   0.000035   0.000003   0.000106  -0.000029
+   40  FM 1  S   -0.000012   0.000005   0.000041  -0.000007   0.000115
+   41  FM 1  S   -0.000003   0.000014   0.000000   0.000045  -0.000017
+   42  FM 1  S   -0.000005   0.000002   0.000018  -0.000004   0.000050
+   43  FM 1  S   -0.000001   0.000006  -0.000001   0.000019  -0.000010
+   44  FM 1  S   -0.000002   0.000001   0.000008  -0.000002   0.000023
+   45  FM 1  S    0.000000   0.000002  -0.000002   0.000007  -0.000007
+   46  FM 1  S   -0.000001   0.000001   0.000004   0.000000   0.000012
+   47  FM 1  S    0.000000   0.000000  -0.000002   0.000002  -0.000005
+   48  FM 1  S   -0.000001   0.000001   0.000002   0.000001   0.000007
+   49  FM 1  S    0.000000   0.000000  -0.000001   0.000000  -0.000003
+   50  FM 1  S    0.000000   0.000000   0.000001   0.000001   0.000002
+
+                     21         22         23         24         25
+                37098.8239 59783.0682 92828.3010140566.9532209252.5358
+                     A          A          A          A          A   
+    1  FM 1  S    0.003917  -0.002629   0.001779  -0.001209   0.000824
+    2  FM 1  S   -0.015284   0.010258  -0.006940   0.004717  -0.003215
+    3  FM 1  S    0.034276  -0.023005   0.015565  -0.010579   0.007209
+    4  FM 1  S   -0.060952   0.040910  -0.027679   0.018813  -0.012821
+    5  FM 1  S    0.097408  -0.065380   0.044236  -0.030066   0.020490
+    6  FM 1  S   -0.148044   0.099368  -0.067234   0.045699  -0.031144
+    7  FM 1  S    0.219729  -0.147486   0.099792  -0.067829   0.046226
+    8  FM 1  S   -0.322507   0.216465  -0.146464   0.099552  -0.067846
+    9  FM 1  S    0.470944  -0.316054   0.213835  -0.145340   0.099051
+   10  FM 1  S   -0.686272   0.460407  -0.311448   0.211669  -0.144251
+   11  FM 1  S    0.999750  -0.670224   0.453205  -0.307952   0.209847
+   12  FM 1  S   -1.458033   0.976050  -0.659479   0.447927  -0.305165
+   13  FM 1  S    2.132071  -1.423575   0.960397  -0.651765   0.443838
+   14  FM 1  S   -3.131989   2.082433  -1.401109   0.949353  -0.645924
+   15  FM 1  S    4.629791  -3.060937   2.050555  -1.385563   0.941185
+   16  FM 1  S   -6.877999   4.528740  -3.016138   2.028996  -1.374369
+   17  FM 1  S   10.136130  -6.736465   4.466330  -2.986616   2.013929
+   18  FM 1  S  -14.175613   9.948302  -6.650822   4.426279  -2.966598
+   19  FM 1  S   16.978405 -13.966905   9.836508  -6.597148   4.399875
+   20  FM 1  S  -14.654897  16.847182 -13.843661   9.767783  -6.562536
+   21  FM 1  S    7.435331 -14.707144  16.769808 -13.768747   9.724254
+   22  FM 1  S   -2.521217   7.574820 -14.738882  16.723399 -13.721826
+   23  FM 1  S    1.418291  -2.577540   7.660756 -14.759533  16.694828
+   24  FM 1  S   -0.484794   1.442776  -2.613295   7.715416 -14.773472
+   25  FM 1  S    0.330088  -0.500441   1.458445  -2.636522   7.751110
+   26  FM 1  S   -0.100165   0.336260  -0.510746   1.468727  -2.651919
+   27  FM 1  S    0.088878  -0.105228   0.340326  -0.517638   1.475602
+   28  FM 1  S   -0.021459   0.090754  -0.108652   0.343057  -0.522299
+   29  FM 1  S    0.027546  -0.023286   0.092012  -0.110989   0.344905
+   30  FM 1  S   -0.004886   0.028191  -0.024541   0.092872  -0.112583
+   31  FM 1  S    0.009699  -0.005600   0.028627  -0.025411   0.093453
+   32  FM 1  S   -0.001279   0.009945  -0.006092   0.028932  -0.026003
+   33  FM 1  S    0.003752  -0.001573   0.010109  -0.006439   0.029132
+   34  FM 1  S   -0.000422   0.003853  -0.001775   0.010229  -0.006671
+   35  FM 1  S    0.001536  -0.000548   0.003919  -0.001923   0.010301
+   36  FM 1  S   -0.000176   0.001581  -0.000632   0.003972  -0.002014
+   37  FM 1  S    0.000648  -0.000232   0.001607  -0.000699   0.003996
+   38  FM 1  S   -0.000084   0.000669  -0.000266   0.001635  -0.000732
+   39  FM 1  S    0.000276  -0.000111   0.000678  -0.000300   0.001639
+   40  FM 1  S   -0.000042   0.000289  -0.000123   0.000697  -0.000307
+   41  FM 1  S    0.000118  -0.000057   0.000289  -0.000145   0.000690
+   42  FM 1  S   -0.000021   0.000127  -0.000058   0.000306  -0.000137
+   43  FM 1  S    0.000050  -0.000031   0.000122  -0.000077   0.000290
+   44  FM 1  S   -0.000009   0.000058  -0.000026   0.000140  -0.000058
+   45  FM 1  S    0.000020  -0.000019   0.000049  -0.000046   0.000115
+   46  FM 1  S   -0.000003   0.000029  -0.000008   0.000071  -0.000016
+   47  FM 1  S    0.000006  -0.000013   0.000015  -0.000032   0.000034
+   48  FM 1  S    0.000001   0.000016   0.000003   0.000040   0.000009
+   49  FM 1  S    0.000000  -0.000008  -0.000001  -0.000020  -0.000002
+   50  FM 1  S    0.000002   0.000006   0.000005   0.000014   0.000013
+
+                     26         27         28         29         30
+               307881.9841449375.5922652268.8019943142.8741***********
+                     A          A          A          A          A   
+    1  FM 1  S   -0.000562   0.000384  -0.000263   0.000180  -0.000123
+    2  FM 1  S    0.002194  -0.001500   0.001025  -0.000702   0.000480
+    3  FM 1  S   -0.004921   0.003363  -0.002300   0.001574  -0.001077
+    4  FM 1  S    0.008752  -0.005981   0.004090  -0.002799   0.001916
+    5  FM 1  S   -0.013987   0.009558  -0.006537   0.004473  -0.003062
+    6  FM 1  S    0.021260  -0.014528   0.009936  -0.006799   0.004654
+    7  FM 1  S   -0.031556   0.021564  -0.014748   0.010092  -0.006908
+    8  FM 1  S    0.046314  -0.031650   0.021646  -0.014812   0.010140
+    9  FM 1  S   -0.067616   0.046208  -0.031602   0.021625  -0.014804
+   10  FM 1  S    0.098471  -0.067294   0.046023  -0.031493   0.021559
+   11  FM 1  S   -0.143244   0.097890  -0.066947   0.045812  -0.031362
+   12  FM 1  S    0.208287  -0.142333   0.097340  -0.066609   0.045600
+   13  FM 1  S   -0.302869   0.206942  -0.141519   0.096838  -0.066293
+   14  FM 1  S    0.440563  -0.300951   0.205783  -0.140804   0.096388
+   15  FM 1  S   -0.641370   0.437909  -0.299354   0.204801  -0.140188
+   16  FM 1  S    0.935006  -0.637799   0.435776  -0.298050   0.203987
+   17  FM 1  S   -1.366173   0.930329  -0.635033   0.434100  -0.297012
+   18  FM 1  S    2.003256  -1.360182   0.926838  -0.632942   0.432820
+   19  FM 1  S   -2.952825   1.995694  -1.355847   0.924286  -0.631396
+   20  FM 1  S    4.382153  -2.943293   1.990358  -1.352753   0.922447
+   21  FM 1  S   -6.539710   4.370118  -2.936676   1.986617  -1.350558
+   22  FM 1  S    9.695958  -6.524398   4.361867  -2.932083   1.983990
+   23  FM 1  S  -13.691618   9.677171  -6.513986   4.356182  -2.928876
+   24  FM 1  S   16.676746 -13.671709   9.664491  -6.506847   4.352231
+   25  FM 1  S  -14.783064  16.664994 -13.658356   9.655835  -6.501906
+   26  FM 1  S    7.774916 -14.789698  16.657214 -13.649271   9.649873
+   27  FM 1  S   -2.662318   7.791001 -14.794341  16.651947 -13.643053
+   28  FM 1  S    1.480290  -2.669393   7.802032 -14.797532  16.648403
+   29  FM 1  S   -0.525505   1.483486  -2.674306   7.809562 -14.799841
+   30  FM 1  S    0.346190  -0.527691   1.485740  -2.677629   7.814880
+   31  FM 1  S   -0.113700   0.347054  -0.529250   1.487228  -2.680060
+   32  FM 1  S    0.093870  -0.114447   0.347697  -0.530254   1.488382
+   33  FM 1  S   -0.026430   0.094134  -0.115014   0.348073  -0.531087
+   34  FM 1  S    0.029289  -0.026702   0.094368  -0.115342   0.348478
+   35  FM 1  S   -0.006851   0.029370  -0.026942   0.094456  -0.115707
+   36  FM 1  S    0.010372  -0.006946   0.029482  -0.027030   0.094662
+   37  FM 1  S   -0.002099   0.010389  -0.007071   0.029472  -0.027245
+   38  FM 1  S    0.004038  -0.002123   0.010465  -0.007065   0.029633
+   39  FM 1  S   -0.000782   0.004027  -0.002211   0.010414  -0.007242
+   40  FM 1  S    0.001672  -0.000773   0.004098  -0.002157   0.010579
+   41  FM 1  S   -0.000347   0.001644  -0.000855   0.004016  -0.002343
+   42  FM 1  S    0.000724  -0.000315   0.001726  -0.000762   0.004214
+   43  FM 1  S   -0.000178   0.000680  -0.000409   0.001607  -0.000988
+   44  FM 1  S    0.000332  -0.000125   0.000783  -0.000271   0.001862
+   45  FM 1  S   -0.000107   0.000265  -0.000245   0.000612  -0.000566
+   46  FM 1  S    0.000169  -0.000028   0.000401  -0.000043   0.000949
+   47  FM 1  S   -0.000077   0.000074  -0.000180   0.000161  -0.000419
+   48  FM 1  S    0.000097   0.000029   0.000232   0.000085   0.000556
+   49  FM 1  S   -0.000048  -0.000009  -0.000115  -0.000031  -0.000275
+   50  FM 1  S    0.000036   0.000033   0.000087   0.000084   0.000213
+
+                     31         32         33         34         35
+               *******************************************************
+                     A          A          A          A          A   
+    1  FM 1  S    0.000084  -0.000058   0.000040  -0.000027   0.000019
+    2  FM 1  S   -0.000329   0.000225  -0.000154   0.000106  -0.000073
+    3  FM 1  S    0.000738  -0.000505   0.000346  -0.000237   0.000163
+    4  FM 1  S   -0.001312   0.000899  -0.000616   0.000422  -0.000289
+    5  FM 1  S    0.002097  -0.001436   0.000984  -0.000674   0.000462
+    6  FM 1  S   -0.003187   0.002183  -0.001496   0.001025  -0.000703
+    7  FM 1  S    0.004731  -0.003241   0.002221  -0.001522   0.001043
+    8  FM 1  S   -0.006944   0.004757  -0.003259   0.002234  -0.001531
+    9  FM 1  S    0.010138  -0.006945   0.004758  -0.003261   0.002235
+   10  FM 1  S   -0.014765   0.010114  -0.006930   0.004749  -0.003255
+   11  FM 1  S    0.021478  -0.014712   0.010081  -0.006908   0.004736
+   12  FM 1  S   -0.031228   0.021391  -0.014657   0.010044  -0.006886
+   13  FM 1  S    0.045399  -0.031099   0.021309  -0.014602   0.010010
+   14  FM 1  S   -0.066008   0.045215  -0.030981   0.021231  -0.014553
+   15  FM 1  S    0.095999  -0.065757   0.045055  -0.030875   0.021164
+   16  FM 1  S   -0.139676   0.095670  -0.065548   0.044916  -0.030788
+   17  FM 1  S    0.203339  -0.139261   0.095408  -0.065374   0.044809
+   18  FM 1  S   -0.296219   0.202835  -0.138945   0.095198  -0.065246
+   19  FM 1  S    0.431876  -0.295623   0.202467  -0.138700   0.095053
+   20  FM 1  S   -0.630285   0.431185  -0.295201   0.202187  -0.138537
+   21  FM 1  S    0.921150  -0.629484   0.430706  -0.294882   0.202008
+   22  FM 1  S   -1.349026   0.920221  -0.628937   0.430343  -0.294685
+   23  FM 1  S    1.982166  -1.347932   0.919592  -0.628519   0.430126
+   24  FM 1  S   -2.926656   1.980865  -1.347195   0.919106  -0.628276
+   25  FM 1  S    4.349501  -2.925076   1.979992  -1.346621   0.918832
+   26  FM 1  S   -6.498491   4.347562  -2.924013   1.979306  -1.346303
+   27  FM 1  S    9.645747  -6.496081   4.346252  -2.923178   1.978930
+   28  FM 1  S  -13.638731   9.642866  -6.494431   4.345230  -2.922716
+   29  FM 1  S   16.645889 -13.635766   9.640845  -6.493174   4.344642
+   30  FM 1  S  -14.801318  16.644270 -13.633589   9.639368  -6.492386
+   31  FM 1  S    7.818378 -14.802567  16.642866 -13.632109   9.638292
+   32  FM 1  S   -2.681506   7.821091 -14.802928  16.642045 -13.630663
+   33  FM 1  S    1.488976  -2.682901   7.822500 -14.804017  16.641168
+   34  FM 1  S   -0.531485   1.489816  -2.683407   7.824757 -14.804215
+   35  FM 1  S    0.348550  -0.532141   1.489812  -2.684863   7.824953
+   36  FM 1  S   -0.115746   0.348994  -0.532004   1.490915  -2.684193
+   37  FM 1  S    0.094575  -0.116181   0.348678  -0.533022   1.489950
+   38  FM 1  S   -0.027150   0.094948  -0.115834   0.349608  -0.531960
+   39  FM 1  S    0.029474  -0.027549   0.094501  -0.116800   0.348380
+   40  FM 1  S   -0.007068   0.029874  -0.027063   0.095495  -0.115486
+   41  FM 1  S    0.010358  -0.007514   0.029295  -0.028152   0.093990
+   42  FM 1  S   -0.002092   0.010843  -0.006862   0.030491  -0.026481
+   43  FM 1  S    0.003909  -0.002645   0.010069  -0.008216   0.028539
+   44  FM 1  S   -0.000633   0.004537  -0.001748   0.011610  -0.005973
+   45  FM 1  S    0.001431  -0.001358   0.003463  -0.003522   0.008947
+   46  FM 1  S   -0.000059   0.002261  -0.000100   0.005491  -0.000423
+   47  FM 1  S    0.000352  -0.000987   0.000789  -0.002370   0.001884
+   48  FM 1  S    0.000236   0.001328   0.000624   0.003178   0.001562
+   49  FM 1  S   -0.000094  -0.000658  -0.000263  -0.001571  -0.000689
+   50  FM 1  S    0.000215   0.000516   0.000537   0.001244   0.001323
+
+                     36         37         38         39         40
+               *******************************************************
+                     A          A          A          A          A   
+    1  FM 1  S   -0.000013   0.000009  -0.000006   0.000004  -0.000003
+    2  FM 1  S    0.000050  -0.000034   0.000023  -0.000016   0.000011
+    3  FM 1  S   -0.000112   0.000076  -0.000052   0.000036  -0.000025
+    4  FM 1  S    0.000198  -0.000136   0.000093  -0.000064   0.000044
+    5  FM 1  S   -0.000317   0.000217  -0.000149   0.000102  -0.000070
+    6  FM 1  S    0.000482  -0.000330   0.000226  -0.000155   0.000106
+    7  FM 1  S   -0.000715   0.000490  -0.000336   0.000231  -0.000158
+    8  FM 1  S    0.001049  -0.000720   0.000493  -0.000339   0.000232
+    9  FM 1  S   -0.001532   0.001051  -0.000720   0.000494  -0.000339
+   10  FM 1  S    0.002231  -0.001530   0.001049  -0.000720   0.000493
+   11  FM 1  S   -0.003246   0.002226  -0.001526   0.001047  -0.000717
+   12  FM 1  S    0.004720  -0.003237   0.002218  -0.001523   0.001043
+   13  FM 1  S   -0.006861   0.004706  -0.003225   0.002213  -0.001516
+   14  FM 1  S    0.009975  -0.006841   0.004689  -0.003218   0.002204
+   15  FM 1  S   -0.014506   0.009948  -0.006818   0.004679  -0.003204
+   16  FM 1  S    0.021102  -0.014471   0.009918  -0.006806   0.004661
+   17  FM 1  S   -0.030710   0.021060  -0.014432   0.009904  -0.006782
+   18  FM 1  S    0.044715  -0.030661   0.021012  -0.014418   0.009873
+   19  FM 1  S   -0.065137   0.044661  -0.030604   0.020998  -0.014379
+   20  FM 1  S    0.094927  -0.065079   0.044593  -0.030593   0.020948
+   21  FM 1  S   -0.138394   0.094868  -0.064998   0.044587  -0.030529
+   22  FM 1  S    0.201844  -0.138334   0.094770  -0.065000   0.044505
+   23  FM 1  S   -0.294494   0.201785  -0.138215   0.094784  -0.064893
+   24  FM 1  S    0.429903  -0.294439   0.201639  -0.138246   0.094643
+   25  FM 1  S   -0.628012   0.429852  -0.294256   0.201691  -0.138059
+   26  FM 1  S    0.918515  -0.627965   0.429622  -0.294337   0.201445
+   27  FM 1  S   -1.345919   0.918474  -0.627674   0.429741  -0.294010
+   28  FM 1  S    1.978463  -1.345880   0.918106  -0.627841   0.429309
+   29  FM 1  S   -2.922144   1.978420  -1.345415   0.918329  -0.627272
+   30  FM 1  S    4.343950  -2.922073   1.977837  -1.345698   0.917587
+   31  FM 1  S   -6.491559   4.343796  -2.921351   1.978172  -1.344741
+   32  FM 1  S    9.637327  -6.491163   4.342905  -2.921676   1.976945
+   33  FM 1  S  -13.630290   9.636846  -6.490394   4.343267  -2.920265
+   34  FM 1  S   16.642026 -13.629572   9.636472  -6.490577   4.341740
+   35  FM 1  S  -14.806407  16.640900 -13.630047   9.635918  -6.489114
+   36  FM 1  S    7.827962 -14.805249  16.643386 -13.628254   9.635314
+   37  FM 1  S   -2.686894   7.826225 -14.810463  16.640200 -13.630215
+   38  FM 1  S    1.492440  -2.683895   7.833148 -14.806139  16.647385
+   39  FM 1  S   -0.534448   1.489068  -2.690821   7.826617 -14.820144
+   40  FM 1  S    0.350912  -0.530876   1.495858  -2.681187   7.845101
+   41  FM 1  S   -0.118202   0.346947  -0.537883   1.485205  -2.700334
+   42  FM 1  S    0.096946  -0.113888   0.354367  -0.526446   1.504555
+   43  FM 1  S   -0.029795   0.091998  -0.122043   0.341546  -0.546943
+   44  FM 1  S    0.032293  -0.024183   0.101116  -0.107799   0.363826
+   45  FM 1  S   -0.010275   0.025698  -0.034551   0.084625  -0.132707
+   46  FM 1  S    0.013858  -0.002664   0.037474  -0.015765   0.112606
+   47  FM 1  S   -0.005916   0.005053  -0.015807   0.015937  -0.046822
+   48  FM 1  S    0.007668   0.003633   0.018885   0.007371   0.048534
+   49  FM 1  S   -0.003765  -0.001683  -0.009123  -0.003690  -0.022698
+   50  FM 1  S    0.002984   0.003207   0.007142   0.007624   0.017155
+
+                     41         42         43         44         45
+               *******************************************************
+                     A          A          A          A          A   
+    1  FM 1  S    0.000002  -0.000001   0.000001  -0.000001   0.000000
+    2  FM 1  S   -0.000008   0.000005  -0.000004   0.000002  -0.000002
+    3  FM 1  S    0.000017  -0.000012   0.000008  -0.000005   0.000004
+    4  FM 1  S   -0.000030   0.000021  -0.000014   0.000010  -0.000007
+    5  FM 1  S    0.000048  -0.000033   0.000023  -0.000015   0.000011
+    6  FM 1  S   -0.000073   0.000050  -0.000034   0.000023  -0.000016
+    7  FM 1  S    0.000109  -0.000074   0.000051  -0.000035   0.000024
+    8  FM 1  S   -0.000159   0.000109  -0.000075   0.000051  -0.000035
+    9  FM 1  S    0.000233  -0.000159   0.000110  -0.000074   0.000052
+   10  FM 1  S   -0.000339   0.000231  -0.000160   0.000108  -0.000075
+   11  FM 1  S    0.000493  -0.000337   0.000232  -0.000157   0.000110
+   12  FM 1  S   -0.000717   0.000490  -0.000338   0.000229  -0.000160
+   13  FM 1  S    0.001042  -0.000712   0.000491  -0.000333   0.000232
+   14  FM 1  S   -0.001515   0.001035  -0.000714   0.000484  -0.000337
+   15  FM 1  S    0.002203  -0.001504   0.001038  -0.000703   0.000490
+   16  FM 1  S   -0.003204   0.002188  -0.001510   0.001023  -0.000713
+   17  FM 1  S    0.004661  -0.003184   0.002197  -0.001489   0.001037
+   18  FM 1  S   -0.006785   0.004634  -0.003197   0.002167  -0.001509
+   19  FM 1  S    0.009880  -0.006749   0.004654  -0.003156   0.002197
+   20  FM 1  S   -0.014393   0.009831  -0.006779   0.004597  -0.003198
+   21  FM 1  S    0.020972  -0.014326   0.009875  -0.006699   0.004658
+   22  FM 1  S   -0.030567   0.020882  -0.014390   0.009765  -0.006786
+   23  FM 1  S    0.044562  -0.030444   0.020973  -0.014236   0.009887
+   24  FM 1  S   -0.064977   0.044394  -0.030573   0.020760  -0.014408
+   25  FM 1  S    0.094764  -0.064748   0.044575  -0.030277   0.020998
+   26  FM 1  S   -0.138229   0.094452  -0.064999   0.044166  -0.030608
+   27  FM 1  S    0.201680  -0.137805   0.094796  -0.064436   0.044621
+   28  FM 1  S   -0.294330   0.201105  -0.138274   0.094024  -0.065056
+   29  FM 1  S    0.429737  -0.293556   0.201737  -0.137220   0.094865
+   30  FM 1  S   -0.627834   0.428702  -0.294399   0.200308  -0.138350
+   31  FM 1  S    0.918305  -0.626462   0.429807  -0.292475   0.201808
+   32  FM 1  S   -1.345617   0.916503  -0.627881   0.427238  -0.294438
+   33  FM 1  S    1.978027  -1.343341   0.918311  -0.624512   0.429777
+   34  FM 1  S   -2.921464   1.975211  -1.345548   0.913952  -0.627716
+   35  FM 1  S    4.342736  -2.918078   1.977703  -1.339998   0.917837
+   36  FM 1  S   -6.489307   4.339020  -2.920552   1.970862  -1.344457
+   37  FM 1  S    9.633470  -6.486041   4.340650  -2.912542   1.975452
+   38  FM 1  S  -13.624619   9.632730  -6.484926   4.332189  -2.916084
+   39  FM 1  S   16.637127 -13.630915   9.625078  -6.478192   4.331886
+   40  FM 1  S  -14.805434  16.657302 -13.611171   9.625566  -6.467843
+   41  FM 1  S    7.823264 -14.843603  16.621616 -13.630523   9.592846
+   42  FM 1  S   -2.669553   7.873843 -14.791517  16.677308 -13.556557
+   43  FM 1  S    1.470265  -2.723280   7.798567 -14.894261  16.546076
+   44  FM 1  S   -0.509478   1.526028  -2.621113   7.935470 -14.700818
+   45  FM 1  S    0.321439  -0.569765   1.411971  -2.769824   7.664787
+   46  FM 1  S   -0.085407   0.387541  -0.445133   1.568412  -2.420576
+   47  FM 1  S    0.059170  -0.157827   0.250127  -0.611857   1.191449
+   48  FM 1  S    0.009955   0.134624  -0.014860   0.420701  -0.229273
+   49  FM 1  S   -0.006301  -0.059484  -0.001462  -0.170532   0.065536
+   50  FM 1  S    0.017685   0.041844   0.039527   0.106070   0.082721
+
+                     46         47         48         49         50
+               *******************************************************
+                     A          A          A          A          A   
+    1  FM 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+    2  FM 1  S    0.000001  -0.000001   0.000000   0.000000   0.000000
+    3  FM 1  S   -0.000002   0.000002  -0.000001   0.000001   0.000000
+    4  FM 1  S    0.000004  -0.000003   0.000002  -0.000001   0.000001
+    5  FM 1  S   -0.000007   0.000005  -0.000003   0.000002  -0.000001
+    6  FM 1  S    0.000011  -0.000008   0.000005  -0.000004   0.000002
+    7  FM 1  S   -0.000016   0.000011  -0.000007   0.000005  -0.000003
+    8  FM 1  S    0.000024  -0.000017   0.000010  -0.000008   0.000004
+    9  FM 1  S   -0.000034   0.000025  -0.000015   0.000012  -0.000006
+   10  FM 1  S    0.000050  -0.000036   0.000022  -0.000017   0.000008
+   11  FM 1  S   -0.000073   0.000052  -0.000032   0.000024  -0.000012
+   12  FM 1  S    0.000106  -0.000076   0.000047  -0.000036   0.000018
+   13  FM 1  S   -0.000154   0.000110  -0.000068   0.000052  -0.000026
+   14  FM 1  S    0.000224  -0.000160   0.000099  -0.000075   0.000038
+   15  FM 1  S   -0.000325   0.000232  -0.000145   0.000109  -0.000055
+   16  FM 1  S    0.000473  -0.000338   0.000211  -0.000159   0.000080
+   17  FM 1  S   -0.000688   0.000491  -0.000307   0.000231  -0.000117
+   18  FM 1  S    0.001002  -0.000714   0.000447  -0.000336   0.000170
+   19  FM 1  S   -0.001459   0.001039  -0.000651   0.000488  -0.000249
+   20  FM 1  S    0.002126  -0.001512   0.000949  -0.000710   0.000365
+   21  FM 1  S   -0.003099   0.002201  -0.001385   0.001032  -0.000535
+   22  FM 1  S    0.004519  -0.003205   0.002022  -0.001502   0.000784
+   23  FM 1  S   -0.006590   0.004668  -0.002952   0.002185  -0.001150
+   24  FM 1  S    0.009613  -0.006798   0.004311  -0.003179   0.001687
+   25  FM 1  S   -0.014025   0.009902  -0.006297   0.004626  -0.002477
+   26  FM 1  S    0.020465  -0.014425   0.009202  -0.006731   0.003639
+   27  FM 1  S   -0.029868   0.021016  -0.013448   0.009794  -0.005347
+   28  FM 1  S    0.043598  -0.030621   0.019658  -0.014253   0.007860
+   29  FM 1  S   -0.063649   0.044621  -0.028740   0.020744  -0.011557
+   30  FM 1  S    0.092939  -0.065026   0.042028  -0.030190   0.016999
+   31  FM 1  S   -0.135730   0.094775  -0.061470   0.043942  -0.025009
+   32  FM 1  S    0.198268  -0.138146   0.089925  -0.063960   0.036805
+   33  FM 1  S   -0.289708   0.201407  -0.131582   0.093106  -0.054180
+   34  FM 1  S    0.423521  -0.293700   0.192595  -0.135544   0.079785
+   35  FM 1  S   -0.619540   0.428451  -0.281981   0.197349  -0.117522
+   36  FM 1  S    0.907346  -0.625382   0.413058  -0.287378   0.173171
+   37  FM 1  S   -1.331322   0.913804  -0.605477   0.418606  -0.255264
+   38  FM 1  S    1.959597  -1.337531   0.888586  -0.610041   0.376474
+   39  FM 1  S   -2.898100   1.963500  -1.306478   0.889804  -0.555615
+   40  FM 1  S    4.313944  -2.895130   1.926851  -1.299685   0.820885
+   41  FM 1  S   -6.455820   4.294138  -2.854897   1.902891  -1.214721
+   42  FM 1  S    9.600725  -6.397882   4.256195  -2.795578   1.802020
+   43  FM 1  S  -13.612806   9.462271  -6.376430   4.124303  -2.682544
+   44  FM 1  S   16.692318 -13.326039   9.488447  -6.095009   4.009714
+   45  FM 1  S  -14.962355  16.191667 -13.458644   8.905704  -6.001625
+   46  FM 1  S    8.011951 -14.227046  16.509200 -12.329586   8.874466
+   47  FM 1  S   -2.795741   7.038460 -14.764828  14.604838 -12.415762
+   48  FM 1  S    1.562949  -1.666923   7.710685 -12.130729  14.836234
+   49  FM 1  S   -0.561653   0.542559  -2.294857   4.764385 -12.439085
+   50  FM 1  S    0.292176   0.148683   0.960478   0.105860   5.014080
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     0.04 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.9 SECONDS, CPU UTILIZATION IS  95.45%
+
+     ----------------------------------------------------------------
+     PROPERTY VALUES FOR THE ROHF  SELF-CONSISTENT FIELD WAVEFUNCTION
+     ----------------------------------------------------------------
+
+          -----------------
+          ENERGY COMPONENTS
+          -----------------
+
+         WAVEFUNCTION NORMALIZATION =       1.0000000000
+
+                ONE ELECTRON ENERGY =   -5942.3695056262
+                TWO ELECTRON ENERGY =       0.0000000000
+           NUCLEAR REPULSION ENERGY =       0.0000000000
+                                      ------------------
+                       TOTAL ENERGY =   -5942.3695056262
+
+ ELECTRON-ELECTRON POTENTIAL ENERGY =       0.0000000000
+  NUCLEUS-ELECTRON POTENTIAL ENERGY =  -15069.1434039917
+   NUCLEUS-NUCLEUS POTENTIAL ENERGY =       0.0000000000
+                                      ------------------
+             TOTAL POTENTIAL ENERGY =  -15069.1434039917
+               TOTAL KINETIC ENERGY =    9126.7738983655
+                 VIRIAL RATIO (V/T) =       1.6510920038
+
+          ---------------------------------------
+          MULLIKEN AND LOWDIN POPULATION ANALYSES
+          ---------------------------------------
+
+     ATOMIC MULLIKEN POPULATION IN EACH MOLECULAR ORBITAL
+
+                      1
+
+                  1.000000
+
+    1             1.000000
+
+     ATOMIC SPIN POPULATION (ALPHA MINUS BETA)
+       ATOM         MULL.POP.                    LOW.POP.
+    1 FERMIUM       1.000000                     1.000000
+
+               ----- POPULATIONS IN EACH AO -----
+                             MULLIKEN      LOWDIN
+              1  FM 1  S      0.00000     0.00000
+              2  FM 1  S      0.00000     0.00000
+              3  FM 1  S      0.00000     0.00000
+              4  FM 1  S      0.00000     0.00000
+              5  FM 1  S      0.00000     0.00000
+              6  FM 1  S      0.00000     0.00000
+              7  FM 1  S      0.00000     0.00000
+              8  FM 1  S      0.00000     0.00000
+              9  FM 1  S      0.00000     0.00001
+             10  FM 1  S      0.00001     0.00005
+             11  FM 1  S     -0.00001     0.00018
+             12  FM 1  S      0.00003     0.00069
+             13  FM 1  S     -0.00006     0.00268
+             14  FM 1  S      0.00014     0.01058
+             15  FM 1  S      0.01183     0.03776
+             16  FM 1  S      0.10103     0.10150
+             17  FM 1  S      0.22233     0.18089
+             18  FM 1  S      0.24247     0.21417
+             19  FM 1  S      0.18355     0.18281
+             20  FM 1  S      0.11363     0.12381
+             21  FM 1  S      0.06275     0.07192
+             22  FM 1  S      0.03230     0.03786
+             23  FM 1  S      0.01590     0.01872
+             24  FM 1  S      0.00759     0.00889
+             25  FM 1  S      0.00354     0.00411
+             26  FM 1  S      0.00163     0.00187
+             27  FM 1  S      0.00074     0.00084
+             28  FM 1  S      0.00033     0.00037
+             29  FM 1  S      0.00015     0.00016
+             30  FM 1  S      0.00006     0.00007
+             31  FM 1  S      0.00003     0.00003
+             32  FM 1  S      0.00001     0.00001
+             33  FM 1  S      0.00001     0.00001
+             34  FM 1  S      0.00000     0.00000
+             35  FM 1  S      0.00000     0.00000
+             36  FM 1  S      0.00000     0.00000
+             37  FM 1  S      0.00000     0.00000
+             38  FM 1  S      0.00000     0.00000
+             39  FM 1  S      0.00000     0.00000
+             40  FM 1  S      0.00000     0.00000
+             41  FM 1  S      0.00000     0.00000
+             42  FM 1  S      0.00000     0.00000
+             43  FM 1  S      0.00000     0.00000
+             44  FM 1  S      0.00000     0.00000
+             45  FM 1  S      0.00000     0.00000
+             46  FM 1  S      0.00000     0.00000
+             47  FM 1  S      0.00000     0.00000
+             48  FM 1  S      0.00000     0.00000
+             49  FM 1  S      0.00000     0.00000
+             50  FM 1  S      0.00000     0.00000
+
+          ----- MULLIKEN ATOMIC OVERLAP POPULATIONS -----
+          (OFF-DIAGONAL ELEMENTS NEED TO BE MULTIPLIED BY 2)
+
+             1
+
+    1    1.0000000
+
+          TOTAL MULLIKEN AND LOWDIN ATOMIC POPULATIONS
+       ATOM         MULL.POP.    CHARGE          LOW.POP.     CHARGE
+    1 FERMIUM       1.000000   99.000000         1.000000   99.000000
+
+          -------------------------------
+          BOND ORDER AND VALENCE ANALYSIS     BOND ORDER THRESHOLD=0.050
+          -------------------------------
+
+                   BOND                       BOND                       BOND
+  ATOM PAIR DIST  ORDER      ATOM PAIR DIST  ORDER      ATOM PAIR DIST  ORDER
+
+                       TOTAL       BONDED        FREE
+      ATOM            VALENCE     VALENCE     VALENCE
+    1 FERMIUM           1.000       0.000       1.000
+
+          -----------------------------------------
+          ATOMIC SPIN DENSITY AT THE NUCLEUS (A.U.)
+          -----------------------------------------
+                            SPIN DENS    ALPHA DENS     BETA DENS
+    1  FERMIUM    100.0****************************       0.00000
+
+          ---------------------
+          ELECTROSTATIC MOMENTS
+          ---------------------
+
+ POINT   1           X           Y           Z (BOHR)    CHARGE
+                 0.000000    0.000000    0.000000       99.00 (A.U.)
+         DX          DY          DZ         /D/  (DEBYE)
+     0.000000    0.000000    0.000000    0.000000
+ ...... END OF PROPERTY EVALUATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.9 SECONDS, CPU UTILIZATION IS  95.51%
+                580000  WORDS OF DYNAMIC MEMORY USED
+ EXECUTION OF GAMESS TERMINATED NORMALLY Fri Dec  2 16:55:08 2016
+ DDI: 263640 bytes (0.3 MB / 0 MWords) used by master data server.
+
+ ----------------------------------------
+ CPU timing information for all processes
+ ========================================
+ 0: 0.827 + 0.32 = 0.860
+ ----------------------------------------
+ ddikick.x: exited gracefully.
+unset echo
+----- accounting info -----
+Files used on the master node cu.msg.chem.iastate.edu were:
+-rw-r--r-- 1 sarom gordon    6350 Dec  2 16:55 /scr/sarom/relwfn_fm-dk.F05
+-rw-r--r-- 1 sarom gordon 9180816 Dec  2 16:55 /scr/sarom/relwfn_fm-dk.F08
+-rw-r--r-- 1 sarom gordon 1930480 Dec  2 16:55 /scr/sarom/relwfn_fm-dk.F10
+ls: No match.
+ls: No match.
+ls: No match.
+Fri Dec  2 16:55:11 CST 2016
+0.104u 0.044s 0:06.44 2.1%	0+0k 672+200io 14pf+0w

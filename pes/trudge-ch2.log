@@ -1,0 +1,2615 @@
+----- GAMESS execution script 'rungms' -----
+This job is running on host compute-3-0
+under operating system Linux at Mon Nov 28 22:14:20 CST 2016
+Available scratch disk space (Kbyte units) at beginning of the job is
+Filesystem            1K-blocks       Used  Available Use% Mounted on
+bolt.local:/export/home/sarom
+                     9590469632 1553264640 7550036992  18% /home/sarom
+Copying input file trudge-ch2.inp to your run's scratch directory...
+cp trudge-ch2.inp .//trudge-ch2.F05
+unset echo
+/home/sarom/gamessGH/ddikick.x /home/sarom/gamessGH/gamess.00.x trudge-ch2 -ddi 1 1 localhost -scr ./
+
+ Distributed Data Interface kickoff program.
+ Initiating 1 compute processes on 1 nodes to run the following command:
+ /home/sarom/gamessGH/gamess.00.x trudge-ch2 
+
+          ******************************************************
+          *         GAMESS VERSION = 18 AUG 2016 (R1)          *
+          *             FROM IOWA STATE UNIVERSITY             *
+          * M.W.SCHMIDT, K.K.BALDRIDGE, J.A.BOATZ, S.T.ELBERT, *
+          *   M.S.GORDON, J.H.JENSEN, S.KOSEKI, N.MATSUNAGA,   *
+          *          K.A.NGUYEN, S.J.SU, T.L.WINDUS,           *
+          *       TOGETHER WITH M.DUPUIS, J.A.MONTGOMERY       *
+          *         J.COMPUT.CHEM.  14, 1347-1363(1993)        *
+          **************** 64 BIT LINUX VERSION ****************
+
+  SINCE 1993, STUDENTS AND POSTDOCS WORKING AT IOWA STATE UNIVERSITY
+  AND ALSO IN THEIR VARIOUS JOBS AFTER LEAVING ISU HAVE MADE IMPORTANT
+  CONTRIBUTIONS TO THE CODE:
+     IVANA ADAMOVIC, CHRISTINE AIKENS, YURI ALEXEEV, POOJA ARORA,
+     ANDREY ASADCHEV, ROB BELL, PRADIPTA BANDYOPADHYAY, JONATHAN BENTZ,
+     BRETT BODE, KURT BRORSEN, CALEB CARLIN, GALINA CHABAN, WEI CHEN,
+     CHEOL HO CHOI, PAUL DAY, ALBERT DEFUSCO, NUWAN DESILVA, TIM DUDLEY,
+     DMITRI FEDOROV, GRAHAM FLETCHER, MARK FREITAG, KURT GLAESEMANN,
+     DAN KEMP, GRANT MERRILL, NORIYUKI MINEZAWA, JONATHAN MULLIN,
+     TAKESHI NAGATA, SEAN NEDD, HEATHER NETZLOFF, BOSILJKA NJEGIC, RYAN OLSON,
+     MIKE PAK, SPENCER PRUITT, LUKE ROSKOP, JIM SHOEMAKER, LYUDMILA SLIPCHENKO,
+     TONY SMITH, SAROM SOK LEANG, JIE SONG, TETSUYA TAKETSUGU, SIMON WEBB,
+     PENG XU, SOOHAENG YOO, FEDERICO ZAHARIEV
+
+  ADDITIONAL CODE HAS BEEN PROVIDED BY COLLABORATORS IN OTHER GROUPS:
+     IOWA STATE UNIVERSITY:
+          JOE IVANIC, AARON WEST, LAIMUTIS BYTAUTAS, KLAUS RUEDENBERG
+     UNIVERSITY OF TOKYO: KIMIHIKO HIRAO, TAKAHITO NAKAJIMA,
+          TAKAO TSUNEDA, MUNEAKI KAMIYA, SUSUMU YANAGISAWA,
+          KIYOSHI YAGI, MAHITO CHIBA, SEIKEN TOKURA, NAOAKI KAWAKAMI
+     UNIVERSITY OF AARHUS: FRANK JENSEN
+     UNIVERSITY OF IOWA: VISVALDAS KAIRYS, HUI LI
+     NATIONAL INST. OF STANDARDS AND TECHNOLOGY: WALT STEVENS, DAVID GARMER
+     UNIVERSITY OF PISA: BENEDETTA MENNUCCI, JACOPO TOMASI
+     UNIVERSITY OF MEMPHIS: HENRY KURTZ, PRAKASHAN KORAMBATH
+     UNIVERSITY OF ALBERTA: TOBY ZENG, MARIUSZ KLOBUKOWSKI
+     UNIVERSITY OF NEW ENGLAND: MARK SPACKMAN
+     MIE UNIVERSITY: HIROAKI UMEDA
+     NAT. INST. OF ADVANCED INDUSTRIAL SCIENCE AND TECHNOLOGY: KAZUO KITAURA
+     MICHIGAN STATE UNIVERSITY:
+          KAROL KOWALSKI, MARTA WLOCH, JEFFREY GOUR, JESSE LUTZ,
+          WEI LI, PIOTR PIECUCH
+     UNIVERSITY OF SILESIA: MONIKA MUSIAL, STANISLAW KUCHARSKI
+     FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX:
+          OLIVIER QUINET, BENOIT CHAMPAGNE
+     UNIVERSITY OF CALIFORNIA - SANTA BARBARA: BERNARD KIRTMAN
+     INSTITUTE FOR MOLECULAR SCIENCE:
+          KAZUYA ISHIMURA, MICHIO KATOUDA, AND SHIGERU NAGASE
+     UNIVERSITY OF NOTRE DAME: ANNA POMOGAEVA, DAN CHIPMAN
+     KYUSHU UNIVERSITY:
+          HARUYUKI NAKANO,
+          FENG LONG GU, JACEK KORCHOWIEC, MARCIN MAKOWSKI, AND YURIKO AOKI,
+          HIROTOSHI MORI AND EISAKU MIYOSHI
+     PENNSYLVANIA STATE UNIVERSITY:
+          TZVETELIN IORDANOV, CHET SWALINA, JONATHAN SKONE,
+          SHARON HAMMES-SCHIFFER
+     WASEDA UNIVERSITY:
+          MASATO KOBAYASHI, TOMOKO AKAMA, TSUGUKI TOUMA,
+          TAKESHI YOSHIKAWA, YASUHIRO IKABATA, JUNJI SEINO,
+          YUYA NAKAJIMA, HIROMI NAKAI
+     NANJING UNIVERSITY: SHUHUA LI
+     UNIVERSITY OF NEBRASKA:
+          PEIFENG SU, DEJUN SI, NANDUN THELLAMUREGE, YALI WANG, HUI LI
+     UNIVERSITY OF ZURICH: ROBERTO PEVERATI, KIM BALDRIDGE
+     N. COPERNICUS UNIVERSITY AND JACKSON STATE UNIVERSITY:
+          MARIA BARYSZ
+     UNIVERSITY OF COPENHAGEN: Jimmy Kromann, CASPER STEINMANN
+     TOKYO INSTITUTE OF TECHNOLOGY: HIROYA NAKATA
+     NAGOYA UNIVERSITY: YOSHIO NISHIMOTO, STEPHAN IRLE
+     MOSCOW STATE UNIVERSITY: VLADIMIR MIRONOV
+
+ EXECUTION OF GAMESS BEGUN Mon Nov 28 22:14:21 2016
+
+            ECHO OF THE FIRST FEW INPUT CARDS -
+ INPUT CARD>!  CH2...test the excruciatingly slow TRUDGE geometry optimizer                 
+ INPUT CARD>!  This uses Hilderbrandt's LC and PCC connection types.                        
+ INPUT CARD>!  To make it interesting, we test the RMP style of ROHF+MP2,                   
+ INPUT CARD>!  for which there is no analytic gradient (as of 2015).                        
+ INPUT CARD>!                                                                               
+ INPUT CARD>!  TRUDGE ENERGY VALUE AT NSTEP=   0 IS      -39.0222654403                     
+ INPUT CARD>!  TRUDGE ENERGY VALUE AT NSTEP=  17 IS      -39.0249075603                     
+ INPUT CARD>!                                                                               
+ INPUT CARD>!  This run takes 1 seconds on almost anything (18 Jul 2016)                    
+ INPUT CARD>!  answers have not changed in any meaningful way since 2005.                   
+ INPUT CARD>!                                                                               
+ INPUT CARD> $contrl scftyp=rohf mult=3 runtyp=trudge coord=hint mplevl=2 $end              
+ INPUT CARD> $system mwords=1 $end                                                          
+ INPUT CARD> $TRUDGE OPTMIZ=GEOMETRY NPAR=2 IEX(1)=21,22 $END                               
+ INPUT CARD> $guess  guess=huckel $end                                                      
+ INPUT CARD> $mp2    ospt=rmp $end                                                          
+ INPUT CARD> $data                                                                          
+ INPUT CARD>Methylene...3-B-1 state...DZP basis of Bauschlicher/Taylor                      
+ INPUT CARD>Cnv  2                                                                          
+ INPUT CARD>                                                                                
+ INPUT CARD>Carbon     6.0   LC 0.00 0.0 0.00 - O K                                         
+ INPUT CARD>  S  6                                                                          
+ INPUT CARD>    1 4232.61    0.002029                                                       
+ INPUT CARD>    2  634.882   0.015535                                                       
+ INPUT CARD>    3  146.097   0.075411                                                       
+ INPUT CARD>    4   42.4974  0.257121                                                       
+ INPUT CARD>    5   14.1892  0.596555                                                       
+ INPUT CARD>    6    1.9666  0.242517                                                       
+ INPUT CARD>  S  1                                                                          
+ INPUT CARD>    1    5.1477  1.0                                                            
+ INPUT CARD>  S  1                                                                          
+ INPUT CARD>    1    0.4962  1.0                                                            
+ INPUT CARD>  S  1                                                                          
+ INPUT CARD>    1    0.1533  1.0                                                            
+ INPUT CARD>  P  4                                                                          
+ INPUT CARD>    1   18.1557  0.018534                                                       
+ INPUT CARD>    2    3.9864  0.115442                                                       
+ INPUT CARD>    3    1.1429  0.386206                                                       
+ INPUT CARD>    4    0.3594  0.640089                                                       
+ INPUT CARD>  P  1                                                                          
+ INPUT CARD>    1    0.1146  1.0                                                            
+ INPUT CARD>  D  1                                                                          
+ INPUT CARD>    1    0.74    1.0                                                            
+ INPUT CARD>                                                                                
+ INPUT CARD>Hydrogen   1.0      PCC 1.10 60.0 0.0 + O K I                                   
+ INPUT CARD>  S  3                                                                          
+ INPUT CARD>    1  19.2406  0.032828                                                        
+ INPUT CARD>    2   2.8992  0.231208                                                        
+ INPUT CARD>    3   0.6534  0.817238                                                        
+ INPUT CARD>  S  1                                                                          
+    1000000 WORDS OF MEMORY AVAILABLE
+
+
+     RUN TITLE
+     ---------
+ Methylene...3-B-1 state...DZP basis of Bauschlicher/Taylor                      
+
+ THE POINT GROUP OF THE MOLECULE IS CNV     
+ THE ORDER OF THE PRINCIPAL AXIS IS     2
+ *** WARNING! ATOM   2 SHELL    8 TYPE S HAS NORMALIZATION   1.00000234
+
+ ATOM      ATOMIC                      COORDINATES (BOHR)
+           CHARGE         X                   Y                   Z
+ CARBON      6.0     0.0000000000        0.0000000000        0.0000000000
+ HYDROGEN    1.0    -1.8002057827        0.0000000000        1.0393492932
+ HYDROGEN    1.0     1.8002057827        0.0000000000        1.0393492932
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 CARB       2 HYDR       3 HYDR  
+
+   1 CARB    0.0000000    1.1000000 *  1.1000000 *
+   2 HYDR    1.1000000 *  0.0000000    1.9052559 *
+   3 HYDR    1.1000000 *  1.9052559 *  0.0000000  
+
+  * ... LESS THAN  3.000
+
+
+     ATOMIC BASIS SET
+     ----------------
+ THE CONTRACTED PRIMITIVE FUNCTIONS HAVE BEEN UNNORMALIZED
+ THE CONTRACTED BASIS FUNCTIONS ARE NOW NORMALIZED TO UNITY
+
+  SHELL TYPE  PRIMITIVE        EXPONENT          CONTRACTION COEFFICIENT(S)
+
+ CARBON    
+
+      1   S       1          4232.6100000    0.002029000503
+      1   S       2           634.8820000    0.015535003853
+      1   S       3           146.0970000    0.075411018704
+      1   S       4            42.4974000    0.257121063774
+      1   S       5            14.1892000    0.596555147963
+      1   S       6             1.9666000    0.242517060151
+
+      2   S       7             5.1477000    1.000000000000
+
+      3   S       8             0.4962000    1.000000000000
+
+      4   S       9             0.1533000    1.000000000000
+
+      5   P      10            18.1557000    0.018534002568
+      5   P      11             3.9864000    0.115442015996
+      5   P      12             1.1429000    0.386206053514
+      5   P      13             0.3594000    0.640089088694
+
+      6   P      14             0.1146000    1.000000000000
+
+      7   D      15             0.7400000    1.000000000000
+
+ HYDROGEN  
+
+     11   S      16            19.2406000    0.032828076968
+     11   S      17             2.8992000    0.231208542086
+     11   S      18             0.6534000    0.817239916083
+
+     12   S      19             0.1776000    1.000000000000
+
+     13   P      20             1.0000000    1.000000000000
+
+ TOTAL NUMBER OF BASIS SET SHELLS             =   13
+ NUMBER OF CARTESIAN GAUSSIAN BASIS FUNCTIONS =   26
+ NUMBER OF ELECTRONS                          =    8
+ CHARGE OF MOLECULE                           =    0
+ SPIN MULTIPLICITY                            =    3
+ NUMBER OF OCCUPIED ORBITALS (ALPHA)          =    5
+ NUMBER OF OCCUPIED ORBITALS (BETA )          =    3
+ TOTAL NUMBER OF ATOMS                        =    3
+ THE NUCLEAR REPULSION ENERGY IS        6.0505887438
+
+     $CONTRL OPTIONS
+     ---------------
+ SCFTYP=ROHF         RUNTYP=TRUDGE       EXETYP=RUN     
+ MPLEVL=       2     CITYP =NONE         CCTYP =NONE         VBTYP =NONE    
+ DFTTYP=NONE         TDDFT =NONE    
+ MULT  =       3     ICHARG=       0     NZVAR =       0     COORD =HINT    
+ PP    =NONE         RELWFN=NONE         LOCAL =NONE         NUMGRD=       F
+ ISPHER=      -1     NOSYM =       0     MAXIT =      30     UNITS =ANGS    
+ PLTORB=       F     MOLPLT=       F     AIMPAC=       F     FRIEND=        
+ NPRINT=       7     IREST =       0     GEOM  =INPUT   
+ NORMF =       0     NORMP =       0     ITOL  =      20     ICUT  =       9
+ INTTYP=BEST         GRDTYP=BEST         QMTTOL= 1.0E-06
+
+     $SYSTEM OPTIONS
+     ---------------
+  REPLICATED MEMORY=     1000000 WORDS (ON EVERY NODE).
+ DISTRIBUTED MEMDDI=           0 MILLION WORDS IN AGGREGATE,
+ MEMDDI DISTRIBUTED OVER   1 PROCESSORS IS           0 WORDS/PROCESSOR.
+ TOTAL MEMORY REQUESTED ON EACH PROCESSOR=     1000000 WORDS.
+ TIMLIM=      525600.00 MINUTES, OR     365.0 DAYS.
+ PARALL= F  BALTYP=  DLB     KDIAG=    0  COREFL= F
+ MXSEQ2=     300 MXSEQ3=     150  mem10=         0
+
+          ----------------
+          PROPERTIES INPUT
+          ----------------
+
+     MOMENTS            FIELD           POTENTIAL          DENSITY
+ IEMOM =       1   IEFLD =       0   IEPOT =       0   IEDEN =       0
+ WHERE =COMASS     WHERE =NUCLEI     WHERE =NUCLEI     WHERE =NUCLEI  
+ OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH    
+ IEMINT=       0   IEFINT=       0                     IEDINT=       0
+                                                       MORB  =       0
+          EXTRAPOLATION IN EFFECT
+          SOSCF IN EFFECT
+ ORBITAL PRINTING OPTION: NPREO=     1    26     2     1
+
+     -------------------------------
+     INTEGRAL TRANSFORMATION OPTIONS
+     -------------------------------
+     NWORD  =            0
+     CUTOFF = 1.0E-09     MPTRAN =       0
+     DIRTRF =       F     AOINTS =DUP     
+
+          ----------------------
+          INTEGRAL INPUT OPTIONS
+          ----------------------
+ NOPK  =       1 NORDER=       0 SCHWRZ=       F
+
+          -----------------------
+          MP2 CONTROL INFORMATION
+          -----------------------
+          NACORE =        1  NBCORE =        1
+          LMOMP2 =        F  AOINTS = DUP     
+          METHOD =        2  NWORD  =               0
+          MP2PRP =        F  OSPT   = RMP     
+          CUTOFF = 1.00E-09  CPHFBS = BASISAO 
+          CODE   = SERIAL  
+
+          NUMBER OF CORE -A-  ORBITALS =     1
+          NUMBER OF CORE -B-  ORBITALS =     1
+          NUMBER OF OCC. -A-  ORBITALS =     5
+          NUMBER OF OCC. -B-  ORBITALS =     3
+          NUMBER OF MOLECULAR ORBITALS =    26
+          NUMBER OF   BASIS  FUNCTIONS =    26
+
+
+     ------------------------------------------
+     THE POINT GROUP IS CNV, NAXIS= 2, ORDER= 4
+     ------------------------------------------
+
+     DIMENSIONS OF THE SYMMETRY SUBSPACES ARE
+ A1  =   13     A2  =    2     B1  =    7     B2  =    4
+
+ ..... DONE SETTING UP THE RUN .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS  50.00%
+
+     --------------------------------
+     NON-GRADIENT ENERGY MINIMIZATION
+     --------------------------------
+ $TRURST KSTART=-1  JSTART= 0  TOLF=  0.001000 TOLR=  0.050000
+         FNOISE=  0.000500  FNOT=   0.000000000
+ $END
+ --------------------------------------------------------------
+ INTERNAL COORDINATES (ANGSTROMS/DEGREE)
+  I   BOND     ALPHA      BETA    SIGN ICONX   IATCON    INATOM
+  1 0.0000000   0.00000   0.00000 -1.0     1200120042003      1
+  2 1.1000000  60.00000   0.00000  1.0     2200120042002      3
+ --------------------------------------------------------------
+ ----- TRUDGE RESTART DATA AT NSTEP   0 --------
+ $TRUDGE OPTMIZ=GEOMETRY  NPAR= 2
+         IEX(1)=   21,   22,
+         P(1)=      1.100000,     60.000000,
+ $END
+
+          ********************
+          1 ELECTRON INTEGRALS
+          ********************
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS  33.33%
+
+          -------------
+          GUESS OPTIONS
+          -------------
+          GUESS =HUCKEL            NORB  =       0          NORDER=       0
+          MIX   =       F          PRTMO =       F          PUNMO =       F
+          TOLZ  = 1.0E-08          TOLE  = 1.0E-05
+          SYMDEN=       F          PURIFY=       F
+
+ INITIAL GUESS ORBITALS GENERATED BY HUCKEL   ROUTINE.
+ HUCKEL GUESS REQUIRES      7408 WORDS.
+
+ SYMMETRIES FOR INITIAL GUESS ORBITALS FOLLOW.  ALPHA SET(S).
+     5 ORBITALS ARE OCCUPIED (    1 CORE ORBITALS).
+     2=A1       3=B1       4=A1       5=B2       6=B1       7=A1       8=A1  
+     9=A1      10=A1      11=A1      12=A1      13=A1      14=A1      15=A1  
+
+ SYMMETRIES FOR INITIAL GUESS ORBITALS FOLLOW.   BETA SET(S).
+     3 ORBITALS ARE OCCUPIED (    1 CORE ORBITALS).
+     2=A1       3=B1       4=A1       5=B2       6=B1       7=A1       8=A1  
+     9=A1      10=A1      11=A1      12=A1      13=A1  
+ ...... END OF INITIAL ORBITAL SELECTION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS  33.33%
+
+                    ----------------------
+                    AO INTEGRAL TECHNOLOGY
+                    ----------------------
+     S,P,L SHELL ROTATED AXIS INTEGRALS, REPROGRAMMED BY
+        KAZUYA ISHIMURA (IMS) AND JOSE SIERRA (SYNSTAR).
+     S,P,D,L SHELL ROTATED AXIS INTEGRALS PROGRAMMED BY
+        KAZUYA ISHIMURA (INSTITUTE FOR MOLECULAR SCIENCE).
+     S,P,D,F,G SHELL TO TOTAL QUARTET ANGULAR MOMENTUM SUM 5,
+        ERIC PROGRAM BY GRAHAM FLETCHER (ELORET AND NASA ADVANCED
+        SUPERCOMPUTING DIVISION, AMES RESEARCH CENTER).
+     S,P,D,F,G,L SHELL GENERAL RYS QUADRATURE PROGRAMMED BY
+        MICHEL DUPUIS (PACIFIC NORTHWEST NATIONAL LABORATORY).
+
+          --------------------
+          2 ELECTRON INTEGRALS
+          --------------------
+
+ THE -PK- OPTION IS OFF, THE INTEGRALS ARE NOT IN SUPERMATRIX FORM.
+ STORING   15000 INTEGRALS/RECORD ON DISK, USING 12 BYTES/INTEGRAL.
+ TWO ELECTRON INTEGRAL EVALUATION REQUIRES   90487 WORDS OF MEMORY.
+ II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    7
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   22
+ II,JST,KST,LST =  5  1  1  1 NREC =         1 INTLOC =   56
+ II,JST,KST,LST =  6  1  1  1 NREC =         1 INTLOC =  125
+ II,JST,KST,LST =  7  1  1  1 NREC =         1 INTLOC =  329
+ II,JST,KST,LST =  8  1  1  1 NREC =         1 INTLOC = 1589
+ II,JST,KST,LST =  9  1  1  1 NREC =         1 INTLOC = 1589
+ II,JST,KST,LST = 10  1  1  1 NREC =         1 INTLOC = 1589
+ II,JST,KST,LST = 11  1  1  1 NREC =         1 INTLOC = 1589
+ II,JST,KST,LST = 12  1  1  1 NREC =         1 INTLOC = 3208
+ II,JST,KST,LST = 13  1  1  1 NREC =         1 INTLOC = 5514
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =               16279
+          2 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.03 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  19.05%
+
+          ---------------------------
+                 ROHF SCF CALCULATION
+          ---------------------------
+
+     NUCLEAR ENERGY =         6.0505887438
+     MAXIT = 30     NPUNCH=  2     MULT=  3
+     EXTRAP=T  DAMP=F  SHIFT=F  RSTRCT=F  DIIS=F  SOSCF=T
+     DENSITY MATRIX CONV=  1.00E-06
+     ROHF CANONICALIZATION PARAMETERS
+             C-C     O-O     V-V
+     ALPHA -0.5000  0.5000  1.5000
+     BETA   1.5000  0.5000 -0.5000
+     SOSCF WILL OPTIMIZE     111 ORBITAL ROTATION ANGLES. SOGTOL= 2.500E-01
+     MEMORY REQUIRED FOR UHF/ROHF ITERS=     37092 WORDS.
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    ORB. GRAD 
+   1  0      -38.8175595564   -38.8175595564   0.262406179   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1      -38.9236395372    -0.1060799808   0.075404976   0.025522982
+   3  2      -38.9253666046    -0.0017270674   0.026904150   0.012326887
+   4  3      -38.9258137275    -0.0004471230   0.010875360   0.002199958
+   5  4      -38.9258247571    -0.0000110295   0.001935843   0.000401728
+   6  5      -38.9258252836    -0.0000005266   0.000131389   0.000039461
+   7  6      -38.9258252937    -0.0000000101   0.000029537   0.000007953
+   8  7      -38.9258252941    -0.0000000003   0.000002182   0.000001285
+   9  8      -38.9258252941    -0.0000000000   0.000000353   0.000000205
+  10  9      -38.9258252941    -0.0000000000   0.000000061   0.000000034
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL ROHF ENERGY IS      -38.9258252941 AFTER  10 ITERATIONS
+
+          --------------------
+          SPIN SZ   =    1.000
+          S-SQUARED =    2.000
+          --------------------
+
+          ------------
+          EIGENVECTORS
+          ------------
+
+                      1          2          3          4          5
+                  -11.2088    -0.7144    -0.5302    -0.1693    -0.1078
+                     A1         A1         B1         A1         B2  
+    1  C  1  S    0.601474  -0.111546  -0.000000   0.063844   0.000000
+    2  C  1  S    0.437763  -0.147484  -0.000000   0.087395   0.000000
+    3  C  1  S    0.003265   0.409953  -0.000000  -0.268274   0.000000
+    4  C  1  S   -0.000770   0.299728  -0.000000  -0.395212   0.000000
+    5  C  1  X    0.000000  -0.000000   0.510241  -0.000000   0.000000
+    6  C  1  Y    0.000000  -0.000000  -0.000000  -0.000000   0.749563
+    7  C  1  Z    0.000134   0.174381  -0.000000   0.648523   0.000000
+    8  C  1  X    0.000000  -0.000000   0.083341  -0.000000   0.000000
+    9  C  1  Y    0.000000  -0.000000  -0.000000  -0.000000   0.362622
+   10  C  1  Z    0.000171   0.036640  -0.000000   0.233093   0.000000
+   11  C  1 XX   -0.000662   0.024684  -0.000000   0.018890   0.000000
+   12  C  1 YY   -0.000616  -0.006502  -0.000000  -0.015118   0.000000
+   13  C  1 ZZ   -0.000733   0.005326  -0.000000  -0.012889   0.000000
+   14  C  1 XY    0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   15  C  1 XZ    0.000000  -0.000000   0.031538  -0.000000   0.000000
+   16  C  1 YZ    0.000000  -0.000000  -0.000000  -0.000000  -0.005857
+   17  H  2  S    0.000126   0.188288  -0.236594   0.090224   0.000000
+   18  H  2  S   -0.000206   0.097964  -0.211871   0.129791   0.000000
+   19  H  2  X    0.000205   0.014997  -0.010539   0.006873   0.000000
+   20  H  2  Y    0.000000  -0.000000  -0.000000  -0.000000   0.015885
+   21  H  2  Z   -0.000111  -0.007022   0.009503   0.007088   0.000000
+   22  H  3  S    0.000126   0.188288   0.236594   0.090224   0.000000
+   23  H  3  S   -0.000206   0.097964   0.211871   0.129791   0.000000
+   24  H  3  X   -0.000205  -0.014997  -0.010539  -0.006873   0.000000
+   25  H  3  Y    0.000000  -0.000000  -0.000000  -0.000000   0.015885
+   26  H  3  Z   -0.000111  -0.007022  -0.009503   0.007088   0.000000
+
+                      6          7          8          9         10
+                    0.2655     0.3047     0.4014     0.4043     0.4372
+                     A1         B1         B2         A1         B1  
+    1  C  1  S   -0.068608  -0.000000  -0.000000   0.009847   0.000000
+    2  C  1  S   -0.094844  -0.000000  -0.000000   0.010763   0.000000
+    3  C  1  S    0.262036  -0.000000  -0.000000  -0.043089   0.000000
+    4  C  1  S    1.949965  -0.000000  -0.000000  -0.200824   0.000000
+    5  C  1  X   -0.000000   0.163758  -0.000000   0.000000   0.932734
+    6  C  1  Y   -0.000000  -0.000000  -0.913227   0.000000   0.000000
+    7  C  1  Z    0.112505  -0.000000  -0.000000  -0.910293   0.000000
+    8  C  1  X   -0.000000   2.157589  -0.000000   0.000000  -0.579926
+    9  C  1  Y   -0.000000  -0.000000   1.131990   0.000000   0.000000
+   10  C  1  Z    1.143108  -0.000000  -0.000000   0.987540   0.000000
+   11  C  1 XX   -0.022490  -0.000000  -0.000000  -0.012924   0.000000
+   12  C  1 YY    0.036079  -0.000000  -0.000000  -0.026054   0.000000
+   13  C  1 ZZ    0.007932  -0.000000  -0.000000   0.003963   0.000000
+   14  C  1 XY   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   15  C  1 XZ   -0.000000  -0.048566  -0.000000   0.000000  -0.044729
+   16  C  1 YZ   -0.000000  -0.000000   0.014847   0.000000   0.000000
+   17  H  2  S   -0.066992   0.089884  -0.000000  -0.048901  -0.074162
+   18  H  2  S   -1.535429   1.717871  -0.000000   0.218566   0.477493
+   19  H  2  X    0.000417   0.010430  -0.000000  -0.025255  -0.033157
+   20  H  2  Y   -0.000000  -0.000000  -0.012993   0.000000   0.000000
+   21  H  2  Z    0.008620   0.008940  -0.000000   0.000596   0.034036
+   22  H  3  S   -0.066992  -0.089884  -0.000000  -0.048901   0.074162
+   23  H  3  S   -1.535429  -1.717871  -0.000000   0.218566  -0.477493
+   24  H  3  X   -0.000417   0.010430  -0.000000   0.025255  -0.033157
+   25  H  3  Y   -0.000000  -0.000000  -0.012993   0.000000   0.000000
+   26  H  3  Z    0.008620  -0.008940  -0.000000   0.000596  -0.034036
+
+                     11         12         13         14         15
+                    0.6234     1.1530     1.2425     1.5029     1.5625
+                     A1         A1         B1         A2         A1  
+    1  C  1  S    0.094738   0.079339  -0.000000   0.000000   0.002459
+    2  C  1  S    0.088953   0.109760  -0.000000   0.000000   0.006797
+    3  C  1  S   -1.239685  -0.861915  -0.000000   0.000000   0.017798
+    4  C  1  S    2.790229   2.444625  -0.000000   0.000000  -0.164969
+    5  C  1  X    0.000000   0.000000  -0.347106   0.000000  -0.000000
+    6  C  1  Y    0.000000   0.000000  -0.000000   0.000000  -0.000000
+    7  C  1  Z    0.167624  -0.205287  -0.000000   0.000000  -0.077025
+    8  C  1  X    0.000000   0.000000   1.362487   0.000000  -0.000000
+    9  C  1  Y    0.000000   0.000000  -0.000000   0.000000  -0.000000
+   10  C  1  Z    0.435985   0.718979  -0.000000   0.000000  -0.118532
+   11  C  1 XX   -0.301021   0.269285  -0.000000   0.000000  -0.294915
+   12  C  1 YY   -0.156648  -0.296689  -0.000000   0.000000  -0.474237
+   13  C  1 ZZ   -0.221159  -0.092430  -0.000000   0.000000   0.822739
+   14  C  1 XY    0.000000   0.000000  -0.000000   0.717559  -0.000000
+   15  C  1 XZ    0.000000   0.000000   0.427071   0.000000  -0.000000
+   16  C  1 YZ    0.000000   0.000000  -0.000000   0.000000  -0.000000
+   17  H  2  S   -0.253893   0.779039  -0.823361   0.000000   0.091970
+   18  H  2  S   -0.674632  -1.654758   1.795697   0.000000   0.035720
+   19  H  2  X    0.020246  -0.112959   0.051353   0.000000   0.115383
+   20  H  2  Y    0.000000   0.000000  -0.000000  -0.333179  -0.000000
+   21  H  2  Z    0.015049   0.020860  -0.092445   0.000000   0.252546
+   22  H  3  S   -0.253893   0.779039   0.823361   0.000000   0.091970
+   23  H  3  S   -0.674632  -1.654758  -1.795697   0.000000   0.035720
+   24  H  3  X   -0.020246   0.112959   0.051353   0.000000  -0.115383
+   25  H  3  Y    0.000000   0.000000  -0.000000   0.333179  -0.000000
+   26  H  3  Z    0.015049   0.020860   0.092445   0.000000   0.252546
+
+                     16         17         18         19         20
+                    1.5986     2.0139     2.0314     2.4410     2.4443
+                     B2         B1         A1         B1         B2  
+    1  C  1  S    0.000000   0.000000   0.015173   0.000000  -0.000000
+    2  C  1  S    0.000000   0.000000   0.045138   0.000000  -0.000000
+    3  C  1  S    0.000000   0.000000  -0.015167   0.000000  -0.000000
+    4  C  1  S    0.000000   0.000000  -0.379700   0.000000  -0.000000
+    5  C  1  X    0.000000   0.152569  -0.000000  -0.178452  -0.000000
+    6  C  1  Y   -0.062796   0.000000  -0.000000   0.000000  -0.216633
+    7  C  1  Z    0.000000   0.000000  -0.086355   0.000000  -0.000000
+    8  C  1  X    0.000000   0.141068  -0.000000  -0.250052  -0.000000
+    9  C  1  Y   -0.064399   0.000000  -0.000000   0.000000  -0.152396
+   10  C  1  Z    0.000000   0.000000  -0.186885   0.000000  -0.000000
+   11  C  1 XX    0.000000   0.000000  -0.486686   0.000000  -0.000000
+   12  C  1 YY    0.000000   0.000000   0.920093   0.000000  -0.000000
+   13  C  1 ZZ    0.000000   0.000000  -0.079506   0.000000  -0.000000
+   14  C  1 XY    0.000000   0.000000  -0.000000   0.000000  -0.000000
+   15  C  1 XZ    0.000000   0.434744  -0.000000   0.661024  -0.000000
+   16  C  1 YZ    0.868364   0.000000  -0.000000   0.000000  -0.551832
+   17  H  2  S    0.000000   0.472777   0.476986   0.391312  -0.000000
+   18  H  2  S    0.000000  -0.241809  -0.094126  -0.531999  -0.000000
+   19  H  2  X    0.000000  -0.422839  -0.076123   0.017864  -0.000000
+   20  H  2  Y    0.245853   0.000000  -0.000000   0.000000   0.721507
+   21  H  2  Z    0.000000  -0.348433   0.292695   0.596877  -0.000000
+   22  H  3  S    0.000000  -0.472777   0.476986  -0.391312  -0.000000
+   23  H  3  S    0.000000   0.241809  -0.094126   0.531999  -0.000000
+   24  H  3  X    0.000000  -0.422839   0.076123   0.017864  -0.000000
+   25  H  3  Y    0.245853   0.000000  -0.000000   0.000000   0.721507
+   26  H  3  Z    0.000000   0.348433   0.292695  -0.596877  -0.000000
+
+                     21         22         23         24         25
+                    2.6273     2.7938     3.3809     3.4694     4.0275
+                     A2         A1         A1         B1         A1  
+    1  C  1  S    0.000000   0.008898  -0.113692  -0.000000  -0.229844
+    2  C  1  S    0.000000   0.038679  -0.233444  -0.000000  -0.694035
+    3  C  1  S    0.000000  -0.137864   1.130729  -0.000000   2.757258
+    4  C  1  S    0.000000   0.340757   1.124331  -0.000000   1.034073
+    5  C  1  X    0.000000   0.000000  -0.000000   1.297568  -0.000000
+    6  C  1  Y    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+    7  C  1  Z    0.000000   0.305244   0.644648  -0.000000  -0.332901
+    8  C  1  X    0.000000   0.000000  -0.000000   0.229500  -0.000000
+    9  C  1  Y    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   10  C  1  Z    0.000000   0.218621   0.180496  -0.000000   0.158972
+   11  C  1 XX    0.000000  -0.445281   0.677208  -0.000000  -2.174702
+   12  C  1 YY    0.000000   0.063188  -0.831376  -0.000000  -1.379794
+   13  C  1 ZZ    0.000000   0.764440  -0.456205  -0.000000  -1.562363
+   14  C  1 XY    0.815080   0.000000  -0.000000  -0.000000  -0.000000
+   15  C  1 XZ    0.000000   0.000000  -0.000000   1.115617  -0.000000
+   16  C  1 YZ    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   17  H  2  S    0.000000   0.071385  -0.486654   0.691954   0.505890
+   18  H  2  S    0.000000  -0.316982  -0.617243   0.433548  -0.269692
+   19  H  2  X    0.000000  -0.560214  -0.767264   0.923179   0.344702
+   20  H  2  Y    0.692473   0.000000  -0.000000  -0.000000  -0.000000
+   21  H  2  Z    0.000000  -0.489924   0.592706  -0.432853  -0.303571
+   22  H  3  S    0.000000   0.071385  -0.486654  -0.691954   0.505890
+   23  H  3  S    0.000000  -0.316982  -0.617243  -0.433548  -0.269692
+   24  H  3  X    0.000000   0.560214   0.767264   0.923179  -0.344702
+   25  H  3  Y   -0.692473   0.000000  -0.000000  -0.000000  -0.000000
+   26  H  3  Z    0.000000  -0.489924   0.592706   0.432853  -0.303571
+
+                     26
+                   27.3514
+                     A1  
+    1  C  1  S   -1.813030
+    2  C  1  S    2.386159
+    3  C  1  S   -1.593000
+    4  C  1  S   -0.343870
+    5  C  1  X   -0.000000
+    6  C  1  Y   -0.000000
+    7  C  1  Z    0.033601
+    8  C  1  X   -0.000000
+    9  C  1  Y   -0.000000
+   10  C  1  Z   -0.054987
+   11  C  1 XX    0.753892
+   12  C  1 YY    0.688474
+   13  C  1 ZZ    0.705742
+   14  C  1 XY   -0.000000
+   15  C  1 XZ   -0.000000
+   16  C  1 YZ   -0.000000
+   17  H  2  S   -0.074282
+   18  H  2  S    0.108170
+   19  H  2  X   -0.030938
+   20  H  2  Y   -0.000000
+   21  H  2  Z    0.025864
+   22  H  3  S   -0.074282
+   23  H  3  S    0.108170
+   24  H  3  X    0.030938
+   25  H  3  Y   -0.000000
+   26  H  3  Z    0.025864
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.9 SECONDS, CPU UTILIZATION IS   5.68%
+
+     ----------------------------------------------------------------
+     PROPERTY VALUES FOR THE ROHF  SELF-CONSISTENT FIELD WAVEFUNCTION
+     ----------------------------------------------------------------
+
+          -----------------
+          ENERGY COMPONENTS
+          -----------------
+
+         WAVEFUNCTION NORMALIZATION =       1.0000000000
+
+                ONE ELECTRON ENERGY =     -63.6949269629
+                TWO ELECTRON ENERGY =      18.7185129251
+           NUCLEAR REPULSION ENERGY =       6.0505887438
+                                      ------------------
+                       TOTAL ENERGY =     -38.9258252941
+
+ ELECTRON-ELECTRON POTENTIAL ENERGY =      18.7185129251
+  NUCLEUS-ELECTRON POTENTIAL ENERGY =    -102.5377473591
+   NUCLEUS-NUCLEUS POTENTIAL ENERGY =       6.0505887438
+                                      ------------------
+             TOTAL POTENTIAL ENERGY =     -77.7686456902
+               TOTAL KINETIC ENERGY =      38.8428203962
+                 VIRIAL RATIO (V/T) =       2.0021369431
+
+  ...... PI ENERGY ANALYSIS ......
+
+ ENERGY ANALYSIS:
+            FOCK ENERGY=    -26.2579011285
+          BARE H ENERGY=    -63.6949269629
+     ELECTRONIC ENERGY =    -44.9764140457
+         KINETIC ENERGY=     38.8428203962
+          N-N REPULSION=      6.0505887438
+           TOTAL ENERGY=    -38.9258253019
+        SIGMA PART(1+2)=    -42.6937097590
+               (K,V1,2)=     37.6801046478    -97.2153931643     16.8415787574
+           PI PART(1+2)=     -2.2827042867
+               (K,V1,2)=      1.1627157483     -5.3223541948      1.8769341598
+  SIGMA SKELETON, ERROR=    -36.6431210152      0.0000000000
+             MIXED PART= 0.00000E+00 0.00000E+00 0.00000E+00 0.00000E+00
+ ...... END OF PI ENERGY ANALYSIS ......
+
+          ---------------------------------------
+          MULLIKEN AND LOWDIN POPULATION ANALYSES
+          ---------------------------------------
+
+     ATOMIC MULLIKEN POPULATION IN EACH MOLECULAR ORBITAL
+
+                      1          2          3          4          5
+
+                  2.000000   2.000000   2.000000   1.000000   1.000000
+
+    1             1.999854   1.491602   1.027138   0.862369   0.992883
+    2             0.000073   0.254199   0.486431   0.068816   0.003559
+    3             0.000073   0.254199   0.486431   0.068816   0.003559
+
+     ATOMIC SPIN POPULATION (ALPHA MINUS BETA)
+       ATOM         MULL.POP.                    LOW.POP.
+    1 CARBON        1.947898                     1.918682
+    2 HYDROGEN      0.026051                     0.040659
+    3 HYDROGEN      0.026051                     0.040659
+
+               ----- POPULATIONS IN EACH AO -----
+                             MULLIKEN      LOWDIN
+              1  C  1  S      1.17473     1.09102
+              2  C  1  S      0.81918     0.86823
+              3  C  1  S      0.72134     0.41347
+              4  C  1  S      0.65405     0.41900
+              5  C  1  X      0.88794     0.75452
+              6  C  1  Y      0.71281     0.66793
+              7  C  1  Z      0.66979     0.60617
+              8  C  1  X      0.12673     0.30606
+              9  C  1  Y      0.28007     0.30770
+             10  C  1  Z      0.18404     0.25208
+             11  C  1 XX      0.03056     0.20254
+             12  C  1 YY     -0.00264     0.14177
+             13  C  1 ZZ      0.01013     0.16254
+             14  C  1 XY      0.00000     0.00000
+             15  C  1 XZ      0.01247     0.01700
+             16  C  1 YZ      0.00000     0.00010
+             17  H  2  S      0.49204     0.46234
+             18  H  2  S      0.35016     0.38548
+             19  H  2  X      0.00899     0.02172
+             20  H  2  Y      0.00356     0.01214
+             21  H  2  Z      0.00465     0.01326
+             22  H  3  S      0.49204     0.46234
+             23  H  3  S      0.35016     0.38548
+             24  H  3  X      0.00899     0.02172
+             25  H  3  Y      0.00356     0.01214
+             26  H  3  Z      0.00465     0.01326
+
+          ----- MULLIKEN ATOMIC OVERLAP POPULATIONS -----
+          (OFF-DIAGONAL ELEMENTS NEED TO BE MULTIPLIED BY 2)
+
+             1           2           3
+
+    1    5.5482370
+    2    0.3664812   0.5214746
+    3    0.3664812  -0.0285554   0.5214746
+
+          TOTAL MULLIKEN AND LOWDIN ATOMIC POPULATIONS
+       ATOM         MULL.POP.    CHARGE          LOW.POP.     CHARGE
+    1 CARBON        6.281199   -0.281199         6.210125   -0.210125
+    2 HYDROGEN      0.859400    0.140600         0.894937    0.105063
+    3 HYDROGEN      0.859400    0.140600         0.894937    0.105063
+
+          -------------------------------
+          BOND ORDER AND VALENCE ANALYSIS     BOND ORDER THRESHOLD=0.050
+          -------------------------------
+
+                   BOND                       BOND                       BOND
+  ATOM PAIR DIST  ORDER      ATOM PAIR DIST  ORDER      ATOM PAIR DIST  ORDER
+    1   2  1.100  0.961        1   3  1.100  0.961
+
+                       TOTAL       BONDED        FREE
+      ATOM            VALENCE     VALENCE     VALENCE
+    1 CARBON            3.821       1.923       1.898
+    2 HYDROGEN          0.961       0.960       0.001
+    3 HYDROGEN          0.961       0.960       0.001
+
+          -----------------------------------------
+          ATOMIC SPIN DENSITY AT THE NUCLEUS (A.U.)
+          -----------------------------------------
+                            SPIN DENS    ALPHA DENS     BETA DENS
+    1  CARBON       6.0     0.5663958      60.08389      59.51749
+    2  HYDROGEN     1.0     0.0156025       0.20683       0.19122
+    3  HYDROGEN     1.0     0.0156025       0.20683       0.19122
+
+          ---------------------
+          ELECTROSTATIC MOMENTS
+          ---------------------
+
+ POINT   1           X           Y           Z (BOHR)    CHARGE
+                 0.000000    0.000000    0.149473        0.00 (A.U.)
+         DX          DY          DZ         /D/  (DEBYE)
+    -0.000000    0.000000    0.652502    0.652502
+ ...... END OF PROPERTY EVALUATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.9 SECONDS, CPU UTILIZATION IS   5.68%
+
+ -----------------------------   -------------------------------------------
+ RMP2 (ROHF-MBPT2) CALCULATION   PROGRAM BY M.DUPUIS,S.MALUENDES,N.MATSUNAGA
+ -----------------------------   -------------------------------------------
+ NCORE=   1  NOCC ALPHA,BETA=    5    3  NMOS=   26  NAOS=   26
+
+     ORBITALS AND ORBITAL ENERGIES ARE MODIFIED
+     DEFINED UNIQUE ORBITAL ENERGIES ARE:
+       ALPHA
+       -11.276222   -0.938683   -0.598980   -0.472478   -0.405770
+         0.283958    0.323581    0.444581    0.453288    0.454510
+         0.657527    1.172120    1.266075    1.544108    1.623982
+         1.673817    2.024467    2.071472    2.462653    2.463038
+         2.650673    2.807638    3.393538    3.481213    4.061220
+        27.363919
+       BETA
+       -11.231216   -0.781426   -0.553126    0.100405    0.131633
+         0.321465    0.356281    0.486927    0.550096    0.616132
+         0.747218    1.210562    1.314348    1.624166    1.742171
+         1.822529    2.045383    2.162817    2.505228    2.507800
+         2.699738    2.836700    3.419606    3.505640    4.129966
+        27.388888
+
+ MEMORY REQUIREMENTS FOR SEGMENTED MP2 TRANSFORMATION
+   MINIMUM=          51164 WORDS, USING 1 MOLECULAR ORBITAL PER PASS
+   MAXIMUM=          87668 WORDS, MAKING ONLY 1 INTEGRAL PASS
+ CHOOSING THE SEGMENTED MP2 TRANSFORMATION...
+   NUMBER OF MOS/PASS =    4
+   NUMBER OF PASSES   =    1
+   MEMORY USED =          105920 WORDS.
+ PASS #   1 TOOK        0.00 SECONDS.
+ DONE WITH PARTIAL TRANSFORMATION (PQ|RS) TO (IA|JB)
+
+     SINGLE EXCITATION CONTRIBUTION
+         ALPHA        -0.0011769346
+         BETA         -0.0011997454
+     DOUBLE EXCITATION CONTRIBUTION
+                      -0.0940634662
+
+ RESULTS OF MOLLER-PLESSET 2ND ORDER CORRECTION ARE
+               E(0)=       -38.9258252941
+               E(1)=         0.0
+               E(2)=        -0.0964401462
+             E(MP2)=       -39.0222654403
+ ..... DONE WITH MP2 ENERGY .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.9 SECONDS, CPU UTILIZATION IS   5.68%
+
+ TRUDGE ENERGY VALUE AT NSTEP=   0 IS      -39.0222654403
+ --------------------------------------------------------------
+ INTERNAL COORDINATES (ANGSTROMS/DEGREE)
+  I   BOND     ALPHA      BETA    SIGN ICONX   IATCON    INATOM
+  1 0.0000000   0.00000   0.00000 -1.0     1200120042003      1
+  2 1.1000000  66.31026   0.00000  1.0     2200120042002      3
+ --------------------------------------------------------------
+ ----- TRUDGE RESTART DATA AT NSTEP   1 --------
+ $TRUDGE OPTMIZ=GEOMETRY  NPAR= 2
+         IEX(1)=   21,   22,
+         P(1)=      1.100000,     66.310255,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.9 SECONDS, CPU UTILIZATION IS   5.68%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =               16279
+          2 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.9 SECONDS, CPU UTILIZATION IS   6.74%
+
+          ---------------------------
+                 ROHF SCF CALCULATION
+          ---------------------------
+     DENSITY MATRIX CONV=  1.00E-06
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    ORB. GRAD 
+          ---------------START SECOND ORDER SCF---------------
+   1  0      -38.9257469607   -38.9257469607   0.018107663   0.017226390
+   2  1      -38.9268877771    -0.0011408164   0.008063715   0.005726467
+   3  2      -38.9270355238    -0.0001477467   0.004213810   0.001462570
+   4  3      -38.9270471525    -0.0000116287   0.001784460   0.000483808
+   5  4      -38.9270484228    -0.0000012703   0.000194148   0.000087615
+   6  5      -38.9270484911    -0.0000000684   0.000117148   0.000033841
+   7  6      -38.9270485010    -0.0000000099   0.000023583   0.000010044
+   8  7      -38.9270485013    -0.0000000004   0.000011106   0.000002912
+   9  8      -38.9270485014    -0.0000000001   0.000001813   0.000000583
+  10  9      -38.9270485014    -0.0000000000   0.000000821   0.000000184
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL ROHF ENERGY IS      -38.9270485014 AFTER  10 ITERATIONS
+
+          --------------------
+          SPIN SZ   =    1.000
+          S-SQUARED =    2.000
+          --------------------
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.9 SECONDS, CPU UTILIZATION IS   7.61%
+
+ -----------------------------   -------------------------------------------
+ RMP2 (ROHF-MBPT2) CALCULATION   PROGRAM BY M.DUPUIS,S.MALUENDES,N.MATSUNAGA
+ -----------------------------   -------------------------------------------
+ NCORE=   1  NOCC ALPHA,BETA=    5    3  NMOS=   26  NAOS=   26
+
+     ORBITALS AND ORBITAL ENERGIES ARE MODIFIED
+     DEFINED UNIQUE ORBITAL ENERGIES ARE:
+       ALPHA
+       -11.272797   -0.935050   -0.616053   -0.448922   -0.402229
+         0.264163    0.342159    0.451200    0.456170    0.456757
+         0.633876    1.129115    1.331225    1.527026    1.680124
+         1.706271    1.891351    2.089762    2.387887    2.566875
+         2.691088    2.711305    3.429910    3.483104    4.144136
+        27.369973
+       BETA
+       -11.229394   -0.774553   -0.570770    0.111711    0.130896
+         0.303602    0.368928    0.492789    0.563343    0.616020
+         0.719174    1.168440    1.377843    1.605988    1.812421
+         1.858763    1.918142    2.167030    2.425658    2.608476
+         2.715863    2.757930    3.450703    3.512806    4.208499
+        27.393455
+
+ MEMORY REQUIREMENTS FOR SEGMENTED MP2 TRANSFORMATION
+   MINIMUM=          51164 WORDS, USING 1 MOLECULAR ORBITAL PER PASS
+   MAXIMUM=          87668 WORDS, MAKING ONLY 1 INTEGRAL PASS
+ CHOOSING THE SEGMENTED MP2 TRANSFORMATION...
+   NUMBER OF MOS/PASS =    4
+   NUMBER OF PASSES   =    1
+   MEMORY USED =          105920 WORDS.
+
+     SINGLE EXCITATION CONTRIBUTION
+         ALPHA        -0.0013482224
+         BETA         -0.0013869676
+     DOUBLE EXCITATION CONTRIBUTION
+                      -0.0945293841
+
+ RESULTS OF MOLLER-PLESSET 2ND ORDER CORRECTION ARE
+               E(0)=       -38.9270485014
+               E(1)=         0.0
+               E(2)=        -0.0972645740
+             E(MP2)=       -39.0243130754
+ ..... DONE WITH MP2 ENERGY .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.9 SECONDS, CPU UTILIZATION IS   7.61%
+
+ TRUDGE ENERGY VALUE AT NSTEP=   1 IS      -39.0243130754
+ LOOKS =  1   ALF =  0.1000  FUNC =      -39.0243130754
+             AMIN =  0.1000  FMIN =      -39.0243130754
+            ANEXT =  0.0000 FNEXT =      -39.0222654403
+ --------------------------------------------------------------
+ INTERNAL COORDINATES (ANGSTROMS/DEGREE)
+  I   BOND     ALPHA      BETA    SIGN ICONX   IATCON    INATOM
+  1 0.0000000   0.00000   0.00000 -1.0     1200120042003      1
+  2 1.1000000  63.07627   0.00000  1.0     2200120042002      3
+ --------------------------------------------------------------
+ ----- TRUDGE RESTART DATA AT NSTEP   2 --------
+ $TRUDGE OPTMIZ=GEOMETRY  NPAR= 2
+         IEX(1)=   21,   22,
+         P(1)=      1.100000,     63.076266,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.9 SECONDS, CPU UTILIZATION IS   7.61%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =               16279
+          2 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.9 SECONDS, CPU UTILIZATION IS   8.60%
+
+          ---------------------------
+                 ROHF SCF CALCULATION
+          ---------------------------
+     DENSITY MATRIX CONV=  1.00E-06
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    ORB. GRAD 
+          ---------------START SECOND ORDER SCF---------------
+   1  0      -38.9268282477   -38.9268282477   0.009579047   0.009147520
+   2  1      -38.9271512317    -0.0003229839   0.004312289   0.002625984
+   3  2      -38.9271849638    -0.0000337321   0.001731321   0.000514592
+   4  3      -38.9271871208    -0.0000021570   0.000711726   0.000170397
+   5  4      -38.9271873839    -0.0000002631   0.000085595   0.000027728
+   6  5      -38.9271873902    -0.0000000063   0.000038422   0.000012796
+   7  6      -38.9271873910    -0.0000000008   0.000008066   0.000003381
+   8  7      -38.9271873910    -0.0000000000   0.000003045   0.000000811
+   9  8      -38.9271873910    -0.0000000000   0.000000547   0.000000237
+  10  9      -38.9271873910    -0.0000000000   0.000000196   0.000000040
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL ROHF ENERGY IS      -38.9271873910 AFTER  10 ITERATIONS
+
+          --------------------
+          SPIN SZ   =    1.000
+          S-SQUARED =    2.000
+          --------------------
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.0 SECONDS, CPU UTILIZATION IS   8.25%
+
+ -----------------------------   -------------------------------------------
+ RMP2 (ROHF-MBPT2) CALCULATION   PROGRAM BY M.DUPUIS,S.MALUENDES,N.MATSUNAGA
+ -----------------------------   -------------------------------------------
+ NCORE=   1  NOCC ALPHA,BETA=    5    3  NMOS=   26  NAOS=   26
+
+     ORBITALS AND ORBITAL ENERGIES ARE MODIFIED
+     DEFINED UNIQUE ORBITAL ENERGIES ARE:
+       ALPHA
+       -11.274543   -0.936821   -0.607856   -0.460925   -0.404045
+         0.274739    0.332417    0.447965    0.453908    0.455324
+         0.645081    1.150513    1.296386    1.535286    1.652231
+         1.689650    1.959152    2.079329    2.426003    2.513789
+         2.681030    2.754924    3.434471    3.458707    4.092345
+        27.365905
+       BETA
+       -11.230312   -0.777920   -0.562263    0.106145    0.131294
+         0.312838    0.362427    0.488636    0.556557    0.616098
+         0.732716    1.189263    1.344169    1.614788    1.777230
+         1.840114    1.982803    2.164245    2.466123    2.557073
+         2.729005    2.781504    3.462294    3.481354    4.159283
+        27.390159
+
+ MEMORY REQUIREMENTS FOR SEGMENTED MP2 TRANSFORMATION
+   MINIMUM=          51164 WORDS, USING 1 MOLECULAR ORBITAL PER PASS
+   MAXIMUM=          87668 WORDS, MAKING ONLY 1 INTEGRAL PASS
+ CHOOSING THE SEGMENTED MP2 TRANSFORMATION...
+   NUMBER OF MOS/PASS =    4
+   NUMBER OF PASSES   =    1
+   MEMORY USED =          105920 WORDS.
+
+     SINGLE EXCITATION CONTRIBUTION
+         ALPHA        -0.0012496119
+         BETA         -0.0012796695
+     DOUBLE EXCITATION CONTRIBUTION
+                      -0.0942396900
+
+ RESULTS OF MOLLER-PLESSET 2ND ORDER CORRECTION ARE
+               E(0)=       -38.9271873910
+               E(1)=         0.0
+               E(2)=        -0.0967689714
+             E(MP2)=       -39.0239563624
+ ..... DONE WITH MP2 ENERGY .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.0 SECONDS, CPU UTILIZATION IS   8.16%
+
+ TRUDGE ENERGY VALUE AT NSTEP=   2 IS      -39.0239563624
+ LOOKS =  2   ALF =  0.0500  FUNC =      -39.0239563624
+             AMIN =  0.1000  FMIN =      -39.0243130754
+            ANEXT =  0.0500 FNEXT =      -39.0239563624
+ --------------------------------------------------------------
+ INTERNAL COORDINATES (ANGSTROMS/DEGREE)
+  I   BOND     ALPHA      BETA    SIGN ICONX   IATCON    INATOM
+  1 0.0000000   0.00000   0.00000 -1.0     1200120042003      1
+  2 1.1000000  69.71005   0.00000  1.0     2200120042002      3
+ --------------------------------------------------------------
+ ----- TRUDGE RESTART DATA AT NSTEP   3 --------
+ $TRUDGE OPTMIZ=GEOMETRY  NPAR= 2
+         IEX(1)=   21,   22,
+         P(1)=      1.100000,     69.710055,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.0 SECONDS, CPU UTILIZATION IS   9.18%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =               16279
+          2 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.0 SECONDS, CPU UTILIZATION IS  10.00%
+
+          ---------------------------
+                 ROHF SCF CALCULATION
+          ---------------------------
+     DENSITY MATRIX CONV=  1.00E-06
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    ORB. GRAD 
+          ---------------START SECOND ORDER SCF---------------
+   1  0      -38.9238196184   -38.9238196184   0.020668458   0.019355969
+   2  1      -38.9251893275    -0.0013697091   0.009338925   0.006855668
+   3  2      -38.9253919540    -0.0002026265   0.005448717   0.001948575
+   4  3      -38.9254101413    -0.0000181874   0.002504230   0.000647714
+   5  4      -38.9254124537    -0.0000023124   0.000339159   0.000154971
+   6  5      -38.9254125912    -0.0000001374   0.000196504   0.000057736
+   7  6      -38.9254126108    -0.0000000196   0.000038742   0.000014926
+   8  7      -38.9254126116    -0.0000000008   0.000013857   0.000003739
+   9  8      -38.9254126118    -0.0000000001   0.000002834   0.000000980
+  10  9      -38.9254126118    -0.0000000000   0.000001204   0.000000299
+  11 10      -38.9254126118    -0.0000000000   0.000000204   0.000000042
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL ROHF ENERGY IS      -38.9254126118 AFTER  11 ITERATIONS
+
+          --------------------
+          SPIN SZ   =    1.000
+          S-SQUARED =    2.000
+          --------------------
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.1 SECONDS, CPU UTILIZATION IS  10.38%
+
+ -----------------------------   -------------------------------------------
+ RMP2 (ROHF-MBPT2) CALCULATION   PROGRAM BY M.DUPUIS,S.MALUENDES,N.MATSUNAGA
+ -----------------------------   -------------------------------------------
+ NCORE=   1  NOCC ALPHA,BETA=    5    3  NMOS=   26  NAOS=   26
+
+     ORBITALS AND ORBITAL ENERGIES ARE MODIFIED
+     DEFINED UNIQUE ORBITAL ENERGIES ARE:
+       ALPHA
+       -11.270949   -0.933318   -0.623430   -0.436614   -0.400287
+         0.252521    0.352374    0.454208    0.457064    0.463527
+         0.624076    1.108558    1.371294    1.519428    1.707058
+         1.723549    1.820546    2.103410    2.349682    2.621185
+         2.621904    2.740509    3.394093    3.531970    4.223234
+        27.376449
+       BETA
+       -11.228437   -0.771274   -0.578528    0.116871    0.130437
+         0.294126    0.375478    0.500749    0.570643    0.615906
+         0.706473    1.148709    1.415904    1.597844    1.847206
+         1.851122    1.878433    2.171758    2.384719    2.645609
+         2.661304    2.785522    3.413003    3.563827    4.283895
+        27.399089
+
+ MEMORY REQUIREMENTS FOR SEGMENTED MP2 TRANSFORMATION
+   MINIMUM=          51164 WORDS, USING 1 MOLECULAR ORBITAL PER PASS
+   MAXIMUM=          87668 WORDS, MAKING ONLY 1 INTEGRAL PASS
+ CHOOSING THE SEGMENTED MP2 TRANSFORMATION...
+   NUMBER OF MOS/PASS =    4
+   NUMBER OF PASSES   =    1
+   MEMORY USED =          105920 WORDS.
+
+     SINGLE EXCITATION CONTRIBUTION
+         ALPHA        -0.0014823104
+         BETA         -0.0015318600
+     DOUBLE EXCITATION CONTRIBUTION
+                      -0.0949380211
+
+ RESULTS OF MOLLER-PLESSET 2ND ORDER CORRECTION ARE
+               E(0)=       -38.9254126118
+               E(1)=         0.0
+               E(2)=        -0.0979521915
+             E(MP2)=       -39.0233648032
+ ..... DONE WITH MP2 ENERGY .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.1 SECONDS, CPU UTILIZATION IS  10.28%
+
+ TRUDGE ENERGY VALUE AT NSTEP=   3 IS      -39.0233648032
+ LOOKS =  3   ALF =  0.1500  FUNC =      -39.0233648032
+             AMIN =  0.1000  FMIN =      -39.0243130754
+            ANEXT =  0.0500 FNEXT =      -39.0239563624
+ --------------------------------------------------------------
+ INTERNAL COORDINATES (ANGSTROMS/DEGREE)
+  I   BOND     ALPHA      BETA    SIGN ICONX   IATCON    INATOM
+  1 0.0000000   0.00000   0.00000 -1.0     1200120042003      1
+  2 1.1000000  65.56302   0.00000  1.0     2200120042002      3
+ --------------------------------------------------------------
+ ----- TRUDGE RESTART DATA AT NSTEP   4 --------
+ $TRUDGE OPTMIZ=GEOMETRY  NPAR= 2
+         IEX(1)=   21,   22,
+         P(1)=      1.100000,     65.563024,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.1 SECONDS, CPU UTILIZATION IS  10.28%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =               16279
+          2 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.1 SECONDS, CPU UTILIZATION IS  11.11%
+
+          ---------------------------
+                 ROHF SCF CALCULATION
+          ---------------------------
+     DENSITY MATRIX CONV=  1.00E-06
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    ORB. GRAD 
+          ---------------START SECOND ORDER SCF---------------
+   1  0      -38.9265507954   -38.9265507954   0.013334410   0.012539473
+   2  1      -38.9271400603    -0.0005892649   0.006221091   0.003772198
+   3  2      -38.9272076056    -0.0000675453   0.002483398   0.000729389
+   4  3      -38.9272120205    -0.0000044148   0.001074047   0.000256841
+   5  4      -38.9272125808    -0.0000005603   0.000120585   0.000041428
+   6  5      -38.9272125932    -0.0000000124   0.000061015   0.000019855
+   7  6      -38.9272125949    -0.0000000017   0.000010738   0.000004539
+   8  7      -38.9272125949    -0.0000000001   0.000004260   0.000001170
+   9  8      -38.9272125949    -0.0000000000   0.000000699   0.000000276
+  10  9      -38.9272125949    -0.0000000000   0.000000287   0.000000056
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL ROHF ENERGY IS      -38.9272125949 AFTER  10 ITERATIONS
+
+          --------------------
+          SPIN SZ   =    1.000
+          S-SQUARED =    2.000
+          --------------------
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.1 SECONDS, CPU UTILIZATION IS  11.82%
+
+ -----------------------------   -------------------------------------------
+ RMP2 (ROHF-MBPT2) CALCULATION   PROGRAM BY M.DUPUIS,S.MALUENDES,N.MATSUNAGA
+ -----------------------------   -------------------------------------------
+ NCORE=   1  NOCC ALPHA,BETA=    5    3  NMOS=   26  NAOS=   26
+
+     ORBITALS AND ORBITAL ENERGIES ARE MODIFIED
+     DEFINED UNIQUE ORBITAL ENERGIES ARE:
+       ALPHA
+       -11.273201   -0.935446   -0.614261   -0.451676   -0.402650
+         0.266666    0.339886    0.450484    0.455844    0.455975
+         0.636296    1.133914    1.322895    1.528844    1.673862
+         1.702439    1.906974    2.087140    2.396572    2.554711
+         2.704499    2.706210    3.437041    3.471787    4.130232
+        27.368851
+       BETA
+       -11.229605   -0.775307   -0.568903    0.110476    0.130991
+         0.305731    0.367436    0.491572    0.561767    0.616041
+         0.722163    1.173086    1.369844    1.607928    1.804456
+         1.854443    1.933007    2.166253    2.434905    2.596676
+         2.731331    2.751454    3.458258    3.501043    4.195267
+        27.392513
+
+ MEMORY REQUIREMENTS FOR SEGMENTED MP2 TRANSFORMATION
+   MINIMUM=          51164 WORDS, USING 1 MOLECULAR ORBITAL PER PASS
+   MAXIMUM=          87668 WORDS, MAKING ONLY 1 INTEGRAL PASS
+ CHOOSING THE SEGMENTED MP2 TRANSFORMATION...
+   NUMBER OF MOS/PASS =    4
+   NUMBER OF PASSES   =    1
+   MEMORY USED =          105920 WORDS.
+
+     SINGLE EXCITATION CONTRIBUTION
+         ALPHA        -0.0013231560
+         BETA         -0.0013597747
+     DOUBLE EXCITATION CONTRIBUTION
+                      -0.0944534441
+
+ RESULTS OF MOLLER-PLESSET 2ND ORDER CORRECTION ARE
+               E(0)=       -38.9272125949
+               E(1)=         0.0
+               E(2)=        -0.0971363749
+             E(MP2)=       -39.0243489698
+ ..... DONE WITH MP2 ENERGY .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.1 SECONDS, CPU UTILIZATION IS  11.82%
+
+ TRUDGE ENERGY VALUE AT NSTEP=   4 IS      -39.0243489698
+ LOOKS =  4   ALF =  0.0887  FUNC =      -39.0243489698
+             AMIN =  0.0887  FMIN =      -39.0243489698
+            ANEXT =  0.1000 FNEXT =      -39.0243130754
+  NEW CURVATURE =  0.26100E+00   ALPHA =   0.0886673
+  OLD CURVATURE =  0.00000E+00   ALFSET=   0.1000000
+ --------------------------------------------------------------
+ INTERNAL COORDINATES (ANGSTROMS/DEGREE)
+  I   BOND     ALPHA      BETA    SIGN ICONX   IATCON    INATOM
+  1 0.0000000   0.00000   0.00000 -1.0     1200120042003      1
+  2 1.2156880  65.56302   0.00000  1.0     2200120042002      3
+ --------------------------------------------------------------
+ ----- TRUDGE RESTART DATA AT NSTEP   5 --------
+ $TRUDGE OPTMIZ=GEOMETRY  NPAR= 2
+         IEX(1)=   21,   22,
+         P(1)=      1.215688,     65.563024,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.1 SECONDS, CPU UTILIZATION IS  11.82%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =               16279
+          2 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.1 SECONDS, CPU UTILIZATION IS  12.50%
+
+          ---------------------------
+                 ROHF SCF CALCULATION
+          ---------------------------
+     DENSITY MATRIX CONV=  1.00E-06
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    ORB. GRAD 
+          ---------------START SECOND ORDER SCF---------------
+   1  0      -38.9016521571   -38.9016521571   0.042014133   0.026305952
+   2  1      -38.9053286643    -0.0036765072   0.013614914   0.006821181
+   3  2      -38.9056258665    -0.0002972023   0.006328352   0.002530451
+   4  3      -38.9056538279    -0.0000279614   0.002455311   0.000772828
+   5  4      -38.9056585640    -0.0000047361   0.000616277   0.000244089
+   6  5      -38.9056589809    -0.0000004169   0.000214436   0.000056188
+   7  6      -38.9056590144    -0.0000000335   0.000061706   0.000020014
+   8  7      -38.9056590174    -0.0000000030   0.000020845   0.000005539
+   9  8      -38.9056590177    -0.0000000003   0.000005845   0.000001836
+  10  9      -38.9056590177    -0.0000000000   0.000000888   0.000000496
+  11 10      -38.9056590177    -0.0000000000   0.000000169   0.000000104
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL ROHF ENERGY IS      -38.9056590177 AFTER  11 ITERATIONS
+
+          --------------------
+          SPIN SZ   =    1.000
+          S-SQUARED =    2.000
+          --------------------
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.2 SECONDS, CPU UTILIZATION IS  12.30%
+
+ -----------------------------   -------------------------------------------
+ RMP2 (ROHF-MBPT2) CALCULATION   PROGRAM BY M.DUPUIS,S.MALUENDES,N.MATSUNAGA
+ -----------------------------   -------------------------------------------
+ NCORE=   1  NOCC ALPHA,BETA=    5    3  NMOS=   26  NAOS=   26
+
+     ORBITALS AND ORBITAL ENERGIES ARE MODIFIED
+     DEFINED UNIQUE ORBITAL ENERGIES ARE:
+       ALPHA
+       -11.295438   -0.905262   -0.575087   -0.446721   -0.405177
+         0.219241    0.327139    0.442651    0.452562    0.452821
+         0.656563    1.083228    1.260634    1.541674    1.673967
+         1.705315    1.841903    1.981109    2.315960    2.395763
+         2.521902    2.557412    3.185624    3.229929    4.094610
+        27.349976
+       BETA
+       -11.251173   -0.738460   -0.530847    0.104962    0.130922
+         0.257384    0.369025    0.469672    0.575611    0.614869
+         0.732624    1.115479    1.298871    1.619026    1.792083
+         1.853115    1.876043    2.070516    2.353249    2.431686
+         2.546038    2.603394    3.207836    3.260045    4.159568
+        27.374368
+
+ MEMORY REQUIREMENTS FOR SEGMENTED MP2 TRANSFORMATION
+   MINIMUM=          51164 WORDS, USING 1 MOLECULAR ORBITAL PER PASS
+   MAXIMUM=          87668 WORDS, MAKING ONLY 1 INTEGRAL PASS
+ CHOOSING THE SEGMENTED MP2 TRANSFORMATION...
+   NUMBER OF MOS/PASS =    4
+   NUMBER OF PASSES   =    1
+   MEMORY USED =          105920 WORDS.
+
+     SINGLE EXCITATION CONTRIBUTION
+         ALPHA        -0.0012777262
+         BETA         -0.0013134925
+     DOUBLE EXCITATION CONTRIBUTION
+                      -0.0965663113
+
+ RESULTS OF MOLLER-PLESSET 2ND ORDER CORRECTION ARE
+               E(0)=       -38.9056590177
+               E(1)=         0.0
+               E(2)=        -0.0991575300
+             E(MP2)=       -39.0048165478
+ ..... DONE WITH MP2 ENERGY .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.2 SECONDS, CPU UTILIZATION IS  12.30%
+
+ TRUDGE ENERGY VALUE AT NSTEP=   5 IS      -39.0048165478
+ LOOKS =  1   ALF =  0.1000  FUNC =      -39.0048165478
+             AMIN =  0.0000  FMIN =      -39.0243489698
+            ANEXT =  0.1000 FNEXT =      -39.0048165478
+ --------------------------------------------------------------
+ INTERNAL COORDINATES (ANGSTROMS/DEGREE)
+  I   BOND     ALPHA      BETA    SIGN ICONX   IATCON    INATOM
+  1 0.0000000   0.00000   0.00000 -1.0     1200120042003      1
+  2 0.9953212  65.56302   0.00000  1.0     2200120042002      3
+ --------------------------------------------------------------
+ ----- TRUDGE RESTART DATA AT NSTEP   6 --------
+ $TRUDGE OPTMIZ=GEOMETRY  NPAR= 2
+         IEX(1)=   21,   22,
+         P(1)=      0.995321,     65.563024,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.2 SECONDS, CPU UTILIZATION IS  12.30%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =               16279
+          2 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.2 SECONDS, CPU UTILIZATION IS  13.01%
+
+          ---------------------------
+                 ROHF SCF CALCULATION
+          ---------------------------
+     DENSITY MATRIX CONV=  1.00E-06
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    ORB. GRAD 
+          ---------------START SECOND ORDER SCF---------------
+   1  0      -38.9018334723   -38.9018334723   0.082269844   0.054955063
+   2  1      -38.9169682563    -0.0151347840   0.021887243   0.011562547
+   3  2      -38.9177448894    -0.0007766331   0.013198549   0.004926664
+   4  3      -38.9178403786    -0.0000954892   0.002987688   0.001133480
+   5  4      -38.9178459174    -0.0000055388   0.000492441   0.000181758
+   6  5      -38.9178461286    -0.0000002112   0.000171656   0.000071831
+   7  6      -38.9178461492    -0.0000000205   0.000044002   0.000015764
+   8  7      -38.9178461508    -0.0000000016   0.000010075   0.000003720
+   9  8      -38.9178461509    -0.0000000001   0.000003459   0.000001252
+  10  9      -38.9178461509    -0.0000000000   0.000001184   0.000000314
+  11 10      -38.9178461509    -0.0000000000   0.000000325   0.000000102
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL ROHF ENERGY IS      -38.9178461509 AFTER  11 ITERATIONS
+
+          --------------------
+          SPIN SZ   =    1.000
+          S-SQUARED =    2.000
+          --------------------
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.2 SECONDS, CPU UTILIZATION IS  12.90%
+
+ -----------------------------   -------------------------------------------
+ RMP2 (ROHF-MBPT2) CALCULATION   PROGRAM BY M.DUPUIS,S.MALUENDES,N.MATSUNAGA
+ -----------------------------   -------------------------------------------
+ NCORE=   1  NOCC ALPHA,BETA=    5    3  NMOS=   26  NAOS=   26
+
+     ORBITALS AND ORBITAL ENERGIES ARE MODIFIED
+     DEFINED UNIQUE ORBITAL ENERGIES ARE:
+       ALPHA
+       -11.252839   -0.969000   -0.654035   -0.455852   -0.402284
+         0.307444    0.327103    0.447922    0.457393    0.499806
+         0.616752    1.198777    1.376328    1.535102    1.683468
+         1.707995    1.994605    2.188653    2.489168    2.712714
+         2.845158    2.904576    3.755617    3.763500    4.158160
+        27.371897
+       BETA
+       -11.209735   -0.812927   -0.606837    0.113469    0.131032
+         0.348359    0.350630    0.536261    0.542838    0.615436
+         0.713862    1.245383    1.432352    1.617231    1.825248
+         1.865533    2.015788    2.257652    2.527710    2.758408
+         2.893022    2.931413    3.775967    3.795557    4.219305
+        27.394974
+
+ MEMORY REQUIREMENTS FOR SEGMENTED MP2 TRANSFORMATION
+   MINIMUM=          51164 WORDS, USING 1 MOLECULAR ORBITAL PER PASS
+   MAXIMUM=          87668 WORDS, MAKING ONLY 1 INTEGRAL PASS
+ CHOOSING THE SEGMENTED MP2 TRANSFORMATION...
+   NUMBER OF MOS/PASS =    4
+   NUMBER OF PASSES   =    1
+   MEMORY USED =          105920 WORDS.
+
+     SINGLE EXCITATION CONTRIBUTION
+         ALPHA        -0.0013364530
+         BETA         -0.0013723930
+     DOUBLE EXCITATION CONTRIBUTION
+                      -0.0926503314
+
+ RESULTS OF MOLLER-PLESSET 2ND ORDER CORRECTION ARE
+               E(0)=       -38.9178461509
+               E(1)=         0.0
+               E(2)=        -0.0953591773
+             E(MP2)=       -39.0132053282
+ ..... DONE WITH MP2 ENERGY .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.2 SECONDS, CPU UTILIZATION IS  13.71%
+
+ TRUDGE ENERGY VALUE AT NSTEP=   6 IS      -39.0132053282
+ LOOKS =  2   ALF = -0.1000  FUNC =      -39.0132053282
+             AMIN =  0.0000  FMIN =      -39.0243489698
+            ANEXT = -0.1000 FNEXT =      -39.0132053282
+ --------------------------------------------------------------
+ INTERNAL COORDINATES (ANGSTROMS/DEGREE)
+  I   BOND     ALPHA      BETA    SIGN ICONX   IATCON    INATOM
+  1 0.0000000   0.00000   0.00000 -1.0     1200120042003      1
+  2 1.0850619  65.56302   0.00000  1.0     2200120042002      3
+ --------------------------------------------------------------
+ ----- TRUDGE RESTART DATA AT NSTEP   7 --------
+ $TRUDGE OPTMIZ=GEOMETRY  NPAR= 2
+         IEX(1)=   21,   22,
+         P(1)=      1.085062,     65.563024,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.2 SECONDS, CPU UTILIZATION IS  13.71%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =               16279
+          2 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.3 SECONDS, CPU UTILIZATION IS  13.60%
+
+          ---------------------------
+                 ROHF SCF CALCULATION
+          ---------------------------
+     DENSITY MATRIX CONV=  1.00E-06
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    ORB. GRAD 
+          ---------------START SECOND ORDER SCF---------------
+   1  0      -38.9250357865   -38.9250357865   0.034668946   0.022319220
+   2  1      -38.9277686593    -0.0027328728   0.009858415   0.005940003
+   3  2      -38.9279619112    -0.0001932519   0.005183452   0.002099006
+   4  3      -38.9279787770    -0.0000168659   0.001547352   0.000608255
+   5  4      -38.9279810101    -0.0000022330   0.000440845   0.000195581
+   6  5      -38.9279812108    -0.0000002007   0.000127831   0.000039695
+   7  6      -38.9279812202    -0.0000000094   0.000035490   0.000010551
+   8  7      -38.9279812211    -0.0000000009   0.000010411   0.000003611
+   9  8      -38.9279812211    -0.0000000001   0.000002714   0.000000896
+  10  9      -38.9279812211    -0.0000000000   0.000000610   0.000000196
+  11 10      -38.9279812211    -0.0000000000   0.000000102   0.000000050
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL ROHF ENERGY IS      -38.9279812211 AFTER  11 ITERATIONS
+
+          --------------------
+          SPIN SZ   =    1.000
+          S-SQUARED =    2.000
+          --------------------
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.3 SECONDS, CPU UTILIZATION IS  14.17%
+
+ -----------------------------   -------------------------------------------
+ RMP2 (ROHF-MBPT2) CALCULATION   PROGRAM BY M.DUPUIS,S.MALUENDES,N.MATSUNAGA
+ -----------------------------   -------------------------------------------
+ NCORE=   1  NOCC ALPHA,BETA=    5    3  NMOS=   26  NAOS=   26
+
+     ORBITALS AND ORBITAL ENERGIES ARE MODIFIED
+     DEFINED UNIQUE ORBITAL ENERGIES ARE:
+       ALPHA
+       -11.270269   -0.939873   -0.619684   -0.452272   -0.402475
+         0.272705    0.339022    0.450142    0.456275    0.460681
+         0.633497    1.142055    1.330837    1.528716    1.674724
+         1.702769    1.917507    2.101135    2.408456    2.576817
+         2.724272    2.732902    3.476120    3.508794    4.133290
+        27.369745
+       BETA
+       -11.226754   -0.780435   -0.574109    0.110993    0.130995
+         0.312136    0.365270    0.496950    0.559448    0.616056
+         0.720849    1.182230    1.379033    1.608149    1.806913
+         1.855477    1.942683    2.178847    2.446850    2.619418
+         2.758230    2.771351    3.497211    3.538092    4.198165
+        27.393316
+
+ MEMORY REQUIREMENTS FOR SEGMENTED MP2 TRANSFORMATION
+   MINIMUM=          51164 WORDS, USING 1 MOLECULAR ORBITAL PER PASS
+   MAXIMUM=          87668 WORDS, MAKING ONLY 1 INTEGRAL PASS
+ CHOOSING THE SEGMENTED MP2 TRANSFORMATION...
+   NUMBER OF MOS/PASS =    4
+   NUMBER OF PASSES   =    1
+   MEMORY USED =          105920 WORDS.
+
+     SINGLE EXCITATION CONTRIBUTION
+         ALPHA        -0.0013267144
+         BETA         -0.0013633244
+     DOUBLE EXCITATION CONTRIBUTION
+                      -0.0941920882
+
+ RESULTS OF MOLLER-PLESSET 2ND ORDER CORRECTION ARE
+               E(0)=       -38.9279812211
+               E(1)=         0.0
+               E(2)=        -0.0968821270
+             E(MP2)=       -39.0248633482
+ ..... DONE WITH MP2 ENERGY .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.3 SECONDS, CPU UTILIZATION IS  14.17%
+
+ TRUDGE ENERGY VALUE AT NSTEP=   7 IS      -39.0248633482
+ LOOKS =  3   ALF = -0.0137  FUNC =      -39.0248633482
+             AMIN = -0.0137  FMIN =      -39.0248633482
+            ANEXT =  0.0000 FNEXT =      -39.0243489698
+  NEW CURVATURE =  0.15338E+01   ALPHA =  -0.0136732
+  OLD CURVATURE =  0.00000E+00   ALFSET=   0.0500000
+ --------------------------------------------------------------
+ INTERNAL COORDINATES (ANGSTROMS/DEGREE)
+  I   BOND     ALPHA      BETA    SIGN ICONX   IATCON    INATOM
+  1 0.0000000   0.00000   0.00000 -1.0     1200120042003      1
+  2 1.0850619  72.45835   0.00000  1.0     2200120042002      3
+ --------------------------------------------------------------
+ ----- TRUDGE RESTART DATA AT NSTEP   8 --------
+ $TRUDGE OPTMIZ=GEOMETRY  NPAR= 2
+         IEX(1)=   21,   22,
+         P(1)=      1.085062,     72.458348,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.3 SECONDS, CPU UTILIZATION IS  14.17%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =               16279
+          2 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.3 SECONDS, CPU UTILIZATION IS  13.95%
+
+          ---------------------------
+                 ROHF SCF CALCULATION
+          ---------------------------
+     DENSITY MATRIX CONV=  1.00E-06
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    ORB. GRAD 
+          ---------------START SECOND ORDER SCF---------------
+   1  0      -38.9221714394   -38.9221714394   0.023515700   0.021536378
+   2  1      -38.9238315016    -0.0016600622   0.011850189   0.008087492
+   3  2      -38.9241110921    -0.0002795905   0.007090708   0.002460439
+   4  3      -38.9241387017    -0.0000276095   0.003379301   0.000814767
+   5  4      -38.9241425489    -0.0000038472   0.000488638   0.000222146
+   6  5      -38.9241427817    -0.0000002328   0.000257173   0.000076906
+   7  6      -38.9241428128    -0.0000000311   0.000054343   0.000020442
+   8  7      -38.9241428144    -0.0000000016   0.000015868   0.000005143
+   9  8      -38.9241428146    -0.0000000002   0.000004144   0.000001503
+  10  9      -38.9241428146    -0.0000000000   0.000001709   0.000000440
+  11 10      -38.9241428146    -0.0000000000   0.000000328   0.000000063
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL ROHF ENERGY IS      -38.9241428146 AFTER  11 ITERATIONS
+
+          --------------------
+          SPIN SZ   =    1.000
+          S-SQUARED =    2.000
+          --------------------
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.4 SECONDS, CPU UTILIZATION IS  14.81%
+
+ -----------------------------   -------------------------------------------
+ RMP2 (ROHF-MBPT2) CALCULATION   PROGRAM BY M.DUPUIS,S.MALUENDES,N.MATSUNAGA
+ -----------------------------   -------------------------------------------
+ NCORE=   1  NOCC ALPHA,BETA=    5    3  NMOS=   26  NAOS=   26
+
+     ORBITALS AND ORBITAL ENERGIES ARE MODIFIED
+     DEFINED UNIQUE ORBITAL ENERGIES ARE:
+       ALPHA
+       -11.266681   -0.936444   -0.634298   -0.427532   -0.398635
+         0.249705    0.355846    0.456011    0.458006    0.481389
+         0.614168    1.100116    1.416777    1.513896    1.727218
+         1.737344    1.772777    2.130447    2.330877    2.591511
+         2.688136    2.784375    3.403973    3.598250    4.323875
+        27.384089
+       BETA
+       -11.224987   -0.773694   -0.589475    0.120568    0.129955
+         0.293777    0.375514    0.518808    0.574871    0.615706
+         0.695055    1.142151    1.460909    1.592282    1.805702
+         1.874931    1.894954    2.189957    2.363665    2.615245
+         2.727682    2.827997    3.421338    3.632486    4.380132
+        27.405933
+
+ MEMORY REQUIREMENTS FOR SEGMENTED MP2 TRANSFORMATION
+   MINIMUM=          51164 WORDS, USING 1 MOLECULAR ORBITAL PER PASS
+   MAXIMUM=          87668 WORDS, MAKING ONLY 1 INTEGRAL PASS
+ CHOOSING THE SEGMENTED MP2 TRANSFORMATION...
+   NUMBER OF MOS/PASS =    4
+   NUMBER OF PASSES   =    1
+   MEMORY USED =          105920 WORDS.
+
+     SINGLE EXCITATION CONTRIBUTION
+         ALPHA        -0.0016224504
+         BETA         -0.0016822687
+     DOUBLE EXCITATION CONTRIBUTION
+                      -0.0950718721
+
+ RESULTS OF MOLLER-PLESSET 2ND ORDER CORRECTION ARE
+               E(0)=       -38.9241428146
+               E(1)=         0.0
+               E(2)=        -0.0983765912
+             E(MP2)=       -39.0225194058
+ ..... DONE WITH MP2 ENERGY .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.4 SECONDS, CPU UTILIZATION IS  15.44%
+
+ TRUDGE ENERGY VALUE AT NSTEP=   8 IS      -39.0225194058
+ LOOKS =  1   ALF =  0.1000  FUNC =      -39.0225194058
+             AMIN =  0.0000  FMIN =      -39.0248633482
+            ANEXT =  0.1000 FNEXT =      -39.0225194058
+ --------------------------------------------------------------
+ INTERNAL COORDINATES (ANGSTROMS/DEGREE)
+  I   BOND     ALPHA      BETA    SIGN ICONX   IATCON    INATOM
+  1 0.0000000   0.00000   0.00000 -1.0     1200120042003      1
+  2 1.0850619  59.32388   0.00000  1.0     2200120042002      3
+ --------------------------------------------------------------
+ ----- TRUDGE RESTART DATA AT NSTEP   9 --------
+ $TRUDGE OPTMIZ=GEOMETRY  NPAR= 2
+         IEX(1)=   21,   22,
+         P(1)=      1.085062,     59.323878,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.4 SECONDS, CPU UTILIZATION IS  15.44%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =               16279
+          2 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.4 SECONDS, CPU UTILIZATION IS  16.06%
+
+          ---------------------------
+                 ROHF SCF CALCULATION
+          ---------------------------
+     DENSITY MATRIX CONV=  1.00E-06
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    ORB. GRAD 
+          ---------------START SECOND ORDER SCF---------------
+   1  0      -38.9193363971   -38.9193363971   0.043436449   0.038532637
+   2  1      -38.9253628973    -0.0060265002   0.017805488   0.009064114
+   3  2      -38.9258723695    -0.0005094722   0.005511910   0.002197551
+   4  3      -38.9259045956    -0.0000322261   0.002678766   0.000739899
+   5  4      -38.9259088302    -0.0000042347   0.000189262   0.000121017
+   6  5      -38.9259088882    -0.0000000579   0.000129798   0.000043116
+   7  6      -38.9259088951    -0.0000000070   0.000018488   0.000007890
+   8  7      -38.9259088955    -0.0000000004   0.000009107   0.000002865
+   9  8      -38.9259088956    -0.0000000001   0.000001751   0.000000480
+  10  9      -38.9259088956    -0.0000000000   0.000000243   0.000000116
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL ROHF ENERGY IS      -38.9259088956 AFTER  10 ITERATIONS
+
+          --------------------
+          SPIN SZ   =    1.000
+          S-SQUARED =    2.000
+          --------------------
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.5 SECONDS, CPU UTILIZATION IS  14.47%
+
+ -----------------------------   -------------------------------------------
+ RMP2 (ROHF-MBPT2) CALCULATION   PROGRAM BY M.DUPUIS,S.MALUENDES,N.MATSUNAGA
+ -----------------------------   -------------------------------------------
+ NCORE=   1  NOCC ALPHA,BETA=    5    3  NMOS=   26  NAOS=   26
+
+     ORBITALS AND ORBITAL ENERGIES ARE MODIFIED
+     DEFINED UNIQUE ORBITAL ENERGIES ARE:
+       ALPHA
+       -11.273537   -0.943594   -0.601891   -0.475767   -0.405889
+         0.291226    0.322942    0.443465    0.454692    0.456180
+         0.658216    1.186916    1.265781    1.546143    1.618387
+         1.670724    2.051376    2.083630    2.472025    2.485032
+         2.661025    2.845003    3.424234    3.522022    4.054488
+        27.364797
+       BETA
+       -11.228436   -0.787642   -0.555793    0.099890    0.131777
+         0.329284    0.354704    0.490308    0.545945    0.616231
+         0.749963    1.226242    1.315157    1.626646    1.736674
+         1.819825    2.070942    2.174908    2.518374    2.527691
+         2.710489    2.874946    3.449751    3.546708    4.123633
+        27.389838
+
+ MEMORY REQUIREMENTS FOR SEGMENTED MP2 TRANSFORMATION
+   MINIMUM=          51164 WORDS, USING 1 MOLECULAR ORBITAL PER PASS
+   MAXIMUM=          87668 WORDS, MAKING ONLY 1 INTEGRAL PASS
+ CHOOSING THE SEGMENTED MP2 TRANSFORMATION...
+   NUMBER OF MOS/PASS =    4
+   NUMBER OF PASSES   =    1
+   MEMORY USED =          105920 WORDS.
+
+     SINGLE EXCITATION CONTRIBUTION
+         ALPHA        -0.0011651903
+         BETA         -0.0011864185
+     DOUBLE EXCITATION CONTRIBUTION
+                      -0.0937734317
+
+ RESULTS OF MOLLER-PLESSET 2ND ORDER CORRECTION ARE
+               E(0)=       -38.9259088956
+               E(1)=         0.0
+               E(2)=        -0.0961250405
+             E(MP2)=       -39.0220339361
+ ..... DONE WITH MP2 ENERGY .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.5 SECONDS, CPU UTILIZATION IS  15.03%
+
+ TRUDGE ENERGY VALUE AT NSTEP=   9 IS      -39.0220339361
+ LOOKS =  2   ALF = -0.1000  FUNC =      -39.0220339361
+             AMIN =  0.0000  FMIN =      -39.0248633482
+            ANEXT =  0.1000 FNEXT =      -39.0225194058
+ --------------------------------------------------------------
+ INTERNAL COORDINATES (ANGSTROMS/DEGREE)
+  I   BOND     ALPHA      BETA    SIGN ICONX   IATCON    INATOM
+  1 0.0000000   0.00000   0.00000 -1.0     1200120042003      1
+  2 1.0850619  65.87137   0.00000  1.0     2200120042002      3
+ --------------------------------------------------------------
+ ----- TRUDGE RESTART DATA AT NSTEP  10 --------
+ $TRUDGE OPTMIZ=GEOMETRY  NPAR= 2
+         IEX(1)=   21,   22,
+         P(1)=      1.085062,     65.871370,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.5 SECONDS, CPU UTILIZATION IS  15.03%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =               16279
+          2 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.5 SECONDS, CPU UTILIZATION IS  15.58%
+
+          ---------------------------
+                 ROHF SCF CALCULATION
+          ---------------------------
+     DENSITY MATRIX CONV=  1.00E-06
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    ORB. GRAD 
+          ---------------START SECOND ORDER SCF---------------
+   1  0      -38.9265082629   -38.9265082629   0.018922800   0.017893328
+   2  1      -38.9277574929    -0.0012492300   0.008342049   0.005987795
+   3  2      -38.9279173720    -0.0001598791   0.004432127   0.001494178
+   4  3      -38.9279295632    -0.0000121913   0.001832971   0.000493566
+   5  4      -38.9279308324    -0.0000012692   0.000185337   0.000082775
+   6  5      -38.9279308998    -0.0000000674   0.000107786   0.000031800
+   7  6      -38.9279309092    -0.0000000093   0.000022554   0.000009968
+   8  7      -38.9279309095    -0.0000000003   0.000010974   0.000002927
+   9  8      -38.9279309096    -0.0000000001   0.000001848   0.000000597
+  10  9      -38.9279309096    -0.0000000000   0.000000853   0.000000185
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL ROHF ENERGY IS      -38.9279309096 AFTER  10 ITERATIONS
+
+          --------------------
+          SPIN SZ   =    1.000
+          S-SQUARED =    2.000
+          --------------------
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.6 SECONDS, CPU UTILIZATION IS  16.56%
+
+ -----------------------------   -------------------------------------------
+ RMP2 (ROHF-MBPT2) CALCULATION   PROGRAM BY M.DUPUIS,S.MALUENDES,N.MATSUNAGA
+ -----------------------------   -------------------------------------------
+ NCORE=   1  NOCC ALPHA,BETA=    5    3  NMOS=   26  NAOS=   26
+
+     ORBITALS AND ORBITAL ENERGIES ARE MODIFIED
+     DEFINED UNIQUE ORBITAL ENERGIES ARE:
+       ALPHA
+       -11.270110   -0.939709   -0.620449   -0.451127   -0.402306
+         0.271705    0.339829    0.450441    0.456351    0.461166
+         0.632462    1.139980    1.334362    1.527955    1.677313
+         1.704347    1.910979    2.102209    2.404769    2.581949
+         2.726567    2.727231    3.473356    3.513364    4.139318
+        27.370188
+       BETA
+       -11.226674   -0.780111   -0.574904    0.111492    0.130952
+         0.311277    0.365778    0.497542    0.560116    0.616043
+         0.719575    1.180221    1.382439    1.607340    1.810196
+         1.857251    1.936457    2.179169    2.442936    2.624390
+         2.751749    2.774172    3.494271    3.542865    4.203901
+        27.393685
+
+ MEMORY REQUIREMENTS FOR SEGMENTED MP2 TRANSFORMATION
+   MINIMUM=          51164 WORDS, USING 1 MOLECULAR ORBITAL PER PASS
+   MAXIMUM=          87668 WORDS, MAKING ONLY 1 INTEGRAL PASS
+ CHOOSING THE SEGMENTED MP2 TRANSFORMATION...
+   NUMBER OF MOS/PASS =    4
+   NUMBER OF PASSES   =    1
+   MEMORY USED =          105920 WORDS.
+
+     SINGLE EXCITATION CONTRIBUTION
+         ALPHA        -0.0013369563
+         BETA         -0.0013744360
+     DOUBLE EXCITATION CONTRIBUTION
+                      -0.0942228218
+
+ RESULTS OF MOLLER-PLESSET 2ND ORDER CORRECTION ARE
+               E(0)=       -38.9279309096
+               E(1)=         0.0
+               E(2)=        -0.0969342140
+             E(MP2)=       -39.0248651236
+ ..... DONE WITH MP2 ENERGY .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.6 SECONDS, CPU UTILIZATION IS  16.56%
+
+ TRUDGE ENERGY VALUE AT NSTEP=  10 IS      -39.0248651236
+ LOOKS =  3   ALF =  0.0047  FUNC =      -39.0248651236
+             AMIN =  0.0047  FMIN =      -39.0248651236
+            ANEXT =  0.0000 FNEXT =      -39.0248633482
+  NEW CURVATURE =  0.25867E+00   ALPHA =   0.0046920
+  OLD CURVATURE =  0.26100E+00   ALFSET=   0.0250000
+ --------------------------------------------------------------
+ INTERNAL COORDINATES (ANGSTROMS/DEGREE)
+  I   BOND     ALPHA      BETA    SIGN ICONX   IATCON    INATOM
+  1 0.0000000   0.00000   0.00000 -1.0     1200120042003      1
+  2 1.1406942  65.87137   0.00000  1.0     2200120042002      3
+ --------------------------------------------------------------
+ ----- TRUDGE RESTART DATA AT NSTEP  11 --------
+ $TRUDGE OPTMIZ=GEOMETRY  NPAR= 2
+         IEX(1)=   21,   22,
+         P(1)=      1.140694,     65.871370,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.6 SECONDS, CPU UTILIZATION IS  16.56%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =               16279
+          2 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.6 SECONDS, CPU UTILIZATION IS  16.46%
+
+          ---------------------------
+                 ROHF SCF CALCULATION
+          ---------------------------
+     DENSITY MATRIX CONV=  1.00E-06
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    ORB. GRAD 
+          ---------------START SECOND ORDER SCF---------------
+   1  0      -38.9213684548   -38.9213684548   0.020600469   0.013081360
+   2  1      -38.9222866511    -0.0009181963   0.006203578   0.003227090
+   3  2      -38.9223515986    -0.0000649474   0.003091207   0.001234050
+   4  3      -38.9223577101    -0.0000061116   0.001057422   0.000370938
+   5  4      -38.9223586011    -0.0000008910   0.000253553   0.000101131
+   6  5      -38.9223586650    -0.0000000639   0.000089649   0.000026369
+   7  6      -38.9223586691    -0.0000000041   0.000020463   0.000007762
+   8  7      -38.9223586694    -0.0000000003   0.000006383   0.000001974
+   9  8      -38.9223586694    -0.0000000000   0.000001926   0.000000700
+  10  9      -38.9223586694    -0.0000000000   0.000000349   0.000000206
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL ROHF ENERGY IS      -38.9223586694 AFTER  10 ITERATIONS
+
+          --------------------
+          SPIN SZ   =    1.000
+          S-SQUARED =    2.000
+          --------------------
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.6 SECONDS, CPU UTILIZATION IS  16.67%
+
+ -----------------------------   -------------------------------------------
+ RMP2 (ROHF-MBPT2) CALCULATION   PROGRAM BY M.DUPUIS,S.MALUENDES,N.MATSUNAGA
+ -----------------------------   -------------------------------------------
+ NCORE=   1  NOCC ALPHA,BETA=    5    3  NMOS=   26  NAOS=   26
+
+     ORBITALS AND ORBITAL ENERGIES ARE MODIFIED
+     DEFINED UNIQUE ORBITAL ENERGIES ARE:
+       ALPHA
+       -11.280960   -0.923839   -0.600613   -0.448897   -0.403127
+         0.248942    0.340838    0.446137    0.451622    0.455109
+         0.642816    1.111835    1.304035    1.530226    1.675114
+         1.703949    1.874958    2.050553    2.362725    2.500698
+         2.630772    2.653901    3.335910    3.383242    4.125197
+        27.365248
+       BETA
+       -11.237213   -0.761478   -0.555798    0.109426    0.130950
+         0.287465    0.372484    0.479599    0.568045    0.615839
+         0.724679    1.148442    1.347547    1.608446    1.802087
+         1.854421    1.903887    2.132619    2.400574    2.540632
+         2.655255    2.700396    3.357300    3.412756    4.190175
+        27.389091
+
+ MEMORY REQUIREMENTS FOR SEGMENTED MP2 TRANSFORMATION
+   MINIMUM=          51164 WORDS, USING 1 MOLECULAR ORBITAL PER PASS
+   MAXIMUM=          87668 WORDS, MAKING ONLY 1 INTEGRAL PASS
+ CHOOSING THE SEGMENTED MP2 TRANSFORMATION...
+   NUMBER OF MOS/PASS =    4
+   NUMBER OF PASSES   =    1
+   MEMORY USED =          105920 WORDS.
+
+     SINGLE EXCITATION CONTRIBUTION
+         ALPHA        -0.0013205663
+         BETA         -0.0013579171
+     DOUBLE EXCITATION CONTRIBUTION
+                      -0.0952064245
+
+ RESULTS OF MOLLER-PLESSET 2ND ORDER CORRECTION ARE
+               E(0)=       -38.9223586694
+               E(1)=         0.0
+               E(2)=        -0.0978849078
+             E(MP2)=       -39.0202435772
+ ..... DONE WITH MP2 ENERGY .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.6 SECONDS, CPU UTILIZATION IS  16.56%
+
+ TRUDGE ENERGY VALUE AT NSTEP=  11 IS      -39.0202435772
+ LOOKS =  1   ALF =  0.0500  FUNC =      -39.0202435772
+             AMIN =  0.0000  FMIN =      -39.0248651236
+            ANEXT =  0.0500 FNEXT =      -39.0202435772
+ --------------------------------------------------------------
+ INTERNAL COORDINATES (ANGSTROMS/DEGREE)
+  I   BOND     ALPHA      BETA    SIGN ICONX   IATCON    INATOM
+  1 0.0000000   0.00000   0.00000 -1.0     1200120042003      1
+  2 1.0321428  65.87137   0.00000  1.0     2200120042002      3
+ --------------------------------------------------------------
+ ----- TRUDGE RESTART DATA AT NSTEP  12 --------
+ $TRUDGE OPTMIZ=GEOMETRY  NPAR= 2
+         IEX(1)=   21,   22,
+         P(1)=      1.032143,     65.871370,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.6 SECONDS, CPU UTILIZATION IS  16.56%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =               16279
+          2 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.6 SECONDS, CPU UTILIZATION IS  17.18%
+
+          ---------------------------
+                 ROHF SCF CALCULATION
+          ---------------------------
+     DENSITY MATRIX CONV=  1.00E-06
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    ORB. GRAD 
+          ---------------START SECOND ORDER SCF---------------
+   1  0      -38.9214912385   -38.9214912385   0.040879802   0.026787838
+   2  1      -38.9252212370    -0.0037299985   0.011050476   0.005439235
+   3  2      -38.9254219827    -0.0002007458   0.006291722   0.002399809
+   4  3      -38.9254446851    -0.0000227024   0.001655538   0.000584955
+   5  4      -38.9254465086    -0.0000018235   0.000284987   0.000096416
+   6  5      -38.9254465840    -0.0000000754   0.000111533   0.000040960
+   7  6      -38.9254465895    -0.0000000054   0.000025507   0.000008878
+   8  7      -38.9254465899    -0.0000000004   0.000005922   0.000002253
+   9  8      -38.9254465899    -0.0000000000   0.000001880   0.000000493
+  10  9      -38.9254465899    -0.0000000000   0.000000621   0.000000149
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL ROHF ENERGY IS      -38.9254465899 AFTER  10 ITERATIONS
+
+          --------------------
+          SPIN SZ   =    1.000
+          S-SQUARED =    2.000
+          --------------------
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.7 SECONDS, CPU UTILIZATION IS  16.97%
+
+ -----------------------------   -------------------------------------------
+ RMP2 (ROHF-MBPT2) CALCULATION   PROGRAM BY M.DUPUIS,S.MALUENDES,N.MATSUNAGA
+ -----------------------------   -------------------------------------------
+ NCORE=   1  NOCC ALPHA,BETA=    5    3  NMOS=   26  NAOS=   26
+
+     ORBITALS AND ORBITAL ENERGIES ARE MODIFIED
+     DEFINED UNIQUE ORBITAL ENERGIES ARE:
+       ALPHA
+       -11.259779   -0.956363   -0.640409   -0.453203   -0.402024
+         0.292731    0.333401    0.449129    0.457150    0.482953
+         0.622394    1.171506    1.362003    1.530256    1.681735
+         1.706754    1.953248    2.153000    2.449949    2.662096
+         2.798727    2.825277    3.628462    3.656570    4.152774
+        27.371613
+       BETA
+       -11.216604   -0.798889   -0.593965    0.113020    0.130954
+         0.334090    0.356021    0.519883    0.550933    0.615813
+         0.715108    1.215480    1.414688    1.611114    1.820249
+         1.862382    1.976080    2.224893    2.488252    2.706492
+         2.846107    2.851303    3.648939    3.687017    4.215908
+        27.394805
+
+ MEMORY REQUIREMENTS FOR SEGMENTED MP2 TRANSFORMATION
+   MINIMUM=          51164 WORDS, USING 1 MOLECULAR ORBITAL PER PASS
+   MAXIMUM=          87668 WORDS, MAKING ONLY 1 INTEGRAL PASS
+ CHOOSING THE SEGMENTED MP2 TRANSFORMATION...
+   NUMBER OF MOS/PASS =    4
+   NUMBER OF PASSES   =    1
+   MEMORY USED =          105920 WORDS.
+
+     SINGLE EXCITATION CONTRIBUTION
+         ALPHA        -0.0013452454
+         BETA         -0.0013824531
+     DOUBLE EXCITATION CONTRIBUTION
+                      -0.0933088393
+
+ RESULTS OF MOLLER-PLESSET 2ND ORDER CORRECTION ARE
+               E(0)=       -38.9254465899
+               E(1)=         0.0
+               E(2)=        -0.0960365377
+             E(MP2)=       -39.0214831277
+ ..... DONE WITH MP2 ENERGY .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.7 SECONDS, CPU UTILIZATION IS  17.47%
+
+ TRUDGE ENERGY VALUE AT NSTEP=  12 IS      -39.0214831277
+ LOOKS =  2   ALF = -0.0500  FUNC =      -39.0214831277
+             AMIN =  0.0000  FMIN =      -39.0248651236
+            ANEXT = -0.0500 FNEXT =      -39.0214831277
+ --------------------------------------------------------------
+ INTERNAL COORDINATES (ANGSTROMS/DEGREE)
+  I   BOND     ALPHA      BETA    SIGN ICONX   IATCON    INATOM
+  1 0.0000000   0.00000   0.00000 -1.0     1200120042003      1
+  2 1.0808688  65.87137   0.00000  1.0     2200120042002      3
+ --------------------------------------------------------------
+ ----- TRUDGE RESTART DATA AT NSTEP  13 --------
+ $TRUDGE OPTMIZ=GEOMETRY  NPAR= 2
+         IEX(1)=   21,   22,
+         P(1)=      1.080869,     65.871370,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.7 SECONDS, CPU UTILIZATION IS  17.47%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =               16279
+          2 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.7 SECONDS, CPU UTILIZATION IS  17.96%
+
+          ---------------------------
+                 ROHF SCF CALCULATION
+          ---------------------------
+     DENSITY MATRIX CONV=  1.00E-06
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    ORB. GRAD 
+          ---------------START SECOND ORDER SCF---------------
+   1  0      -38.9272050622   -38.9272050622   0.018666902   0.011893142
+   2  1      -38.9279862113    -0.0007811490   0.005251677   0.002968659
+   3  2      -38.9280372467    -0.0000510354   0.002777102   0.001110247
+   4  3      -38.9280419749    -0.0000047282   0.000838429   0.000328932
+   5  4      -38.9280425852    -0.0000006104   0.000212877   0.000089906
+   6  5      -38.9280426293    -0.0000000440   0.000068916   0.000022407
+   7  6      -38.9280426315    -0.0000000023   0.000017233   0.000005103
+   8  7      -38.9280426317    -0.0000000002   0.000004704   0.000001728
+   9  8      -38.9280426317    -0.0000000000   0.000001244   0.000000432
+  10  9      -38.9280426317    -0.0000000000   0.000000307   0.000000107
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL ROHF ENERGY IS      -38.9280426317 AFTER  10 ITERATIONS
+
+          --------------------
+          SPIN SZ   =    1.000
+          S-SQUARED =    2.000
+          --------------------
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.9 SECONDS, CPU UTILIZATION IS  17.02%
+
+ -----------------------------   -------------------------------------------
+ RMP2 (ROHF-MBPT2) CALCULATION   PROGRAM BY M.DUPUIS,S.MALUENDES,N.MATSUNAGA
+ -----------------------------   -------------------------------------------
+ NCORE=   1  NOCC ALPHA,BETA=    5    3  NMOS=   26  NAOS=   26
+
+     ORBITALS AND ORBITAL ENERGIES ARE MODIFIED
+     DEFINED UNIQUE ORBITAL ENERGIES ARE:
+       ALPHA
+       -11.269289   -0.940973   -0.621992   -0.451292   -0.402265
+         0.273401    0.339472    0.450342    0.456429    0.462667
+         0.631666    1.142308    1.336605    1.527981    1.677585
+         1.704467    1.914025    2.106162    2.408151    2.588224
+         2.732844    2.734136    3.484701    3.523996    4.140287
+        27.370389
+       BETA
+       -11.225875   -0.781562   -0.576382    0.111627    0.130952
+         0.313083    0.365091    0.499157    0.559448    0.616040
+         0.719203    1.182836    1.385039    1.607470    1.810914
+         1.857573    1.939270    2.182727    2.446333    2.630836
+         2.759379    2.779819    3.505581    3.553526    4.204806
+        27.393860
+
+ MEMORY REQUIREMENTS FOR SEGMENTED MP2 TRANSFORMATION
+   MINIMUM=          51164 WORDS, USING 1 MOLECULAR ORBITAL PER PASS
+   MAXIMUM=          87668 WORDS, MAKING ONLY 1 INTEGRAL PASS
+ CHOOSING THE SEGMENTED MP2 TRANSFORMATION...
+   NUMBER OF MOS/PASS =    4
+   NUMBER OF PASSES   =    1
+   MEMORY USED =          105920 WORDS.
+
+     SINGLE EXCITATION CONTRIBUTION
+         ALPHA        -0.0013378739
+         BETA         -0.0013753454
+     DOUBLE EXCITATION CONTRIBUTION
+                      -0.0941497709
+
+ RESULTS OF MOLLER-PLESSET 2ND ORDER CORRECTION ARE
+               E(0)=       -38.9280426317
+               E(1)=         0.0
+               E(2)=        -0.0968629902
+             E(MP2)=       -39.0249056219
+ ..... DONE WITH MP2 ENERGY .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.9 SECONDS, CPU UTILIZATION IS  17.02%
+
+ TRUDGE ENERGY VALUE AT NSTEP=  13 IS      -39.0249056219
+ LOOKS =  3   ALF = -0.0039  FUNC =      -39.0249056219
+             AMIN = -0.0039  FMIN =      -39.0249056219
+            ANEXT =  0.0000 FNEXT =      -39.0248651236
+  NEW CURVATURE =  0.16007E+01   ALPHA =  -0.0038719
+  OLD CURVATURE =  0.15338E+01   ALFSET=   0.0125000
+ --------------------------------------------------------------
+ INTERNAL COORDINATES (ANGSTROMS/DEGREE)
+  I   BOND     ALPHA      BETA    SIGN ICONX   IATCON    INATOM
+  1 0.0000000   0.00000   0.00000 -1.0     1200120042003      1
+  2 1.0766919  66.18117   0.00000  1.0     2200120042002      3
+ --------------------------------------------------------------
+ ----- TRUDGE RESTART DATA AT NSTEP  14 --------
+ $TRUDGE OPTMIZ=GEOMETRY  NPAR= 2
+         IEX(1)=   21,   22,
+         P(1)=      1.076692,     66.181166,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.9 SECONDS, CPU UTILIZATION IS  17.02%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =               16279
+          2 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.9 SECONDS, CPU UTILIZATION IS  17.37%
+
+          ---------------------------
+                 ROHF SCF CALCULATION
+          ---------------------------
+     DENSITY MATRIX CONV=  1.00E-06
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    ORB. GRAD 
+          ---------------START SECOND ORDER SCF---------------
+   1  0      -38.9280363426   -38.9280363426   0.001887594   0.001302360
+   2  1      -38.9280455478    -0.0000092052   0.000762464   0.000378116
+   3  2      -38.9280465064    -0.0000009586   0.000233094   0.000098199
+   4  3      -38.9280465934    -0.0000000870   0.000122977   0.000035889
+   5  4      -38.9280466060    -0.0000000125   0.000012056   0.000005489
+   6  5      -38.9280466062    -0.0000000003   0.000006716   0.000002209
+   7  6      -38.9280466063    -0.0000000000   0.000001533   0.000000599
+   8  7      -38.9280466063    -0.0000000000   0.000000567   0.000000211
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL ROHF ENERGY IS      -38.9280466063 AFTER   8 ITERATIONS
+
+          --------------------
+          SPIN SZ   =    1.000
+          S-SQUARED =    2.000
+          --------------------
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.8 SECONDS, CPU UTILIZATION IS  11.70%
+
+ -----------------------------   -------------------------------------------
+ RMP2 (ROHF-MBPT2) CALCULATION   PROGRAM BY M.DUPUIS,S.MALUENDES,N.MATSUNAGA
+ -----------------------------   -------------------------------------------
+ NCORE=   1  NOCC ALPHA,BETA=    5    3  NMOS=   26  NAOS=   26
+
+     ORBITALS AND ORBITAL ENERGIES ARE MODIFIED
+     DEFINED UNIQUE ORBITAL ENERGIES ARE:
+       ALPHA
+       -11.268315   -0.942079   -0.624305   -0.450305   -0.402061
+         0.274094    0.339822    0.450541    0.456579    0.464798
+         0.629833    1.142540    1.342462    1.527277    1.680443
+         1.706179    1.910516    2.111213    2.407812    2.599697
+         2.735267    2.741476    3.493405    3.539202    4.147820
+        27.371028
+       BETA
+       -11.225004   -0.782685   -0.578658    0.112246    0.130906
+         0.314034    0.364837    0.501481    0.559454    0.616019
+         0.717550    1.183427    1.391135    1.606824    1.814910
+         1.859686    1.935833    2.186625    2.445782    2.642312
+         2.760433    2.788342    3.514075    3.568987    4.211953
+        27.394399
+
+ MEMORY REQUIREMENTS FOR SEGMENTED MP2 TRANSFORMATION
+   MINIMUM=          51164 WORDS, USING 1 MOLECULAR ORBITAL PER PASS
+   MAXIMUM=          87668 WORDS, MAKING ONLY 1 INTEGRAL PASS
+ CHOOSING THE SEGMENTED MP2 TRANSFORMATION...
+   NUMBER OF MOS/PASS =    4
+   NUMBER OF PASSES   =    1
+   MEMORY USED =          105920 WORDS.
+
+     SINGLE EXCITATION CONTRIBUTION
+         ALPHA        -0.0013493136
+         BETA         -0.0013876633
+     DOUBLE EXCITATION CONTRIBUTION
+                      -0.0941089042
+
+ RESULTS OF MOLLER-PLESSET 2ND ORDER CORRECTION ARE
+               E(0)=       -38.9280466063
+               E(1)=         0.0
+               E(2)=        -0.0968458811
+             E(MP2)=       -39.0248924873
+ ..... DONE WITH MP2 ENERGY .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.8 SECONDS, CPU UTILIZATION IS  12.06%
+
+ TRUDGE ENERGY VALUE AT NSTEP=  14 IS      -39.0248924873
+ LOOKS =  1   ALF =  0.0061  FUNC =      -39.0248924873
+             AMIN =  0.0000  FMIN =      -39.0249056219
+            ANEXT =  0.0061 FNEXT =      -39.0248924873
+ --------------------------------------------------------------
+ INTERNAL COORDINATES (ANGSTROMS/DEGREE)
+  I   BOND     ALPHA      BETA    SIGN ICONX   IATCON    INATOM
+  1 0.0000000   0.00000   0.00000 -1.0     1200120042003      1
+  2 1.0850619  65.56302   0.00000  1.0     2200120042002      3
+ --------------------------------------------------------------
+ ----- TRUDGE RESTART DATA AT NSTEP  15 --------
+ $TRUDGE OPTMIZ=GEOMETRY  NPAR= 2
+         IEX(1)=   21,   22,
+         P(1)=      1.085062,     65.563024,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.8 SECONDS, CPU UTILIZATION IS  12.06%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =               16279
+          2 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.8 SECONDS, CPU UTILIZATION IS  12.01%
+
+          ---------------------------
+                 ROHF SCF CALCULATION
+          ---------------------------
+     DENSITY MATRIX CONV=  1.00E-06
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    ORB. GRAD 
+          ---------------START SECOND ORDER SCF---------------
+   1  0      -38.9279403599   -38.9279403599   0.003779228   0.002593901
+   2  1      -38.9279769854    -0.0000366254   0.001529524   0.000740807
+   3  2      -38.9279808291    -0.0000038437   0.000470243   0.000196366
+   4  3      -38.9279811697    -0.0000003406   0.000251278   0.000073040
+   5  4      -38.9279812200    -0.0000000503   0.000021921   0.000010768
+   6  5      -38.9279812210    -0.0000000010   0.000012691   0.000004054
+   7  6      -38.9279812211    -0.0000000001   0.000002813   0.000001129
+   8  7      -38.9279812211    -0.0000000000   0.000001143   0.000000404
+   9  8      -38.9279812211    -0.0000000000   0.000000168   0.000000082
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL ROHF ENERGY IS      -38.9279812211 AFTER   9 ITERATIONS
+
+          --------------------
+          SPIN SZ   =    1.000
+          S-SQUARED =    2.000
+          --------------------
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     0.03 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.9 SECONDS, CPU UTILIZATION IS  12.89%
+
+ -----------------------------   -------------------------------------------
+ RMP2 (ROHF-MBPT2) CALCULATION   PROGRAM BY M.DUPUIS,S.MALUENDES,N.MATSUNAGA
+ -----------------------------   -------------------------------------------
+ NCORE=   1  NOCC ALPHA,BETA=    5    3  NMOS=   26  NAOS=   26
+
+     ORBITALS AND ORBITAL ENERGIES ARE MODIFIED
+     DEFINED UNIQUE ORBITAL ENERGIES ARE:
+       ALPHA
+       -11.270269   -0.939873   -0.619684   -0.452272   -0.402475
+         0.272705    0.339022    0.450142    0.456275    0.460681
+         0.633497    1.142055    1.330837    1.528716    1.674724
+         1.702769    1.917507    2.101135    2.408456    2.576817
+         2.724272    2.732902    3.476120    3.508794    4.133290
+        27.369745
+       BETA
+       -11.226754   -0.780435   -0.574109    0.110993    0.130995
+         0.312136    0.365270    0.496950    0.559448    0.616056
+         0.720849    1.182230    1.379033    1.608149    1.806913
+         1.855477    1.942683    2.178847    2.446850    2.619418
+         2.758230    2.771351    3.497211    3.538092    4.198165
+        27.393316
+
+ MEMORY REQUIREMENTS FOR SEGMENTED MP2 TRANSFORMATION
+   MINIMUM=          51164 WORDS, USING 1 MOLECULAR ORBITAL PER PASS
+   MAXIMUM=          87668 WORDS, MAKING ONLY 1 INTEGRAL PASS
+ CHOOSING THE SEGMENTED MP2 TRANSFORMATION...
+   NUMBER OF MOS/PASS =    4
+   NUMBER OF PASSES   =    1
+   MEMORY USED =          105920 WORDS.
+
+     SINGLE EXCITATION CONTRIBUTION
+         ALPHA        -0.0013267148
+         BETA         -0.0013633243
+     DOUBLE EXCITATION CONTRIBUTION
+                      -0.0941920871
+
+ RESULTS OF MOLLER-PLESSET 2ND ORDER CORRECTION ARE
+               E(0)=       -38.9279812211
+               E(1)=         0.0
+               E(2)=        -0.0968821262
+             E(MP2)=       -39.0248633473
+ ..... DONE WITH MP2 ENERGY .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.9 SECONDS, CPU UTILIZATION IS  12.89%
+
+ TRUDGE ENERGY VALUE AT NSTEP=  15 IS      -39.0248633473
+ LOOKS =  2   ALF = -0.0061  FUNC =      -39.0248633473
+             AMIN =  0.0000  FMIN =      -39.0249056219
+            ANEXT =  0.0061 FNEXT =      -39.0248924873
+ --------------------------------------------------------------
+ INTERNAL COORDINATES (ANGSTROMS/DEGREE)
+  I   BOND     ALPHA      BETA    SIGN ICONX   IATCON    INATOM
+  1 0.0000000   0.00000   0.00000 -1.0     1200120042003      1
+  2 1.0797689  65.95269   0.00000  1.0     2200120042002      3
+ --------------------------------------------------------------
+ ----- TRUDGE RESTART DATA AT NSTEP  16 --------
+ $TRUDGE OPTMIZ=GEOMETRY  NPAR= 2
+         IEX(1)=   21,   22,
+         P(1)=      1.079769,     65.952691,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.9 SECONDS, CPU UTILIZATION IS  12.89%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =               16279
+          2 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.9 SECONDS, CPU UTILIZATION IS  13.19%
+
+          ---------------------------
+                 ROHF SCF CALCULATION
+          ---------------------------
+     DENSITY MATRIX CONV=  1.00E-06
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    ORB. GRAD 
+          ---------------START SECOND ORDER SCF---------------
+   1  0      -38.9280330330   -38.9280330330   0.002391796   0.001647111
+   2  1      -38.9280475991    -0.0000145661   0.000960895   0.000471235
+   3  2      -38.9280491069    -0.0000015078   0.000294172   0.000122600
+   4  3      -38.9280492438    -0.0000001369   0.000155651   0.000045711
+   5  4      -38.9280492635    -0.0000000197   0.000015246   0.000006965
+   6  5      -38.9280492639    -0.0000000004   0.000008447   0.000002783
+   7  6      -38.9280492640    -0.0000000001   0.000001946   0.000000760
+   8  7      -38.9280492640    -0.0000000000   0.000000717   0.000000267
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL ROHF ENERGY IS      -38.9280492640 AFTER   8 ITERATIONS
+
+          --------------------
+          SPIN SZ   =    1.000
+          S-SQUARED =    2.000
+          --------------------
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.9 SECONDS, CPU UTILIZATION IS  13.01%
+
+ -----------------------------   -------------------------------------------
+ RMP2 (ROHF-MBPT2) CALCULATION   PROGRAM BY M.DUPUIS,S.MALUENDES,N.MATSUNAGA
+ -----------------------------   -------------------------------------------
+ NCORE=   1  NOCC ALPHA,BETA=    5    3  NMOS=   26  NAOS=   26
+
+     ORBITALS AND ORBITAL ENERGIES ARE MODIFIED
+     DEFINED UNIQUE ORBITAL ENERGIES ARE:
+       ALPHA
+       -11.269032   -0.941263   -0.622600   -0.451033   -0.402211
+         0.273583    0.339573    0.450395    0.456469    0.463213
+         0.631184    1.142371    1.338136    1.527793    1.678337
+         1.704916    1.913105    2.107488    2.408065    2.591235
+         2.734443    2.735108    3.486978    3.527995    4.142214
+        27.370557
+       BETA
+       -11.225645   -0.781858   -0.576980    0.111792    0.130940
+         0.313333    0.365032    0.499757    0.559449    0.616035
+         0.718769    1.182993    1.386633    1.607297    1.811966
+         1.858127    1.938368    2.183750    2.446192    2.633848
+         2.759666    2.782055    3.507802    3.557590    4.206635
+        27.394002
+
+ MEMORY REQUIREMENTS FOR SEGMENTED MP2 TRANSFORMATION
+   MINIMUM=          51164 WORDS, USING 1 MOLECULAR ORBITAL PER PASS
+   MAXIMUM=          87668 WORDS, MAKING ONLY 1 INTEGRAL PASS
+ CHOOSING THE SEGMENTED MP2 TRANSFORMATION...
+   NUMBER OF MOS/PASS =    4
+   NUMBER OF PASSES   =    1
+   MEMORY USED =          105920 WORDS.
+
+     SINGLE EXCITATION CONTRIBUTION
+         ALPHA        -0.0013408536
+         BETA         -0.0013785558
+     DOUBLE EXCITATION CONTRIBUTION
+                      -0.0941388872
+
+ RESULTS OF MOLLER-PLESSET 2ND ORDER CORRECTION ARE
+               E(0)=       -38.9280492640
+               E(1)=         0.0
+               E(2)=        -0.0968582966
+             E(MP2)=       -39.0249075606
+ ..... DONE WITH MP2 ENERGY .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.9 SECONDS, CPU UTILIZATION IS  13.36%
+
+ TRUDGE ENERGY VALUE AT NSTEP=  16 IS      -39.0249075606
+ LOOKS =  3   ALF =  0.0016  FUNC =      -39.0249075606
+             AMIN =  0.0016  FMIN =      -39.0249075606
+            ANEXT =  0.0000 FNEXT =      -39.0249056219
+  NEW CURVATURE =  0.74864E+00   ALPHA =   0.0015996
+ F=      -39.0249075606 DELTA F=0.44212E-04 DELTA R=0.54326E-02
+ --------------------------------------------------------------
+ INTERNAL COORDINATES (ANGSTROMS/DEGREE)
+  I   BOND     ALPHA      BETA    SIGN ICONX   IATCON    INATOM
+  1 0.0000000   0.00000   0.00000 -1.0     1200120042003      1
+  2 1.0797689  65.95269   0.00000  1.0     2200120042002      3
+ --------------------------------------------------------------
+ ----- TRUDGE RESTART DATA AT NSTEP  17 --------
+ $TRUDGE OPTMIZ=GEOMETRY  NPAR= 2
+         IEX(1)=   21,   22,
+         P(1)=      1.079769,     65.952691,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.9 SECONDS, CPU UTILIZATION IS  13.36%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =               16279
+          2 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.9 SECONDS, CPU UTILIZATION IS  13.27%
+
+          ---------------------------
+                 ROHF SCF CALCULATION
+          ---------------------------
+     DENSITY MATRIX CONV=  1.00E-06
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    ORB. GRAD 
+          ---------------START SECOND ORDER SCF---------------
+   1  0      -38.9280492640   -38.9280492640   0.000000270   0.000000153
+   2  1      -38.9280492640    -0.0000000000   0.000000206   0.000000068
+   3  2      -38.9280492640     0.0000000000   0.000000021   0.000000007
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL ROHF ENERGY IS      -38.9280492640 AFTER   3 ITERATIONS
+
+          --------------------
+          SPIN SZ   =    1.000
+          S-SQUARED =    2.000
+          --------------------
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        3.0 SECONDS, CPU UTILIZATION IS  13.47%
+
+ -----------------------------   -------------------------------------------
+ RMP2 (ROHF-MBPT2) CALCULATION   PROGRAM BY M.DUPUIS,S.MALUENDES,N.MATSUNAGA
+ -----------------------------   -------------------------------------------
+ NCORE=   1  NOCC ALPHA,BETA=    5    3  NMOS=   26  NAOS=   26
+
+     ORBITALS AND ORBITAL ENERGIES ARE MODIFIED
+     DEFINED UNIQUE ORBITAL ENERGIES ARE:
+       ALPHA
+       -11.269032   -0.941263   -0.622600   -0.451033   -0.402211
+         0.273583    0.339573    0.450395    0.456469    0.463213
+         0.631184    1.142371    1.338136    1.527793    1.678337
+         1.704916    1.913105    2.107488    2.408065    2.591235
+         2.734443    2.735108    3.486978    3.527995    4.142214
+        27.370557
+       BETA
+       -11.225646   -0.781858   -0.576980    0.111792    0.130940
+         0.313333    0.365032    0.499757    0.559449    0.616035
+         0.718769    1.182993    1.386633    1.607297    1.811966
+         1.858127    1.938368    2.183750    2.446192    2.633848
+         2.759666    2.782055    3.507802    3.557590    4.206635
+        27.394002
+
+ MEMORY REQUIREMENTS FOR SEGMENTED MP2 TRANSFORMATION
+   MINIMUM=          51164 WORDS, USING 1 MOLECULAR ORBITAL PER PASS
+   MAXIMUM=          87668 WORDS, MAKING ONLY 1 INTEGRAL PASS
+ CHOOSING THE SEGMENTED MP2 TRANSFORMATION...
+   NUMBER OF MOS/PASS =    4
+   NUMBER OF PASSES   =    1
+   MEMORY USED =          105920 WORDS.
+
+     SINGLE EXCITATION CONTRIBUTION
+         ALPHA        -0.0013408547
+         BETA         -0.0013785558
+     DOUBLE EXCITATION CONTRIBUTION
+                      -0.0941388858
+
+ RESULTS OF MOLLER-PLESSET 2ND ORDER CORRECTION ARE
+               E(0)=       -38.9280492640
+               E(1)=         0.0
+               E(2)=        -0.0968582963
+             E(MP2)=       -39.0249075603
+ ..... DONE WITH MP2 ENERGY .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        3.0 SECONDS, CPU UTILIZATION IS  13.42%
+
+ TRUDGE ENERGY VALUE AT NSTEP=  17 IS      -39.0249075603
+
+ NON-GRADIENT ENERGY MINIMIZATION  ...  CONVERGED
+
+ CONJUGATE DIRECTION =     0
+ PARAMETER =     1
+ VALUE OF THE FUNCTION =       -39.0249075603
+                  FNOT =       -39.0249075606
+ $TRURST KSTART= 0  JSTART= 1  TOLF=  0.001000 TOLR=  0.050000
+         FNOISE=  0.000500  FNOT= -39.024907561
+         RNOT(1)= -0.018563  0.094593
+         CURV(1)=  1.600708  0.258668
+         ALPH(1)=  0.012500  0.025000
+            V(1)=  1.000000  0.000000
+                   0.000000  1.000000
+ $END
+ --------------------------------------------------------------
+ INTERNAL COORDINATES (ANGSTROMS/DEGREE)
+  I   BOND     ALPHA      BETA    SIGN ICONX   IATCON    INATOM
+  1 0.0000000   0.00000   0.00000 -1.0     1200120042003      1
+  2 1.0797689  65.95269   0.00000  1.0     2200120042002      3
+ --------------------------------------------------------------
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ CARBON      6.0   0.0000000000   0.0000000000   0.0000000000
+ HYDROGEN    1.0  -0.9860549775   0.0000000000   0.4399958948
+ HYDROGEN    1.0   0.9860549775   0.0000000000   0.4399958948
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 CARB       2 HYDR       3 HYDR  
+
+   1 CARB    0.0000000    1.0797689 *  1.0797689 *
+   2 HYDR    1.0797689 *  0.0000000    1.9721100 *
+   3 HYDR    1.0797689 *  1.9721100 *  0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NON-GRADIENT ENERGY MINIMIZATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        3.0 SECONDS, CPU UTILIZATION IS  13.42%
+               580000  WORDS OF DYNAMIC MEMORY USED
+ EXECUTION OF GAMESS TERMINATED NORMALLY Mon Nov 28 22:14:24 2016
+ DDI: 263640 bytes (0.3 MB / 0 MWords) used by master data server.
+
+ ----------------------------------------
+ CPU timing information for all processes
+ ========================================
+ 0: 0.333 + 0.77 = 0.411
+ ----------------------------------------
+ ddikick.x: exited gracefully.
+unset echo
+----- accounting info -----
+Files used on the master node compute-3-0 were:
+-rw-rw-r-- 1 sarom sarom  205105 Nov 29  2016 .//trudge-ch2.dat
+-rw-rw-r-- 1 sarom sarom    1397 Nov 29  2016 .//trudge-ch2.F05
+-rw-rw-r-- 1 sarom sarom  360032 Nov 29  2016 .//trudge-ch2.F08
+-rw-rw-r-- 1 sarom sarom 1897760 Nov 29  2016 .//trudge-ch2.F10
+-rw-rw-r-- 1 sarom sarom    1397 Nov 28 17:27 .//trudge-ch2.inp
+-rw-rw-r-- 1 sarom sarom  126072 Nov 29  2016 .//trudge-ch2.log
+Mon Nov 28 22:14:27 CST 2016
+0.216u 0.077s 0:06.71 4.1%	0+0k 0+136io 0pf+0w

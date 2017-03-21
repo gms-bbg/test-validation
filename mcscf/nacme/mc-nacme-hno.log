@@ -1,0 +1,1743 @@
+----- GAMESS execution script 'rungms' -----
+This job is running on host compute-3-0
+under operating system Linux at Mon Nov 28 21:25:36 CST 2016
+Available scratch disk space (Kbyte units) at beginning of the job is
+Filesystem            1K-blocks       Used  Available Use% Mounted on
+bolt.local:/export/home/sarom
+                     9590469632 1552976896 7550324736  18% /home/sarom
+Copying input file mc-nacme-hno.inp to your run's scratch directory...
+cp mc-nacme-hno.inp .//mc-nacme-hno.F05
+unset echo
+/home/sarom/gamessGH/ddikick.x /home/sarom/gamessGH/gamess.00.x mc-nacme-hno -ddi 1 1 localhost -scr ./
+
+ Distributed Data Interface kickoff program.
+ Initiating 1 compute processes on 1 nodes to run the following command:
+ /home/sarom/gamessGH/gamess.00.x mc-nacme-hno 
+
+          ******************************************************
+          *         GAMESS VERSION = 18 AUG 2016 (R1)          *
+          *             FROM IOWA STATE UNIVERSITY             *
+          * M.W.SCHMIDT, K.K.BALDRIDGE, J.A.BOATZ, S.T.ELBERT, *
+          *   M.S.GORDON, J.H.JENSEN, S.KOSEKI, N.MATSUNAGA,   *
+          *          K.A.NGUYEN, S.J.SU, T.L.WINDUS,           *
+          *       TOGETHER WITH M.DUPUIS, J.A.MONTGOMERY       *
+          *         J.COMPUT.CHEM.  14, 1347-1363(1993)        *
+          **************** 64 BIT LINUX VERSION ****************
+
+  SINCE 1993, STUDENTS AND POSTDOCS WORKING AT IOWA STATE UNIVERSITY
+  AND ALSO IN THEIR VARIOUS JOBS AFTER LEAVING ISU HAVE MADE IMPORTANT
+  CONTRIBUTIONS TO THE CODE:
+     IVANA ADAMOVIC, CHRISTINE AIKENS, YURI ALEXEEV, POOJA ARORA,
+     ANDREY ASADCHEV, ROB BELL, PRADIPTA BANDYOPADHYAY, JONATHAN BENTZ,
+     BRETT BODE, KURT BRORSEN, CALEB CARLIN, GALINA CHABAN, WEI CHEN,
+     CHEOL HO CHOI, PAUL DAY, ALBERT DEFUSCO, NUWAN DESILVA, TIM DUDLEY,
+     DMITRI FEDOROV, GRAHAM FLETCHER, MARK FREITAG, KURT GLAESEMANN,
+     DAN KEMP, GRANT MERRILL, NORIYUKI MINEZAWA, JONATHAN MULLIN,
+     TAKESHI NAGATA, SEAN NEDD, HEATHER NETZLOFF, BOSILJKA NJEGIC, RYAN OLSON,
+     MIKE PAK, SPENCER PRUITT, LUKE ROSKOP, JIM SHOEMAKER, LYUDMILA SLIPCHENKO,
+     TONY SMITH, SAROM SOK LEANG, JIE SONG, TETSUYA TAKETSUGU, SIMON WEBB,
+     PENG XU, SOOHAENG YOO, FEDERICO ZAHARIEV
+
+  ADDITIONAL CODE HAS BEEN PROVIDED BY COLLABORATORS IN OTHER GROUPS:
+     IOWA STATE UNIVERSITY:
+          JOE IVANIC, AARON WEST, LAIMUTIS BYTAUTAS, KLAUS RUEDENBERG
+     UNIVERSITY OF TOKYO: KIMIHIKO HIRAO, TAKAHITO NAKAJIMA,
+          TAKAO TSUNEDA, MUNEAKI KAMIYA, SUSUMU YANAGISAWA,
+          KIYOSHI YAGI, MAHITO CHIBA, SEIKEN TOKURA, NAOAKI KAWAKAMI
+     UNIVERSITY OF AARHUS: FRANK JENSEN
+     UNIVERSITY OF IOWA: VISVALDAS KAIRYS, HUI LI
+     NATIONAL INST. OF STANDARDS AND TECHNOLOGY: WALT STEVENS, DAVID GARMER
+     UNIVERSITY OF PISA: BENEDETTA MENNUCCI, JACOPO TOMASI
+     UNIVERSITY OF MEMPHIS: HENRY KURTZ, PRAKASHAN KORAMBATH
+     UNIVERSITY OF ALBERTA: TOBY ZENG, MARIUSZ KLOBUKOWSKI
+     UNIVERSITY OF NEW ENGLAND: MARK SPACKMAN
+     MIE UNIVERSITY: HIROAKI UMEDA
+     NAT. INST. OF ADVANCED INDUSTRIAL SCIENCE AND TECHNOLOGY: KAZUO KITAURA
+     MICHIGAN STATE UNIVERSITY:
+          KAROL KOWALSKI, MARTA WLOCH, JEFFREY GOUR, JESSE LUTZ,
+          WEI LI, PIOTR PIECUCH
+     UNIVERSITY OF SILESIA: MONIKA MUSIAL, STANISLAW KUCHARSKI
+     FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX:
+          OLIVIER QUINET, BENOIT CHAMPAGNE
+     UNIVERSITY OF CALIFORNIA - SANTA BARBARA: BERNARD KIRTMAN
+     INSTITUTE FOR MOLECULAR SCIENCE:
+          KAZUYA ISHIMURA, MICHIO KATOUDA, AND SHIGERU NAGASE
+     UNIVERSITY OF NOTRE DAME: ANNA POMOGAEVA, DAN CHIPMAN
+     KYUSHU UNIVERSITY:
+          HARUYUKI NAKANO,
+          FENG LONG GU, JACEK KORCHOWIEC, MARCIN MAKOWSKI, AND YURIKO AOKI,
+          HIROTOSHI MORI AND EISAKU MIYOSHI
+     PENNSYLVANIA STATE UNIVERSITY:
+          TZVETELIN IORDANOV, CHET SWALINA, JONATHAN SKONE,
+          SHARON HAMMES-SCHIFFER
+     WASEDA UNIVERSITY:
+          MASATO KOBAYASHI, TOMOKO AKAMA, TSUGUKI TOUMA,
+          TAKESHI YOSHIKAWA, YASUHIRO IKABATA, JUNJI SEINO,
+          YUYA NAKAJIMA, HIROMI NAKAI
+     NANJING UNIVERSITY: SHUHUA LI
+     UNIVERSITY OF NEBRASKA:
+          PEIFENG SU, DEJUN SI, NANDUN THELLAMUREGE, YALI WANG, HUI LI
+     UNIVERSITY OF ZURICH: ROBERTO PEVERATI, KIM BALDRIDGE
+     N. COPERNICUS UNIVERSITY AND JACKSON STATE UNIVERSITY:
+          MARIA BARYSZ
+     UNIVERSITY OF COPENHAGEN: Jimmy Kromann, CASPER STEINMANN
+     TOKYO INSTITUTE OF TECHNOLOGY: HIROYA NAKATA
+     NAGOYA UNIVERSITY: YOSHIO NISHIMOTO, STEPHAN IRLE
+     MOSCOW STATE UNIVERSITY: VLADIMIR MIRONOV
+
+ EXECUTION OF GAMESS BEGUN Mon Nov 28 21:25:36 2016
+
+            ECHO OF THE FIRST FEW INPUT CARDS -
+ INPUT CARD>! test of NACME for three states...HNO, 6-31G, 20 AOs, 7056 determinants        
+ INPUT CARD>! equal weights given to all states, compare to similar MOLPRO runs.            
+ INPUT CARD>!                                                                               
+ INPUT CARD>! The MCSCF ran for 2 iterations, the CP-MCHF for 100 iterations                
+ INPUT CARD>! many details below, but a few key results are                                 
+ INPUT CARD>!       STATE-SPECIFIC GRADIENT OF STATE   2 (OVERALL STATE   3)                
+ INPUT CARD>!       ENERGY=     -129.7681224779 SPIN=  0.00 WEIGHT= 0.333333                
+ INPUT CARD>!       UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z       
+ INPUT CARD>!          1 H                0.030737376      -0.019629887      -0.000000075   
+ INPUT CARD>!          2 N                0.183930218      -0.000492054       0.000000052   
+ INPUT CARD>!          3 O               -0.214667594       0.020121941       0.000000023   
+ INPUT CARD>!                                                                               
+ INPUT CARD>!       NONADIABATIC COUPLING MATRIX ELEMENT (NACME), IN ONE/BOHR               
+ INPUT CARD>!       <STATE  3, WEIGHT=   0.33333 | D/DQ | STATE  1, WEIGHT=   0.33333>      
+ INPUT CARD>!         ATOM               D/DX           D/DY           D/DZ                 
+ INPUT CARD>!          1 H              -0.0137740     -0.0374511      0.0000002            
+ INPUT CARD>!          2 N               0.0096646      0.0538556     -0.0000013            
+ INPUT CARD>!          3 O               0.0020429     -0.0267395      0.0000010            
+ INPUT CARD>!                                                                               
+ INPUT CARD>! The test takes 350 seconds on a 2.66 GHz Cloverton (27 Apr 2015)              
+ INPUT CARD>! tiny precision changes only since 2012                                        
+ INPUT CARD>!                                                                               
+ INPUT CARD>! --------------------------------------------------------------------------    
+ INPUT CARD>! energies from GAMESS (state 2 is a triplet):                                  
+ INPUT CARD>!  STATE   1  ENERGY=      -129.8382761646  S=   .00  SZ=   .00  SPACE SYM=A    
+ INPUT CARD>!  STATE   3  ENERGY=      -129.7681224779  S=   .00  SZ=   .00  SPACE SYM=A    
+ INPUT CARD>!  STATE   4  ENERGY=      -129.6681147039  S=   .00  SZ=   .00  SPACE SYM=A    
+ INPUT CARD>! these states are 1= 1-A' ground state, 3= 1-A'' n-> pi*, 4=1-A' pi->pi*       
+ INPUT CARD>! energies from MOLPRO (run in C1 symmetry)                                     
+ INPUT CARD>!         MULTI           MULTI           MULTI           RHF-SCF               
+ INPUT CARD>!    -129.66811418   -129.76812259   -129.83827655   -129.71107842              
+ INPUT CARD>!                                                                               
+ INPUT CARD>! MOLPRO, for state specific gradients:                                         
+ INPUT CARD>! state 1.1                                                                     
+ INPUT CARD>!  Atom          dE/dx               dE/dy               dE/dz                  
+ INPUT CARD>!    1         0.019995159        -0.030430404         0.000000000              
+ INPUT CARD>!    2         0.142590073         0.022451808        -0.000000000              
+ INPUT CARD>!    3        -0.162585231         0.007978596         0.000000000              
+ INPUT CARD>! state 2.1                                                                     
+ INPUT CARD>!    1         0.030737504        -0.019630785         0.000000000              
+ INPUT CARD>!    2         0.183929879        -0.000490957        -0.000000000              
+ INPUT CARD>!    3        -0.214667384         0.020121742         0.000000000              
+ INPUT CARD>! state 3.1                                                                     
+ INPUT CARD>!    1         0.046731718         0.022996446        -0.000000000              
+ INPUT CARD>!    2         0.220051428        -0.068886622         0.000000000              
+ INPUT CARD>!    3        -0.266783146         0.045890176        -0.000000000              
+ INPUT CARD>! GAMESS gets the following gradients,                                          
+ INPUT CARD>!   STATE-SPECIFIC GRADIENT OF STATE   1 WEIGHT=    .33333                      
+ INPUT CARD>!   units are hartree/bohr    E'X               E'Y               E'Z           
+ INPUT CARD>!    1 H                0.019994966      -0.030430817      -0.000000007         
+    5000000 WORDS OF MEMORY AVAILABLE
+
+     BASIS OPTIONS
+     -------------
+     GBASIS=N31          IGAUSS=       6      POLAR=NONE    
+     NDFUNC=       0     NFFUNC=       0     DIFFSP=       F
+     NPFUNC=       0      DIFFS=       F     BASNAM=        
+
+
+     RUN TITLE
+     ---------
+ HNO...RHF/6-311G(3df,2p) geometry                                               
+
+ THE POINT GROUP OF THE MOLECULE IS CS      
+ THE ORDER OF THE PRINCIPAL AXIS IS     0
+
+ ATOM      ATOMIC                      COORDINATES (BOHR)
+           CHARGE         X                   Y                   Z
+ H           1.0    -0.5935692410        1.8427859300        0.0000000000
+ N           7.0     0.0454993680        0.0027907838        0.0000000000
+ O           8.0     2.2475437041        0.0014047860        0.0000000000
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 H          2 N          3 O     
+
+   1 H       0.0000000    1.0307404 *  1.7916075 *
+   2 N       1.0307404 *  0.0000000    1.1652720 *
+   3 O       1.7916075 *  1.1652720 *  0.0000000  
+
+  * ... LESS THAN  3.000
+
+
+     ATOMIC BASIS SET
+     ----------------
+ THE CONTRACTED PRIMITIVE FUNCTIONS HAVE BEEN UNNORMALIZED
+ THE CONTRACTED BASIS FUNCTIONS ARE NOW NORMALIZED TO UNITY
+
+  SHELL TYPE  PRIMITIVE        EXPONENT          CONTRACTION COEFFICIENT(S)
+
+ H         
+
+      1   S       1            18.7311370    0.033494604338
+      1   S       2             2.8253944    0.234726953484
+      1   S       3             0.6401217    0.813757326146
+
+      2   S       4             0.1612778    1.000000000000
+
+ N         
+
+      3   S       5          4173.5114600    0.001834772160
+      3   S       6           627.4579110    0.013994627002
+      3   S       7           142.9020930    0.068586551812
+      3   S       8            40.2343293    0.232240873040
+      3   S       9            12.8202129    0.469069948082
+      3   S      10             4.3904370    0.360455199063
+
+      4   L      11            11.6263619   -0.114961181702    0.067579743878
+      4   L      12             2.7162798   -0.169117478561    0.323907295893
+      4   L      13             0.7722184    1.145851947027    0.740895139755
+
+      5   L      14             0.2120315    1.000000000000    1.000000000000
+
+ O         
+
+      6   S      15          5484.6716600    0.001831074430
+      6   S      16           825.2349460    0.013950172200
+      6   S      17           188.0469580    0.068445078098
+      6   S      18            52.9645000    0.232714335992
+      6   S      19            16.8975704    0.470192897984
+      6   S      20             5.7996353    0.358520852987
+
+      7   L      21            15.5396162   -0.110777549525    0.070874268231
+      7   L      22             3.5999336   -0.148026262701    0.339752839147
+      7   L      23             1.0137618    1.130767015354    0.727158577316
+
+      8   L      24             0.2700058    1.000000000000    1.000000000000
+
+ TOTAL NUMBER OF BASIS SET SHELLS             =    8
+ NUMBER OF CARTESIAN GAUSSIAN BASIS FUNCTIONS =   20
+ NUMBER OF ELECTRONS                          =   16
+ CHARGE OF MOLECULE                           =    0
+ SPIN MULTIPLICITY                            =    1
+ NUMBER OF OCCUPIED ORBITALS (ALPHA)          =    8
+ NUMBER OF OCCUPIED ORBITALS (BETA )          =    8
+ TOTAL NUMBER OF ATOMS                        =    3
+ THE NUCLEAR REPULSION ENERGY IS       31.3875917648
+
+     $CONTRL OPTIONS
+     ---------------
+ SCFTYP=MCSCF        RUNTYP=NACME        EXETYP=RUN     
+ MPLEVL=       0     CITYP =NONE         CCTYP =NONE         VBTYP =NONE    
+ DFTTYP=NONE         TDDFT =NONE    
+ MULT  =       1     ICHARG=       0     NZVAR =       3     COORD =UNIQUE  
+ PP    =NONE         RELWFN=NONE         LOCAL =NONE         NUMGRD=       F
+ ISPHER=      -1     NOSYM =       0     MAXIT =      30     UNITS =ANGS    
+ PLTORB=       F     MOLPLT=       F     AIMPAC=       F     FRIEND=        
+ NPRINT=       7     IREST =       0     GEOM  =INPUT   
+ NORMF =       0     NORMP =       0     ITOL  =      20     ICUT  =       9
+ INTTYP=BEST         GRDTYP=BEST         QMTTOL= 1.0E-06
+
+     $SYSTEM OPTIONS
+     ---------------
+  REPLICATED MEMORY=     5000000 WORDS (ON EVERY NODE).
+ DISTRIBUTED MEMDDI=           2 MILLION WORDS IN AGGREGATE,
+ MEMDDI DISTRIBUTED OVER   1 PROCESSORS IS     2000000 WORDS/PROCESSOR.
+ TOTAL MEMORY REQUESTED ON EACH PROCESSOR=     7000000 WORDS.
+ TIMLIM=      525600.00 MINUTES, OR     365.0 DAYS.
+ PARALL= T  BALTYP=  DLB     KDIAG=    0  COREFL= F
+ MXSEQ2=     300 MXSEQ3=     150  mem10=         0
+
+          ----------------
+          PROPERTIES INPUT
+          ----------------
+
+     MOMENTS            FIELD           POTENTIAL          DENSITY
+ IEMOM =       1   IEFLD =       0   IEPOT =       0   IEDEN =       0
+ WHERE =COMASS     WHERE =NUCLEI     WHERE =NUCLEI     WHERE =NUCLEI  
+ OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH    
+ IEMINT=       0   IEFINT=       0                     IEDINT=       0
+                                                       MORB  =       0
+
+     -------------------------------
+     INTEGRAL TRANSFORMATION OPTIONS
+     -------------------------------
+     NWORD  =            0
+     CUTOFF = 1.0E-09     MPTRAN =       0
+     DIRTRF =       F     AOINTS =DUP     
+ INTEGRAL TRANSFORMATION OPTION -DIRTRF- FORCED TRUE,
+ DUE TO THE CHOICE OF -FULLNR- IN A PARALLEL JOB.
+
+          ----------------------
+          MCSCF INPUT PARAMETERS
+          ----------------------
+ CONVERGER SELECTION: FOCAS = F  SOSCF = F  FULLNR = T  QUD = F  JACOBI = F
+ SECULAR EQUATION METHOD CISTEP = ALDET   
+ --- GENERAL INPUT OPTIONS:
+ MAXIT =      30  MICIT =       1  ACURCY= 1.000E-05
+ DAMP  =   0.000  CANONC=       T  ENGTOL= 1.000E-10
+ EKT   =       F  NPUNCH=       2  NWORD =         0
+ REGENERATE CI AFTER CONVERGENCE = NONE    
+ DIABATIZATION AFTER CONVERGENCE =        F
+ --- INPUT FOR FULLNR CONVERGER:
+ METHOD=DM2       FORS  =       F  DROPC =       T
+ LINSER=       F  FCORE =       F  NORB  =      20
+
+          ----------------------
+          INTEGRAL INPUT OPTIONS
+          ----------------------
+ NOPK  =       1 NORDER=       0 SCHWRZ=       F
+
+   --- ENCODED Z MATRIX ---
+ COORD  TYPE   I   J   K   L   M   N
+    1      1    1   2
+    2      1    2   3
+    3      2    1   2   3
+
+ THE DETERMINANT OF THE G MATRIX IS 10**(    -2)
+
+
+                     --------------------
+                     INTERNAL COORDINATES
+                     --------------------
+
+                 - - ATOMS - -         COORDINATE      COORDINATE
+ NO.   TYPE    I  J  K  L  M  N        (BOHR,RAD)       (ANG,DEG)
+ ----------------------------------------------------------------
+   1 STRETCH   1  2                     1.9478169       1.0307404
+   2 STRETCH   2  3                     2.2020448       1.1652720
+   3 BEND      1  2  3                  1.9057118     109.1892411
+
+     ------------------------------------------
+     THE POINT GROUP IS CS , NAXIS= 0, ORDER= 2
+     ------------------------------------------
+
+     DIMENSIONS OF THE SYMMETRY SUBSPACES ARE
+ A'  =   16     A'' =    4
+
+ ..... DONE SETTING UP THE RUN .....
+ CPU     0: STEP CPU TIME=     0.04 TOTAL CPU TIME=        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  80.00%
+
+     ------------------------------
+     CPHF RESPONSE SOLUTION OPTIONS
+     ------------------------------
+     POLAR  =       F     NWORD  =       0
+     CPHF   =MO      
+
+          ********************
+          1 ELECTRON INTEGRALS
+          ********************
+ TIME TO DO   DIPOLE INTEGRALS=      0.00
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  80.00%
+
+          -------------
+          GUESS OPTIONS
+          -------------
+          GUESS =MOREAD            NORB  =      20          NORDER=       0
+          MIX   =       F          PRTMO =       F          PUNMO =       F
+          TOLZ  = 1.0E-08          TOLE  = 1.0E-05
+          SYMDEN=       F          PURIFY=       F
+
+ INITIAL GUESS ORBITALS GENERATED BY MOREAD   ROUTINE.
+
+ SYMMETRIES FOR INITIAL GUESS ORBITALS FOLLOW.   BOTH SET(S).
+     8 ORBITALS ARE OCCUPIED (    2 CORE ORBITALS).
+     1=A        2=A        3=A        4=A        5=A        6=A        7=A   
+     8=A        9=A       10=A       11=A       12=A       13=A       14=A   
+    15=A       16=A       17=A       18=A       19=A       20=A   
+ ...... END OF INITIAL ORBITAL SELECTION ......
+ CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  80.00%
+
+                    ----------------------
+                    AO INTEGRAL TECHNOLOGY
+                    ----------------------
+     S,P,L SHELL ROTATED AXIS INTEGRALS, REPROGRAMMED BY
+        KAZUYA ISHIMURA (IMS) AND JOSE SIERRA (SYNSTAR).
+     S,P,D,L SHELL ROTATED AXIS INTEGRALS PROGRAMMED BY
+        KAZUYA ISHIMURA (INSTITUTE FOR MOLECULAR SCIENCE).
+     S,P,D,F,G SHELL TO TOTAL QUARTET ANGULAR MOMENTUM SUM 5,
+        ERIC PROGRAM BY GRAHAM FLETCHER (ELORET AND NASA ADVANCED
+        SUPERCOMPUTING DIVISION, AMES RESEARCH CENTER).
+     S,P,D,F,G,L SHELL GENERAL RYS QUADRATURE PROGRAMMED BY
+        MICHEL DUPUIS (PACIFIC NORTHWEST NATIONAL LABORATORY).
+ DIRECT TRANSFORMATION SKIPS AO INTEGRAL STORAGE ON DISK.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  75.00%
+ DDI: Creating Array [0] - 400 x 66 = 26400 words.
+ DDI: Creating Array [1] - 9 x 726 = 6534 words.
+ DDI: Creating Array [2] - 66 x 66 = 4356 words.
+ DDI: Creating Array [3] - 210 x 66 = 13860 words.
+
+          -----------------
+          MCSCF CALCULATION
+          -----------------
+
+ ----- NUCLEAR ENERGY ----- =        31.3875917648
+
+     --------------------------------------------------
+          AMES LABORATORY DETERMINANTAL FULL CI
+     PROGRAM WRITTEN BY JOE IVANIC AND KLAUS RUEDENBERG
+     --------------------------------------------------
+
+ RUNTYP=NACME    INVOLVING AN ANALYTIC NUCLEAR GRADIENT
+ HAS BEEN REQUESTED FOR A RUN AVERAGING OVER   3 STATES.
+ THIS REQUIRES SOLUTION OF THE MULTI-REFERENCE RESPONSE EQUATIONS,
+ REQUIRING MORE COMPUTER TIME THAN SINGLE STATE GRADIENTS.
+ PROVIDING $CPMCHF INPUT MAY HELP RESPONSE SOLVING.
+
+ THE POINT GROUP                  =   C1      
+ THE STATE SYMMETRY               =   A       
+ NUMBER OF CORE ORBITALS          =    2
+ NUMBER OF ACTIVE ORBITALS        =    9
+ NUMBER OF ALPHA ELECTRONS        =    8 (   6 ACTIVE)
+ NUMBER OF BETA ELECTRONS         =    8 (   6 ACTIVE)
+ NUMBER OF OCCUPIED ORBITALS      =   11
+ NUMBER OF CI STATES REQUESTED    =    5
+ NUMBER OF CI STARTING VECTORS    =    5
+ MAX. NO. OF CI EXPANSION VECTORS =   10
+ SIZE OF INITIAL CI GUESS MATRIX  =  300
+ MAX. NO. OF CI ITERS/STATE       =  100
+ CI DIAGONALIZATION CRITERION     = 1.00E-06
+ PURE SPIN STATE AVERAGED 1E- AND 2E- DENSITY MATRIX OPTION=.T.
+ STATE=   1 DM2 WEIGHT=   0.33333     STATE=   2 DM2 WEIGHT=   0.33333
+ STATE=   3 DM2 WEIGHT=   0.33333
+ STATE-AVERAGED MCSCF USING IROOT=  2 AS ITS STATE-SPECIFIC E
+
+ CORRELATION ENERGY ANALYSIS      =    F
+
+ SYMMETRIES FOR THE   2 CORE,   9 ACTIVE ARE
+
+     CORE= A     A   
+
+   ACTIVE= A     A     A     A     A     A     A     A     A   
+
+ EVALUATING EXCHANGE INTEGRALS FOR DIRECT INTEGRAL TRANSFORMATION
+ SCHWARZ INEQUALITY OVERHEAD:       210 INTEGRALS, T=        0.00
+
+     --------------------------------------------
+     PARTIAL TWO ELECTRON INTEGRAL TRANSFORMATION
+     --------------------------------------------
+
+ NUMBER OF CORE MOLECULAR ORBITALS     =    2
+ NUMBER OF OCCUPIED MOLECULAR ORBITALS =   11
+ TOTAL NUMBER OF MOLECULAR ORBITALS    =   20
+ TOTAL NUMBER OF ATOMIC ORBITALS       =   20
+ THRESHOLD FOR KEEPING TRANSFORMED 2E- INTEGRALS = 1.000E-09
+
+ -------------------------------     ------------------------------
+ DISTRIBUTED DATA TRANSFORMATION     PROGRAM WRITTEN BY G. FLETCHER
+ -------------------------------     ------------------------------
+
+ THE DISTRIBUTED MEMORY REQUIRED FOR THIS STEP IS MEMDDI=         1 MWORDS
+ CREATING DISTRIBUTED STORAGE FOR [VIR OCC|VIR OCC] INTEGRALS
+ CREATING DISTRIBUTED STORAGE FOR [VIR OCC|OCC OCC] INTEGRALS
+ CREATING DISTRIBUTED STORAGE FOR [OCC OCC|OCC OCC] INTEGRALS
+ CREATING DISTRIBUTED STORAGE FOR [VIR VIR|OCC OCC] INTEGRALS
+ FOR    1 PROCESSORS, THE REPLICATED MEMORY NEEDED IS       57006 WORDS.
+
+      DIRECT 4-INDEX TRANSFORMATION 
+      SCHWARZ INEQUALITY TEST SKIPPED          0 INTEGRAL BLOCKS
+ ----- FROZEN CORE ENERGY =      -117.2428842796
+ ... END OF INTEGRAL TRANSFORMATION ...
+ CPU     0: STEP CPU TIME=     0.01 TOTAL CPU TIME=        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  70.00%
+
+     --------------------------------------------------
+          AMES LABORATORY DETERMINANTAL FULL CI
+     PROGRAM WRITTEN BY JOE IVANIC AND KLAUS RUEDENBERG
+     --------------------------------------------------
+
+ THE NUMBER OF DETERMINANTS HAVING SPACE SYMMETRY A  
+ IN POINT GROUP C1   WITH SZ=  0.0 IS           7056
+ WHICH INCLUDES           2520 CSFS WITH S=  0.0
+ WHICH INCLUDES           3402 CSFS WITH S=  1.0
+ WHICH INCLUDES           1050 CSFS WITH S=  2.0
+ WHICH INCLUDES             84 CSFS WITH S=  3.0
+ THE DETERMINANT FULL CI REQUIRES          293563 WORDS
+ INITIAL CI VECTOR GUESS TIME  :          0.1
+ INITIAL FULL CI ITERATION TIME:          0.0
+
+ ITERATION      ENERGY           GRADIENT
+     0     -129.7938574380     0.32749162
+     0     -129.7554957783     0.33233260
+     0     -129.7230837702     0.33509209
+     0     -129.6253643441     0.32522556
+     0     -129.5556408990     0.34449819
+
+     1     -129.8351555141     0.09837500
+     1     -129.7973540624     0.09105704
+     1     -129.7651383092     0.09031914
+     1     -129.6652309572     0.08797759
+     1     -129.6026883568     0.09081536
+
+     2     -129.8375776598     0.04577986
+     2     -129.7997586755     0.03619273
+     2     -129.7674335087     0.03710393
+     2     -129.6673874821     0.03816237
+     2     -129.6054797117     0.03336426
+
+     3     -129.8380874344     0.02262548
+     3     -129.8002350364     0.01783379
+     3     -129.7679267062     0.01970875
+     3     -129.6678888273     0.02076106
+     3     -129.6058540917     0.01339126
+
+     4     -129.8382228982     0.01257062
+     4     -129.8003434724     0.00914705
+     4     -129.7680581485     0.01054220
+     4     -129.6679864033     0.01486696
+     4     -129.6059188114     0.00663417
+
+     5     -129.8382591602     0.00613835
+     5     -129.8003737639     0.00495430
+     5     -129.7680996291     0.00598903
+     5     -129.6679975936     0.01367465
+     5     -129.6059330345     0.00304336
+
+     6     -129.8382699995     0.00385843
+     6     -129.8003827864     0.00281912
+     6     -129.7681136232     0.00353796
+     6     -129.6680060950     0.01331458
+     6     -129.6059365880     0.00170846
+
+     7     -129.8382734502     0.00196152
+     7     -129.8003857026     0.00158686
+     7     -129.7681187191     0.00209722
+     7     -129.6680136137     0.01263540
+     7     -129.6059375991     0.00090658
+
+     8     -129.8382746229     0.00130983
+     8     -129.8003867022     0.00096869
+     8     -129.7681207378     0.00137351
+     8     -129.6680206047     0.01238682
+     8     -129.6059379367     0.00057685
+
+     9     -129.8382750384     0.00069102
+     9     -129.8003870598     0.00056076
+     9     -129.7681215834     0.00084470
+     9     -129.6680269228     0.01174062
+     9     -129.6059380807     0.00038264
+
+    10     -129.8382751917     0.00048215
+    10     -129.8003871930     0.00035896
+    10     -129.7681219645     0.00060742
+    10     -129.6680327649     0.01154797
+    10     -129.6059381507     0.00027294
+
+    11     -129.8382752496     0.00025913
+    11     -129.8003872439     0.00021196
+    11     -129.7681221434     0.00038358
+    11     -129.6680378373     0.01093555
+    11     -129.6059381878     0.00019833
+
+    12     -129.8382752720     0.00018583
+    12     -129.8003872640     0.00014098
+    12     -129.7681222321     0.00029764
+    12     -129.6680425015     0.01081138
+    12     -129.6059382090     0.00015335
+
+    13     -129.8382752809     0.00010117
+    13     -129.8003872722     0.00008474
+    13     -129.7681222773     0.00019117
+    13     -129.6680467525     0.01023758
+    13     -129.6059382219     0.00011837
+
+    14     -129.8382752844     0.00007411
+    14     -129.8003872756     0.00005874
+    14     -129.7681223011     0.00015641
+    14     -129.6680506867     0.01014849
+    14     -129.6059382302     0.00009754
+
+    15     -129.8382752858     0.00004069
+    15     -129.8003872770     0.00003603
+    15     -129.7681223139     0.00010139
+    15     -129.6680543550     0.00961020
+    15     -129.6059382356     0.00007775
+
+    16     -129.8382752864     0.00003033
+    16     -129.8003872777     0.00002624
+    16     -129.7681223209     0.00008563
+    16     -129.6680578069     0.00954037
+    16     -129.6059382394     0.00006663
+
+    17     -129.8382752866     0.00001677
+    17     -129.8003872780     0.00001645
+    17     -129.7681223248     0.00005575
+    17     -129.6680610528     0.00903176
+    17     -129.6059382420     0.00005380
+
+    18     -129.8382752867     0.00001266
+    18     -129.8003872781     0.00001262
+    18     -129.7681223270     0.00004792
+    18     -129.6680641241     0.00897721
+    18     -129.6059382438     0.00004715
+
+    19     -129.8382752868     0.00000705
+    19     -129.8003872782     0.00000806
+    19     -129.7681223282     0.00003126
+    19     -129.6680670158     0.00849246
+    19     -129.6059382451     0.00003822
+
+    20     -129.8382752868     0.00000539
+    20     -129.8003872783     0.00000646
+    20     -129.7681223289     0.00002714
+    20     -129.6680697445     0.00844954
+    20     -129.6059382460     0.00003395
+
+    21     -129.8382752868     0.00000302
+    21     -129.8003872783     0.00000416
+    21     -129.7681223292     0.00001773
+    21     -129.6680723435     0.00799057
+    21     -129.6059382467     0.00002753
+
+    22     -129.8382752868     0.00000233
+    22     -129.8003872783     0.00000344
+    22     -129.7681223295     0.00001548
+    22     -129.6680747945     0.00795195
+    22     -129.6059382472     0.00002465
+
+    23     -129.8382752868     0.00000131
+    23     -129.8003872783     0.00000223
+    23     -129.7681223296     0.00001012
+    23     -129.6680771110     0.00751558
+    23     -129.6059382475     0.00001998
+
+    24     -129.8382752868     0.00000102
+    24     -129.8003872783     0.00000187
+    24     -129.7681223297     0.00000886
+    24     -129.6680794004     0.00748182
+    24     -129.6059382478     0.00001797
+
+    25     -129.8382752868     0.00000058
+    25     -129.8003872783     0.00000121
+    25     -129.7681223297     0.00000608
+    25     -129.6680815807     0.00711638
+    25     -129.6059382480     0.00001455
+
+
+ CONVERGED STATE    1 ENERGY=     -129.8382752868 IN   25 ITERS
+
+     0     -129.8003872783     0.00000121
+     0     -129.7681223297     0.00000608
+     0     -129.6680815807     0.00711638
+     0     -129.6059382480     0.00001455
+
+     1     -129.8003872783     0.00000103
+     1     -129.7681223297     0.00000532
+     1     -129.6680901612     0.00667705
+     1     -129.6059382481     0.00001313
+
+     2     -129.8003872783     0.00000067
+     2     -129.7681223297     0.00000362
+     2     -129.6680919640     0.00688021
+     2     -129.6059382482     0.00001062
+
+
+ CONVERGED STATE    2 ENERGY=     -129.8003872783 IN   28 ITERS
+
+     0     -129.7681223297     0.00000362
+     0     -129.6680919640     0.00688021
+     0     -129.6059382482     0.00001062
+
+     1     -129.7681223298     0.00000251
+     1     -129.6680938310     0.00622261
+     1     -129.6059382483     0.00000961
+
+     2     -129.7681223298     0.00000193
+     2     -129.6681004766     0.00584372
+     2     -129.6059382483     0.00000776
+
+     3     -129.7681223298     0.00000150
+     3     -129.6681027620     0.00505700
+     3     -129.6059382484     0.00000703
+
+     4     -129.7681223298     0.00000115
+     4     -129.6681045547     0.00497269
+     4     -129.6059382484     0.00000568
+
+     5     -129.7681223298     0.00000095
+     5     -129.6681054525     0.00464847
+     5     -129.6059382484     0.00000514
+
+
+ CONVERGED STATE    3 ENERGY=     -129.7681223298 IN   34 ITERS
+
+     0     -129.6681054525     0.00464847
+     0     -129.6059382484     0.00000514
+
+     1     -129.6681060800     0.00439322
+     1     -129.6059382484     0.00000415
+
+     2     -129.6681091551     0.00304898
+     2     -129.6059382485     0.00000009
+
+
+ CONVERGED STATE    5 ENERGY=     -129.6059382485 IN   37 ITERS
+
+     0     -129.6681091551     0.00304898
+     1     -129.6681104860     0.00272397
+     2     -129.6681108664     0.00271401
+     3     -129.6681146337     0.00139976
+     4     -129.6681155116     0.00057052
+     5     -129.6681156445     0.00028816
+     6     -129.6681156756     0.00015853
+     7     -129.6681156922     0.00010603
+     8     -129.6681156966     0.00005627
+     9     -129.6681156969     0.00005062
+    10     -129.6681156976     0.00003439
+    11     -129.6681156977     0.00003380
+    12     -129.6681156980     0.00002396
+    13     -129.6681156980     0.00002092
+    14     -129.6681156983     0.00001184
+    15     -129.6681156983     0.00000768
+    16     -129.6681156984     0.00000481
+    17     -129.6681156984     0.00000387
+    18     -129.6681156984     0.00000332
+    19     -129.6681156984     0.00000288
+    20     -129.6681156984     0.00000248
+    21     -129.6681156984     0.00000236
+    22     -129.6681156984     0.00000168
+    23     -129.6681156984     0.00000138
+    24     -129.6681156984     0.00000088
+
+ CONVERGED STATE    4 ENERGY=     -129.6681156984 IN   62 ITERS
+
+ ALL STATES CONVERGED.
+
+ CI EIGENVECTORS WILL BE LABELED IN GROUP=C1      
+ PRINTING CI COEFFICIENTS LARGER THAN 5.000E-02
+
+ STATE   1  ENERGY=      -129.8382752868  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+  ALPHA    |  BETA     | CI COEFFICIENT
+-----------|-----------|---------------
+ 111111000 | 111111000 |   0.9579358130
+ 111011100 | 111011100 |  -0.1845608462
+ 111110100 | 111110100 |  -0.0647638081
+ 111011100 | 110111010 |  -0.0517662494
+ 110111010 | 111011100 |  -0.0517662494
+
+ STATE   2  ENERGY=      -129.8003872783  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+  ALPHA    |  BETA     | CI COEFFICIENT
+-----------|-----------|---------------
+ 111111000 | 111110100 |   0.6868694317
+ 111110100 | 111111000 |  -0.6868694317
+ 111011100 | 111101100 |   0.0934245527
+ 111101100 | 111011100 |  -0.0934245527
+
+ STATE   3  ENERGY=      -129.7681223298  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+  ALPHA    |  BETA     | CI COEFFICIENT
+-----------|-----------|---------------
+ 111110100 | 111111000 |   0.6787065334
+ 111111000 | 111110100 |   0.6787065334
+ 111101100 | 111011100 |   0.1317123085
+ 111011100 | 111101100 |   0.1317123085
+
+ STATE   4  ENERGY=      -129.6681156984  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+  ALPHA    |  BETA     | CI COEFFICIENT
+-----------|-----------|---------------
+ 111110100 | 111110100 |   0.9480958934
+ 111101100 | 111101100 |  -0.2398085902
+ 111111000 | 111111000 |   0.0551706700
+ 110110110 | 111101100 |   0.0510871490
+ 111101100 | 110110110 |   0.0510871490
+
+ STATE   5  ENERGY=      -129.6059382485  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+  ALPHA    |  BETA     | CI COEFFICIENT
+-----------|-----------|---------------
+ 111111000 | 111011100 |   0.6968260767
+ 111011100 | 111111000 |  -0.6968260767
+ ..... DONE WITH DETERMINANT CI COMPUTATION .....
+ CPU     0: STEP CPU TIME=     0.79 TOTAL CPU TIME=        0.9 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.0 SECONDS, CPU UTILIZATION IS  82.69%
+
+     --------------------------------------------------
+      ONE AND TWO PARTICLE DENSITY MATRIX COMPUTATION
+     PROGRAM WRITTEN BY JOE IVANIC AND KLAUS RUEDENBERG
+     --------------------------------------------------
+
+      56715 WORDS WILL BE USED TO FORM THE DENSITIES
+ THE DENSITIES ARE STATE AVERAGED OVER   3 ROOT(S)
+ STATE=   1   ENERGY=     -129.8382752868   WEIGHT= 0.33333   S=  0.00
+ STATE=   3   ENERGY=     -129.7681223298   WEIGHT= 0.33333   S=  0.00
+ STATE=   4   ENERGY=     -129.6681156984   WEIGHT= 0.33333   S=  0.00
+ SIEVING THE A    SYMMETRY NONZERO DENSITY ELEMENTS IN GROUP C1      
+        963 NONZERO DM2 ELEMENTS WRITTEN IN       1 RECORDS TO FILE 15
+ ..... DONE WITH 1 AND 2 PARTICLE DENSITY MATRIX .....
+ CPU     0: STEP CPU TIME=     0.02 TOTAL CPU TIME=        0.9 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.1 SECONDS, CPU UTILIZATION IS  79.28%
+
+     --------------------------------     -----------------------------
+     MCHF NEWTON-RAPHSON OPTIMIZATION     CODE WRITTEN BY MICHEL DUPUIS
+     --------------------------------     -----------------------------
+     PARALLEL VERSION WRITTEN BY G. FLETCHER (ELORET)
+     NASA ADVANCED SUPERCOMPUTING DIVISION, AMES RESEARCH CENTER
+
+ NUMBER OF INDEPENDENT ORBITAL ROTATION PARAMETERS =   105
+ ..... DONE SOLVING NEWTON-RAPHSON EQUATIONS .....
+ CPU     0: STEP CPU TIME=     0.04 TOTAL CPU TIME=        0.9 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.2 SECONDS, CPU UTILIZATION IS  79.31%
+ ..... DONE WITH NTN-RPH ORBITAL ROTATIONS ..... 
+ CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=        0.9 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.2 SECONDS, CPU UTILIZATION IS  79.31%
+ MAXIMUM MEMORY USED BY NTN-RPH CODE WAS     53419 WORDS.
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+   1     -129.758171105 -0.758171105  0.000012   18   11 5.546E-08  1   0.0000
+   2     -129.758171109 -0.000000004  0.000005   12    8 5.092E-09  1   0.0000
+
+          --------------------
+          LAGRANGIAN CONVERGED
+          --------------------
+
+ FINAL MCSCF ENERGY IS     -129.7681224843 AFTER   2 ITERATIONS
+
+ -MCCI- BASED ON OPTIMIZED ORBITALS
+ ----------------------------------
+
+ PLEASE NOTE: IF THE ACTIVE ORBITALS ARE CANONICALIZED BELOW,
+ THE FOLLOWING CI EXPANSION COEFFICIENTS AND THE DENSITY DO NOT
+ CORRESPOND TO THE PRINTED ORBITALS.  THE PRINTED EXPANSIONS MATCH
+ THE ORBITALS USED DURING THE LAST ITERATION.  IF YOU WISH TO SEE
+ CI EXPANSIONS BASED ON THE CANONICAL (OR NATURAL) ORBITALS, YOU
+ MUST RUN A CI CALCULATION WITH THAT ORBITAL CHOICE READ IN $VEC.
+
+ CI EIGENVECTORS WILL BE LABELED IN GROUP=C1      
+ PRINTING CI COEFFICIENTS LARGER THAN 5.000E-02
+
+ STATE   1  ENERGY=      -129.8382761659  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+  ALPHA    |  BETA     | CI COEFFICIENT
+-----------|-----------|---------------
+ 111111000 | 111111000 |   0.9579356574
+ 111011100 | 111011100 |  -0.1845584893
+ 111110100 | 111110100 |  -0.0647634240
+ 111011100 | 110111010 |  -0.0517656041
+ 110111010 | 111011100 |  -0.0517656041
+
+ STATE   2  ENERGY=      -129.8003872226  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+  ALPHA    |  BETA     | CI COEFFICIENT
+-----------|-----------|---------------
+ 111111000 | 111110100 |   0.6868694894
+ 111110100 | 111111000 |  -0.6868694894
+ 111011100 | 111101100 |   0.0934228019
+ 111101100 | 111011100 |  -0.0934228019
+
+ STATE   3  ENERGY=      -129.7681224843  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+  ALPHA    |  BETA     | CI COEFFICIENT
+-----------|-----------|---------------
+ 111110100 | 111111000 |   0.6787064815
+ 111111000 | 111110100 |   0.6787064815
+ 111101100 | 111011100 |   0.1317108937
+ 111011100 | 111101100 |   0.1317108937
+
+ STATE   4  ENERGY=      -129.6681146782  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+  ALPHA    |  BETA     | CI COEFFICIENT
+-----------|-----------|---------------
+ 111110100 | 111110100 |   0.9480963512
+ 111101100 | 111101100 |  -0.2398065551
+ 111111000 | 111111000 |   0.0551704822
+ 110110110 | 111101100 |   0.0510869954
+ 111101100 | 110110110 |   0.0510869954
+
+ STATE   5  ENERGY=      -129.6059378717  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+  ALPHA    |  BETA     | CI COEFFICIENT
+-----------|-----------|---------------
+ 111111000 | 111011100 |   0.6968261573
+ 111011100 | 111111000 |  -0.6968261573
+
+ DENSITY MATRIX OVER ACTIVE MO-S
+
+             1           2           3           4           5
+
+    1    1.9975922
+    2   -0.0000000   1.9850540
+    3    0.0000000   0.0000012   1.9710250
+    4    0.0000000  -0.0000000   0.0000000   1.9532815
+    5    0.0000002   0.0000002   0.0000002  -0.0000000   1.9330071
+    6    0.0000006  -0.0000000   0.0000014   0.0000004   0.0000017
+    7   -0.0000001   0.0000001  -0.0000001   0.0000000   0.0000001
+    8   -0.0000003   0.0000006  -0.0000004   0.0000000   0.0000006
+    9    0.0000024   0.0000013   0.0000024  -0.0000000   0.0000067
+
+             6           7           8           9
+
+    6    1.0600111
+    7   -0.0000000   1.0477501
+    8    0.0000009   0.0000000   0.0270890
+    9    0.0000121   0.0000000   0.0000001   0.0251900
+
+ FORMING THE "STANDARD FOCK OPERATOR" IN DIRECT AO INTEGRAL MODE...
+     2 FILLED,    9 ACTIVE, AND    9 VIRTUAL ORBITALS  WILL BE CANONICALIZED
+
+          ----------------------
+          MCSCF NATURAL ORBITALS
+          ----------------------
+
+                      1          2          3          4          5
+                  -20.6415   -15.6402     1.9976     1.9851     1.9710
+                     A          A          A          A          A   
+    1  H  1  S   -0.000712  -0.001835   0.019466   0.182144   0.224199
+    2  H  1  S   -0.000418   0.002340   0.019208   0.007861   0.122578
+    3  N  2  S    0.000239   0.997116  -0.032990  -0.186989  -0.007599
+    4  N  2  S   -0.001095   0.020115   0.064237   0.443055  -0.011477
+    5  N  2  X   -0.000583   0.003513   0.039770   0.058290  -0.437530
+    6  N  2  Y   -0.000063   0.000600   0.006262   0.133101   0.191456
+    7  N  2  Z   -0.000000  -0.000000   0.000000   0.000000   0.000000
+    8  N  2  S    0.009514  -0.011497  -0.064401   0.407875   0.218302
+    9  N  2  X    0.005815  -0.000571  -0.058946   0.000987  -0.070925
+   10  N  2  Y    0.000186  -0.002375  -0.001222   0.071422   0.075218
+   11  N  2  Z   -0.000000   0.000000   0.000000   0.000000   0.000000
+   12  O  3  S    1.001577   0.000707  -0.200051   0.016569   0.034211
+   13  O  3  S    0.008712  -0.001813   0.516211  -0.042921  -0.087637
+   14  O  3  X   -0.007256  -0.000527   0.124428  -0.287720   0.437926
+   15  O  3  Y    0.000476   0.000618  -0.014464   0.044160   0.032721
+   16  O  3  Z   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   17  O  3  S   -0.028696   0.000866   0.593016  -0.227187  -0.016150
+   18  O  3  X    0.002475  -0.000926   0.062263  -0.088777   0.237948
+   19  O  3  Y    0.000142   0.000847  -0.008619   0.012045  -0.000570
+   20  O  3  Z   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+
+                      6          7          8          9         10
+                    1.9533     1.9330     1.0600     1.0478     0.0271
+                     A          A          A          A          A   
+    1  H  1  S   -0.000000   0.063211  -0.218553  -0.000001  -0.057460
+    2  H  1  S   -0.000000   0.017780  -0.210141  -0.000001  -0.048829
+    3  N  2  S   -0.000000   0.070289  -0.059979  -0.000000  -0.094049
+    4  N  2  S    0.000000  -0.161293   0.132117   0.000000   0.461260
+    5  N  2  X    0.000000   0.180628  -0.175326  -0.000001   0.803281
+    6  N  2  Y   -0.000000   0.364749  -0.339067  -0.000001   0.024359
+    7  N  2  Z    0.395841  -0.000000  -0.000002   0.548778  -0.000000
+    8  N  2  S    0.000000  -0.272869   0.311203   0.000001   0.391483
+    9  N  2  X   -0.000000   0.096203  -0.134024  -0.000000   0.272341
+   10  N  2  Y   -0.000000   0.207647  -0.249259  -0.000001   0.012160
+   11  N  2  Z    0.234772  -0.000000  -0.000002   0.492947  -0.000000
+   12  O  3  S    0.000000  -0.016634   0.003074   0.000000   0.082858
+   13  O  3  S   -0.000000   0.046021  -0.021446  -0.000000  -0.312012
+   14  O  3  X   -0.000000  -0.085939   0.073300   0.000000   0.780392
+   15  O  3  Y    0.000000   0.426349   0.541105   0.000002  -0.009132
+   16  O  3  Z    0.500064   0.000000   0.000002  -0.496389   0.000000
+   17  O  3  S   -0.000000   0.033251   0.043669   0.000000  -0.485220
+   18  O  3  X   -0.000000  -0.055798   0.027769   0.000000   0.241634
+   19  O  3  Y    0.000000   0.260043   0.412879   0.000001   0.014359
+   20  O  3  Z    0.299577   0.000000   0.000001  -0.422892   0.000000
+
+                     11
+                    0.0252
+                     A   
+    1  H  1  S   -0.707571
+    2  H  1  S   -0.458895
+    3  N  2  S   -0.072541
+    4  N  2  S    0.389133
+    5  N  2  X   -0.264182
+    6  N  2  Y    0.719365
+    7  N  2  Z   -0.000000
+    8  N  2  S    0.195802
+    9  N  2  X   -0.099239
+   10  N  2  Y    0.125795
+   11  N  2  Z   -0.000000
+   12  O  3  S   -0.006167
+   13  O  3  S    0.034093
+   14  O  3  X    0.016336
+   15  O  3  Y   -0.228841
+   16  O  3  Z    0.000000
+   17  O  3  S    0.056808
+   18  O  3  X   -0.026682
+   19  O  3  Y    0.056792
+   20  O  3  Z    0.000000
+
+          ------------------------
+          MCSCF OPTIMIZED ORBITALS
+          ------------------------
+
+                      1          2          3          4          5
+                  -20.6415   -15.6402    -1.5857    -0.9742    -0.7273
+                     A          A          A          A          A   
+    1  H  1  S   -0.000712  -0.001835   0.045543  -0.207497   0.195832
+    2  H  1  S   -0.000418   0.002340  -0.017303  -0.031512   0.110029
+    3  N  2  S    0.000239   0.997116  -0.121748   0.146968   0.025327
+    4  N  2  S   -0.001095   0.020115   0.286280  -0.345017  -0.087316
+    5  N  2  X   -0.000583   0.003513   0.192587   0.107720  -0.290884
+    6  N  2  Y   -0.000063   0.000600   0.025256  -0.156582   0.283418
+    7  N  2  Z   -0.000000  -0.000000   0.000000   0.000000   0.000000
+    8  N  2  S    0.009514  -0.011497   0.096346  -0.445946   0.023376
+    9  N  2  X    0.005815  -0.000571  -0.024662  -0.001661  -0.046545
+ DDI: Creating Array [0] - 66 x 66 = 4356 words.
+ DDI: Creating Array [1] - 210 x 66 = 13860 words.
+   10  N  2  Y    0.000186  -0.002375   0.017624  -0.076489   0.130007
+   11  N  2  Z   -0.000000   0.000000   0.000000   0.000000   0.000000
+   12  O  3  S    1.001577   0.000707  -0.161110  -0.113730  -0.051864
+   13  O  3  S    0.008712  -0.001813   0.415494   0.293358   0.134959
+   14  O  3  X   -0.007256  -0.000527  -0.181902   0.166308   0.411739
+   15  O  3  Y    0.000476   0.000618   0.011005  -0.051823   0.198850
+   16  O  3  Z   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   17  O  3  S   -0.028696   0.000866   0.358704   0.460004   0.237240
+   18  O  3  X    0.002475  -0.000926  -0.067694   0.030589   0.210791
+   19  O  3  Y    0.000142   0.000847   0.005526  -0.013994   0.107971
+   20  O  3  Z   -0.000000  -0.000000   0.000000   0.000000   0.000000
+
+                      6          7          8          9         10
+                   -0.6445    -0.6182    -0.2035    -0.1179     0.6325
+                     A          A          A          A          A   
+    1  H  1  S   -0.000000  -0.015884  -0.239923  -0.000000  -0.705865
+    2  H  1  S   -0.000000  -0.031863  -0.221705  -0.000000  -0.457372
+    3  N  2  S    0.000000   0.063334  -0.061769  -0.000000  -0.078063
+    4  N  2  S   -0.000000  -0.134502   0.141803   0.000000   0.420717
+    5  N  2  X    0.000000   0.307275  -0.175989  -0.000000  -0.194668
+    6  N  2  Y   -0.000000   0.263501  -0.341549  -0.000000   0.726584
+    7  N  2  Z    0.376614  -0.000000  -0.000000   0.562146  -0.000000
+    8  N  2  S   -0.000000  -0.289842   0.317115   0.000000   0.218392
+    9  N  2  X    0.000000   0.119912  -0.136444  -0.000000  -0.074055
+   10  N  2  Y   -0.000000   0.162194  -0.255366  -0.000000   0.131867
+   11  N  2  Z    0.217574  -0.000000  -0.000000   0.500776  -0.000000
+   12  O  3  S    0.000000   0.009225   0.003619  -0.000000   0.000532
+   13  O  3  S   -0.000000  -0.021277  -0.022987  -0.000000   0.009215
+   14  O  3  X   -0.000000  -0.266987   0.074325   0.000000   0.075826
+   15  O  3  Y    0.000000   0.399531   0.521439   0.000000  -0.237288
+   16  O  3  Z    0.516941  -0.000000  -0.000000  -0.478788   0.000000
+   17  O  3  S   -0.000000  -0.078273   0.042686   0.000000   0.016722
+   18  O  3  X   -0.000000  -0.148795   0.026564   0.000000  -0.008595
+   19  O  3  Y    0.000000   0.251080   0.405127   0.000000   0.051026
+   20  O  3  Z    0.314031  -0.000000   0.000000  -0.412273   0.000000
+
+                     11         12         13         14         15
+                    0.8665     0.6797     0.7053     0.9077     0.9688
+                     A          A          A          A          A   
+    1  H  1  S   -0.000490   0.608839  -0.387295  -0.000000  -0.500229
+    2  H  1  S   -0.011993  -1.734726   1.208346   0.000000   0.144188
+    3  N  2  S   -0.088160  -0.037443  -0.007950  -0.000000  -0.051140
+    4  N  2  S    0.429410  -0.275019  -0.195805   0.000000   0.617202
+    5  N  2  X    0.823552  -0.275555  -0.419836  -0.000000  -0.227623
+    6  N  2  Y   -0.031684  -0.311633   0.212007  -0.000000  -0.668580
+    7  N  2  Z    0.000000  -0.000000   0.000000  -0.952350   0.000000
+    8  N  2  S    0.374306   2.166921   1.046295  -0.000000  -0.611047
+    9  N  2  X    0.280150   1.101445   1.978558   0.000000   0.039752
+   10  N  2  Y    0.003036   0.851127  -0.684619   0.000000   1.044581
+   11  N  2  Z    0.000000   0.000000  -0.000000   1.133699  -0.000000
+   12  O  3  S    0.083521   0.020118   0.057298  -0.000000  -0.008230
+   13  O  3  S   -0.314822   0.023138  -0.157914   0.000000   0.080314
+   14  O  3  X    0.774112  -0.078971  -0.123750   0.000000   0.049802
+   15  O  3  Y    0.008570   0.105312  -0.101125  -0.000000  -0.300113
+   16  O  3  Z   -0.000000   0.000000   0.000000  -0.159322   0.000000
+   17  O  3  S   -0.490345  -1.228790  -1.688514   0.000000   0.076324
+   18  O  3  X    0.241848   0.698964   0.885789  -0.000000  -0.128690
+   19  O  3  Y    0.009293  -0.242286   0.237696  -0.000000   0.039458
+   20  O  3  Z   -0.000000  -0.000000  -0.000000  -0.100254  -0.000000
+
+                     16         17         18         19         20
+                    1.0939     1.1917     1.1990     1.2596     1.8118
+                     A          A          A          A          A   
+    1  H  1  S   -0.256410  -0.000000   0.122563  -0.775715   0.361721
+    2  H  1  S   -0.379822   0.000000  -0.848765  -0.769339   0.076360
+    3  N  2  S    0.001609  -0.000000   0.022163  -0.010692   0.010354
+    4  N  2  S   -0.052792   0.000000  -0.944750  -1.146821   0.382974
+    5  N  2  X    0.409540  -0.000000   0.140547   0.038013  -0.259346
+    6  N  2  Y   -0.101974   0.000000  -0.102065  -0.203011   0.008469
+    7  N  2  Z   -0.000000   0.122018   0.000000  -0.000000   0.000000
+    8  N  2  S    1.482256  -0.000000   1.333766   1.856069  -3.570669
+    9  N  2  X   -0.008126   0.000000  -0.222936  -0.187421  -1.764235
+   10  N  2  Y    0.508560   0.000000   0.099332   1.445053  -0.298063
+   11  N  2  Z    0.000000  -0.577622  -0.000000   0.000000  -0.000000
+   12  O  3  S    0.072780   0.000000  -0.000986   0.010117   0.026301
+   13  O  3  S   -0.370517   0.000000  -0.116466  -0.274945  -1.765027
+   14  O  3  X   -0.649983  -0.000000   0.124058   0.220548   0.138162
+   15  O  3  Y   -0.042677   0.000000  -0.754024   0.392224  -0.015166
+   16  O  3  Z    0.000000  -0.918166  -0.000000   0.000000  -0.000000
+   17  O  3  S   -0.375571  -0.000000   0.037924   0.041233   4.536235
+   18  O  3  X    1.530523   0.000000  -0.203652  -0.310617  -1.991325
+   19  O  3  Y   -0.085663  -0.000000   0.956564  -0.899293   0.111668
+   20  O  3  Z   -0.000000   1.279845   0.000000  -0.000000   0.000000
+
+ THIS RUN IS GOING TO SOLVE THE CP-MC-HF RESPONSE EQUATIONS,
+ USING CANONICAL ACTIVE ORBITALS TO IMPROVE THEIR CONVERGENCE.
+ ROTATION OF THE ACTIVE ORBITALS REQUIRES REGENERATION OF THE CI STATES,
+ THE 1 PARTICLE DENSITY, AND THE 2 PARTICLE DENSITY OVER THE NEW ACTIVE
+ ORBITALS.  AWAY WE GO...
+
+     --------------------------------------------
+     PARTIAL TWO ELECTRON INTEGRAL TRANSFORMATION
+     --------------------------------------------
+
+ NUMBER OF CORE MOLECULAR ORBITALS     =    2
+ NUMBER OF OCCUPIED MOLECULAR ORBITALS =   11
+ TOTAL NUMBER OF MOLECULAR ORBITALS    =   11
+ TOTAL NUMBER OF ATOMIC ORBITALS       =   20
+ THRESHOLD FOR KEEPING TRANSFORMED 2E- INTEGRALS = 1.000E-09
+
+ -------------------------------     ------------------------------
+ DISTRIBUTED DATA TRANSFORMATION     PROGRAM WRITTEN BY G. FLETCHER
+ -------------------------------     ------------------------------
+
+ THE DISTRIBUTED MEMORY REQUIRED FOR THIS STEP IS MEMDDI=         1 MWORDS
+ CREATING DISTRIBUTED STORAGE FOR [OCC OCC|OCC OCC] INTEGRALS
+ CREATING WORKSPACE OF SIZE VVOO
+ FOR    1 PROCESSORS, THE REPLICATED MEMORY NEEDED IS       53710 WORDS.
+
+      DIRECT 4-INDEX TRANSFORMATION 
+      SCHWARZ INEQUALITY TEST SKIPPED          0 INTEGRAL BLOCKS
+ ----- FROZEN CORE ENERGY =      -117.2428494422
+ ... END OF INTEGRAL TRANSFORMATION ...
+ CPU     0: STEP CPU TIME=     0.21 TOTAL CPU TIME=        1.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.4 SECONDS, CPU UTILIZATION IS  81.29%
+
+     --------------------------------------------------
+          AMES LABORATORY DETERMINANTAL FULL CI
+     PROGRAM WRITTEN BY JOE IVANIC AND KLAUS RUEDENBERG
+     --------------------------------------------------
+
+ THE NUMBER OF DETERMINANTS HAVING SPACE SYMMETRY A  
+ IN POINT GROUP C1   WITH SZ=  0.0 IS           7056
+ WHICH INCLUDES           2520 CSFS WITH S=  0.0
+ WHICH INCLUDES           3402 CSFS WITH S=  1.0
+ WHICH INCLUDES           1050 CSFS WITH S=  2.0
+ WHICH INCLUDES             84 CSFS WITH S=  3.0
+ THE DETERMINANT FULL CI REQUIRES          293563 WORDS
+ INITIAL CI VECTOR GUESS TIME  :          0.1
+ INITIAL FULL CI ITERATION TIME:          0.0
+
+ ITERATION      ENERGY           GRADIENT
+     0     -129.7876878690     0.35575088
+     0     -129.7547425153     0.34242382
+     0     -129.7213665695     0.34610117
+     0     -129.6255230292     0.33358627
+     0     -129.5546281817     0.34610694
+
+     1     -129.8353508540     0.09798614
+     1     -129.7980357620     0.08242144
+     1     -129.7657352210     0.08307958
+     1     -129.6659296300     0.08000481
+     1     -129.6033715821     0.08124358
+
+     2     -129.8376588436     0.04059335
+     2     -129.7999410699     0.03092312
+     2     -129.7675937479     0.03251064
+     2     -129.6676281479     0.03221797
+     2     -129.6055643181     0.03067343
+
+     3     -129.8381300843     0.02026043
+     3     -129.8002875327     0.01485403
+     3     -129.7679764075     0.01757945
+     3     -129.6679837497     0.01692650
+     3     -129.6058659587     0.01262099
+
+     4     -129.8382394482     0.00979472
+     4     -129.8003604552     0.00709723
+     4     -129.7680740474     0.00897064
+     4     -129.6680708338     0.00903018
+     4     -129.6059199993     0.00642657
+
+     5     -129.8382674518     0.00499674
+     5     -129.8003794590     0.00382228
+     5     -129.7681048292     0.00530246
+     5     -129.6680869820     0.00862165
+     5     -129.6059323860     0.00315115
+
+     6     -129.8382748303     0.00202513
+     6     -129.8003847697     0.00204412
+     6     -129.7681156342     0.00295442
+     6     -129.6680879817     0.00817283
+     6     -129.6059357872     0.00189805
+
+     7     -129.8382758147     0.00092231
+     7     -129.8003863970     0.00114753
+     7     -129.7681197240     0.00186706
+     7     -129.6680958150     0.00596017
+     7     -129.6059369499     0.00109912
+
+     8     -129.8382760645     0.00055664
+     8     -129.8003869300     0.00066983
+     8     -129.7681212208     0.00116806
+     8     -129.6680982850     0.00540342
+     8     -129.6059374110     0.00074793
+
+     9     -129.8382761370     0.00026091
+     9     -129.8003871142     0.00038776
+     9     -129.7681218766     0.00077312
+     9     -129.6680993001     0.00532724
+     9     -129.6059376173     0.00048592
+
+    10     -129.8382761567     0.00015502
+    10     -129.8003871811     0.00024179
+    10     -129.7681222235     0.00059558
+    10     -129.6681021651     0.00494383
+    10     -129.6059377208     0.00036932
+
+    11     -129.8382761629     0.00008159
+    11     -129.8003872062     0.00014312
+    11     -129.7681223493     0.00030169
+    11     -129.6681025759     0.00479083
+    11     -129.6059377775     0.00026285
+
+    12     -129.8382761649     0.00005078
+    12     -129.8003872159     0.00009373
+    12     -129.7681224045     0.00026178
+    12     -129.6681030495     0.00476993
+    12     -129.6059378111     0.00021570
+
+    13     -129.8382761655     0.00002689
+    13     -129.8003872198     0.00005637
+    13     -129.7681224365     0.00017335
+    13     -129.6681034378     0.00464935
+    13     -129.6059378319     0.00016084
+
+    14     -129.8382761658     0.00001714
+    14     -129.8003872214     0.00003837
+    14     -129.7681224555     0.00015317
+    14     -129.6681037903     0.00458878
+    14     -129.6059378453     0.00013672
+
+    15     -129.8382761658     0.00000912
+    15     -129.8003872221     0.00002334
+    15     -129.7681224669     0.00010376
+    15     -129.6681041378     0.00449470
+    15     -129.6059378540     0.00010376
+
+    16     -129.8382761659     0.00000591
+    16     -129.8003872224     0.00001641
+    16     -129.7681224738     0.00009124
+    16     -129.6681044633     0.00443440
+    16     -129.6059378598     0.00008950
+
+    17     -129.8382761659     0.00000316
+    17     -129.8003872225     0.00001006
+    17     -129.7681224779     0.00006270
+    17     -129.6681047775     0.00434403
+    17     -129.6059378636     0.00006837
+
+    18     -129.8382761659     0.00000207
+    18     -129.8003872226     0.00000726
+    18     -129.7681224804     0.00005476
+    18     -129.6681050761     0.00428569
+    18     -129.6059378662     0.00005938
+
+    19     -129.8382761659     0.00000111
+    19     -129.8003872226     0.00000447
+    19     -129.7681224820     0.00003802
+    19     -129.6681053631     0.00419896
+    19     -129.6059378680     0.00004550
+
+    20     -129.8382761659     0.00000074
+    20     -129.8003872226     0.00000329
+    20     -129.7681224829     0.00003299
+    20     -129.6681056374     0.00414353
+    20     -129.6059378692     0.00003967
+
+
+ CONVERGED STATE    1 ENERGY=     -129.8382761659 IN   20 ITERS
+
+     0     -129.8003872226     0.00000329
+     0     -129.7681224829     0.00003299
+     0     -129.6681056374     0.00414353
+     0     -129.6059378692     0.00003967
+
+     1     -129.8003872226     0.00000204
+     1     -129.7681224834     0.00002312
+     1     -129.6681059007     0.00405933
+     1     -129.6059378700     0.00003047
+
+     2     -129.8003872226     0.00000152
+     2     -129.7681224838     0.00002022
+     2     -129.6681061537     0.00400633
+     2     -129.6059378705     0.00002663
+
+     3     -129.8003872226     0.00000094
+     3     -129.7681224840     0.00001411
+     3     -129.6681063963     0.00392660
+     3     -129.6059378709     0.00002049
+
+
+ CONVERGED STATE    2 ENERGY=     -129.8003872226 IN   24 ITERS
+
+     0     -129.7681224840     0.00001411
+     0     -129.6681063963     0.00392660
+     0     -129.6059378709     0.00002049
+
+     1     -129.7681224841     0.00001235
+     1     -129.6681066295     0.00387703
+     1     -129.6059378712     0.00001795
+
+     2     -129.7681224842     0.00000860
+     2     -129.6681068540     0.00380123
+     2     -129.6059378713     0.00001384
+
+     3     -129.7681224842     0.00000754
+     3     -129.6681070702     0.00375428
+     3     -129.6059378714     0.00001214
+
+     4     -129.7681224843     0.00000525
+     4     -129.6681072787     0.00368219
+     4     -129.6059378715     0.00000938
+
+     5     -129.7681224843     0.00000460
+     5     -129.6681074799     0.00363749
+     5     -129.6059378716     0.00000824
+
+     6     -129.7681224843     0.00000320
+     6     -129.6681076741     0.00356889
+     6     -129.6059378716     0.00000637
+
+     7     -129.7681224843     0.00000281
+     7     -129.6681078617     0.00352612
+     7     -129.6059378716     0.00000561
+
+     8     -129.7681224843     0.00000195
+     8     -129.6681080431     0.00346083
+     8     -129.6059378717     0.00000434
+
+     9     -129.7681224843     0.00000171
+     9     -129.6681082184     0.00341976
+     9     -129.6059378717     0.00000382
+
+    10     -129.7681224843     0.00000119
+    10     -129.6681083882     0.00335761
+    10     -129.6059378717     0.00000296
+
+    11     -129.7681224843     0.00000105
+    11     -129.6681085525     0.00331801
+    11     -129.6059378717     0.00000261
+
+    12     -129.7681224843     0.00000073
+    12     -129.6681087116     0.00325886
+    12     -129.6059378717     0.00000202
+
+
+ CONVERGED STATE    3 ENERGY=     -129.7681224843 IN   37 ITERS
+
+     0     -129.6681087116     0.00325886
+     0     -129.6059378717     0.00000202
+
+     1     -129.6681088658     0.00322018
+     1     -129.6059378717     0.00000178
+
+     2     -129.6681125520     0.00200056
+     2     -129.6059378717     0.00000014
+
+
+ CONVERGED STATE    5 ENERGY=     -129.6059378717 IN   40 ITERS
+
+     0     -129.6681125520     0.00200056
+     1     -129.6681127853     0.00193390
+     2     -129.6681136594     0.00123992
+     3     -129.6681139760     0.00098856
+     4     -129.6681146307     0.00035757
+     5     -129.6681146709     0.00012141
+     6     -129.6681146757     0.00006852
+     7     -129.6681146779     0.00002528
+     8     -129.6681146781     0.00001433
+     9     -129.6681146781     0.00001229
+    10     -129.6681146782     0.00001010
+    11     -129.6681146782     0.00000806
+    12     -129.6681146782     0.00000625
+    13     -129.6681146782     0.00000611
+    14     -129.6681146782     0.00000394
+    15     -129.6681146782     0.00000298
+    16     -129.6681146782     0.00000147
+    17     -129.6681146782     0.00000086
+
+ CONVERGED STATE    4 ENERGY=     -129.6681146782 IN   58 ITERS
+
+ ALL STATES CONVERGED.
+
+ CI EIGENVECTORS WILL BE LABELED IN GROUP=C1      
+ PRINTING CI COEFFICIENTS LARGER THAN 5.000E-02
+
+ STATE   1  ENERGY=      -129.8382761659  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+  ALPHA    |  BETA     | CI COEFFICIENT
+-----------|-----------|---------------
+ 111111000 | 111111000 |   0.9531317324
+ 111011100 | 111011100 |  -0.1799594611
+ 111011100 | 111111000 |   0.0822859113
+ 111111000 | 111011100 |   0.0822859113
+ 111110100 | 111110100 |  -0.0648722118
+
+ STATE   2  ENERGY=      -129.8003872226  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+  ALPHA    |  BETA     | CI COEFFICIENT
+-----------|-----------|---------------
+ 111110100 | 111111000 |   0.6857006893
+ 111111000 | 111110100 |  -0.6857006893
+ 111101100 | 111011100 |   0.0828521031
+ 111011100 | 111101100 |  -0.0828521031
+
+ STATE   3  ENERGY=      -129.7681224843  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+  ALPHA    |  BETA     | CI COEFFICIENT
+-----------|-----------|---------------
+ 111111000 | 111110100 |   0.6777679875
+ 111110100 | 111111000 |   0.6777679874
+ 111011100 | 111101100 |   0.1174945917
+ 111101100 | 111011100 |   0.1174945917
+ 111111000 | 111101100 |  -0.0669283050
+ 111101100 | 111111000 |  -0.0669283050
+ 111011100 | 110111100 |   0.0555813675
+ 110111100 | 111011100 |   0.0555813675
+
+ STATE   4  ENERGY=      -129.6681146782  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+  ALPHA    |  BETA     | CI COEFFICIENT
+-----------|-----------|---------------
+ 111110100 | 111110100 |   0.9488154127
+ 111101100 | 111101100 |  -0.2077441327
+ 111101100 | 110111100 |  -0.0744684618
+ 110111100 | 111101100 |  -0.0744684618
+ 110111100 | 110111100 |  -0.0677266897
+ 111111000 | 111111000 |   0.0546863680
+
+ STATE   5  ENERGY=      -129.6059378717  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+  ALPHA    |  BETA     | CI COEFFICIENT
+-----------|-----------|---------------
+ 111011100 | 111111000 |   0.6962173460
+ 111111000 | 111011100 |  -0.6962173460
+ ..... DONE WITH DETERMINANT CI COMPUTATION .....
+ CPU     0: STEP CPU TIME=     0.75 TOTAL CPU TIME=        1.9 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.2 SECONDS, CPU UTILIZATION IS  87.44%
+
+     --------------------------------------------------
+      ONE AND TWO PARTICLE DENSITY MATRIX COMPUTATION
+     PROGRAM WRITTEN BY JOE IVANIC AND KLAUS RUEDENBERG
+     --------------------------------------------------
+
+      56715 WORDS WILL BE USED TO FORM THE DENSITIES
+ THE DENSITIES ARE STATE AVERAGED OVER   3 ROOT(S)
+ STATE=   1   ENERGY=     -129.8382761659   WEIGHT= 0.33333   S=  0.00
+ STATE=   3   ENERGY=     -129.7681224843   WEIGHT= 0.33333   S=  0.00
+ STATE=   4   ENERGY=     -129.6681146782   WEIGHT= 0.33333   S=  0.00
+ SIEVING THE A    SYMMETRY NONZERO DENSITY ELEMENTS IN GROUP C1      
+        951 NONZERO DM2 ELEMENTS WRITTEN IN       1 RECORDS TO FILE 15
+ ..... DONE WITH 1 AND 2 PARTICLE DENSITY MATRIX .....
+ CPU     0: STEP CPU TIME=     0.01 TOTAL CPU TIME=        1.9 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.2 SECONDS, CPU UTILIZATION IS  87.50%
+ FREEING DISTRIBUTED STORAGE FOR [OCC OCC|OCC OCC] INTEGRALS
+ .....DONE WITH MCSCF ITERATIONS.....
+ CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=        1.9 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.2 SECONDS, CPU UTILIZATION IS  87.50%
+ DDI: Creating Array [0] - 400 x 66 = 26400 words.
+ DDI: Creating Array [1] - 9 x 726 = 6534 words.
+ DDI: Creating Array [2] - 66 x 66 = 4356 words.
+ DDI: Creating Array [3] - 210 x 66 = 13860 words.
+
+     ----------------------------------------------------------------
+     PROPERTY VALUES FOR THE MCSCF SELF-CONSISTENT FIELD WAVEFUNCTION
+     ----------------------------------------------------------------
+
+ THIS MCSCF AVERAGED   3 ROOTS OF DIFFERENT ENERGY.
+ SINCE NO STATE-SPECIFIC DENSITY MATRIX IS AVAILABLE,
+ PROPERTIES WILL NOT BE COMPUTED.
+
+
+     --------------------------------------------
+     PARTIAL TWO ELECTRON INTEGRAL TRANSFORMATION
+     --------------------------------------------
+
+ NUMBER OF CORE MOLECULAR ORBITALS     =    0
+ NUMBER OF OCCUPIED MOLECULAR ORBITALS =   11
+ TOTAL NUMBER OF MOLECULAR ORBITALS    =   20
+ TOTAL NUMBER OF ATOMIC ORBITALS       =   20
+ THRESHOLD FOR KEEPING TRANSFORMED 2E- INTEGRALS = 1.000E-09
+
+ -------------------------------     ------------------------------
+ DISTRIBUTED DATA TRANSFORMATION     PROGRAM WRITTEN BY G. FLETCHER
+ -------------------------------     ------------------------------
+
+ THE DISTRIBUTED MEMORY REQUIRED FOR THIS STEP IS MEMDDI=         1 MWORDS
+ CREATING DISTRIBUTED STORAGE FOR [VIR OCC|VIR OCC] INTEGRALS
+ CREATING DISTRIBUTED STORAGE FOR [VIR OCC|OCC OCC] INTEGRALS
+ CREATING DISTRIBUTED STORAGE FOR [OCC OCC|OCC OCC] INTEGRALS
+ CREATING DISTRIBUTED STORAGE FOR [VIR VIR|OCC OCC] INTEGRALS
+ FOR    1 PROCESSORS, THE REPLICATED MEMORY NEEDED IS       57006 WORDS.
+
+      DIRECT 4-INDEX TRANSFORMATION 
+      SCHWARZ INEQUALITY TEST SKIPPED          0 INTEGRAL BLOCKS
+ ... END OF INTEGRAL TRANSFORMATION ...
+ CPU     0: STEP CPU TIME=     0.01 TOTAL CPU TIME=        1.9 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.2 SECONDS, CPU UTILIZATION IS  87.56%
+
+     ---------------------------------------------
+     1ST AND 2ND INTEGRAL DERIVATIVE CONTRIBUTIONS
+     ---------------------------------------------
+ ...... END OF 1-ELECTRON GRAD+HESS+FOCKDER ......
+ CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=        1.9 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.2 SECONDS, CPU UTILIZATION IS  87.56%
+
+     ----------------------------------------------
+     TWO ELECTRON INTEGRAL DERIVATIVE CONTRIBUTIONS
+     ----------------------------------------------
+
+      79228 WORDS REQUIRED,   5000000 WORDS AVAILABLE
+ THE COARSE/FINE SCHWARZ SCREENINGS SKIPPED          0/         0 BLOCKS.
+ THE NUMBER OF DERIVATIVE INTEGRAL BLOCKS COMPUTED WAS       618
+ CPU     0: STEP CPU TIME=     0.26 TOTAL CPU TIME=        2.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.5 SECONDS, CPU UTILIZATION IS  88.16%
+ ...... END OF 2-ELECTRON GRAD+HESS+LAGDER ......
+ CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=        2.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.5 SECONDS, CPU UTILIZATION IS  88.16%
+ COMPUTING NACME FOR STATE WITH E=     -129.8382761659 S=  0.0
+ COMPUTING NACME FOR STATE WITH E=     -129.7681224843 S=  0.0
+ COMPUTING NACME FOR STATE WITH E=     -129.6681146782 S=  0.0
+
+     -------------------------------------------------
+     COUPLED-PERTURBED MULTICONFIGURATION HARTREE-FOCK
+     Z-VECTOR VERSION
+     -------------------------------------------------
+
+ SETTING UP RIGHT-HAND SIDE OF CPMCHF EQUATIONS.
+ # OF WORDS REQUIRED  =     151465
+ # OF WORDS AVAILABLE =    5000000
+ NOTE THAT THE CP-MCHF DISTRIBUTED MEMORY REQUIREMENTS ARE JUST THE
+ MEMORY NEEDED TO STORE TRANSFORMED INTEGRAL CLASSES (ALLOCATED ABOVE).
+
+  --- DIPOLE MOMENTS (DEBYE) ---
+  1,  1 :  DIPOLE   -0.821080    1.718675    0.000000    1.904735
+  1,  2 : TDIPOLE   -0.000000   -0.000000   -0.360963    0.360963
+  2,  2 :  DIPOLE   -0.884302    1.804048    0.000000    2.009124
+  1,  3 : TDIPOLE    0.067284    0.038625    0.000001    0.077582
+  2,  3 : TDIPOLE    0.000001    0.000001   -0.637125    0.637125
+  3,  3 :  DIPOLE   -1.196403    1.638971   -0.000001    2.029189
+
+  --- OSCILLATOR STRENGTHS  ---
+
+             1           2           3
+
+    1    0.0000000
+    2    0.0009432   0.0000000
+    3    0.0001057   0.0041891   0.0000000
+
+
+ CALCULATING MCSCF ELECTRONIC HESSIAN ON THE FLY.
+ # OF ORBITAL ROTATIONS   =        117
+ LENGTH OF DET. EXPANSION =       7056
+
+ SOLVING CPMCHF EQUATIONS - ESSENTIAL MEMORY.
+ # OF WORDS REQUIRED  =    1006752
+ # OF WORDS AVAILABLE =    5000000
+ DDI: Creating Array [4] - 1 x 1 = 1 words.
+ DDI: Creating Array [5] - 1 x 1 = 1 words.
+ DDI: Creating Array [6] - 1 x 1 = 1 words.
+ DDI: Creating Array [7] - 1 x 1 = 1 words.
+
+ MASTER NODE HAS FINISHED WITH (OO|OO) INTEGRALS, T=    0.0
+ MASTER NODE HAS FINISHED WITH (VO|OO) INTEGRALS, T=    0.0
+ MASTER NODE HAS FINISHED WITH (VV|OO) INTEGRALS, T=    0.0
+ MASTER NODE HAS FINISHED WITH (VO|VO) INTEGRALS, T=    0.0
+
+ FINISHED SETTING UP RIGHT-HAND SIDE.
+ CPU     0: STEP CPU TIME=     0.60 TOTAL CPU TIME=        2.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        3.1 SECONDS, CPU UTILIZATION IS  89.03%
+
+ SOLVING FOR    6 NUCLEAR RESPONSES AND 0 ELECTRIC FIELD RESPONSES
+
+ SOLVING CPMCHF EQUATIONS - EXTRA SOLVER MEMORY.
+ # OF WORDS REQUIRED  =     191628
+ # OF WORDS AVAILABLE =    3993248
+
+ PRECONDITIONED CONJUGATE GRADIENT SOLVER    CONV. TOLERANCE=1.00E-07
+ ITER   RESPONSE ERROR    IMPROVED     ORB-ORB     CI-ORB
+   1      1.85469E+01         6            0.0        3.2
+ DUE TO LARGE RES. NORM, GUESS SET TO 0 VECTOR.
+   1      9.24500E-02         6            0.0        1.2
+   2      4.66912E-02         6            0.0        1.2
+   3      4.05633E-02         6            0.0        1.2
+   4      9.15803E-03         6            0.0        1.2
+   5      8.99297E-03         6            0.0        1.1
+   6      6.75865E-03         6            0.0        1.2
+   7      6.13920E-03         6            0.0        1.1
+   8      5.60182E-03         6            0.0        1.2
+   9      9.94692E-03         6            0.0        1.1
+  10      9.98383E-03         6            0.0        1.1
+  11      7.72555E-03         6            0.0        1.2
+  12      5.59102E-03         6            0.0        1.2
+  13      3.55960E-03         6            0.0        1.1
+  14      2.45565E-03         6            0.0        1.1
+  15      2.34581E-03         6            0.0        1.1
+  16      2.24993E-03         6            0.0        1.1
+  17      2.52278E-03         6            0.0        1.1
+  18      2.39385E-03         6            0.0        1.1
+  19      2.45813E-03         6            0.0        1.1
+  20      1.96509E-03         6            0.0        1.1
+  21      1.57856E-03         6            0.0        1.1
+  22      1.71710E-03         6            0.0        1.1
+  23      1.69943E-03         6            0.0        1.1
+  24      1.01369E-03         6            0.0        1.1
+  25      1.07597E-03         6            0.0        1.1
+  26      9.83681E-04         6            0.0        1.1
+  27      7.81323E-04         6            0.0        1.1
+  28      7.56879E-04         6            0.0        1.1
+  29      5.84657E-04         6            0.0        1.1
+  30      5.34934E-04         6            0.0        1.1
+  31      4.42789E-04         6            0.0        1.1
+  32      2.95933E-04         6            0.0        1.1
+  33      2.57574E-04         6            0.0        1.1
+  34      2.56471E-04         6            0.0        1.1
+  35      2.57556E-04         6            0.0        1.1
+  36      2.57140E-04         6            0.0        1.1
+  37      2.05610E-04         6            0.0        1.1
+  38      1.90899E-04         6            0.0        1.1
+  39      1.90742E-04         6            0.0        1.1
+  40      1.83931E-04         6            0.0        1.1
+  41      1.54043E-04         6            0.0        1.1
+  42      1.53908E-04         6            0.0        1.1
+  43      9.16521E-05         6            0.0        1.1
+  44      1.05850E-04         6            0.0        1.1
+  45      1.06006E-04         6            0.0        1.1
+  46      5.85172E-05         6            0.0        1.1
+  47      5.93448E-05         6            0.0        1.1
+  48      5.85004E-05         6            0.0        1.1
+  49      6.58371E-05         6            0.0        1.1
+ DUE TO SLOW CONVERGENCE, TOLERANCE HAS BEEN RAISED TO 3.00E-07
+  50      6.57629E-05         6            0.0        1.1
+  51      3.08851E-05         6            0.0        1.1
+  52      3.63380E-05         6            0.0        1.1
+  53      3.61696E-05         6            0.0        1.1
+  54      1.92335E-05         6            0.0        1.1
+  55      1.88563E-05         6            0.0        1.1
+  56      6.24937E-05         6            0.0        1.1
+  57      9.04918E-05         6            0.0        1.1
+  58      1.88093E-05         6            0.0        1.1
+  59      2.44360E-05         6            0.0        1.1
+  60      2.42343E-05         6            0.0        1.1
+  61      2.94558E-05         6            0.0        1.1
+  62      2.95070E-05         6            0.0        1.1
+  63      2.98400E-05         6            0.0        1.1
+  64      1.35440E-05         6            0.0        1.1
+  65      1.31112E-05         6            0.0        1.1
+  66      1.33002E-05         6            0.0        1.1
+  67      1.08574E-05         6            0.0        1.1
+  68      1.01120E-05         6            0.0        1.1
+  69      9.04007E-06         6            0.0        1.1
+  70      6.63381E-06         6            0.0        1.1
+  71      6.66209E-06         6            0.0        1.1
+  72      5.34307E-06         6            0.0        1.1
+  73      1.59141E-05         6            0.0        1.1
+  74      7.40757E-06         6            0.0        1.1
+  75      1.13850E-05         6            0.0        1.1
+  76      1.24820E-05         6            0.0        1.1
+  77      4.98037E-06         5            0.0        1.1
+  78      3.55450E-06         4            0.0        1.1
+  79      3.33376E-06         3            0.0        1.1
+  80      4.35023E-06         3            0.0        1.1
+  81      4.27154E-06         3            0.0        1.1
+  82      2.01698E-06         3            0.0        1.1
+  83      2.15603E-06         3            0.0        1.1
+  84      3.89557E-06         2            0.0        1.1
+  85      2.92712E-06         2            0.0        1.1
+  86      1.00252E-05         2            0.0        1.1
+  87      3.09593E-06         2            0.0        1.1
+  88      2.79447E-06         2            0.0        1.1
+  89      1.75175E-06         2            0.0        1.1
+  90      1.34677E-06         2            0.0        1.1
+  91      1.48851E-06         1            0.0        1.1
+  92      1.39288E-06         1            0.0        1.1
+  93      1.32173E-06         1            0.0        1.1
+  94      1.36185E-06         1            0.0        1.1
+  95      1.32430E-06         1            0.0        1.1
+  96      6.98887E-07         1            0.0        1.1
+  97      6.92459E-07         1            0.0        1.1
+  98      5.00411E-07         1            0.0        1.1
+  99      4.21435E-07         1            0.0        1.1
+ DUE TO SLOW CONVERGENCE, TOLERANCE HAS BEEN RAISED TO 9.00E-07
+ RESET PDIRX AND RESIDUAL.
+ 100      4.16298E-07         0            0.0        1.1
+ *** CAUTION! *** 
+ RESPONSES CONVERGED AFTER 100 ITERATIONS,
+ BUT ONLY TO WITHIN AN INCREASED CONVERGENCE TOLERANCE
+
+ STATE-SPECIFIC GRADIENT OF STATE   1 (OVERALL STATE   1)
+ ENERGY=     -129.8382761659 SPIN=  0.00 WEIGHT= 0.333333
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 H                0.019994984      -0.030430821      -0.000000002
+    2 N                0.142590560       0.022452580       0.000000007
+    3 O               -0.162585544       0.007978241      -0.000000006
+
+ STATE-SPECIFIC GRADIENT OF STATE   2 (OVERALL STATE   3)
+ ENERGY=     -129.7681224843 SPIN=  0.00 WEIGHT= 0.333333
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 H                0.030737381      -0.019629927       0.000000066
+    2 N                0.183930206      -0.000492006      -0.000000042
+    3 O               -0.214667586       0.020121933      -0.000000024
+
+ STATE-SPECIFIC GRADIENT OF STATE   3 (OVERALL STATE   4)
+ ENERGY=     -129.6681146782 SPIN=  0.00 WEIGHT= 0.333333
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 H                0.046731988       0.022996202       0.000000082
+    2 N                0.220050539      -0.068886526      -0.000000087
+    3 O               -0.266782527       0.045890324       0.000000005
+
+ NACME FOR STATE J->I HAVE OPPOSITE SIGN TO THE NACME CONNECTING STATE I->J,
+ SO ONLY NACME FOR I>J ARE PRINTED, FOR STATES WITH SPIN QUANTUM NO. S=  0.00
+
+ NONADIABATIC COUPLING MATRIX ELEMENT (NACME), IN ONE/BOHR
+ <STATE  2, WEIGHT=   0.33333 | D/DQ | STATE  1, WEIGHT=   0.33333>
+   ATOM               D/DX           D/DY           D/DZ
+    1 H               0.0000003     -0.0000004      0.7325054
+    2 N               0.0000002      0.0000002     -1.1387156
+    3 O              -0.0000005      0.0000002      0.3423238
+
+ NONADIABATIC COUPLING MATRIX ELEMENT (NACME), IN ONE/BOHR
+ <STATE  3, WEIGHT=   0.33333 | D/DQ | STATE  1, WEIGHT=   0.33333>
+   ATOM               D/DX           D/DY           D/DZ
+    1 H              -0.0137740     -0.0374511     -0.0000002
+    2 N               0.0096645      0.0538556      0.0000013
+    3 O               0.0020430     -0.0267396     -0.0000010
+
+ NONADIABATIC COUPLING MATRIX ELEMENT (NACME), IN ONE/BOHR
+ <STATE  3, WEIGHT=   0.33333 | D/DQ | STATE  2, WEIGHT=   0.33333>
+   ATOM               D/DX           D/DY           D/DZ
+    1 H              -0.0000005     -0.0000008      0.6220674
+    2 N               0.0000019      0.0000021     -1.0334104
+    3 O              -0.0000015     -0.0000013      0.3363703
+
+ TOTAL REPLICATED MEMORY USED FOR NACME RESPONSES=      1198380 WORDS.
+ FREEING DISTRIBUTED STORAGE FOR [VIR VIR|OCC OCC] INTEGRALS
+ FREEING DISTRIBUTED STORAGE FOR [OCC OCC|OCC OCC] INTEGRALS
+ FREEING DISTRIBUTED STORAGE FOR [VIR OCC|OCC OCC] INTEGRALS
+ FREEING DISTRIBUTED STORAGE FOR [VIR OCC|VIR OCC] INTEGRALS
+
+ ...... DONE WITH CPMCHF EQUATIONS ......
+ CPU     0: STEP CPU TIME=   122.28 TOTAL CPU TIME=      125.0 (    2.1 MIN)
+ TOTAL WALL CLOCK TIME=      125.5 SECONDS, CPU UTILIZATION IS  99.66%
+              1198380  WORDS OF DYNAMIC MEMORY USED
+ EXECUTION OF GAMESS TERMINATED NORMALLY Mon Nov 28 21:27:41 2016
+ DDI: 672872 bytes (0.6 MB / 0 MWords) used by master data server.
+
+ ----------------------------------------
+ CPU timing information for all processes
+ ========================================
+ 0: 124.869 + 0.187 = 125.56
+ ----------------------------------------
+ ddikick.x: exited gracefully.
+unset echo
+----- accounting info -----
+Files used on the master node compute-3-0 were:
+-rw-rw-r-- 1 sarom sarom   10985 Nov 29  2016 .//mc-nacme-hno.dat
+-rw-rw-r-- 1 sarom sarom   13739 Nov 29  2016 .//mc-nacme-hno.F05
+-rw-rw-r-- 1 sarom sarom    1688 Nov 29  2016 .//mc-nacme-hno.F09
+-rw-rw-r-- 1 sarom sarom 2454000 Nov 29  2016 .//mc-nacme-hno.F10
+-rw-rw-r-- 1 sarom sarom  282304 Nov 29  2016 .//mc-nacme-hno.F12
+-rw-rw-r-- 1 sarom sarom  180552 Nov 29  2016 .//mc-nacme-hno.F15
+-rw-rw-r-- 1 sarom sarom       0 Nov 29  2016 .//mc-nacme-hno.F16
+-rw-rw-r-- 1 sarom sarom   28872 Nov 29  2016 .//mc-nacme-hno.F18
+-rw-rw-r-- 1 sarom sarom 1524168 Nov 29  2016 .//mc-nacme-hno.F19
+-rw-rw-r-- 1 sarom sarom   13739 Nov 27 05:47 .//mc-nacme-hno.inp
+-rw-rw-r-- 1 sarom sarom   77770 Nov 29  2016 .//mc-nacme-hno.log
+Mon Nov 28 21:27:44 CST 2016
+0.225u 0.255s 2:09.02 0.3%	0+0k 0+168io 0pf+0w

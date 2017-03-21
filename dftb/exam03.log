@@ -1,0 +1,3282 @@
+----- GAMESS execution script 'rungms' -----
+This job is running on host compute-3-0
+under operating system Linux at Mon Nov 28 18:29:50 CST 2016
+Available scratch disk space (Kbyte units) at beginning of the job is
+Filesystem            1K-blocks       Used  Available Use% Mounted on
+bolt.local:/export/home/sarom
+                     9590469632 1552118784 7551182848  18% /home/sarom
+Copying input file exam03.inp to your run's scratch directory...
+cp exam03.inp .//exam03.F05
+unset echo
+/home/sarom/gamessGH/ddikick.x /home/sarom/gamessGH/gamess.00.x exam03 -ddi 1 1 localhost -scr ./
+
+ Distributed Data Interface kickoff program.
+ Initiating 1 compute processes on 1 nodes to run the following command:
+ /home/sarom/gamessGH/gamess.00.x exam03 
+
+          ******************************************************
+          *         GAMESS VERSION = 18 AUG 2016 (R1)          *
+          *             FROM IOWA STATE UNIVERSITY             *
+          * M.W.SCHMIDT, K.K.BALDRIDGE, J.A.BOATZ, S.T.ELBERT, *
+          *   M.S.GORDON, J.H.JENSEN, S.KOSEKI, N.MATSUNAGA,   *
+          *          K.A.NGUYEN, S.J.SU, T.L.WINDUS,           *
+          *       TOGETHER WITH M.DUPUIS, J.A.MONTGOMERY       *
+          *         J.COMPUT.CHEM.  14, 1347-1363(1993)        *
+          **************** 64 BIT LINUX VERSION ****************
+
+  SINCE 1993, STUDENTS AND POSTDOCS WORKING AT IOWA STATE UNIVERSITY
+  AND ALSO IN THEIR VARIOUS JOBS AFTER LEAVING ISU HAVE MADE IMPORTANT
+  CONTRIBUTIONS TO THE CODE:
+     IVANA ADAMOVIC, CHRISTINE AIKENS, YURI ALEXEEV, POOJA ARORA,
+     ANDREY ASADCHEV, ROB BELL, PRADIPTA BANDYOPADHYAY, JONATHAN BENTZ,
+     BRETT BODE, KURT BRORSEN, CALEB CARLIN, GALINA CHABAN, WEI CHEN,
+     CHEOL HO CHOI, PAUL DAY, ALBERT DEFUSCO, NUWAN DESILVA, TIM DUDLEY,
+     DMITRI FEDOROV, GRAHAM FLETCHER, MARK FREITAG, KURT GLAESEMANN,
+     DAN KEMP, GRANT MERRILL, NORIYUKI MINEZAWA, JONATHAN MULLIN,
+     TAKESHI NAGATA, SEAN NEDD, HEATHER NETZLOFF, BOSILJKA NJEGIC, RYAN OLSON,
+     MIKE PAK, SPENCER PRUITT, LUKE ROSKOP, JIM SHOEMAKER, LYUDMILA SLIPCHENKO,
+     TONY SMITH, SAROM SOK LEANG, JIE SONG, TETSUYA TAKETSUGU, SIMON WEBB,
+     PENG XU, SOOHAENG YOO, FEDERICO ZAHARIEV
+
+  ADDITIONAL CODE HAS BEEN PROVIDED BY COLLABORATORS IN OTHER GROUPS:
+     IOWA STATE UNIVERSITY:
+          JOE IVANIC, AARON WEST, LAIMUTIS BYTAUTAS, KLAUS RUEDENBERG
+     UNIVERSITY OF TOKYO: KIMIHIKO HIRAO, TAKAHITO NAKAJIMA,
+          TAKAO TSUNEDA, MUNEAKI KAMIYA, SUSUMU YANAGISAWA,
+          KIYOSHI YAGI, MAHITO CHIBA, SEIKEN TOKURA, NAOAKI KAWAKAMI
+     UNIVERSITY OF AARHUS: FRANK JENSEN
+     UNIVERSITY OF IOWA: VISVALDAS KAIRYS, HUI LI
+     NATIONAL INST. OF STANDARDS AND TECHNOLOGY: WALT STEVENS, DAVID GARMER
+     UNIVERSITY OF PISA: BENEDETTA MENNUCCI, JACOPO TOMASI
+     UNIVERSITY OF MEMPHIS: HENRY KURTZ, PRAKASHAN KORAMBATH
+     UNIVERSITY OF ALBERTA: TOBY ZENG, MARIUSZ KLOBUKOWSKI
+     UNIVERSITY OF NEW ENGLAND: MARK SPACKMAN
+     MIE UNIVERSITY: HIROAKI UMEDA
+     NAT. INST. OF ADVANCED INDUSTRIAL SCIENCE AND TECHNOLOGY: KAZUO KITAURA
+     MICHIGAN STATE UNIVERSITY:
+          KAROL KOWALSKI, MARTA WLOCH, JEFFREY GOUR, JESSE LUTZ,
+          WEI LI, PIOTR PIECUCH
+     UNIVERSITY OF SILESIA: MONIKA MUSIAL, STANISLAW KUCHARSKI
+     FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX:
+          OLIVIER QUINET, BENOIT CHAMPAGNE
+     UNIVERSITY OF CALIFORNIA - SANTA BARBARA: BERNARD KIRTMAN
+     INSTITUTE FOR MOLECULAR SCIENCE:
+          KAZUYA ISHIMURA, MICHIO KATOUDA, AND SHIGERU NAGASE
+     UNIVERSITY OF NOTRE DAME: ANNA POMOGAEVA, DAN CHIPMAN
+     KYUSHU UNIVERSITY:
+          HARUYUKI NAKANO,
+          FENG LONG GU, JACEK KORCHOWIEC, MARCIN MAKOWSKI, AND YURIKO AOKI,
+          HIROTOSHI MORI AND EISAKU MIYOSHI
+     PENNSYLVANIA STATE UNIVERSITY:
+          TZVETELIN IORDANOV, CHET SWALINA, JONATHAN SKONE,
+          SHARON HAMMES-SCHIFFER
+     WASEDA UNIVERSITY:
+          MASATO KOBAYASHI, TOMOKO AKAMA, TSUGUKI TOUMA,
+          TAKESHI YOSHIKAWA, YASUHIRO IKABATA, JUNJI SEINO,
+          YUYA NAKAJIMA, HIROMI NAKAI
+     NANJING UNIVERSITY: SHUHUA LI
+     UNIVERSITY OF NEBRASKA:
+          PEIFENG SU, DEJUN SI, NANDUN THELLAMUREGE, YALI WANG, HUI LI
+     UNIVERSITY OF ZURICH: ROBERTO PEVERATI, KIM BALDRIDGE
+     N. COPERNICUS UNIVERSITY AND JACKSON STATE UNIVERSITY:
+          MARIA BARYSZ
+     UNIVERSITY OF COPENHAGEN: Jimmy Kromann, CASPER STEINMANN
+     TOKYO INSTITUTE OF TECHNOLOGY: HIROYA NAKATA
+     NAGOYA UNIVERSITY: YOSHIO NISHIMOTO, STEPHAN IRLE
+     MOSCOW STATE UNIVERSITY: VLADIMIR MIRONOV
+
+ EXECUTION OF GAMESS BEGUN Mon Nov 28 18:29:51 2016
+
+            ECHO OF THE FIRST FEW INPUT CARDS -
+ INPUT CARD>! This is a sample input of geometry optimization of pseudo octahedral Be6      
+ INPUT CARD>! cluster.                                                                      
+ INPUT CARD>!                                                                               
+ INPUT CARD>! Bond lengths match with the values in the reference paper (Takagi, H. et al.  
+ INPUT CARD>! J. Plasma Fuction Res. 2013, 89, 583-598) in two decimal places. Note that    
+ INPUT CARD>! thresholds (CONV and OPTTOL), code, and calculation of derivative are         
+ INPUT CARD>! different.                                                                    
+ INPUT CARD>!                                                                               
+ INPUT CARD>! Geometry optimization converged after 25 cycles:                              
+ INPUT CARD>!                                                                               
+ INPUT CARD>!NSERCH:   0  E=       -2.6834632779  GRAD. MAX=  0.0309399  R.M.S.=  0.0116082 
+ INPUT CARD>!NSERCH:  25  E=       -2.7203930108  GRAD. MAX=  0.0000000  R.M.S.=  0.0000000 
+ INPUT CARD>!                                                                               
+ INPUT CARD>! In this calculation, initial Hessian is computed with HESS=CALC keyword,      
+ INPUT CARD>! and this verifies that the initial structure is around transition structure.  
+ INPUT CARD>! Final optimized structure has no imaginary frequencies.                       
+ INPUT CARD>!                                                                               
+ INPUT CARD>!    1       0.060    A        9.012180    0.000163                             
+ INPUT CARD>!    2       0.028    A        9.012180    0.000171                             
+ INPUT CARD>!    3       0.006    A        9.012180    0.000001                             
+ INPUT CARD>!    4       0.000    A        9.012180    0.000000                             
+ INPUT CARD>!    5       0.021    A        9.012180    0.000026                             
+ INPUT CARD>!    6       0.031    A        9.012180    0.000059                             
+ INPUT CARD>!                                                                               
+ INPUT CARD>! Disclaimer: these parameters are provided so that the correctness of          
+ INPUT CARD>! the DFTB code in GAMESS can be tested. For production DFTB runs,              
+ INPUT CARD>! please obtain parameters from the official site www.dftb.org.                 
+ INPUT CARD>!                                                                               
+ INPUT CARD>! You will have to edit the path below in $DFTBSK to run this input.            
+ INPUT CARD>!                                                                               
+ INPUT CARD>! Do not run DFTB in parallel (except FMO-DFTB, see exam04.inp)!                
+ INPUT CARD>!                                                                               
+ INPUT CARD>! This file was provided by Yoshio Nishimoto and Stephan Irle,                  
+ INPUT CARD>! and the parameters were generated by Yoshifumi Nishimura (Nagoya U., Japan).  
+ INPUT CARD>!                                                                               
+ INPUT CARD> $CONTRL RUNTYP=OPTIMIZE NPRINT=-5 $END                                         
+ INPUT CARD> $STATPT NSTEP=200 OPTTOL=1.0D-09 HSSEND=.TRUE. HESS=CALC $END                  
+ INPUT CARD> $SYSTEM MWORDS=40 $END                                                         
+ INPUT CARD> $SCF CONV=1.0D-12 $END                                                         
+ INPUT CARD> $BASIS GBASIS=DFTB $END                                                        
+ INPUT CARD> $DFTB NDFTB=2 $END                                                             
+ INPUT CARD>!  --- !!!! modify the path below !!!! ---                                      
+ INPUT CARD> $DFTBSK                                                                        
+ INPUT CARD>   Be Be "/home/sarom/gamessGH/tests/dftb/parameters/Be-Be.spl"                 
+ INPUT CARD> $END                                                                           
+ INPUT CARD> $DATA                                                                          
+ INPUT CARD> Optimized Be2                                                                  
+ INPUT CARD> C1                                                                             
+ INPUT CARD> BE          4.0   1.0554337329   1.0554337329   0.1600000000                   
+ INPUT CARD> BE          4.0   1.0554337329  -1.0554337329  -0.0300000000                   
+   40000000 WORDS OF MEMORY AVAILABLE
+
+     BASIS OPTIONS
+     -------------
+     GBASIS=DFTB         IGAUSS=       0      POLAR=NONE    
+     NDFUNC=       0     NFFUNC=       0     DIFFSP=       F
+     NPFUNC=       0      DIFFS=       F     BASNAM=        
+
+
+     RUN TITLE
+     ---------
+  Optimized Be2                                                                  
+
+ THE POINT GROUP OF THE MOLECULE IS C1      
+ THE ORDER OF THE PRINCIPAL AXIS IS     0
+
+  **********************************************************
+  **  DENSITY-FUNCTIONAL TIGHT-BINDING (DFTB) CALCULATION **
+  **********************************************************
+        WRITTEN BY YOSHIO NISHIMOTO (NAGOYA UNIVERSITY)
+
+ NUMBER OF SPECIES:  1
+        SPECIES 1 :  BE      WITH S+P   ORBITALS
+
+     $DFTB OPTIONS
+     -------------
+ NDFTB =       2     SCC   =       T     DFTB3 =       F
+ SRSCC =       F     DAMPXH=       F     DAMPEX=    0.00
+ DISP  =NONE         ITYPMX=       0     ETEMP =    0.00
+ MODESD=       0     MODGAM=       0     PRTORB=       F
+
+ --- SCC CALCULATION ---
+
+ BROYDEN'S CHARGE MIXING
+
+   1 SLATER-KOSTER FILES WILL BE READ
+
+  START READING SLATER-KOSTER FILES
+
+  1  1 (BE       - BE      ) = /home/sarom/gamessGH/tests/dftb/parameters/Be-Be.spl
+
+ ATOM      ATOMIC                      COORDINATES (BOHR)
+           CHARGE         X                   Y                   Z
+ BE          4.0     1.9944805534        1.9944805534        0.3023561580
+ BE          4.0     1.9944805534       -1.9944805534       -0.0566917796
+ BE          4.0    -1.9944805534        1.9944805534        0.0566917796
+ BE          4.0    -1.9944805534       -1.9944805534       -0.3023561580
+ BE          4.0     0.1700753389        0.2645616383        2.8206214728
+ BE          4.0     0.1700753389       -0.2645616383       -2.8206214728
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.1194012 *  2.1148668 *  3.0023196    1.8830632 *
+   2 BE      2.1194012 *  0.0000000    2.9858203 *  2.1148668 *  2.1632063 *
+   3 BE      2.1148668 *  2.9858203 *  0.0000000    2.1194012 *  2.0710533 *
+   4 BE      3.0023196    2.1148668 *  2.1194012 *  0.0000000    2.3392725 *
+   5 BE      1.8830632 *  2.1632063 *  2.0710533 *  2.3392725 *  0.0000000  
+   6 BE      2.2565991 *  1.9771964 *  2.2493149 *  1.9813842 *  2.9983200 *
+
+                6 BE    
+
+   1 BE      2.2565991 *
+   2 BE      1.9771964 *
+   3 BE      2.2493149 *
+   4 BE      1.9813842 *
+   5 BE      2.9983200 *
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+
+ TOTAL NUMBER OF BASIS SET SHELLS             =   12
+ NUMBER OF CARTESIAN GAUSSIAN BASIS FUNCTIONS =   24
+ NOTE: THIS RUN WILL RESTRICT THE MO VARIATION SPACE TO SPHERICAL HARMONICS.
+ THE NUMBER OF ORBITALS KEPT IN THE VARIATIONAL SPACE WILL BE PRINTED LATER.
+ NUMBER OF ELECTRONS                          =   12
+ CHARGE OF MOLECULE                           =    0
+ SPIN MULTIPLICITY                            =    1
+ NUMBER OF OCCUPIED ORBITALS (ALPHA)          =    6
+ NUMBER OF OCCUPIED ORBITALS (BETA )          =    6
+ TOTAL NUMBER OF ATOMS                        =    6
+ THE NUCLEAR REPULSION ENERGY IS        0.0000000000
+
+     $CONTRL OPTIONS
+     ---------------
+ SCFTYP=RHF          RUNTYP=OPTIMIZE     EXETYP=RUN     
+ MPLEVL=       0     CITYP =NONE         CCTYP =NONE         VBTYP =NONE    
+ DFTTYP=NONE         TDDFT =NONE    
+ MULT  =       1     ICHARG=       0     NZVAR =       0     COORD =UNIQUE  
+ PP    =NONE         RELWFN=NONE         LOCAL =NONE         NUMGRD=       F
+ ISPHER=       1     NOSYM =       0     MAXIT =      30     UNITS =ANGS    
+ PLTORB=       F     MOLPLT=       F     AIMPAC=       F     FRIEND=        
+ NPRINT=      -5     IREST =       0     GEOM  =INPUT   
+ NORMF =       0     NORMP =       0     ITOL  =      20     ICUT  =       9
+ INTTYP=BEST         GRDTYP=BEST         QMTTOL= 1.0E-06
+
+     $SYSTEM OPTIONS
+     ---------------
+  REPLICATED MEMORY=    40000000 WORDS (ON EVERY NODE).
+ DISTRIBUTED MEMDDI=           0 MILLION WORDS IN AGGREGATE,
+ MEMDDI DISTRIBUTED OVER   1 PROCESSORS IS           0 WORDS/PROCESSOR.
+ TOTAL MEMORY REQUESTED ON EACH PROCESSOR=    40000000 WORDS.
+ TIMLIM=      525600.00 MINUTES, OR     365.0 DAYS.
+ PARALL= F  BALTYP=  DLB     KDIAG=    0  COREFL= F
+ MXSEQ2=     300 MXSEQ3=     150  mem10=         0
+
+          ----------------
+          PROPERTIES INPUT
+          ----------------
+
+     MOMENTS            FIELD           POTENTIAL          DENSITY
+ IEMOM =       1   IEFLD =       0   IEPOT =       0   IEDEN =       0
+ WHERE =COMASS     WHERE =NUCLEI     WHERE =NUCLEI     WHERE =NUCLEI  
+ OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH    
+ IEMINT=       0   IEFINT=       0                     IEDINT=       0
+                                                       MORB  =       0
+          EXTRAPOLATION IN EFFECT
+          SOSCF IN EFFECT
+ ORBITAL PRINTING OPTION: NPREO=     1    24     2     1
+
+     -------------------------------
+     INTEGRAL TRANSFORMATION OPTIONS
+     -------------------------------
+     NWORD  =            0
+     CUTOFF = 1.0E-09     MPTRAN =       0
+     DIRTRF =       F     AOINTS =DUP     
+
+          ----------------------
+          INTEGRAL INPUT OPTIONS
+          ----------------------
+ NOPK  =       1 NORDER=       0 SCHWRZ=       T
+
+     ------------------------------------------
+     THE POINT GROUP IS C1 , NAXIS= 0, ORDER= 1
+     ------------------------------------------
+
+ -- VARIATIONAL SPACE WILL BE RESTRICTED TO PURE SPHERICAL HARMONICS ONLY --
+ AFTER EXCLUDING CONTAMINANT COMBINATIONS FROM THE CARTESIAN GAUSSIAN BASIS
+ SET, THE NUMBER OF SPHERICAL HARMONICS KEPT IN THE VARIATION SPACE IS   24
+
+     DIMENSIONS OF THE SYMMETRY SUBSPACES ARE
+ A   =   24
+
+ ..... DONE SETTING UP THE RUN .....
+ STEP CPU TIME =     0.03 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  42.86%
+
+
+          -----------------------------
+          STATIONARY POINT LOCATION RUN
+          -----------------------------
+
+ OBTAINING INITIAL HESSIAN, HESS=CALC    
+ Old integral subroutine is used
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  42.86%
+
+          -------------
+          GUESS OPTIONS
+          -------------
+          GUESS =HUCKEL            NORB  =       0          NORDER=       0
+          MIX   =       F          PRTMO =       F          PUNMO =       F
+          TOLZ  = 1.0E-08          TOLE  = 1.0E-05
+          SYMDEN=       F          PURIFY=       F
+
+ INITIAL GUESS OPTIONS ARE IGNORED FOR DFTB
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.6830860094    -2.6830860094   0.789898034   0.000000000
+   2  1  0       -2.6832902559    -0.0002042465   0.007888020   0.070607277
+   3  2  0       -2.6834522557    -0.0001619998   0.018642103   0.169111587
+   4  3  0       -2.6834632128    -0.0000109571   0.002304603   0.018901045
+   5  4  0       -2.6834632746    -0.0000000617   0.000327216   0.003598347
+   6  5  0       -2.6834632778    -0.0000000033   0.000064968   0.000512581
+   7  6  0       -2.6834632779    -0.0000000000   0.000009867   0.000100902
+   8  7  0       -2.6834632779    -0.0000000000   0.000005306   0.000042137
+   9  8  0       -2.6834632779    -0.0000000000   0.000000267   0.000002485
+  10  9  0       -2.6834632779     0.0000000000   0.000000005   0.000000046
+  11 10  0       -2.6834632779     0.0000000000   0.000000000   0.000000000
+  12 11  0       -2.6834632779     0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.6834632779 AFTER  12 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  71.43%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  71.43%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  62.50%
+
+          PARAMETERS CONTROLLING GEOMETRY SEARCH ARE
+          METHOD =QA                  UPHESS =BFGS    
+          NNEG   =         0          NFRZ   =         0
+          NSTEP  =       200          IFOLOW =         1
+          HESS   =CALC                RESTAR =         F
+          IHREP  =         0          HSSEND =         T
+          NPRT   =         0          NPUN   =         0
+          OPTTOL = 1.000E-09          RMIN   = 1.500E-03
+          RMAX   = 1.000E-01          RLIM   = 7.000E-02
+          DXMAX  = 3.000E-01          PURIFY =         F
+          MOVIE  =         F          TRUPD  =         T
+          TRMAX  = 5.000E-01          TRMIN  = 5.000E-02
+          ITBMAT =         5          STPT   =         F
+          STSTEP = 1.000E-02          PROJCT=          T
+
+ THE GRADIENT AT THE INITIAL GEOMETRY IS KNOWN.
+ PROCEEDING DIRECTLY TO THE GEOMETRY SEARCH...
+
+          NSERCH=  0     ENERGY=      -2.6834633
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0    -0.0143256    -0.0049476    -0.0079411
+    2  BE           4.0    -0.0139808     0.0051419    -0.0107947
+    3  BE           4.0    -0.0019921     0.0159100     0.0042022
+    4  BE           4.0    -0.0035785    -0.0134677     0.0176838
+    5  BE           4.0     0.0029371    -0.0056777    -0.0019697
+    6  BE           4.0     0.0309399     0.0030412    -0.0011803
+
+          MAXIMUM GRADIENT = 0.0309399    RMS GRADIENT = 0.0116082
+
+ NSERCH:   0  E=       -2.6834632779  GRAD. MAX=  0.0309399  R.M.S.=  0.0116082
+
+          FORCE CONSTANT MATRIX NOT UPDATED --- TAKING FIRST STEP
+ LOCAL CURVATURE   1 OF THE APPROXIMATE HESSIAN HAS EIGENVALUE=   -0.081659
+ *** THIS MODE HAS AN INCORRECT CURVATURE ***
+ THE COMPONENTS OF THIS MODE FOLLOWS:
+       -0.174973       0.114644       0.168569      -0.230916      -0.070022
+        0.395338       0.131874       0.012284      -0.328012       0.118877
+       -0.146267      -0.317334       0.519664      -0.043342       0.155206
+       -0.364525       0.132704      -0.073766
+          TRIM/QA LAMBDA FOR NON-TS MODES =  -0.14083780
+          TRIM/QA STEP HAS LENGTH         =   0.300000
+          RADIUS OF STEP TAKEN=   0.30000  CURRENT TRUST RADIUS=   0.30000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=   1 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.0619669263   1.0639996276   0.1931285734
+ BE          4.0   1.0530686424  -1.0567772298   0.0348862891
+ BE          4.0  -1.0377890956   1.0350490368  -0.0155636139
+ BE          4.0  -1.0401983204  -1.0576083373  -0.2254669275
+ BE          4.0   0.1460423667   0.1444457612   1.5135392275
+ BE          4.0  -0.0030905195  -0.1291088586  -1.5005235486
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.1266909 *  2.1103000 *  3.0158815    1.8514809 *
+   2 BE      2.1266909 *  0.0000000    2.9580346 *  2.1093959 *  2.1099876 *
+   3 BE      2.1103000 *  2.9580346 *  0.0000000    2.1031595 *  2.1290342 *
+   4 BE      3.0158815    2.1093959 *  2.1031595 *  0.0000000    2.4240964 *
+   5 BE      1.8514809 *  2.1099876 *  2.1290342 *  2.4240964 *  0.0000000  
+   6 BE      2.3294447 *  2.0817118 *  2.1519690 *  1.8877164 *  3.0301233  
+
+                6 BE    
+
+   1 BE      2.3294447 *
+   2 BE      2.0817118 *
+   3 BE      2.1519690 *
+   4 BE      1.8877164 *
+   5 BE      3.0301233  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  75.00%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  5.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.6916075743    -2.6916075743   0.783581605   0.000000000
+   2  1  0       -2.6916260906    -0.0000185163   0.002241034   0.017222175
+   3  2  0       -2.6916355096    -0.0000094190   0.003741624   0.031539730
+   4  3  0       -2.6916363121    -0.0000008025   0.000847872   0.006939760
+   5  4  0       -2.6916363231    -0.0000000110   0.000083505   0.000825882
+   6  5  0       -2.6916363246    -0.0000000015   0.000042780   0.000423271
+   7  6  0       -2.6916363248    -0.0000000002   0.000012676   0.000089825
+   8  7  0       -2.6916363248    -0.0000000000   0.000000279   0.000002225
+   9  8  0       -2.6916363248    -0.0000000000   0.000000017   0.000000100
+  10  9  0       -2.6916363248     0.0000000000   0.000000000   0.000000000
+  11 10  0       -2.6916363248    -0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.6916363248 AFTER  11 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  75.00%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  75.00%
+
+          NSERCH=  1     ENERGY=      -2.6916363
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0    -0.0060122    -0.0031506    -0.0009522
+    2  BE           4.0    -0.0011610    -0.0000954    -0.0041136
+    3  BE           4.0    -0.0048636     0.0065491     0.0002568
+    4  BE           4.0     0.0009862     0.0014744     0.0074799
+    5  BE           4.0     0.0013287    -0.0036778    -0.0036429
+    6  BE           4.0     0.0097219    -0.0010996     0.0009721
+
+          MAXIMUM GRADIENT = 0.0097219    RMS GRADIENT = 0.0041912
+
+ NSERCH:   1  E=       -2.6916363248  GRAD. MAX=  0.0097219  R.M.S.=  0.0041912
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0081730469
+          PREDICTED ENERGY CHANGE WAS  -0.0115786760 RATIO=  0.706
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.670409
+          TRIM/QA LAMBDA FOR NON-TS MODES =  -0.01568371
+          TRIM/QA STEP HAS LENGTH         =   0.300000
+          RADIUS OF STEP TAKEN=   0.30000  CURRENT TRUST RADIUS=   0.30000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=   2 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.0899222476   1.0744547079   0.1869502817
+ BE          4.0   1.0218701890  -1.0603262188   0.0881632767
+ BE          4.0  -1.0304607298   0.9868706843   0.0040857234
+ BE          4.0  -1.0566881689  -1.0900809790  -0.3177156023
+ BE          4.0   0.1927473151   0.1980853587   1.5473563178
+ BE          4.0  -0.0373908530  -0.1090035531  -1.5088399972
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.1381486 *  2.1300550 *  3.0899577    1.8503110 *
+   2 BE      2.1381486 *  0.0000000    2.9000252 *  2.1180245 *  2.0976865 *
+   3 BE      2.1300550 *  2.9000252 *  0.0000000    2.1018973 *  2.1213449 *
+   4 BE      3.0899577    2.1180245 *  2.1018973 *  0.0000000    2.5882339 *
+   5 BE      1.8503110 *  2.0976865 *  2.1213449 *  2.5882339 *  0.0000000  
+   6 BE      2.3552310 *  2.1395019 *  2.1156730 *  1.8493938 *  3.0801953  
+
+                6 BE    
+
+   1 BE      2.3552310 *
+   2 BE      2.1395019 *
+   3 BE      2.1156730 *
+   4 BE      1.8493938 *
+   5 BE      3.0801953  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  75.00%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.6944402673    -2.6944402673   0.808643663   0.000000000
+   2  1  0       -2.6944734234    -0.0000331560   0.003073147   0.024849510
+   3  2  0       -2.6944911642    -0.0000177408   0.005322166   0.052961578
+   4  3  0       -2.6944940427    -0.0000028785   0.001370255   0.011621626
+   5  4  0       -2.6944940689    -0.0000000262   0.000120311   0.000799655
+   6  5  0       -2.6944940711    -0.0000000023   0.000053418   0.000377068
+   7  6  0       -2.6944940713    -0.0000000002   0.000017048   0.000124452
+   8  7  0       -2.6944940713    -0.0000000000   0.000000851   0.000006806
+   9  8  0       -2.6944940713    -0.0000000000   0.000000015   0.000000129
+  10  9  0       -2.6944940713     0.0000000000   0.000000000   0.000000000
+  11 10  0       -2.6944940713     0.0000000000   0.000000000   0.000000000
+  12 11  0       -2.6944940713    -0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.6944940713 AFTER  12 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  66.67%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  66.67%
+
+          NSERCH=  2     ENERGY=      -2.6944941
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0     0.0015752     0.0025284     0.0046301
+    2  BE           4.0     0.0056670    -0.0036405     0.0013513
+    3  BE           4.0    -0.0030092     0.0017672    -0.0035953
+    4  BE           4.0     0.0018928     0.0053035     0.0037946
+    5  BE           4.0    -0.0014007    -0.0041061    -0.0052619
+    6  BE           4.0    -0.0047252    -0.0018525    -0.0009188
+
+          MAXIMUM GRADIENT = 0.0056670    RMS GRADIENT = 0.0035106
+
+ NSERCH:   2  E=       -2.6944940713  GRAD. MAX=  0.0056670  R.M.S.=  0.0035106
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0028577465
+          PREDICTED ENERGY CHANGE WAS  -0.0026900402 RATIO=  1.062
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   2.551795
+          TRIM/QA LAMBDA FOR NON-TS MODES =  -0.01409975
+          TRIM/QA STEP HAS LENGTH         =   0.500000
+          RADIUS OF STEP TAKEN=   0.50000  CURRENT TRUST RADIUS=   0.50000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=   3 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.1295981350   1.0759543446   0.1416039619
+ BE          4.0   0.9655872495  -1.0674365173   0.1530064497
+ BE          4.0  -1.0425661110   0.9015790470   0.0834325883
+ BE          4.0  -1.0974173576  -1.1325953822  -0.4657639925
+ BE          4.0   0.2559281393   0.3041015178   1.6081379907
+ BE          4.0  -0.0311300552  -0.0816030100  -1.5204169981
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.1496869 *  2.1799285 *  3.1947122    1.8734402 *
+   2 BE      2.1496869 *  0.0000000    2.8132797 *  2.1547878 *  2.1218248 *
+   3 BE      2.1799285 *  2.8132797 *  0.0000000    2.1077218 *  2.0899266 *
+   4 BE      3.1947122    2.1547878 *  2.1077218 *  0.0000000    2.8629899 *
+   5 BE      1.8734402 *  2.1218248 *  2.0899266 *  2.8629899 *  0.0000000  
+   6 BE      2.3344255 *  2.1830390 *  2.1358800 *  1.8313510 *  3.1652846  
+
+                6 BE    
+
+   1 BE      2.3344255 *
+   2 BE      2.1830390 *
+   3 BE      2.1358800 *
+   4 BE      1.8313510 *
+   5 BE      3.1652846  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  66.67%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7010794752    -2.7010794752   0.887325762   0.000000000
+   2  1  0       -2.7011505903    -0.0000711151   0.005197692   0.037012615
+   3  2  0       -2.7011888252    -0.0000382349   0.008203536   0.075781326
+   4  3  0       -2.7011942691    -0.0000054438   0.002084887   0.016710046
+   5  4  0       -2.7011944746    -0.0000002055   0.000402109   0.002492712
+   6  5  0       -2.7011944768    -0.0000000022   0.000049351   0.000346515
+   7  6  0       -2.7011944772    -0.0000000004   0.000026118   0.000217326
+   8  7  0       -2.7011944772    -0.0000000000   0.000001730   0.000013077
+   9  8  0       -2.7011944772    -0.0000000000   0.000000134   0.000000897
+  10  9  0       -2.7011944772    -0.0000000000   0.000000000   0.000000001
+  11 10  0       -2.7011944772    -0.0000000000   0.000000000   0.000000000
+  12 11  0       -2.7011944772    -0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7011944772 AFTER  12 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  66.67%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  66.67%
+
+          NSERCH=  3     ENERGY=      -2.7011945
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0     0.0157984     0.0137286     0.0095667
+    2  BE           4.0     0.0155692    -0.0104304     0.0054824
+    3  BE           4.0    -0.0055666     0.0022855    -0.0004993
+    4  BE           4.0     0.0010578     0.0087361     0.0074081
+    5  BE           4.0    -0.0120157    -0.0076380    -0.0078990
+    6  BE           4.0    -0.0148431    -0.0066817    -0.0140589
+
+          MAXIMUM GRADIENT = 0.0157984    RMS GRADIENT = 0.0100204
+
+ NSERCH:   3  E=       -2.7011944772  GRAD. MAX=  0.0157984  R.M.S.=  0.0100204
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+          WARNING! HEREDITARY POSITIVE DEFINITENESS ENDANGERED
+ LOCAL CURVATURE   1 OF THE APPROXIMATE HESSIAN HAS EIGENVALUE=   -0.030700
+ *** THIS MODE HAS AN INCORRECT CURVATURE ***
+ THE COMPONENTS OF THIS MODE FOLLOWS:
+       -0.007735      -0.128374      -0.213121      -0.220517      -0.016669
+        0.156406      -0.051758      -0.348638       0.196057      -0.124723
+       -0.089152      -0.531025       0.303184       0.430254       0.263569
+        0.101549       0.152578       0.128114
+             ACTUAL ENERGY CHANGE WAS  -0.0067004059
+          PREDICTED ENERGY CHANGE WAS  -0.0041495585 RATIO=  1.615
+          TRIM/QA LAMBDA FOR NON-TS MODES =  -0.08224331
+          TRIM/QA STEP HAS LENGTH         =   0.500000
+          RADIUS OF STEP TAKEN=   0.50000  CURRENT TRUST RADIUS=   0.50000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=   4 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.1030108954   1.0193916700   0.0790896913
+ BE          4.0   0.9047876433  -1.0588571947   0.1681552812
+ BE          4.0  -1.0445821357   0.8137043595   0.1213723492
+ BE          4.0  -1.1257594929  -1.1534372297  -0.5926093939
+ BE          4.0   0.3326710163   0.4175526083   1.6834562754
+ BE          4.0   0.0098720736  -0.0383542135  -1.4594642033
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.0895797 *  2.1578348 *  3.1843025    1.8787299 *
+   2 BE      2.0895797 *  0.0000000    2.7034641 *  2.1704446 *  2.1916296 *
+   3 BE      2.1578348 *  2.7034641 *  0.0000000    2.0942793 *  2.1198747 *
+   4 BE      3.1843025    2.1704446 *  2.0942793 *  0.0000000    3.1265802  
+   5 BE      1.8787299 *  2.1916296 *  2.1198747 *  3.1265802    0.0000000  
+   6 BE      2.1635450 *  2.1193030 *  2.0825277 *  1.8123207 *  3.1921778  
+
+                6 BE    
+
+   1 BE      2.1635450 *
+   2 BE      2.1193030 *
+   3 BE      2.0825277 *
+   4 BE      1.8123207 *
+   5 BE      3.1921778  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  66.67%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  5.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7110787460    -2.7110787460   0.898059815   0.000000000
+   2  1  0       -2.7112195530    -0.0001408070   0.006559418   0.042275640
+   3  2  0       -2.7112767004    -0.0000571474   0.008158059   0.054322371
+   4  3  0       -2.7112781891    -0.0000014886   0.001185474   0.011276023
+   5  4  0       -2.7112784846    -0.0000002955   0.000543793   0.004717376
+   6  5  0       -2.7112784857    -0.0000000012   0.000021604   0.000168597
+   7  6  0       -2.7112784861    -0.0000000003   0.000018095   0.000122676
+   8  7  0       -2.7112784861    -0.0000000000   0.000001963   0.000018819
+   9  8  0       -2.7112784861    -0.0000000000   0.000000210   0.000001524
+  10  9  0       -2.7112784861    -0.0000000000   0.000000000   0.000000000
+  11 10  0       -2.7112784861     0.0000000000   0.000000000   0.000000000
+  12 11  0       -2.7112784861     0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7112784861 AFTER  12 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  77.78%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  77.78%
+
+          NSERCH=  4     ENERGY=      -2.7112785
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0    -0.0034480    -0.0068304    -0.0091043
+    2  BE           4.0     0.0152414    -0.0044490    -0.0085829
+    3  BE           4.0     0.0016124    -0.0008604    -0.0146249
+    4  BE           4.0     0.0040259     0.0135896     0.0049398
+    5  BE           4.0    -0.0100289    -0.0028343     0.0057083
+    6  BE           4.0    -0.0074027     0.0013846     0.0216639
+
+          MAXIMUM GRADIENT = 0.0216639    RMS GRADIENT = 0.0093599
+
+ NSERCH:   4  E=       -2.7112784861  GRAD. MAX=  0.0216639  R.M.S.=  0.0093599
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0100840089
+          PREDICTED ENERGY CHANGE WAS  -0.0180718158 RATIO=  0.558
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.580471
+          TRIM/QA LAMBDA FOR NON-TS MODES =  -0.00407174
+          TRIM/QA STEP HAS LENGTH         =   0.500000
+          RADIUS OF STEP TAKEN=   0.50000  CURRENT TRUST RADIUS=   0.50000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=   5 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.1193931570   1.0163718061   0.0467457215
+ BE          4.0   0.8168266518  -1.0378387289   0.2023839468
+ BE          4.0  -1.0356245512   0.7337344738   0.2108260827
+ BE          4.0  -1.1708385774  -1.2088611494  -0.7327047963
+ BE          4.0   0.4024354508   0.5229549243   1.7340706984
+ BE          4.0   0.0478078690  -0.0263613259  -1.4613216531
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.0821985 *  2.1796577 *  3.2869996    1.8985663 *
+   2 BE      2.0821985 *  0.0000000    2.5632242 *  2.2032823 *  2.2257271 *
+   3 BE      2.1796577 *  2.5632242 *  0.0000000    2.1638417 *  2.1054023 *
+   4 BE      3.2869996    2.2032823 *  2.1638417 *  0.0000000    3.3999058  
+   5 BE      1.8985663 *  2.2257271 *  2.1054023 *  3.3999058    0.0000000  
+   6 BE      2.1236418 *  2.0934165 *  2.1325219 *  1.8477791 *  3.2616010  
+
+                6 BE    
+
+   1 BE      2.1236418 *
+   2 BE      2.0934165 *
+   3 BE      2.1325219 *
+   4 BE      1.8477791 *
+   5 BE      3.2616010  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  77.78%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  5.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7148900604    -2.7148900604   0.944378383   0.000000000
+   2  1  0       -2.7149339576    -0.0000438973   0.002741783   0.025521535
+   3  2  0       -2.7149491333    -0.0000151757   0.004229323   0.041426598
+   4  3  0       -2.7149521913    -0.0000030581   0.001596320   0.013531751
+   5  4  0       -2.7149522698    -0.0000000785   0.000223891   0.002034459
+   6  5  0       -2.7149522703    -0.0000000005   0.000016503   0.000156471
+   7  6  0       -2.7149522707    -0.0000000004   0.000023167   0.000202650
+   8  7  0       -2.7149522707    -0.0000000000   0.000001381   0.000010567
+   9  8  0       -2.7149522707    -0.0000000000   0.000000044   0.000000262
+  10  9  0       -2.7149522707     0.0000000000   0.000000000   0.000000000
+  11 10  0       -2.7149522707     0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7149522707 AFTER  11 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  70.00%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  70.00%
+
+          NSERCH=  5     ENERGY=      -2.7149523
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0    -0.0005370    -0.0029087    -0.0137836
+    2  BE           4.0     0.0151850    -0.0080913    -0.0071513
+    3  BE           4.0    -0.0042554     0.0137505    -0.0026413
+    4  BE           4.0    -0.0145019    -0.0159416    -0.0134812
+    5  BE           4.0     0.0004371     0.0085858     0.0257953
+    6  BE           4.0     0.0036722     0.0046053     0.0112620
+
+          MAXIMUM GRADIENT = 0.0257953    RMS GRADIENT = 0.0113213
+
+ NSERCH:   5  E=       -2.7149522707  GRAD. MAX=  0.0257953  R.M.S.=  0.0113213
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0036737846
+          PREDICTED ENERGY CHANGE WAS  -0.0055498141 RATIO=  0.662
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.172131
+          RADIUS OF STEP TAKEN=   0.17213  CURRENT TRUST RADIUS=   0.50000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=   6 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.1227489732   1.0335699057   0.0707596819
+ BE          4.0   0.8010614311  -1.0321827810   0.2118916292
+ BE          4.0  -1.0412034684   0.7273377572   0.2028907517
+ BE          4.0  -1.1475354374  -1.1824345807  -0.6885315918
+ BE          4.0   0.3985112282   0.4890848824   1.6949662891
+ BE          4.0   0.0464172732  -0.0353751837  -1.4919767600
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.0954081 *  2.1895038 *  3.2621144    1.8598471 *
+   2 BE      2.0954081 *  0.0000000    2.5475348 *  2.1518288 *  2.1623627 *
+   3 BE      2.1895038 *  2.5475348 *  0.0000000    2.1102537 *  2.0870631 *
+   4 BE      3.2621144    2.1518288 *  2.1102537 *  0.0000000    3.2962554  
+   5 BE      1.8598471 *  2.1623627 *  2.0870631 *  3.2962554    0.0000000  
+   6 BE      2.1779070 *  2.1133577 *  2.1534219 *  1.8403240 *  3.2489436  
+
+                6 BE    
+
+   1 BE      2.1779070 *
+   2 BE      2.1133577 *
+   3 BE      2.1534219 *
+   4 BE      1.8403240 *
+   5 BE      3.2489436  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  70.00%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  5.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7183949574    -2.7183949574   0.924031155   0.000000000
+   2  1  0       -2.7184867740    -0.0000918166   0.005435268   0.034114512
+   3  2  0       -2.7185251326    -0.0000383586   0.006099903   0.042332631
+   4  3  0       -2.7185256076    -0.0000004750   0.000596145   0.004313446
+   5  4  0       -2.7185256618    -0.0000000542   0.000329131   0.002570910
+   6  5  0       -2.7185256625    -0.0000000007   0.000018107   0.000143159
+   7  6  0       -2.7185256628    -0.0000000003   0.000021674   0.000188073
+   8  7  0       -2.7185256628    -0.0000000000   0.000004268   0.000031238
+   9  8  0       -2.7185256628    -0.0000000000   0.000000143   0.000000821
+  10  9  0       -2.7185256628    -0.0000000000   0.000000000   0.000000000
+  11 10  0       -2.7185256628    -0.0000000000   0.000000000   0.000000000
+  12 11  0       -2.7185256628     0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7185256628 AFTER  12 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  70.00%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  70.00%
+
+          NSERCH=  6     ENERGY=      -2.7185257
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0     0.0045192     0.0001384     0.0005200
+    2  BE           4.0     0.0079774    -0.0041670    -0.0021704
+    3  BE           4.0    -0.0067535     0.0054895     0.0006651
+    4  BE           4.0    -0.0006047     0.0002811    -0.0010431
+    5  BE           4.0    -0.0027588     0.0007851     0.0013818
+    6  BE           4.0    -0.0023795    -0.0025269     0.0006467
+
+          MAXIMUM GRADIENT = 0.0079774    RMS GRADIENT = 0.0033891
+
+ NSERCH:   6  E=       -2.7185256628  GRAD. MAX=  0.0079774  R.M.S.=  0.0033891
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0035733921
+          PREDICTED ENERGY CHANGE WAS  -0.0036160325 RATIO=  0.988
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.165364
+          RADIUS OF STEP TAKEN=   0.16536  CURRENT TRUST RADIUS=   0.34426
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=   7 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.1193557574   1.0381663066   0.0678420669
+ BE          4.0   0.7546332151  -1.0188209819   0.2347725632
+ BE          4.0  -1.0290525029   0.6791425146   0.2139614537
+ BE          4.0  -1.1493704469  -1.1789588832  -0.7123494698
+ BE          4.0   0.4290343799   0.5082121405   1.6991182632
+ BE          4.0   0.0553995974  -0.0277410966  -1.5033448773
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.0957302 *  2.1830957 *  3.2667203    1.8489070 *
+   2 BE      2.0957302 *  0.0000000    2.4627318 *  2.1325839 *  2.1405964 *
+   3 BE      2.1830957 *  2.4627318 *  0.0000000    2.0796801 *  2.0882829 *
+   4 BE      3.2667203    2.1325839 *  2.0796801 *  0.0000000    3.3396234  
+   5 BE      1.8489070 *  2.1405964 *  2.0882829 *  3.3396234    0.0000000  
+   6 BE      2.1764167 *  2.1194856 *  2.1505492 *  1.8445723 *  3.2684276  
+
+                6 BE    
+
+   1 BE      2.1764167 *
+   2 BE      2.1194856 *
+   3 BE      2.1505492 *
+   4 BE      1.8445723 *
+   5 BE      3.2684276  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  70.00%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7196978431    -2.7196978431   0.917221347   0.000000000
+   2  1  0       -2.7197197893    -0.0000219462   0.002516692   0.017025198
+   3  2  0       -2.7197298327    -0.0000100433   0.003233096   0.023628439
+   4  3  0       -2.7197300453    -0.0000002126   0.000601638   0.004930878
+   5  4  0       -2.7197300801    -0.0000000348   0.000172935   0.001265978
+   6  5  0       -2.7197300803    -0.0000000002   0.000014093   0.000098356
+   7  6  0       -2.7197300804    -0.0000000001   0.000014513   0.000146094
+   8  7  0       -2.7197300804    -0.0000000000   0.000000119   0.000000815
+   9  8  0       -2.7197300804     0.0000000000   0.000000028   0.000000204
+  10  9  0       -2.7197300804    -0.0000000000   0.000000000   0.000000000
+  11 10  0       -2.7197300804    -0.0000000000   0.000000000   0.000000000
+  12 11  0       -2.7197300804     0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7197300804 AFTER  12 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  70.00%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  70.00%
+
+          NSERCH=  7     ENERGY=      -2.7197301
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0     0.0041207     0.0006822     0.0021102
+    2  BE           4.0     0.0043817    -0.0037001     0.0010412
+    3  BE           4.0    -0.0070589     0.0001640    -0.0007063
+    4  BE           4.0     0.0012764     0.0038072     0.0002824
+    5  BE           4.0     0.0000134     0.0005985    -0.0010121
+    6  BE           4.0    -0.0027334    -0.0015518    -0.0017154
+
+          MAXIMUM GRADIENT = 0.0070589    RMS GRADIENT = 0.0027551
+
+ NSERCH:   7  E=       -2.7197300804  GRAD. MAX=  0.0070589  R.M.S.=  0.0027551
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0012044176
+          PREDICTED ENERGY CHANGE WAS  -0.0008652451 RATIO=  1.392
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.179523
+          TRIM/QA LAMBDA FOR NON-TS MODES =  -0.00259373
+          TRIM/QA STEP HAS LENGTH         =   0.165364
+          RADIUS OF STEP TAKEN=   0.16536  CURRENT TRUST RADIUS=   0.16536
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=   8 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.1184810152   1.0434120928   0.0638354879
+ BE          4.0   0.7096304836  -0.9954411346   0.2470315156
+ BE          4.0  -0.9941584785   0.6401128422   0.2333961619
+ BE          4.0  -1.1576265832  -1.1907642720  -0.7413662263
+ BE          4.0   0.4437905554   0.5276704518   1.7067816268
+ BE          4.0   0.0598830075  -0.0249899802  -1.5096785659
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.0874966 *  2.1574630 *  3.2894619    1.8494509 *
+   2 BE      2.0874966 *  0.0000000    2.3618043 *  2.1217281 *  2.1263608 *
+   3 BE      2.1574630 *  2.3618043 *  0.0000000    2.0806236 *  2.0618452 *
+   4 BE      3.2894619    2.1217281 *  2.0806236 *  0.0000000    3.3927839  
+   5 BE      1.8494509 *  2.1263608 *  2.0618452 *  3.3927839    0.0000000  
+   6 BE      2.1767083 *  2.1094970 *  2.1428193 *  1.8524749 *  3.2860972  
+
+                6 BE    
+
+   1 BE      2.1767083 *
+   2 BE      2.1094970 *
+   3 BE      2.1428193 *
+   4 BE      1.8524749 *
+   5 BE      3.2860972  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  70.00%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7200198747    -2.7200198747   0.909493392   0.000000000
+   2  1  0       -2.7200333805    -0.0000135058   0.001585849   0.014221435
+   3  2  0       -2.7200402751    -0.0000068946   0.002622633   0.024408334
+   4  3  0       -2.7200407359    -0.0000004608   0.000648274   0.006264263
+   5  4  0       -2.7200407823    -0.0000000463   0.000177672   0.001297761
+   6  5  0       -2.7200407824    -0.0000000001   0.000005898   0.000049644
+   7  6  0       -2.7200407824    -0.0000000000   0.000005213   0.000043539
+   8  7  0       -2.7200407824    -0.0000000000   0.000000649   0.000007282
+   9  8  0       -2.7200407824    -0.0000000000   0.000000002   0.000000018
+  10  9  0       -2.7200407824     0.0000000000   0.000000000   0.000000000
+  11 10  0       -2.7200407824     0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7200407824 AFTER  11 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  72.73%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  72.73%
+
+          NSERCH=  8     ENERGY=      -2.7200408
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0     0.0013545     0.0005856     0.0025547
+    2  BE           4.0     0.0009943    -0.0009696     0.0022794
+    3  BE           4.0     0.0008259    -0.0007216     0.0025937
+    4  BE           4.0    -0.0027842    -0.0023215    -0.0045727
+    5  BE           4.0     0.0012304     0.0035956     0.0003048
+    6  BE           4.0    -0.0016209    -0.0001684    -0.0031599
+
+          MAXIMUM GRADIENT = 0.0045727    RMS GRADIENT = 0.0021729
+
+ NSERCH:   8  E=       -2.7200407824  GRAD. MAX=  0.0045727  R.M.S.=  0.0021729
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0003107020
+          PREDICTED ENERGY CHANGE WAS  -0.0006128748 RATIO=  0.507
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.066545
+          RADIUS OF STEP TAKEN=   0.06655  CURRENT TRUST RADIUS=   0.16536
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=   9 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.1163470877   1.0430030762   0.0622690461
+ BE          4.0   0.7237561268  -1.0005834443   0.2393053253
+ BE          4.0  -0.9995417824   0.6537696226   0.2241118812
+ BE          4.0  -1.1540567573  -1.1853742942  -0.7240683551
+ BE          4.0   0.4332069826   0.5150424814   1.7034660009
+ BE          4.0   0.0602883427  -0.0258574417  -1.5050838985
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.0884720 *  2.1574711 *  3.2769995    1.8544407 *
+   2 BE      2.0884720 *  0.0000000    2.3889057 *  2.1185886 *  2.1272770 *
+   3 BE      2.1574711 *  2.3889057 *  0.0000000    2.0749388 *  2.0640986 *
+   4 BE      3.2769995    2.1185886 *  2.0749388 *  0.0000000    3.3621045  
+   5 BE      1.8544407 *  2.1272770 *  2.0640986 *  3.3621045    0.0000000  
+   6 BE      2.1712481 *  2.1055104 *  2.1389836 *  1.8517826 *  3.2751234  
+
+                6 BE    
+
+   1 BE      2.1712481 *
+   2 BE      2.1055104 *
+   3 BE      2.1389836 *
+   4 BE      1.8517826 *
+   5 BE      3.2751234  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  72.73%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7202162288    -2.7202162288   0.904905631   0.000000000
+   2  1  0       -2.7202172895    -0.0000010607   0.000519190   0.003765810
+   3  2  0       -2.7202177097    -0.0000004202   0.000721740   0.005594719
+   4  3  0       -2.7202177465    -0.0000000368   0.000145059   0.001687032
+   5  4  0       -2.7202177522    -0.0000000057   0.000065599   0.000570414
+   6  5  0       -2.7202177522    -0.0000000000   0.000001823   0.000012024
+   7  6  0       -2.7202177522    -0.0000000000   0.000001564   0.000011143
+   8  7  0       -2.7202177522    -0.0000000000   0.000000001   0.000000016
+   9  8  0       -2.7202177522     0.0000000000   0.000000000   0.000000000
+  10  9  0       -2.7202177522    -0.0000000000   0.000000000   0.000000000
+  11 10  0       -2.7202177522     0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7202177522 AFTER  11 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  72.73%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  72.73%
+
+          NSERCH=  9     ENERGY=      -2.7202178
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0     0.0006737    -0.0005871     0.0001941
+    2  BE           4.0     0.0009515    -0.0005252     0.0004401
+    3  BE           4.0     0.0008370    -0.0017706     0.0009790
+    4  BE           4.0     0.0006875     0.0022416     0.0011085
+    5  BE           4.0    -0.0023858     0.0002358    -0.0028647
+    6  BE           4.0    -0.0007638     0.0004055     0.0001430
+
+          MAXIMUM GRADIENT = 0.0028647    RMS GRADIENT = 0.0012573
+
+ NSERCH:   9  E=       -2.7202177522  GRAD. MAX=  0.0028647  R.M.S.=  0.0012573
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0001769698
+          PREDICTED ENERGY CHANGE WAS  -0.0002079721 RATIO=  0.851
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.016483
+          RADIUS OF STEP TAKEN=   0.01648  CURRENT TRUST RADIUS=   0.09411
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=  10 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.1142028692   1.0444801494   0.0630189058
+ BE          4.0   0.7235092562  -0.9998876692   0.2388477482
+ BE          4.0  -1.0006825053   0.6545383112   0.2211042058
+ BE          4.0  -1.1547041292  -1.1847716199  -0.7263885967
+ BE          4.0   0.4377012498   0.5147210045   1.7079094560
+ BE          4.0   0.0599732592  -0.0290801760  -1.5044917191
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.0887788 *  2.1563362 *  3.2772956    1.8557920 *
+   2 BE      2.0887788 *  0.0000000    2.3896187 *  2.1197992 *  2.1292881 *
+   3 BE      2.1563362 *  2.3896187 *  0.0000000    2.0747352 *  2.0734239 *
+   4 BE      3.2772956    2.1197992 *  2.0747352 *  0.0000000    3.3689519  
+   5 BE      1.8557920 *  2.1292881 *  2.0734239 *  3.3689519    0.0000000  
+   6 BE      2.1727912 *  2.1028504 *  2.1377573 *  1.8483799 *  3.2799267  
+
+                6 BE    
+
+   1 BE      2.1727912 *
+   2 BE      2.1028504 *
+   3 BE      2.1377573 *
+   4 BE      1.8483799 *
+   5 BE      3.2799267  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  72.73%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7202505083    -2.7202505083   0.905640039   0.000000000
+   2  1  0       -2.7202517834    -0.0000012751   0.000616028   0.003582974
+   3  2  0       -2.7202520548    -0.0000002714   0.000421026   0.002801917
+   4  3  0       -2.7202520700    -0.0000000152   0.000119361   0.000881133
+   5  4  0       -2.7202520705    -0.0000000005   0.000022243   0.000269293
+   6  5  0       -2.7202520705    -0.0000000000   0.000001506   0.000013519
+   7  6  0       -2.7202520705    -0.0000000000   0.000001140   0.000010129
+   8  7  0       -2.7202520705    -0.0000000000   0.000000245   0.000002502
+   9  8  0       -2.7202520705    -0.0000000000   0.000000000   0.000000001
+  10  9  0       -2.7202520705    -0.0000000000   0.000000000   0.000000000
+  11 10  0       -2.7202520705     0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7202520705 AFTER  11 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  72.73%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  72.73%
+
+          NSERCH= 10     ENERGY=      -2.7202521
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0     0.0011380    -0.0002838     0.0001602
+    2  BE           4.0     0.0009628    -0.0006695    -0.0002189
+    3  BE           4.0    -0.0004944    -0.0017294    -0.0003162
+    4  BE           4.0     0.0004230     0.0019954    -0.0003024
+    5  BE           4.0    -0.0006623     0.0011464     0.0002233
+    6  BE           4.0    -0.0013670    -0.0004592     0.0004541
+
+          MAXIMUM GRADIENT = 0.0019954    RMS GRADIENT = 0.0008975
+
+ NSERCH:  10  E=       -2.7202520705  GRAD. MAX=  0.0019954  R.M.S.=  0.0008975
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0000343183
+          PREDICTED ENERGY CHANGE WAS  -0.0000325062 RATIO=  1.056
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.015760
+          RADIUS OF STEP TAKEN=   0.01576  CURRENT TRUST RADIUS=   0.05000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=  11 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.1117168070   1.0486079856   0.0625791566
+ BE          4.0   0.7223938615  -0.9990197299   0.2401765757
+ BE          4.0  -0.9988633076   0.6570135893   0.2212499744
+ BE          4.0  -1.1561193007  -1.1858747483  -0.7281826285
+ BE          4.0   0.4396338989   0.5112843737   1.7078098261
+ BE          4.0   0.0612380408  -0.0320114705  -1.5036329044
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.0918634 *  2.1524570 *  3.2804417    1.8566626 *
+   2 BE      2.0918634 *  0.0000000    2.3886253 *  2.1216612 *  2.1248339 *
+   3 BE      2.1524570 *  2.3886253 *  0.0000000    2.0790356 *  2.0737337 *
+   4 BE      3.2804417    2.1216612 *  2.0790356 *  0.0000000    3.3705840  
+   5 BE      1.8566626 *  2.1248339 *  2.0737337 *  3.3705840    0.0000000  
+   6 BE      2.1735373 *  2.1007388 *  2.1386424 *  1.8478860 *  3.2789813  
+
+                6 BE    
+
+   1 BE      2.1735373 *
+   2 BE      2.1007388 *
+   3 BE      2.1386424 *
+   4 BE      1.8478860 *
+   5 BE      3.2789813  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  72.73%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7202789410    -2.7202789410   0.905212424   0.000000000
+   2  1  0       -2.7202791007    -0.0000001597   0.000210490   0.001525599
+   3  2  0       -2.7202791852    -0.0000000845   0.000330435   0.002462211
+   4  3  0       -2.7202791874    -0.0000000022   0.000048966   0.000410017
+   5  4  0       -2.7202791877    -0.0000000003   0.000014489   0.000127759
+   6  5  0       -2.7202791877    -0.0000000000   0.000001796   0.000021326
+   7  6  0       -2.7202791877    -0.0000000000   0.000000428   0.000004453
+   8  7  0       -2.7202791877    -0.0000000000   0.000000023   0.000000187
+   9  8  0       -2.7202791877    -0.0000000000   0.000000000   0.000000000
+  10  9  0       -2.7202791877     0.0000000000   0.000000000   0.000000000
+  11 10  0       -2.7202791877     0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7202791877 AFTER  11 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  72.73%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  72.73%
+
+          NSERCH= 11     ENERGY=      -2.7202792
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0     0.0012137     0.0000652     0.0001563
+    2  BE           4.0     0.0009790    -0.0003696    -0.0000461
+    3  BE           4.0    -0.0002817    -0.0010151     0.0003028
+    4  BE           4.0    -0.0001911     0.0009860    -0.0010491
+    5  BE           4.0    -0.0005557     0.0010289     0.0002630
+    6  BE           4.0    -0.0011642    -0.0006953     0.0003731
+
+          MAXIMUM GRADIENT = 0.0012137    RMS GRADIENT = 0.0007197
+
+ NSERCH:  11  E=       -2.7202791877  GRAD. MAX=  0.0012137  R.M.S.=  0.0007197
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0000271172
+          PREDICTED ENERGY CHANGE WAS  -0.0000177025 RATIO=  1.532
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.034985
+          RADIUS OF STEP TAKEN=   0.03498  CURRENT TRUST RADIUS=   0.05000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=  12 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.1040698922   1.0573680756   0.0620853920
+ BE          4.0   0.7191756228  -0.9990539133   0.2423611923
+ BE          4.0  -0.9951460260   0.6626665186   0.2177981243
+ BE          4.0  -1.1570231938  -1.1869196787  -0.7276971701
+ BE          4.0   0.4446313613   0.5025870386   1.7082784160
+ BE          4.0   0.0642923436  -0.0366480409  -1.5028259544
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.0998844 *  2.1416683 *  3.2822440    1.8581153 *
+   2 BE      2.0998844 *  0.0000000    2.3876383 *  2.1204784 *  2.1164152 *
+   3 BE      2.1416683 *  2.3876383 *  0.0000000    2.0835390 *  2.0784888 *
+   4 BE      3.2822440    2.1204784 *  2.0835390 *  0.0000000    3.3695263  
+   5 BE      1.8581153 *  2.1164152 *  2.0784888 *  3.3695263    0.0000000  
+   6 BE      2.1741564 *  2.0978025 *  2.1382230 *  1.8481237 *  3.2782043  
+
+                6 BE    
+
+   1 BE      2.1741564 *
+   2 BE      2.0978025 *
+   3 BE      2.1382230 *
+   4 BE      1.8481237 *
+   5 BE      3.2782043  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  75.00%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7203212581    -2.7203212581   0.903509889   0.000000000
+   2  1  0       -2.7203223010    -0.0000010429   0.000570998   0.003642933
+   3  2  0       -2.7203228262    -0.0000005251   0.000817725   0.005178582
+   4  3  0       -2.7203228296    -0.0000000034   0.000056161   0.000721939
+   5  4  0       -2.7203228301    -0.0000000005   0.000015144   0.000143081
+   6  5  0       -2.7203228301    -0.0000000000   0.000001275   0.000007689
+   7  6  0       -2.7203228301    -0.0000000000   0.000001100   0.000007694
+   8  7  0       -2.7203228301    -0.0000000000   0.000000220   0.000001580
+   9  8  0       -2.7203228301     0.0000000000   0.000000000   0.000000001
+  10  9  0       -2.7203228301    -0.0000000000   0.000000000   0.000000000
+  11 10  0       -2.7203228301    -0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7203228301 AFTER  11 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  75.00%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  75.00%
+
+          NSERCH= 12     ENERGY=      -2.7203228
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0     0.0009599     0.0005065    -0.0002410
+    2  BE           4.0     0.0005760     0.0000286    -0.0002179
+    3  BE           4.0     0.0000502    -0.0004080     0.0006077
+    4  BE           4.0    -0.0004670     0.0003160    -0.0010302
+    5  BE           4.0    -0.0005773     0.0004339     0.0004129
+    6  BE           4.0    -0.0005419    -0.0008770     0.0004683
+
+          MAXIMUM GRADIENT = 0.0010302    RMS GRADIENT = 0.0005532
+
+ NSERCH:  12  E=       -2.7203228301  GRAD. MAX=  0.0010302  R.M.S.=  0.0005532
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0000436424
+          PREDICTED ENERGY CHANGE WAS  -0.0000310450 RATIO=  1.406
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.032135
+          RADIUS OF STEP TAKEN=   0.03214  CURRENT TRUST RADIUS=   0.05000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=  13 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.0964353725   1.0638094735   0.0627736936
+ BE          4.0   0.7158600987  -1.0010934091   0.2450903097
+ BE          4.0  -0.9925255050   0.6684166515   0.2123944533
+ BE          4.0  -1.1558205835  -1.1883867404  -0.7255042467
+ BE          4.0   0.4501682701   0.4952559596   1.7081143670
+ BE          4.0   0.0658823473  -0.0380019351  -1.5028685769
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.1075817 *  2.1313093 *  3.2812234    1.8568953 *
+   2 BE      2.1075817 *  0.0000000    2.3889149 *  2.1166769 *  2.1095243 *
+   3 BE      2.1313093 *  2.3889149 *  0.0000000    2.0866332 *  2.0853125 *
+   4 BE      3.2812234    2.1166769 *  2.0866332 *  0.0000000    3.3669500  
+   5 BE      1.8568953 *  2.1095243 *  2.0853125 *  3.3669500    0.0000000  
+   6 BE      2.1742271 *  2.0988989 *  2.1357391 *  1.8493887 *  3.2775679  
+
+                6 BE    
+
+   1 BE      2.1742271 *
+   2 BE      2.0988989 *
+   3 BE      2.1357391 *
+   4 BE      1.8493887 *
+   5 BE      3.2775679  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  75.00%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7203500121    -2.7203500121   0.900797293   0.000000000
+   2  1  0       -2.7203513759    -0.0000013639   0.000579729   0.004069371
+   3  2  0       -2.7203519929    -0.0000006170   0.000781120   0.005289273
+   4  3  0       -2.7203520001    -0.0000000072   0.000062031   0.000460458
+   5  4  0       -2.7203520006    -0.0000000005   0.000021641   0.000269743
+   6  5  0       -2.7203520006    -0.0000000000   0.000000697   0.000009418
+   7  6  0       -2.7203520006    -0.0000000000   0.000001347   0.000015253
+   8  7  0       -2.7203520006    -0.0000000000   0.000000162   0.000001132
+   9  8  0       -2.7203520006     0.0000000000   0.000000000   0.000000000
+  10  9  0       -2.7203520006    -0.0000000000   0.000000000   0.000000000
+  11 10  0       -2.7203520006     0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7203520006 AFTER  11 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  75.00%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  75.00%
+
+          NSERCH= 13     ENERGY=      -2.7203520
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0     0.0004712     0.0005628    -0.0004207
+    2  BE           4.0     0.0002742     0.0002013    -0.0003428
+    3  BE           4.0     0.0001961    -0.0001786     0.0004944
+    4  BE           4.0    -0.0004246     0.0002288    -0.0004747
+    5  BE           4.0    -0.0005311    -0.0000559     0.0003059
+    6  BE           4.0     0.0000143    -0.0007584     0.0004379
+
+          MAXIMUM GRADIENT = 0.0007584    RMS GRADIENT = 0.0003991
+
+ NSERCH:  13  E=       -2.7203520006  GRAD. MAX=  0.0007584  R.M.S.=  0.0003991
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0000291705
+          PREDICTED ENERGY CHANGE WAS  -0.0000205189 RATIO=  1.422
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.028947
+          RADIUS OF STEP TAKEN=   0.02895  CURRENT TRUST RADIUS=   0.05000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=  14 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.0905633153   1.0672264731   0.0644797117
+ BE          4.0   0.7118576637  -1.0045741909   0.2484012048
+ BE          4.0  -0.9907443562   0.6735104843   0.2064529826
+ BE          4.0  -1.1524351305  -1.1912645673  -0.7231742323
+ BE          4.0   0.4556347133   0.4907802109   1.7073280475
+ BE          4.0   0.0651237943  -0.0356784100  -1.5034877143
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.1141436 *  2.1229720 *  3.2790582    1.8532068 *
+   2 BE      2.1141436 *  0.0000000    2.3909374 *  2.1105449 *  2.1048046 *
+   3 BE      2.1229720 *  2.3909374 *  0.0000000    2.0899131 *  2.0923739 *
+   4 BE      3.2790582    2.1105449 *  2.0899131 *  0.0000000    3.3648930  
+   5 BE      1.8532068 *  2.1048046 *  2.0923739 *  3.3648930    0.0000000  
+   6 BE      2.1740394 *  2.1038390 *  2.1311273 *  1.8511397 *  3.2770406  
+
+                6 BE    
+
+   1 BE      2.1740394 *
+   2 BE      2.1038390 *
+   3 BE      2.1311273 *
+   4 BE      1.8511397 *
+   5 BE      3.2770406  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  75.00%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7203708304    -2.7203708304   0.898287078   0.000000000
+   2  1  0       -2.7203726347    -0.0000018043   0.000548733   0.004602469
+   3  2  0       -2.7203733045    -0.0000006698   0.000690959   0.005308957
+   4  3  0       -2.7203733256    -0.0000000211   0.000098385   0.000812585
+   5  4  0       -2.7203733263    -0.0000000007   0.000026933   0.000289486
+   6  5  0       -2.7203733263    -0.0000000000   0.000000347   0.000002963
+   7  6  0       -2.7203733263    -0.0000000000   0.000000029   0.000000248
+   8  7  0       -2.7203733263     0.0000000000   0.000000002   0.000000024
+   9  8  0       -2.7203733263    -0.0000000000   0.000000000   0.000000000
+  10  9  0       -2.7203733263     0.0000000000   0.000000000   0.000000000
+  11 10  0       -2.7203733263    -0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7203733263 AFTER  11 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  75.00%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  75.00%
+
+          NSERCH= 14     ENERGY=      -2.7203733
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0    -0.0000787     0.0003702    -0.0001760
+    2  BE           4.0     0.0000406     0.0000851    -0.0003903
+    3  BE           4.0     0.0002456    -0.0001181     0.0002970
+    4  BE           4.0    -0.0002265     0.0002975     0.0000570
+    5  BE           4.0    -0.0003230    -0.0001469    -0.0000774
+    6  BE           4.0     0.0003420    -0.0004878     0.0002897
+
+          MAXIMUM GRADIENT = 0.0004878    RMS GRADIENT = 0.0002595
+
+ NSERCH:  14  E=       -2.7203733263  GRAD. MAX=  0.0004878  R.M.S.=  0.0002595
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0000213257
+          PREDICTED ENERGY CHANGE WAS  -0.0000152434 RATIO=  1.399
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.022692
+          RADIUS OF STEP TAKEN=   0.02269  CURRENT TRUST RADIUS=   0.05000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=  15 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.0883671657   1.0670918707   0.0658899277
+ BE          4.0   0.7087353542  -1.0072317376   0.2516449884
+ BE          4.0  -0.9899809101   0.6769416191   0.2017466436
+ BE          4.0  -1.1483379628  -1.1948032361  -0.7217386932
+ BE          4.0   0.4590655200   0.4892106356   1.7069168033
+ BE          4.0   0.0621508329  -0.0312091518  -1.5044596699
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.1169421 *  2.1190104 *  3.2770990    1.8501180 *
+   2 BE      2.1169421 *  0.0000000    2.3926067 *  2.1050844 *  2.1022585 *
+   3 BE      2.1190104 *  2.3926067 *  0.0000000    2.0931629 *  2.0977406 *
+   4 BE      3.2770990    2.1050844 *  2.0931629 *  0.0000000    3.3642259  
+   5 BE      1.8501180 *  2.1022585 *  2.0977406 *  3.3642259    0.0000000  
+   6 BE      2.1737946 *  2.1105912 *  2.1259348 *  1.8525351 *  3.2773948  
+
+                6 BE    
+
+   1 BE      2.1737946 *
+   2 BE      2.1105912 *
+   3 BE      2.1259348 *
+   4 BE      1.8525351 *
+   5 BE      3.2773948  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  75.00%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7203838905    -2.7203838905   0.896431339   0.000000000
+   2  1  0       -2.7203848898    -0.0000009993   0.000434145   0.003471678
+   3  2  0       -2.7203852909    -0.0000004011   0.000564709   0.004235812
+   4  3  0       -2.7203853011    -0.0000000102   0.000067092   0.000571024
+   5  4  0       -2.7203853016    -0.0000000005   0.000023028   0.000249387
+   6  5  0       -2.7203853016    -0.0000000000   0.000000313   0.000003819
+   7  6  0       -2.7203853016    -0.0000000000   0.000000562   0.000007989
+   8  7  0       -2.7203853016    -0.0000000000   0.000000063   0.000000471
+   9  8  0       -2.7203853016    -0.0000000000   0.000000000   0.000000000
+  10  9  0       -2.7203853016     0.0000000000   0.000000000   0.000000000
+  11 10  0       -2.7203853016     0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7203853016 AFTER  11 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  69.23%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  69.23%
+
+          NSERCH= 15     ENERGY=      -2.7203853
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0    -0.0003830    -0.0000050     0.0001723
+    2  BE           4.0     0.0000312    -0.0000057    -0.0002265
+    3  BE           4.0     0.0000843    -0.0000967     0.0000549
+    4  BE           4.0    -0.0000742     0.0003217     0.0002774
+    5  BE           4.0    -0.0000088    -0.0000335    -0.0003173
+    6  BE           4.0     0.0003505    -0.0001807     0.0000392
+
+          MAXIMUM GRADIENT = 0.0003830    RMS GRADIENT = 0.0001962
+
+ NSERCH:  15  E=       -2.7203853016  GRAD. MAX=  0.0003830  R.M.S.=  0.0001962
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0000119753
+          PREDICTED ENERGY CHANGE WAS  -0.0000090546 RATIO=  1.323
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.014521
+          RADIUS OF STEP TAKEN=   0.01452  CURRENT TRUST RADIUS=   0.05000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=  16 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.0892346680   1.0658306710   0.0661623263
+ BE          4.0   0.7066642362  -1.0082444425   0.2535393597
+ BE          4.0  -0.9893836994   0.6782299958   0.1997241345
+ BE          4.0  -1.1453996099  -1.1977610877  -0.7215241791
+ BE          4.0   0.4598112916   0.4894383294   1.7070838925
+ BE          4.0   0.0590731135  -0.0274934661  -1.5049855340
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.1173705 *  2.1186617 *  3.2768717    1.8496014 *
+   2 BE      2.1173705 *  0.0000000    2.3924194 *  2.1016198 *  2.1016141 *
+   3 BE      2.1186617 *  2.3924194 *  0.0000000    2.0958010 *  2.0995099 *
+   4 BE      3.2768717    2.1016198 *  2.0958010 *  0.0000000    3.3647409  
+   5 BE      1.8496014 *  2.1016141 *  2.0995099 *  3.3647409    0.0000000  
+   6 BE      2.1737286 *  2.1151020 *  2.1221080 *  1.8531305 *  3.2779871  
+
+                6 BE    
+
+   1 BE      2.1737286 *
+   2 BE      2.1151020 *
+   3 BE      2.1221080 *
+   4 BE      1.8531305 *
+   5 BE      3.2779871  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  76.92%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7203899553    -2.7203899553   0.895379503   0.000000000
+   2  1  0       -2.7203901615    -0.0000002063   0.000224550   0.001585965
+   3  2  0       -2.7203902594    -0.0000000979   0.000303279   0.002111853
+   4  3  0       -2.7203902600    -0.0000000006   0.000016326   0.000124948
+   5  4  0       -2.7203902600    -0.0000000000   0.000007595   0.000074499
+   6  5  0       -2.7203902600    -0.0000000000   0.000000135   0.000001598
+   7  6  0       -2.7203902600    -0.0000000000   0.000000190   0.000002546
+   8  7  0       -2.7203902600    -0.0000000000   0.000000064   0.000000460
+   9  8  0       -2.7203902600    -0.0000000000   0.000000000   0.000000000
+  10  9  0       -2.7203902600     0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7203902600 AFTER  10 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  76.92%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  76.92%
+
+          NSERCH= 16     ENERGY=      -2.7203903
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0    -0.0002851    -0.0001241     0.0002318
+    2  BE           4.0    -0.0000097    -0.0000512    -0.0001332
+    3  BE           4.0    -0.0000339    -0.0001044    -0.0000496
+    4  BE           4.0    -0.0000660     0.0001424     0.0002561
+    5  BE           4.0     0.0001244     0.0000962    -0.0001772
+    6  BE           4.0     0.0002703     0.0000411    -0.0001280
+
+          MAXIMUM GRADIENT = 0.0002851    RMS GRADIENT = 0.0001533
+
+ NSERCH:  16  E=       -2.7203902600  GRAD. MAX=  0.0002851  R.M.S.=  0.0001533
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0000049584
+          PREDICTED ENERGY CHANGE WAS  -0.0000036851 RATIO=  1.346
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.010028
+          RADIUS OF STEP TAKEN=   0.01003  CURRENT TRUST RADIUS=   0.05000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=  17 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.0902062521   1.0651500886   0.0658067317
+ BE          4.0   0.7058175307  -1.0086290543   0.2550306710
+ BE          4.0  -0.9887268783   0.6796485279   0.1986862308
+ BE          4.0  -1.1432973058  -1.1997425502  -0.7219495284
+ BE          4.0   0.4596506667   0.4890983072   1.7073045247
+ BE          4.0   0.0563497346  -0.0255253192  -1.5048786298
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.1175742 *  2.1185446 *  3.2770164    1.8503921 *
+   2 BE      2.1175742 *  0.0000000    2.3926840 *  2.1000572 *  2.1006867 *
+   3 BE      2.1185446 *  2.3926840 *  0.0000000    2.0984692 *  2.1000086 *
+   4 BE      3.2770164    2.1000572 *  2.0984692 *  0.0000000    3.3649518  
+   5 BE      1.8503921 *  2.1006867 *  2.1000086 *  3.3649518    0.0000000  
+   6 BE      2.1738180 *  2.1179193 *  2.1193368 *  1.8522735 *  3.2780497  
+
+                6 BE    
+
+   1 BE      2.1738180 *
+   2 BE      2.1179193 *
+   3 BE      2.1193368 *
+   4 BE      1.8522735 *
+   5 BE      3.2780497  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  76.92%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7203922406    -2.7203922406   0.894769801   0.000000000
+   2  1  0       -2.7203924146    -0.0000001740   0.000187914   0.001397598
+   3  2  0       -2.7203924663    -0.0000000517   0.000171768   0.001391685
+   4  3  0       -2.7203924688    -0.0000000025   0.000033190   0.000301310
+   5  4  0       -2.7203924689    -0.0000000000   0.000007259   0.000079857
+   6  5  0       -2.7203924689    -0.0000000000   0.000000058   0.000000406
+   7  6  0       -2.7203924689    -0.0000000000   0.000000064   0.000000509
+   8  7  0       -2.7203924689    -0.0000000000   0.000000010   0.000000131
+   9  8  0       -2.7203924689     0.0000000000   0.000000000   0.000000000
+  10  9  0       -2.7203924689     0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7203924689 AFTER  10 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  76.92%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  76.92%
+
+          NSERCH= 17     ENERGY=      -2.7203925
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0    -0.0001364    -0.0001365     0.0001307
+    2  BE           4.0     0.0000383    -0.0000195    -0.0000242
+    3  BE           4.0    -0.0000539    -0.0000254    -0.0000583
+    4  BE           4.0    -0.0000170     0.0000501     0.0001037
+    5  BE           4.0     0.0000908     0.0000734    -0.0000397
+    6  BE           4.0     0.0000781     0.0000579    -0.0001121
+
+          MAXIMUM GRADIENT = 0.0001365    RMS GRADIENT = 0.0000798
+
+ NSERCH:  17  E=       -2.7203924689  GRAD. MAX=  0.0001365  R.M.S.=  0.0000798
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0000022089
+          PREDICTED ENERGY CHANGE WAS  -0.0000017531 RATIO=  1.260
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.003384
+          RADIUS OF STEP TAKEN=   0.00338  CURRENT TRUST RADIUS=   0.05000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=  18 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.0907178867   1.0653453918   0.0654274493
+ BE          4.0   0.7053272483  -1.0086400200   0.2555435283
+ BE          4.0  -0.9883036949   0.6799588984   0.1986570813
+ BE          4.0  -1.1427437728  -1.2004190937  -0.7223916614
+ BE          4.0   0.4594652606   0.4888776663   1.7072987614
+ BE          4.0   0.0555370722  -0.0251228428  -1.5045351588
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.1180381 *  2.1186325 *  3.2776056    1.8510906 *
+   2 BE      2.1180381 *  0.0000000    2.3922768 *  2.0996435 *  2.1001430 *
+   3 BE      2.1186325 *  2.3922768 *  0.0000000    2.0995247 *  2.0996539 *
+   4 BE      3.2776056    2.0996435 *  2.0995247 *  0.0000000    3.3651438  
+   5 BE      1.8510906 *  2.1001430 *  2.0996539 *  3.3651438    0.0000000  
+   6 BE      2.1738222 *  2.1183508 *  2.1183974 *  1.8517415 *  3.2776869  
+
+                6 BE    
+
+   1 BE      2.1738222 *
+   2 BE      2.1183508 *
+   3 BE      2.1183974 *
+   4 BE      1.8517415 *
+   5 BE      3.2776869  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  76.92%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7203929179    -2.7203929179   0.894396933   0.000000000
+   2  1  0       -2.7203929405    -0.0000000226   0.000092671   0.000556070
+   3  2  0       -2.7203929476    -0.0000000071   0.000092744   0.000671249
+   4  3  0       -2.7203929482    -0.0000000006   0.000019646   0.000179310
+   5  4  0       -2.7203929482    -0.0000000000   0.000005152   0.000049231
+   6  5  0       -2.7203929482    -0.0000000000   0.000000254   0.000003060
+   7  6  0       -2.7203929482     0.0000000000   0.000000044   0.000000553
+   8  7  0       -2.7203929482    -0.0000000000   0.000000037   0.000000288
+   9  8  0       -2.7203929482     0.0000000000   0.000000000   0.000000000
+  10  9  0       -2.7203929482     0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7203929482 AFTER  10 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  71.43%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  71.43%
+
+          NSERCH= 18     ENERGY=      -2.7203929
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0    -0.0000119    -0.0000315     0.0000279
+    2  BE           4.0     0.0000069    -0.0000238    -0.0000194
+    3  BE           4.0    -0.0000243    -0.0000015    -0.0000163
+    4  BE           4.0    -0.0000307    -0.0000345     0.0000272
+    5  BE           4.0     0.0000233     0.0000405     0.0000055
+    6  BE           4.0     0.0000366     0.0000509    -0.0000249
+
+          MAXIMUM GRADIENT = 0.0000509    RMS GRADIENT = 0.0000273
+
+ NSERCH:  18  E=       -2.7203929482  GRAD. MAX=  0.0000509  R.M.S.=  0.0000273
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0000004794
+          PREDICTED ENERGY CHANGE WAS  -0.0000003842 RATIO=  1.248
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.001362
+          RADIUS OF STEP TAKEN=   0.00136  CURRENT TRUST RADIUS=   0.05000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=  19 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.0906123567   1.0655819853   0.0652672555
+ BE          4.0   0.7052384571  -1.0085294454   0.2558026605
+ BE          4.0  -0.9880780512   0.6801364108   0.1986582409
+ BE          4.0  -1.1426135872  -1.2004140254  -0.7226075370
+ BE          4.0   0.4595009376   0.4885589948   1.7073451755
+ BE          4.0   0.0553398871  -0.0253339201  -1.5044657953
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.1181962 *  2.1183284 *  3.2776185    1.8513987 *
+   2 BE      2.1181962 *  0.0000000    2.3921076 *  2.0996817 *  2.0996753 *
+   3 BE      2.1183284 *  2.3921076 *  0.0000000    2.0997814 *  2.0996007 *
+   4 BE      3.2776185    2.0996817 *  2.0997814 *  0.0000000    3.3651257  
+   5 BE      1.8513987 *  2.0996753 *  2.0996007 *  3.3651257    0.0000000  
+   6 BE      2.1739247 *  2.1183925 *  2.1182636 *  1.8512720 *  3.2776763  
+
+                6 BE    
+
+   1 BE      2.1739247 *
+   2 BE      2.1183925 *
+   3 BE      2.1182636 *
+   4 BE      1.8512720 *
+   5 BE      3.2776763  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  71.43%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7203929794    -2.7203929794   0.894210913   0.000000000
+   2  1  0       -2.7203930011    -0.0000000217   0.000087973   0.000473946
+   3  2  0       -2.7203930041    -0.0000000030   0.000053823   0.000304175
+   4  3  0       -2.7203930043    -0.0000000002   0.000012787   0.000139525
+   5  4  0       -2.7203930043    -0.0000000000   0.000002306   0.000019098
+   6  5  0       -2.7203930043    -0.0000000000   0.000000050   0.000000696
+   7  6  0       -2.7203930043    -0.0000000000   0.000000019   0.000000265
+   8  7  0       -2.7203930043     0.0000000000   0.000000004   0.000000029
+   9  8  0       -2.7203930043     0.0000000000   0.000000000   0.000000000
+  10  9  0       -2.7203930043    -0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7203930043 AFTER  10 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  78.57%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  78.57%
+
+          NSERCH= 19     ENERGY=      -2.7203930
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0    -0.0000062    -0.0000157     0.0000056
+    2  BE           4.0     0.0000106     0.0000117     0.0000073
+    3  BE           4.0     0.0000080     0.0000124     0.0000074
+    4  BE           4.0     0.0000086     0.0000017    -0.0000153
+    5  BE           4.0    -0.0000032     0.0000003    -0.0000053
+    6  BE           4.0    -0.0000178    -0.0000104     0.0000003
+
+          MAXIMUM GRADIENT = 0.0000178    RMS GRADIENT = 0.0000096
+
+ NSERCH:  19  E=       -2.7203930043  GRAD. MAX=  0.0000178  R.M.S.=  0.0000096
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0000000561
+          PREDICTED ENERGY CHANGE WAS  -0.0000000626 RATIO=  0.896
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.000385
+          RADIUS OF STEP TAKEN=   0.00039  CURRENT TRUST RADIUS=   0.05000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=  20 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.0905890473   1.0656465907   0.0652699364
+ BE          4.0   0.7052088700  -1.0085464649   0.2557619473
+ BE          4.0  -0.9881110909   0.6800590844   0.1986730378
+ BE          4.0  -1.1426909844  -1.2003722003  -0.7225772387
+ BE          4.0   0.4595395015   0.4885706637   1.7073298957
+ BE          4.0   0.0554646565  -0.0253576735  -1.5044575786
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.1182733 *  2.1183646 *  3.2776644    1.8513782 *
+   2 BE      2.1182733 *  0.0000000    2.3920661 *  2.0996853 *  2.0997054 *
+   3 BE      2.1183646 *  2.3920661 *  0.0000000    2.0996711 *  2.0996203 *
+   4 BE      3.2776644    2.0996853 *  2.0996711 *  0.0000000    3.3651329  
+   5 BE      1.8513782 *  2.0997054 *  2.0996203 *  3.3651329    0.0000000  
+   6 BE      2.1738945 *  2.1183013 *  2.1183288 *  1.8513706 *  3.2776482  
+
+                6 BE    
+
+   1 BE      2.1738945 *
+   2 BE      2.1183013 *
+   3 BE      2.1183288 *
+   4 BE      1.8513706 *
+   5 BE      3.2776482  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  78.57%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7203930090    -2.7203930090   0.894182777   0.000000000
+   2  1  0       -2.7203930102    -0.0000000012   0.000021677   0.000108907
+   3  2  0       -2.7203930104    -0.0000000002   0.000012533   0.000062219
+   4  3  0       -2.7203930104    -0.0000000000   0.000002606   0.000020640
+   5  4  0       -2.7203930104    -0.0000000000   0.000000566   0.000004284
+   6  5  0       -2.7203930104    -0.0000000000   0.000000042   0.000000305
+   7  6  0       -2.7203930104     0.0000000000   0.000000007   0.000000066
+   8  7  0       -2.7203930104     0.0000000000   0.000000001   0.000000010
+   9  8  0       -2.7203930104     0.0000000000   0.000000000   0.000000000
+  10  9  0       -2.7203930104    -0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7203930104 AFTER  10 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  78.57%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  78.57%
+
+          NSERCH= 20     ENERGY=      -2.7203930
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0     0.0000004    -0.0000022     0.0000005
+    2  BE           4.0     0.0000011     0.0000006    -0.0000014
+    3  BE           4.0     0.0000006     0.0000022     0.0000021
+    4  BE           4.0    -0.0000001    -0.0000024    -0.0000033
+    5  BE           4.0    -0.0000008     0.0000023    -0.0000011
+    6  BE           4.0    -0.0000012    -0.0000004     0.0000031
+
+          MAXIMUM GRADIENT = 0.0000033    RMS GRADIENT = 0.0000017
+
+ NSERCH:  20  E=       -2.7203930104  GRAD. MAX=  0.0000033  R.M.S.=  0.0000017
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0000000061
+          PREDICTED ENERGY CHANGE WAS  -0.0000000055 RATIO=  1.101
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.000127
+          RADIUS OF STEP TAKEN=   0.00013  CURRENT TRUST RADIUS=   0.05000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=  21 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.0905601081   1.0656760145   0.0652716947
+ BE          4.0   0.7051921776  -1.0085505943   0.2557756260
+ BE          4.0  -0.9881038564   0.6800630495   0.1986536391
+ BE          4.0  -1.1426943470  -1.2003676618  -0.7225674033
+ BE          4.0   0.4595661122   0.4885443587   1.7073328250
+ BE          4.0   0.0554798056  -0.0253651666  -1.5044663816
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.1183050 *  2.1183324 *  3.2776623    1.8513776 *
+   2 BE      2.1183050 *  0.0000000    2.3920557 *  2.0996746 *  2.0996771 *
+   3 BE      2.1183324 *  2.3920557 *  0.0000000    2.0996586 *  2.0996525 *
+   4 BE      3.2776623    2.0996746 *  2.0996586 *  0.0000000    3.3651267  
+   5 BE      1.8513776 *  2.0996771 *  2.0996525 *  3.3651267    0.0000000  
+   6 BE      2.1738997 *  2.1183087 *  2.1183280 *  1.8513828 *  3.2776581  
+
+                6 BE    
+
+   1 BE      2.1738997 *
+   2 BE      2.1183087 *
+   3 BE      2.1183280 *
+   4 BE      1.8513828 *
+   5 BE      3.2776581  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  78.57%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7203930107    -2.7203930107   0.894185812   0.000000000
+   2  1  0       -2.7203930107    -0.0000000000   0.000001797   0.000013045
+   3  2  0       -2.7203930107    -0.0000000000   0.000002450   0.000017320
+   4  3  0       -2.7203930107    -0.0000000000   0.000000252   0.000001968
+   5  4  0       -2.7203930107    -0.0000000000   0.000000126   0.000001116
+   6  5  0       -2.7203930107    -0.0000000000   0.000000012   0.000000114
+   7  6  0       -2.7203930107     0.0000000000   0.000000003   0.000000025
+   8  7  0       -2.7203930107    -0.0000000000   0.000000000   0.000000000
+   9  8  0       -2.7203930107     0.0000000000   0.000000000   0.000000000
+  10  9  0       -2.7203930107     0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7203930107 AFTER  10 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  78.57%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  78.57%
+
+          NSERCH= 21     ENERGY=      -2.7203930
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0     0.0000001    -0.0000005     0.0000006
+    2  BE           4.0     0.0000003     0.0000004    -0.0000004
+    3  BE           4.0     0.0000002     0.0000002     0.0000003
+    4  BE           4.0    -0.0000006    -0.0000006     0.0000001
+    5  BE           4.0    -0.0000003     0.0000003    -0.0000007
+    6  BE           4.0     0.0000002     0.0000001     0.0000001
+
+          MAXIMUM GRADIENT = 0.0000007    RMS GRADIENT = 0.0000004
+
+ NSERCH:  21  E=       -2.7203930107  GRAD. MAX=  0.0000007  R.M.S.=  0.0000004
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0000000003
+          PREDICTED ENERGY CHANGE WAS  -0.0000000003 RATIO=  1.147
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.000048
+          RADIUS OF STEP TAKEN=   0.00005  CURRENT TRUST RADIUS=   0.05000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=  22 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.0905515968   1.0656845729   0.0652690511
+ BE          4.0   0.7051830658  -1.0085551529   0.2557851444
+ BE          4.0  -0.9881001687   0.6800684258   0.1986468575
+ BE          4.0  -1.1426883176  -1.2003704013  -0.7225684304
+ BE          4.0   0.4595756602   0.4885357651   1.7073340776
+ BE          4.0   0.0554781635  -0.0253632096  -1.5044667001
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.1183191 *  2.1183207 *  3.2776598    1.8513803 *
+   2 BE      2.1183191 *  0.0000000    2.3920540 *  2.0996660 *  2.0996663 *
+   3 BE      2.1183207 *  2.3920540 *  0.0000000    2.0996631 *  2.0996636 *
+   4 BE      3.2776598    2.0996660 *  2.0996631 *  0.0000000    3.3651271  
+   5 BE      1.8513803 *  2.0996663 *  2.0996636 *  3.3651271    0.0000000  
+   6 BE      2.1738980 *  2.1183176 *  2.1183213 *  1.8513805 *  3.2776594  
+
+                6 BE    
+
+   1 BE      2.1738980 *
+   2 BE      2.1183176 *
+   3 BE      2.1183213 *
+   4 BE      1.8513805 *
+   5 BE      3.2776594  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  78.57%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7203930107    -2.7203930107   0.894180659   0.000000000
+   2  1  0       -2.7203930108    -0.0000000000   0.000000925   0.000007204
+   3  2  0       -2.7203930108    -0.0000000000   0.000001149   0.000008285
+   4  3  0       -2.7203930108    -0.0000000000   0.000000130   0.000001014
+   5  4  0       -2.7203930108     0.0000000000   0.000000009   0.000000106
+   6  5  0       -2.7203930108    -0.0000000000   0.000000002   0.000000015
+   7  6  0       -2.7203930108     0.0000000000   0.000000000   0.000000002
+   8  7  0       -2.7203930108     0.0000000000   0.000000000   0.000000000
+   9  8  0       -2.7203930108     0.0000000000   0.000000000   0.000000000
+  10  9  0       -2.7203930108    -0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7203930108 AFTER  10 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  73.33%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  73.33%
+
+          NSERCH= 22     ENERGY=      -2.7203930
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0    -0.0000001     0.0000000    -0.0000001
+    2  BE           4.0    -0.0000001    -0.0000000    -0.0000001
+    3  BE           4.0     0.0000001    -0.0000001     0.0000000
+    4  BE           4.0     0.0000001     0.0000001     0.0000001
+    5  BE           4.0    -0.0000001     0.0000000    -0.0000001
+    6  BE           4.0     0.0000001     0.0000000     0.0000002
+
+          MAXIMUM GRADIENT = 0.0000002    RMS GRADIENT = 0.0000001
+
+ NSERCH:  22  E=       -2.7203930108  GRAD. MAX=  0.0000002  R.M.S.=  0.0000001
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0000000000
+          PREDICTED ENERGY CHANGE WAS  -0.0000000000 RATIO=  1.047
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.000006
+          RADIUS OF STEP TAKEN=   0.00001  CURRENT TRUST RADIUS=   0.05000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=  23 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.0905514412   1.0656847442   0.0652691413
+ BE          4.0   0.7051824004  -1.0085553763   0.2557863485
+ BE          4.0  -0.9880997605   0.6800695836   0.1986457283
+ BE          4.0  -1.1426872706  -1.2003715598  -0.7225684699
+ BE          4.0   0.4595763149   0.4885349397   1.7073343235
+ BE          4.0   0.0554768746  -0.0253623315  -1.5044670717
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.1183197 *  2.1183199 *  3.2776599    1.8513804 *
+   2 BE      2.1183197 *  0.0000000    2.3920543 *  2.0996652 *  2.0996650 *
+   3 BE      2.1183199 *  2.3920543 *  0.0000000    2.0996647 *  2.0996649 *
+   4 BE      3.2776599    2.0996652 *  2.0996647 *  0.0000000    3.3651272  
+   5 BE      1.8513804 *  2.0996650 *  2.0996649 *  3.3651272    0.0000000  
+   6 BE      2.1738985 *  2.1183196 *  2.1183200 *  1.8513804 *  3.2776600  
+
+                6 BE    
+
+   1 BE      2.1738985 *
+   2 BE      2.1183196 *
+   3 BE      2.1183200 *
+   4 BE      1.8513804 *
+   5 BE      3.2776600  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  73.33%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7203930108    -2.7203930108   0.894178524   0.000000000
+   2  1  0       -2.7203930108    -0.0000000000   0.000000128   0.000000969
+   3  2  0       -2.7203930108    -0.0000000000   0.000000165   0.000001183
+   4  3  0       -2.7203930108     0.0000000000   0.000000015   0.000000111
+   5  4  0       -2.7203930108     0.0000000000   0.000000002   0.000000022
+   6  5  0       -2.7203930108    -0.0000000000   0.000000000   0.000000001
+   7  6  0       -2.7203930108     0.0000000000   0.000000000   0.000000000
+   8  7  0       -2.7203930108    -0.0000000000   0.000000000   0.000000000
+   9  8  0       -2.7203930108     0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7203930108 AFTER   9 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  80.00%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  80.00%
+
+          NSERCH= 23     ENERGY=      -2.7203930
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0     0.0000000     0.0000000     0.0000000
+    2  BE           4.0     0.0000000     0.0000000     0.0000000
+    3  BE           4.0     0.0000000    -0.0000000    -0.0000000
+    4  BE           4.0     0.0000000     0.0000000     0.0000000
+    5  BE           4.0     0.0000000    -0.0000000    -0.0000000
+    6  BE           4.0     0.0000000    -0.0000000    -0.0000000
+
+          MAXIMUM GRADIENT = 0.0000000    RMS GRADIENT = 0.0000000
+
+ NSERCH:  23  E=       -2.7203930108  GRAD. MAX=  0.0000000  R.M.S.=  0.0000000
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0000000000
+          PREDICTED ENERGY CHANGE WAS  -0.0000000000 RATIO=  1.078
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.000001
+          RADIUS OF STEP TAKEN=   0.00000  CURRENT TRUST RADIUS=   0.05000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=  24 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.0905514904   1.0656847064   0.0652691347
+ BE          4.0   0.7051822687  -1.0085555043   0.2557864870
+ BE          4.0  -0.9880996927   0.6800697859   0.1986456069
+ BE          4.0  -1.1426870492  -1.2003718336  -0.7225685193
+ BE          4.0   0.4595763560   0.4885349335   1.7073343168
+ BE          4.0   0.0554766267  -0.0253620878  -1.5044670261
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.1183198 *  2.1183198 *  3.2776600    1.8513804 *
+   2 BE      2.1183198 *  0.0000000    2.3920544 *  2.0996650 *  2.0996650 *
+   3 BE      2.1183198 *  2.3920544 *  0.0000000    2.0996651 *  2.0996650 *
+   4 BE      3.2776600    2.0996650 *  2.0996651 *  0.0000000    3.3651273  
+   5 BE      1.8513804 *  2.0996650 *  2.0996650 *  3.3651273    0.0000000  
+   6 BE      2.1738985 *  2.1183199 *  2.1183197 *  1.8513804 *  3.2776599  
+
+                6 BE    
+
+   1 BE      2.1738985 *
+   2 BE      2.1183199 *
+   3 BE      2.1183197 *
+   4 BE      1.8513804 *
+   5 BE      3.2776599  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  80.00%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7203930108    -2.7203930108   0.894178223   0.000000000
+   2  1  0       -2.7203930108    -0.0000000000   0.000000020   0.000000136
+   3  2  0       -2.7203930108    -0.0000000000   0.000000027   0.000000180
+   4  3  0       -2.7203930108     0.0000000000   0.000000002   0.000000012
+   5  4  0       -2.7203930108    -0.0000000000   0.000000001   0.000000006
+   6  5  0       -2.7203930108     0.0000000000   0.000000000   0.000000001
+   7  6  0       -2.7203930108    -0.0000000000   0.000000000   0.000000000
+   8  7  0       -2.7203930108    -0.0000000000   0.000000000   0.000000000
+   9  8  0       -2.7203930108    -0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7203930108 AFTER   9 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  80.00%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  80.00%
+
+          NSERCH= 24     ENERGY=      -2.7203930
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0     0.0000000     0.0000000     0.0000000
+    2  BE           4.0     0.0000000     0.0000000     0.0000000
+    3  BE           4.0     0.0000000     0.0000000     0.0000000
+    4  BE           4.0     0.0000000     0.0000000     0.0000000
+    5  BE           4.0     0.0000000     0.0000000     0.0000000
+    6  BE           4.0    -0.0000000     0.0000000     0.0000000
+
+          MAXIMUM GRADIENT = 0.0000000    RMS GRADIENT = 0.0000000
+
+ NSERCH:  24  E=       -2.7203930108  GRAD. MAX=  0.0000000  R.M.S.=  0.0000000
+
+          HESSIAN UPDATED USING THE BFGS FORMULA
+             ACTUAL ENERGY CHANGE WAS  -0.0000000000
+          PREDICTED ENERGY CHANGE WAS  -0.0000000000 RATIO=  0.656
+          MIN SEARCH, CORRECT HESSIAN, TRYING PURE NR STEP
+               NR STEP HAS LENGTH         =   0.000000
+          RADIUS OF STEP TAKEN=   0.00000  CURRENT TRUST RADIUS=   0.05000
+
+ BEGINNING GEOMETRY SEARCH POINT NSERCH=  25 ...
+
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.0905514208   1.0656847522   0.0652691252
+ BE          4.0   0.7051822692  -1.0085555113   0.2557864814
+ BE          4.0  -0.9880997053   0.6800697729   0.1986456229
+ BE          4.0  -1.1426870952  -1.2003717857  -0.7225685198
+ BE          4.0   0.4595763982   0.4885349120   1.7073343144
+ BE          4.0   0.0554767124  -0.0253621400  -1.5044670240
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.1183198 *  2.1183198 *  3.2776599    1.8513804 *
+   2 BE      2.1183198 *  0.0000000    2.3920544 *  2.0996650 *  2.0996650 *
+   3 BE      2.1183198 *  2.3920544 *  0.0000000    2.0996650 *  2.0996650 *
+   4 BE      3.2776599    2.0996650 *  2.0996650 *  0.0000000    3.3651273  
+   5 BE      1.8513804 *  2.0996650 *  2.0996650 *  3.3651273    0.0000000  
+   6 BE      2.1738985 *  2.1183198 *  2.1183198 *  1.8513804 *  3.2776599  
+
+                6 BE    
+
+   1 BE      2.1738985 *
+   2 BE      2.1183198 *
+   3 BE      2.1183198 *
+   4 BE      1.8513804 *
+   5 BE      3.2776599  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+ ...... END OF NCC-DFTB PREPARATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  80.00%
+
+          --------------------------
+             SCC-DFTB CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-12
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0       -2.7203930108    -2.7203930108   0.894178200   0.000000000
+   2  1  0       -2.7203930108    -0.0000000000   0.000000002   0.000000015
+   3  2  0       -2.7203930108     0.0000000000   0.000000002   0.000000015
+   4  3  0       -2.7203930108    -0.0000000000   0.000000001   0.000000005
+   5  4  0       -2.7203930108     0.0000000000   0.000000000   0.000000001
+   6  5  0       -2.7203930108     0.0000000000   0.000000000   0.000000000
+   7  6  0       -2.7203930108    -0.0000000000   0.000000000   0.000000000
+   8  7  0       -2.7203930108     0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RDFTB ENERGY IS       -2.7203930108 AFTER   8 ITERATIONS
+ ...... END OF RDFTB CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  80.00%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  80.00%
+
+          NSERCH= 25     ENERGY=      -2.7203930
+
+                                 -----------------------
+                                 GRADIENT (HARTREE/BOHR)
+                                 -----------------------
+        ATOM     ZNUC       DE/DX         DE/DY         DE/DZ
+ --------------------------------------------------------------
+    1  BE           4.0     0.0000000     0.0000000     0.0000000
+    2  BE           4.0     0.0000000     0.0000000     0.0000000
+    3  BE           4.0     0.0000000     0.0000000     0.0000000
+    4  BE           4.0     0.0000000     0.0000000     0.0000000
+    5  BE           4.0     0.0000000     0.0000000     0.0000000
+    6  BE           4.0     0.0000000     0.0000000     0.0000000
+
+          MAXIMUM GRADIENT = 0.0000000    RMS GRADIENT = 0.0000000
+
+ NSERCH:  25  E=       -2.7203930108  GRAD. MAX=  0.0000000  R.M.S.=  0.0000000
+
+
+      ***** EQUILIBRIUM GEOMETRY LOCATED *****
+ COORDINATES OF ALL ATOMS ARE (ANGS)
+   ATOM   CHARGE       X              Y              Z
+ ------------------------------------------------------------
+ BE          4.0   1.0905514208   1.0656847522   0.0652691252
+ BE          4.0   0.7051822692  -1.0085555113   0.2557864814
+ BE          4.0  -0.9880997053   0.6800697729   0.1986456229
+ BE          4.0  -1.1426870952  -1.2003717857  -0.7225685198
+ BE          4.0   0.4595763982   0.4885349120   1.7073343144
+ BE          4.0   0.0554767124  -0.0253621400  -1.5044670240
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 BE         2 BE         3 BE         4 BE         5 BE    
+
+   1 BE      0.0000000    2.1183198 *  2.1183198 *  3.2776599    1.8513804 *
+   2 BE      2.1183198 *  0.0000000    2.3920544 *  2.0996650 *  2.0996650 *
+   3 BE      2.1183198 *  2.3920544 *  0.0000000    2.0996650 *  2.0996650 *
+   4 BE      3.2776599    2.0996650 *  2.0996650 *  0.0000000    3.3651273  
+   5 BE      1.8513804 *  2.0996650 *  2.0996650 *  3.3651273    0.0000000  
+   6 BE      2.1738985 *  2.1183198 *  2.1183198 *  1.8513804 *  3.2776599  
+
+                6 BE    
+
+   1 BE      2.1738985 *
+   2 BE      2.1183198 *
+   3 BE      2.1183198 *
+   4 BE      1.8513804 *
+   5 BE      3.2776599  
+   6 BE      0.0000000  
+
+  * ... LESS THAN  3.000
+
+
+          NUCLEAR ENERGY    =        0.5426016842
+          ELECTRONIC ENERGY =        0.0000000000
+          TOTAL ENERGY      =       -2.7203930108
+
+          ------------------
+          MOLECULAR ORBITALS
+          ------------------
+
+                      1          2          3          4          5
+                   -0.4522    -0.3298    -0.2535    -0.2474    -0.1809
+                     A          A          A          A          A   
+    1  BE 1  S   -0.290267   0.289326  -0.376156   0.000000  -0.239400
+    2  BE 1  X    0.088794  -0.026219   0.024807   0.195893  -0.153939
+    3  BE 1  Y    0.089419  -0.021663   0.033188  -0.195354  -0.163055
+    4  BE 1  Z    0.011234   0.136786   0.245652   0.006610  -0.256853
+    5  BE 2  S   -0.332532   0.000000   0.148188   0.524776   0.197894
+    6  BE 2  X    0.077048   0.113996  -0.173304   0.087128  -0.103474
+    7  BE 2  Y   -0.120618   0.120161  -0.099927  -0.020054   0.042222
+    8  BE 2  Z    0.033030   0.172880   0.183730  -0.043513   0.038883
+    9  BE 3  S   -0.332532  -0.000000   0.148188  -0.524776   0.197894
+   10  BE 3  X   -0.121834   0.113996  -0.105705   0.018762   0.041109
+   11  BE 3  Y    0.077717   0.120161  -0.167340  -0.085543  -0.101963
+   12  BE 3  Z    0.026319   0.172880   0.186011   0.047086   0.043762
+   13  BE 4  S   -0.220427  -0.403059   0.318030  -0.000000  -0.294103
+   14  BE 4  X   -0.064725  -0.074727  -0.010867   0.164139   0.030117
+   15  BE 4  Y   -0.066188  -0.074337  -0.006795  -0.163688   0.041101
+   16  BE 4  Z   -0.037947   0.017608   0.121245   0.005539   0.322151
+   17  BE 5  S   -0.220427   0.403059   0.318030  -0.000000  -0.294103
+   18  BE 5  X    0.022348   0.017424  -0.086063   0.164139  -0.224700
+   19  BE 5  Y    0.025594   0.013936  -0.086057  -0.163688  -0.227495
+   20  BE 5  Z    0.094104  -0.104510   0.007207   0.005539  -0.064291
+   21  BE 6  S   -0.290267  -0.289326  -0.376156   0.000000  -0.239400
+   22  BE 6  X   -0.001927   0.098035  -0.171218   0.195893   0.170407
+   23  BE 6  Y   -0.006208   0.097362  -0.173437  -0.195354   0.178830
+   24  BE 6  Z   -0.126350  -0.027875  -0.051629   0.006611   0.235031
+
+                      6          7          8          9         10
+                   -0.1635    -0.1391    -0.1158    -0.0972    -0.0937
+                     A          A          A          A          A   
+    1  BE 1  S   -0.000000   0.451303   0.168282   0.044410  -0.000000
+    2  BE 1  X    0.194543   0.166816   0.165378   0.155157  -0.267621
+    3  BE 1  Y   -0.194008   0.169302   0.155561   0.155038   0.266885
+    4  BE 1  Z    0.006565   0.059885  -0.303597  -0.016175  -0.009031
+    5  BE 2  S    0.000000  -0.000000   0.170406   0.000000   0.211502
+    6  BE 2  X    0.190238  -0.065006   0.107605  -0.105264  -0.158446
+    7  BE 2  Y    0.200525  -0.068521  -0.260632  -0.110956  -0.317069
+    8  BE 2  Z    0.288504  -0.098585   0.110199  -0.159637   0.324857
+    9  BE 3  S    0.000000   0.000000   0.170406  -0.000000  -0.211502
+   10  BE 3  X   -0.190238  -0.065006  -0.264444  -0.105264   0.327527
+   11  BE 3  Y   -0.200525  -0.068522   0.110394  -0.110956   0.148453
+   12  BE 3  Z   -0.288504  -0.098585   0.097644  -0.159637  -0.319151
+   13  BE 4  S   -0.000000   0.309054   0.208501  -0.374396  -0.000000
+   14  BE 4  X   -0.282024  -0.116307  -0.216816   0.299100   0.129871
+   15  BE 4  Y    0.281248  -0.107195  -0.213109   0.306962  -0.129513
+   16  BE 4  Z   -0.009517   0.278771   0.127225   0.207990   0.004382
+   17  BE 5  S    0.000000  -0.309054   0.208501   0.374396  -0.000000
+   18  BE 5  X    0.282024   0.204029  -0.104140   0.126242   0.129871
+   19  BE 5  Y   -0.281248   0.199661  -0.094339   0.141380  -0.129513
+   20  BE 5  Z    0.009517  -0.145737   0.298104   0.437059   0.004382
+   21  BE 6  S    0.000000  -0.451303   0.168282  -0.044410  -0.000000
+   22  BE 6  X   -0.194543   0.030914   0.224806  -0.021831  -0.267621
+   23  BE 6  Y    0.194008   0.039120   0.218202  -0.014502   0.266885
+   24  BE 6  Z   -0.006565   0.239981  -0.213473   0.218369  -0.009031
+
+                     11         12         13         14         15
+                   -0.0919    -0.0624    -0.0369    -0.0079     0.0587
+                     A          A          A          A          A   
+    1  BE 1  S    0.058872   0.251432  -0.308579  -0.000000   0.000000
+    2  BE 1  X   -0.014732   0.266412  -0.207211   0.084540   0.448467
+    3  BE 1  Y   -0.020453   0.268600  -0.197281  -0.084307  -0.447234
+    4  BE 1  Z   -0.167876   0.042940   0.310346   0.002853   0.015134
+    5  BE 2  S   -0.415464  -0.021548   0.000000  -0.258739   0.000000
+    6  BE 2  X   -0.338812  -0.255332  -0.059318  -0.388754  -0.031954
+    7  BE 2  Y    0.282307  -0.052697  -0.062525   0.254067  -0.033682
+    8  BE 2  Z    0.027193   0.204992  -0.089958   0.079753  -0.048460
+    9  BE 3  S   -0.415464  -0.021548  -0.000000   0.258739   0.000000
+   10  BE 3  X    0.281964  -0.059042  -0.059318  -0.252072   0.031954
+   11  BE 3  Y   -0.336762  -0.248447  -0.062525   0.384997   0.033682
+   12  BE 3  Z    0.048141   0.211616  -0.089958  -0.101378   0.048460
+   13  BE 4  S    0.239560  -0.242017  -0.026830   0.000000  -0.000000
+   14  BE 4  X   -0.118731   0.206852  -0.079586   0.315113   0.261583
+   15  BE 4  Y   -0.115165   0.212565  -0.065298  -0.314246  -0.260864
+   16  BE 4  Z    0.115086   0.151968   0.428737   0.010634   0.008827
+   17  BE 5  S    0.239560  -0.242017   0.026830   0.000000   0.000000
+   18  BE 5  X   -0.088992  -0.093026   0.307102   0.315113  -0.261583
+   19  BE 5  Y   -0.083817  -0.103529   0.305117  -0.314246   0.260864
+   20  BE 5  Z    0.160188  -0.302810  -0.083699   0.010634  -0.008827
+   21  BE 6  S    0.058872   0.251432   0.308579  -0.000000  -0.000000
+   22  BE 6  X    0.117158  -0.012282   0.232372   0.084540  -0.448467
+   23  BE 6  Y    0.118569  -0.025165   0.223803  -0.084307   0.447234
+   24  BE 6  Z    0.032141  -0.379712  -0.272188   0.002853  -0.015134
+
+                     16
+                    0.1353
+                     A   
+    1  BE 1  S    0.020540
+    2  BE 1  X    0.164521
+    3  BE 1  Y    0.173502
+    4  BE 1  Z    0.251997
+    5  BE 2  S   -0.011785
+    6  BE 2  X    0.263892
+    7  BE 2  Y    0.236887
+    8  BE 2  Z   -0.338657
+    9  BE 3  S   -0.011785
+   10  BE 3  X    0.247628
+   11  BE 3  Y    0.253106
+   12  BE 3  Z   -0.339206
+   13  BE 4  S    0.015862
+   14  BE 4  X   -0.063622
+   15  BE 4  Y   -0.047394
+   16  BE 4  Z    0.484759
+   17  BE 5  S    0.015862
+   18  BE 5  X   -0.345455
+   19  BE 5  Y   -0.344467
+   20  BE 5  Z    0.057348
+   21  BE 6  S    0.020540
+   22  BE 6  X   -0.166276
+   23  BE 6  Y   -0.175183
+   24  BE 6  Z   -0.249672
+  $VIB   
+          IVIB=   0 IATOM=   0 ICOORD=   0 E=       -2.7203930108
+  0.000000000E+00 0.000000000E+00 0.000000000E+00 0.000000000E+00 0.000000000E+00
+  0.000000000E+00 0.000000000E+00 0.000000000E+00 0.000000000E+00 0.000000000E+00
+  0.000000000E+00 0.000000000E+00 0.000000000E+00 0.000000000E+00 0.000000000E+00
+  0.000000000E+00 0.000000000E+00 0.000000000E+00
+  0.000000000E+00 0.000000000E+00 0.000000000E+00
+ ......END OF GEOMETRY SEARCH......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  75.00%
+
+
+     *********************************************************
+     THE HESSIAN WILL NOW BE COMPUTED AT THE STATIONARY POINT.
+     *********************************************************
+ Old integral subroutine is used
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  75.00%
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  81.25%
+
+          ---------------
+          ENERGY GRADIENT
+          ---------------
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 BE               0.000000002       0.000000004       0.000000004
+    2 BE               0.000000003      -0.000000004       0.000000004
+    3 BE              -0.000000000      -0.000000003      -0.000000003
+    4 BE               0.000000002       0.000000007       0.000000000
+    5 BE              -0.000000001      -0.000000001      -0.000000005
+    6 BE              -0.000000007      -0.000000003      -0.000000000
+
+          -------------------------------
+          CARTESIAN FORCE CONSTANT MATRIX
+          -------------------------------
+
+                                   1                          2
+                               BE                         BE        
+                          X        Y        Z        X        Y        Z
+  1   BE           X 0.130177 0.096273 0.005556-0.018069-0.020488 0.003527
+                   Y 0.096273 0.131206 0.009200-0.012214-0.080229-0.006244
+                   Z 0.005556 0.009200 0.141591 0.006519 0.001601 0.012504
+  2   BE           X-0.018069-0.012214 0.006519 0.079065-0.010294 0.054852
+                   Y-0.020488-0.080229 0.001601-0.010294 0.140536 0.014339
+                   Z 0.003527-0.006244 0.012504 0.054852 0.014339 0.105264
+  3   BE           X-0.079894-0.020771-0.000839 0.017740-0.006806-0.002242
+                   Y-0.012872-0.017805 0.007116 0.007119 0.017261-0.011711
+                   Z-0.008949 0.003829 0.011906-0.011921-0.002529 0.016784
+  4   BE           X-0.009407-0.019310-0.000251-0.064985 0.002337-0.045183
+                   Y-0.019412-0.009663-0.001152-0.013593-0.017189 0.002597
+                   Z-0.003268-0.004177-0.016754-0.030124 0.005138-0.020357
+  5   BE           X 0.003241-0.017411 0.033475 0.000820 0.015582 0.001905
+                   Y-0.017017 0.005678 0.029797 0.005733-0.055970-0.023652
+                   Z 0.045105 0.041459-0.089693 0.004765-0.043192-0.047381
+  6   BE           X-0.026048-0.026567-0.044460-0.014571 0.019669-0.012860
+                   Y-0.026483-0.029186-0.046562 0.023249-0.004408 0.024671
+                   Z-0.041972-0.044067-0.059554-0.024091 0.024642-0.066815
+
+                                   3                          4
+                               BE                         BE        
+                          X        Y        Z        X        Y        Z
+  3   BE           X 0.139579-0.011484 0.015777-0.017436 0.004145 0.005166
+                   Y-0.011484 0.082728 0.055303-0.012361-0.067509-0.028951
+                   Z 0.015777 0.055303 0.102558 0.003214-0.043467-0.017587
+  4   BE           X-0.017436-0.012361 0.003214 0.148477 0.107799 0.045213
+                   Y 0.004145-0.067509-0.043467 0.107799 0.152209 0.047635
+                   Z 0.005166-0.028951-0.017587 0.045213 0.047635 0.110387
+  5   BE           X-0.053747 0.004639-0.024042-0.019383-0.020777-0.046587
+                   Y 0.013913 0.001052 0.000663-0.020697-0.022624-0.048311
+                   Z-0.043912 0.003145-0.049837-0.044223-0.045941-0.047405
+  6   BE           X-0.006243 0.024959 0.025921-0.037266-0.058162 0.029599
+                   Y 0.021003-0.015727-0.013799-0.057768-0.035223 0.028665
+                   Z 0.026051-0.024903-0.063824 0.041230 0.040328-0.008284
+
+                                   5                          6
+                               BE                         BE        
+                          X        Y        Z        X        Y        Z
+  5   BE           X 0.072322 0.031187 0.037927-0.003253-0.013221-0.002679
+                   Y 0.031187 0.075313 0.045508-0.013119-0.003449-0.004005
+                   Z 0.037927 0.045508 0.263438 0.000338-0.000980-0.029123
+  6   BE           X-0.003253-0.013119 0.000338 0.087381 0.053220 0.001462
+                   Y-0.013221-0.003449-0.000980 0.053220 0.087994 0.008005
+                   Z-0.002679-0.004005-0.029123 0.001462 0.008005 0.227599
+
+          ------------------------          ----------------
+          DIPOLE DERIVATIVE TENSOR          (DEBYE/ANGSTROM)
+          ------------------------          ----------------
+
+        ATOM                 MU-X           MU-Y           MU-Z
+     BE         D/DX     0.483691988    0.342527377   -1.681037248
+                D/DY     0.345419201    0.372899431   -1.739196259
+                D/DZ    -1.595567529   -1.653490321   -1.496345522
+     BE         D/DX     0.371270260   -1.677287207    1.392204816
+                D/DY    -0.512332089    0.719013948    0.334776487
+                D/DZ     0.582501458    1.102940894   -0.436075870
+     BE         D/DX     0.674016977   -0.518286508    0.387010953
+                D/DY    -1.683241311    0.429805764    1.307881775
+                D/DZ     1.196714216    0.539717460   -0.449614476
+     BE         D/DX     0.684245773    2.478740642    1.625910480
+                D/DY     2.430319865    0.759695582    1.639679892
+                D/DZ     0.194970275    0.204793814   -1.458395838
+     BE         D/DX    -1.672218980    0.059727471   -0.030484275
+                D/DY     0.108148754   -1.619661294    0.138971122
+                D/DZ     1.400455576    1.573857516    3.277425633
+     BE         D/DX    -0.541006017   -0.685421775   -1.693604727
+                D/DY    -0.688314419   -0.661753431   -1.682113017
+                D/DZ    -1.779076456   -1.767818765    0.563007335
+
+          --------------------------------------------------------
+          NORMAL COORDINATE ANALYSIS IN THE HARMONIC APPROXIMATION
+          --------------------------------------------------------
+
+          ATOMIC WEIGHTS (AMU)
+
+    1     BE                9.01218
+    2     BE                9.01218
+    3     BE                9.01218
+    4     BE                9.01218
+    5     BE                9.01218
+    6     BE                9.01218
+
+ MODES    1 TO    6 ARE TAKEN AS ROTATIONS AND TRANSLATIONS.
+
+ ANALYZING SYMMETRY OF NORMAL MODES...
+
+     FREQUENCIES IN CM**-1, IR INTENSITIES IN DEBYE**2/AMU-ANGSTROM**2,
+     REDUCED MASSES IN AMU.
+
+                            1           2           3           4           5
+       FREQUENCY:         0.06        0.03        0.01        0.00        0.02  
+        SYMMETRY:         A           A           A           A           A   
+    REDUCED MASS:      9.01218     9.01218     9.01218     9.01218     9.01218
+    IR INTENSITY:      0.00016     0.00017     0.00000     0.00000     0.00003
+
+  1   BE           X -0.05078901  0.04224933  0.09709120  0.11127638 -0.04665417
+                   Y  0.05562844 -0.01926679  0.07721584 -0.07785964  0.11716691
+                   Z  0.15466828  0.06366151  0.02313315 -0.00013282 -0.10448694
+  2   BE           X  0.04639617 -0.05060230  0.05354505  0.11149355  0.09880421
+                   Y  0.02053034  0.00580703  0.08436994 -0.07789726  0.09377271
+                   Z -0.03087778  0.14883459  0.01293975 -0.00010316 -0.06496308
+  3   BE           X -0.03641101  0.01550853  0.09091563  0.11130477 -0.01989235
+                   Y -0.05995165  0.06318201  0.12345548 -0.07809569 -0.02653400
+                   Z  0.04458467 -0.11471525  0.06057481 -0.00037289 -0.10287295
+  4   BE           X  0.09289446  0.03718793  0.02999736  0.11163550  0.11510092
+                   Y  0.00822960  0.01433923  0.13486075 -0.07814773 -0.05545753
+                   Z -0.11628982 -0.01865219  0.04751624 -0.00032217 -0.06648540
+  5   BE           X -0.08359570 -0.13735342  0.11611956  0.11114237 -0.01072061
+                   Y -0.11151450  0.10031836  0.07754932 -0.07787198  0.10491401
+                   Z  0.08331502  0.03667945  0.03056215 -0.00018866 -0.09498585
+  6   BE           X  0.06322500  0.15500440  0.04145559  0.11159495  0.03462750
+                   Y  0.13298407 -0.07480997  0.11423946 -0.07803777  0.01356567
+                   Z  0.02572201  0.02791684  0.03408563 -0.00021907 -0.08607543
+
+ TRANS. SAYVETZ    X  0.28586548  0.55870539  3.86734626  6.02416933  1.54347554
+                   Y  0.41371582  0.80721975  5.51266759 -4.21688977  2.22986369
+                   Z  1.45206391  1.29527521  1.88184893 -0.01206528 -4.68515875
+               TOTAL  1.53667480  1.62526715  6.99194010  7.35342920  5.41343895
+
+   ROT. SAYVETZ    X 13.71584795 -6.93010876  1.62803458 -0.00663421 -5.20034787
+                   Y -9.77995747-14.04718207  3.78809620 -0.02327530 -2.04913149
+                   Z  6.12009201 -0.80723434 -4.08260939  0.02124159 10.76695005
+               TOTAL 17.92282286 15.68443046  5.80240199  0.03220182 12.13135488
+
+                            6           7           8           9          10
+       FREQUENCY:         0.03      186.42      279.65      388.40      520.97  
+        SYMMETRY:         A           A           A           A           A   
+    REDUCED MASS:      9.01218     9.01218     9.01218     9.01218     9.01218
+    IR INTENSITY:      0.00006     0.63955     0.00000     0.49669     0.00011
+
+  1   BE           X -0.07650009  0.07142150  0.13920097 -0.01739717  0.03036644
+                   Y  0.06966218 -0.07122509 -0.13881813 -0.01587340  0.03335312
+                   Z  0.03210814  0.00241015  0.00469741  0.04644822  0.08578698
+  2   BE           X  0.07263267  0.10836340 -0.00172303  0.18425899 -0.03615588
+                   Y  0.04865939  0.05444471 -0.00181618 -0.06149260  0.16401914
+                   Z  0.10510066 -0.10929603 -0.00261304 -0.07875878 -0.09016066
+  3   BE           X -0.04622265 -0.05787333  0.00172303 -0.05919571  0.16705299
+                   Y -0.07076470 -0.10479585  0.00181619  0.18129261 -0.03863088
+                   Z  0.09797821  0.11099982  0.00261306 -0.08697434 -0.08330326
+  4   BE           X  0.06046991 -0.09666654  0.09174578 -0.00743596 -0.05344380
+                   Y -0.10946670  0.09640070 -0.09149347 -0.00428956 -0.05138479
+                   Z  0.15907531 -0.00326205  0.00309600  0.09358977  0.06520266
+  5   BE           X  0.00640445 -0.09666653 -0.09174580 -0.06636867 -0.04948801
+                   Y  0.07564121  0.09640067  0.09149348 -0.06640908 -0.04721510
+                   Z  0.06606629 -0.00326210 -0.00309603  0.00421573  0.07120191
+  6   BE           X -0.04157340  0.07142150 -0.13920095 -0.03386148 -0.05833175
+                   Y -0.04991896 -0.07122514  0.13881812 -0.03322798 -0.06014148
+                   Z  0.09219270  0.00241016 -0.00469741  0.02147941 -0.04872762
+
+ TRANS. SAYVETZ    X -0.22340394 -0.00000000 -0.00000000 -0.00000000 -0.00000000
+                   Y -0.32612900 -0.00000000 -0.00000000 -0.00000000 -0.00000000
+                   Z  4.97942156 -0.00000037 -0.00000000  0.00000000 -0.00000003
+               TOTAL  4.99508844  0.00000037  0.00000000  0.00000000  0.00000003
+
+   ROT. SAYVETZ    X -7.70534080 -0.00000048  0.00000040  0.00000032 -0.00000000
+                   Y  3.14628473  0.00000208  0.00000034  0.00000022 -0.00000004
+                   Z 10.09892533  0.00000108 -0.00000109  0.00000010  0.00000012
+               TOTAL 13.08662207  0.00000240  0.00000121  0.00000040  0.00000013
+
+                           11          12          13          14          15
+       FREQUENCY:       585.79      673.88      757.52      816.28      823.67  
+        SYMMETRY:         A           A           A           A           A   
+    REDUCED MASS:      9.01218     9.01218     9.01218     9.01218     9.01218
+    IR INTENSITY:      1.44201     3.00014     0.00000     0.71080     1.32957
+
+  1   BE           X -0.04402797  0.12651475  0.04888118 -0.06170851  0.06757120
+                   Y -0.03971042  0.12816256 -0.04874677  0.06153890  0.06330936
+                   Z  0.13118182  0.03838518  0.00164949 -0.00208255 -0.13144779
+  2   BE           X -0.06103540 -0.01768684  0.09627685  0.09424027 -0.03113460
+                   Y -0.06433585 -0.01864326  0.10148304 -0.16417478 -0.01305780
+                   Z -0.09256289 -0.02682288  0.14600805  0.05196837  0.02960571
+  3   BE           X -0.06103539 -0.01768684 -0.09627680  0.16604356 -0.01398403
+                   Y -0.06433596 -0.01864331 -0.10148305 -0.09539334 -0.03016143
+                   Z -0.09256293 -0.02682293 -0.14600803 -0.04318486  0.03018455
+  4   BE           X -0.02361098 -0.09828282 -0.07016829 -0.06843336 -0.00243704
+                   Y -0.01921276 -0.09941794  0.06997538  0.06824519  0.00317736
+                   Z  0.13189962 -0.02553658 -0.00236792 -0.00230913  0.16611930
+  5   BE           X  0.09442016 -0.01135455  0.07016831 -0.06843352 -0.11707783
+                   Y  0.09385100 -0.01614811 -0.06997533  0.06824506 -0.11766273
+                   Z -0.02451446 -0.14073333  0.00236793 -0.00230935 -0.00773859
+  6   BE           X  0.09528957  0.01849629 -0.04888124 -0.06170843  0.09706230
+                   Y  0.09374401  0.02469006  0.04874674  0.06153897  0.09439524
+                   Z -0.05344115  0.18153055 -0.00164951 -0.00208249 -0.08672318
+
+ TRANS. SAYVETZ    X -0.00000000 -0.00000000 -0.00000000  0.00000000  0.00000000
+                   Y -0.00000000 -0.00000000 -0.00000000  0.00000000  0.00000000
+                   Z  0.00000003  0.00000007 -0.00000000 -0.00000002 -0.00000000
+               TOTAL  0.00000004  0.00000007  0.00000000  0.00000002  0.00000000
+
+   ROT. SAYVETZ    X  0.00000031  0.00000005 -0.00000005 -0.00000003 -0.00000000
+                   Y -0.00000020  0.00000001 -0.00000000  0.00000003 -0.00000001
+                   Z -0.00000006 -0.00000001  0.00000003  0.00000002 -0.00000003
+               TOTAL  0.00000038  0.00000005  0.00000006  0.00000005  0.00000003
+
+                           16          17          18
+       FREQUENCY:      1000.65     1038.00     1161.46  
+        SYMMETRY:         A           A           A   
+    REDUCED MASS:      9.01218     9.01218     9.01218
+    IR INTENSITY:      0.66715     1.05959     0.00598
+
+  1   BE           X -0.09640216  0.07411455  0.08695813
+                   Y -0.10142268  0.07188426  0.08691482
+                   Z -0.14051014 -0.07194981 -0.00836677
+  2   BE           X  0.01833433 -0.06410302  0.03611867
+                   Y  0.05008434 -0.06756952 -0.05936186
+                   Z -0.04690097 -0.09721500  0.01744313
+  3   BE           X  0.05160172 -0.06410307 -0.05999645
+                   Y  0.01690844 -0.06756940  0.03648894
+                   Z -0.04577831 -0.09721496  0.01419968
+  4   BE           X -0.07314446  0.10222675 -0.11990895
+                   Y -0.07392972  0.10319989 -0.12279550
+                   Z -0.01724487  0.02042767 -0.07553170
+  5   BE           X  0.00721166  0.00749347  0.04508468
+                   Y  0.01077172  0.01245352  0.05112025
+                   Z  0.10461897  0.14596763  0.17468823
+  6   BE           X  0.09239891 -0.05562869  0.01174392
+                   Y  0.09758790 -0.05239876  0.00763336
+                   Z  0.14581531  0.09998447 -0.12243257
+
+ TRANS. SAYVETZ    X  0.00000000  0.00000000  0.00000000
+                   Y  0.00000000  0.00000000  0.00000000
+                   Z  0.00000002 -0.00000001 -0.00000001
+               TOTAL  0.00000002  0.00000001  0.00000001
+
+   ROT. SAYVETZ    X  0.00000000 -0.00000003 -0.00000001
+                   Y  0.00000001  0.00000006  0.00000000
+                   Z  0.00000001 -0.00000002  0.00000000
+               TOTAL  0.00000002  0.00000008  0.00000001
+
+ REFERENCE ON SAYVETZ CONDITIONS - A. SAYVETZ, J.CHEM.PHYS., 7, 383-389(1939).
+
+ NOTE - THE MODES J,K ARE ORTHONORMALIZED ACCORDING TO
+ SUM ON I   M(I) * (X(I,J)*X(I,K) + Y(I,J)*Y(I,K) + Z(I,J)*Z(I,K)) = DELTA(J,K)
+
+  MODE FREQ(CM**-1)  SYMMETRY  RED. MASS  IR INTENS.
+     1       0.060    A        9.012180    0.000163
+     2       0.028    A        9.012180    0.000171
+     3       0.006    A        9.012180    0.000001
+     4       0.000    A        9.012180    0.000000
+     5       0.021    A        9.012180    0.000026
+     6       0.031    A        9.012180    0.000059
+     7     186.422    A        9.012180    0.639550
+     8     279.653    A        9.012180    0.000000
+     9     388.404    A        9.012180    0.496694
+    10     520.975    A        9.012180    0.000113
+    11     585.791    A        9.012180    1.442009
+    12     673.882    A        9.012180    3.000144
+    13     757.521    A        9.012180    0.000000
+    14     816.284    A        9.012180    0.710803
+    15     823.667    A        9.012180    1.329567
+    16    1000.646    A        9.012180    0.667154
+    17    1037.997    A        9.012180    1.059595
+    18    1161.460    A        9.012180    0.005977
+
+     -------------------------------
+     THERMOCHEMISTRY AT T=  298.15 K
+     -------------------------------
+
+ USING IDEAL GAS, RIGID ROTOR, HARMONIC NORMAL MODE APPROXIMATIONS.
+ P=  1.01325E+05 PASCAL.
+ ALL FREQUENCIES ARE SCALED BY   1.00000
+ THE MOMENTS OF INERTIA ARE (IN AMU*BOHR**2)
+    201.39582   350.34238   367.58909
+ THE ROTATIONAL SYMMETRY NUMBER IS  1.0
+ THE ROTATIONAL CONSTANTS ARE (IN GHZ)
+      8.95296     5.14665     4.90517
+      7 -     18 VIBRATIONAL MODES ARE USED IN THERMOCHEMISTRY.
+ THE HARMONIC ZERO POINT ENERGY IS (SCALED BY   1.000)
+        0.018755 HARTREE/MOLECULE     4116.351592 CM**-1/MOLECULE 
+       11.769252 KCAL/MOL               49.242549 KJ/MOL
+
+               Q               LN Q
+ ELEC.     1.00000E+00       0.000000
+ TRANS.    1.56288E+07      16.564625
+ ROT.      5.76493E+04      10.962134
+ VIB.      3.51503E+00       1.257047
+ TOT.      3.16700E+12      28.783806
+
+              E         H         G         CV        CP        S
+           KJ/MOL    KJ/MOL    KJ/MOL   J/MOL-K   J/MOL-K   J/MOL-K
+ ELEC.      0.000     0.000     0.000     0.000     0.000     0.000
+ TRANS.     3.718     6.197   -41.063    12.472    20.786   158.511
+ ROT.       3.718     3.718   -27.174    12.472    12.472   103.615
+ VIB.      54.954    54.954    46.126    46.508    46.508    29.607
+ TOTAL     62.391    64.869   -22.111    71.451    79.765   291.733
+ VIB. THERMAL CORRECTION E(T)-E(0) = H(T)-H(0) =  5711.139 J/MOL
+
+              E         H         G         CV        CP        S
+         KCAL/MOL  KCAL/MOL  KCAL/MOL CAL/MOL-K CAL/MOL-K CAL/MOL-K
+ ELEC.      0.000     0.000     0.000     0.000     0.000     0.000
+ TRANS.     0.889     1.481    -9.814     2.981     4.968    37.885
+ ROT.       0.889     0.889    -6.495     2.981     2.981    24.765
+ VIB.      13.134    13.134    11.024    11.116    11.116     7.076
+ TOTAL     14.912    15.504    -5.285    17.077    19.064    69.726
+ VIB. THERMAL CORRECTION E(T)-E(0) = H(T)-H(0) =  1364.995 CAL/MOL
+ ......END OF NORMAL COORDINATE ANALYSIS......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  81.25%
+               611208  WORDS OF DYNAMIC MEMORY USED
+ EXECUTION OF GAMESS TERMINATED NORMALLY Mon Nov 28 18:29:51 2016
+ DDI: 263640 bytes (0.3 MB / 0 MWords) used by master data server.
+
+ ----------------------------------------
+ CPU timing information for all processes
+ ========================================
+ 0: 0.105 + 0.39 = 0.145
+ ----------------------------------------
+ ddikick.x: exited gracefully.
+unset echo
+----- accounting info -----
+Files used on the master node compute-3-0 were:
+-rw-rw-r-- 1 sarom sarom  142521 Nov 29  2016 .//exam03.dat
+-rw-rw-r-- 1 sarom sarom    2284 Nov 29  2016 .//exam03.F05
+-rw-rw-r-- 1 sarom sarom       0 Nov 29  2016 .//exam03.F08
+-rw-rw-r-- 1 sarom sarom 1995920 Nov 29  2016 .//exam03.F10
+-rw-rw-r-- 1 sarom sarom    2284 Nov 28 17:27 .//exam03.inp
+-rw-rw-r-- 1 sarom sarom  161703 Nov 29  2016 .//exam03.log
+Mon Nov 28 18:29:54 CST 2016
+0.196u 0.270s 0:03.69 12.4%	0+0k 0+136io 0pf+0w

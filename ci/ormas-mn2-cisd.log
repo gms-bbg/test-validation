@@ -1,0 +1,2929 @@
+----- GAMESS execution script 'rungms' -----
+This job is running on host compute-3-0
+under operating system Linux at Mon Nov 28 17:57:25 CST 2016
+Available scratch disk space (Kbyte units) at beginning of the job is
+Filesystem            1K-blocks       Used  Available Use% Mounted on
+bolt.local:/export/home/sarom
+                     9590469632 1554391040 7548911616  18% /home/sarom
+Copying input file ormas-mn2-cisd.inp to your run's scratch directory...
+cp ormas-mn2-cisd.inp .//ormas-mn2-cisd.F05
+unset echo
+/home/sarom/gamessGH/ddikick.x /home/sarom/gamessGH/gamess.00.x ormas-mn2-cisd -ddi 1 1 localhost -scr ./
+
+ Distributed Data Interface kickoff program.
+ Initiating 1 compute processes on 1 nodes to run the following command:
+ /home/sarom/gamessGH/gamess.00.x ormas-mn2-cisd 
+
+          ******************************************************
+          *         GAMESS VERSION = 18 AUG 2016 (R1)          *
+          *             FROM IOWA STATE UNIVERSITY             *
+          * M.W.SCHMIDT, K.K.BALDRIDGE, J.A.BOATZ, S.T.ELBERT, *
+          *   M.S.GORDON, J.H.JENSEN, S.KOSEKI, N.MATSUNAGA,   *
+          *          K.A.NGUYEN, S.J.SU, T.L.WINDUS,           *
+          *       TOGETHER WITH M.DUPUIS, J.A.MONTGOMERY       *
+          *         J.COMPUT.CHEM.  14, 1347-1363(1993)        *
+          **************** 64 BIT LINUX VERSION ****************
+
+  SINCE 1993, STUDENTS AND POSTDOCS WORKING AT IOWA STATE UNIVERSITY
+  AND ALSO IN THEIR VARIOUS JOBS AFTER LEAVING ISU HAVE MADE IMPORTANT
+  CONTRIBUTIONS TO THE CODE:
+     IVANA ADAMOVIC, CHRISTINE AIKENS, YURI ALEXEEV, POOJA ARORA,
+     ANDREY ASADCHEV, ROB BELL, PRADIPTA BANDYOPADHYAY, JONATHAN BENTZ,
+     BRETT BODE, KURT BRORSEN, CALEB CARLIN, GALINA CHABAN, WEI CHEN,
+     CHEOL HO CHOI, PAUL DAY, ALBERT DEFUSCO, NUWAN DESILVA, TIM DUDLEY,
+     DMITRI FEDOROV, GRAHAM FLETCHER, MARK FREITAG, KURT GLAESEMANN,
+     DAN KEMP, GRANT MERRILL, NORIYUKI MINEZAWA, JONATHAN MULLIN,
+     TAKESHI NAGATA, SEAN NEDD, HEATHER NETZLOFF, BOSILJKA NJEGIC, RYAN OLSON,
+     MIKE PAK, SPENCER PRUITT, LUKE ROSKOP, JIM SHOEMAKER, LYUDMILA SLIPCHENKO,
+     TONY SMITH, SAROM SOK LEANG, JIE SONG, TETSUYA TAKETSUGU, SIMON WEBB,
+     PENG XU, SOOHAENG YOO, FEDERICO ZAHARIEV
+
+  ADDITIONAL CODE HAS BEEN PROVIDED BY COLLABORATORS IN OTHER GROUPS:
+     IOWA STATE UNIVERSITY:
+          JOE IVANIC, AARON WEST, LAIMUTIS BYTAUTAS, KLAUS RUEDENBERG
+     UNIVERSITY OF TOKYO: KIMIHIKO HIRAO, TAKAHITO NAKAJIMA,
+          TAKAO TSUNEDA, MUNEAKI KAMIYA, SUSUMU YANAGISAWA,
+          KIYOSHI YAGI, MAHITO CHIBA, SEIKEN TOKURA, NAOAKI KAWAKAMI
+     UNIVERSITY OF AARHUS: FRANK JENSEN
+     UNIVERSITY OF IOWA: VISVALDAS KAIRYS, HUI LI
+     NATIONAL INST. OF STANDARDS AND TECHNOLOGY: WALT STEVENS, DAVID GARMER
+     UNIVERSITY OF PISA: BENEDETTA MENNUCCI, JACOPO TOMASI
+     UNIVERSITY OF MEMPHIS: HENRY KURTZ, PRAKASHAN KORAMBATH
+     UNIVERSITY OF ALBERTA: TOBY ZENG, MARIUSZ KLOBUKOWSKI
+     UNIVERSITY OF NEW ENGLAND: MARK SPACKMAN
+     MIE UNIVERSITY: HIROAKI UMEDA
+     NAT. INST. OF ADVANCED INDUSTRIAL SCIENCE AND TECHNOLOGY: KAZUO KITAURA
+     MICHIGAN STATE UNIVERSITY:
+          KAROL KOWALSKI, MARTA WLOCH, JEFFREY GOUR, JESSE LUTZ,
+          WEI LI, PIOTR PIECUCH
+     UNIVERSITY OF SILESIA: MONIKA MUSIAL, STANISLAW KUCHARSKI
+     FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX:
+          OLIVIER QUINET, BENOIT CHAMPAGNE
+     UNIVERSITY OF CALIFORNIA - SANTA BARBARA: BERNARD KIRTMAN
+     INSTITUTE FOR MOLECULAR SCIENCE:
+          KAZUYA ISHIMURA, MICHIO KATOUDA, AND SHIGERU NAGASE
+     UNIVERSITY OF NOTRE DAME: ANNA POMOGAEVA, DAN CHIPMAN
+     KYUSHU UNIVERSITY:
+          HARUYUKI NAKANO,
+          FENG LONG GU, JACEK KORCHOWIEC, MARCIN MAKOWSKI, AND YURIKO AOKI,
+          HIROTOSHI MORI AND EISAKU MIYOSHI
+     PENNSYLVANIA STATE UNIVERSITY:
+          TZVETELIN IORDANOV, CHET SWALINA, JONATHAN SKONE,
+          SHARON HAMMES-SCHIFFER
+     WASEDA UNIVERSITY:
+          MASATO KOBAYASHI, TOMOKO AKAMA, TSUGUKI TOUMA,
+          TAKESHI YOSHIKAWA, YASUHIRO IKABATA, JUNJI SEINO,
+          YUYA NAKAJIMA, HIROMI NAKAI
+     NANJING UNIVERSITY: SHUHUA LI
+     UNIVERSITY OF NEBRASKA:
+          PEIFENG SU, DEJUN SI, NANDUN THELLAMUREGE, YALI WANG, HUI LI
+     UNIVERSITY OF ZURICH: ROBERTO PEVERATI, KIM BALDRIDGE
+     N. COPERNICUS UNIVERSITY AND JACKSON STATE UNIVERSITY:
+          MARIA BARYSZ
+     UNIVERSITY OF COPENHAGEN: Jimmy Kromann, CASPER STEINMANN
+     TOKYO INSTITUTE OF TECHNOLOGY: HIROYA NAKATA
+     NAGOYA UNIVERSITY: YOSHIO NISHIMOTO, STEPHAN IRLE
+     MOSCOW STATE UNIVERSITY: VLADIMIR MIRONOV
+
+ EXECUTION OF GAMESS BEGUN Mon Nov 28 17:57:27 2016
+
+            ECHO OF THE FIRST FEW INPUT CARDS -
+ INPUT CARD>!   Mn2: a test case from Joe, July 2008.                                       
+ INPUT CARD>!   It has a very high spin, so tests the code for Sz.ne.0                      
+ INPUT CARD>!   238 AOs and 182 MOs, with 31 alpha and 19 beta electrons, 920 determinants  
+ INPUT CARD>!           The DM1+DM2 code is requested, as well as the DM1 code              
+ INPUT CARD>!   We need the latter to get a AO density matrix onto DAF for properties,      
+ INPUT CARD>!   and the former is just to make sure we can execute that pathway.            
+ INPUT CARD>!                                                                               
+ INPUT CARD>!   12 Davidson iterations, STATE 1 ENERGY= -2299.7078319442, S= 6.00, SYM=Ag   
+ INPUT CARD>!        each Mn's s,p,d populations are 7.33, 12.67, 5.00 electrons            
+ INPUT CARD>!                                                                               
+ INPUT CARD>!   this run takes 30 seconds on 2.66 GHz Cloverton (13 Apr 2015)               
+ INPUT CARD>!        answers have not changed appreciably since 2008                        
+ INPUT CARD>!                                                                               
+ INPUT CARD> $contrl scftyp=none cityp=ormas runtyp=energy mult=13                          
+ INPUT CARD>         units=bohr ispher=1 $end                                               
+ INPUT CARD> $system mwords=10 $end                                                         
+ INPUT CARD> $guess  guess=moread norb=182 purify=.true.  $end                              
+ INPUT CARD>                                                                                
+ INPUT CARD>!           the calculation (NACT/MINE/MAXE) is hard to understand              
+ INPUT CARD> $ciinp  nrnfg(1)=1,1,1,0,1,1 $end                                              
+ INPUT CARD> $cidet  group=d2h stsym=Ag ncore=18 nact=18 nels=14 nstate=1 cvgtol=1e-6 $end  
+ INPUT CARD> $ormas  nspace=2 mstart(1)=19,27 mine(1)=4,10 maxe(1)=4,10  $end               
+ INPUT CARD>                                                                                
+ INPUT CARD> $DATA                                                                          
+ INPUT CARD>Mn2...T8-QZ4f2g...sa11 ORMAS full valence 2 groups                              
+ INPUT CARD>Dnh  2                                                                          
+ INPUT CARD>                                                                                
+ INPUT CARD>Mn         25.0                  0.0   0.0   3.00                               
+ INPUT CARD>         S    8                                                                 
+ INPUT CARD>    1 268427.9329648   0.0002517                                                
+ INPUT CARD>    2  40239.4169105   0.0019511                                                
+ INPUT CARD>    3   9157.9407603   0.0101405                                                
+ INPUT CARD>    4   2592.2575130   0.0411487                                                
+ INPUT CARD>    5    844.0336583   0.1332671                                                
+ INPUT CARD>    6    302.5853924   0.3135677                                                
+ INPUT CARD>    7    117.3472527   0.4333546                                                
+ INPUT CARD>    8     46.4294084   0.2133942                                                
+ INPUT CARD>         S    4                                                                 
+ INPUT CARD>    1     312.6335655  -0.0233319                                               
+ INPUT CARD>    2      95.8671373  -0.1152245                                               
+ INPUT CARD>    3      14.3732679   0.5915724                                               
+ INPUT CARD>    4       5.8281853   0.4969598                                               
+ INPUT CARD>         S    2                                                                 
+ INPUT CARD>    1       9.4890501  -0.2246899                                               
+ INPUT CARD>    2       1.5532203   0.7174934                                               
+ INPUT CARD>         S    1                                                                 
+ INPUT CARD>    1       0.6272083   0.4144354                                               
+ INPUT CARD>         S    1                                                                 
+ INPUT CARD>    1       0.7446372  -0.1354627                                               
+ INPUT CARD>         S    1                                                                 
+   10000000 WORDS OF MEMORY AVAILABLE
+
+
+     RUN TITLE
+     ---------
+ Mn2...T8-QZ4f2g...sa11 ORMAS full valence 2 groups                              
+
+ THE POINT GROUP OF THE MOLECULE IS DNH     
+ THE ORDER OF THE PRINCIPAL AXIS IS     2
+ *** WARNING! ATOM   1 SHELL    3 TYPE S HAS NORMALIZATION   1.62579047
+ *** WARNING! ATOM   1 SHELL    9 TYPE P HAS NORMALIZATION   1.21512474
+ *** WARNING! ATOM   1 SHELL   14 TYPE D HAS NORMALIZATION   1.97595072
+
+ ATOM      ATOMIC                      COORDINATES (BOHR)
+           CHARGE         X                   Y                   Z
+ MN         25.0     0.0000000000        0.0000000000       -3.0000000000
+ MN         25.0     0.0000000000        0.0000000000        3.0000000000
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 MN         2 MN    
+
+   1 MN      0.0000000    3.1750635  
+   2 MN      3.1750635    0.0000000  
+
+  * ... LESS THAN  3.000
+
+
+     ATOMIC BASIS SET
+     ----------------
+ THE CONTRACTED PRIMITIVE FUNCTIONS HAVE BEEN UNNORMALIZED
+ THE CONTRACTED BASIS FUNCTIONS ARE NOW NORMALIZED TO UNITY
+
+  SHELL TYPE  PRIMITIVE        EXPONENT          CONTRACTION COEFFICIENT(S)
+
+ MN        
+
+     24   S       1        268427.9329648    0.000251699999
+     24   S       2         40239.4169105    0.001951099991
+     24   S       3          9157.9407603    0.010140499955
+     24   S       4          2592.2575130    0.041148699818
+     24   S       5           844.0336583    0.133267099411
+     24   S       6           302.5853924    0.313567698614
+     24   S       7           117.3472527    0.433354598084
+     24   S       8            46.4294084    0.213394199057
+
+     25   S       9           312.6335655   -0.023331899689
+     25   S      10            95.8671373   -0.115224498467
+     25   S      11            14.3732679    0.591572392127
+     25   S      12             5.8281853    0.496959793386
+
+     26   S      13             9.4890501   -0.365298697368
+     26   S      14             1.5532203    1.166493929589
+
+     27   S      15             0.6272083    1.000000000000
+
+     28   S      16             0.7446372    1.000000000000
+
+     29   S      17             0.1009484    1.000000000000
+
+     30   S      18             0.0373267    1.000000000000
+
+     31   P      19          4210.3920292    0.000435599978
+     31   P      20           997.8219695    0.003766799813
+     31   P      21           323.1561251    0.020202298999
+     31   P      22           122.4853622    0.077429096165
+     31   P      23            51.1508563    0.211149489543
+     31   P      24            22.5423856    0.376022281377
+     31   P      25            10.3686239    0.370218781665
+     31   P      26             4.6340739    0.130969993514
+
+     32   P      27            25.6446494   -0.019967901787
+     32   P      28             3.4598063    0.386383662866
+     32   P      29             1.3774746    0.674800688555
+
+     33   P      30             0.5182933    1.000000000000
+
+     34   P      31             0.1793631    1.000000000000
+
+     35   P      32             0.0708056    1.000000000000
+
+     36   P      33             0.0282640    1.000000000000
+
+     37   D      34           133.5445122    0.004130132200
+     37   D      35            39.7924311    0.032197326645
+     37   D      36            14.8160579    0.131474228422
+     37   D      37             6.0928770    0.357459167883
+     37   D      38             2.6306511    0.624363873264
+
+     38   D      39             1.1256468    1.000000000000
+
+     39   D      40             0.4629245    1.000000000000
+
+     40   D      41             0.1734386    1.000000000000
+
+     41   F      42            12.3896590    1.000000000000
+
+     42   F      43             3.7794290    1.000000000000
+
+     43   F      44             1.3597040    1.000000000000
+
+     44   F      45             0.4621210    1.000000000000
+
+     45   G      46             2.6569970    1.000000000000
+
+     46   G      47             0.6957410    1.000000000000
+
+ TOTAL NUMBER OF BASIS SET SHELLS             =   46
+ NUMBER OF CARTESIAN GAUSSIAN BASIS FUNCTIONS =  238
+ NOTE: THIS RUN WILL RESTRICT THE MO VARIATION SPACE TO SPHERICAL HARMONICS.
+ THE NUMBER OF ORBITALS KEPT IN THE VARIATIONAL SPACE WILL BE PRINTED LATER.
+ NUMBER OF ELECTRONS                          =   50
+ CHARGE OF MOLECULE                           =    0
+ SPIN MULTIPLICITY                            =   13
+ NUMBER OF OCCUPIED ORBITALS (ALPHA)          =   31
+ NUMBER OF OCCUPIED ORBITALS (BETA )          =   19
+ TOTAL NUMBER OF ATOMS                        =    2
+ THE NUCLEAR REPULSION ENERGY IS      104.1666666667
+
+ THIS MOLECULE IS RECOGNIZED AS BEING LINEAR,
+ ORBITAL LZ DEGENERACY TOLERANCE ETOLLZ= 1.00E-06
+
+     $CONTRL OPTIONS
+     ---------------
+ SCFTYP=NONE         RUNTYP=ENERGY       EXETYP=RUN     
+ MPLEVL=       0     CITYP =ORMAS        CCTYP =NONE         VBTYP =NONE    
+ DFTTYP=NONE         TDDFT =NONE    
+ MULT  =      13     ICHARG=       0     NZVAR =       0     COORD =UNIQUE  
+ PP    =NONE         RELWFN=NONE         LOCAL =NONE         NUMGRD=       F
+ ISPHER=       1     NOSYM =       0     MAXIT =      30     UNITS =BOHR    
+ PLTORB=       F     MOLPLT=       F     AIMPAC=       F     FRIEND=        
+ NPRINT=       7     IREST =       0     GEOM  =INPUT   
+ NORMF =       0     NORMP =       0     ITOL  =      20     ICUT  =       9
+ INTTYP=BEST         GRDTYP=BEST         QMTTOL= 1.0E-06
+
+     $SYSTEM OPTIONS
+     ---------------
+  REPLICATED MEMORY=    10000000 WORDS (ON EVERY NODE).
+ DISTRIBUTED MEMDDI=           0 MILLION WORDS IN AGGREGATE,
+ MEMDDI DISTRIBUTED OVER   1 PROCESSORS IS           0 WORDS/PROCESSOR.
+ TOTAL MEMORY REQUESTED ON EACH PROCESSOR=    10000000 WORDS.
+ TIMLIM=      525600.00 MINUTES, OR     365.0 DAYS.
+ PARALL= F  BALTYP=  DLB     KDIAG=    0  COREFL= F
+ MXSEQ2=     300 MXSEQ3=     150  mem10=         0
+
+          ----------------
+          PROPERTIES INPUT
+          ----------------
+
+     MOMENTS            FIELD           POTENTIAL          DENSITY
+ IEMOM =       1   IEFLD =       0   IEPOT =       0   IEDEN =       0
+ WHERE =COMASS     WHERE =NUCLEI     WHERE =NUCLEI     WHERE =NUCLEI  
+ OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH    
+ IEMINT=       0   IEFINT=       0                     IEDINT=       0
+                                                       MORB  =       0
+          EXTRAPOLATION IN EFFECT
+          SOSCF IN EFFECT
+ ORBITAL PRINTING OPTION: NPREO=     1   238     2     1
+
+     -------------------------------
+     INTEGRAL TRANSFORMATION OPTIONS
+     -------------------------------
+     NWORD  =            0
+     CUTOFF = 1.0E-09     MPTRAN =       0
+     DIRTRF =       F     AOINTS =DUP     
+
+          ----------------------
+          INTEGRAL INPUT OPTIONS
+          ----------------------
+ NOPK  =       1 NORDER=       0 SCHWRZ=       F
+
+     ------------------------------------------
+     THE POINT GROUP IS DNH, NAXIS= 2, ORDER= 8
+     ------------------------------------------
+
+ -- VARIATIONAL SPACE WILL BE RESTRICTED TO PURE SPHERICAL HARMONICS ONLY --
+ AFTER EXCLUDING CONTAMINANT COMBINATIONS FROM THE CARTESIAN GAUSSIAN BASIS
+ SET, THE NUMBER OF SPHERICAL HARMONICS KEPT IN THE VARIATION SPACE IS  182
+
+     DIMENSIONS OF THE SYMMETRY SUBSPACES ARE
+ AG  =   35     AU  =   12     B3U =   22     B3G =   22     B1G =   12
+ B1U =   35     B2U =   22     B2G =   22
+
+ ..... DONE SETTING UP THE RUN .....
+ STEP CPU TIME =     0.57 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.2 SECONDS, CPU UTILIZATION IS  48.31%
+
+          ********************
+          1 ELECTRON INTEGRALS
+          ********************
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.2 SECONDS, CPU UTILIZATION IS  48.74%
+
+          -------------
+          GUESS OPTIONS
+          -------------
+          GUESS =MOREAD            NORB  =     182          NORDER=       0
+          MIX   =       F          PRTMO =       F          PUNMO =       F
+          TOLZ  = 1.0E-08          TOLE  = 1.0E-05
+          SYMDEN=       F          PURIFY=       T
+
+ INITIAL GUESS ORBITALS GENERATED BY MOREAD   ROUTINE.
+
+ STATISTICS FOR GENERATION OF SYMMETRY ORBITAL -Q- MATRIX
+ NUMBER OF CARTESIAN ATOMIC ORBITALS=        238
+ NUMBER OF SPHERICAL CONTAMINANTS DROPPED=    56
+ NUMBER OF LINEARLY DEPENDENT MOS DROPPED=     0
+ TOTAL NUMBER OF MOS IN VARIATION SPACE=     182
+ ORBITAL PURIFICATION WILL OCCUR
+
+ SYMMETRIES FOR INITIAL GUESS ORBITALS FOLLOW.   BOTH SET(S).
+    31 ORBITALS ARE OCCUPIED (   18 CORE ORBITALS).
+     1=B1U      2=AG       3=B1U      4=AG       5=AG       6=B1U      7=B3U 
+     8=B2U      9=B2G     10=B3G     11=AG      12=B1U     13=AG      14=B2U 
+    15=B3U     16=B3G     17=B2G     18=B1U     19=AG      20=B1U     21=AG  
+    22=B2U     23=B3U     24=B3G     25=B2G     26=B1U     27=AU      28=B1U 
+    29=B1G     30=AG      31=B2U     32=B3U     33=B3G     34=B2G     35=B1U 
+    36=AG      37=B2U     38=B3U     39=B1U     40=AG      41=B3G     42=B2G 
+    43=AG      44=B1U     45=B2U     46=B3U     47=AG      48=B1G     49=AG  
+    50=B1U     51=AU      52=B1U     53=B2U     54=B3U     55=B3G     56=B2G 
+    57=B3G     58=B2G     59=AG      60=B1U     61=AG      62=AG      63=B2U 
+    64=B3U     65=B1U     66=B1G     67=AG      68=B2U     69=B3U     70=B3G 
+    71=B2G     72=B1U     73=AU      74=B3G     75=B2G     76=B1U     77=B1G 
+    78=AG      79=B2U     80=B3U     81=B1U     82=AU      83=B3G     84=B2G 
+    85=AG      86=B1U     87=B2U     88=B3U     89=AG      90=B3G     91=B2G 
+    92=B1U     93=AG      94=B2U     95=B3U     96=B1G     97=AG      98=B1G 
+    99=AG     100=B1U    101=AU     102=B2U    103=B3U    104=B3G    105=B2G 
+   106=B1U    107=AU     108=B3G    109=B2G    110=B1U    111=AG     112=B2U 
+   113=B3U    114=B1G    115=AG     116=B2U    117=B3U    118=B3G    119=B2G 
+   120=B1U    121=AU     122=B3G    123=B2G    124=B1U    125=B1G    126=AG  
+   127=B3U    128=B2U    129=B1U    130=AU     131=B2G    132=B3G    133=B1U 
+   134=AG     135=AG     136=B1U    137=AG     138=B3U    139=B2U    140=B1G 
+   141=AG     142=B1G    143=AG     144=B1U    145=AU     146=B2U    147=B3U 
+   148=B3G    149=B2G    150=B1U    151=AU     152=B2G    153=B3G    154=B1U 
+   155=AG     156=B3U    157=B2U    158=AG     159=B1G    160=B2U    161=B3U 
+   162=B3G    163=B2G    164=AU     165=B1U    166=B2G    167=B3G    168=B1U 
+   169=AG     170=B3U    171=B2U    172=B1G    173=AG     174=B3U    175=B2U 
+   176=B2G    177=B3G    178=B1U    179=AU     180=B2G    181=B3G    182=B1U 
+ ...... END OF INITIAL ORBITAL SELECTION ......
+ STEP CPU TIME =     0.18 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.4 SECONDS, CPU UTILIZATION IS  55.47%
+
+                    ----------------------
+                    AO INTEGRAL TECHNOLOGY
+                    ----------------------
+     S,P,L SHELL ROTATED AXIS INTEGRALS, REPROGRAMMED BY
+        KAZUYA ISHIMURA (IMS) AND JOSE SIERRA (SYNSTAR).
+     S,P,D,L SHELL ROTATED AXIS INTEGRALS PROGRAMMED BY
+        KAZUYA ISHIMURA (INSTITUTE FOR MOLECULAR SCIENCE).
+     S,P,D,F,G SHELL TO TOTAL QUARTET ANGULAR MOMENTUM SUM 5,
+        ERIC PROGRAM BY GRAHAM FLETCHER (ELORET AND NASA ADVANCED
+        SUPERCOMPUTING DIVISION, AMES RESEARCH CENTER).
+     S,P,D,F,G,L SHELL GENERAL RYS QUADRATURE PROGRAMMED BY
+        MICHEL DUPUIS (PACIFIC NORTHWEST NATIONAL LABORATORY).
+
+          --------------------
+          2 ELECTRON INTEGRALS
+          --------------------
+
+ THE -PK- OPTION IS OFF, THE INTEGRALS ARE NOT IN SUPERMATRIX FORM.
+ STORING   15000 INTEGRALS/RECORD ON DISK, USING 12 BYTES/INTEGRAL.
+ TWO ELECTRON INTEGRAL EVALUATION REQUIRES  140806 WORDS OF MEMORY.
+ II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST =  5  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST =  6  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST =  7  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST =  8  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST =  9  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST = 10  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST = 11  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST = 12  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST = 13  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST = 14  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST = 15  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST = 16  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST = 17  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST = 18  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST = 19  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST = 20  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST = 21  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST = 22  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST = 23  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST = 24  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST = 25  1  1  1 NREC =         1 INTLOC =    3
+ II,JST,KST,LST = 26  1  1  1 NREC =         1 INTLOC =   13
+ II,JST,KST,LST = 27  1  1  1 NREC =         1 INTLOC =   43
+ II,JST,KST,LST = 28  1  1  1 NREC =         1 INTLOC =  141
+ II,JST,KST,LST = 29  1  1  1 NREC =         1 INTLOC =  355
+ II,JST,KST,LST = 30  1  1  1 NREC =         1 INTLOC =  917
+ II,JST,KST,LST = 31  1  1  1 NREC =         1 INTLOC = 1921
+ II,JST,KST,LST = 32  1  1  1 NREC =         1 INTLOC = 3114
+ II,JST,KST,LST = 33  1  1  1 NREC =         1 INTLOC = 5692
+ II,JST,KST,LST = 34  1  1  1 NREC =         1 INTLOC =12295
+ II,JST,KST,LST = 35  1  1  1 NREC =         2 INTLOC =11110
+ II,JST,KST,LST = 36  1  1  1 NREC =         4 INTLOC = 4627
+ II,JST,KST,LST = 37  1  1  1 NREC =         6 INTLOC =10852
+ II,JST,KST,LST = 38  1  1  1 NREC =        12 INTLOC = 4676
+ II,JST,KST,LST = 39  1  1  1 NREC =        21 INTLOC =11176
+ II,JST,KST,LST = 40  1  1  1 NREC =        40 INTLOC =14290
+ II,JST,KST,LST = 41  1  1  1 NREC =        73 INTLOC =12586
+ II,JST,KST,LST = 42  1  1  1 NREC =       126 INTLOC = 7969
+ II,JST,KST,LST = 43  1  1  1 NREC =       210 INTLOC = 4059
+ II,JST,KST,LST = 44  1  1  1 NREC =       336 INTLOC = 6522
+ II,JST,KST,LST = 45  1  1  1 NREC =       578 INTLOC =12372
+ II,JST,KST,LST = 46  1  1  1 NREC =       978 INTLOC =10583
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =            25650849
+       1711 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     6.15 TOTAL CPU TIME =        6.9 (    0.1 MIN)
+ TOTAL WALL CLOCK TIME=        7.8 SECONDS, CPU UTILIZATION IS  88.14%
+
+ OCCUPATIONALLY RESTRICTED MULTIPLE ACTIVE SPACE CI OPTIONS
+                                    NRNFG   NPFLG
+ INTEGRAL TRANSFORMATION              1       0
+ DIAGONALIZE HAMILTONIAN              0       0
+ FORM 1E- DENSITY MATRIX              1       0
+ FORM 2E- DENSITY MATRIX              1       0
+
+     ------------------------------------------------------------
+       DIRECT DETERMINANT ORMAS-CI INPUT SORTER
+       PROGRAM WRITTEN BY JOE IVANIC AND MIKE SCHMIDT
+       ORMAS = OCCUPATION RESTRICTED MULTIPLE ACTIVE SPACE
+     ------------------------------------------------------------
+
+ **** DAVIDSON + Q CORRECTION MEANINGLESS FOR CURRENT ORMAS PARITIONING.
+
+ THE POINT GROUP                  =   D2H     
+ THE STATE SYMMETRY               =   AG      
+ NUMBER OF CORE ORBITALS          =   18
+ NUMBER OF ACTIVE ORBITALS        =   18
+ NUMBER OF ALPHA ELECTRONS        =   31 (  13 ACTIVE)
+ NUMBER OF BETA ELECTRONS         =   19 (   1 ACTIVE)
+ NUMBER OF OCCUPIED ORBITALS      =   36
+
+ NUMBER OF CI STATES REQUESTED    =    1
+ NUMBER OF CI STARTING VECTORS    =    1
+ MAX. NO. OF CI EXPANSION VECTORS =   10
+ SIZE OF INITIAL CI GUESS MATRIX  =  300
+
+ MAX. NO. OF CI ITERS/STATE       =  100
+ CI DIAGONALIZATION CRITERION     = 1.00E-06
+ CI PROPERTIES WILL BE FOUND FOR ROOT NUMBER   1
+ 1E- DENSITY MATRIX OPTIONS (NFLGDM) ARE 1
+
+ CORRELATION ENERGY ANALYSIS      =    F
+
+ FULLY DIRECT OPTION              =    T
+
+ CALC. OF DAVIDSON Q CORRECTION   =    F
+
+ BLOCK SPACE MIXING IN NO DIAG    =    F
+
+ SYMMETRIES FOR THE  18 CORE,  18 ACTIVE ARE
+
+     CORE= B1U   AG    B1U   AG    AG    B1U   B3U   B2U   B2G   B3G 
+           AG    B1U   AG    B2U   B3U   B3G   B2G   B1U 
+
+   ACTIVE= AG    B1U   AG    B2U   B3U   B3G   B2G   B1U   AU    B1U 
+           B1G   AG    B2U   B3U   B3G   B2G   B1U   AG  
+
+ THE NUMBER OF SPACES             =   2
+ EACH SPACE STARTS AT ORBITAL     =  19  27
+ NO OF ORBITALS IN EACH SPACE     =   8  10
+ MIN NO OF ELECS IN EACH SPACE    =   4  10
+ MAX NO OF ELECS IN EACH SPACE    =   4  10
+
+ SPACE SPECIFICATIONS HAVE PASSED PRELIMINARY CHECKS
+
+ ALL VALID DETERMINANTS WILL BE EXPRESSED AS PAIRS OF ALPHA AND BETA STRINGS.
+
+ MIN NO OF ALPHA ELECS =    3   9
+ MAX NO OF ALPHA ELECS =    4  10
+
+ MIN NO OF BETA  ELECS =    0   0
+ MAX NO OF BETA  ELECS =    1   1
+
+     --------------------------------------------
+     PARTIAL TWO ELECTRON INTEGRAL TRANSFORMATION
+     --------------------------------------------
+
+ NUMBER OF CORE MOLECULAR ORBITALS     =   18
+ NUMBER OF OCCUPIED MOLECULAR ORBITALS =   36
+ TOTAL NUMBER OF MOLECULAR ORBITALS    =   36
+ TOTAL NUMBER OF ATOMIC ORBITALS       =  238
+ THRESHOLD FOR KEEPING TRANSFORMED 2E- INTEGRALS = 1.000E-09
+ AO INTEGRALS WILL BE READ IN FROM DISK...
+ EVALUATING THE FROZEN CORE ENERGY...
+ ----- FROZEN CORE ENERGY =     -2365.4235826430
+
+ PLAN A: REQUIREMENTS FOR FULLY IN-MEMORY TRANSFORMATION:
+ # OF WORDS AVAILABLE =             10000000
+ # OF WORDS NEEDED    =            122184942
+
+ PLAN B: REQUIREMENTS FOR THE SEGMENTED TRANSFORMATION:
+       MINIMUM=        7112656 WORDS FOR 1 MOLECULAR ORBITAL PER PASS
+       MAXIMUM=      122184942 WORDS FOR ALL MOLECULAR ORBITALS IN 1 PASS
+              (        6768958 EXTRA WORDS INCLUDES 1 EXTRA ORBITAL/PASS)
+ THIS RUN USES=        7112656 WORDS,
+ DISTRIBUTING  18 PASSES EACH CONTAINING     1 ORBITALS OVER   1 PROCESSORS.
+
+ CHOOSING SEGMENTED PARTIAL TRANSFORMATION...
+ PASS #   1 TOOK        0.47 SECONDS.
+ PASS #   2 TOOK        0.45 SECONDS.
+ PASS #   3 TOOK        0.44 SECONDS.
+ PASS #   4 TOOK        0.46 SECONDS.
+ PASS #   5 TOOK        0.46 SECONDS.
+ PASS #   6 TOOK        0.48 SECONDS.
+ PASS #   7 TOOK        0.49 SECONDS.
+ PASS #   8 TOOK        0.53 SECONDS.
+ PASS #   9 TOOK        0.52 SECONDS.
+ PASS #  10 TOOK        0.53 SECONDS.
+ PASS #  11 TOOK        0.54 SECONDS.
+ PASS #  12 TOOK        0.50 SECONDS.
+ PASS #  13 TOOK        0.52 SECONDS.
+ PASS #  14 TOOK        0.55 SECONDS.
+ PASS #  15 TOOK        0.52 SECONDS.
+ PASS #  16 TOOK        0.54 SECONDS.
+ PASS #  17 TOOK        0.56 SECONDS.
+ PASS #  18 TOOK        0.53 SECONDS.
+ TOTAL NUMBER OF TRANSFORMED 2E- INTEGRALS KEPT =         2032
+ ... END OF INTEGRAL TRANSFORMATION ...
+ STEP CPU TIME =     9.72 TOTAL CPU TIME =       16.6 (    0.3 MIN)
+ TOTAL WALL CLOCK TIME=       32.5 SECONDS, CPU UTILIZATION IS  51.12%
+
+     --------------------------------------------------
+                 DIRECT DETERMINANT ORMAS-CI 
+                PROGRAM WRITTEN BY JOE IVANIC
+     --------------------------------------------------
+
+ STORAGE OF BINOMIAL COEFFICIENTS REQUIRES         166 WORDS
+
+ TOTAL NUMBER OF ALPHA GROUPS  =            2
+ TOTAL NUMBER OF BETA  GROUPS  =            2
+
+ TOTAL NUMBER OF ALPHA STRINGS =          756
+ TOTAL NUMBER OF BETA  STRINGS =           18
+
+ STORAGE OF TABLES REQUIRES                      2682 WORDS
+
+ TOTAL NUMBER OF ALPHA-BETA GROUP COMBINATIONS =            4
+ OF THESE THE ALLOWED NUMBER OF COMBINATIONS   =            2
+
+ TIME FOR SETTING UP TABLE SET 1 :          0.0
+
+ THE NUMBER OF DETERMINANTS HAVING SPACE SYMMETRY AG 
+ IN POINT GROUP D2H  WITH SZ=  6.0 IS            920
+
+ INTEGRAL STORAGE REQUIRES                   45049 WORDS
+ EXTRA ORMAS STORAGE REQUIRES               315172 WORDS
+ (EXTRA ORMAS STORAGE INCLUDES THAT FOR MXXPAN = 10)
+ TOTAL ORMAS CALCULATION REQUIRES           363069 WORDS
+
+ INITIAL ORMAS VECTOR GUESS TIME :          0.1
+ INITIAL ORMAS CI ITERATION TIME :          0.0
+
+ ITERATION      ENERGY           GRADIENT
+     0    -2299.7078125890     0.00333651
+     1    -2299.7078308767     0.00087210
+     2    -2299.7078317178     0.00036729
+     3    -2299.7078318785     0.00020732
+     4    -2299.7078319259     0.00010110
+     5    -2299.7078319369     0.00005873
+     6    -2299.7078319414     0.00003141
+     7    -2299.7078319435     0.00002101
+     8    -2299.7078319440     0.00001131
+     9    -2299.7078319442     0.00000623
+    10    -2299.7078319442     0.00000287
+    11    -2299.7078319442     0.00000155
+    12    -2299.7078319442     0.00000076
+
+ CONVERGED STATE    1 ENERGY=    -2299.7078319442 IN   12 ITERS
+
+ ALL STATES CONVERGED.
+
+ CI EIGENVECTORS WILL BE LABELED IN GROUP=D2H     
+ PRINTING CI COEFFICIENTS LARGER THAN  0.050000
+
+ STATE   1  ENERGY=     -2299.7078319442  S=  6.00  SZ=  6.00  SPACE SYM=AG  
+
+                  ALPHA                    | BETA  | CI COEFFICIENT
+ 1           2                             | 1  2  |
+-------------------------------------------|-------|---------------
+  1  2  3     9 10 11 12 13 14 15 16 17 18 |  1    |   0.9292193468
+  1  2  3     9 10 11 12 13 14 15 16 17 18 |  3    |  -0.2128396415
+  1  3  8     9 10 11 12 13 14 15 16 17 18 |  1    |  -0.1461685498
+  1  2  8     9 10 11 12 13 14 15 16 17 18 |  2    |  -0.1297008284
+  2  3  4     9 10 11 12 13 14 15 16 17 18 |  4    |  -0.0916701644
+  2  3  5     9 10 11 12 13 14 15 16 17 18 |  5    |  -0.0916701643
+  1  3  8     9 10 11 12 13 14 15 16 17 18 |  3    |   0.0835599516
+  1  3  7     9 10 11 12 13 14 15 16 17 18 |  5    |   0.0747244593
+  1  3  6     9 10 11 12 13 14 15 16 17 18 |  4    |   0.0747244593
+  1  3  4     9 10 11 12 13 14 15 16 17 18 |  6    |   0.0532280577
+  1  3  5     9 10 11 12 13 14 15 16 17 18 |  7    |   0.0532280577
+
+ ..... DONE WITH ORMAS-CI COMPUTATION .....
+ STEP CPU TIME =     0.24 TOTAL CPU TIME =       16.9 (    0.3 MIN)
+ TOTAL WALL CLOCK TIME=       32.8 SECONDS, CPU UTILIZATION IS  51.50%
+
+     ---------------------------
+     ONE PARTICLE DENSITY MATRIX
+     ---------------------------
+
+ DENSITY MATRIX WILL BE SAVED FOR   1-TH STATE WITH S= 6.00
+
+ CI EIGENSTATE   1 TOTAL ENERGY =    -2299.7078319442
+
+          NATURAL ORBITALS IN ATOMIC ORBITAL BASIS
+          ----------------------------------------
+
+                      1          2          3          4          5
+                    2.0000     2.0000     2.0000     2.0000     2.0000
+                     B1U        AG         B1U        AG         AG  
+    1  MN 1  S    0.705728   0.705731  -0.221756  -0.221745  -0.000008
+    2  MN 1  S    0.003845   0.003869   0.734522   0.734634   0.000026
+    3  MN 1  S   -0.002861  -0.002776   0.004932   0.005284  -0.000044
+    4  MN 1  S   -0.008109  -0.007330  -0.029628  -0.026135  -0.000102
+    5  MN 1  S    0.010205   0.009404   0.034844   0.031254   0.000045
+    6  MN 1  S    0.000445   0.000255   0.002191   0.001360   0.000111
+    7  MN 1  S   -0.000282  -0.000094  -0.001230  -0.000373   0.000095
+    8  MN 1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+    9  MN 1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+   10  MN 1  Z   -0.000001  -0.000000  -0.000018  -0.000005   0.705779
+   11  MN 1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   12  MN 1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+   13  MN 1  Z    0.000007  -0.000000   0.000044  -0.000011   0.003223
+   14  MN 1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   15  MN 1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+   16  MN 1  Z   -0.000025   0.000004  -0.000114   0.000016   0.000768
+   17  MN 1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   18  MN 1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+   19  MN 1  Z    0.000020  -0.000013   0.000087  -0.000050  -0.000471
+   20  MN 1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   21  MN 1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+   22  MN 1  Z    0.000131   0.000006   0.000622   0.000033   0.000322
+   23  MN 1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   24  MN 1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+   25  MN 1  Z   -0.000118  -0.000007  -0.000562  -0.000036  -0.000116
+   26  MN 1 XX    0.000002   0.000001   0.000011   0.000001   0.000003
+   27  MN 1 YY    0.000002   0.000001   0.000011   0.000001   0.000003
+   28  MN 1 ZZ   -0.000003  -0.000001  -0.000023  -0.000003  -0.000006
+   29  MN 1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   30  MN 1 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   31  MN 1 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   32  MN 1 XX   -0.000007  -0.000002  -0.000034  -0.000010  -0.000001
+   33  MN 1 YY   -0.000007  -0.000002  -0.000034  -0.000010  -0.000001
+   34  MN 1 ZZ    0.000015   0.000004   0.000067   0.000021   0.000002
+   35  MN 1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   36  MN 1 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   37  MN 1 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   38  MN 1 XX    0.000020   0.000003   0.000098   0.000009   0.000007
+   39  MN 1 YY    0.000020   0.000003   0.000098   0.000009   0.000007
+   40  MN 1 ZZ   -0.000040  -0.000005  -0.000196  -0.000019  -0.000014
+   41  MN 1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   42  MN 1 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   43  MN 1 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   44  MN 1 XX   -0.000045   0.000002  -0.000215   0.000010  -0.000015
+   45  MN 1 YY   -0.000045   0.000002  -0.000215   0.000010  -0.000015
+   46  MN 1 ZZ    0.000091  -0.000004   0.000431  -0.000019   0.000030
+   47  MN 1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   48  MN 1 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   49  MN 1 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   50  MN 1 XXX   0.000000   0.000000   0.000000   0.000000   0.000000
+   51  MN 1 YYY   0.000000   0.000000   0.000000   0.000000   0.000000
+   52  MN 1 ZZZ  -0.000002   0.000000  -0.000005  -0.000000  -0.000002
+   53  MN 1 XXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   54  MN 1 XXZ   0.000001  -0.000000   0.000003   0.000000   0.000001
+   55  MN 1 YYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   56  MN 1 YYZ   0.000001  -0.000000   0.000003   0.000000   0.000001
+   57  MN 1 ZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   58  MN 1 ZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   59  MN 1 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   60  MN 1 XXX   0.000000   0.000000   0.000000   0.000000   0.000000
+   61  MN 1 YYY   0.000000   0.000000   0.000000   0.000000   0.000000
+   62  MN 1 ZZZ   0.000006  -0.000000   0.000022  -0.000001   0.000004
+   63  MN 1 XXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   64  MN 1 XXZ  -0.000004   0.000000  -0.000015   0.000001  -0.000002
+   65  MN 1 YYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   66  MN 1 YYZ  -0.000004   0.000000  -0.000015   0.000001  -0.000002
+   67  MN 1 ZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   68  MN 1 ZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   69  MN 1 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   70  MN 1 XXX   0.000000   0.000000   0.000000   0.000000   0.000000
+   71  MN 1 YYY   0.000000   0.000000   0.000000   0.000000   0.000000
+   72  MN 1 ZZZ  -0.000014   0.000001  -0.000057   0.000005  -0.000011
+   73  MN 1 XXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   74  MN 1 XXZ   0.000009  -0.000001   0.000038  -0.000003   0.000007
+   75  MN 1 YYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   76  MN 1 YYZ   0.000009  -0.000001   0.000038  -0.000003   0.000007
+   77  MN 1 ZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   78  MN 1 ZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   79  MN 1 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   80  MN 1 XXX   0.000000   0.000000   0.000000   0.000000   0.000000
+   81  MN 1 YYY   0.000000   0.000000   0.000000   0.000000   0.000000
+   82  MN 1 ZZZ   0.000025  -0.000002   0.000113  -0.000012   0.000021
+   83  MN 1 XXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   84  MN 1 XXZ  -0.000017   0.000002  -0.000075   0.000008  -0.000014
+   85  MN 1 YYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   86  MN 1 YYZ  -0.000017   0.000002  -0.000075   0.000008  -0.000014
+   87  MN 1 ZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   88  MN 1 ZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   89  MN 1 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   90  MN 1XXXX  -0.000000  -0.000000  -0.000002   0.000000  -0.000001
+   91  MN 1YYYY  -0.000000  -0.000000  -0.000002   0.000000  -0.000001
+   92  MN 1ZZZZ  -0.000001  -0.000000  -0.000005   0.000000  -0.000001
+   93  MN 1XXXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   94  MN 1XXXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   95  MN 1YYYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   96  MN 1YYYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   97  MN 1ZZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   98  MN 1ZZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   99  MN 1XXYY  -0.000000  -0.000000  -0.000001   0.000000  -0.000000
+  100  MN 1XXZZ   0.000001   0.000000   0.000004  -0.000000   0.000001
+  101  MN 1YYZZ   0.000001   0.000000   0.000004  -0.000000   0.000001
+  102  MN 1XXYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  103  MN 1YYXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  104  MN 1ZZXY   0.000000   0.000000   0.000000   0.000000   0.000000
+  105  MN 1XXXX   0.000002  -0.000000   0.000008  -0.000000   0.000002
+  106  MN 1YYYY   0.000002  -0.000000   0.000008  -0.000000   0.000002
+  107  MN 1ZZZZ   0.000005  -0.000000   0.000021  -0.000001   0.000006
+  108  MN 1XXXY   0.000000   0.000000   0.000000   0.000000   0.000000
+  109  MN 1XXXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  110  MN 1YYYX   0.000000   0.000000   0.000000   0.000000   0.000000
+  111  MN 1YYYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  112  MN 1ZZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+  113  MN 1ZZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+  114  MN 1XXYY   0.000001  -0.000000   0.000005  -0.000000   0.000001
+  115  MN 1XXZZ  -0.000004   0.000000  -0.000018   0.000001  -0.000005
+  116  MN 1YYZZ  -0.000004   0.000000  -0.000018   0.000001  -0.000005
+  117  MN 1XXYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  118  MN 1YYXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  119  MN 1ZZXY   0.000000   0.000000   0.000000   0.000000   0.000000
+  120  MN 2  S   -0.705728   0.705731   0.221756  -0.221745  -0.000008
+  121  MN 2  S   -0.003845   0.003869  -0.734522   0.734634   0.000026
+  122  MN 2  S    0.002861  -0.002776  -0.004932   0.005284  -0.000044
+  123  MN 2  S    0.008109  -0.007330   0.029628  -0.026135  -0.000102
+  124  MN 2  S   -0.010205   0.009404  -0.034844   0.031254   0.000045
+  125  MN 2  S   -0.000445   0.000255  -0.002191   0.001360   0.000111
+  126  MN 2  S    0.000282  -0.000094   0.001230  -0.000373   0.000095
+  127  MN 2  X    0.000000   0.000000   0.000000   0.000000   0.000000
+  128  MN 2  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+  129  MN 2  Z   -0.000001   0.000000  -0.000018   0.000005  -0.705779
+  130  MN 2  X    0.000000   0.000000   0.000000   0.000000   0.000000
+  131  MN 2  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+  132  MN 2  Z    0.000007   0.000000   0.000044   0.000011  -0.003223
+  133  MN 2  X    0.000000   0.000000   0.000000   0.000000   0.000000
+  134  MN 2  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+  135  MN 2  Z   -0.000025  -0.000004  -0.000114  -0.000016  -0.000768
+  136  MN 2  X    0.000000   0.000000   0.000000   0.000000   0.000000
+  137  MN 2  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+  138  MN 2  Z    0.000020   0.000013   0.000087   0.000050   0.000471
+  139  MN 2  X    0.000000   0.000000   0.000000   0.000000   0.000000
+  140  MN 2  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+  141  MN 2  Z    0.000131  -0.000006   0.000622  -0.000033  -0.000322
+  142  MN 2  X    0.000000   0.000000   0.000000   0.000000   0.000000
+  143  MN 2  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+  144  MN 2  Z   -0.000118   0.000007  -0.000562   0.000036   0.000116
+  145  MN 2 XX   -0.000002   0.000001  -0.000011   0.000001   0.000003
+  146  MN 2 YY   -0.000002   0.000001  -0.000011   0.000001   0.000003
+  147  MN 2 ZZ    0.000003  -0.000001   0.000023  -0.000003  -0.000006
+  148  MN 2 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+  149  MN 2 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
+  150  MN 2 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+  151  MN 2 XX    0.000007  -0.000002   0.000034  -0.000010  -0.000001
+  152  MN 2 YY    0.000007  -0.000002   0.000034  -0.000010  -0.000001
+  153  MN 2 ZZ   -0.000015   0.000004  -0.000067   0.000021   0.000002
+  154  MN 2 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+  155  MN 2 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
+  156  MN 2 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+  157  MN 2 XX   -0.000020   0.000003  -0.000098   0.000009   0.000007
+  158  MN 2 YY   -0.000020   0.000003  -0.000098   0.000009   0.000007
+  159  MN 2 ZZ    0.000040  -0.000005   0.000196  -0.000019  -0.000014
+  160  MN 2 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+  161  MN 2 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
+  162  MN 2 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+  163  MN 2 XX    0.000045   0.000002   0.000215   0.000010  -0.000015
+  164  MN 2 YY    0.000045   0.000002   0.000215   0.000010  -0.000015
+  165  MN 2 ZZ   -0.000091  -0.000004  -0.000431  -0.000019   0.000030
+  166  MN 2 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+  167  MN 2 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
+  168  MN 2 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+  169  MN 2 XXX   0.000000   0.000000   0.000000   0.000000   0.000000
+  170  MN 2 YYY   0.000000   0.000000   0.000000   0.000000   0.000000
+  171  MN 2 ZZZ  -0.000002  -0.000000  -0.000005   0.000000   0.000002
+  172  MN 2 XXY   0.000000   0.000000   0.000000   0.000000   0.000000
+  173  MN 2 XXZ   0.000001   0.000000   0.000003  -0.000000  -0.000001
+  174  MN 2 YYX   0.000000   0.000000   0.000000   0.000000   0.000000
+  175  MN 2 YYZ   0.000001   0.000000   0.000003  -0.000000  -0.000001
+  176  MN 2 ZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+  177  MN 2 ZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+  178  MN 2 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  179  MN 2 XXX   0.000000   0.000000   0.000000   0.000000   0.000000
+  180  MN 2 YYY   0.000000   0.000000   0.000000   0.000000   0.000000
+  181  MN 2 ZZZ   0.000006   0.000000   0.000022   0.000001  -0.000004
+  182  MN 2 XXY   0.000000   0.000000   0.000000   0.000000   0.000000
+  183  MN 2 XXZ  -0.000004  -0.000000  -0.000015  -0.000001   0.000002
+  184  MN 2 YYX   0.000000   0.000000   0.000000   0.000000   0.000000
+  185  MN 2 YYZ  -0.000004  -0.000000  -0.000015  -0.000001   0.000002
+  186  MN 2 ZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+  187  MN 2 ZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+  188  MN 2 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  189  MN 2 XXX   0.000000   0.000000   0.000000   0.000000   0.000000
+  190  MN 2 YYY   0.000000   0.000000   0.000000   0.000000   0.000000
+  191  MN 2 ZZZ  -0.000014  -0.000001  -0.000057  -0.000005   0.000011
+  192  MN 2 XXY   0.000000   0.000000   0.000000   0.000000   0.000000
+  193  MN 2 XXZ   0.000009   0.000001   0.000038   0.000003  -0.000007
+  194  MN 2 YYX   0.000000   0.000000   0.000000   0.000000   0.000000
+  195  MN 2 YYZ   0.000009   0.000001   0.000038   0.000003  -0.000007
+  196  MN 2 ZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+  197  MN 2 ZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+  198  MN 2 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  199  MN 2 XXX   0.000000   0.000000   0.000000   0.000000   0.000000
+  200  MN 2 YYY   0.000000   0.000000   0.000000   0.000000   0.000000
+  201  MN 2 ZZZ   0.000025   0.000002   0.000113   0.000012  -0.000021
+  202  MN 2 XXY   0.000000   0.000000   0.000000   0.000000   0.000000
+  203  MN 2 XXZ  -0.000017  -0.000002  -0.000075  -0.000008   0.000014
+  204  MN 2 YYX   0.000000   0.000000   0.000000   0.000000   0.000000
+  205  MN 2 YYZ  -0.000017  -0.000002  -0.000075  -0.000008   0.000014
+  206  MN 2 ZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+  207  MN 2 ZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+  208  MN 2 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  209  MN 2XXXX   0.000000  -0.000000   0.000002   0.000000  -0.000001
+  210  MN 2YYYY   0.000000  -0.000000   0.000002   0.000000  -0.000001
+  211  MN 2ZZZZ   0.000001  -0.000000   0.000005   0.000000  -0.000001
+  212  MN 2XXXY   0.000000   0.000000   0.000000   0.000000   0.000000
+  213  MN 2XXXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  214  MN 2YYYX   0.000000   0.000000   0.000000   0.000000   0.000000
+  215  MN 2YYYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  216  MN 2ZZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+  217  MN 2ZZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+  218  MN 2XXYY   0.000000  -0.000000   0.000001   0.000000  -0.000000
+  219  MN 2XXZZ  -0.000001   0.000000  -0.000004  -0.000000   0.000001
+  220  MN 2YYZZ  -0.000001   0.000000  -0.000004  -0.000000   0.000001
+  221  MN 2XXYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  222  MN 2YYXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  223  MN 2ZZXY   0.000000   0.000000   0.000000   0.000000   0.000000
+  224  MN 2XXXX  -0.000002  -0.000000  -0.000008  -0.000000   0.000002
+  225  MN 2YYYY  -0.000002  -0.000000  -0.000008  -0.000000   0.000002
+  226  MN 2ZZZZ  -0.000005  -0.000000  -0.000021  -0.000001   0.000006
+  227  MN 2XXXY   0.000000   0.000000   0.000000   0.000000   0.000000
+  228  MN 2XXXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  229  MN 2YYYX   0.000000   0.000000   0.000000   0.000000   0.000000
+  230  MN 2YYYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  231  MN 2ZZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+  232  MN 2ZZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+  233  MN 2XXYY  -0.000001  -0.000000  -0.000005  -0.000000   0.000001
+  234  MN 2XXZZ   0.000004   0.000000   0.000018   0.000001  -0.000005
+  235  MN 2YYZZ   0.000004   0.000000   0.000018   0.000001  -0.000005
+  236  MN 2XXYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  237  MN 2YYXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  238  MN 2ZZXY   0.000000   0.000000   0.000000   0.000000   0.000000
+
+                      6          7          8          9         10
+                    2.0000     2.0000     2.0000     2.0000     2.0000
+                     B1U        B3U        B2U        B2G        B3G 
+    1  MN 1  S    0.000007   0.000000   0.000000   0.000000  -0.000000
+    2  MN 1  S   -0.000002   0.000000   0.000000   0.000000  -0.000000
+    3  MN 1  S    0.000115   0.000000   0.000000   0.000000  -0.000000
+    4  MN 1  S    0.000616   0.000000   0.000000   0.000000  -0.000000
+    5  MN 1  S   -0.000548   0.000000   0.000000   0.000000  -0.000000
+    6  MN 1  S   -0.000270   0.000000   0.000000   0.000000  -0.000000
+    7  MN 1  S   -0.000208   0.000000   0.000000   0.000000  -0.000000
+    8  MN 1  X    0.000000   0.705769   0.000000   0.705769  -0.000000
+    9  MN 1  Y    0.000000   0.000000   0.705769   0.000000  -0.705769
+   10  MN 1  Z    0.705784   0.000000   0.000000   0.000000  -0.000000
+   11  MN 1  X    0.000000   0.003251   0.000000   0.003247  -0.000000
+   12  MN 1  Y    0.000000   0.000000   0.003251   0.000000  -0.003247
+   13  MN 1  Z    0.003198   0.000000   0.000000   0.000000  -0.000000
+   14  MN 1  X    0.000000   0.000772   0.000000   0.000784  -0.000000
+   15  MN 1  Y    0.000000   0.000000   0.000772   0.000000  -0.000784
+   16  MN 1  Z    0.000843   0.000000   0.000000   0.000000  -0.000000
+   17  MN 1  X    0.000000  -0.000472   0.000000  -0.000495  -0.000000
+   18  MN 1  Y    0.000000   0.000000  -0.000472   0.000000   0.000495
+   19  MN 1  Z   -0.000546   0.000000   0.000000   0.000000  -0.000000
+   20  MN 1  X    0.000000   0.000275   0.000000   0.000332  -0.000000
+   21  MN 1  Y    0.000000   0.000000   0.000275   0.000000  -0.000332
+   22  MN 1  Z    0.000285   0.000000   0.000000   0.000000  -0.000000
+   23  MN 1  X    0.000000  -0.000087   0.000000  -0.000145  -0.000000
+   24  MN 1  Y    0.000000   0.000000  -0.000087   0.000000   0.000145
+   25  MN 1  Z   -0.000090   0.000000   0.000000   0.000000  -0.000000
+   26  MN 1 XX   -0.000001   0.000000   0.000000   0.000000  -0.000000
+   27  MN 1 YY   -0.000001   0.000000   0.000000   0.000000  -0.000000
+   28  MN 1 ZZ    0.000003   0.000000   0.000000   0.000000  -0.000000
+   29  MN 1 XY    0.000000   0.000000   0.000000   0.000000  -0.000000
+   30  MN 1 XZ    0.000000  -0.000000   0.000000   0.000003  -0.000000
+   31  MN 1 YZ    0.000000   0.000000  -0.000000   0.000000  -0.000003
+   32  MN 1 XX    0.000004   0.000000   0.000000   0.000000  -0.000000
+   33  MN 1 YY    0.000004   0.000000   0.000000   0.000000  -0.000000
+   34  MN 1 ZZ   -0.000008   0.000000   0.000000   0.000000  -0.000000
+   35  MN 1 XY    0.000000   0.000000   0.000000   0.000000  -0.000000
+   36  MN 1 XZ    0.000000   0.000001   0.000000   0.000003  -0.000000
+   37  MN 1 YZ    0.000000   0.000000   0.000001   0.000000  -0.000003
+   38  MN 1 XX   -0.000023   0.000000   0.000000   0.000000  -0.000000
+   39  MN 1 YY   -0.000023   0.000000   0.000000   0.000000  -0.000000
+   40  MN 1 ZZ    0.000047   0.000000   0.000000   0.000000  -0.000000
+   41  MN 1 XY    0.000000   0.000000   0.000000   0.000000  -0.000000
+   42  MN 1 XZ    0.000000  -0.000001   0.000000   0.000000  -0.000000
+   43  MN 1 YZ    0.000000   0.000000  -0.000001   0.000000  -0.000000
+   44  MN 1 XX    0.000054   0.000000   0.000000   0.000000  -0.000000
+   45  MN 1 YY    0.000054   0.000000   0.000000   0.000000  -0.000000
+   46  MN 1 ZZ   -0.000108   0.000000   0.000000   0.000000  -0.000000
+   47  MN 1 XY    0.000000   0.000000   0.000000   0.000000  -0.000000
+   48  MN 1 XZ    0.000000  -0.000001   0.000000   0.000008  -0.000000
+   49  MN 1 YZ    0.000000   0.000000  -0.000001   0.000000  -0.000008
+   50  MN 1 XXX   0.000000   0.000001   0.000000   0.000001  -0.000000
+   51  MN 1 YYY   0.000000   0.000000   0.000001   0.000000  -0.000001
+   52  MN 1 ZZZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   53  MN 1 XXY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   54  MN 1 XXZ  -0.000000   0.000000   0.000000   0.000000  -0.000000
+   55  MN 1 YYX   0.000000   0.000000   0.000000   0.000000  -0.000000
+   56  MN 1 YYZ  -0.000000   0.000000   0.000000   0.000000  -0.000000
+   57  MN 1 ZZX   0.000000  -0.000002   0.000000  -0.000001  -0.000000
+   58  MN 1 ZZY   0.000000   0.000000  -0.000002   0.000000   0.000001
+   59  MN 1 XYZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   60  MN 1 XXX   0.000000  -0.000000   0.000000   0.000001  -0.000000
+   61  MN 1 YYY   0.000000   0.000000  -0.000000   0.000000  -0.000001
+   62  MN 1 ZZZ  -0.000009   0.000000   0.000000   0.000000  -0.000000
+   63  MN 1 XXY   0.000000   0.000000  -0.000000   0.000000  -0.000000
+   64  MN 1 XXZ   0.000006   0.000000   0.000000   0.000000  -0.000000
+   65  MN 1 YYX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   66  MN 1 YYZ   0.000006   0.000000   0.000000   0.000000  -0.000000
+   67  MN 1 ZZX   0.000000   0.000000   0.000000  -0.000001  -0.000000
+   68  MN 1 ZZY   0.000000   0.000000   0.000000   0.000000   0.000001
+   69  MN 1 XYZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   70  MN 1 XXX   0.000000   0.000002   0.000000  -0.000001  -0.000000
+   71  MN 1 YYY   0.000000   0.000000   0.000002   0.000000   0.000001
+   72  MN 1 ZZZ   0.000024   0.000000   0.000000   0.000000  -0.000000
+   73  MN 1 XXY   0.000000   0.000000   0.000001   0.000000   0.000000
+   74  MN 1 XXZ  -0.000016   0.000000   0.000000   0.000000  -0.000000
+   75  MN 1 YYX   0.000000   0.000001   0.000000  -0.000000  -0.000000
+   76  MN 1 YYZ  -0.000016   0.000000   0.000000   0.000000  -0.000000
+   77  MN 1 ZZX   0.000000  -0.000003   0.000000   0.000001  -0.000000
+   78  MN 1 ZZY   0.000000   0.000000  -0.000003   0.000000  -0.000001
+   79  MN 1 XYZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   80  MN 1 XXX   0.000000  -0.000002   0.000000   0.000001  -0.000000
+   81  MN 1 YYY   0.000000   0.000000  -0.000002   0.000000  -0.000001
+   82  MN 1 ZZZ  -0.000046   0.000000   0.000000   0.000000  -0.000000
+   83  MN 1 XXY   0.000000   0.000000  -0.000001   0.000000  -0.000001
+   84  MN 1 XXZ   0.000031   0.000000   0.000000   0.000000  -0.000000
+   85  MN 1 YYX   0.000000  -0.000001   0.000000   0.000001  -0.000000
+   86  MN 1 YYZ   0.000031   0.000000   0.000000   0.000000  -0.000000
+   87  MN 1 ZZX   0.000000   0.000004   0.000000  -0.000002  -0.000000
+   88  MN 1 ZZY   0.000000   0.000000   0.000004   0.000000   0.000002
+   89  MN 1 XYZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   90  MN 1XXXX   0.000001   0.000000   0.000000   0.000000  -0.000000
+   91  MN 1YYYY   0.000001   0.000000   0.000000   0.000000  -0.000000
+   92  MN 1ZZZZ   0.000003   0.000000   0.000000   0.000000  -0.000000
+   93  MN 1XXXY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   94  MN 1XXXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   95  MN 1YYYX   0.000000   0.000000   0.000000   0.000000  -0.000000
+   96  MN 1YYYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   97  MN 1ZZZX   0.000000  -0.000001   0.000000   0.000001  -0.000000
+   98  MN 1ZZZY   0.000000   0.000000  -0.000001   0.000000  -0.000001
+   99  MN 1XXYY   0.000001   0.000000   0.000000   0.000000  -0.000000
+  100  MN 1XXZZ  -0.000002   0.000000   0.000000   0.000000  -0.000000
+  101  MN 1YYZZ  -0.000002   0.000000   0.000000   0.000000  -0.000000
+  102  MN 1XXYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  103  MN 1YYXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+  104  MN 1ZZXY   0.000000   0.000000   0.000000   0.000000  -0.000000
+  105  MN 1XXXX  -0.000004   0.000000   0.000000   0.000000  -0.000000
+  106  MN 1YYYY  -0.000004   0.000000   0.000000   0.000000  -0.000000
+  107  MN 1ZZZZ  -0.000012   0.000000   0.000000   0.000000  -0.000000
+  108  MN 1XXXY   0.000000   0.000000   0.000000   0.000000  -0.000000
+  109  MN 1XXXZ   0.000000  -0.000002   0.000000   0.000002  -0.000000
+  110  MN 1YYYX   0.000000   0.000000   0.000000   0.000000  -0.000000
+  111  MN 1YYYZ   0.000000   0.000000  -0.000002   0.000000  -0.000002
+  112  MN 1ZZZX   0.000000   0.000003   0.000000  -0.000003  -0.000000
+  113  MN 1ZZZY   0.000000   0.000000   0.000003   0.000000   0.000003
+  114  MN 1XXYY  -0.000003   0.000000   0.000000   0.000000  -0.000000
+  115  MN 1XXZZ   0.000010   0.000000   0.000000   0.000000  -0.000000
+  116  MN 1YYZZ   0.000010   0.000000   0.000000   0.000000  -0.000000
+  117  MN 1XXYZ   0.000000   0.000000  -0.000001   0.000000  -0.000001
+  118  MN 1YYXZ   0.000000  -0.000001   0.000000   0.000001  -0.000000
+  119  MN 1ZZXY   0.000000   0.000000   0.000000   0.000000  -0.000000
+  120  MN 2  S   -0.000007   0.000000   0.000000   0.000000  -0.000000
+  121  MN 2  S    0.000002   0.000000   0.000000   0.000000  -0.000000
+  122  MN 2  S   -0.000115   0.000000   0.000000   0.000000  -0.000000
+  123  MN 2  S   -0.000616   0.000000   0.000000   0.000000  -0.000000
+  124  MN 2  S    0.000548   0.000000   0.000000   0.000000  -0.000000
+  125  MN 2  S    0.000270   0.000000   0.000000   0.000000  -0.000000
+  126  MN 2  S    0.000208   0.000000   0.000000   0.000000  -0.000000
+  127  MN 2  X    0.000000   0.705769   0.000000  -0.705769  -0.000000
+  128  MN 2  Y    0.000000   0.000000   0.705769   0.000000   0.705769
+  129  MN 2  Z    0.705784   0.000000   0.000000   0.000000  -0.000000
+  130  MN 2  X    0.000000   0.003251   0.000000  -0.003247  -0.000000
+  131  MN 2  Y    0.000000   0.000000   0.003251   0.000000   0.003247
+  132  MN 2  Z    0.003198   0.000000   0.000000   0.000000  -0.000000
+  133  MN 2  X    0.000000   0.000772   0.000000  -0.000784  -0.000000
+  134  MN 2  Y    0.000000   0.000000   0.000772   0.000000   0.000784
+  135  MN 2  Z    0.000843   0.000000   0.000000   0.000000  -0.000000
+  136  MN 2  X    0.000000  -0.000472   0.000000   0.000495  -0.000000
+  137  MN 2  Y    0.000000   0.000000  -0.000472   0.000000  -0.000495
+  138  MN 2  Z   -0.000546   0.000000   0.000000   0.000000  -0.000000
+  139  MN 2  X    0.000000   0.000275   0.000000  -0.000332  -0.000000
+  140  MN 2  Y    0.000000   0.000000   0.000275   0.000000   0.000332
+  141  MN 2  Z    0.000285   0.000000   0.000000   0.000000  -0.000000
+  142  MN 2  X    0.000000  -0.000087   0.000000   0.000145  -0.000000
+  143  MN 2  Y    0.000000   0.000000  -0.000087   0.000000  -0.000145
+  144  MN 2  Z   -0.000090   0.000000   0.000000   0.000000  -0.000000
+  145  MN 2 XX    0.000001   0.000000   0.000000   0.000000  -0.000000
+  146  MN 2 YY    0.000001   0.000000   0.000000   0.000000  -0.000000
+  147  MN 2 ZZ   -0.000003   0.000000   0.000000   0.000000  -0.000000
+  148  MN 2 XY    0.000000   0.000000   0.000000   0.000000  -0.000000
+  149  MN 2 XZ    0.000000   0.000000   0.000000   0.000003  -0.000000
+  150  MN 2 YZ    0.000000   0.000000   0.000000   0.000000  -0.000003
+  151  MN 2 XX   -0.000004   0.000000   0.000000   0.000000  -0.000000
+  152  MN 2 YY   -0.000004   0.000000   0.000000   0.000000  -0.000000
+  153  MN 2 ZZ    0.000008   0.000000   0.000000   0.000000  -0.000000
+  154  MN 2 XY    0.000000   0.000000   0.000000   0.000000  -0.000000
+  155  MN 2 XZ    0.000000  -0.000001   0.000000   0.000003  -0.000000
+  156  MN 2 YZ    0.000000   0.000000  -0.000001   0.000000  -0.000003
+  157  MN 2 XX    0.000023   0.000000   0.000000   0.000000  -0.000000
+  158  MN 2 YY    0.000023   0.000000   0.000000   0.000000  -0.000000
+  159  MN 2 ZZ   -0.000047   0.000000   0.000000   0.000000  -0.000000
+  160  MN 2 XY    0.000000   0.000000   0.000000   0.000000  -0.000000
+  161  MN 2 XZ    0.000000   0.000001   0.000000   0.000000  -0.000000
+  162  MN 2 YZ    0.000000   0.000000   0.000001   0.000000  -0.000000
+  163  MN 2 XX   -0.000054   0.000000   0.000000   0.000000  -0.000000
+  164  MN 2 YY   -0.000054   0.000000   0.000000   0.000000  -0.000000
+  165  MN 2 ZZ    0.000108   0.000000   0.000000   0.000000  -0.000000
+  166  MN 2 XY    0.000000   0.000000   0.000000   0.000000  -0.000000
+  167  MN 2 XZ    0.000000   0.000001   0.000000   0.000008  -0.000000
+  168  MN 2 YZ    0.000000   0.000000   0.000001   0.000000  -0.000008
+  169  MN 2 XXX   0.000000   0.000001   0.000000  -0.000001  -0.000000
+  170  MN 2 YYY   0.000000   0.000000   0.000001   0.000000   0.000001
+  171  MN 2 ZZZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+  172  MN 2 XXY   0.000000   0.000000   0.000000   0.000000   0.000000
+  173  MN 2 XXZ  -0.000000   0.000000   0.000000   0.000000  -0.000000
+  174  MN 2 YYX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+  175  MN 2 YYZ  -0.000000   0.000000   0.000000   0.000000  -0.000000
+  176  MN 2 ZZX   0.000000  -0.000002   0.000000   0.000001  -0.000000
+  177  MN 2 ZZY   0.000000   0.000000  -0.000002   0.000000  -0.000001
+  178  MN 2 XYZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+  179  MN 2 XXX   0.000000  -0.000000   0.000000  -0.000001  -0.000000
+  180  MN 2 YYY   0.000000   0.000000  -0.000000   0.000000   0.000001
+  181  MN 2 ZZZ  -0.000009   0.000000   0.000000   0.000000  -0.000000
+  182  MN 2 XXY   0.000000   0.000000  -0.000000   0.000000   0.000000
+  183  MN 2 XXZ   0.000006   0.000000   0.000000   0.000000  -0.000000
+  184  MN 2 YYX   0.000000  -0.000000   0.000000  -0.000000  -0.000000
+  185  MN 2 YYZ   0.000006   0.000000   0.000000   0.000000  -0.000000
+  186  MN 2 ZZX   0.000000   0.000000   0.000000   0.000001  -0.000000
+  187  MN 2 ZZY   0.000000   0.000000   0.000000   0.000000  -0.000001
+  188  MN 2 XYZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+  189  MN 2 XXX   0.000000   0.000002   0.000000   0.000001  -0.000000
+  190  MN 2 YYY   0.000000   0.000000   0.000002   0.000000  -0.000001
+  191  MN 2 ZZZ   0.000024   0.000000   0.000000   0.000000  -0.000000
+  192  MN 2 XXY   0.000000   0.000000   0.000001   0.000000  -0.000000
+  193  MN 2 XXZ  -0.000016   0.000000   0.000000   0.000000  -0.000000
+  194  MN 2 YYX   0.000000   0.000001   0.000000   0.000000  -0.000000
+  195  MN 2 YYZ  -0.000016   0.000000   0.000000   0.000000  -0.000000
+  196  MN 2 ZZX   0.000000  -0.000003   0.000000  -0.000001  -0.000000
+  197  MN 2 ZZY   0.000000   0.000000  -0.000003   0.000000   0.000001
+  198  MN 2 XYZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+  199  MN 2 XXX   0.000000  -0.000002   0.000000  -0.000001  -0.000000
+  200  MN 2 YYY   0.000000   0.000000  -0.000002   0.000000   0.000001
+  201  MN 2 ZZZ  -0.000046   0.000000   0.000000   0.000000  -0.000000
+  202  MN 2 XXY   0.000000   0.000000  -0.000001   0.000000   0.000001
+  203  MN 2 XXZ   0.000031   0.000000   0.000000   0.000000  -0.000000
+  204  MN 2 YYX   0.000000  -0.000001   0.000000  -0.000001  -0.000000
+  205  MN 2 YYZ   0.000031   0.000000   0.000000   0.000000  -0.000000
+  206  MN 2 ZZX   0.000000   0.000004   0.000000   0.000002  -0.000000
+  207  MN 2 ZZY   0.000000   0.000000   0.000004   0.000000  -0.000002
+  208  MN 2 XYZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+  209  MN 2XXXX  -0.000001   0.000000   0.000000   0.000000  -0.000000
+  210  MN 2YYYY  -0.000001   0.000000   0.000000   0.000000  -0.000000
+  211  MN 2ZZZZ  -0.000003   0.000000   0.000000   0.000000  -0.000000
+  212  MN 2XXXY   0.000000   0.000000   0.000000   0.000000  -0.000000
+  213  MN 2XXXZ   0.000000  -0.000000   0.000000  -0.000000  -0.000000
+  214  MN 2YYYX   0.000000   0.000000   0.000000   0.000000  -0.000000
+  215  MN 2YYYZ   0.000000   0.000000  -0.000000   0.000000   0.000000
+  216  MN 2ZZZX   0.000000   0.000001   0.000000   0.000001  -0.000000
+  217  MN 2ZZZY   0.000000   0.000000   0.000001   0.000000  -0.000001
+  218  MN 2XXYY  -0.000001   0.000000   0.000000   0.000000  -0.000000
+  219  MN 2XXZZ   0.000002   0.000000   0.000000   0.000000  -0.000000
+  220  MN 2YYZZ   0.000002   0.000000   0.000000   0.000000  -0.000000
+  221  MN 2XXYZ   0.000000   0.000000  -0.000000   0.000000   0.000000
+  222  MN 2YYXZ   0.000000  -0.000000   0.000000  -0.000000  -0.000000
+  223  MN 2ZZXY   0.000000   0.000000   0.000000   0.000000  -0.000000
+  224  MN 2XXXX   0.000004   0.000000   0.000000   0.000000  -0.000000
+  225  MN 2YYYY   0.000004   0.000000   0.000000   0.000000  -0.000000
+  226  MN 2ZZZZ   0.000012   0.000000   0.000000   0.000000  -0.000000
+  227  MN 2XXXY   0.000000   0.000000   0.000000   0.000000  -0.000000
+  228  MN 2XXXZ   0.000000   0.000002   0.000000   0.000002  -0.000000
+  229  MN 2YYYX   0.000000   0.000000   0.000000   0.000000  -0.000000
+  230  MN 2YYYZ   0.000000   0.000000   0.000002   0.000000  -0.000002
+  231  MN 2ZZZX   0.000000  -0.000003   0.000000  -0.000003  -0.000000
+  232  MN 2ZZZY   0.000000   0.000000  -0.000003   0.000000   0.000003
+  233  MN 2XXYY   0.000003   0.000000   0.000000   0.000000  -0.000000
+  234  MN 2XXZZ  -0.000010   0.000000   0.000000   0.000000  -0.000000
+  235  MN 2YYZZ  -0.000010   0.000000   0.000000   0.000000  -0.000000
+  236  MN 2XXYZ   0.000000   0.000000   0.000001   0.000000  -0.000001
+  237  MN 2YYXZ   0.000000   0.000001   0.000000   0.000001  -0.000000
+  238  MN 2ZZXY   0.000000   0.000000   0.000000   0.000000  -0.000000
+
+                     11         12         13         14         15
+                    2.0000     2.0000     2.0000     2.0000     2.0000
+                     AG         B1U        AG         B2U        B3U 
+    1  MN 1  S    0.080759   0.080749  -0.000180   0.000000   0.000000
+    2  MN 1  S   -0.320696  -0.320813   0.000673   0.000000   0.000000
+    3  MN 1  S    0.469149   0.468820  -0.001251   0.000000   0.000000
+    4  MN 1  S    0.300353   0.296106  -0.000504   0.000000   0.000000
+    5  MN 1  S    0.017205   0.021342  -0.000837   0.000000   0.000000
+    6  MN 1  S    0.005971   0.007723   0.002249   0.000000   0.000000
+    7  MN 1  S   -0.001708  -0.004472   0.001222   0.000000   0.000000
+    8  MN 1  X    0.000000  -0.000000   0.000000   0.000000  -0.263214
+    9  MN 1  Y    0.000000  -0.000000   0.000000  -0.263214   0.000000
+   10  MN 1  Z   -0.000184  -0.000139  -0.263091   0.000000   0.000000
+   11  MN 1  X    0.000000  -0.000000   0.000000   0.000000   0.620497
+   12  MN 1  Y    0.000000  -0.000000   0.000000   0.620497   0.000000
+   13  MN 1  Z    0.000402   0.000285   0.620293   0.000000   0.000000
+   14  MN 1  X    0.000000  -0.000000   0.000000   0.000000   0.183642
+   15  MN 1  Y    0.000000  -0.000000   0.000000   0.183642   0.000000
+   16  MN 1  Z    0.000246   0.000186   0.182864   0.000000   0.000000
+   17  MN 1  X    0.000000  -0.000000   0.000000   0.000000  -0.000570
+   18  MN 1  Y    0.000000  -0.000000   0.000000  -0.000570   0.000000
+   19  MN 1  Z   -0.000156   0.000031   0.000231   0.000000   0.000000
+   20  MN 1  X    0.000000  -0.000000   0.000000   0.000000   0.004893
+   21  MN 1  Y    0.000000  -0.000000   0.000000   0.004893   0.000000
+   22  MN 1  Z    0.000030   0.001180   0.005367   0.000000   0.000000
+   23  MN 1  X    0.000000  -0.000000   0.000000   0.000000  -0.001534
+   24  MN 1  Y    0.000000  -0.000000   0.000000  -0.001534   0.000000
+   25  MN 1  Z   -0.000108  -0.001493  -0.001902   0.000000   0.000000
+   26  MN 1 XX    0.000046   0.000051  -0.000081   0.000000   0.000000
+   27  MN 1 YY    0.000046   0.000051  -0.000081   0.000000   0.000000
+   28  MN 1 ZZ   -0.000091  -0.000103   0.000161   0.000000   0.000000
+   29  MN 1 XY    0.000000  -0.000000   0.000000   0.000000   0.000000
+   30  MN 1 XZ    0.000000  -0.000000   0.000000   0.000000   0.000128
+   31  MN 1 YZ    0.000000  -0.000000   0.000000   0.000128   0.000000
+   32  MN 1 XX    0.000043   0.000049  -0.000016   0.000000   0.000000
+   33  MN 1 YY    0.000043   0.000049  -0.000016   0.000000   0.000000
+   34  MN 1 ZZ   -0.000086  -0.000097   0.000031   0.000000   0.000000
+   35  MN 1 XY    0.000000  -0.000000   0.000000   0.000000   0.000000
+   36  MN 1 XZ    0.000000  -0.000000   0.000000   0.000000   0.000151
+   37  MN 1 YZ    0.000000  -0.000000   0.000000   0.000151   0.000000
+   38  MN 1 XX    0.000101   0.000121  -0.000115   0.000000   0.000000
+   39  MN 1 YY    0.000101   0.000121  -0.000115   0.000000   0.000000
+   40  MN 1 ZZ   -0.000201  -0.000243   0.000229   0.000000   0.000000
+   41  MN 1 XY    0.000000  -0.000000   0.000000   0.000000   0.000000
+   42  MN 1 XZ    0.000000  -0.000000   0.000000   0.000000   0.000205
+   43  MN 1 YZ    0.000000  -0.000000   0.000000   0.000205   0.000000
+   44  MN 1 XX   -0.000035  -0.000271  -0.000333   0.000000   0.000000
+   45  MN 1 YY   -0.000035  -0.000271  -0.000333   0.000000   0.000000
+   46  MN 1 ZZ    0.000070   0.000543   0.000666   0.000000   0.000000
+   47  MN 1 XY    0.000000  -0.000000   0.000000   0.000000   0.000000
+   48  MN 1 XZ    0.000000  -0.000000   0.000000   0.000000   0.000098
+   49  MN 1 YZ    0.000000  -0.000000   0.000000   0.000098   0.000000
+   50  MN 1 XXX   0.000000  -0.000000   0.000000   0.000000   0.000002
+   51  MN 1 YYY   0.000000  -0.000000   0.000000   0.000002   0.000000
+   52  MN 1 ZZZ   0.000000  -0.000000  -0.000009   0.000000   0.000000
+   53  MN 1 XXY   0.000000  -0.000000   0.000000   0.000001   0.000000
+   54  MN 1 XXZ  -0.000000   0.000000   0.000006   0.000000   0.000000
+   55  MN 1 YYX   0.000000  -0.000000   0.000000   0.000000   0.000001
+   56  MN 1 YYZ  -0.000000   0.000000   0.000006   0.000000   0.000000
+   57  MN 1 ZZX   0.000000  -0.000000   0.000000   0.000000  -0.000003
+   58  MN 1 ZZY   0.000000  -0.000000   0.000000  -0.000003   0.000000
+   59  MN 1 XYZ   0.000000  -0.000000   0.000000   0.000000   0.000000
+   60  MN 1 XXX   0.000000  -0.000000   0.000000   0.000000  -0.000005
+   61  MN 1 YYY   0.000000  -0.000000   0.000000  -0.000005   0.000000
+   62  MN 1 ZZZ   0.000009   0.000010   0.000047   0.000000   0.000000
+   63  MN 1 XXY   0.000000  -0.000000   0.000000  -0.000002   0.000000
+   64  MN 1 XXZ  -0.000006  -0.000007  -0.000032   0.000000   0.000000
+   65  MN 1 YYX   0.000000  -0.000000   0.000000   0.000000  -0.000002
+   66  MN 1 YYZ  -0.000006  -0.000007  -0.000032   0.000000   0.000000
+   67  MN 1 ZZX   0.000000  -0.000000   0.000000   0.000000   0.000009
+   68  MN 1 ZZY   0.000000  -0.000000   0.000000   0.000009   0.000000
+   69  MN 1 XYZ   0.000000  -0.000000   0.000000   0.000000   0.000000
+   70  MN 1 XXX   0.000000  -0.000000   0.000000   0.000000   0.000059
+   71  MN 1 YYY   0.000000  -0.000000   0.000000   0.000059   0.000000
+   72  MN 1 ZZZ  -0.000021  -0.000029  -0.000240   0.000000   0.000000
+   73  MN 1 XXY   0.000000  -0.000000   0.000000   0.000026   0.000000
+   74  MN 1 XXZ   0.000014   0.000020   0.000161   0.000000   0.000000
+   75  MN 1 YYX   0.000000  -0.000000   0.000000   0.000000   0.000026
+   76  MN 1 YYZ   0.000014   0.000020   0.000161   0.000000   0.000000
+   77  MN 1 ZZX   0.000000  -0.000000   0.000000   0.000000  -0.000106
+   78  MN 1 ZZY   0.000000  -0.000000   0.000000  -0.000106   0.000000
+   79  MN 1 XYZ   0.000000  -0.000000   0.000000   0.000000   0.000000
+   80  MN 1 XXX   0.000000  -0.000000   0.000000   0.000000  -0.000043
+   81  MN 1 YYY   0.000000  -0.000000   0.000000  -0.000043   0.000000
+   82  MN 1 ZZZ   0.000044   0.000097   0.000477   0.000000   0.000000
+   83  MN 1 XXY   0.000000  -0.000000   0.000000  -0.000019   0.000000
+   84  MN 1 XXZ  -0.000030  -0.000065  -0.000320   0.000000   0.000000
+   85  MN 1 YYX   0.000000  -0.000000   0.000000   0.000000  -0.000019
+   86  MN 1 YYZ  -0.000030  -0.000065  -0.000320   0.000000   0.000000
+   87  MN 1 ZZX   0.000000  -0.000000   0.000000   0.000000   0.000078
+   88  MN 1 ZZY   0.000000  -0.000000   0.000000   0.000078   0.000000
+   89  MN 1 XYZ   0.000000  -0.000000   0.000000   0.000000   0.000000
+   90  MN 1XXXX  -0.000001  -0.000000  -0.000009   0.000000   0.000000
+   91  MN 1YYYY  -0.000001  -0.000000  -0.000009   0.000000   0.000000
+   92  MN 1ZZZZ  -0.000004  -0.000000  -0.000023   0.000000   0.000000
+   93  MN 1XXXY   0.000000  -0.000000   0.000000   0.000000   0.000000
+   94  MN 1XXXZ   0.000000  -0.000000   0.000000   0.000000   0.000007
+   95  MN 1YYYX   0.000000  -0.000000   0.000000   0.000000   0.000000
+   96  MN 1YYYZ   0.000000  -0.000000   0.000000   0.000007   0.000000
+   97  MN 1ZZZX   0.000000  -0.000000   0.000000   0.000000  -0.000009
+   98  MN 1ZZZY   0.000000  -0.000000   0.000000  -0.000009   0.000000
+   99  MN 1XXYY  -0.000001  -0.000000  -0.000005   0.000000   0.000000
+  100  MN 1XXZZ   0.000003   0.000000   0.000020   0.000000   0.000000
+  101  MN 1YYZZ   0.000003   0.000000   0.000020   0.000000   0.000000
+  102  MN 1XXYZ   0.000000  -0.000000   0.000000   0.000003   0.000000
+  103  MN 1YYXZ   0.000000  -0.000000   0.000000   0.000000   0.000003
+  104  MN 1ZZXY   0.000000  -0.000000   0.000000   0.000000   0.000000
+  105  MN 1XXXX   0.000011   0.000004   0.000062   0.000000   0.000000
+  106  MN 1YYYY   0.000011   0.000004   0.000062   0.000000   0.000000
+  107  MN 1ZZZZ   0.000028   0.000010   0.000166   0.000000   0.000000
+  108  MN 1XXXY   0.000000  -0.000000   0.000000   0.000000   0.000000
+  109  MN 1XXXZ   0.000000  -0.000000   0.000000   0.000000  -0.000046
+  110  MN 1YYYX   0.000000  -0.000000   0.000000   0.000000   0.000000
+  111  MN 1YYYZ   0.000000  -0.000000   0.000000  -0.000046   0.000000
+  112  MN 1ZZZX   0.000000  -0.000000   0.000000   0.000000   0.000062
+  113  MN 1ZZZY   0.000000  -0.000000   0.000000   0.000062   0.000000
+  114  MN 1XXYY   0.000006   0.000002   0.000037   0.000000   0.000000
+  115  MN 1XXZZ  -0.000025  -0.000009  -0.000146   0.000000   0.000000
+  116  MN 1YYZZ  -0.000025  -0.000009  -0.000146   0.000000   0.000000
+  117  MN 1XXYZ   0.000000  -0.000000   0.000000  -0.000021   0.000000
+  118  MN 1YYXZ   0.000000  -0.000000   0.000000   0.000000  -0.000021
+  119  MN 1ZZXY   0.000000  -0.000000   0.000000   0.000000   0.000000
+  120  MN 2  S    0.080759  -0.080749  -0.000180   0.000000   0.000000
+  121  MN 2  S   -0.320696   0.320813   0.000673   0.000000   0.000000
+  122  MN 2  S    0.469149  -0.468820  -0.001251   0.000000   0.000000
+  123  MN 2  S    0.300353  -0.296106  -0.000504   0.000000   0.000000
+  124  MN 2  S    0.017205  -0.021342  -0.000837   0.000000   0.000000
+  125  MN 2  S    0.005971  -0.007723   0.002249   0.000000   0.000000
+  126  MN 2  S   -0.001708   0.004472   0.001222   0.000000   0.000000
+  127  MN 2  X    0.000000  -0.000000   0.000000   0.000000  -0.263214
+  128  MN 2  Y    0.000000  -0.000000   0.000000  -0.263214   0.000000
+  129  MN 2  Z    0.000184  -0.000139   0.263091   0.000000   0.000000
+  130  MN 2  X    0.000000  -0.000000   0.000000   0.000000   0.620497
+  131  MN 2  Y    0.000000  -0.000000   0.000000   0.620497   0.000000
+  132  MN 2  Z   -0.000402   0.000285  -0.620293   0.000000   0.000000
+  133  MN 2  X    0.000000  -0.000000   0.000000   0.000000   0.183642
+  134  MN 2  Y    0.000000  -0.000000   0.000000   0.183642   0.000000
+  135  MN 2  Z   -0.000246   0.000186  -0.182864   0.000000   0.000000
+  136  MN 2  X    0.000000  -0.000000   0.000000   0.000000  -0.000570
+  137  MN 2  Y    0.000000  -0.000000   0.000000  -0.000570   0.000000
+  138  MN 2  Z    0.000156   0.000031  -0.000231   0.000000   0.000000
+  139  MN 2  X    0.000000  -0.000000   0.000000   0.000000   0.004893
+  140  MN 2  Y    0.000000  -0.000000   0.000000   0.004893   0.000000
+  141  MN 2  Z   -0.000030   0.001180  -0.005367   0.000000   0.000000
+  142  MN 2  X    0.000000  -0.000000   0.000000   0.000000  -0.001534
+  143  MN 2  Y    0.000000  -0.000000   0.000000  -0.001534   0.000000
+  144  MN 2  Z    0.000108  -0.001493   0.001902   0.000000   0.000000
+  145  MN 2 XX    0.000046  -0.000051  -0.000081   0.000000   0.000000
+  146  MN 2 YY    0.000046  -0.000051  -0.000081   0.000000   0.000000
+  147  MN 2 ZZ   -0.000091   0.000103   0.000161   0.000000   0.000000
+  148  MN 2 XY    0.000000  -0.000000   0.000000   0.000000   0.000000
+  149  MN 2 XZ    0.000000  -0.000000   0.000000   0.000000  -0.000128
+  150  MN 2 YZ    0.000000  -0.000000   0.000000  -0.000128   0.000000
+  151  MN 2 XX    0.000043  -0.000049  -0.000016   0.000000   0.000000
+  152  MN 2 YY    0.000043  -0.000049  -0.000016   0.000000   0.000000
+  153  MN 2 ZZ   -0.000086   0.000097   0.000031   0.000000   0.000000
+  154  MN 2 XY    0.000000  -0.000000   0.000000   0.000000   0.000000
+  155  MN 2 XZ    0.000000  -0.000000   0.000000   0.000000  -0.000151
+  156  MN 2 YZ    0.000000  -0.000000   0.000000  -0.000151   0.000000
+  157  MN 2 XX    0.000101  -0.000121  -0.000115   0.000000   0.000000
+  158  MN 2 YY    0.000101  -0.000121  -0.000115   0.000000   0.000000
+  159  MN 2 ZZ   -0.000201   0.000243   0.000229   0.000000   0.000000
+  160  MN 2 XY    0.000000  -0.000000   0.000000   0.000000   0.000000
+  161  MN 2 XZ    0.000000  -0.000000   0.000000   0.000000  -0.000205
+  162  MN 2 YZ    0.000000  -0.000000   0.000000  -0.000205   0.000000
+  163  MN 2 XX   -0.000035   0.000271  -0.000333   0.000000   0.000000
+  164  MN 2 YY   -0.000035   0.000271  -0.000333   0.000000   0.000000
+  165  MN 2 ZZ    0.000070  -0.000543   0.000666   0.000000   0.000000
+  166  MN 2 XY    0.000000  -0.000000   0.000000   0.000000   0.000000
+  167  MN 2 XZ    0.000000  -0.000000   0.000000   0.000000  -0.000098
+  168  MN 2 YZ    0.000000  -0.000000   0.000000  -0.000098   0.000000
+  169  MN 2 XXX   0.000000  -0.000000   0.000000   0.000000   0.000002
+  170  MN 2 YYY   0.000000  -0.000000   0.000000   0.000002   0.000000
+  171  MN 2 ZZZ  -0.000000  -0.000000   0.000009   0.000000   0.000000
+  172  MN 2 XXY   0.000000  -0.000000   0.000000   0.000001   0.000000
+  173  MN 2 XXZ   0.000000   0.000000  -0.000006   0.000000   0.000000
+  174  MN 2 YYX   0.000000  -0.000000   0.000000   0.000000   0.000001
+  175  MN 2 YYZ   0.000000   0.000000  -0.000006   0.000000   0.000000
+  176  MN 2 ZZX   0.000000  -0.000000   0.000000   0.000000  -0.000003
+  177  MN 2 ZZY   0.000000  -0.000000   0.000000  -0.000003   0.000000
+  178  MN 2 XYZ   0.000000  -0.000000   0.000000   0.000000   0.000000
+  179  MN 2 XXX   0.000000  -0.000000   0.000000   0.000000  -0.000005
+  180  MN 2 YYY   0.000000  -0.000000   0.000000  -0.000005   0.000000
+  181  MN 2 ZZZ  -0.000009   0.000010  -0.000047   0.000000   0.000000
+  182  MN 2 XXY   0.000000  -0.000000   0.000000  -0.000002   0.000000
+  183  MN 2 XXZ   0.000006  -0.000007   0.000032   0.000000   0.000000
+  184  MN 2 YYX   0.000000  -0.000000   0.000000   0.000000  -0.000002
+  185  MN 2 YYZ   0.000006  -0.000007   0.000032   0.000000   0.000000
+  186  MN 2 ZZX   0.000000  -0.000000   0.000000   0.000000   0.000009
+  187  MN 2 ZZY   0.000000  -0.000000   0.000000   0.000009   0.000000
+  188  MN 2 XYZ   0.000000  -0.000000   0.000000   0.000000   0.000000
+  189  MN 2 XXX   0.000000  -0.000000   0.000000   0.000000   0.000059
+  190  MN 2 YYY   0.000000  -0.000000   0.000000   0.000059   0.000000
+  191  MN 2 ZZZ   0.000021  -0.000029   0.000240   0.000000   0.000000
+  192  MN 2 XXY   0.000000  -0.000000   0.000000   0.000026   0.000000
+  193  MN 2 XXZ  -0.000014   0.000020  -0.000161   0.000000   0.000000
+  194  MN 2 YYX   0.000000  -0.000000   0.000000   0.000000   0.000026
+  195  MN 2 YYZ  -0.000014   0.000020  -0.000161   0.000000   0.000000
+  196  MN 2 ZZX   0.000000  -0.000000   0.000000   0.000000  -0.000106
+  197  MN 2 ZZY   0.000000  -0.000000   0.000000  -0.000106   0.000000
+  198  MN 2 XYZ   0.000000  -0.000000   0.000000   0.000000   0.000000
+  199  MN 2 XXX   0.000000  -0.000000   0.000000   0.000000  -0.000043
+  200  MN 2 YYY   0.000000  -0.000000   0.000000  -0.000043   0.000000
+  201  MN 2 ZZZ  -0.000044   0.000097  -0.000477   0.000000   0.000000
+  202  MN 2 XXY   0.000000  -0.000000   0.000000  -0.000019   0.000000
+  203  MN 2 XXZ   0.000030  -0.000065   0.000320   0.000000   0.000000
+  204  MN 2 YYX   0.000000  -0.000000   0.000000   0.000000  -0.000019
+  205  MN 2 YYZ   0.000030  -0.000065   0.000320   0.000000   0.000000
+  206  MN 2 ZZX   0.000000  -0.000000   0.000000   0.000000   0.000078
+  207  MN 2 ZZY   0.000000  -0.000000   0.000000   0.000078   0.000000
+  208  MN 2 XYZ   0.000000  -0.000000   0.000000   0.000000   0.000000
+  209  MN 2XXXX  -0.000001   0.000000  -0.000009   0.000000   0.000000
+  210  MN 2YYYY  -0.000001   0.000000  -0.000009   0.000000   0.000000
+  211  MN 2ZZZZ  -0.000004   0.000000  -0.000023   0.000000   0.000000
+  212  MN 2XXXY   0.000000  -0.000000   0.000000   0.000000   0.000000
+  213  MN 2XXXZ   0.000000  -0.000000   0.000000   0.000000  -0.000007
+  214  MN 2YYYX   0.000000  -0.000000   0.000000   0.000000   0.000000
+  215  MN 2YYYZ   0.000000  -0.000000   0.000000  -0.000007   0.000000
+  216  MN 2ZZZX   0.000000  -0.000000   0.000000   0.000000   0.000009
+  217  MN 2ZZZY   0.000000  -0.000000   0.000000   0.000009   0.000000
+  218  MN 2XXYY  -0.000001   0.000000  -0.000005   0.000000   0.000000
+  219  MN 2XXZZ   0.000003  -0.000000   0.000020   0.000000   0.000000
+  220  MN 2YYZZ   0.000003  -0.000000   0.000020   0.000000   0.000000
+  221  MN 2XXYZ   0.000000  -0.000000   0.000000  -0.000003   0.000000
+  222  MN 2YYXZ   0.000000  -0.000000   0.000000   0.000000  -0.000003
+  223  MN 2ZZXY   0.000000  -0.000000   0.000000   0.000000   0.000000
+  224  MN 2XXXX   0.000011  -0.000004   0.000062   0.000000   0.000000
+  225  MN 2YYYY   0.000011  -0.000004   0.000062   0.000000   0.000000
+  226  MN 2ZZZZ   0.000028  -0.000010   0.000166   0.000000   0.000000
+  227  MN 2XXXY   0.000000  -0.000000   0.000000   0.000000   0.000000
+  228  MN 2XXXZ   0.000000  -0.000000   0.000000   0.000000   0.000046
+  229  MN 2YYYX   0.000000  -0.000000   0.000000   0.000000   0.000000
+  230  MN 2YYYZ   0.000000  -0.000000   0.000000   0.000046   0.000000
+  231  MN 2ZZZX   0.000000  -0.000000   0.000000   0.000000  -0.000062
+  232  MN 2ZZZY   0.000000  -0.000000   0.000000  -0.000062   0.000000
+  233  MN 2XXYY   0.000006  -0.000002   0.000037   0.000000   0.000000
+  234  MN 2XXZZ  -0.000025   0.000009  -0.000146   0.000000   0.000000
+  235  MN 2YYZZ  -0.000025   0.000009  -0.000146   0.000000   0.000000
+  236  MN 2XXYZ   0.000000  -0.000000   0.000000   0.000021   0.000000
+  237  MN 2YYXZ   0.000000  -0.000000   0.000000   0.000000   0.000021
+  238  MN 2ZZXY   0.000000  -0.000000   0.000000   0.000000   0.000000
+
+                     16         17         18         19         20
+                    2.0000     2.0000     2.0000     1.9108     1.0001
+                     B3G        B2G        B1U        AG         AG  
+    1  MN 1  S    0.000000  -0.000000   0.000069  -0.016968   0.000959
+    2  MN 1  S    0.000000  -0.000000  -0.000002   0.060620  -0.003477
+    3  MN 1  S    0.000000  -0.000000   0.000984  -0.130735   0.007353
+    4  MN 1  S    0.000000  -0.000000   0.007847  -0.145696   0.001476
+    5  MN 1  S    0.000000  -0.000000  -0.006706  -0.037999   0.008565
+    6  MN 1  S    0.000000  -0.000000  -0.003571   0.439894  -0.021702
+    7  MN 1  S    0.000000  -0.000000  -0.002894   0.198320  -0.021850
+    8  MN 1  X    0.000000  -0.263226   0.000000   0.000000  -0.000000
+    9  MN 1  Y   -0.263226  -0.000000   0.000000   0.000000  -0.000000
+   10  MN 1  Z    0.000000  -0.000000  -0.263246   0.023129   0.000495
+   11  MN 1  X    0.000000   0.620503   0.000000   0.000000  -0.000000
+   12  MN 1  Y    0.620503  -0.000000   0.000000   0.000000  -0.000000
+   13  MN 1  Z    0.000000  -0.000000   0.620543  -0.064668  -0.000844
+   14  MN 1  X    0.000000   0.183840   0.000000   0.000000  -0.000000
+   15  MN 1  Y    0.183840  -0.000000   0.000000   0.000000  -0.000000
+   16  MN 1  Z    0.000000  -0.000000   0.184185  -0.025491  -0.001789
+   17  MN 1  X    0.000000  -0.000999   0.000000   0.000000  -0.000000
+   18  MN 1  Y   -0.000999  -0.000000   0.000000   0.000000  -0.000000
+   19  MN 1  Z    0.000000  -0.000000  -0.001586   0.085985   0.001705
+   20  MN 1  X    0.000000   0.005854   0.000000   0.000000  -0.000000
+   21  MN 1  Y    0.005854  -0.000000   0.000000   0.000000  -0.000000
+   22  MN 1  Z    0.000000  -0.000000   0.005190   0.090500  -0.007894
+   23  MN 1  X    0.000000  -0.002524   0.000000   0.000000  -0.000000
+   24  MN 1  Y   -0.002524  -0.000000   0.000000   0.000000  -0.000000
+   25  MN 1  Z    0.000000  -0.000000  -0.001566   0.006368  -0.003156
+   26  MN 1 XX    0.000000  -0.000000  -0.000083  -0.003894  -0.177037
+   27  MN 1 YY    0.000000  -0.000000  -0.000083  -0.003894  -0.177037
+   28  MN 1 ZZ    0.000000  -0.000000   0.000166   0.007787   0.354074
+   29  MN 1 XY    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   30  MN 1 XZ    0.000000   0.000136   0.000000   0.000000  -0.000000
+   31  MN 1 YZ    0.000136  -0.000000   0.000000   0.000000  -0.000000
+   32  MN 1 XX    0.000000  -0.000000  -0.000000  -0.002974  -0.130017
+   33  MN 1 YY    0.000000  -0.000000  -0.000000  -0.002974  -0.130017
+   34  MN 1 ZZ    0.000000  -0.000000   0.000001   0.005947   0.260035
+   35  MN 1 XY    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   36  MN 1 XZ    0.000000   0.000148   0.000000   0.000000  -0.000000
+   37  MN 1 YZ    0.000148  -0.000000   0.000000   0.000000  -0.000000
+   38  MN 1 XX    0.000000  -0.000000  -0.000384  -0.003044  -0.101569
+   39  MN 1 YY    0.000000  -0.000000  -0.000384  -0.003044  -0.101569
+   40  MN 1 ZZ    0.000000  -0.000000   0.000769   0.006089   0.203138
+   41  MN 1 XY    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   42  MN 1 XZ    0.000000   0.000242   0.000000   0.000000  -0.000000
+   43  MN 1 YZ    0.000242  -0.000000   0.000000   0.000000  -0.000000
+   44  MN 1 XX    0.000000  -0.000000   0.000761  -0.006456  -0.038832
+   45  MN 1 YY    0.000000  -0.000000   0.000761  -0.006456  -0.038832
+   46  MN 1 ZZ    0.000000  -0.000000  -0.001521   0.012913   0.077665
+   47  MN 1 XY    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   48  MN 1 XZ    0.000000   0.000132   0.000000   0.000000  -0.000000
+   49  MN 1 YZ    0.000132  -0.000000   0.000000   0.000000  -0.000000
+   50  MN 1 XXX   0.000000   0.000001   0.000000   0.000000  -0.000000
+   51  MN 1 YYY   0.000001  -0.000000   0.000000   0.000000  -0.000000
+   52  MN 1 ZZZ   0.000000  -0.000000   0.000007  -0.000005  -0.000009
+   53  MN 1 XXY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   54  MN 1 XXZ   0.000000  -0.000000  -0.000005   0.000004   0.000006
+   55  MN 1 YYX   0.000000   0.000000   0.000000   0.000000  -0.000000
+   56  MN 1 YYZ   0.000000  -0.000000  -0.000005   0.000004   0.000006
+   57  MN 1 ZZX   0.000000  -0.000001   0.000000   0.000000  -0.000000
+   58  MN 1 ZZY  -0.000001  -0.000000   0.000000   0.000000  -0.000000
+   59  MN 1 XYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   60  MN 1 XXX   0.000000   0.000004   0.000000   0.000000  -0.000000
+   61  MN 1 YYY   0.000004  -0.000000   0.000000   0.000000  -0.000000
+   62  MN 1 ZZZ   0.000000  -0.000000  -0.000060   0.000162   0.000121
+   63  MN 1 XXY   0.000002  -0.000000   0.000000   0.000000  -0.000000
+   64  MN 1 XXZ   0.000000  -0.000000   0.000040  -0.000109  -0.000081
+   65  MN 1 YYX   0.000000   0.000002   0.000000   0.000000  -0.000000
+   66  MN 1 YYZ   0.000000  -0.000000   0.000040  -0.000109  -0.000081
+   67  MN 1 ZZX   0.000000  -0.000006   0.000000   0.000000  -0.000000
+   68  MN 1 ZZY  -0.000006  -0.000000   0.000000   0.000000  -0.000000
+   69  MN 1 XYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   70  MN 1 XXX   0.000000   0.000030   0.000000   0.000000  -0.000000
+   71  MN 1 YYY   0.000030  -0.000000   0.000000   0.000000  -0.000000
+   72  MN 1 ZZZ   0.000000  -0.000000   0.000141  -0.000139  -0.000192
+   73  MN 1 XXY   0.000014  -0.000000   0.000000   0.000000  -0.000000
+   74  MN 1 XXZ   0.000000  -0.000000  -0.000094   0.000093   0.000129
+   75  MN 1 YYX   0.000000   0.000014   0.000000   0.000000  -0.000000
+   76  MN 1 YYZ   0.000000  -0.000000  -0.000094   0.000093   0.000129
+   77  MN 1 ZZX   0.000000  -0.000054   0.000000   0.000000  -0.000000
+   78  MN 1 ZZY  -0.000054  -0.000000   0.000000   0.000000  -0.000000
+   79  MN 1 XYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   80  MN 1 XXX   0.000000   0.000028   0.000000   0.000000  -0.000000
+   81  MN 1 YYY   0.000028  -0.000000   0.000000   0.000000  -0.000000
+   82  MN 1 ZZZ   0.000000  -0.000000  -0.000578   0.002650   0.001791
+   83  MN 1 XXY   0.000013  -0.000000   0.000000   0.000000  -0.000000
+   84  MN 1 XXZ   0.000000  -0.000000   0.000387  -0.001777  -0.001201
+   85  MN 1 YYX   0.000000   0.000013   0.000000   0.000000  -0.000000
+   86  MN 1 YYZ   0.000000  -0.000000   0.000387  -0.001777  -0.001201
+   87  MN 1 ZZX   0.000000  -0.000051   0.000000   0.000000  -0.000000
+   88  MN 1 ZZY  -0.000051  -0.000000   0.000000   0.000000  -0.000000
+   89  MN 1 XYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   90  MN 1XXXX   0.000000  -0.000000   0.000007  -0.000004  -0.000022
+   91  MN 1YYYY   0.000000  -0.000000   0.000007  -0.000004  -0.000022
+   92  MN 1ZZZZ   0.000000  -0.000000   0.000018  -0.000012  -0.000059
+   93  MN 1XXXY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   94  MN 1XXXZ   0.000000  -0.000001   0.000000   0.000000  -0.000000
+   95  MN 1YYYX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   96  MN 1YYYZ  -0.000001  -0.000000   0.000000   0.000000  -0.000000
+   97  MN 1ZZZX   0.000000   0.000001   0.000000   0.000000  -0.000000
+   98  MN 1ZZZY   0.000001  -0.000000   0.000000   0.000000  -0.000000
+   99  MN 1XXYY   0.000000  -0.000000   0.000004  -0.000003  -0.000013
+  100  MN 1XXZZ   0.000000  -0.000000  -0.000016   0.000010   0.000052
+  101  MN 1YYZZ   0.000000  -0.000000  -0.000016   0.000010   0.000052
+  102  MN 1XXYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+  103  MN 1YYXZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+  104  MN 1ZZXY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+  105  MN 1XXXX   0.000000  -0.000000  -0.000049   0.000098   0.000114
+  106  MN 1YYYY   0.000000  -0.000000  -0.000049   0.000098   0.000114
+  107  MN 1ZZZZ   0.000000  -0.000000  -0.000130   0.000261   0.000304
+  108  MN 1XXXY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+  109  MN 1XXXZ   0.000000   0.000011   0.000000   0.000000  -0.000000
+  110  MN 1YYYX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+  111  MN 1YYYZ   0.000011  -0.000000   0.000000   0.000000  -0.000000
+  112  MN 1ZZZX   0.000000  -0.000015   0.000000   0.000000  -0.000000
+  113  MN 1ZZZY  -0.000015  -0.000000   0.000000   0.000000  -0.000000
+  114  MN 1XXYY   0.000000  -0.000000  -0.000029   0.000057   0.000067
+  115  MN 1XXZZ   0.000000  -0.000000   0.000114  -0.000229  -0.000267
+  116  MN 1YYZZ   0.000000  -0.000000   0.000114  -0.000229  -0.000267
+  117  MN 1XXYZ   0.000005  -0.000000   0.000000   0.000000  -0.000000
+  118  MN 1YYXZ   0.000000   0.000005   0.000000   0.000000  -0.000000
+  119  MN 1ZZXY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+  120  MN 2  S    0.000000  -0.000000  -0.000069  -0.016968   0.000959
+  121  MN 2  S    0.000000  -0.000000   0.000002   0.060620  -0.003477
+  122  MN 2  S    0.000000  -0.000000  -0.000984  -0.130735   0.007353
+  123  MN 2  S    0.000000  -0.000000  -0.007847  -0.145696   0.001476
+  124  MN 2  S    0.000000  -0.000000   0.006706  -0.037999   0.008565
+  125  MN 2  S    0.000000  -0.000000   0.003571   0.439894  -0.021702
+  126  MN 2  S    0.000000  -0.000000   0.002894   0.198320  -0.021850
+  127  MN 2  X    0.000000   0.263226   0.000000   0.000000  -0.000000
+  128  MN 2  Y    0.263226  -0.000000   0.000000   0.000000  -0.000000
+  129  MN 2  Z    0.000000  -0.000000  -0.263246  -0.023129  -0.000495
+  130  MN 2  X    0.000000  -0.620503   0.000000   0.000000  -0.000000
+  131  MN 2  Y   -0.620503  -0.000000   0.000000   0.000000  -0.000000
+  132  MN 2  Z    0.000000  -0.000000   0.620543   0.064668   0.000844
+  133  MN 2  X    0.000000  -0.183840   0.000000   0.000000  -0.000000
+  134  MN 2  Y   -0.183840  -0.000000   0.000000   0.000000  -0.000000
+  135  MN 2  Z    0.000000  -0.000000   0.184185   0.025491   0.001789
+  136  MN 2  X    0.000000   0.000999   0.000000   0.000000  -0.000000
+  137  MN 2  Y    0.000999  -0.000000   0.000000   0.000000  -0.000000
+  138  MN 2  Z    0.000000  -0.000000  -0.001586  -0.085985  -0.001705
+  139  MN 2  X    0.000000  -0.005854   0.000000   0.000000  -0.000000
+  140  MN 2  Y   -0.005854  -0.000000   0.000000   0.000000  -0.000000
+  141  MN 2  Z    0.000000  -0.000000   0.005190  -0.090500   0.007894
+  142  MN 2  X    0.000000   0.002524   0.000000   0.000000  -0.000000
+  143  MN 2  Y    0.002524  -0.000000   0.000000   0.000000  -0.000000
+  144  MN 2  Z    0.000000  -0.000000  -0.001566  -0.006368   0.003156
+  145  MN 2 XX    0.000000  -0.000000   0.000083  -0.003894  -0.177037
+  146  MN 2 YY    0.000000  -0.000000   0.000083  -0.003894  -0.177037
+  147  MN 2 ZZ    0.000000  -0.000000  -0.000166   0.007787   0.354074
+  148  MN 2 XY    0.000000  -0.000000   0.000000   0.000000  -0.000000
+  149  MN 2 XZ    0.000000   0.000136   0.000000   0.000000  -0.000000
+  150  MN 2 YZ    0.000136  -0.000000   0.000000   0.000000  -0.000000
+  151  MN 2 XX    0.000000  -0.000000   0.000000  -0.002974  -0.130017
+  152  MN 2 YY    0.000000  -0.000000   0.000000  -0.002974  -0.130017
+  153  MN 2 ZZ    0.000000  -0.000000  -0.000001   0.005947   0.260035
+  154  MN 2 XY    0.000000  -0.000000   0.000000   0.000000  -0.000000
+  155  MN 2 XZ    0.000000   0.000148   0.000000   0.000000  -0.000000
+  156  MN 2 YZ    0.000148  -0.000000   0.000000   0.000000  -0.000000
+  157  MN 2 XX    0.000000  -0.000000   0.000384  -0.003044  -0.101569
+  158  MN 2 YY    0.000000  -0.000000   0.000384  -0.003044  -0.101569
+  159  MN 2 ZZ    0.000000  -0.000000  -0.000769   0.006089   0.203138
+  160  MN 2 XY    0.000000  -0.000000   0.000000   0.000000  -0.000000
+  161  MN 2 XZ    0.000000   0.000242   0.000000   0.000000  -0.000000
+  162  MN 2 YZ    0.000242  -0.000000   0.000000   0.000000  -0.000000
+  163  MN 2 XX    0.000000  -0.000000  -0.000761  -0.006456  -0.038832
+  164  MN 2 YY    0.000000  -0.000000  -0.000761  -0.006456  -0.038832
+  165  MN 2 ZZ    0.000000  -0.000000   0.001521   0.012913   0.077665
+  166  MN 2 XY    0.000000  -0.000000   0.000000   0.000000  -0.000000
+  167  MN 2 XZ    0.000000   0.000132   0.000000   0.000000  -0.000000
+  168  MN 2 YZ    0.000132  -0.000000   0.000000   0.000000  -0.000000
+  169  MN 2 XXX   0.000000  -0.000001   0.000000   0.000000  -0.000000
+  170  MN 2 YYY  -0.000001  -0.000000   0.000000   0.000000  -0.000000
+  171  MN 2 ZZZ   0.000000  -0.000000   0.000007   0.000005   0.000009
+  172  MN 2 XXY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+  173  MN 2 XXZ   0.000000  -0.000000  -0.000005  -0.000004  -0.000006
+  174  MN 2 YYX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+  175  MN 2 YYZ   0.000000  -0.000000  -0.000005  -0.000004  -0.000006
+  176  MN 2 ZZX   0.000000   0.000001   0.000000   0.000000  -0.000000
+  177  MN 2 ZZY   0.000001  -0.000000   0.000000   0.000000  -0.000000
+  178  MN 2 XYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+  179  MN 2 XXX   0.000000  -0.000004   0.000000   0.000000  -0.000000
+  180  MN 2 YYY  -0.000004  -0.000000   0.000000   0.000000  -0.000000
+  181  MN 2 ZZZ   0.000000  -0.000000  -0.000060  -0.000162  -0.000121
+  182  MN 2 XXY  -0.000002  -0.000000   0.000000   0.000000  -0.000000
+  183  MN 2 XXZ   0.000000  -0.000000   0.000040   0.000109   0.000081
+  184  MN 2 YYX   0.000000  -0.000002   0.000000   0.000000  -0.000000
+  185  MN 2 YYZ   0.000000  -0.000000   0.000040   0.000109   0.000081
+  186  MN 2 ZZX   0.000000   0.000006   0.000000   0.000000  -0.000000
+  187  MN 2 ZZY   0.000006  -0.000000   0.000000   0.000000  -0.000000
+  188  MN 2 XYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+  189  MN 2 XXX   0.000000  -0.000030   0.000000   0.000000  -0.000000
+  190  MN 2 YYY  -0.000030  -0.000000   0.000000   0.000000  -0.000000
+  191  MN 2 ZZZ   0.000000  -0.000000   0.000141   0.000139   0.000192
+  192  MN 2 XXY  -0.000014  -0.000000   0.000000   0.000000  -0.000000
+  193  MN 2 XXZ   0.000000  -0.000000  -0.000094  -0.000093  -0.000129
+  194  MN 2 YYX   0.000000  -0.000014   0.000000   0.000000  -0.000000
+  195  MN 2 YYZ   0.000000  -0.000000  -0.000094  -0.000093  -0.000129
+  196  MN 2 ZZX   0.000000   0.000054   0.000000   0.000000  -0.000000
+  197  MN 2 ZZY   0.000054  -0.000000   0.000000   0.000000  -0.000000
+  198  MN 2 XYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+  199  MN 2 XXX   0.000000  -0.000028   0.000000   0.000000  -0.000000
+  200  MN 2 YYY  -0.000028  -0.000000   0.000000   0.000000  -0.000000
+  201  MN 2 ZZZ   0.000000  -0.000000  -0.000578  -0.002650  -0.001791
+  202  MN 2 XXY  -0.000013  -0.000000   0.000000   0.000000  -0.000000
+  203  MN 2 XXZ   0.000000  -0.000000   0.000387   0.001777   0.001201
+  204  MN 2 YYX   0.000000  -0.000013   0.000000   0.000000  -0.000000
+  205  MN 2 YYZ   0.000000  -0.000000   0.000387   0.001777   0.001201
+  206  MN 2 ZZX   0.000000   0.000051   0.000000   0.000000  -0.000000
+  207  MN 2 ZZY   0.000051  -0.000000   0.000000   0.000000  -0.000000
+  208  MN 2 XYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+  209  MN 2XXXX   0.000000  -0.000000  -0.000007  -0.000004  -0.000022
+  210  MN 2YYYY   0.000000  -0.000000  -0.000007  -0.000004  -0.000022
+  211  MN 2ZZZZ   0.000000  -0.000000  -0.000018  -0.000012  -0.000059
+  212  MN 2XXXY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+  213  MN 2XXXZ   0.000000  -0.000001   0.000000   0.000000  -0.000000
+  214  MN 2YYYX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+  215  MN 2YYYZ  -0.000001  -0.000000   0.000000   0.000000  -0.000000
+  216  MN 2ZZZX   0.000000   0.000001   0.000000   0.000000  -0.000000
+  217  MN 2ZZZY   0.000001  -0.000000   0.000000   0.000000  -0.000000
+  218  MN 2XXYY   0.000000  -0.000000  -0.000004  -0.000003  -0.000013
+  219  MN 2XXZZ   0.000000  -0.000000   0.000016   0.000010   0.000052
+  220  MN 2YYZZ   0.000000  -0.000000   0.000016   0.000010   0.000052
+  221  MN 2XXYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+  222  MN 2YYXZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+  223  MN 2ZZXY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+  224  MN 2XXXX   0.000000  -0.000000   0.000049   0.000098   0.000114
+  225  MN 2YYYY   0.000000  -0.000000   0.000049   0.000098   0.000114
+  226  MN 2ZZZZ   0.000000  -0.000000   0.000130   0.000261   0.000304
+  227  MN 2XXXY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+  228  MN 2XXXZ   0.000000   0.000011   0.000000   0.000000  -0.000000
+  229  MN 2YYYX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+  230  MN 2YYYZ   0.000011  -0.000000   0.000000   0.000000  -0.000000
+  231  MN 2ZZZX   0.000000  -0.000015   0.000000   0.000000  -0.000000
+  232  MN 2ZZZY  -0.000015  -0.000000   0.000000   0.000000  -0.000000
+  233  MN 2XXYY   0.000000  -0.000000   0.000029   0.000057   0.000067
+  234  MN 2XXZZ   0.000000  -0.000000  -0.000114  -0.000229  -0.000267
+  235  MN 2YYZZ   0.000000  -0.000000  -0.000114  -0.000229  -0.000267
+  236  MN 2XXYZ   0.000005  -0.000000   0.000000   0.000000  -0.000000
+  237  MN 2YYXZ   0.000000   0.000005   0.000000   0.000000  -0.000000
+  238  MN 2ZZXY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+
+                     21         22         23         24         25
+                    1.0001     1.0001     1.0000     1.0000     1.0000
+                     B3U        B2U        B2G        B3G        AG  
+    1  MN 1  S    0.000000   0.000000  -0.000000   0.000000  -0.000000
+    2  MN 1  S    0.000000   0.000000  -0.000000   0.000000  -0.000000
+    3  MN 1  S    0.000000   0.000000  -0.000000   0.000000  -0.000000
+    4  MN 1  S    0.000000   0.000000  -0.000000   0.000000  -0.000000
+    5  MN 1  S    0.000000   0.000000  -0.000000   0.000000   0.000000
+    6  MN 1  S    0.000000   0.000000  -0.000000   0.000000   0.000000
+    7  MN 1  S    0.000000   0.000000  -0.000000   0.000000  -0.000000
+    8  MN 1  X    0.000911   0.000000  -0.000076   0.000000  -0.000000
+    9  MN 1  Y    0.000000   0.000911  -0.000000  -0.000076  -0.000000
+   10  MN 1  Z    0.000000   0.000000  -0.000000   0.000000   0.000000
+   11  MN 1  X   -0.002459   0.000000   0.000093   0.000000  -0.000000
+   12  MN 1  Y    0.000000  -0.002459  -0.000000   0.000093  -0.000000
+   13  MN 1  Z    0.000000   0.000000  -0.000000   0.000000  -0.000000
+   14  MN 1  X   -0.000682   0.000000   0.000567   0.000000  -0.000000
+   15  MN 1  Y    0.000000  -0.000682  -0.000000   0.000567  -0.000000
+   16  MN 1  Z    0.000000   0.000000  -0.000000   0.000000  -0.000000
+   17  MN 1  X    0.002541   0.000000   0.000412   0.000000  -0.000000
+   18  MN 1  Y    0.000000   0.002541  -0.000000   0.000412  -0.000000
+   19  MN 1  Z    0.000000   0.000000  -0.000000   0.000000   0.000000
+   20  MN 1  X    0.001815   0.000000  -0.001022   0.000000  -0.000000
+   21  MN 1  Y    0.000000   0.001815  -0.000000  -0.001022  -0.000000
+   22  MN 1  Z    0.000000   0.000000  -0.000000   0.000000  -0.000000
+   23  MN 1  X   -0.000563   0.000000  -0.002056   0.000000  -0.000000
+   24  MN 1  Y    0.000000  -0.000563  -0.000000  -0.002056  -0.000000
+   25  MN 1  Z    0.000000   0.000000  -0.000000   0.000000   0.000000
+   26  MN 1 XX    0.000000   0.000000  -0.000000   0.000000   0.309463
+   27  MN 1 YY    0.000000   0.000000  -0.000000   0.000000  -0.309463
+   28  MN 1 ZZ    0.000000   0.000000  -0.000000   0.000000  -0.000000
+   29  MN 1 XY    0.000000   0.000000  -0.000000   0.000000  -0.000000
+   30  MN 1 XZ    0.355342   0.000000   0.359266   0.000000  -0.000000
+   31  MN 1 YZ    0.000000   0.355342  -0.000000   0.359266  -0.000000
+   32  MN 1 XX    0.000000   0.000000  -0.000000   0.000000   0.227606
+   33  MN 1 YY    0.000000   0.000000  -0.000000   0.000000  -0.227606
+   34  MN 1 ZZ    0.000000   0.000000  -0.000000   0.000000  -0.000000
+   35  MN 1 XY    0.000000   0.000000  -0.000000   0.000000  -0.000000
+   36  MN 1 XZ    0.261467   0.000000   0.263947   0.000000  -0.000000
+   37  MN 1 YZ    0.000000   0.261467  -0.000000   0.263947  -0.000000
+   38  MN 1 XX    0.000000   0.000000  -0.000000   0.000000   0.176880
+   39  MN 1 YY    0.000000   0.000000  -0.000000   0.000000  -0.176880
+   40  MN 1 ZZ    0.000000   0.000000  -0.000000   0.000000  -0.000000
+   41  MN 1 XY    0.000000   0.000000  -0.000000   0.000000  -0.000000
+   42  MN 1 XZ    0.202776   0.000000   0.205404   0.000000  -0.000000
+   43  MN 1 YZ    0.000000   0.202776  -0.000000   0.205404  -0.000000
+   44  MN 1 XX    0.000000   0.000000  -0.000000   0.000000   0.065985
+   45  MN 1 YY    0.000000   0.000000  -0.000000   0.000000  -0.065985
+   46  MN 1 ZZ    0.000000   0.000000  -0.000000   0.000000  -0.000000
+   47  MN 1 XY    0.000000   0.000000  -0.000000   0.000000  -0.000000
+   48  MN 1 XZ    0.079243   0.000000   0.075167   0.000000  -0.000000
+   49  MN 1 YZ    0.000000   0.079243  -0.000000   0.075167  -0.000000
+   50  MN 1 XXX   0.000003   0.000000   0.000000   0.000000  -0.000000
+   51  MN 1 YYY   0.000000   0.000003  -0.000000   0.000000  -0.000000
+   52  MN 1 ZZZ   0.000000   0.000000  -0.000000   0.000000   0.000000
+   53  MN 1 XXY   0.000000   0.000001  -0.000000   0.000000  -0.000000
+   54  MN 1 XXZ   0.000000   0.000000  -0.000000   0.000000  -0.000002
+   55  MN 1 YYX   0.000001   0.000000   0.000000   0.000000  -0.000000
+   56  MN 1 YYZ   0.000000   0.000000  -0.000000   0.000000   0.000002
+   57  MN 1 ZZX  -0.000005   0.000000  -0.000000   0.000000  -0.000000
+   58  MN 1 ZZY   0.000000  -0.000005  -0.000000  -0.000000  -0.000000
+   59  MN 1 XYZ   0.000000   0.000000  -0.000000   0.000000  -0.000000
+   60  MN 1 XXX  -0.000045   0.000000  -0.000005   0.000000  -0.000000
+   61  MN 1 YYY   0.000000  -0.000045  -0.000000  -0.000005  -0.000000
+   62  MN 1 ZZZ   0.000000   0.000000  -0.000000   0.000000  -0.000000
+   63  MN 1 XXY   0.000000  -0.000020  -0.000000  -0.000002  -0.000000
+   64  MN 1 XXZ   0.000000   0.000000  -0.000000   0.000000   0.000011
+   65  MN 1 YYX  -0.000020   0.000000  -0.000002   0.000000  -0.000000
+   66  MN 1 YYZ   0.000000   0.000000  -0.000000   0.000000  -0.000011
+   67  MN 1 ZZX   0.000080   0.000000   0.000009   0.000000  -0.000000
+   68  MN 1 ZZY   0.000000   0.000080  -0.000000   0.000009  -0.000000
+   69  MN 1 XYZ   0.000000   0.000000  -0.000000   0.000000  -0.000000
+   70  MN 1 XXX   0.000052   0.000000  -0.000015   0.000000  -0.000000
+   71  MN 1 YYY   0.000000   0.000052  -0.000000  -0.000015  -0.000000
+   72  MN 1 ZZZ   0.000000   0.000000  -0.000000   0.000000  -0.000000
+   73  MN 1 XXY   0.000000   0.000023  -0.000000  -0.000007  -0.000000
+   74  MN 1 XXZ   0.000000   0.000000  -0.000000   0.000000   0.000004
+   75  MN 1 YYX   0.000023   0.000000  -0.000007   0.000000  -0.000000
+   76  MN 1 YYZ   0.000000   0.000000  -0.000000   0.000000  -0.000004
+   77  MN 1 ZZX  -0.000093   0.000000   0.000028   0.000000  -0.000000
+   78  MN 1 ZZY   0.000000  -0.000093  -0.000000   0.000028  -0.000000
+   79  MN 1 XYZ   0.000000   0.000000  -0.000000   0.000000  -0.000000
+   80  MN 1 XXX  -0.000799   0.000000  -0.000220   0.000000  -0.000000
+   81  MN 1 YYY   0.000000  -0.000799  -0.000000  -0.000220  -0.000000
+   82  MN 1 ZZZ   0.000000   0.000000  -0.000000   0.000000   0.000000
+   83  MN 1 XXY   0.000000  -0.000357  -0.000000  -0.000098  -0.000000
+   84  MN 1 XXZ   0.000000   0.000000  -0.000000   0.000000   0.000503
+   85  MN 1 YYX  -0.000357   0.000000  -0.000098   0.000000  -0.000000
+   86  MN 1 YYZ   0.000000   0.000000  -0.000000   0.000000  -0.000503
+   87  MN 1 ZZX   0.001430   0.000000   0.000394   0.000000  -0.000000
+   88  MN 1 ZZY   0.000000   0.001430  -0.000000   0.000394  -0.000000
+   89  MN 1 XYZ   0.000000   0.000000  -0.000000   0.000000  -0.000000
+   90  MN 1XXXX   0.000000   0.000000  -0.000000   0.000000   0.000009
+   91  MN 1YYYY   0.000000   0.000000  -0.000000   0.000000  -0.000009
+   92  MN 1ZZZZ   0.000000   0.000000  -0.000000   0.000000   0.000000
+   93  MN 1XXXY   0.000000   0.000000  -0.000000   0.000000  -0.000000
+   94  MN 1XXXZ   0.000029   0.000000   0.000019   0.000000  -0.000000
+   95  MN 1YYYX   0.000000   0.000000  -0.000000   0.000000  -0.000000
+   96  MN 1YYYZ   0.000000   0.000029  -0.000000   0.000019  -0.000000
+   97  MN 1ZZZX  -0.000039   0.000000  -0.000026   0.000000  -0.000000
+   98  MN 1ZZZY   0.000000  -0.000039  -0.000000  -0.000026  -0.000000
+   99  MN 1XXYY   0.000000   0.000000  -0.000000   0.000000   0.000000
+  100  MN 1XXZZ   0.000000   0.000000  -0.000000   0.000000  -0.000016
+  101  MN 1YYZZ   0.000000   0.000000  -0.000000   0.000000   0.000016
+  102  MN 1XXYZ   0.000000   0.000013  -0.000000   0.000009  -0.000000
+  103  MN 1YYXZ   0.000013   0.000000   0.000009   0.000000  -0.000000
+  104  MN 1ZZXY   0.000000   0.000000  -0.000000   0.000000  -0.000000
+  105  MN 1XXXX   0.000000   0.000000  -0.000000   0.000000   0.000022
+  106  MN 1YYYY   0.000000   0.000000  -0.000000   0.000000  -0.000022
+  107  MN 1ZZZZ   0.000000   0.000000  -0.000000   0.000000   0.000000
+  108  MN 1XXXY   0.000000   0.000000  -0.000000   0.000000  -0.000000
+  109  MN 1XXXZ  -0.000073   0.000000   0.000103   0.000000  -0.000000
+  110  MN 1YYYX   0.000000   0.000000  -0.000000   0.000000  -0.000000
+  111  MN 1YYYZ   0.000000  -0.000073  -0.000000   0.000103  -0.000000
+  112  MN 1ZZZX   0.000097   0.000000  -0.000138   0.000000  -0.000000
+  113  MN 1ZZZY   0.000000   0.000097  -0.000000  -0.000138  -0.000000
+  114  MN 1XXYY   0.000000   0.000000  -0.000000   0.000000   0.000000
+  115  MN 1XXZZ   0.000000   0.000000  -0.000000   0.000000  -0.000039
+  116  MN 1YYZZ   0.000000   0.000000  -0.000000   0.000000   0.000039
+  117  MN 1XXYZ   0.000000  -0.000032  -0.000000   0.000046  -0.000000
+  118  MN 1YYXZ  -0.000032   0.000000   0.000046   0.000000  -0.000000
+  119  MN 1ZZXY   0.000000   0.000000  -0.000000   0.000000  -0.000000
+  120  MN 2  S    0.000000   0.000000  -0.000000   0.000000  -0.000000
+  121  MN 2  S    0.000000   0.000000  -0.000000   0.000000  -0.000000
+  122  MN 2  S    0.000000   0.000000  -0.000000   0.000000  -0.000000
+  123  MN 2  S    0.000000   0.000000  -0.000000   0.000000  -0.000000
+  124  MN 2  S    0.000000   0.000000  -0.000000   0.000000   0.000000
+  125  MN 2  S    0.000000   0.000000  -0.000000   0.000000   0.000000
+  126  MN 2  S    0.000000   0.000000  -0.000000   0.000000  -0.000000
+  127  MN 2  X    0.000911   0.000000   0.000076   0.000000  -0.000000
+  128  MN 2  Y    0.000000   0.000911  -0.000000   0.000076  -0.000000
+  129  MN 2  Z    0.000000   0.000000  -0.000000   0.000000  -0.000000
+  130  MN 2  X   -0.002459   0.000000  -0.000093   0.000000  -0.000000
+  131  MN 2  Y    0.000000  -0.002459  -0.000000  -0.000093  -0.000000
+  132  MN 2  Z    0.000000   0.000000  -0.000000   0.000000   0.000000
+  133  MN 2  X   -0.000682   0.000000  -0.000567   0.000000  -0.000000
+  134  MN 2  Y    0.000000  -0.000682  -0.000000  -0.000567  -0.000000
+  135  MN 2  Z    0.000000   0.000000  -0.000000   0.000000   0.000000
+  136  MN 2  X    0.002541   0.000000  -0.000412   0.000000  -0.000000
+  137  MN 2  Y    0.000000   0.002541  -0.000000  -0.000412  -0.000000
+  138  MN 2  Z    0.000000   0.000000  -0.000000   0.000000  -0.000000
+  139  MN 2  X    0.001815   0.000000   0.001022   0.000000  -0.000000
+  140  MN 2  Y    0.000000   0.001815  -0.000000   0.001022  -0.000000
+  141  MN 2  Z    0.000000   0.000000  -0.000000   0.000000   0.000000
+  142  MN 2  X   -0.000563   0.000000   0.002056   0.000000  -0.000000
+  143  MN 2  Y    0.000000  -0.000563  -0.000000   0.002056  -0.000000
+  144  MN 2  Z    0.000000   0.000000  -0.000000   0.000000  -0.000000
+  145  MN 2 XX    0.000000   0.000000  -0.000000   0.000000   0.309463
+  146  MN 2 YY    0.000000   0.000000  -0.000000   0.000000  -0.309463
+  147  MN 2 ZZ    0.000000   0.000000  -0.000000   0.000000  -0.000000
+  148  MN 2 XY    0.000000   0.000000  -0.000000   0.000000  -0.000000
+  149  MN 2 XZ   -0.355342   0.000000   0.359266   0.000000  -0.000000
+  150  MN 2 YZ    0.000000  -0.355342  -0.000000   0.359266  -0.000000
+  151  MN 2 XX    0.000000   0.000000  -0.000000   0.000000   0.227606
+  152  MN 2 YY    0.000000   0.000000  -0.000000   0.000000  -0.227606
+  153  MN 2 ZZ    0.000000   0.000000  -0.000000   0.000000  -0.000000
+  154  MN 2 XY    0.000000   0.000000  -0.000000   0.000000  -0.000000
+  155  MN 2 XZ   -0.261467   0.000000   0.263947   0.000000  -0.000000
+  156  MN 2 YZ    0.000000  -0.261467  -0.000000   0.263947  -0.000000
+  157  MN 2 XX    0.000000   0.000000  -0.000000   0.000000   0.176880
+  158  MN 2 YY    0.000000   0.000000  -0.000000   0.000000  -0.176880
+  159  MN 2 ZZ    0.000000   0.000000  -0.000000   0.000000  -0.000000
+  160  MN 2 XY    0.000000   0.000000  -0.000000   0.000000  -0.000000
+  161  MN 2 XZ   -0.202776   0.000000   0.205404   0.000000  -0.000000
+  162  MN 2 YZ    0.000000  -0.202776  -0.000000   0.205404  -0.000000
+  163  MN 2 XX    0.000000   0.000000  -0.000000   0.000000   0.065985
+  164  MN 2 YY    0.000000   0.000000  -0.000000   0.000000  -0.065985
+  165  MN 2 ZZ    0.000000   0.000000  -0.000000   0.000000  -0.000000
+  166  MN 2 XY    0.000000   0.000000  -0.000000   0.000000  -0.000000
+  167  MN 2 XZ   -0.079243   0.000000   0.075167   0.000000  -0.000000
+  168  MN 2 YZ    0.000000  -0.079243  -0.000000   0.075167  -0.000000
+  169  MN 2 XXX   0.000003   0.000000  -0.000000   0.000000  -0.000000
+  170  MN 2 YYY   0.000000   0.000003  -0.000000  -0.000000  -0.000000
+  171  MN 2 ZZZ   0.000000   0.000000  -0.000000   0.000000  -0.000000
+  172  MN 2 XXY   0.000000   0.000001  -0.000000  -0.000000  -0.000000
+  173  MN 2 XXZ   0.000000   0.000000  -0.000000   0.000000   0.000002
+  174  MN 2 YYX   0.000001   0.000000  -0.000000   0.000000  -0.000000
+  175  MN 2 YYZ   0.000000   0.000000  -0.000000   0.000000  -0.000002
+  176  MN 2 ZZX  -0.000005   0.000000   0.000000   0.000000  -0.000000
+  177  MN 2 ZZY   0.000000  -0.000005  -0.000000   0.000000  -0.000000
+  178  MN 2 XYZ   0.000000   0.000000  -0.000000   0.000000  -0.000000
+  179  MN 2 XXX  -0.000045   0.000000   0.000005   0.000000  -0.000000
+  180  MN 2 YYY   0.000000  -0.000045  -0.000000   0.000005  -0.000000
+  181  MN 2 ZZZ   0.000000   0.000000  -0.000000   0.000000   0.000000
+  182  MN 2 XXY   0.000000  -0.000020  -0.000000   0.000002  -0.000000
+  183  MN 2 XXZ   0.000000   0.000000  -0.000000   0.000000  -0.000011
+  184  MN 2 YYX  -0.000020   0.000000   0.000002   0.000000  -0.000000
+  185  MN 2 YYZ   0.000000   0.000000  -0.000000   0.000000   0.000011
+  186  MN 2 ZZX   0.000080   0.000000  -0.000009   0.000000  -0.000000
+  187  MN 2 ZZY   0.000000   0.000080  -0.000000  -0.000009  -0.000000
+  188  MN 2 XYZ   0.000000   0.000000  -0.000000   0.000000  -0.000000
+  189  MN 2 XXX   0.000052   0.000000   0.000015   0.000000  -0.000000
+  190  MN 2 YYY   0.000000   0.000052  -0.000000   0.000015  -0.000000
+  191  MN 2 ZZZ   0.000000   0.000000  -0.000000   0.000000   0.000000
+  192  MN 2 XXY   0.000000   0.000023  -0.000000   0.000007  -0.000000
+  193  MN 2 XXZ   0.000000   0.000000  -0.000000   0.000000  -0.000004
+  194  MN 2 YYX   0.000023   0.000000   0.000007   0.000000  -0.000000
+  195  MN 2 YYZ   0.000000   0.000000  -0.000000   0.000000   0.000004
+  196  MN 2 ZZX  -0.000093   0.000000  -0.000028   0.000000  -0.000000
+  197  MN 2 ZZY   0.000000  -0.000093  -0.000000  -0.000028  -0.000000
+  198  MN 2 XYZ   0.000000   0.000000  -0.000000   0.000000  -0.000000
+  199  MN 2 XXX  -0.000799   0.000000   0.000220   0.000000  -0.000000
+  200  MN 2 YYY   0.000000  -0.000799  -0.000000   0.000220  -0.000000
+  201  MN 2 ZZZ   0.000000   0.000000  -0.000000   0.000000  -0.000000
+  202  MN 2 XXY   0.000000  -0.000357  -0.000000   0.000098  -0.000000
+  203  MN 2 XXZ   0.000000   0.000000  -0.000000   0.000000  -0.000503
+  204  MN 2 YYX  -0.000357   0.000000   0.000098   0.000000  -0.000000
+  205  MN 2 YYZ   0.000000   0.000000  -0.000000   0.000000   0.000503
+  206  MN 2 ZZX   0.001430   0.000000  -0.000394   0.000000  -0.000000
+  207  MN 2 ZZY   0.000000   0.001430  -0.000000  -0.000394  -0.000000
+  208  MN 2 XYZ   0.000000   0.000000  -0.000000   0.000000  -0.000000
+  209  MN 2XXXX   0.000000   0.000000  -0.000000   0.000000   0.000009
+  210  MN 2YYYY   0.000000   0.000000  -0.000000   0.000000  -0.000009
+  211  MN 2ZZZZ   0.000000   0.000000  -0.000000   0.000000   0.000000
+  212  MN 2XXXY   0.000000   0.000000  -0.000000   0.000000  -0.000000
+  213  MN 2XXXZ  -0.000029   0.000000   0.000019   0.000000  -0.000000
+  214  MN 2YYYX   0.000000   0.000000  -0.000000   0.000000  -0.000000
+  215  MN 2YYYZ   0.000000  -0.000029  -0.000000   0.000019  -0.000000
+  216  MN 2ZZZX   0.000039   0.000000  -0.000026   0.000000  -0.000000
+  217  MN 2ZZZY   0.000000   0.000039  -0.000000  -0.000026  -0.000000
+  218  MN 2XXYY   0.000000   0.000000  -0.000000   0.000000   0.000000
+  219  MN 2XXZZ   0.000000   0.000000  -0.000000   0.000000  -0.000016
+  220  MN 2YYZZ   0.000000   0.000000  -0.000000   0.000000   0.000016
+  221  MN 2XXYZ   0.000000  -0.000013  -0.000000   0.000009  -0.000000
+  222  MN 2YYXZ  -0.000013   0.000000   0.000009   0.000000  -0.000000
+  223  MN 2ZZXY   0.000000   0.000000  -0.000000   0.000000  -0.000000
+  224  MN 2XXXX   0.000000   0.000000  -0.000000   0.000000   0.000022
+  225  MN 2YYYY   0.000000   0.000000  -0.000000   0.000000  -0.000022
+  226  MN 2ZZZZ   0.000000   0.000000  -0.000000   0.000000   0.000000
+  227  MN 2XXXY   0.000000   0.000000  -0.000000   0.000000  -0.000000
+  228  MN 2XXXZ   0.000073   0.000000   0.000103   0.000000  -0.000000
+  229  MN 2YYYX   0.000000   0.000000  -0.000000   0.000000  -0.000000
+  230  MN 2YYYZ   0.000000   0.000073  -0.000000   0.000103  -0.000000
+  231  MN 2ZZZX  -0.000097   0.000000  -0.000138   0.000000  -0.000000
+  232  MN 2ZZZY   0.000000  -0.000097  -0.000000  -0.000138  -0.000000
+  233  MN 2XXYY   0.000000   0.000000  -0.000000   0.000000   0.000000
+  234  MN 2XXZZ   0.000000   0.000000  -0.000000   0.000000  -0.000039
+  235  MN 2YYZZ   0.000000   0.000000  -0.000000   0.000000   0.000039
+  236  MN 2XXYZ   0.000000   0.000032  -0.000000   0.000046  -0.000000
+  237  MN 2YYXZ   0.000032   0.000000   0.000046   0.000000  -0.000000
+  238  MN 2ZZXY   0.000000   0.000000  -0.000000   0.000000  -0.000000
+
+                     26         27         28         29         30
+                    1.0000     1.0000     1.0000     0.9999     0.9951
+                     B1G        AU         B1U        B1U        B1U 
+    1  MN 1  S    0.000000   0.000000   0.000000  -0.000138  -0.016691
+    2  MN 1  S    0.000000   0.000000   0.000000   0.000242   0.059135
+    3  MN 1  S    0.000000   0.000000   0.000000  -0.001471  -0.129546
+    4  MN 1  S    0.000000   0.000000   0.000000  -0.018076  -0.168529
+    5  MN 1  S    0.000000   0.000000  -0.000000   0.013458  -0.019731
+    6  MN 1  S    0.000000   0.000000  -0.000000   0.010342   0.440160
+    7  MN 1  S    0.000000   0.000000   0.000000   0.013620   0.458918
+    8  MN 1  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+    9  MN 1  Y    0.000000   0.000000   0.000000  -0.000000   0.000000
+   10  MN 1  Z    0.000000   0.000000   0.000000  -0.002355  -0.020969
+   11  MN 1  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+   12  MN 1  Y    0.000000   0.000000   0.000000  -0.000000   0.000000
+   13  MN 1  Z    0.000000   0.000000  -0.000000   0.006485   0.059621
+   14  MN 1  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+   15  MN 1  Y    0.000000   0.000000   0.000000  -0.000000   0.000000
+   16  MN 1  Z    0.000000   0.000000   0.000000   0.001923   0.021222
+   17  MN 1  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+   18  MN 1  Y    0.000000   0.000000   0.000000  -0.000000   0.000000
+   19  MN 1  Z    0.000000   0.000000   0.000000  -0.004787  -0.086599
+   20  MN 1  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+   21  MN 1  Y    0.000000   0.000000   0.000000  -0.000000   0.000000
+   22  MN 1  Z    0.000000   0.000000   0.000000  -0.009481  -0.098181
+   23  MN 1  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+   24  MN 1  Y    0.000000   0.000000   0.000000  -0.000000   0.000000
+   25  MN 1  Z    0.000000   0.000000  -0.000000  -0.003241  -0.004359
+   26  MN 1 XX    0.000000   0.000000  -0.309977  -0.180284   0.002006
+   27  MN 1 YY    0.000000   0.000000   0.309977  -0.180284   0.002006
+   28  MN 1 ZZ    0.000000   0.000000  -0.000000   0.360568  -0.004013
+   29  MN 1 XY    0.357337   0.357931   0.000000  -0.000000   0.000000
+   30  MN 1 XZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   31  MN 1 YZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   32  MN 1 XX    0.000000   0.000000  -0.227859  -0.132389   0.001610
+   33  MN 1 YY    0.000000   0.000000   0.227859  -0.132389   0.001610
+   34  MN 1 ZZ    0.000000   0.000000  -0.000000   0.264778  -0.003220
+   35  MN 1 XY    0.262817   0.263109   0.000000  -0.000000   0.000000
+   36  MN 1 XZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   37  MN 1 YZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   38  MN 1 XX    0.000000   0.000000  -0.177426  -0.103079   0.001309
+   39  MN 1 YY    0.000000   0.000000   0.177426  -0.103079   0.001309
+   40  MN 1 ZZ    0.000000   0.000000  -0.000000   0.206158  -0.002618
+   41  MN 1 XY    0.204244   0.204874   0.000000  -0.000000   0.000000
+   42  MN 1 XZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   43  MN 1 YZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   44  MN 1 XX    0.000000   0.000000  -0.065081  -0.037087   0.003380
+   45  MN 1 YY    0.000000   0.000000   0.065081  -0.037087   0.003380
+   46  MN 1 ZZ    0.000000   0.000000  -0.000000   0.074174  -0.006760
+   47  MN 1 XY    0.076193   0.075149   0.000000  -0.000000   0.000000
+   48  MN 1 XZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   49  MN 1 YZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   50  MN 1 XXX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   51  MN 1 YYY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   52  MN 1 ZZZ   0.000000   0.000000   0.000000   0.000003   0.000002
+   53  MN 1 XXY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   54  MN 1 XXZ   0.000000   0.000000   0.000000  -0.000002  -0.000001
+   55  MN 1 YYX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   56  MN 1 YYZ   0.000000   0.000000  -0.000000  -0.000002  -0.000001
+   57  MN 1 ZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   58  MN 1 ZZY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   59  MN 1 XYZ  -0.000002  -0.000000   0.000000  -0.000000   0.000000
+   60  MN 1 XXX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   61  MN 1 YYY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   62  MN 1 ZZZ   0.000000   0.000000   0.000000  -0.000021  -0.000057
+   63  MN 1 XXY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   64  MN 1 XXZ   0.000000   0.000000   0.000004   0.000014   0.000038
+   65  MN 1 YYX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   66  MN 1 YYZ   0.000000   0.000000  -0.000004   0.000014   0.000038
+   67  MN 1 ZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   68  MN 1 ZZY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   69  MN 1 XYZ   0.000013  -0.000005   0.000000  -0.000000   0.000000
+   70  MN 1 XXX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   71  MN 1 YYY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   72  MN 1 ZZZ   0.000000   0.000000  -0.000000   0.000111   0.000031
+   73  MN 1 XXY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   74  MN 1 XXZ   0.000000   0.000000  -0.000044  -0.000074  -0.000021
+   75  MN 1 YYX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   76  MN 1 YYZ   0.000000   0.000000   0.000044  -0.000074  -0.000021
+   77  MN 1 ZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   78  MN 1 ZZY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   79  MN 1 XYZ   0.000004   0.000051   0.000000  -0.000000   0.000000
+   80  MN 1 XXX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   81  MN 1 YYY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   82  MN 1 ZZZ   0.000000   0.000000   0.000000   0.000007  -0.000964
+   83  MN 1 XXY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   84  MN 1 XXZ   0.000000   0.000000  -0.000269  -0.000004   0.000647
+   85  MN 1 YYX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   86  MN 1 YYZ   0.000000   0.000000   0.000269  -0.000004   0.000647
+   87  MN 1 ZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   88  MN 1 ZZY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   89  MN 1 XYZ   0.000580   0.000311   0.000000  -0.000000   0.000000
+   90  MN 1XXXX   0.000000   0.000000  -0.000007  -0.000002   0.000002
+   91  MN 1YYYY   0.000000   0.000000   0.000007  -0.000002   0.000002
+   92  MN 1ZZZZ   0.000000   0.000000  -0.000000  -0.000004   0.000005
+   93  MN 1XXXY   0.000007   0.000005   0.000000  -0.000000   0.000000
+   94  MN 1XXXZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   95  MN 1YYYX   0.000007   0.000005   0.000000  -0.000000   0.000000
+   96  MN 1YYYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   97  MN 1ZZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   98  MN 1ZZZY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   99  MN 1XXYY   0.000000   0.000000  -0.000000  -0.000001   0.000001
+  100  MN 1XXZZ   0.000000   0.000000   0.000013   0.000004  -0.000004
+  101  MN 1YYZZ   0.000000   0.000000  -0.000013   0.000004  -0.000004
+  102  MN 1XXYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+  103  MN 1YYXZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+  104  MN 1ZZXY  -0.000018  -0.000014   0.000000  -0.000000   0.000000
+  105  MN 1XXXX   0.000000   0.000000  -0.000051  -0.000108  -0.000017
+  106  MN 1YYYY   0.000000   0.000000   0.000051  -0.000108  -0.000017
+  107  MN 1ZZZZ   0.000000   0.000000   0.000000  -0.000289  -0.000046
+  108  MN 1XXXY   0.000017   0.000039   0.000000  -0.000000   0.000000
+  109  MN 1XXXZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+  110  MN 1YYYX   0.000017   0.000039   0.000000  -0.000000   0.000000
+  111  MN 1YYYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+  112  MN 1ZZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+  113  MN 1ZZZY   0.000000   0.000000   0.000000  -0.000000   0.000000
+  114  MN 1XXYY   0.000000   0.000000  -0.000000  -0.000063  -0.000010
+  115  MN 1XXZZ   0.000000   0.000000   0.000090   0.000254   0.000040
+  116  MN 1YYZZ   0.000000   0.000000  -0.000090   0.000254   0.000040
+  117  MN 1XXYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+  118  MN 1YYXZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+  119  MN 1ZZXY  -0.000045  -0.000103   0.000000  -0.000000   0.000000
+  120  MN 2  S    0.000000   0.000000  -0.000000   0.000138   0.016691
+  121  MN 2  S    0.000000   0.000000  -0.000000  -0.000242  -0.059135
+  122  MN 2  S    0.000000   0.000000  -0.000000   0.001471   0.129546
+  123  MN 2  S    0.000000   0.000000  -0.000000   0.018076   0.168529
+  124  MN 2  S    0.000000   0.000000   0.000000  -0.013458   0.019731
+  125  MN 2  S    0.000000   0.000000   0.000000  -0.010342  -0.440160
+  126  MN 2  S    0.000000   0.000000  -0.000000  -0.013620  -0.458918
+  127  MN 2  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+  128  MN 2  Y    0.000000   0.000000   0.000000  -0.000000   0.000000
+  129  MN 2  Z    0.000000   0.000000   0.000000  -0.002355  -0.020969
+  130  MN 2  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+  131  MN 2  Y    0.000000   0.000000   0.000000  -0.000000   0.000000
+  132  MN 2  Z    0.000000   0.000000  -0.000000   0.006485   0.059621
+  133  MN 2  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+  134  MN 2  Y    0.000000   0.000000   0.000000  -0.000000   0.000000
+  135  MN 2  Z    0.000000   0.000000   0.000000   0.001923   0.021222
+  136  MN 2  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+  137  MN 2  Y    0.000000   0.000000   0.000000  -0.000000   0.000000
+  138  MN 2  Z    0.000000   0.000000   0.000000  -0.004787  -0.086599
+  139  MN 2  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+  140  MN 2  Y    0.000000   0.000000   0.000000  -0.000000   0.000000
+  141  MN 2  Z    0.000000   0.000000   0.000000  -0.009481  -0.098181
+  142  MN 2  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+  143  MN 2  Y    0.000000   0.000000   0.000000  -0.000000   0.000000
+  144  MN 2  Z    0.000000   0.000000  -0.000000  -0.003241  -0.004359
+  145  MN 2 XX    0.000000   0.000000   0.309977   0.180284  -0.002006
+  146  MN 2 YY    0.000000   0.000000  -0.309977   0.180284  -0.002006
+  147  MN 2 ZZ    0.000000   0.000000   0.000000  -0.360568   0.004013
+  148  MN 2 XY    0.357337  -0.357931   0.000000  -0.000000   0.000000
+  149  MN 2 XZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+  150  MN 2 YZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+  151  MN 2 XX    0.000000   0.000000   0.227859   0.132389  -0.001610
+  152  MN 2 YY    0.000000   0.000000  -0.227859   0.132389  -0.001610
+  153  MN 2 ZZ    0.000000   0.000000   0.000000  -0.264778   0.003220
+  154  MN 2 XY    0.262817  -0.263109   0.000000  -0.000000   0.000000
+  155  MN 2 XZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+  156  MN 2 YZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+  157  MN 2 XX    0.000000   0.000000   0.177426   0.103079  -0.001309
+  158  MN 2 YY    0.000000   0.000000  -0.177426   0.103079  -0.001309
+  159  MN 2 ZZ    0.000000   0.000000   0.000000  -0.206158   0.002618
+  160  MN 2 XY    0.204244  -0.204874   0.000000  -0.000000   0.000000
+  161  MN 2 XZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+  162  MN 2 YZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+  163  MN 2 XX    0.000000   0.000000   0.065081   0.037087  -0.003380
+  164  MN 2 YY    0.000000   0.000000  -0.065081   0.037087  -0.003380
+  165  MN 2 ZZ    0.000000   0.000000   0.000000  -0.074174   0.006760
+  166  MN 2 XY    0.076193  -0.075149   0.000000  -0.000000   0.000000
+  167  MN 2 XZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+  168  MN 2 YZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+  169  MN 2 XXX   0.000000   0.000000   0.000000  -0.000000   0.000000
+  170  MN 2 YYY   0.000000   0.000000   0.000000  -0.000000   0.000000
+  171  MN 2 ZZZ   0.000000   0.000000   0.000000   0.000003   0.000002
+  172  MN 2 XXY   0.000000   0.000000   0.000000  -0.000000   0.000000
+  173  MN 2 XXZ   0.000000   0.000000   0.000000  -0.000002  -0.000001
+  174  MN 2 YYX   0.000000   0.000000   0.000000  -0.000000   0.000000
+  175  MN 2 YYZ   0.000000   0.000000  -0.000000  -0.000002  -0.000001
+  176  MN 2 ZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+  177  MN 2 ZZY   0.000000   0.000000   0.000000  -0.000000   0.000000
+  178  MN 2 XYZ   0.000002  -0.000000   0.000000  -0.000000   0.000000
+  179  MN 2 XXX   0.000000   0.000000   0.000000  -0.000000   0.000000
+  180  MN 2 YYY   0.000000   0.000000   0.000000  -0.000000   0.000000
+  181  MN 2 ZZZ   0.000000   0.000000   0.000000  -0.000021  -0.000057
+  182  MN 2 XXY   0.000000   0.000000   0.000000  -0.000000   0.000000
+  183  MN 2 XXZ   0.000000   0.000000   0.000004   0.000014   0.000038
+  184  MN 2 YYX   0.000000   0.000000   0.000000  -0.000000   0.000000
+  185  MN 2 YYZ   0.000000   0.000000  -0.000004   0.000014   0.000038
+  186  MN 2 ZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+  187  MN 2 ZZY   0.000000   0.000000   0.000000  -0.000000   0.000000
+  188  MN 2 XYZ  -0.000013  -0.000005   0.000000  -0.000000   0.000000
+  189  MN 2 XXX   0.000000   0.000000   0.000000  -0.000000   0.000000
+  190  MN 2 YYY   0.000000   0.000000   0.000000  -0.000000   0.000000
+  191  MN 2 ZZZ   0.000000   0.000000  -0.000000   0.000111   0.000031
+  192  MN 2 XXY   0.000000   0.000000   0.000000  -0.000000   0.000000
+  193  MN 2 XXZ   0.000000   0.000000  -0.000044  -0.000074  -0.000021
+  194  MN 2 YYX   0.000000   0.000000   0.000000  -0.000000   0.000000
+  195  MN 2 YYZ   0.000000   0.000000   0.000044  -0.000074  -0.000021
+  196  MN 2 ZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+  197  MN 2 ZZY   0.000000   0.000000   0.000000  -0.000000   0.000000
+  198  MN 2 XYZ  -0.000004   0.000051   0.000000  -0.000000   0.000000
+  199  MN 2 XXX   0.000000   0.000000   0.000000  -0.000000   0.000000
+  200  MN 2 YYY   0.000000   0.000000   0.000000  -0.000000   0.000000
+  201  MN 2 ZZZ   0.000000   0.000000   0.000000   0.000007  -0.000964
+  202  MN 2 XXY   0.000000   0.000000   0.000000  -0.000000   0.000000
+  203  MN 2 XXZ   0.000000   0.000000  -0.000269  -0.000004   0.000647
+  204  MN 2 YYX   0.000000   0.000000   0.000000  -0.000000   0.000000
+  205  MN 2 YYZ   0.000000   0.000000   0.000269  -0.000004   0.000647
+  206  MN 2 ZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+  207  MN 2 ZZY   0.000000   0.000000   0.000000  -0.000000   0.000000
+  208  MN 2 XYZ  -0.000580   0.000311   0.000000  -0.000000   0.000000
+  209  MN 2XXXX   0.000000   0.000000   0.000007   0.000002  -0.000002
+  210  MN 2YYYY   0.000000   0.000000  -0.000007   0.000002  -0.000002
+  211  MN 2ZZZZ   0.000000   0.000000   0.000000   0.000004  -0.000005
+  212  MN 2XXXY   0.000007  -0.000005   0.000000  -0.000000   0.000000
+  213  MN 2XXXZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+  214  MN 2YYYX   0.000007  -0.000005   0.000000  -0.000000   0.000000
+  215  MN 2YYYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+  216  MN 2ZZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+  217  MN 2ZZZY   0.000000   0.000000   0.000000  -0.000000   0.000000
+  218  MN 2XXYY   0.000000   0.000000   0.000000   0.000001  -0.000001
+  219  MN 2XXZZ   0.000000   0.000000  -0.000013  -0.000004   0.000004
+  220  MN 2YYZZ   0.000000   0.000000   0.000013  -0.000004   0.000004
+  221  MN 2XXYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+  222  MN 2YYXZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+  223  MN 2ZZXY  -0.000018   0.000014   0.000000  -0.000000   0.000000
+  224  MN 2XXXX   0.000000   0.000000   0.000051   0.000108   0.000017
+  225  MN 2YYYY   0.000000   0.000000  -0.000051   0.000108   0.000017
+  226  MN 2ZZZZ   0.000000   0.000000  -0.000000   0.000289   0.000046
+  227  MN 2XXXY   0.000017  -0.000039   0.000000  -0.000000   0.000000
+  228  MN 2XXXZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+  229  MN 2YYYX   0.000017  -0.000039   0.000000  -0.000000   0.000000
+  230  MN 2YYYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+  231  MN 2ZZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+  232  MN 2ZZZY   0.000000   0.000000   0.000000  -0.000000   0.000000
+  233  MN 2XXYY   0.000000   0.000000   0.000000   0.000063   0.000010
+  234  MN 2XXZZ   0.000000   0.000000  -0.000090  -0.000254  -0.000040
+  235  MN 2YYZZ   0.000000   0.000000   0.000090  -0.000254  -0.000040
+  236  MN 2XXYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+  237  MN 2YYXZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+  238  MN 2ZZXY  -0.000045   0.000103   0.000000  -0.000000   0.000000
+
+                     31         32         33         34         35
+                    0.9829     0.0283     0.0270     0.0270     0.0145
+                     AG         B1U        B2U        B3U        B2G 
+    1  MN 1  S    0.008298  -0.016200  -0.000000  -0.000000   0.000000
+    2  MN 1  S   -0.030630   0.061269  -0.000000  -0.000000   0.000000
+    3  MN 1  S    0.063941  -0.123191  -0.000000  -0.000000   0.000000
+    4  MN 1  S   -0.098735   0.269252  -0.000000  -0.000000   0.000000
+    5  MN 1  S    0.170763  -0.413112  -0.000000  -0.000000   0.000000
+    6  MN 1  S   -0.319371   0.713664  -0.000000  -0.000000   0.000000
+    7  MN 1  S   -0.067548   0.026582  -0.000000  -0.000000   0.000000
+    8  MN 1  X    0.000000   0.000000  -0.000000   0.059329   0.063894
+    9  MN 1  Y    0.000000   0.000000   0.059329  -0.000000   0.000000
+   10  MN 1  Z    0.059101   0.067760  -0.000000  -0.000000   0.000000
+   11  MN 1  X    0.000000   0.000000  -0.000000  -0.167262  -0.181505
+   12  MN 1  Y    0.000000   0.000000  -0.167262  -0.000000   0.000000
+   13  MN 1  Z   -0.168273  -0.197183  -0.000000  -0.000000   0.000000
+   14  MN 1  X    0.000000   0.000000  -0.000000  -0.084281  -0.088341
+   15  MN 1  Y    0.000000   0.000000  -0.084281  -0.000000   0.000000
+   16  MN 1  Z   -0.065167  -0.090245  -0.000000  -0.000000   0.000000
+   17  MN 1  X    0.000000   0.000000  -0.000000   0.345440   0.380772
+   18  MN 1  Y    0.000000   0.000000   0.345440  -0.000000   0.000000
+   19  MN 1  Z    0.279557   0.505133  -0.000000  -0.000000   0.000000
+   20  MN 1  X    0.000000   0.000000  -0.000000   0.378493   0.481142
+   21  MN 1  Y    0.000000   0.000000   0.378493  -0.000000   0.000000
+   22  MN 1  Z    0.360760   0.596333  -0.000000  -0.000000   0.000000
+   23  MN 1  X    0.000000   0.000000  -0.000000   0.010962   0.041675
+   24  MN 1  Y    0.000000   0.000000   0.010962  -0.000000   0.000000
+   25  MN 1  Z    0.057801   0.035793  -0.000000  -0.000000   0.000000
+   26  MN 1 XX    0.004093  -0.021257  -0.000000  -0.000000   0.000000
+   27  MN 1 YY    0.004093  -0.021257  -0.000000  -0.000000   0.000000
+   28  MN 1 ZZ   -0.008186   0.042515  -0.000000  -0.000000   0.000000
+   29  MN 1 XY    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   30  MN 1 XZ    0.000000   0.000000  -0.000000  -0.017333   0.015409
+   31  MN 1 YZ    0.000000   0.000000  -0.017333  -0.000000   0.000000
+   32  MN 1 XX    0.003484  -0.015993  -0.000000  -0.000000   0.000000
+   33  MN 1 YY    0.003484  -0.015993  -0.000000  -0.000000   0.000000
+   34  MN 1 ZZ   -0.006967   0.031987  -0.000000  -0.000000   0.000000
+   35  MN 1 XY    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   36  MN 1 XZ    0.000000   0.000000  -0.000000  -0.011662   0.011339
+   37  MN 1 YZ    0.000000   0.000000  -0.011662  -0.000000   0.000000
+   38  MN 1 XX    0.001322  -0.010387  -0.000000  -0.000000   0.000000
+   39  MN 1 YY    0.001322  -0.010387  -0.000000  -0.000000   0.000000
+   40  MN 1 ZZ   -0.002643   0.020774  -0.000000  -0.000000   0.000000
+   41  MN 1 XY    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   42  MN 1 XZ    0.000000   0.000000  -0.000000  -0.015551   0.010168
+   43  MN 1 YZ    0.000000   0.000000  -0.015551  -0.000000   0.000000
+   44  MN 1 XX    0.006566  -0.007830  -0.000000  -0.000000   0.000000
+   45  MN 1 YY    0.006566  -0.007830  -0.000000  -0.000000   0.000000
+   46  MN 1 ZZ   -0.013132   0.015660  -0.000000  -0.000000   0.000000
+   47  MN 1 XY    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   48  MN 1 XZ    0.000000   0.000000  -0.000000   0.024057  -0.009615
+   49  MN 1 YZ    0.000000   0.000000   0.024057  -0.000000   0.000000
+   50  MN 1 XXX   0.000000   0.000000  -0.000000   0.000035  -0.000002
+   51  MN 1 YYY   0.000000   0.000000   0.000035  -0.000000   0.000000
+   52  MN 1 ZZZ  -0.000002  -0.000025  -0.000000  -0.000000   0.000000
+   53  MN 1 XXY   0.000000   0.000000   0.000016  -0.000000   0.000000
+   54  MN 1 XXZ   0.000001   0.000017  -0.000000  -0.000000   0.000000
+   55  MN 1 YYX   0.000000   0.000000  -0.000000   0.000016  -0.000001
+   56  MN 1 YYZ   0.000001   0.000017  -0.000000  -0.000000   0.000000
+   57  MN 1 ZZX   0.000000   0.000000  -0.000000  -0.000063   0.000003
+   58  MN 1 ZZY   0.000000   0.000000  -0.000063  -0.000000   0.000000
+   59  MN 1 XYZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   60  MN 1 XXX   0.000000   0.000000  -0.000000  -0.000406   0.000011
+   61  MN 1 YYY   0.000000   0.000000  -0.000406  -0.000000   0.000000
+   62  MN 1 ZZZ   0.000215  -0.000003  -0.000000  -0.000000   0.000000
+   63  MN 1 XXY   0.000000   0.000000  -0.000182  -0.000000   0.000000
+   64  MN 1 XXZ  -0.000144   0.000002  -0.000000  -0.000000   0.000000
+   65  MN 1 YYX   0.000000   0.000000  -0.000000  -0.000182   0.000005
+   66  MN 1 YYZ  -0.000144   0.000002  -0.000000  -0.000000   0.000000
+   67  MN 1 ZZX   0.000000   0.000000  -0.000000   0.000727  -0.000020
+   68  MN 1 ZZY   0.000000   0.000000   0.000727  -0.000000   0.000000
+   69  MN 1 XYZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   70  MN 1 XXX   0.000000   0.000000  -0.000000   0.001011  -0.000003
+   71  MN 1 YYY   0.000000   0.000000   0.001011  -0.000000   0.000000
+   72  MN 1 ZZZ  -0.000072  -0.000766  -0.000000  -0.000000   0.000000
+   73  MN 1 XXY   0.000000   0.000000   0.000452  -0.000000   0.000000
+   74  MN 1 XXZ   0.000049   0.000514  -0.000000  -0.000000   0.000000
+   75  MN 1 YYX   0.000000   0.000000  -0.000000   0.000452  -0.000001
+   76  MN 1 YYZ   0.000049   0.000514  -0.000000  -0.000000   0.000000
+   77  MN 1 ZZX   0.000000   0.000000  -0.000000  -0.001809   0.000005
+   78  MN 1 ZZY   0.000000   0.000000  -0.001809  -0.000000   0.000000
+   79  MN 1 XYZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   80  MN 1 XXX   0.000000   0.000000  -0.000000  -0.006082   0.000160
+   81  MN 1 YYY   0.000000   0.000000  -0.006082  -0.000000   0.000000
+   82  MN 1 ZZZ   0.003258   0.000095  -0.000000  -0.000000   0.000000
+   83  MN 1 XXY   0.000000   0.000000  -0.002720  -0.000000   0.000000
+   84  MN 1 XXZ  -0.002186  -0.000064  -0.000000  -0.000000   0.000000
+   85  MN 1 YYX   0.000000   0.000000  -0.000000  -0.002720   0.000071
+   86  MN 1 YYZ  -0.002186  -0.000064  -0.000000  -0.000000   0.000000
+   87  MN 1 ZZX   0.000000   0.000000  -0.000000   0.010881  -0.000285
+   88  MN 1 ZZY   0.000000   0.000000   0.010881  -0.000000   0.000000
+   89  MN 1 XYZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   90  MN 1XXXX  -0.000008  -0.000009  -0.000000  -0.000000   0.000000
+   91  MN 1YYYY  -0.000008  -0.000009  -0.000000  -0.000000   0.000000
+   92  MN 1ZZZZ  -0.000023  -0.000023  -0.000000  -0.000000   0.000000
+   93  MN 1XXXY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   94  MN 1XXXZ   0.000000   0.000000  -0.000000   0.000117  -0.000015
+   95  MN 1YYYX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   96  MN 1YYYZ   0.000000   0.000000   0.000117  -0.000000   0.000000
+   97  MN 1ZZZX   0.000000   0.000000  -0.000000  -0.000156   0.000020
+   98  MN 1ZZZY   0.000000   0.000000  -0.000156  -0.000000   0.000000
+   99  MN 1XXYY  -0.000005  -0.000005  -0.000000  -0.000000   0.000000
+  100  MN 1XXZZ   0.000020   0.000020  -0.000000  -0.000000   0.000000
+  101  MN 1YYZZ   0.000020   0.000020  -0.000000  -0.000000   0.000000
+  102  MN 1XXYZ   0.000000   0.000000   0.000052  -0.000000   0.000000
+  103  MN 1YYXZ   0.000000   0.000000  -0.000000   0.000052  -0.000007
+  104  MN 1ZZXY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+  105  MN 1XXXX   0.000106  -0.000168  -0.000000  -0.000000   0.000000
+  106  MN 1YYYY   0.000106  -0.000168  -0.000000  -0.000000   0.000000
+  107  MN 1ZZZZ   0.000283  -0.000449  -0.000000  -0.000000   0.000000
+  108  MN 1XXXY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+  109  MN 1XXXZ   0.000000   0.000000  -0.000000  -0.001203   0.000378
+  110  MN 1YYYX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+  111  MN 1YYYZ   0.000000   0.000000  -0.001203  -0.000000   0.000000
+  112  MN 1ZZZX   0.000000   0.000000  -0.000000   0.001604  -0.000504
+  113  MN 1ZZZY   0.000000   0.000000   0.001604  -0.000000   0.000000
+  114  MN 1XXYY   0.000062  -0.000099  -0.000000  -0.000000   0.000000
+  115  MN 1XXZZ  -0.000248   0.000394  -0.000000  -0.000000   0.000000
+  116  MN 1YYZZ  -0.000248   0.000394  -0.000000  -0.000000   0.000000
+  117  MN 1XXYZ   0.000000   0.000000  -0.000538  -0.000000   0.000000
+  118  MN 1YYXZ   0.000000   0.000000  -0.000000  -0.000538   0.000169
+  119  MN 1ZZXY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+  120  MN 2  S    0.008298   0.016200  -0.000000  -0.000000   0.000000
+  121  MN 2  S   -0.030630  -0.061269  -0.000000  -0.000000   0.000000
+  122  MN 2  S    0.063941   0.123191  -0.000000  -0.000000   0.000000
+  123  MN 2  S   -0.098735  -0.269252  -0.000000  -0.000000   0.000000
+  124  MN 2  S    0.170763   0.413112  -0.000000  -0.000000   0.000000
+  125  MN 2  S   -0.319371  -0.713664  -0.000000  -0.000000   0.000000
+  126  MN 2  S   -0.067548  -0.026582  -0.000000  -0.000000   0.000000
+  127  MN 2  X    0.000000   0.000000  -0.000000   0.059329  -0.063894
+  128  MN 2  Y    0.000000   0.000000   0.059329  -0.000000   0.000000
+  129  MN 2  Z   -0.059101   0.067760  -0.000000  -0.000000   0.000000
+  130  MN 2  X    0.000000   0.000000  -0.000000  -0.167262   0.181505
+  131  MN 2  Y    0.000000   0.000000  -0.167262  -0.000000   0.000000
+  132  MN 2  Z    0.168273  -0.197183  -0.000000  -0.000000   0.000000
+  133  MN 2  X    0.000000   0.000000  -0.000000  -0.084281   0.088341
+  134  MN 2  Y    0.000000   0.000000  -0.084281  -0.000000   0.000000
+  135  MN 2  Z    0.065167  -0.090245  -0.000000  -0.000000   0.000000
+  136  MN 2  X    0.000000   0.000000  -0.000000   0.345440  -0.380772
+  137  MN 2  Y    0.000000   0.000000   0.345440  -0.000000   0.000000
+  138  MN 2  Z   -0.279557   0.505133  -0.000000  -0.000000   0.000000
+  139  MN 2  X    0.000000   0.000000  -0.000000   0.378493  -0.481142
+  140  MN 2  Y    0.000000   0.000000   0.378493  -0.000000   0.000000
+  141  MN 2  Z   -0.360760   0.596333  -0.000000  -0.000000   0.000000
+  142  MN 2  X    0.000000   0.000000  -0.000000   0.010962  -0.041675
+  143  MN 2  Y    0.000000   0.000000   0.010962  -0.000000   0.000000
+  144  MN 2  Z   -0.057801   0.035793  -0.000000  -0.000000   0.000000
+  145  MN 2 XX    0.004093   0.021257  -0.000000  -0.000000   0.000000
+  146  MN 2 YY    0.004093   0.021257  -0.000000  -0.000000   0.000000
+  147  MN 2 ZZ   -0.008186  -0.042515  -0.000000  -0.000000   0.000000
+  148  MN 2 XY    0.000000   0.000000  -0.000000  -0.000000   0.000000
+  149  MN 2 XZ    0.000000   0.000000  -0.000000   0.017333   0.015409
+  150  MN 2 YZ    0.000000   0.000000   0.017333  -0.000000   0.000000
+  151  MN 2 XX    0.003484   0.015993  -0.000000  -0.000000   0.000000
+  152  MN 2 YY    0.003484   0.015993  -0.000000  -0.000000   0.000000
+  153  MN 2 ZZ   -0.006967  -0.031987  -0.000000  -0.000000   0.000000
+  154  MN 2 XY    0.000000   0.000000  -0.000000  -0.000000   0.000000
+  155  MN 2 XZ    0.000000   0.000000  -0.000000   0.011662   0.011339
+  156  MN 2 YZ    0.000000   0.000000   0.011662  -0.000000   0.000000
+  157  MN 2 XX    0.001322   0.010387  -0.000000  -0.000000   0.000000
+  158  MN 2 YY    0.001322   0.010387  -0.000000  -0.000000   0.000000
+  159  MN 2 ZZ   -0.002643  -0.020774  -0.000000  -0.000000   0.000000
+  160  MN 2 XY    0.000000   0.000000  -0.000000  -0.000000   0.000000
+  161  MN 2 XZ    0.000000   0.000000  -0.000000   0.015551   0.010168
+  162  MN 2 YZ    0.000000   0.000000   0.015551  -0.000000   0.000000
+  163  MN 2 XX    0.006566   0.007830  -0.000000  -0.000000   0.000000
+  164  MN 2 YY    0.006566   0.007830  -0.000000  -0.000000   0.000000
+  165  MN 2 ZZ   -0.013132  -0.015660  -0.000000  -0.000000   0.000000
+  166  MN 2 XY    0.000000   0.000000  -0.000000  -0.000000   0.000000
+  167  MN 2 XZ    0.000000   0.000000  -0.000000  -0.024057  -0.009615
+  168  MN 2 YZ    0.000000   0.000000  -0.024057  -0.000000   0.000000
+  169  MN 2 XXX   0.000000   0.000000  -0.000000   0.000035   0.000002
+  170  MN 2 YYY   0.000000   0.000000   0.000035  -0.000000   0.000000
+  171  MN 2 ZZZ   0.000002  -0.000025  -0.000000  -0.000000   0.000000
+  172  MN 2 XXY   0.000000   0.000000   0.000016  -0.000000   0.000000
+  173  MN 2 XXZ  -0.000001   0.000017  -0.000000  -0.000000   0.000000
+  174  MN 2 YYX   0.000000   0.000000  -0.000000   0.000016   0.000001
+  175  MN 2 YYZ  -0.000001   0.000017  -0.000000  -0.000000   0.000000
+  176  MN 2 ZZX   0.000000   0.000000  -0.000000  -0.000063  -0.000003
+  177  MN 2 ZZY   0.000000   0.000000  -0.000063  -0.000000   0.000000
+  178  MN 2 XYZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+  179  MN 2 XXX   0.000000   0.000000  -0.000000  -0.000406  -0.000011
+  180  MN 2 YYY   0.000000   0.000000  -0.000406  -0.000000   0.000000
+  181  MN 2 ZZZ  -0.000215  -0.000003  -0.000000  -0.000000   0.000000
+  182  MN 2 XXY   0.000000   0.000000  -0.000182  -0.000000   0.000000
+  183  MN 2 XXZ   0.000144   0.000002  -0.000000  -0.000000   0.000000
+  184  MN 2 YYX   0.000000   0.000000  -0.000000  -0.000182  -0.000005
+  185  MN 2 YYZ   0.000144   0.000002  -0.000000  -0.000000   0.000000
+  186  MN 2 ZZX   0.000000   0.000000  -0.000000   0.000727   0.000020
+  187  MN 2 ZZY   0.000000   0.000000   0.000727  -0.000000   0.000000
+  188  MN 2 XYZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+  189  MN 2 XXX   0.000000   0.000000  -0.000000   0.001011   0.000003
+  190  MN 2 YYY   0.000000   0.000000   0.001011  -0.000000   0.000000
+  191  MN 2 ZZZ   0.000072  -0.000766  -0.000000  -0.000000   0.000000
+  192  MN 2 XXY   0.000000   0.000000   0.000452  -0.000000   0.000000
+  193  MN 2 XXZ  -0.000049   0.000514  -0.000000  -0.000000   0.000000
+  194  MN 2 YYX   0.000000   0.000000  -0.000000   0.000452   0.000001
+  195  MN 2 YYZ  -0.000049   0.000514  -0.000000  -0.000000   0.000000
+  196  MN 2 ZZX   0.000000   0.000000  -0.000000  -0.001809  -0.000005
+  197  MN 2 ZZY   0.000000   0.000000  -0.001809  -0.000000   0.000000
+  198  MN 2 XYZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+  199  MN 2 XXX   0.000000   0.000000  -0.000000  -0.006082  -0.000160
+  200  MN 2 YYY   0.000000   0.000000  -0.006082  -0.000000   0.000000
+  201  MN 2 ZZZ  -0.003258   0.000095  -0.000000  -0.000000   0.000000
+  202  MN 2 XXY   0.000000   0.000000  -0.002720  -0.000000   0.000000
+  203  MN 2 XXZ   0.002186  -0.000064  -0.000000  -0.000000   0.000000
+  204  MN 2 YYX   0.000000   0.000000  -0.000000  -0.002720  -0.000071
+  205  MN 2 YYZ   0.002186  -0.000064  -0.000000  -0.000000   0.000000
+  206  MN 2 ZZX   0.000000   0.000000  -0.000000   0.010881   0.000285
+  207  MN 2 ZZY   0.000000   0.000000   0.010881  -0.000000   0.000000
+  208  MN 2 XYZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+  209  MN 2XXXX  -0.000008   0.000009  -0.000000  -0.000000   0.000000
+  210  MN 2YYYY  -0.000008   0.000009  -0.000000  -0.000000   0.000000
+  211  MN 2ZZZZ  -0.000023   0.000023  -0.000000  -0.000000   0.000000
+  212  MN 2XXXY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+  213  MN 2XXXZ   0.000000   0.000000  -0.000000  -0.000117  -0.000015
+  214  MN 2YYYX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+  215  MN 2YYYZ   0.000000   0.000000  -0.000117  -0.000000   0.000000
+  216  MN 2ZZZX   0.000000   0.000000  -0.000000   0.000156   0.000020
+  217  MN 2ZZZY   0.000000   0.000000   0.000156  -0.000000   0.000000
+  218  MN 2XXYY  -0.000005   0.000005  -0.000000  -0.000000   0.000000
+  219  MN 2XXZZ   0.000020  -0.000020  -0.000000  -0.000000   0.000000
+  220  MN 2YYZZ   0.000020  -0.000020  -0.000000  -0.000000   0.000000
+  221  MN 2XXYZ   0.000000   0.000000  -0.000052  -0.000000   0.000000
+  222  MN 2YYXZ   0.000000   0.000000  -0.000000  -0.000052  -0.000007
+  223  MN 2ZZXY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+  224  MN 2XXXX   0.000106   0.000168  -0.000000  -0.000000   0.000000
+  225  MN 2YYYY   0.000106   0.000168  -0.000000  -0.000000   0.000000
+  226  MN 2ZZZZ   0.000283   0.000449  -0.000000  -0.000000   0.000000
+  227  MN 2XXXY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+  228  MN 2XXXZ   0.000000   0.000000  -0.000000   0.001203   0.000378
+  229  MN 2YYYX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+  230  MN 2YYYZ   0.000000   0.000000   0.001203  -0.000000   0.000000
+  231  MN 2ZZZX   0.000000   0.000000  -0.000000  -0.001604  -0.000504
+  232  MN 2ZZZY   0.000000   0.000000  -0.001604  -0.000000   0.000000
+  233  MN 2XXYY   0.000062   0.000099  -0.000000  -0.000000   0.000000
+  234  MN 2XXZZ  -0.000248  -0.000394  -0.000000  -0.000000   0.000000
+  235  MN 2YYZZ  -0.000248  -0.000394  -0.000000  -0.000000   0.000000
+  236  MN 2XXYZ   0.000000   0.000000   0.000538  -0.000000   0.000000
+  237  MN 2YYXZ   0.000000   0.000000  -0.000000   0.000538   0.000169
+  238  MN 2ZZXY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+
+                     36
+                    0.0145
+                     B3G 
+    1  MN 1  S   -0.000000
+    2  MN 1  S   -0.000000
+    3  MN 1  S   -0.000000
+    4  MN 1  S   -0.000000
+    5  MN 1  S   -0.000000
+    6  MN 1  S   -0.000000
+    7  MN 1  S   -0.000000
+    8  MN 1  X   -0.000000
+    9  MN 1  Y    0.063894
+   10  MN 1  Z   -0.000000
+   11  MN 1  X   -0.000000
+   12  MN 1  Y   -0.181505
+   13  MN 1  Z   -0.000000
+   14  MN 1  X   -0.000000
+   15  MN 1  Y   -0.088341
+   16  MN 1  Z   -0.000000
+   17  MN 1  X   -0.000000
+   18  MN 1  Y    0.380772
+   19  MN 1  Z   -0.000000
+   20  MN 1  X   -0.000000
+   21  MN 1  Y    0.481142
+   22  MN 1  Z   -0.000000
+   23  MN 1  X   -0.000000
+   24  MN 1  Y    0.041675
+   25  MN 1  Z   -0.000000
+   26  MN 1 XX   -0.000000
+   27  MN 1 YY   -0.000000
+   28  MN 1 ZZ   -0.000000
+   29  MN 1 XY   -0.000000
+   30  MN 1 XZ   -0.000000
+   31  MN 1 YZ    0.015409
+   32  MN 1 XX   -0.000000
+   33  MN 1 YY   -0.000000
+   34  MN 1 ZZ   -0.000000
+   35  MN 1 XY   -0.000000
+   36  MN 1 XZ   -0.000000
+   37  MN 1 YZ    0.011339
+   38  MN 1 XX   -0.000000
+   39  MN 1 YY   -0.000000
+   40  MN 1 ZZ   -0.000000
+   41  MN 1 XY   -0.000000
+   42  MN 1 XZ   -0.000000
+   43  MN 1 YZ    0.010168
+   44  MN 1 XX   -0.000000
+   45  MN 1 YY   -0.000000
+   46  MN 1 ZZ   -0.000000
+   47  MN 1 XY   -0.000000
+   48  MN 1 XZ   -0.000000
+   49  MN 1 YZ   -0.009615
+   50  MN 1 XXX  -0.000000
+   51  MN 1 YYY  -0.000002
+   52  MN 1 ZZZ  -0.000000
+   53  MN 1 XXY  -0.000001
+   54  MN 1 XXZ  -0.000000
+   55  MN 1 YYX  -0.000000
+   56  MN 1 YYZ  -0.000000
+   57  MN 1 ZZX  -0.000000
+   58  MN 1 ZZY   0.000003
+   59  MN 1 XYZ  -0.000000
+   60  MN 1 XXX  -0.000000
+   61  MN 1 YYY   0.000011
+   62  MN 1 ZZZ  -0.000000
+   63  MN 1 XXY   0.000005
+   64  MN 1 XXZ  -0.000000
+   65  MN 1 YYX  -0.000000
+   66  MN 1 YYZ  -0.000000
+   67  MN 1 ZZX  -0.000000
+   68  MN 1 ZZY  -0.000020
+   69  MN 1 XYZ  -0.000000
+   70  MN 1 XXX  -0.000000
+   71  MN 1 YYY  -0.000003
+   72  MN 1 ZZZ  -0.000000
+   73  MN 1 XXY  -0.000001
+   74  MN 1 XXZ  -0.000000
+   75  MN 1 YYX  -0.000000
+   76  MN 1 YYZ  -0.000000
+   77  MN 1 ZZX  -0.000000
+   78  MN 1 ZZY   0.000005
+   79  MN 1 XYZ  -0.000000
+   80  MN 1 XXX  -0.000000
+   81  MN 1 YYY   0.000160
+   82  MN 1 ZZZ  -0.000000
+   83  MN 1 XXY   0.000071
+   84  MN 1 XXZ  -0.000000
+   85  MN 1 YYX  -0.000000
+   86  MN 1 YYZ  -0.000000
+   87  MN 1 ZZX  -0.000000
+   88  MN 1 ZZY  -0.000285
+   89  MN 1 XYZ  -0.000000
+   90  MN 1XXXX  -0.000000
+   91  MN 1YYYY  -0.000000
+   92  MN 1ZZZZ  -0.000000
+   93  MN 1XXXY  -0.000000
+   94  MN 1XXXZ  -0.000000
+   95  MN 1YYYX  -0.000000
+   96  MN 1YYYZ  -0.000015
+   97  MN 1ZZZX  -0.000000
+   98  MN 1ZZZY   0.000020
+   99  MN 1XXYY  -0.000000
+  100  MN 1XXZZ  -0.000000
+  101  MN 1YYZZ  -0.000000
+  102  MN 1XXYZ  -0.000007
+  103  MN 1YYXZ  -0.000000
+  104  MN 1ZZXY  -0.000000
+  105  MN 1XXXX  -0.000000
+  106  MN 1YYYY  -0.000000
+  107  MN 1ZZZZ  -0.000000
+  108  MN 1XXXY  -0.000000
+  109  MN 1XXXZ  -0.000000
+  110  MN 1YYYX  -0.000000
+  111  MN 1YYYZ   0.000378
+  112  MN 1ZZZX  -0.000000
+  113  MN 1ZZZY  -0.000504
+  114  MN 1XXYY  -0.000000
+  115  MN 1XXZZ  -0.000000
+  116  MN 1YYZZ  -0.000000
+  117  MN 1XXYZ   0.000169
+  118  MN 1YYXZ  -0.000000
+  119  MN 1ZZXY  -0.000000
+  120  MN 2  S   -0.000000
+  121  MN 2  S   -0.000000
+  122  MN 2  S   -0.000000
+  123  MN 2  S   -0.000000
+  124  MN 2  S   -0.000000
+  125  MN 2  S   -0.000000
+  126  MN 2  S   -0.000000
+  127  MN 2  X   -0.000000
+  128  MN 2  Y   -0.063894
+  129  MN 2  Z   -0.000000
+  130  MN 2  X   -0.000000
+  131  MN 2  Y    0.181505
+  132  MN 2  Z   -0.000000
+  133  MN 2  X   -0.000000
+  134  MN 2  Y    0.088341
+  135  MN 2  Z   -0.000000
+  136  MN 2  X   -0.000000
+  137  MN 2  Y   -0.380772
+  138  MN 2  Z   -0.000000
+  139  MN 2  X   -0.000000
+  140  MN 2  Y   -0.481142
+  141  MN 2  Z   -0.000000
+  142  MN 2  X   -0.000000
+  143  MN 2  Y   -0.041675
+  144  MN 2  Z   -0.000000
+  145  MN 2 XX   -0.000000
+  146  MN 2 YY   -0.000000
+  147  MN 2 ZZ   -0.000000
+  148  MN 2 XY   -0.000000
+  149  MN 2 XZ   -0.000000
+  150  MN 2 YZ    0.015409
+  151  MN 2 XX   -0.000000
+  152  MN 2 YY   -0.000000
+  153  MN 2 ZZ   -0.000000
+  154  MN 2 XY   -0.000000
+  155  MN 2 XZ   -0.000000
+  156  MN 2 YZ    0.011339
+  157  MN 2 XX   -0.000000
+  158  MN 2 YY   -0.000000
+  159  MN 2 ZZ   -0.000000
+  160  MN 2 XY   -0.000000
+  161  MN 2 XZ   -0.000000
+  162  MN 2 YZ    0.010168
+  163  MN 2 XX   -0.000000
+  164  MN 2 YY   -0.000000
+  165  MN 2 ZZ   -0.000000
+  166  MN 2 XY   -0.000000
+  167  MN 2 XZ   -0.000000
+  168  MN 2 YZ   -0.009615
+  169  MN 2 XXX  -0.000000
+  170  MN 2 YYY   0.000002
+  171  MN 2 ZZZ  -0.000000
+  172  MN 2 XXY   0.000001
+  173  MN 2 XXZ  -0.000000
+  174  MN 2 YYX  -0.000000
+  175  MN 2 YYZ  -0.000000
+  176  MN 2 ZZX  -0.000000
+  177  MN 2 ZZY  -0.000003
+  178  MN 2 XYZ  -0.000000
+  179  MN 2 XXX  -0.000000
+  180  MN 2 YYY  -0.000011
+  181  MN 2 ZZZ  -0.000000
+  182  MN 2 XXY  -0.000005
+  183  MN 2 XXZ  -0.000000
+  184  MN 2 YYX  -0.000000
+  185  MN 2 YYZ  -0.000000
+  186  MN 2 ZZX  -0.000000
+  187  MN 2 ZZY   0.000020
+  188  MN 2 XYZ  -0.000000
+  189  MN 2 XXX  -0.000000
+  190  MN 2 YYY   0.000003
+  191  MN 2 ZZZ  -0.000000
+  192  MN 2 XXY   0.000001
+  193  MN 2 XXZ  -0.000000
+  194  MN 2 YYX  -0.000000
+  195  MN 2 YYZ  -0.000000
+  196  MN 2 ZZX  -0.000000
+  197  MN 2 ZZY  -0.000005
+  198  MN 2 XYZ  -0.000000
+  199  MN 2 XXX  -0.000000
+  200  MN 2 YYY  -0.000160
+  201  MN 2 ZZZ  -0.000000
+  202  MN 2 XXY  -0.000071
+  203  MN 2 XXZ  -0.000000
+  204  MN 2 YYX  -0.000000
+  205  MN 2 YYZ  -0.000000
+  206  MN 2 ZZX  -0.000000
+  207  MN 2 ZZY   0.000285
+  208  MN 2 XYZ  -0.000000
+  209  MN 2XXXX  -0.000000
+  210  MN 2YYYY  -0.000000
+  211  MN 2ZZZZ  -0.000000
+  212  MN 2XXXY  -0.000000
+  213  MN 2XXXZ  -0.000000
+  214  MN 2YYYX  -0.000000
+  215  MN 2YYYZ  -0.000015
+  216  MN 2ZZZX  -0.000000
+  217  MN 2ZZZY   0.000020
+  218  MN 2XXYY  -0.000000
+  219  MN 2XXZZ  -0.000000
+  220  MN 2YYZZ  -0.000000
+  221  MN 2XXYZ  -0.000007
+  222  MN 2YYXZ  -0.000000
+  223  MN 2ZZXY  -0.000000
+  224  MN 2XXXX  -0.000000
+  225  MN 2YYYY  -0.000000
+  226  MN 2ZZZZ  -0.000000
+  227  MN 2XXXY  -0.000000
+  228  MN 2XXXZ  -0.000000
+  229  MN 2YYYX  -0.000000
+  230  MN 2YYYZ   0.000378
+  231  MN 2ZZZX  -0.000000
+  232  MN 2ZZZY  -0.000504
+  233  MN 2XXYY  -0.000000
+  234  MN 2XXZZ  -0.000000
+  235  MN 2YYZZ  -0.000000
+  236  MN 2XXYZ   0.000169
+  237  MN 2YYXZ  -0.000000
+  238  MN 2ZZXY  -0.000000
+ ..... DONE WITH ONE PARTICLE DENSITY MATRIX .....
+ STEP CPU TIME =     0.05 TOTAL CPU TIME =       16.9 (    0.3 MIN)
+ TOTAL WALL CLOCK TIME=       32.8 SECONDS, CPU UTILIZATION IS  51.57%
+
+     -------------------------------------------------------
+      ONE AND TWO PARTICLE ORMAS DENSITY MATRIX COMPUTATION
+                  PROGRAM WRITTEN BY JOE IVANIC
+     -------------------------------------------------------
+
+ THE DENSITIES ARE STATE AVERAGED OVER   1 ROOT(S)
+ STATE=   1   ENERGY=    -2299.7078319442   WEIGHT= 1.00000   S=  6.00
+ SIEVING THE AG   SYMMETRY NONZERO DENSITY ELEMENTS IN GROUP D2H     
+       1071 NONZERO DM2 ELEMENTS WRITTEN IN       1 RECORDS TO FILE 15
+ ..... DONE WITH 1 AND 2 PARTICLE DENSITY MATRIX .....
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =       16.9 (    0.3 MIN)
+ TOTAL WALL CLOCK TIME=       32.8 SECONDS, CPU UTILIZATION IS  51.60%
+
+     --------------------------------------------------------
+     ORMAS CI PROPERTIES...FOR THE WAVEFUNCTION OF STATE    1
+               USING THE EXPECTATION VALUE DENSITY
+     --------------------------------------------------------
+
+          -----------------
+          ENERGY COMPONENTS
+          -----------------
+
+         WAVEFUNCTION NORMALIZATION =       1.0000000000
+
+                ONE ELECTRON ENERGY =   -3379.1546034181
+                TWO ELECTRON ENERGY =     975.2801048072
+           NUCLEAR REPULSION ENERGY =     104.1666666667
+                                      ------------------
+                       TOTAL ENERGY =   -2299.7078319442
+
+ ELECTRON-ELECTRON POTENTIAL ENERGY =     975.2801048072
+  NUCLEUS-ELECTRON POTENTIAL ENERGY =   -5678.4468465725
+   NUCLEUS-NUCLEUS POTENTIAL ENERGY =     104.1666666667
+                                      ------------------
+             TOTAL POTENTIAL ENERGY =   -4599.0000750986
+               TOTAL KINETIC ENERGY =    2299.2922431544
+                 VIRIAL RATIO (V/T) =       2.0001807464
+
+          ---------------------------------------
+          MULLIKEN AND LOWDIN POPULATION ANALYSES
+          ---------------------------------------
+
+               ----- POPULATIONS IN EACH AO -----
+                             MULLIKEN      LOWDIN
+              1  MN 1  S      1.99965     1.99379
+              2  MN 1  S      1.99647     1.76201
+              3  MN 1  S      1.22160     0.38821
+              4  MN 1  S      0.67754     0.22094
+              5  MN 1  S      0.08114     0.24789
+              6  MN 1  S      0.84154     0.22563
+              7  MN 1  S      0.51161     0.34779
+              8  MN 1  X      1.99977     1.68503
+              9  MN 1  Y      1.99977     1.68503
+             10  MN 1  Z      1.99981     1.68628
+             11  MN 1  X      1.58718     0.44683
+             12  MN 1  Y      1.58718     0.44683
+             13  MN 1  Z      1.60242     0.45273
+             14  MN 1  X      0.41140     0.22205
+             15  MN 1  Y      0.41140     0.22205
+             16  MN 1  Z      0.39301     0.22271
+             17  MN 1  X      0.00788     0.03484
+             18  MN 1  Y      0.00788     0.03484
+             19  MN 1  Z      0.23809     0.18502
+             20  MN 1  X      0.01447     0.01189
+             21  MN 1  Y      0.01447     0.01189
+             22  MN 1  Z      0.36585     0.31309
+             23  MN 1  X      0.00004     0.00266
+             24  MN 1  Y      0.00004     0.00266
+             25  MN 1  Z      0.02666     0.15853
+             26  MN 1 XX      0.40288     0.39781
+             27  MN 1 YY      0.40321     0.39781
+             28  MN 1 ZZ      0.40321     0.39770
+             29  MN 1 XY      0.40254     0.29422
+             30  MN 1 XZ      0.40254     0.29373
+             31  MN 1 YZ      0.00000     0.29373
+             32  MN 1 XX      0.33584     0.21410
+             33  MN 1 YY      0.33645     0.21410
+             34  MN 1 ZZ      0.33645     0.21364
+             35  MN 1 XY      0.33598     0.18874
+             36  MN 1 XZ      0.33598     0.18833
+             37  MN 1 YZ      0.00000     0.18833
+             38  MN 1 XX      0.21526     0.11189
+             39  MN 1 YY      0.21483     0.11189
+             40  MN 1 ZZ      0.21483     0.11585
+             41  MN 1 XY      0.21455     0.10324
+             42  MN 1 XZ      0.21455     0.10338
+             43  MN 1 YZ      0.00000     0.10338
+             44  MN 1 XX      0.04898     0.17192
+             45  MN 1 YY      0.04547     0.17192
+             46  MN 1 ZZ      0.04547     0.19466
+             47  MN 1 XY      0.04693     0.03834
+             48  MN 1 XZ      0.04693     0.03914
+             49  MN 1 YZ      0.00000     0.03914
+             50  MN 1 XXX     0.00000     0.20440
+             51  MN 1 YYY    -0.00000     0.20440
+             52  MN 1 ZZZ    -0.00000     0.20516
+             53  MN 1 XXY    -0.00000     0.09295
+             54  MN 1 XXZ    -0.00000     0.09323
+             55  MN 1 YYX    -0.00000     0.09295
+             56  MN 1 YYZ     0.00000     0.09323
+             57  MN 1 ZZX     0.00000     0.09295
+             58  MN 1 ZZY     0.00000     0.09295
+             59  MN 1 XYZ     0.00000     0.00000
+             60  MN 1 XXX     0.00000     0.38133
+             61  MN 1 YYY     0.00000     0.38133
+             62  MN 1 ZZZ     0.00000     0.38823
+             63  MN 1 XXY     0.00000     0.15543
+             64  MN 1 XXZ     0.00000     0.15819
+             65  MN 1 YYX     0.00000     0.15543
+             66  MN 1 YYZ     0.00000     0.15819
+             67  MN 1 ZZX     0.00000     0.15539
+             68  MN 1 ZZY     0.00000     0.15539
+             69  MN 1 XYZ     0.00000     0.00000
+             70  MN 1 XXX     0.00000     0.26559
+             71  MN 1 YYY     0.00000     0.26559
+             72  MN 1 ZZZ    -0.00000     0.26602
+             73  MN 1 XXY    -0.00000     0.10897
+             74  MN 1 XXZ    -0.00000     0.10936
+             75  MN 1 YYX     0.00000     0.10897
+             76  MN 1 YYZ     0.00000     0.10936
+             77  MN 1 ZZX     0.00000     0.10887
+             78  MN 1 ZZY     0.00000     0.10887
+             79  MN 1 XYZ     0.00000     0.00000
+             80  MN 1 XXX     0.00000     0.02807
+             81  MN 1 YYY     0.00000     0.02807
+             82  MN 1 ZZZ     0.00002     0.07056
+             83  MN 1 XXY     0.00021     0.01176
+             84  MN 1 XXZ     0.00002     0.02944
+             85  MN 1 YYX     0.00000     0.01176
+             86  MN 1 YYZ     0.00000     0.02944
+             87  MN 1 ZZX     0.00000     0.01188
+             88  MN 1 ZZY     0.00000     0.01188
+             89  MN 1 XYZ     0.00000     0.00000
+             90  MN 1XXXX     0.00000     0.19896
+             91  MN 1YYYY     0.00000     0.19896
+             92  MN 1ZZZZ     0.00000     0.19879
+             93  MN 1XXXY    -0.00000     0.09872
+             94  MN 1XXXZ    -0.00000     0.09855
+             95  MN 1YYYX    -0.00000     0.09872
+             96  MN 1YYYZ     0.00000     0.09855
+             97  MN 1ZZZX     0.00000     0.09853
+             98  MN 1ZZZY     0.00000     0.09853
+             99  MN 1XXYY     0.00000     0.11509
+            100  MN 1XXZZ     0.00000     0.11505
+            101  MN 1YYZZ     0.00000     0.11505
+            102  MN 1XXYZ     0.00000     0.04498
+            103  MN 1YYXZ     0.00000     0.04498
+            104  MN 1ZZXY     0.00000     0.04504
+            105  MN 1XXXX     0.00000     0.08791
+            106  MN 1YYYY     0.00000     0.08791
+            107  MN 1ZZZZ     0.00000     0.09098
+            108  MN 1XXXY     0.00000     0.05452
+            109  MN 1XXXZ     0.00001     0.05466
+            110  MN 1YYYX     0.00000     0.05452
+            111  MN 1YYYZ     0.00000     0.05466
+            112  MN 1ZZZX     0.00000     0.05459
+            113  MN 1ZZZY     0.00000     0.05459
+            114  MN 1XXYY     0.00000     0.03961
+            115  MN 1XXZZ     0.00000     0.04096
+            116  MN 1YYZZ     0.00000     0.04096
+            117  MN 1XXYZ     0.00000     0.02399
+            118  MN 1YYXZ     0.00000     0.02399
+            119  MN 1ZZXY     0.00000     0.02390
+            120  MN 2  S      1.99965     1.99379
+            121  MN 2  S      1.99647     1.76201
+            122  MN 2  S      1.22160     0.38821
+            123  MN 2  S      0.67754     0.22094
+            124  MN 2  S      0.08114     0.24789
+            125  MN 2  S      0.84154     0.22563
+            126  MN 2  S      0.51161     0.34779
+            127  MN 2  X      1.99977     1.68503
+            128  MN 2  Y      1.99977     1.68503
+            129  MN 2  Z      1.99981     1.68628
+            130  MN 2  X      1.58718     0.44683
+            131  MN 2  Y      1.58718     0.44683
+            132  MN 2  Z      1.60242     0.45273
+            133  MN 2  X      0.41140     0.22205
+            134  MN 2  Y      0.41140     0.22205
+            135  MN 2  Z      0.39301     0.22271
+            136  MN 2  X      0.00788     0.03484
+            137  MN 2  Y      0.00788     0.03484
+            138  MN 2  Z      0.23809     0.18502
+            139  MN 2  X      0.01447     0.01189
+            140  MN 2  Y      0.01447     0.01189
+            141  MN 2  Z      0.36585     0.31309
+            142  MN 2  X      0.00004     0.00266
+            143  MN 2  Y      0.00004     0.00266
+            144  MN 2  Z      0.02666     0.15853
+            145  MN 2 XX      0.40288     0.39781
+            146  MN 2 YY      0.40321     0.39781
+            147  MN 2 ZZ      0.40321     0.39770
+            148  MN 2 XY      0.40254     0.29422
+            149  MN 2 XZ      0.40254     0.29373
+            150  MN 2 YZ      0.00000     0.29373
+            151  MN 2 XX      0.33584     0.21410
+            152  MN 2 YY      0.33645     0.21410
+            153  MN 2 ZZ      0.33645     0.21364
+            154  MN 2 XY      0.33598     0.18874
+            155  MN 2 XZ      0.33598     0.18833
+            156  MN 2 YZ      0.00000     0.18833
+            157  MN 2 XX      0.21526     0.11189
+            158  MN 2 YY      0.21483     0.11189
+            159  MN 2 ZZ      0.21483     0.11585
+            160  MN 2 XY      0.21455     0.10324
+            161  MN 2 XZ      0.21455     0.10338
+            162  MN 2 YZ      0.00000     0.10338
+            163  MN 2 XX      0.04898     0.17192
+            164  MN 2 YY      0.04547     0.17192
+            165  MN 2 ZZ      0.04547     0.19466
+            166  MN 2 XY      0.04693     0.03834
+            167  MN 2 XZ      0.04693     0.03914
+            168  MN 2 YZ      0.00000     0.03914
+            169  MN 2 XXX     0.00000     0.20440
+            170  MN 2 YYY    -0.00000     0.20440
+            171  MN 2 ZZZ    -0.00000     0.20516
+            172  MN 2 XXY    -0.00000     0.09295
+            173  MN 2 XXZ    -0.00000     0.09323
+            174  MN 2 YYX    -0.00000     0.09295
+            175  MN 2 YYZ     0.00000     0.09323
+            176  MN 2 ZZX     0.00000     0.09295
+            177  MN 2 ZZY     0.00000     0.09295
+            178  MN 2 XYZ     0.00000     0.00000
+            179  MN 2 XXX     0.00000     0.38133
+            180  MN 2 YYY     0.00000     0.38133
+            181  MN 2 ZZZ     0.00000     0.38823
+            182  MN 2 XXY     0.00000     0.15543
+            183  MN 2 XXZ     0.00000     0.15819
+            184  MN 2 YYX     0.00000     0.15543
+            185  MN 2 YYZ     0.00000     0.15819
+            186  MN 2 ZZX     0.00000     0.15539
+            187  MN 2 ZZY     0.00000     0.15539
+            188  MN 2 XYZ     0.00000     0.00000
+            189  MN 2 XXX     0.00000     0.26559
+            190  MN 2 YYY     0.00000     0.26559
+            191  MN 2 ZZZ    -0.00000     0.26602
+            192  MN 2 XXY    -0.00000     0.10897
+            193  MN 2 XXZ    -0.00000     0.10936
+            194  MN 2 YYX     0.00000     0.10897
+            195  MN 2 YYZ     0.00000     0.10936
+            196  MN 2 ZZX     0.00000     0.10887
+            197  MN 2 ZZY     0.00000     0.10887
+            198  MN 2 XYZ     0.00000     0.00000
+            199  MN 2 XXX     0.00000     0.02807
+            200  MN 2 YYY     0.00000     0.02807
+            201  MN 2 ZZZ     0.00002     0.07056
+            202  MN 2 XXY     0.00021     0.01176
+            203  MN 2 XXZ     0.00002     0.02944
+            204  MN 2 YYX     0.00000     0.01176
+            205  MN 2 YYZ     0.00000     0.02944
+            206  MN 2 ZZX     0.00000     0.01188
+            207  MN 2 ZZY     0.00000     0.01188
+            208  MN 2 XYZ     0.00000     0.00000
+            209  MN 2XXXX     0.00000     0.19896
+            210  MN 2YYYY     0.00000     0.19896
+            211  MN 2ZZZZ     0.00000     0.19879
+            212  MN 2XXXY    -0.00000     0.09872
+            213  MN 2XXXZ    -0.00000     0.09855
+            214  MN 2YYYX    -0.00000     0.09872
+            215  MN 2YYYZ     0.00000     0.09855
+            216  MN 2ZZZX     0.00000     0.09853
+            217  MN 2ZZZY     0.00000     0.09853
+            218  MN 2XXYY     0.00000     0.11509
+            219  MN 2XXZZ     0.00000     0.11505
+            220  MN 2YYZZ     0.00000     0.11505
+            221  MN 2XXYZ     0.00000     0.04498
+            222  MN 2YYXZ     0.00000     0.04498
+            223  MN 2ZZXY     0.00000     0.04504
+            224  MN 2XXXX     0.00000     0.08791
+            225  MN 2YYYY     0.00000     0.08791
+            226  MN 2ZZZZ     0.00000     0.09098
+            227  MN 2XXXY     0.00000     0.05452
+            228  MN 2XXXZ     0.00001     0.05466
+            229  MN 2YYYX     0.00000     0.05452
+            230  MN 2YYYZ     0.00000     0.05466
+            231  MN 2ZZZX     0.00000     0.05459
+            232  MN 2ZZZY     0.00000     0.05459
+            233  MN 2XXYY     0.00000     0.03961
+            234  MN 2XXZZ     0.00000     0.04096
+            235  MN 2YYZZ     0.00000     0.04096
+            236  MN 2XXYZ     0.00000     0.02399
+            237  MN 2YYXZ     0.00000     0.02399
+            238  MN 2ZZXY     0.00000     0.02390
+
+          ----- MULLIKEN ATOMIC OVERLAP POPULATIONS -----
+          (OFF-DIAGONAL ELEMENTS NEED TO BE MULTIPLIED BY 2)
+
+             1           2
+
+    1   24.8548317
+    2    0.1451683  24.8548317
+
+          TOTAL MULLIKEN AND LOWDIN ATOMIC POPULATIONS
+       ATOM         MULL.POP.    CHARGE          LOW.POP.     CHARGE
+    1 MN           25.000000    0.000000        25.000000    0.000000
+    2 MN           25.000000    0.000000        25.000000    0.000000
+
+          MULLIKEN SPHERICAL HARMONIC POPULATIONS
+       ATOM           S       P       D      F      G      H      I    TOTAL
+    1 MN            7.33   12.67    5.00   0.00   0.00   0.00   0.00   25.00
+    2 MN            7.33   12.67    5.00   0.00   0.00   0.00   0.00   25.00
+
+          ---------------------
+          ELECTROSTATIC MOMENTS
+          ---------------------
+
+ POINT   1           X           Y           Z (BOHR)    CHARGE
+                 0.000000    0.000000    0.000000        0.00 (A.U.)
+         DX          DY          DZ         /D/  (DEBYE)
+     0.000000    0.000000    0.000000    0.000000
+ ...... END OF PROPERTY EVALUATION ......
+ STEP CPU TIME =     0.12 TOTAL CPU TIME =       17.1 (    0.3 MIN)
+ TOTAL WALL CLOCK TIME=       33.0 SECONDS, CPU UTILIZATION IS  51.78%
+              7112656  WORDS OF DYNAMIC MEMORY USED
+ EXECUTION OF GAMESS TERMINATED NORMALLY Mon Nov 28 17:57:59 2016
+ DDI: 263640 bytes (0.3 MB / 0 MWords) used by master data server.
+
+ ----------------------------------------
+ CPU timing information for all processes
+ ========================================
+ 0: 15.626 + 1.452 = 17.79
+ ----------------------------------------
+ ddikick.x: exited gracefully.
+unset echo
+----- accounting info -----
+Files used on the master node compute-3-0 were:
+-rw-rw-r-- 1 sarom sarom    142422 Nov 29  2016 .//ormas-mn2-cisd.dat
+-rw-rw-r-- 1 sarom sarom    705455 Nov 28  2016 .//ormas-mn2-cisd.F05
+-rw-rw-r-- 1 sarom sarom 308007376 Nov 28  2016 .//ormas-mn2-cisd.F08
+-rw-rw-r-- 1 sarom sarom    181392 Nov 29  2016 .//ormas-mn2-cisd.F09
+-rw-rw-r-- 1 sarom sarom   6871200 Nov 29  2016 .//ormas-mn2-cisd.F10
+-rw-rw-r-- 1 sarom sarom      7392 Nov 29  2016 .//ormas-mn2-cisd.F12
+-rw-rw-r-- 1 sarom sarom    185352 Nov 29  2016 .//ormas-mn2-cisd.F15
+-rw-rw-r-- 1 sarom sarom    705455 Nov 28 17:27 .//ormas-mn2-cisd.inp
+-rw-rw-r-- 1 sarom sarom    174232 Nov 29  2016 .//ormas-mn2-cisd.log
+Mon Nov 28 17:58:03 CST 2016
+0.223u 0.107s 0:37.63 0.8%	0+0k 0+1512io 0pf+0w

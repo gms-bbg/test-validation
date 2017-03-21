@@ -1,0 +1,490 @@
+----- GAMESS execution script 'rungms' -----
+This job is running on host bolt.iprt.iastate.edu
+under operating system Linux at Tue Nov 29 15:28:01 CST 2016
+Available scratch disk space (Kbyte units) at beginning of the job is
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/sda4            9590469592 1553689968 7549611728  18% /state/partition1
+Copying input file nacl-pmf.inp to your run's scratch directory...
+cp nacl-pmf.inp .//nacl-pmf.F05
+unset echo
+/home/sarom/gamessGH/ddikick.x /home/sarom/gamessGH/gamess.00.x nacl-pmf -ddi 1 1 localhost -scr ./
+
+ Distributed Data Interface kickoff program.
+ Initiating 1 compute processes on 1 nodes to run the following command:
+ /home/sarom/gamessGH/gamess.00.x nacl-pmf 
+
+          ******************************************************
+          *         GAMESS VERSION = 18 AUG 2016 (R1)          *
+          *             FROM IOWA STATE UNIVERSITY             *
+          * M.W.SCHMIDT, K.K.BALDRIDGE, J.A.BOATZ, S.T.ELBERT, *
+          *   M.S.GORDON, J.H.JENSEN, S.KOSEKI, N.MATSUNAGA,   *
+          *          K.A.NGUYEN, S.J.SU, T.L.WINDUS,           *
+          *       TOGETHER WITH M.DUPUIS, J.A.MONTGOMERY       *
+          *         J.COMPUT.CHEM.  14, 1347-1363(1993)        *
+          **************** 64 BIT LINUX VERSION ****************
+
+  SINCE 1993, STUDENTS AND POSTDOCS WORKING AT IOWA STATE UNIVERSITY
+  AND ALSO IN THEIR VARIOUS JOBS AFTER LEAVING ISU HAVE MADE IMPORTANT
+  CONTRIBUTIONS TO THE CODE:
+     IVANA ADAMOVIC, CHRISTINE AIKENS, YURI ALEXEEV, POOJA ARORA,
+     ANDREY ASADCHEV, ROB BELL, PRADIPTA BANDYOPADHYAY, JONATHAN BENTZ,
+     BRETT BODE, KURT BRORSEN, CALEB CARLIN, GALINA CHABAN, WEI CHEN,
+     CHEOL HO CHOI, PAUL DAY, ALBERT DEFUSCO, NUWAN DESILVA, TIM DUDLEY,
+     DMITRI FEDOROV, GRAHAM FLETCHER, MARK FREITAG, KURT GLAESEMANN,
+     DAN KEMP, GRANT MERRILL, NORIYUKI MINEZAWA, JONATHAN MULLIN,
+     TAKESHI NAGATA, SEAN NEDD, HEATHER NETZLOFF, BOSILJKA NJEGIC, RYAN OLSON,
+     MIKE PAK, SPENCER PRUITT, LUKE ROSKOP, JIM SHOEMAKER, LYUDMILA SLIPCHENKO,
+     TONY SMITH, SAROM SOK LEANG, JIE SONG, TETSUYA TAKETSUGU, SIMON WEBB,
+     PENG XU, SOOHAENG YOO, FEDERICO ZAHARIEV
+
+  ADDITIONAL CODE HAS BEEN PROVIDED BY COLLABORATORS IN OTHER GROUPS:
+     IOWA STATE UNIVERSITY:
+          JOE IVANIC, AARON WEST, LAIMUTIS BYTAUTAS, KLAUS RUEDENBERG
+     UNIVERSITY OF TOKYO: KIMIHIKO HIRAO, TAKAHITO NAKAJIMA,
+          TAKAO TSUNEDA, MUNEAKI KAMIYA, SUSUMU YANAGISAWA,
+          KIYOSHI YAGI, MAHITO CHIBA, SEIKEN TOKURA, NAOAKI KAWAKAMI
+     UNIVERSITY OF AARHUS: FRANK JENSEN
+     UNIVERSITY OF IOWA: VISVALDAS KAIRYS, HUI LI
+     NATIONAL INST. OF STANDARDS AND TECHNOLOGY: WALT STEVENS, DAVID GARMER
+     UNIVERSITY OF PISA: BENEDETTA MENNUCCI, JACOPO TOMASI
+     UNIVERSITY OF MEMPHIS: HENRY KURTZ, PRAKASHAN KORAMBATH
+     UNIVERSITY OF ALBERTA: TOBY ZENG, MARIUSZ KLOBUKOWSKI
+     UNIVERSITY OF NEW ENGLAND: MARK SPACKMAN
+     MIE UNIVERSITY: HIROAKI UMEDA
+     NAT. INST. OF ADVANCED INDUSTRIAL SCIENCE AND TECHNOLOGY: KAZUO KITAURA
+     MICHIGAN STATE UNIVERSITY:
+          KAROL KOWALSKI, MARTA WLOCH, JEFFREY GOUR, JESSE LUTZ,
+          WEI LI, PIOTR PIECUCH
+     UNIVERSITY OF SILESIA: MONIKA MUSIAL, STANISLAW KUCHARSKI
+     FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX:
+          OLIVIER QUINET, BENOIT CHAMPAGNE
+     UNIVERSITY OF CALIFORNIA - SANTA BARBARA: BERNARD KIRTMAN
+     INSTITUTE FOR MOLECULAR SCIENCE:
+          KAZUYA ISHIMURA, MICHIO KATOUDA, AND SHIGERU NAGASE
+     UNIVERSITY OF NOTRE DAME: ANNA POMOGAEVA, DAN CHIPMAN
+     KYUSHU UNIVERSITY:
+          HARUYUKI NAKANO,
+          FENG LONG GU, JACEK KORCHOWIEC, MARCIN MAKOWSKI, AND YURIKO AOKI,
+          HIROTOSHI MORI AND EISAKU MIYOSHI
+     PENNSYLVANIA STATE UNIVERSITY:
+          TZVETELIN IORDANOV, CHET SWALINA, JONATHAN SKONE,
+          SHARON HAMMES-SCHIFFER
+     WASEDA UNIVERSITY:
+          MASATO KOBAYASHI, TOMOKO AKAMA, TSUGUKI TOUMA,
+          TAKESHI YOSHIKAWA, YASUHIRO IKABATA, JUNJI SEINO,
+          YUYA NAKAJIMA, HIROMI NAKAI
+     NANJING UNIVERSITY: SHUHUA LI
+     UNIVERSITY OF NEBRASKA:
+          PEIFENG SU, DEJUN SI, NANDUN THELLAMUREGE, YALI WANG, HUI LI
+     UNIVERSITY OF ZURICH: ROBERTO PEVERATI, KIM BALDRIDGE
+     N. COPERNICUS UNIVERSITY AND JACKSON STATE UNIVERSITY:
+          MARIA BARYSZ
+     UNIVERSITY OF COPENHAGEN: Jimmy Kromann, CASPER STEINMANN
+     TOKYO INSTITUTE OF TECHNOLOGY: HIROYA NAKATA
+     NAGOYA UNIVERSITY: YOSHIO NISHIMOTO, STEPHAN IRLE
+     MOSCOW STATE UNIVERSITY: VLADIMIR MIRONOV
+
+ EXECUTION OF GAMESS BEGUN Tue Nov 29 15:28:02 2016
+
+            ECHO OF THE FIRST FEW INPUT CARDS -
+ INPUT CARD>!  To calculate part of the Na+Cl- dissociation free energy curve, often        
+ INPUT CARD>!  called potential of mean force (PMF) in the literature.                      
+ INPUT CARD>!                                                                               
+ INPUT CARD>!  In $FFDATA, NaCl distance is 2.50 angstrom, and is fixed.                    
+ INPUT CARD>!  In $FFDATB, NaCl distance is 2.60 angstrom, and is fixed.                    
+ INPUT CARD>!  TIP5P-Ew (504) water model is used with shifting function.                   
+ INPUT CARD>!  IEWALD=2 can be used at a higher cost, delivering almost the same result.    
+ INPUT CARD>!                                                                               
+ INPUT CARD>!  The relative free energy converges to about -2.1 kcal/mol at NSTEP=10000.    
+ INPUT CARD>!  (it is impossible to reproduce MD trojactory for more than 5000 steps)       
+ INPUT CARD>!                                                                               
+ INPUT CARD>!  TOTAL     ENERGY =     -7042.6872639297  KCAL/MOL                            
+ INPUT CARD>!  TOTAL     ENERGY =     -7038.1205048414  KCAL/MOL                            
+ INPUT CARD>!                                                                               
+ INPUT CARD> $CONTRL RUNTYP=MD COORD=FRAGONLY $END                                          
+ INPUT CARD> $SYSTEM TIMLIM=99 MWORDS=50 $END                                               
+ INPUT CARD> $QUANPO                                                                        
+ INPUT CARD>         IFEPTOP=1 IFEPTYP=2 WSIMUL=0.0 WPERT1=1.0                              
+ INPUT CARD>         NFIXMM=2 1 2 NFIXMMB=2 1 2                                             
+ INPUT CARD>         KFREEA=2 1 2 KFREEB=2 1 2                                              
+ INPUT CARD>         DT=1.0D-15 TEMP0=298.15 NSTEP=100 JOUT=100 KOUT=100 ITYPWAT=504        
+ INPUT CARD>         NFFTYP=0 SWRA=10 SWRB=12 ITSTAT=1 IPSTAT=1 IRATTLE=10  IEWALD=0        
+ INPUT CARD>         CENTX=0.0000000000   CENTY=0.0000000000   CENTZ=0.0000000000           
+ INPUT CARD>         XBOX=28.9067903740   YBOX=28.9067903740   ZBOX=28.9067903740           
+ INPUT CARD> $END                                                                           
+ INPUT CARD> $FFDATA                                                                        
+ INPUT CARD> COORDINATES  NUC                   X                   Y                   Z   
+ INPUT CARD> NA1         11.0    -1.2500000000000     0.0000000000000     0.0000000000000   
+ INPUT CARD> CL1         17.0     1.2500000000000     0.0000000000000     0.0000000000000   
+ INPUT CARD> O1           8.0   -17.7873547702311   -10.6592980990783     2.8779574061878   
+ INPUT CARD> H2           1.0   -16.8593104134721   -10.4263657772695     2.8513443650414   
+ INPUT CARD> H3           1.0   -18.2163153202579    -9.9985427333397     2.3342410066781   
+ INPUT CARD> L4           1.0   -18.0297870825297   -10.6350868826745     3.5341896658445   
+ INPUT CARD> L5           1.0   -17.8892377175401   -11.3000602138888     2.6151914983418   
+ INPUT CARD> O1           8.0   -25.0536214538195    15.5336131514998    -4.5010973802430   
+ INPUT CARD> H2           1.0   -25.3086406720205    14.6260647131389    -4.6670885318043   
+ INPUT CARD> H3           1.0   -24.5656775243475    15.7925920218621    -5.2828098925447   
+ INPUT CARD> L4           1.0   -24.6491475567475    15.5766979482815    -3.9314090250937   
+ INPUT CARD> L5           1.0   -25.6187864681078    15.9379749674329    -4.4169659475597   
+ INPUT CARD> O1           8.0   -21.2512228141111    11.9069567271138   -11.1083227752805   
+ INPUT CARD> H2           1.0   -20.3065207546865    11.9612844652360   -11.2526068156145   
+ INPUT CARD> H3           1.0   -21.5989620775626    11.5523171107391   -11.9265776463197   
+ INPUT CARD> L4           1.0   -21.5187587572557    12.5409598498095   -10.9799979371954   
+ INPUT CARD> L5           1.0   -21.3955308872717    11.4801388718273   -10.5725959284532   
+ INPUT CARD> O1           8.0   -12.6613859377041    -6.7315809151682    -8.2175347733790   
+ INPUT CARD> H2           1.0   -12.0189370406245    -6.6345345457190    -7.5146296026659   
+ INPUT CARD> H3           1.0   -13.5075399802293    -6.7379876691043    -7.7700791674239   
+ INPUT CARD> L4           1.0   -12.5602363763581    -7.3313056746545    -8.5640892811891   
+ INPUT CARD> L5           1.0   -12.6220012565112    -6.1943892750078    -8.6646067598439   
+ INPUT CARD> O1           8.0    -9.0831284197803    -9.7109609417368   -32.6033818384285   
+   50000000 WORDS OF MEMORY AVAILABLE
+  
+ ===================================================
+                       QUANPOL                      
+  QUANTUM CHEMISTRY POLARIZABLE FORCE FIELD PROGRAM 
+     NANDUN THELLAMUREGE, DEJUN SI, FENGCHAO CUI    
+             HONGBO ZHU, RUI LAI, HUI LI            
+                  LI RESEARCH GROUP                 
+           UNIVERSITY OF NEBRASKA-LINCOLN           
+             - - - - 2016-02-03 - - - -             
+     QM/MM AND QM/MM/CONTINUUM STYLE CALCULATION    
+    USING HF, DFT, GVB, MCSCF, MP2, TDDFT METHODS   
+ ===================================================
+ STEP CPU TIME =     1.34 TOTAL CPU TIME =        1.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.4 SECONDS, CPU UTILIZATION IS 100.00%
+
+ READ $QUANPO GROUP...
+
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.4 SECONDS, CPU UTILIZATION IS 100.00%
+
+ $QUANPO CHECK UP...
+
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.4 SECONDS, CPU UTILIZATION IS 100.00%
+
+ DETERMINE MXFFAT...
+
+ STEP CPU TIME =     0.50 TOTAL CPU TIME =        1.9 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.9 SECONDS, CPU UTILIZATION IS  99.47%
+
+ MEMORY REQUIRED BY QUANPOL IS     26109644 WORDS ON EACH PROCESSOR.
+ INPUT SMALLER MXFFAT, MXBOND, MXANGL, MXDIHR, MXDIHB AND MXWAGG.
+ ACTUAL NFFAT, NBOND, NANGL, NDIHR, NDIHB AND NWAGG ARE PRINTED BELOW.
+  
+ PROCESSING $FFDATA...
+  
+  
+  
+ PROCESSING $FFDATB...
+  
+ STEP CPU TIME =     0.41 TOTAL CPU TIME =        2.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.3 SECONDS, CPU UTILIZATION IS  99.57%
+  
+ STEP CPU TIME =     0.37 TOTAL CPU TIME =        2.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.7 SECONDS, CPU UTILIZATION IS  99.63%
+
+ CALL PREPARE...
+
+ WARNING: ATOM        1 FORMS NO BOND.
+ WARNING: ATOM        2 FORMS NO BOND.
+  
+ GENERATING 1-2, 1-3, 1-4 EXCLUSION LISTS...
+ STEP CPU TIME =     0.32 TOTAL CPU TIME =        3.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        3.0 SECONDS, CPU UTILIZATION IS  99.67%
+  
+ TOTAL MM    CHARGE =       0.0000000 IN $FFDATA OR $FFPDB.
+  
+ TOTAL MM    CHARGE =       0.0000000 IN $FFDATB.
+  
+ NFFAT   =        4052       NBOND   =        7290       NANGL   =        4860
+ NDIHR   =           0       NDIHB   =           0       NWAGG   =           0
+  
+  
+     $QUANPO OPTIONS
+     ---------------
+
+ MXFFAT  =        4200       MXBOND  =        7400       MXANGL  =        5000
+ MXDIHR  =         200       MXDIHB  =         200       MXWAGG  =         200
+ XBOX    = 2.89068E+01       YBOX    = 2.89068E+01       ZBOX    = 2.89068E+01
+ CENTX   = 0.00000E+00       CENTY   = 0.00000E+00       CENTZ   = 0.00000E+00
+ IEWALD  =           0       KEWALD  =          10       SPLIT   =      0.1500
+ ISHIFT  =           4       SWRA    = 1.00000E+01       SWRB    = 1.20000E+01
+ ISWITCH =           1       SWRAQ   = 1.00000E+29       SWRBQ   = 1.00000E+30
+ ISPHSOL =           0       RXNEPS  =     78.3900       RSPHSOL = 1.00000E+30
+ SPHSIG  =      1.5000       SPHEPS  =      0.1500       SPHRAD  = 1.00000E+30
+ IDOCHG  =           1       IDOPOL  =           0       IDOLJ   =           1
+ DT      = 1.00000E-15       NSTEP   =         100       INTALG  =           1
+ TEMP0   =    298.1500       ITSTAT  =           1       LJSIGMA =           0
+ PRES0   =      1.0000       IPSTAT  =           1       NATPDB  =           0
+ MXLIST1 =        1700       BUFWID1 =      1.0000       IRMDF   =           0
+ MXLIST2 =        3400       BUFWID2 =      4.0000       KOUTPBC =           0
+ JOUT    =         100       KOUT    =         100       LOUT    =           0
+ NFFTYP  =           0       NFFFILE =           0       MMHESS  =           0
+ WT14LJ  =   1.0000000       WT14CH  =   1.0000000       IDOCMAP =           1
+ IHESS   =           0       POLTOL  = 1.00000E-09       MXCHECK =         100
+ NRDF    =           0       DELRDF  =      0.0500       DIFFUSE =           0
+ NRALL   =           0       NRMSD   =           0       NGYRA   =           0
+ TIMRALL = 1.00000E-12       TIMGYRA = 1.00000E-12       TIMDFS  = 3.00000E-12
+ NRIJMM  =           0       NDIEL   =           1       JUMBUP  =           0
+ NRIJQM  =           0       NAIJKMM =           0       NAIJKQM =           0
+ IADDNA1 =           0       IADDK1  =           0       IADDCL1 =           0
+ IADDCA2 =           0       IADDMG2 =           0       IADDWAT =           0
+ ITYPWAT =         504       JADDNA1 =           0       JADDK1  =           0
+ NRANDOM =           0       NFOLD   =           0       RFOLD   =      0.0000
+ ICOMBIN =           0       IDELETE =           0       ISCOOP  =           0
+ RETAIN  =      0.5000       QMREP   =           0       LJQMMM  =           1
+ RDAMP   =      3.0000       INTCHG  =           1       FIXTOL  = 1.00000E-10
+ IFIXSOL =           0       MXFFTS  =           1       NTSATM  =          60
+ NFIXQM  =           0       NFIXMM  =           2       IPOLSHF =           0
+ NFIXQMB =           0       NFIXMMB =           2       IFEPTYP =           2
+ IFEPTOP =           1       KFREEA  =           2       KFREEB  =           2
+ WSIMUL  =      0.0000       WPERT1  =      1.0000       WPERT2  =      1.0000
+ MATOMA  =           0       MCHARGA =           0       MULTA   =           1
+ MATOMB  =           0       MCHARGB =           0       MULTB   =           1
+ ISOFTCR =           0       SOFTALJ =      0.3000       SOFTACH =      2.8000
+ IRATTLE =          10       RATOLC  = 1.00000E-05       RATOLV  = 1.00000E-08
+ JRATTLE =           0       MXRATT  =         200       SCALRAT =      1.5000
+ MEANFLD =           0       MFMERGE =          20       MFQMCHG =          10
+ SCFTYP2 =    RHF            TDDFT2  =    NONE           CITYP2  =    NONE    
+ MPLEVL2 =           0       ICHARG2 =           0       MULT2   =           1
+ IRATQM  =           0       JUMBPOT =           0       JUM2POT =           0
+ MMFF94Q =         110       IVIBMM  =           0       BEREND  = 2.00000E-13
+ MXCMAP  =         200       NRDEN   =           0       MATCHAB =           0
+ PARFILE =     PARFILE       TOPFILE =     TOPFILE       TOPAMIA =     TOPAMIA
+ TOPCTER =     TOPCTER       TOPNTER =     TOPNTER       TOPNUCA =     TOPNUCA
+ IPODAMP =           0       LACTQM  =           0       LACTMM  =           0
+ APODAMP =    0.000000       IPO1213 =           0       PARFIL2 =     PARFIL2
+ PARFIL3 =     PARFIL3       NRADMM  =           0       NRADQM  =           0
+ RALLMM  =    0.000000       RALLQM  =    0.000000       KOUTACT =           0
+  
+  
+     *****************************************
+     $FFDATA GROUP IS PRINTED IN THE .DAT FILE
+     *****************************************
+  
+  
+ STEP CPU TIME =     0.13 TOTAL CPU TIME =        3.1 (    0.1 MIN)
+ TOTAL WALL CLOCK TIME=        3.1 SECONDS, CPU UTILIZATION IS  99.68%
+  
+ UPDATING LARGE NEIGHBOR LIST AT STEP          0
+  
+ STEP CPU TIME =     0.19 TOTAL CPU TIME =        3.3 (    0.1 MIN)
+ TOTAL WALL CLOCK TIME=        3.3 SECONDS, CPU UTILIZATION IS  99.70%
+  
+ UPDATING SMALL NEIGHBOR LIST AT STEP          0
+  
+ STEP CPU TIME =     0.14 TOTAL CPU TIME =        3.4 (    0.1 MIN)
+ TOTAL WALL CLOCK TIME=        3.5 SECONDS, CPU UTILIZATION IS  99.71%
+  
+ RATTLE STEP 1 CONVERGED IN     1 ITERATIONS.
+ RATTLE STEP 2 CONVERGED IN     1 ITERATIONS.
+  
+   ** QUANPOL IS SUCCESSFULLY LOADED **
+  
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        3.4 (    0.1 MIN)
+ TOTAL WALL CLOCK TIME=        3.5 SECONDS, CPU UTILIZATION IS  99.42%
+
+     $CONTRL OPTIONS
+     ---------------
+ SCFTYP=RHF          RUNTYP=MD           EXETYP=RUN     
+ MPLEVL=       0     CITYP =NONE         CCTYP =NONE         VBTYP =NONE    
+ DFTTYP=NONE         TDDFT =NONE    
+ MULT  =       1     ICHARG=       0     NZVAR =       0     COORD =FRAGONLY
+ PP    =NONE         RELWFN=NONE         LOCAL =NONE         NUMGRD=       F
+ ISPHER=      -1     NOSYM =       0     MAXIT =      30     UNITS =ANGS    
+ PLTORB=       F     MOLPLT=       F     AIMPAC=       F     FRIEND=        
+ NPRINT=       7     IREST =       0     GEOM  =INPUT   
+ NORMF =       0     NORMP =       0     ITOL  =      20     ICUT  =       9
+ INTTYP=BEST         GRDTYP=BEST         QMTTOL= 1.0E-06
+
+     $SYSTEM OPTIONS
+     ---------------
+  REPLICATED MEMORY=    50000000 WORDS (ON EVERY NODE).
+ DISTRIBUTED MEMDDI=           0 MILLION WORDS IN AGGREGATE,
+ MEMDDI DISTRIBUTED OVER   1 PROCESSORS IS           0 WORDS/PROCESSOR.
+ TOTAL MEMORY REQUESTED ON EACH PROCESSOR=    50000000 WORDS.
+ TIMLIM=          99.00 MINUTES, OR       0.1 DAYS.
+ PARALL= F  BALTYP=  DLB     KDIAG=    0  COREFL= F
+ MXSEQ2=     300 MXSEQ3=     150  mem10=         0
+
+          ----------------
+          PROPERTIES INPUT
+          ----------------
+
+     MOMENTS            FIELD           POTENTIAL          DENSITY
+ IEMOM =       1   IEFLD =       0   IEPOT =       0   IEDEN =       0
+ WHERE =COMASS     WHERE =NUCLEI     WHERE =NUCLEI     WHERE =NUCLEI  
+ OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH    
+ IEMINT=       0   IEFINT=       0                     IEDINT=       0
+                                                       MORB  =       0
+          EXTRAPOLATION IN EFFECT
+ ORBITAL PRINTING OPTION: NPREO=     1     0     2     1
+
+     -------------------------------
+     INTEGRAL TRANSFORMATION OPTIONS
+     -------------------------------
+     NWORD  =            0
+     CUTOFF = 1.0E-09     MPTRAN =       0
+     DIRTRF =       F     AOINTS =DUP     
+
+          ----------------------
+          INTEGRAL INPUT OPTIONS
+          ----------------------
+ NOPK  =       1 NORDER=       0 SCHWRZ=       F
+
+ ..... DONE SETTING UP THE RUN .....
+ STEP CPU TIME =     1.65 TOTAL CPU TIME =        5.1 (    0.1 MIN)
+ TOTAL WALL CLOCK TIME=        5.1 SECONDS, CPU UTILIZATION IS  99.80%
+  
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        5.1 (    0.1 MIN)
+ TOTAL WALL CLOCK TIME=        5.1 SECONDS, CPU UTILIZATION IS  99.80%
+  
+ UPDATING LARGE NEIGHBOR LIST AT STEP          0
+  
+ STEP CPU TIME =     0.18 TOTAL CPU TIME =        5.3 (    0.1 MIN)
+ TOTAL WALL CLOCK TIME=        5.3 SECONDS, CPU UTILIZATION IS  99.81%
+  
+ UPDATING SMALL NEIGHBOR LIST AT STEP          0
+  
+ STEP CPU TIME =     0.14 TOTAL CPU TIME =        5.4 (    0.1 MIN)
+ TOTAL WALL CLOCK TIME=        5.4 SECONDS, CPU UTILIZATION IS  99.82%
+  
+  
+ ======================= QUANPOL MD SIMULATION INITIATED =======================
+  
+  
+ MD STEP          0                                 TIME=                0.00 FS
+ BOND STRETCHING               ENERGY =                   0.0000013269  KCAL/MOL
+ BOND ANGLE BENDING            ENERGY =                   0.0000129402  KCAL/MOL
+ STRETCHING BENDING            ENERGY =                   0.0000000000  KCAL/MOL
+ DIHEDRAL ROTATION             ENERGY =                   0.0000000000  KCAL/MOL
+ DIHEDRAL BENDING              ENERGY =                   0.0000000000  KCAL/MOL
+ CMAP                          ENERGY =                   0.0000000000  KCAL/MOL
+ WAGGING                       ENERGY =                   0.0000000000  KCAL/MOL
+ LJ REPULSION                  ENERGY =                4497.6240903891  KCAL/MOL
+ LJ DISPERSION                 ENERGY =               -3085.0475245230  KCAL/MOL
+ CHARGE                        ENERGY =               -9868.0900774224  KCAL/MOL
+ INDUCED DIPOLE                ENERGY =                   0.0000000000  KCAL/MOL
+ SPHSOL                        ENERGY =                   0.0000000000  KCAL/MOL
+ FIXSOL                        ENERGY =                   0.0000000000  KCAL/MOL
+ QM CENTER                     ENERGY =                   0.0000000000  KCAL/MOL
+ SPHERE                        ENERGY =                   0.0000000000  KCAL/MOL
+ POTENTIAL                     ENERGY =               -8455.5134972891  KCAL/MOL
+ KINETIC                       ENERGY =                1412.8262333594  KCAL/MOL
+ TOTAL                         ENERGY =               -7042.6872639298  KCAL/MOL
+ TEMPERATURE                          =                 292.3960151889  K
+ PRESSURE                             =                   0.0000000000  BAR
+ VOLUME                               =               24154.5871627845  A**3
+  
+ RELATIVE ENERGY: FROM $FFDATA TO $FFDATB              (POTENTIAL OF MEAN FORCE)
+ RELATIVE BOND STRETCHING  PMF ENERGY =                   0.0000000000  KCAL/MOL
+ RELATIVE BOND ANGLE BEND  PMF ENERGY =                   0.0000000000  KCAL/MOL
+ RELATIVE DIHEDRAL ROTAT   PMF ENERGY =                   0.0000000000  KCAL/MOL
+ RELATIVE DIHEDRAL BENDING PMF ENERGY =                   0.0000000000  KCAL/MOL
+ RELATIVE CMAP             PMF ENERGY =                   0.0000000000  KCAL/MOL
+ RELATIVE WAGGING          PMF ENERGY =                   0.0000000000  KCAL/MOL
+ RELATIVE CHARGE           PMF ENERGY =                   5.5386294004  KCAL/MOL
+ RELATIVE LJ               PMF ENERGY =                  -4.4646146062  KCAL/MOL
+ RELATIVE CHARGE           SOL ENERGY =                  -3.9070160731  KCAL/MOL
+ RELATIVE LJ               SOL ENERGY =                   2.9664179721  KCAL/MOL
+ RELATIVE POTENTIAL            ENERGY =                   0.1334166932  KCAL/MOL
+  
+ STEP CPU TIME =     0.14 TOTAL CPU TIME =        5.6 (    0.1 MIN)
+ TOTAL WALL CLOCK TIME=        5.6 SECONDS, CPU UTILIZATION IS  99.82%
+  
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        5.6 (    0.1 MIN)
+ TOTAL WALL CLOCK TIME=        5.6 SECONDS, CPU UTILIZATION IS  99.82%
+ STEP CPU TIME =     0.06 TOTAL CPU TIME =        5.6 (    0.1 MIN)
+ TOTAL WALL CLOCK TIME=        5.6 SECONDS, CPU UTILIZATION IS  99.82%
+ RESCALED TEMPERATURE    =                292.4247851130    K
+  
+ RATTLE STEP 1 CONVERGED IN    30 ITERATIONS.
+ RATTLE STEP 2 CONVERGED IN    34 ITERATIONS.
+  
+ MD STEP        100                                 TIME=              100.00 FS
+ BOND STRETCHING               ENERGY =                   0.0000013495  KCAL/MOL
+ BOND ANGLE BENDING            ENERGY =                   0.0000132796  KCAL/MOL
+ STRETCHING BENDING            ENERGY =                   0.0000000000  KCAL/MOL
+ DIHEDRAL ROTATION             ENERGY =                   0.0000000000  KCAL/MOL
+ DIHEDRAL BENDING              ENERGY =                   0.0000000000  KCAL/MOL
+ CMAP                          ENERGY =                   0.0000000000  KCAL/MOL
+ WAGGING                       ENERGY =                   0.0000000000  KCAL/MOL
+ LJ REPULSION                  ENERGY =                4478.6496826096  KCAL/MOL
+ LJ DISPERSION                 ENERGY =               -3088.5193897792  KCAL/MOL
+ CHARGE                        ENERGY =               -9845.2546498979  KCAL/MOL
+ INDUCED DIPOLE                ENERGY =                   0.0000000000  KCAL/MOL
+ SPHSOL                        ENERGY =                   0.0000000000  KCAL/MOL
+ FIXSOL                        ENERGY =                   0.0000000000  KCAL/MOL
+ QM CENTER                     ENERGY =                   0.0000000000  KCAL/MOL
+ SPHERE                        ENERGY =                   0.0000000000  KCAL/MOL
+ POTENTIAL                     ENERGY =               -8455.1243424384  KCAL/MOL
+ KINETIC                       ENERGY =                1417.0038375967  KCAL/MOL
+ TOTAL                         ENERGY =               -7038.1205048417  KCAL/MOL
+ TEMPERATURE                          =                 293.2606047634  K
+ PRESSURE                             =                 136.5657443455  BAR
+ VOLUME                               =               24160.1217927092  A**3
+  
+ AVERAGE POTENTIAL             ENERGY =               -8473.3860622280  KCAL/MOL
+ AVERAGE KINETIC               ENERGY =                1431.4837767591  KCAL/MOL
+ AVERAGE TOTAL                 ENERGY =               -7041.9022854689  KCAL/MOL
+ AVERAGE TEMPERATURE                  =                 296.2573473290  K
+ AVERAGE PRESSURE                     =                  11.7182201766  BAR
+ AVERAGE VOLUME                       =               24150.8165937368  A**3
+  
+ RELATIVE ENERGY: FROM $FFDATA TO $FFDATB              (POTENTIAL OF MEAN FORCE)
+ RELATIVE BOND STRETCHING  PMF ENERGY =                   0.0000000000  KCAL/MOL
+ RELATIVE BOND ANGLE BEND  PMF ENERGY =                   0.0000000000  KCAL/MOL
+ RELATIVE DIHEDRAL ROTAT   PMF ENERGY =                   0.0000000000  KCAL/MOL
+ RELATIVE DIHEDRAL BENDING PMF ENERGY =                   0.0000000000  KCAL/MOL
+ RELATIVE CMAP             PMF ENERGY =                   0.0000000000  KCAL/MOL
+ RELATIVE WAGGING          PMF ENERGY =                   0.0000000000  KCAL/MOL
+ RELATIVE CHARGE           PMF ENERGY =                   5.5386294004  KCAL/MOL
+ RELATIVE LJ               PMF ENERGY =                  -4.4646146062  KCAL/MOL
+ RELATIVE CHARGE           SOL ENERGY =                  -3.4721039116  KCAL/MOL
+ RELATIVE LJ               SOL ENERGY =                   1.1802604058  KCAL/MOL
+ RELATIVE POTENTIAL            ENERGY =                  -1.2178287116  KCAL/MOL
+ RELATIVE FREE                 ENERGY =                  -1.0437577022  KCAL/MOL
+  
+ STEP CPU TIME =    16.63 TOTAL CPU TIME =       22.2 (    0.4 MIN)
+ TOTAL WALL CLOCK TIME=       22.3 SECONDS, CPU UTILIZATION IS  99.91%
+  
+ DIELECTRIC CONSTANT =           2.38224
+ <M**2> = 0.12060909776524E+04 <M>**2 = 0.11556345966272E+04 (E*BOHR)**2
+ DIPOLE MOMENT OF EACH MD STEP IS IN .DAT FILE.
+
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =       22.2 (    0.4 MIN)
+ TOTAL WALL CLOCK TIME=       22.3 SECONDS, CPU UTILIZATION IS  99.91%
+ STEP CPU TIME =     0.07 TOTAL CPU TIME =       22.3 (    0.4 MIN)
+ TOTAL WALL CLOCK TIME=       22.3 SECONDS, CPU UTILIZATION IS  99.91%
+ RESCALED TEMPERATURE    =                293.2850517396    K
+  
+  
+ ================ QUANPOL MD SIMULATION SUCCESSFULLY COMPLETED =================
+ ========= RESTART $DATA, $FFDATA, $FFDATB ARE IN .DAT AND .TRJ FILES ==========
+  
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =       22.3 (    0.4 MIN)
+ TOTAL WALL CLOCK TIME=       22.3 SECONDS, CPU UTILIZATION IS  99.91%
+             26126657  WORDS OF DYNAMIC MEMORY USED
+ EXECUTION OF GAMESS TERMINATED NORMALLY Tue Nov 29 15:28:24 2016
+ DDI: 263640 bytes (0.3 MB / 0 MWords) used by master data server.
+
+ ----------------------------------------
+ CPU timing information for all processes
+ ========================================
+ 0: 21.636 + 0.821 = 22.458
+ ----------------------------------------
+ ddikick.x: exited gracefully.
+unset echo
+----- accounting info -----
+Files used on the master node bolt.iprt.iastate.edu were:
+-rw-rw-r-- 1 sarom sarom 4940278 Nov 29 15:28 .//nacl-pmf.dat
+-rw-rw-r-- 1 sarom sarom   16736 Nov 29 15:28 .//nacl-pmf.dip
+-rw-rw-r-- 1 sarom sarom 3828751 Nov 29 15:28 .//nacl-pmf.F05
+-rw-rw-r-- 1 sarom sarom       0 Nov 29 15:28 .//nacl-pmf.F08
+-rw-rw-r-- 1 sarom sarom   32720 Nov 29 15:28 .//nacl-pmf.F10
+-rw-rw-r-- 1 sarom sarom 3828751 Nov 28 17:27 .//nacl-pmf.inp
+-rw-rw-r-- 1 sarom sarom   27865 Nov 29 15:28 .//nacl-pmf.log
+-rw-rw-r-- 1 sarom sarom 2529892 Nov 29 15:28 .//nacl-pmf.trj
+Tue Nov 29 15:28:27 CST 2016
+0.121u 0.021s 0:26.46 0.5%	0+0k 0+10872io 0pf+0w

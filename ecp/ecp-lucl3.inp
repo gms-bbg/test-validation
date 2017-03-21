@@ -1,0 +1,31 @@
+!  This run tests f ECP integrals at high symmetry geometry
+!
+!   NSERCH:   0  E=     -316.4274102140, 15 iters, R.M.S.=  0.0120120
+!   NSERCH:   1  E=     -316.4318970010,  8 iters, R.M.S.=  0.0087533
+!   NSERCH:   2  E=     -316.4348807814,  8 iters, R.M.S.=  0.0050211
+!   NSERCH:   3  E=     -316.4361366400,  8 iters, R.M.S.=  0.0008624
+!   NSERCH:   4  E=     -316.4361701998,  8 iters, R.M.S.=  0.0000678
+!   NSERCH:   5  E=     -316.4361704112,  6 iters, R.M.S.=  0.0000008
+!
+!  This run takes 8 seconds on a 2.66 GHz CLoverton ( 6 Apr 2015)
+!  results little changed since 2005
+!
+!  5/2013: New Huckel guess is about 0.5 Hatree lower at starting
+!  iteration, around -306.022.  Energy goes down quick, but DIIS
+!  error is 14.9 to start, and DIIS kicks in only at iteration
+!  number 6, after which convergence is very rapid.
+!  RSTRCT is still needed to keep the first iterations healthy.
+!
+ $contrl scftyp=rhf runtyp=optimize pp=sbkjc $end
+ $system mwords=1 $end
+ $guess  guess=huckel $end
+ $basis  gbasis=sbkjc $end
+ $scf    rstrct=.true. $end
+ $statpt opttol=1d-5 $end
+ $data
+LuCl3
+Dnh 3
+
+Lu  71.0   0.0  0.0  0.0
+Cl  17.0   2.6  0.0  0.0
+ $end

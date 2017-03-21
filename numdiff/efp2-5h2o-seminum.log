@@ -1,0 +1,1432 @@
+----- GAMESS execution script 'rungms' -----
+This job is running on host compute-3-0
+under operating system Linux at Mon Nov 28 22:04:33 CST 2016
+Available scratch disk space (Kbyte units) at beginning of the job is
+Filesystem            1K-blocks       Used  Available Use% Mounted on
+bolt.local:/export/home/sarom
+                     9590469632 1553030144 7550271488  18% /home/sarom
+Copying input file efp2-5h2o-seminum.inp to your run's scratch directory...
+cp efp2-5h2o-seminum.inp .//efp2-5h2o-seminum.F05
+unset echo
+/home/sarom/gamessGH/ddikick.x /home/sarom/gamessGH/gamess.00.x efp2-5h2o-seminum -ddi 1 1 localhost -scr ./
+
+ Distributed Data Interface kickoff program.
+ Initiating 1 compute processes on 1 nodes to run the following command:
+ /home/sarom/gamessGH/gamess.00.x efp2-5h2o-seminum 
+
+          ******************************************************
+          *         GAMESS VERSION = 18 AUG 2016 (R1)          *
+          *             FROM IOWA STATE UNIVERSITY             *
+          * M.W.SCHMIDT, K.K.BALDRIDGE, J.A.BOATZ, S.T.ELBERT, *
+          *   M.S.GORDON, J.H.JENSEN, S.KOSEKI, N.MATSUNAGA,   *
+          *          K.A.NGUYEN, S.J.SU, T.L.WINDUS,           *
+          *       TOGETHER WITH M.DUPUIS, J.A.MONTGOMERY       *
+          *         J.COMPUT.CHEM.  14, 1347-1363(1993)        *
+          **************** 64 BIT LINUX VERSION ****************
+
+  SINCE 1993, STUDENTS AND POSTDOCS WORKING AT IOWA STATE UNIVERSITY
+  AND ALSO IN THEIR VARIOUS JOBS AFTER LEAVING ISU HAVE MADE IMPORTANT
+  CONTRIBUTIONS TO THE CODE:
+     IVANA ADAMOVIC, CHRISTINE AIKENS, YURI ALEXEEV, POOJA ARORA,
+     ANDREY ASADCHEV, ROB BELL, PRADIPTA BANDYOPADHYAY, JONATHAN BENTZ,
+     BRETT BODE, KURT BRORSEN, CALEB CARLIN, GALINA CHABAN, WEI CHEN,
+     CHEOL HO CHOI, PAUL DAY, ALBERT DEFUSCO, NUWAN DESILVA, TIM DUDLEY,
+     DMITRI FEDOROV, GRAHAM FLETCHER, MARK FREITAG, KURT GLAESEMANN,
+     DAN KEMP, GRANT MERRILL, NORIYUKI MINEZAWA, JONATHAN MULLIN,
+     TAKESHI NAGATA, SEAN NEDD, HEATHER NETZLOFF, BOSILJKA NJEGIC, RYAN OLSON,
+     MIKE PAK, SPENCER PRUITT, LUKE ROSKOP, JIM SHOEMAKER, LYUDMILA SLIPCHENKO,
+     TONY SMITH, SAROM SOK LEANG, JIE SONG, TETSUYA TAKETSUGU, SIMON WEBB,
+     PENG XU, SOOHAENG YOO, FEDERICO ZAHARIEV
+
+  ADDITIONAL CODE HAS BEEN PROVIDED BY COLLABORATORS IN OTHER GROUPS:
+     IOWA STATE UNIVERSITY:
+          JOE IVANIC, AARON WEST, LAIMUTIS BYTAUTAS, KLAUS RUEDENBERG
+     UNIVERSITY OF TOKYO: KIMIHIKO HIRAO, TAKAHITO NAKAJIMA,
+          TAKAO TSUNEDA, MUNEAKI KAMIYA, SUSUMU YANAGISAWA,
+          KIYOSHI YAGI, MAHITO CHIBA, SEIKEN TOKURA, NAOAKI KAWAKAMI
+     UNIVERSITY OF AARHUS: FRANK JENSEN
+     UNIVERSITY OF IOWA: VISVALDAS KAIRYS, HUI LI
+     NATIONAL INST. OF STANDARDS AND TECHNOLOGY: WALT STEVENS, DAVID GARMER
+     UNIVERSITY OF PISA: BENEDETTA MENNUCCI, JACOPO TOMASI
+     UNIVERSITY OF MEMPHIS: HENRY KURTZ, PRAKASHAN KORAMBATH
+     UNIVERSITY OF ALBERTA: TOBY ZENG, MARIUSZ KLOBUKOWSKI
+     UNIVERSITY OF NEW ENGLAND: MARK SPACKMAN
+     MIE UNIVERSITY: HIROAKI UMEDA
+     NAT. INST. OF ADVANCED INDUSTRIAL SCIENCE AND TECHNOLOGY: KAZUO KITAURA
+     MICHIGAN STATE UNIVERSITY:
+          KAROL KOWALSKI, MARTA WLOCH, JEFFREY GOUR, JESSE LUTZ,
+          WEI LI, PIOTR PIECUCH
+     UNIVERSITY OF SILESIA: MONIKA MUSIAL, STANISLAW KUCHARSKI
+     FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX:
+          OLIVIER QUINET, BENOIT CHAMPAGNE
+     UNIVERSITY OF CALIFORNIA - SANTA BARBARA: BERNARD KIRTMAN
+     INSTITUTE FOR MOLECULAR SCIENCE:
+          KAZUYA ISHIMURA, MICHIO KATOUDA, AND SHIGERU NAGASE
+     UNIVERSITY OF NOTRE DAME: ANNA POMOGAEVA, DAN CHIPMAN
+     KYUSHU UNIVERSITY:
+          HARUYUKI NAKANO,
+          FENG LONG GU, JACEK KORCHOWIEC, MARCIN MAKOWSKI, AND YURIKO AOKI,
+          HIROTOSHI MORI AND EISAKU MIYOSHI
+     PENNSYLVANIA STATE UNIVERSITY:
+          TZVETELIN IORDANOV, CHET SWALINA, JONATHAN SKONE,
+          SHARON HAMMES-SCHIFFER
+     WASEDA UNIVERSITY:
+          MASATO KOBAYASHI, TOMOKO AKAMA, TSUGUKI TOUMA,
+          TAKESHI YOSHIKAWA, YASUHIRO IKABATA, JUNJI SEINO,
+          YUYA NAKAJIMA, HIROMI NAKAI
+     NANJING UNIVERSITY: SHUHUA LI
+     UNIVERSITY OF NEBRASKA:
+          PEIFENG SU, DEJUN SI, NANDUN THELLAMUREGE, YALI WANG, HUI LI
+     UNIVERSITY OF ZURICH: ROBERTO PEVERATI, KIM BALDRIDGE
+     N. COPERNICUS UNIVERSITY AND JACKSON STATE UNIVERSITY:
+          MARIA BARYSZ
+     UNIVERSITY OF COPENHAGEN: Jimmy Kromann, CASPER STEINMANN
+     TOKYO INSTITUTE OF TECHNOLOGY: HIROYA NAKATA
+     NAGOYA UNIVERSITY: YOSHIO NISHIMOTO, STEPHAN IRLE
+     MOSCOW STATE UNIVERSITY: VLADIMIR MIRONOV
+
+ EXECUTION OF GAMESS BEGUN Mon Nov 28 22:04:34 2016
+
+            ECHO OF THE FIRST FEW INPUT CARDS -
+ INPUT CARD>!  hessian, after EFP2 optimization of the water pentamer (H20)5                
+ INPUT CARD>!  there is no dispersion or charge transfer in this run.                       
+ INPUT CARD>!  Restart data is provided, so only 6 energies and gradients are computed.     
+ INPUT CARD>!                                                                               
+ INPUT CARD>!    FREQUENCY:       .73         .60         .39         .00         .00       
+ INPUT CARD>!    FREQUENCY:       .00       21.58       36.41       52.86       53.83       
+ INPUT CARD>!    FREQUENCY:    129.87      138.66      161.82      177.34      189.01       
+ INPUT CARD>!    FREQUENCY:    204.53      224.77      236.71      241.71      264.89       
+ INPUT CARD>!    FREQUENCY:    307.20      320.98      343.56      348.57      432.57       
+ INPUT CARD>!    FREQUENCY:    545.00      637.43      651.61      664.96      780.62       
+ INPUT CARD>!                                                                               
+ INPUT CARD>!  This test takes 0 seconds on 2.66 GHz Cloverton (15 Apr 2015)                
+ INPUT CARD>!  answers haven't changed since at least 2011                                  
+ INPUT CARD>!                                                                               
+ INPUT CARD> $contrl runtyp=hessian coord=fragonly $end                                     
+ INPUT CARD> $statpt opttol=0.00001 nstep=100 $end                                          
+ INPUT CARD>---- $gddi ngroup=2 parout=.true. $end                                          
+ INPUT CARD> $efrag                                                                         
+ INPUT CARD>iscrelec=0 iscrpol=0 iscrdisp=0 >                                               
+ INPUT CARD>coord=cart polmethd=frgscf position=optimize                                    
+ INPUT CARD> FRAGNAME=H2OPAU                                                                
+ INPUT CARD> O1                1.5577832464   1.7432827329  -0.9981145902                   
+ INPUT CARD> H2                1.7729278698   0.8353595143  -0.8602216605                   
+ INPUT CARD> H3                1.6581427350   1.9069505970  -1.9269811325                   
+ INPUT CARD> FRAGNAME=H2OPAU                                                                
+ INPUT CARD> O1                1.9860323723  -1.2552608194  -0.8828661789                   
+ INPUT CARD> H2                1.1938971128  -1.6899493980  -0.6123226329                   
+ INPUT CARD> H3                2.7015819477  -1.7033164786  -0.4505616780                   
+ INPUT CARD> FRAGNAME=H2OPAU                                                                
+ INPUT CARD> O1               -0.5199708246  -2.4700575475   0.3548943654                   
+ INPUT CARD> H2               -1.1630400929  -1.7896625014   0.4695710290                   
+ INPUT CARD> H3               -0.5221011899  -2.9816067195   1.1536215755                   
+ INPUT CARD> FRAGNAME=H2OPAU                                                                
+ INPUT CARD> O1               -0.9465379110   2.4086705099   0.5713520000                   
+ INPUT CARD> H2               -0.2270374446   2.2439445372  -0.0158538179                   
+ INPUT CARD> H3               -0.6182019728   2.9901361578   1.2449583108                   
+ INPUT CARD> FRAGNAME=H2OPAU                                                                
+ INPUT CARD> O1               -2.4090313736  -0.2052023396   1.0527786687                   
+ INPUT CARD> H2               -3.2286986510  -0.0509036948   0.6123655415                   
+ INPUT CARD> H3               -1.9353193687   0.6164036907   1.0381938313                   
+ INPUT CARD> $end                                                                           
+ INPUT CARD>                                                                                
+ INPUT CARD>The following is from a DH(d,p) makefp job (i.e. efp1-makefp.inp):              
+ INPUT CARD>It was created around 1997, and so this potential lacks new terms               
+ INPUT CARD>such as dispersion or charge transfer.                                          
+ INPUT CARD>                                                                                
+ INPUT CARD> $H2OPAULI                                                                      
+ INPUT CARD> TITLE                                                                          
+ INPUT CARD> COORDINATES                                                                    
+ INPUT CARD>O1          .0000000000    .0000000000    .0000000000  15.9949100  8.0          
+    1000000 WORDS OF MEMORY AVAILABLE
+
+     $CONTRL OPTIONS
+     ---------------
+ SCFTYP=RHF          RUNTYP=HESSIAN      EXETYP=RUN     
+ MPLEVL=       0     CITYP =NONE         CCTYP =NONE         VBTYP =NONE    
+ DFTTYP=NONE         TDDFT =NONE    
+ MULT  =       1     ICHARG=       0     NZVAR =       0     COORD =FRAGONLY
+ PP    =NONE         RELWFN=NONE         LOCAL =NONE         NUMGRD=       F
+ ISPHER=      -1     NOSYM =       0     MAXIT =      30     UNITS =ANGS    
+ PLTORB=       F     MOLPLT=       F     AIMPAC=       F     FRIEND=        
+ NPRINT=       7     IREST =       0     GEOM  =INPUT   
+ NORMF =       0     NORMP =       0     ITOL  =      20     ICUT  =       9
+ INTTYP=BEST         GRDTYP=BEST         QMTTOL= 1.0E-06
+
+     $SYSTEM OPTIONS
+     ---------------
+  REPLICATED MEMORY=     1000000 WORDS (ON EVERY NODE).
+ DISTRIBUTED MEMDDI=           0 MILLION WORDS IN AGGREGATE,
+ MEMDDI DISTRIBUTED OVER   1 PROCESSORS IS           0 WORDS/PROCESSOR.
+ TOTAL MEMORY REQUESTED ON EACH PROCESSOR=     1000000 WORDS.
+ TIMLIM=      525600.00 MINUTES, OR     365.0 DAYS.
+ PARALL= F  BALTYP=  DLB     KDIAG=    0  COREFL= F
+ MXSEQ2=     300 MXSEQ3=     150  mem10=         0
+
+ READING $EFRAG GROUP
+ COORD=CART      POSITION=OPTIMIZE  POLMETHD=FRGSCF   NBUFFMO=0
+ READING COORDINATES OF FRAGMENT   1 NAMED   H2OPAU
+ READING COORDINATES OF FRAGMENT   2 NAMED   H2OPAU
+ READING COORDINATES OF FRAGMENT   3 NAMED   H2OPAU
+ READING COORDINATES OF FRAGMENT   4 NAMED   H2OPAU
+ READING COORDINATES OF FRAGMENT   5 NAMED   H2OPAU
+ FINISHED READING $EFRAG GROUP,   5 FRAGMENTS WILL BE USED.
+
+ READING POTENTIAL PARAMETERS FOR FRAGMENT    1 FROM GROUP $H2OPAU
+ READING POTENTIAL PARAMETERS FOR FRAGMENT    2 FROM GROUP $H2OPAU
+ READING POTENTIAL PARAMETERS FOR FRAGMENT    3 FROM GROUP $H2OPAU
+ READING POTENTIAL PARAMETERS FOR FRAGMENT    4 FROM GROUP $H2OPAU
+ READING POTENTIAL PARAMETERS FOR FRAGMENT    5 FROM GROUP $H2OPAU
+
+
+     SUMMARY OF THE EFFECTIVE FRAGMENT POTENTIAL MODEL CHOSEN
+     --------------------------------------------------------
+ TOTAL NUMBER OF MULTIPOLE POINTS   =        25  (EFP1/EFP2 ELECTROSTATICS)
+ TOTAL NUMBER OF POLARIZABLE POINTS =        20  (EFP1/EFP2 INDUCTION)
+ TOTAL NUMBER OF L-J POINTS         =         0  (REPULSION AND DISPERSION)
+ TOTAL NUMBER OF AO CENTERS         =        15  (EFP2 PAULI REPULSION)
+ TOTAL NUMBER OF EFP MOS            =        20  (EFP2 PAULI REPULSION)
+ TOTAL NO OF DYNAMIC POLARIZABLE PTS=         0  (EFP2 DISPERSION)
+ TOTAL NUMBER OF EFP MOS            =         0  (EFP2 CHARGE TRANSFER)
+
+ THIS IS A -EFP2- TYPE RUN, INCLUDING SEPARATE FORMULAE FOR
+   PAULI REPULSION=T  DISPERSION=F  CHARGE TRANSFER=F
+
+ OPTIONS FOR EFP SCREENING:
+     ELECTROSTATIC EFP-EFP SCREENING CHOICE IS NO ELECTROSTATIC SCREENING
+     POLARIZATION EFP-EFP SCREENING IS OFF
+     DISPERSION EFP-EFP SCREENING CHOICE IS USING TANG-TOENNIS FORMULA
+     WITH DAMPING COEFFICIENT   1.50
+
+     $EWALD OPTIONS
+     -----------
+
+     IFEWLD   =        F         TINFOIL        =        T
+     BETA    =    0.200         ELECTRIC CONST =     1.00
+     EPSILON =     1.00         CUT_OFF        = 0.10E+04
+     CUTLIST =  1000.00         LEVEL          =    1
+     KMAX    =       10         EWLDPL         =        F
+
+            MULTIPOLE COORDINATES, ELECTRONIC AND NUCLEAR CHARGES
+
+                  X              Y              Z           ELEC.   NUC.
+ O1         2.9437834840   3.2943266843  -1.8861630798   -8.21312    8.0
+ H2         3.3503478699   1.5786005832  -1.6255832270   -0.55696    1.0
+ H3         3.1334354177   3.6036141004  -3.6414663239   -0.55696    1.0
+ BO21       3.1470656769   2.4364636338  -1.7558731534   -0.35059    0.0
+ BO31       3.0386094508   3.4489703923  -2.7638147019   -0.32236    0.0
+ O1         3.7530569864  -2.3720989918  -1.6683751619   -8.21312    8.0
+ H2         2.2561384008  -3.1935412953  -1.1571219923   -0.55696    1.0
+ H3         5.1052496146  -3.2188014148  -0.8514381121   -0.55696    1.0
+ BO21       3.0045976936  -2.7828201436  -1.4127485771   -0.35059    0.0
+ BO31       4.4291533005  -2.7954502034  -1.2599066370   -0.32236    0.0
+ O1        -0.9826023801  -4.6677319387   0.6706531052   -8.21312    8.0
+ H2        -2.1978270884  -3.3819717380   0.8873605766   -0.55696    1.0
+ H3        -0.9866281869  -5.6344197029   2.1800286713   -0.55696    1.0
+ BO21      -1.5902147343  -4.0248518384   0.7790068409   -0.35059    0.0
+ BO31      -0.9846152835  -5.1510758208   1.4253408883   -0.32236    0.0
+ O1        -1.7886972888   4.5517272584   1.0796987225   -8.21312    8.0
+ H2        -0.4290385591   4.2404403069  -0.0299593718   -0.55696    1.0
+ H3        -1.1682323334   5.6505380043   2.3526300735   -0.55696    1.0
+ BO21      -1.1088679240   4.3960837827   0.5248696754   -0.35059    0.0
+ BO31      -1.4784648111   5.1011326314   1.7161643980   -0.32236    0.0
+ O1        -4.5524091919  -0.3877761939   1.9894632096   -8.21312    8.0
+ H2        -6.1013557472  -0.0961940350   1.1572030778   -0.55696    1.0
+ H3        -3.6572233057   1.1648340732   1.9619018633   -0.55696    1.0
+ BO21      -5.3268824696  -0.2419851144   1.5733331437   -0.35059    0.0
+ BO31      -4.1048162488   0.3885289397   1.9756825364   -0.32236    0.0
+
+   CHARGE SCREENING PARAMETERS (COEF AND ZETA)
+   ICHGP=   0 AI-FRAGMENT SCREENING= 0   FRAGMENT-FRAGMENT SCREENING= 0
+
+             GAUSSIAN DAMPING    EXPONENTIAL DAMPING
+ O1         0.00000   0.00000      0.00000   0.00000
+ H2         0.00000   0.00000      0.00000   0.00000
+ H3         0.00000   0.00000      0.00000   0.00000
+ BO21       0.00000   0.00000      0.00000   0.00000
+ BO31       0.00000   0.00000      0.00000   0.00000
+ O1         0.00000   0.00000      0.00000   0.00000
+ H2         0.00000   0.00000      0.00000   0.00000
+ H3         0.00000   0.00000      0.00000   0.00000
+ BO21       0.00000   0.00000      0.00000   0.00000
+ BO31       0.00000   0.00000      0.00000   0.00000
+ O1         0.00000   0.00000      0.00000   0.00000
+ H2         0.00000   0.00000      0.00000   0.00000
+ H3         0.00000   0.00000      0.00000   0.00000
+ BO21       0.00000   0.00000      0.00000   0.00000
+ BO31       0.00000   0.00000      0.00000   0.00000
+ O1         0.00000   0.00000      0.00000   0.00000
+ H2         0.00000   0.00000      0.00000   0.00000
+ H3         0.00000   0.00000      0.00000   0.00000
+ BO21       0.00000   0.00000      0.00000   0.00000
+ BO31       0.00000   0.00000      0.00000   0.00000
+ O1         0.00000   0.00000      0.00000   0.00000
+ H2         0.00000   0.00000      0.00000   0.00000
+ H3         0.00000   0.00000      0.00000   0.00000
+ BO21       0.00000   0.00000      0.00000   0.00000
+ BO31       0.00000   0.00000      0.00000   0.00000
+
+   SCREENING FOR POLARIZATION WITH EXPONENTIAL FORMULA  OFF
+
+   SCREENING FOR POLARIZATION WITH TANG-TOENNIS FORMULA  OFF
+
+                  DIPOLE MOMENTS AND THE SECOND MOMENT TENSOR
+
+                  X        Y        Z           XX/XY    YY/XZ    ZZ/YZ
+ O1            0.12151 -0.28903 -0.30055     -4.51395 -3.86781 -3.85368
+                                             -0.14079 -0.04284 -0.25137
+ H2            0.01155 -0.05545  0.01878     -0.28351 -0.26663 -0.28164
+                                             -0.00476 -0.00052  0.00013
+ H3            0.00343  0.02025 -0.05652     -0.28566 -0.28329 -0.26758
+                                             -0.00074 -0.00281 -0.00025
+ BO21         -0.04203  0.17135 -0.01677     -0.17208 -0.13670 -0.16985
+                                             -0.00911  0.00048 -0.00452
+ BO31         -0.01625 -0.04306  0.17840     -0.13637 -0.11462 -0.09842
+                                             -0.00486 -0.00394 -0.00840
+ O1           -0.03394 -0.33896  0.26943     -3.61215 -4.26290 -4.36039
+                                              0.02069  0.07800 -0.23481
+ H2           -0.05494 -0.02052  0.01101     -0.27271 -0.27781 -0.28127
+                                              0.00685 -0.00430 -0.00496
+ H3            0.05153 -0.02143  0.02241     -0.27673 -0.27914 -0.28065
+                                             -0.00561  0.00547 -0.00631
+ BO21          0.14363  0.08742 -0.05598     -0.14541 -0.16371 -0.16952
+                                              0.01450 -0.00877 -0.00714
+ BO31         -0.14646  0.07946 -0.07862     -0.09976 -0.12268 -0.12696
+                                             -0.00507  0.00793 -0.01303
+ O1           -0.24970  0.06842  0.34872     -4.22752 -3.95646 -4.05146
+                                             -0.36013 -0.04121 -0.27715
+ H2           -0.03793  0.04601 -0.00238     -0.27510 -0.27580 -0.28088
+                                             -0.00886 -0.00396  0.00211
+ H3            0.00736 -0.03817  0.04589     -0.28442 -0.28127 -0.27082
+                                             -0.00050 -0.00262 -0.00688
+ BO21          0.12257 -0.12443 -0.03003     -0.15519 -0.15325 -0.17020
+                                             -0.01953 -0.00464  0.00275
+ BO31         -0.00806  0.10620 -0.15033     -0.12663 -0.11487 -0.10789
+                                             -0.01141 -0.00342 -0.01552
+ O1            0.40357  0.15780  0.02939     -4.07695 -4.26245 -3.89603
+                                              0.04229 -0.17364  0.40201
+ H2            0.03870 -0.01638 -0.04237     -0.27015 -0.28351 -0.27813
+                                             -0.00036 -0.00768  0.00206
+ H3            0.01103  0.03629  0.04666     -0.27943 -0.27926 -0.27782
+                                              0.00543  0.00445  0.00741
+ BO21         -0.14047  0.02544  0.10501     -0.14872 -0.17191 -0.15801
+                                             -0.00370 -0.01783  0.00535
+ BO31         -0.05295 -0.11271 -0.13578     -0.11756 -0.12231 -0.10954
+                                              0.00642 -0.00089  0.01971
+ O1           -0.13674  0.37277 -0.17601     -3.81623 -4.01638 -4.40283
+                                              0.22752  0.28969 -0.05020
+ H2           -0.05380 -0.00031 -0.02582     -0.27141 -0.28016 -0.28022
+                                             -0.00383  0.00760 -0.00322
+ H3            0.03755  0.04678  0.00427     -0.28155 -0.26962 -0.28535
+                                              0.00571  0.00059 -0.00217
+ BO21          0.15135 -0.03781  0.08408     -0.14393 -0.16936 -0.16535
+                                             -0.00536  0.01625 -0.00407
+ BO31         -0.10084 -0.15416 -0.00302     -0.11094 -0.10570 -0.13276
+                                              0.01297  0.00932 -0.00337
+
+                  THE THIRD MOMENT TENSOR
+
+               XXX/XYY  YYY/YYZ  ZZZ/XZZ  XXY/YZZ  XXZ/XYZ
+ O1            0.28158 -0.62100 -0.64512 -0.22149 -0.23331
+               0.08286 -0.24431  0.08971 -0.23820  0.00530
+ H2            0.01173 -0.03929  0.02538 -0.01916  0.00849
+              -0.00140  0.00617  0.00373 -0.01921  0.00042
+ H3            0.00252  0.02689 -0.03948  0.00911 -0.02058
+               0.00075 -0.01957 -0.00196  0.00606  0.00010
+ BO21         -0.12229  0.49914 -0.05007  0.16645 -0.01695
+              -0.04042 -0.01804 -0.04073  0.16612  0.00039
+ BO31         -0.04025 -0.17252  0.52727 -0.05313  0.17595
+              -0.00966  0.17808 -0.01298 -0.05383 -0.00030
+ O1           -0.06893 -0.78232  0.62215 -0.22548  0.17983
+              -0.02643  0.20486 -0.03218 -0.25897  0.00388
+ H2           -0.04960 -0.01654  0.00861  0.00093 -0.00144
+              -0.01666  0.00094 -0.01939 -0.00512 -0.00300
+ H3            0.05046 -0.01758  0.02031 -0.00095  0.00174
+               0.01612  0.00439  0.01652 -0.00398  0.00402
+ BO21          0.42048  0.25309 -0.16204  0.08499 -0.05434
+               0.13944 -0.05341  0.13959  0.08415  0.00048
+ BO31         -0.46725  0.21580 -0.22061  0.06739 -0.07060
+              -0.15494 -0.07192 -0.15313  0.07148  0.00183
+ O1           -0.56316  0.14539  0.78112  0.03306  0.27087
+              -0.17148  0.25093 -0.19884  0.07781  0.00244
+ H2           -0.03331  0.04405 -0.00761  0.00950 -0.00441
+              -0.00530 -0.00377 -0.01271  0.01679  0.00172
+ H3            0.01172 -0.04175  0.03409 -0.01501  0.01610
+               0.00362  0.01088  0.00488 -0.00627 -0.00003
+ BO21          0.35680 -0.36393 -0.08592 -0.12112 -0.02790
+               0.11930 -0.02862  0.11837 -0.12049 -0.00048
+ BO31         -0.05084  0.34114 -0.43574  0.11727 -0.14430
+              -0.02135 -0.14501 -0.01622  0.11190 -0.00088
+ O1            0.92042  0.35315  0.06088  0.12923  0.04093
+               0.30483  0.00746  0.28319  0.10700 -0.01408
+ H2            0.02778 -0.02088 -0.04403 -0.00526 -0.00793
+               0.01283 -0.01601  0.00662 -0.00519 -0.00182
+ H3            0.00579  0.03519  0.04591  0.01093  0.01551
+              -0.00076  0.01178 -0.00125  0.00622 -0.00369
+ BO21         -0.40686  0.07506  0.30746  0.02566  0.10227
+              -0.13638  0.10227 -0.13677  0.02501 -0.00038
+ BO31         -0.12211 -0.33615 -0.42266 -0.11297 -0.14514
+              -0.04293 -0.13980 -0.03850 -0.11359  0.00169
+ O1           -0.28506  0.83548 -0.40333  0.26871 -0.11484
+              -0.13165 -0.13982 -0.09492  0.28863 -0.00185
+ H2           -0.04557 -0.00574 -0.02552 -0.00474 -0.00083
+              -0.01895 -0.00839 -0.01578 -0.00286 -0.00195
+ H3            0.04239  0.03328  0.00716  0.01179  0.00222
+               0.00680  0.00341  0.01519  0.01660  0.00006
+ BO21          0.44242 -0.10842  0.24490 -0.03585  0.08174
+               0.14634  0.08110  0.14723 -0.03584  0.00050
+ BO31         -0.33500 -0.44529 -0.02540 -0.14726 -0.01410
+              -0.10873 -0.00886 -0.11105 -0.14816  0.00115
+
+                  POLARIZABLE POINTS AND THE POLARIZABILITY TENSOR
+
+              X       Y       Z       XX/YZ    YY/YX    ZZ/ZX    XY/ZY     XZ
+ CT1       3.1709  2.3570 -1.7766   0.55151  3.25179  0.62836 -0.65782  0.08546
+                                   -0.46719 -0.67224  0.10986 -0.56091
+ CT2       3.0557  3.4308 -2.8439   0.43661  0.65468  3.40474  0.01859 -0.29360
+                                   -0.65090  0.03291 -0.31783 -0.55785
+ CT3       2.3910  3.3623 -1.7580   1.45862  0.80849  0.89250 -0.37670 -0.43826
+                                   -0.10107 -0.30784 -0.36843 -0.09313
+ CT4       3.3353  3.6082 -1.6126   0.77829  1.22714  1.15420  0.40757  0.42938
+                                    0.25160  0.33881  0.35938  0.24432
+ CT1       2.9560 -2.8400 -1.3716   2.71568  1.05313  0.66286  1.16224 -0.70290
+                                   -0.42222  1.08620 -0.64170 -0.41460
+ CT2       4.4658 -2.8524 -1.2104   2.35409  1.10029  1.04165 -1.08990  1.07334
+                                   -0.66827 -1.01440  1.01257 -0.67583
+ CT3       3.8124 -2.4552 -2.2307   0.95238  0.48366  1.72358  0.01317 -0.08081
+                                   -0.07628  0.00331 -0.08144 -0.17417
+ CT4       3.7356 -1.8385 -1.4645   0.93848  1.72591  0.49523 -0.01839  0.04969
+                                    0.10319 -0.00799  0.04988  0.20102
+ CT1      -1.6508 -3.9794  0.8188   1.81505  2.07699  0.53963 -1.50673 -0.24953
+                                    0.19855 -1.54446 -0.19091  0.12980
+ CT2      -1.0083 -5.1731  1.5027   0.46963  1.42965  2.59674 -0.11375  0.04303
+                                   -1.46666 -0.07629 -0.01517 -1.39840
+ CT3      -1.1637 -5.0072  0.2481   0.56843  1.12580  1.46538 -0.06517  0.23837
+                                    0.42311 -0.10895  0.16074  0.38143
+ CT4      -0.4710 -4.4166  0.6282   1.59024  0.89525  0.67415  0.19133 -0.27965
+                                   -0.30773  0.23538 -0.20243 -0.26556
+ CT1      -1.0293  4.4017  0.4941   2.16147  0.55913  1.71108 -0.37055 -1.39387
+                                    0.44471 -0.42450 -1.47122  0.41839
+ CT2      -1.4221  5.1484  1.7564   0.83146  1.58453  2.08004  0.59012  0.63388
+                                    1.38989  0.64368  0.71069  1.41602
+ CT3      -2.1891  4.8358  0.7871   1.40162  0.70675  1.05125 -0.34841  0.35227
+                                    0.00600 -0.42998  0.40074  0.03201
+ CT4      -1.9239  4.0564  1.3306   0.76714  1.44551  0.94698  0.37665 -0.27527
+                                   -0.15091  0.45861 -0.32320 -0.17674
+ CT1      -5.3868 -0.1977  1.5314   2.79394  0.57823  1.05949 -0.36924  1.26540
+                                   -0.19140 -0.28399  1.24022 -0.23246
+ CT2      -4.0914  0.4694  1.9582   1.34283  2.72253  0.43066  1.40650  0.04036
+                                   -0.05064  1.32186  0.06537 -0.00987
+ CT3      -4.6698 -0.5093  2.5354   0.82365  0.78681  1.54916  0.23718 -0.00578
+                                   -0.38166  0.20901  0.03710 -0.46561
+ CT4      -4.2561 -0.7631  1.6765   1.15253  1.35126  0.65584 -0.35164 -0.08921
+                                    0.35741 -0.32408 -0.13191  0.44166
+
+                    AO EXPANSION POINTS                             LMO CENTROIDS
+
+                X          Y          Z                         X          Y          Z
+
+  O1          2.94378    3.29433   -1.88616       CT1         3.17094    2.35700   -1.77659
+  H2          3.35035    1.57860   -1.62558       CT2         3.05567    3.43078   -2.84387
+  H3          3.13344    3.60361   -3.64147       CT3         2.39103    3.36234   -1.75797
+  O1          3.75306   -2.37210   -1.66838       CT4         3.33529    3.60818   -1.61263
+  H2          2.25614   -3.19354   -1.15712       CT1         2.95604   -2.83996   -1.37162
+  H3          5.10525   -3.21880   -0.85144       CT2         4.46575   -2.85238   -1.21042
+  O1         -0.98260   -4.66773    0.67065       CT3         3.81237   -2.45517   -2.23067
+  H2         -2.19783   -3.38197    0.88736       CT4         3.73564   -1.83849   -1.46452
+  H3         -0.98663   -5.63442    2.18003       CT1        -1.65078   -3.97941    0.81876
+  O1         -1.78870    4.55173    1.07970       CT2        -1.00831   -5.17307    1.50270
+  H2         -0.42904    4.24044   -0.02996       CT3        -1.16370   -5.00725    0.24812
+  H3         -1.16823    5.65054    2.35263       CT4        -0.47100   -4.41661    0.62825
+  O1         -4.55241   -0.38778    1.98946       CT1        -1.02928    4.40168    0.49407
+  H2         -6.10136   -0.09619    1.15720       CT2        -1.42209    5.14838    1.75641
+  H3         -3.65722    1.16483    1.96190       CT3        -2.18905    4.83576    0.78705
+                                                  CT4        -1.92390    4.05637    1.33059
+                                                  CT1        -5.38680   -0.19767    1.53138
+                                                  CT2        -4.09138    0.46943    1.95825
+                                                  CT3        -4.66977   -0.50932    2.53541
+                                                  CT4        -4.25607   -0.76310    1.67655
+
+          ----------------
+          PROPERTIES INPUT
+          ----------------
+
+     MOMENTS            FIELD           POTENTIAL          DENSITY
+ IEMOM =       1   IEFLD =       0   IEPOT =       0   IEDEN =       0
+ WHERE =COMASS     WHERE =NUCLEI     WHERE =NUCLEI     WHERE =NUCLEI  
+ OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH    
+ IEMINT=       0   IEFINT=       0                     IEDINT=       0
+                                                       MORB  =       0
+          EXTRAPOLATION IN EFFECT
+ ORBITAL PRINTING OPTION: NPREO=     1     0     2     1
+
+     -------------------------------
+     INTEGRAL TRANSFORMATION OPTIONS
+     -------------------------------
+     NWORD  =            0
+     CUTOFF = 1.0E-09     MPTRAN =       0
+     DIRTRF =       F     AOINTS =DUP     
+
+          ----------------------
+          INTEGRAL INPUT OPTIONS
+          ----------------------
+ NOPK  =       1 NORDER=       0 SCHWRZ=       F
+
+ ..... DONE SETTING UP THE RUN .....
+ STEP CPU TIME =     0.09 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.3 SECONDS, CPU UTILIZATION IS  40.00%
+
+     ---------------------------------
+     HESSIAN MATRIX CONTROL PARAMETERS
+     ---------------------------------
+     METHOD=SEMINUM    NVIB  =       2   VIBSIZ= 0.01000
+     RDHESS=       F   PURIFY=       F   PRTIFC=       F
+     VIBANL=       T   DECOMP=       F   PROJCT=       F
+     SCLFAC= 1.00000   PRTSCN=       F   NPRT  =       0
+     PULCOR=       F   NPUN  =       0   REDOVB=       T
+     HSSTYP=GENERAL 
+     THERMOCHEMISTRY WILL BE PRINTED FOR    1 TEMPERATURES:
+      298.15000
+
+     A $VIB GROUP WAS FOUND IN YOUR INPUT.
+     THEREFORE, THIS IS A NUMERICAL HESSIAN RESTART.
+
+ THIS RESTART WILL REEVALUATE THE FRAGMENT ONLY ENERGY AT VIB 0 GEOMETRY.
+
+1     ATOM  0                    --------------------
+     COORD  0                    UNDISPLACED GEOMETRY
+       VIB  0                    --------------------
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2OPAU
+ O1                2.9437834840   3.2943266843  -1.8861630798
+ H2                3.3503478699   1.5786005832  -1.6255832270
+ H3                3.1334354177   3.6036141004  -3.6414663239
+ FRAGNAME=H2OPAU
+ O1                3.7530569864  -2.3720989918  -1.6683751619
+ H2                2.2561384008  -3.1935412953  -1.1571219923
+ H3                5.1052496146  -3.2188014148  -0.8514381121
+ FRAGNAME=H2OPAU
+ O1               -0.9826023801  -4.6677319387   0.6706531052
+ H2               -2.1978270884  -3.3819717380   0.8873605766
+ H3               -0.9866281869  -5.6344197029   2.1800286713
+ FRAGNAME=H2OPAU
+ O1               -1.7886972888   4.5517272584   1.0796987225
+ H2               -0.4290385591   4.2404403069  -0.0299593718
+ H3               -1.1682323334   5.6505380043   2.3526300735
+ FRAGNAME=H2OPAU
+ O1               -4.5524091919  -0.3877761939   1.9894632096
+ H2               -6.1013557472  -0.0961940350   1.1572030778
+ H3               -3.6572233057   1.1648340732   1.9619018633
+
+                 --------------------------------------
+                 FRAGMENT-FRAGMENT INTERACTION ENERGIES
+                 --------------------------------------
+
+                 ELECTROSTATIC ENERGY  =  -0.0543908225
+                 REPULSION ENERGY      =   0.0170501491
+                 POLARIZATION ENERGY   =  -0.0097753838
+                 --------------------------------------
+                 FINAL EFP ENERGY      =  -0.0471160572
+
+     READING $VIB RESTART DATA FROM $VIB CARDS...
+ IVIB=   0 IATOM=   0 ICOORD=   0 E=       -0.0471160572
+
+ THE VIB 0 GEOMETRY GRADIENT IS
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+      TOTAL QM TRANS.  0.000000000       0.000000000       0.000000000
+      TOTAL QM TORQUE  0.000000000       0.000000000       0.000000000
+  EFP           TRANS GRADIENT                           TORQUE
+    1  -0.0000012 -0.0000002 -0.0000007    -0.0000023 -0.0000015  0.0000019
+    2   0.0000005  0.0000013  0.0000019     0.0000005 -0.0000029  0.0000003
+    3  -0.0000008  0.0000003 -0.0000006     0.0000018  0.0000027  0.0000003
+    4   0.0000011 -0.0000015 -0.0000010     0.0000098  0.0000016 -0.0000070
+    5   0.0000004 -0.0000000  0.0000004    -0.0000039  0.0000031  0.0000016
+ IVIB=   1 IATOM=   1 ICOORD=   1 E=       -0.0471153875
+ IVIB=   1 IATOM=   1 ICOORD=   2 E=       -0.0471151641
+ IVIB=   1 IATOM=   1 ICOORD=   3 E=       -0.0471157663
+ IVIB=   1 IATOM=   2 ICOORD=   1 E=       -0.0471148646
+ IVIB=   1 IATOM=   2 ICOORD=   2 E=       -0.0471153773
+ IVIB=   1 IATOM=   2 ICOORD=   3 E=       -0.0471139156
+ IVIB=   1 IATOM=   3 ICOORD=   1 E=       -0.0471154052
+ IVIB=   1 IATOM=   3 ICOORD=   2 E=       -0.0471150849
+ IVIB=   1 IATOM=   3 ICOORD=   3 E=       -0.0471158310
+ IVIB=   1 IATOM=   4 ICOORD=   1 E=       -0.0471151745
+ IVIB=   1 IATOM=   4 ICOORD=   2 E=       -0.0471152447
+ IVIB=   1 IATOM=   4 ICOORD=   3 E=       -0.0471139053
+ IVIB=   1 IATOM=   5 ICOORD=   1 E=       -0.0471151406
+ IVIB=   1 IATOM=   5 ICOORD=   2 E=       -0.0471154190
+ IVIB=   1 IATOM=   5 ICOORD=   3 E=       -0.0471157933
+ IVIB=   1 IATOM=   6 ICOORD=   1 E=       -0.0471154763
+ IVIB=   1 IATOM=   6 ICOORD=   2 E=       -0.0471148627
+ IVIB=   1 IATOM=   6 ICOORD=   3 E=       -0.0471139314
+ IVIB=   1 IATOM=   7 ICOORD=   1 E=       -0.0471152342
+ IVIB=   1 IATOM=   7 ICOORD=   2 E=       -0.0471153862
+ IVIB=   1 IATOM=   7 ICOORD=   3 E=       -0.0471156765
+ IVIB=   1 IATOM=   8 ICOORD=   1 E=       -0.0471147878
+ IVIB=   1 IATOM=   8 ICOORD=   2 E=       -0.0471145949
+ IVIB=   1 IATOM=   8 ICOORD=   3 E=       -0.0471146834
+ IVIB=   1 IATOM=   9 ICOORD=   1 E=       -0.0471155022
+ IVIB=   1 IATOM=   9 ICOORD=   2 E=       -0.0471149428
+ IVIB=   1 IATOM=   9 ICOORD=   3 E=       -0.0471158285
+ IVIB=   1 IATOM=  10 ICOORD=   1 E=       -0.0471145385
+ IVIB=   1 IATOM=  10 ICOORD=   2 E=       -0.0471155409
+ IVIB=   1 IATOM=  10 ICOORD=   3 E=       -0.0471140164
+ IVIB=   2 IATOM=   1 ICOORD=   1 E=       -0.0471153560
+ IVIB=   2 IATOM=   1 ICOORD=   2 E=       -0.0471151472
+ IVIB=   2 IATOM=   1 ICOORD=   3 E=       -0.0471157546
+ IVIB=   2 IATOM=   2 ICOORD=   1 E=       -0.0471148273
+ IVIB=   2 IATOM=   2 ICOORD=   2 E=       -0.0471153519
+ IVIB=   2 IATOM=   2 ICOORD=   3 E=       -0.0471139496
+ IVIB=   2 IATOM=   3 ICOORD=   1 E=       -0.0471154083
+ IVIB=   2 IATOM=   3 ICOORD=   2 E=       -0.0471151244
+ IVIB=   2 IATOM=   3 ICOORD=   3 E=       -0.0471158693
+ IVIB=   2 IATOM=   4 ICOORD=   1 E=       -0.0471151776
+ IVIB=   2 IATOM=   4 ICOORD=   2 E=       -0.0471151959
+ IVIB=   2 IATOM=   4 ICOORD=   3 E=       -0.0471139194
+ IVIB=   2 IATOM=   5 ICOORD=   1 E=       -0.0471151286
+ IVIB=   2 IATOM=   5 ICOORD=   2 E=       -0.0471154314
+ IVIB=   2 IATOM=   5 ICOORD=   3 E=       -0.0471157816
+ IVIB=   2 IATOM=   6 ICOORD=   1 E=       -0.0471155165
+ IVIB=   2 IATOM=   6 ICOORD=   2 E=       -0.0471149218
+ IVIB=   2 IATOM=   6 ICOORD=   3 E=       -0.0471139364
+ IVIB=   2 IATOM=   7 ICOORD=   1 E=       -0.0471152635
+ IVIB=   2 IATOM=   7 ICOORD=   2 E=       -0.0471153482
+ IVIB=   2 IATOM=   7 ICOORD=   3 E=       -0.0471156544
+ IVIB=   2 IATOM=   8 ICOORD=   1 E=       -0.0471149888
+ IVIB=   2 IATOM=   8 ICOORD=   2 E=       -0.0471146210
+ IVIB=   2 IATOM=   8 ICOORD=   3 E=       -0.0471145437
+ IVIB=   2 IATOM=   9 ICOORD=   1 E=       -0.0471155131
+1 FRAGMENT  5                    -------------------
+     TRANS  2                    NUCLEAR COORDINATES
+       VIB  2                    -------------------
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2OPAU
+ O1                2.9437834840   3.2943266843  -1.8861630798
+ H2                3.3503478699   1.5786005832  -1.6255832270
+ H3                3.1334354177   3.6036141004  -3.6414663239
+ FRAGNAME=H2OPAU
+ O1                3.7530569864  -2.3720989918  -1.6683751619
+ H2                2.2561384008  -3.1935412953  -1.1571219923
+ H3                5.1052496146  -3.2188014148  -0.8514381121
+ FRAGNAME=H2OPAU
+ O1               -0.9826023801  -4.6677319387   0.6706531052
+ H2               -2.1978270884  -3.3819717380   0.8873605766
+ H3               -0.9866281869  -5.6344197029   2.1800286713
+ FRAGNAME=H2OPAU
+ O1               -1.7886972888   4.5517272584   1.0796987225
+ H2               -0.4290385591   4.2404403069  -0.0299593718
+ H3               -1.1682323334   5.6505380043   2.3526300735
+ FRAGNAME=H2OPAU
+ O1               -4.5524091919  -0.3977761939   1.9894632096
+ H2               -6.1013557472  -0.1061940350   1.1572030778
+ H3               -3.6572233057   1.1548340732   1.9619018633
+                 FINAL EFP ENERGY      =  -0.0471149457
+  $VIB   
+          IVIB=   2 IATOM=   9 ICOORD=   2 E=       -0.0471149457
+-4.945680878E-06 2.383039444E-06 1.505316535E-06
+-4.813203075E-06-2.351272804E-06-2.270898633E-06
+ 3.738840016E-06 4.057056294E-06 1.120071170E-07
+-1.151047004E-06-4.001583765E-06-4.747611779E-06
+-6.599933732E-05 9.970172388E-05 3.198774692E-05
+ 1.349364894E-05 2.516335347E-05-5.247343740E-05
+ 6.245096025E-05 1.160126537E-04-2.221078002E-05
+-2.785376062E-06 2.363324248E-06-3.708954319E-05
+ 4.755217932E-06-2.221544733E-04-1.139429056E-05
+-1.476638260E-06 9.294109205E-06-7.836685024E-05
+  0.000000000E+00 0.000000000E+00 0.000000000E+00
+1 FRAGMENT  5                    -------------------
+     TRANS  3                    NUCLEAR COORDINATES
+       VIB  2                    -------------------
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2OPAU
+ O1                2.9437834840   3.2943266843  -1.8861630798
+ H2                3.3503478699   1.5786005832  -1.6255832270
+ H3                3.1334354177   3.6036141004  -3.6414663239
+ FRAGNAME=H2OPAU
+ O1                3.7530569864  -2.3720989918  -1.6683751619
+ H2                2.2561384008  -3.1935412953  -1.1571219923
+ H3                5.1052496146  -3.2188014148  -0.8514381121
+ FRAGNAME=H2OPAU
+ O1               -0.9826023801  -4.6677319387   0.6706531052
+ H2               -2.1978270884  -3.3819717380   0.8873605766
+ H3               -0.9866281869  -5.6344197029   2.1800286713
+ FRAGNAME=H2OPAU
+ O1               -1.7886972888   4.5517272584   1.0796987225
+ H2               -0.4290385591   4.2404403069  -0.0299593718
+ H3               -1.1682323334   5.6505380043   2.3526300735
+ FRAGNAME=H2OPAU
+ O1               -4.5524091919  -0.3877761939   1.9794632096
+ H2               -6.1013557472  -0.0961940350   1.1472030778
+ H3               -3.6572233057   1.1648340732   1.9519018633
+                 FINAL EFP ENERGY      =  -0.0471158357
+  $VIB   
+          IVIB=   2 IATOM=   9 ICOORD=   3 E=       -0.0471158357
+ 3.519511685E-07 6.076355842E-07-1.030205148E-06
+-2.080173372E-06-6.797428759E-07 1.447977672E-06
+ 2.433682185E-06 9.126541724E-07 1.596453565E-06
+-3.696162527E-08-1.704820964E-06 1.900520987E-06
+-1.907454571E-05 2.921398596E-05 1.924512952E-05
+ 3.241739121E-05 3.801796016E-05-1.439197877E-05
+-1.751228057E-05-1.957363012E-05 2.482279726E-05
+-3.577066910E-05 3.324314552E-05-2.530773523E-05
+ 3.380119293E-05-1.116064560E-05-4.463417520E-05
+-4.768101007E-05 4.998105372E-05-2.851142502E-05
+  0.000000000E+00 0.000000000E+00 0.000000000E+00
+1 FRAGMENT  5                    -------------------
+       ROT  1                    NUCLEAR COORDINATES
+       VIB  2                    -------------------
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2OPAU
+ O1                2.9437834840   3.2943266843  -1.8861630798
+ H2                3.3503478699   1.5786005832  -1.6255832270
+ H3                3.1334354177   3.6036141004  -3.6414663239
+ FRAGNAME=H2OPAU
+ O1                3.7530569864  -2.3720989918  -1.6683751619
+ H2                2.2561384008  -3.1935412953  -1.1571219923
+ H3                5.1052496146  -3.2188014148  -0.8514381121
+ FRAGNAME=H2OPAU
+ O1               -0.9826023801  -4.6677319387   0.6706531052
+ H2               -2.1978270884  -3.3819717380   0.8873605766
+ H3               -0.9866281869  -5.6344197029   2.1800286713
+ FRAGNAME=H2OPAU
+ O1               -1.7886972888   4.5517272584   1.0796987225
+ H2               -0.4290385591   4.2404403069  -0.0299593718
+ H3               -1.1682323334   5.6505380043   2.3526300735
+ FRAGNAME=H2OPAU
+ O1               -4.5524091919  -0.3872899080   1.9904927498
+ H2               -6.1013557472  -0.1040447906   1.1553584577
+ H3               -3.6572233057   1.1649671204   1.9474069376
+                 FINAL EFP ENERGY      =  -0.0471144553
+  $VIB   
+          IVIB=   2 IATOM=  10 ICOORD=   1 E=       -0.0471144553
+-3.176511893E-07 2.631339497E-06 6.709807649E-07
+-1.025956568E-06 4.609506017E-06-1.115458460E-05
+ 3.846534454E-07 2.360550463E-06 1.202252244E-06
+ 3.718613141E-06-9.588951646E-06-1.141426584E-05
+ 5.277384404E-07-3.481413883E-06-2.643996612E-05
+-4.087177806E-05-5.344241459E-05 4.105623488E-06
+-2.409922387E-05-4.007403591E-06 6.817016059E-05
+-1.040658644E-04 8.996764737E-05-6.502518184E-05
+ 2.350448317E-05 2.496927514E-06-4.360342747E-05
+-3.167290399E-04 6.864371118E-05-5.397733260E-05
+  0.000000000E+00 0.000000000E+00 0.000000000E+00
+1 FRAGMENT  5                    -------------------
+       ROT  2                    NUCLEAR COORDINATES
+       VIB  2                    -------------------
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2OPAU
+ O1                2.9437834840   3.2943266843  -1.8861630798
+ H2                3.3503478699   1.5786005832  -1.6255832270
+ H3                3.1334354177   3.6036141004  -3.6414663239
+ FRAGNAME=H2OPAU
+ O1                3.7530569864  -2.3720989918  -1.6683751619
+ H2                2.2561384008  -3.1935412953  -1.1571219923
+ H3                5.1052496146  -3.2188014148  -0.8514381121
+ FRAGNAME=H2OPAU
+ O1               -0.9826023801  -4.6677319387   0.6706531052
+ H2               -2.1978270884  -3.3819717380   0.8873605766
+ H3               -0.9866281869  -5.6344197029   2.1800286713
+ FRAGNAME=H2OPAU
+ O1               -1.7886972888   4.5517272584   1.0796987225
+ H2               -0.4290385591   4.2404403069  -0.0299593718
+ H3               -1.1682323334   5.6505380043   2.3526300735
+ FRAGNAME=H2OPAU
+ O1               -4.5528921472  -0.3877761939   1.9898266256
+ H2               -6.0934387932  -0.0961940350   1.1421188991
+ H3               -3.6574754110   1.1648340732   1.9712183670
+                 FINAL EFP ENERGY      =  -0.0471156003
+  $VIB   
+          IVIB=   2 IATOM=  10 ICOORD=   2 E=       -0.0471156003
+-2.336622107E-06-9.994472241E-07-1.659238022E-07
+-2.416416711E-06-1.870093983E-07 3.889699615E-06
+-2.738636846E-07 1.262674685E-06 1.705594974E-06
+ 1.386521368E-06-5.339579182E-06 1.078853368E-06
+-1.039484098E-05-1.244478903E-05-1.623712228E-05
+-2.651536200E-05-2.319727289E-05 4.268257444E-05
+ 1.362663529E-05 6.259449369E-06-3.258938782E-05
+ 6.795314313E-05-2.681983736E-05 1.169308838E-05
+-6.213085178E-07 5.922112199E-06 4.728683892E-05
+ 6.078131522E-05-9.451271374E-05 6.780276787E-05
+  0.000000000E+00 0.000000000E+00 0.000000000E+00
+1 FRAGMENT  5                    -------------------
+       ROT  3                    NUCLEAR COORDINATES
+       VIB  2                    -------------------
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2OPAU
+ O1                2.9437834840   3.2943266843  -1.8861630798
+ H2                3.3503478699   1.5786005832  -1.6255832270
+ H3                3.1334354177   3.6036141004  -3.6414663239
+ FRAGNAME=H2OPAU
+ O1                3.7530569864  -2.3720989918  -1.6683751619
+ H2                2.2561384008  -3.1935412953  -1.1571219923
+ H3                5.1052496146  -3.2188014148  -0.8514381121
+ FRAGNAME=H2OPAU
+ O1               -0.9826023801  -4.6677319387   0.6706531052
+ H2               -2.1978270884  -3.3819717380   0.8873605766
+ H3               -0.9866281869  -5.6344197029   2.1800286713
+ FRAGNAME=H2OPAU
+ O1               -1.7886972888   4.5517272584   1.0796987225
+ H2               -0.4290385591   4.2404403069  -0.0299593718
+ H3               -1.1682323334   5.6505380043   2.3526300735
+ FRAGNAME=H2OPAU
+ O1               -4.5534429669  -0.3881368558   1.9894632096
+ H2               -6.0993963025  -0.0810800685   1.1572030778
+ H3               -3.6427759957   1.1554440718   1.9619018633
+                 FINAL EFP ENERGY      =  -0.0471140561
+  $VIB   
+          IVIB=   2 IATOM=  10 ICOORD=   3 E=       -0.0471140561
+-2.822690984E-06 5.930751861E-06-5.733086343E-07
+-1.810011812E-05-7.060591414E-06-1.794831955E-05
+ 2.403655134E-06 5.798636624E-06 1.617318868E-06
+-1.480763895E-05 1.278999384E-06-2.054173001E-05
+ 5.154250914E-05 3.525929262E-05 1.214964336E-05
+ 5.734101754E-06 6.099274726E-05-1.731209954E-04
+-3.311891943E-05 3.334758752E-05 1.669940889E-05
+-5.037318820E-05 6.091316766E-06-1.038331161E-04
+-1.800455386E-05-8.033626862E-05-2.989306248E-05
+-5.890605170E-05 6.917957319E-05-4.013386718E-04
+  0.000000000E+00 0.000000000E+00 0.000000000E+00
+ ...... END OF NUMERICAL HESSIAN CALCULATION ......
+ STEP CPU TIME =     0.04 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS  38.89%
+
+          ---------------
+          ENERGY GRADIENT
+          ---------------
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+      TOTAL QM TRANS.  0.000000000       0.000000000       0.000000000
+      TOTAL QM TORQUE  0.000000000       0.000000000       0.000000000
+  EFP           TRANS GRADIENT                           TORQUE
+    1  -0.0000012 -0.0000002 -0.0000007    -0.0000023 -0.0000015  0.0000019
+    2   0.0000005  0.0000013  0.0000019     0.0000005 -0.0000029  0.0000003
+    3  -0.0000008  0.0000003 -0.0000006     0.0000018  0.0000027  0.0000003
+    4   0.0000011 -0.0000015 -0.0000010     0.0000098  0.0000016 -0.0000070
+    5   0.0000004 -0.0000000  0.0000004    -0.0000039  0.0000031  0.0000016
+
+          -------------------------------
+          CARTESIAN FORCE CONSTANT MATRIX
+          -------------------------------
+
+                    FRAGMENT  1   TRANSLATION             ROTATION 
+                          X        Y        Z        X        Y        Z
+ FRAG.  1 TRANS.   X 0.013710-0.005143-0.005578 0.000575 0.002577 0.007287
+                   Y-0.005143 0.018032 0.001192-0.006677-0.002478-0.001905
+                   Z-0.005578 0.001192 0.005935-0.000779 0.001978 0.002022
+ FRAG.  1 ROT.     X 0.000575-0.006677-0.000779 0.024223 0.010829 0.004867
+                   Y 0.002577-0.002478 0.001978 0.010829 0.013851 0.003420
+                   Z 0.007287-0.001905 0.002022 0.004867 0.003420 0.042488
+ FRAG.  2 TRANS.   X-0.002566 0.001079-0.000097 0.000246-0.000239-0.007843
+                   Y 0.001809-0.015385-0.000088 0.003171 0.000160-0.002643
+                   Z-0.000203 0.000316-0.000849 0.003247 0.000902-0.000484
+ FRAG.  2 ROT.     X-0.000079-0.001669-0.002205 0.006311 0.001705-0.001028
+                   Y 0.000584-0.000132 0.000363-0.000923-0.001526 0.002014
+                   Z 0.006477 0.000820 0.000296-0.001007 0.000887 0.018540
+ FRAG.  3 TRANS.   X-0.000127 0.000476-0.000035-0.000193-0.000008-0.000442
+                   Y 0.000238 0.000268-0.000163 0.000165 0.000120 0.000395
+                   Z 0.000012-0.000232-0.000043 0.000243 0.000048 0.000099
+ FRAG.  3 ROT.     X 0.000179-0.000117-0.000099 0.000353-0.000195 0.001112
+                   Y 0.000103-0.000144 0.000070-0.000711-0.000594 0.000712
+                   Z 0.000355-0.000294-0.000143 0.001105 0.000330 0.002259
+ FRAG.  4 TRANS.   X-0.011351 0.003444 0.005952-0.000500-0.002349 0.001109
+                   Y 0.002720-0.002660-0.000723 0.003088 0.002116 0.003731
+                   Z 0.005924-0.001198-0.005080-0.002690-0.002843-0.001688
+ FRAG.  4 ROT.     X 0.000766-0.004085 0.001652 0.005308 0.004581 0.007427
+                   Y 0.004732-0.002798 0.003403 0.007452 0.009992 0.001956
+                   Z-0.000447-0.005059 0.002112 0.007853 0.003763 0.008855
+ FRAG.  5 TRANS.   X 0.000334 0.000144-0.000242-0.000128 0.000020-0.000111
+                   Y 0.000376-0.000255-0.000218 0.000252 0.000083 0.000422
+                   Z-0.000155-0.000077 0.000037-0.000021-0.000084 0.000050
+ FRAG.  5 ROT.     X-0.000096-0.000279-0.000128-0.000126-0.000614 0.001309
+                   Y 0.000113 0.000084-0.000048 0.000016-0.000130-0.000195
+                   Z 0.000152-0.000610-0.000002 0.001579 0.000551 0.001988
+
+                    FRAGMENT  2   TRANSLATION             ROTATION 
+                          X        Y        Z        X        Y        Z
+ FRAG.  2 TRANS.   X 0.013010 0.003073-0.004240 0.000200-0.000004-0.003987
+                   Y 0.003073 0.019052-0.002609-0.000780-0.000273-0.006579
+                   Z-0.004240-0.002609 0.004141-0.000405 0.003478-0.000084
+ FRAG.  2 ROT.     X 0.000200-0.000780-0.000405 0.017622-0.010770 0.007328
+                   Y-0.000004-0.000273 0.003478-0.010770 0.016737 0.003675
+                   Z-0.003987-0.006579-0.000084 0.007328 0.003675 0.042893
+ FRAG.  3 TRANS.   X-0.010816-0.004297 0.004662-0.000402-0.000422-0.003184
+                   Y-0.003559-0.003591 0.001995 0.002152 0.000246 0.005037
+                   Z 0.004565 0.002352-0.003261 0.002660-0.003747 0.000079
+ FRAG.  3 ROT.     X 0.000392-0.001943 0.000552 0.001681 0.001882 0.004875
+                   Y 0.003339-0.000667 0.001519-0.002542 0.005487 0.005165
+                   Z 0.001849-0.004229 0.000485 0.003717 0.000894 0.011848
+ FRAG.  4 TRANS.   X-0.000007-0.000476 0.000012 0.000091 0.000023 0.000391
+                   Y-0.000272 0.000198 0.000120 0.000135 0.000050 0.000216
+                   Z-0.000037 0.000305-0.000061-0.000100 0.000026-0.000134
+ FRAG.  4 ROT.     X-0.000326-0.000085 0.000144 0.000285 0.000126 0.001365
+                   Y 0.000056 0.000061 0.000155 0.000758-0.000593-0.000382
+                   Z-0.000392-0.000276 0.000240 0.001063 0.000103 0.001979
+ FRAG.  5 TRANS.   X 0.000379-0.000109-0.000231 0.000190-0.000181 0.000303
+                   Y-0.000321-0.000273 0.000177 0.000161 0.000109 0.000505
+                   Z-0.000192 0.000040 0.000030 0.000050-0.000120-0.000158
+ FRAG.  5 ROT.     X 0.000010-0.000102 0.000070-0.000325 0.000668 0.001170
+                   Y 0.000078 0.000006 0.000019-0.000089 0.000239-0.000078
+                   Z-0.000195-0.000446 0.000031 0.001525-0.000416 0.002079
+
+                    FRAGMENT  3   TRANSLATION             ROTATION 
+                          X        Y        Z        X        Y        Z
+ FRAG.  3 TRANS.   X 0.018453-0.002435-0.006565-0.001617-0.002166-0.008266
+                   Y-0.002435 0.012640 0.001052 0.003111 0.002997-0.000641
+                   Z-0.006565 0.001052 0.005395 0.002774 0.002096-0.001574
+ FRAG.  3 ROT.     X-0.001617 0.003111 0.002774 0.011215 0.009522 0.007091
+                   Y-0.002166 0.002997 0.002096 0.009522 0.023298-0.001658
+                   Z-0.008266-0.000641-0.001574 0.007091-0.001658 0.042462
+ FRAG.  4 TRANS.   X-0.000308 0.000090 0.000105 0.000205-0.000023 0.000567
+                   Y-0.000189 0.000538 0.000048 0.000103 0.000033-0.000086
+                   Z 0.000114-0.000000-0.000108-0.000169-0.000163-0.000231
+ FRAG.  4 ROT.     X-0.000218 0.000028 0.000170 0.000564 0.000505 0.001226
+                   Y 0.000015 0.000025-0.000114-0.000471-0.000971 0.000093
+                   Z-0.000374-0.000059 0.000203 0.000899-0.000050 0.002135
+ FRAG.  5 TRANS.   X-0.007202 0.005667 0.001884 0.000841-0.001254 0.005496
+                   Y 0.006445-0.009854-0.003219-0.001153-0.002219 0.005250
+                   Z 0.001824-0.002884-0.001983-0.003058-0.003523 0.001463
+ FRAG.  5 ROT.     X-0.000147 0.000406 0.002589 0.004259 0.005614-0.000394
+                   Y 0.000942 0.001295 0.001555 0.002800 0.002561-0.004236
+                   Z-0.005270-0.003454-0.001254-0.000372-0.005803 0.017339
+
+                    FRAGMENT  4   TRANSLATION             ROTATION 
+                          X        Y        Z        X        Y        Z
+ FRAG.  4 TRANS.   X 0.016168 0.003154-0.007930 0.001470-0.004981 0.003421
+                   Y 0.003154 0.013801-0.001252 0.002865 0.002788 0.002358
+                   Z-0.007930-0.001252 0.007836-0.006524-0.000289-0.004382
+ FRAG.  4 ROT.     X 0.001470 0.002865-0.006524 0.023376-0.001259 0.018632
+                   Y-0.004981 0.002788-0.000289-0.001259 0.028983 0.003336
+                   Z 0.003421 0.002358-0.004382 0.018632 0.003336 0.028871
+ FRAG.  5 TRANS.   X-0.004502-0.005413 0.001928-0.001692 0.000177-0.002209
+                   Y-0.006212-0.011876 0.002145 0.001276-0.000076 0.003036
+                   Z 0.001860 0.001806-0.002586 0.004558-0.003155 0.001826
+ FRAG.  5 ROT.     X 0.002503 0.000226-0.006907 0.011377-0.008814 0.005777
+                   Y-0.001242-0.000782 0.003162-0.005809 0.002864-0.001862
+                   Z 0.003456-0.003487-0.001777 0.006033-0.000470 0.009698
+
+                    FRAGMENT  5   TRANSLATION             ROTATION 
+                          X        Y        Z        X        Y        Z
+ FRAG.  5 TRANS.   X 0.010991-0.000289-0.003338-0.002270 0.000109 0.001857
+                   Y-0.000289 0.022259 0.001114-0.000252-0.000602 0.007997
+                   Z-0.003338 0.001114 0.004502 0.004375-0.004688 0.003002
+ FRAG.  5 ROT.     X-0.002270-0.000252 0.004375 0.031205-0.006557 0.005496
+                   Y 0.000109-0.000602-0.004688-0.006557 0.009731-0.006565
+                   Z 0.001857 0.007997 0.003002 0.005496-0.006565 0.040416
+
+          --------------------------------------------------------
+          NORMAL COORDINATE ANALYSIS IN THE HARMONIC APPROXIMATION
+          --------------------------------------------------------
+
+ FRAGMENT MASSES USED ARE (IN AMU)
+    1  H2OPAU   18.010560
+    2  H2OPAU   18.010560
+    3  H2OPAU   18.010560
+    4  H2OPAU   18.010560
+    5  H2OPAU   18.010560
+
+ FRAGMENT MOMENTS OF INERTIA USED (LOW TRIANGLE) ARE (IN AMU)
+    1  H2OPAU    5.999238   0.596606   3.230424   0.178472   1.116280   3.134394
+    2  H2OPAU    2.082178  -0.071775   4.936398  -0.352848   0.995416   5.345481
+    3  H2OPAU    4.777521   1.548852   3.579857   0.152847   1.220758   4.006679
+    4  H2OPAU    4.152021  -0.172610   4.902514   0.742805  -1.750529   3.309522
+    5  H2OPAU    2.980494  -1.013565   3.858684  -1.242647   0.198273   5.524878
+
+ MODES    1 TO    6 ARE TAKEN AS ROTATIONS AND TRANSLATIONS.
+
+     FREQUENCIES IN CM**-1, IR INTENSITIES IN DEBYE**2/AMU-ANGSTROM**2,
+     REDUCED MASSES IN AMU.
+
+                            1           2           3           4           5
+       FREQUENCY:         0.73        0.60        0.39        0.00        0.00  
+        SYMMETRY:                                                             
+    REDUCED MASS:     17.00536    17.36339    16.94712    18.01056    18.01056
+    IR INTENSITY:      0.00000     0.00000     0.00000     0.00000     0.00000
+
+  1  1  O1         X -0.01077938 -0.05197218  0.07836018  0.05954184  0.08666266
+                   Y  0.02509285  0.07434927 -0.00084047  0.08602506 -0.05767259
+                   Z  0.02479240  0.04113093  0.12228456  0.01191517 -0.01652333
+  2  1  H2         X  0.01113575 -0.02887015  0.05262256  0.05958796  0.08664034
+                   Y  0.03477354  0.07461382 -0.01038991  0.08604553 -0.05768364
+                   Z  0.05434000  0.00682827  0.09956513  0.01197799 -0.01656122
+  3  1  H3         X  0.02109218 -0.06646969  0.11872183  0.05950938  0.08670396
+                   Y  0.00661204  0.10930674  0.02885795  0.08595960 -0.05762659
+                   Z  0.02497962  0.04572411  0.13187835  0.01190012 -0.01651076
+  4  2  O1         X  0.07507124  0.02043097  0.00679660  0.05968491  0.08660276
+                   Y  0.04067153  0.08046110 -0.01437073  0.08605379 -0.05768634
+                   Z  0.11118899 -0.06892624  0.03609536  0.01213012 -0.01666005
+  5  2  H2         X  0.07745757  0.03382035 -0.01360109  0.05971247  0.08658368
+                   Y  0.02306428  0.05219007 -0.00596703  0.08603725 -0.05768564
+                   Z  0.08988602 -0.07514664 -0.01012544  0.01218425 -0.01671481
+  6  2  H3         X  0.07145233  0.03598024 -0.02028582  0.05971745  0.08657681
+                   Y  0.07226465  0.08226630 -0.04523390  0.08611977 -0.05772179
+                   Z  0.14992323 -0.09279239  0.04893445  0.01214465 -0.01665383
+  7  3  O1         X  0.06266311  0.06333472 -0.06923374  0.05977498  0.08652968
+                   Y -0.00616409 -0.02236829 -0.00090118  0.08602991 -0.05770368
+                   Z  0.04009991 -0.08298022 -0.10461669  0.01228914 -0.01682510
+  8  3  H2         X  0.03761954  0.04851335 -0.05855597  0.05974606  0.08653732
+                   Y -0.02288850 -0.04163638  0.00953150  0.08600839 -0.05769783
+                   Z -0.00110757 -0.05177297 -0.10663802  0.01225472 -0.01681697
+  9  3  H3         X  0.04644478  0.08456103 -0.11221050  0.05982035  0.08648747
+                   Y  0.01224866 -0.05045213 -0.02829401  0.08609038 -0.05774429
+                   Z  0.05184920 -0.10091006 -0.12227520  0.01232799 -0.01685122
+ 10  4  O1         X -0.09301691 -0.04983849  0.03122038  0.05955254  0.08661009
+                   Y -0.01401650 -0.04008096  0.00119562  0.08602616 -0.05770727
+                   Z -0.08985118  0.09305197  0.04619769  0.01193170 -0.01659245
+ 11  4  H2         X -0.06478721 -0.05262524  0.05074126  0.05954462  0.08663132
+                   Y -0.00595390 -0.00241920  0.00528425  0.08601556 -0.05769032
+                   Z -0.05752323  0.07907230  0.06896957  0.01192496 -0.01657118
+ 12  4  H3         X -0.13723355 -0.05594716  0.01760244  0.05954325  0.08659297
+                   Y  0.01151677 -0.05593216 -0.02928805  0.08609234 -0.05774801
+                   Z -0.09033931  0.10971248  0.07914938  0.01187910 -0.01654893
+ 13  5  O1         X -0.03324430  0.01760487 -0.04619401  0.05968731  0.08654193
+                   Y -0.04695600 -0.09163267  0.01732565  0.08599420 -0.05770507
+                   Z -0.08712216  0.01802524 -0.10140043  0.01216776 -0.01678742
+ 14  5  H2         X -0.02047326  0.00892099 -0.02534899  0.05966848  0.08656303
+                   Y -0.08189247 -0.09560894  0.05077262  0.08592256 -0.05766746
+                   Z -0.12313075  0.03279401 -0.12847764  0.01217771 -0.01681350
+ 15  5  H3         X -0.05745340 -0.00203583 -0.02726424  0.05964849  0.08655758
+                   Y -0.03300315 -0.07989273  0.00724482  0.08601526 -0.05771300
+                   Z -0.08742353  0.04144486 -0.05444880  0.01209318 -0.01672561
+
+ TRANS. SAYVETZ    X -0.00376395 -0.00114590 -0.00253035  5.37151345  7.79760015
+                   Y -0.00507533  0.00402782  0.02091166  7.74691496 -5.19562446
+                   Z -0.00272463 -0.00026043 -0.01644188  1.08844500 -1.50186192
+               TOTAL  0.00688113  0.00419574  0.02672144  9.48960277  9.48960858
+
+   ROT. SAYVETZ    X -9.70575869 29.56137297 18.26400018 -0.04133592  0.03082353
+                   Y-22.76808569  7.38227697-22.88516843  0.01533504 -0.02365303
+                   Z 25.31757416 32.41766087-16.01992038  0.03187479 -0.00814876
+               TOTAL 35.40574867 44.48907193 33.37577693  0.05440426  0.03969834
+
+                            6           7           8           9          10
+       FREQUENCY:         0.00       21.58       36.41       52.86       53.83  
+        SYMMETRY:                                                             
+    REDUCED MASS:     18.01055    13.33696    15.38609    17.05686    17.35409
+    IR INTENSITY:      0.00000     0.00000     0.00000     0.00000     0.00000
+
+  1  1  O1         X  0.00715546  0.04431845 -0.06981672 -0.05729191 -0.07473944
+                   Y -0.01936005  0.01136741 -0.01057794 -0.09364443 -0.03747689
+                   Z  0.10361540  0.07039109 -0.09540741  0.03919602  0.04490501
+  2  1  H2         X  0.00710805  0.01701203 -0.03442533 -0.01193285 -0.09374041
+                   Y -0.01937826 -0.00121896  0.00135198 -0.08405134 -0.03929582
+                   Z  0.10356948  0.03012342 -0.07207640  0.03158890  0.06257459
+  3  1  H3         X  0.00724615  0.05684758 -0.15534733 -0.05832750 -0.06729763
+                   Y -0.01929692  0.05152589 -0.05114117 -0.07898885 -0.05660870
+                   Z  0.10363632  0.07882079 -0.11179588  0.04166647  0.04233801
+  4  2  O1         X  0.00702976 -0.05805154  0.02022868  0.11153444 -0.01703357
+                   Y -0.01938484 -0.01011835  0.00709298 -0.07126803 -0.03583776
+                   Z  0.10343813 -0.11578634  0.04030479 -0.05527280 -0.00291371
+  5  2  H2         X  0.00698851 -0.03329570  0.02903597  0.10384517  0.00496911
+                   Y -0.01937388  0.00277465 -0.00088557 -0.05375517 -0.07621055
+                   Z  0.10333494 -0.02258724  0.05327269 -0.04964822 -0.00335908
+  6  2  H3         X  0.00697332 -0.00640024  0.02794060  0.10059191  0.00804479
+                   Y -0.01944355 -0.08670766  0.04546712 -0.05408709 -0.01934191
+                   Z  0.10347069 -0.28065932  0.06731233 -0.01935380 -0.02732648
+  7  3  O1         X  0.00687074  0.04958025  0.01831617  0.04140267  0.01321938
+                   Y -0.01937761  0.00922544  0.00936375  0.11464982 -0.08341442
+                   Z  0.10312324  0.12313518  0.03977335 -0.02664729 -0.00188899
+  8  3  H2         X  0.00688642  0.00387049 -0.00155009  0.04812004  0.05079929
+                   Y -0.01936118 -0.01907288  0.00026017  0.12242530 -0.04793770
+                   Z  0.10311371  0.03470823 -0.01761719 -0.03511165 -0.00164219
+  9  3  H3         X  0.00677861  0.13148156 -0.00388296 -0.00047495 -0.00015780
+                   Y -0.01943487  0.15341886  0.04500968  0.09320650 -0.07090162
+                   Z  0.10308632  0.21570308  0.06254377 -0.04049247  0.00608922
+ 10  4  O1         X  0.00703847 -0.00459856  0.06904755 -0.04473839 -0.04269721
+                   Y -0.01937690 -0.00779174 -0.01187246  0.02019358  0.13119132
+                   Z  0.10343588  0.00302805  0.12562545  0.01812390  0.01763787
+ 11  4  H2         X  0.00708547  0.02078638  0.02590864 -0.04275169 -0.02931869
+                   Y -0.01936224 -0.00197154  0.00896850 -0.03262820  0.12335128
+                   Z  0.10348936  0.03249937  0.06692113  0.03537603  0.03622984
+ 12  4  H3         X  0.00699968 -0.03098147  0.13782345 -0.03060738 -0.05608109
+                   Y -0.01943817 -0.02251368 -0.09247885  0.03255259  0.13441456
+                   Z  0.10350768  0.02859604  0.16168249  0.00056757  0.02137924
+ 13  5  O1         X  0.00689426 -0.03743011 -0.03847596 -0.04962614  0.11889158
+                   Y -0.01935536 -0.00628406  0.00619095  0.03028315  0.02528755
+                   Z  0.10311455 -0.07692683 -0.11040883  0.02360704 -0.06036226
+ 14  5  H2         X  0.00694019 -0.02004510  0.00650805 -0.04813981  0.12232383
+                   Y -0.01929215 -0.01517188  0.04277351  0.00348402  0.01850138
+                   Z  0.10305121 -0.11239649 -0.18131335  0.01145172 -0.06912766
+ 15  5  H3         X  0.00692713 -0.04120525 -0.02091253 -0.08064916  0.09791221
+                   Y -0.01937250 -0.00390948 -0.00245755  0.04845604  0.03800174
+                   Z  0.10321677 -0.06577531 -0.02714739  0.03971841 -0.02554025
+
+ TRANS. SAYVETZ    X  0.63012156 -0.00003496 -0.00001549 -0.00000111  0.00001060
+                   Y -1.74445286 -0.00000211 -0.00000141  0.00001151  0.00000185
+                   Z  9.30656867 -0.00000594 -0.00000578  0.00000116  0.00000086
+               TOTAL  9.48959374  0.00003552  0.00001659  0.00001162  0.00001079
+
+   ROT. SAYVETZ    X  0.04006126 -0.00074629 -0.00258438  0.00051887  0.00017895
+                   Y -0.05250079  0.00164155 -0.00889398  0.00581422  0.00165408
+                   Z -0.02502602  0.00575416  0.00362686 -0.00328449  0.00164659
+               TOTAL  0.07062251  0.00603008  0.00994666  0.00669793  0.00234078
+
+                           11          12          13          14          15
+       FREQUENCY:       129.87      138.66      161.82      177.34      189.01  
+        SYMMETRY:                                                             
+    REDUCED MASS:      3.85172     3.81764    11.97811     5.35392    11.72567
+    IR INTENSITY:      0.00000     0.00000     0.00000     0.00000     0.00000
+
+  1  1  O1         X  0.00360036 -0.02495021 -0.04141986 -0.07126919 -0.01889528
+                   Y  0.00537725 -0.00991163 -0.06219928 -0.01428099  0.08529591
+                   Z  0.00492926  0.00965474  0.04411600  0.04822080 -0.01313459
+  2  1  H2         X -0.11117444 -0.14126358 -0.04490674 -0.04498233 -0.00737753
+                   Y -0.05319474 -0.06024796 -0.06164880  0.00638061  0.07116130
+                   Z -0.20164901 -0.14029729  0.05318085  0.14324861 -0.12417087
+  3  1  H3         X  0.24229934  0.33420504 -0.07530872  0.04973756  0.13197779
+                   Y  0.26079027  0.21868625 -0.08084492 -0.07585860  0.23998547
+                   Z  0.07572373  0.08873905  0.03716908  0.05044491  0.03042308
+  4  2  O1         X  0.00351133 -0.01644666 -0.08802210  0.01350235  0.05664191
+                   Y -0.02281838 -0.02335940  0.04401677  0.05802570 -0.07418834
+                   Z -0.05186165  0.00167560  0.02118856 -0.00074668 -0.00240289
+  5  2  H2         X -0.01537521 -0.04297454 -0.11874249  0.07762247  0.07860555
+                   Y -0.03462284 -0.03945804  0.05917470  0.01462570 -0.06819278
+                   Z -0.12612678 -0.10186248 -0.04440428  0.11726139  0.07153854
+  6  2  H3         X -0.06757377 -0.08597511 -0.14149539  0.12329712  0.09955668
+                   Y  0.28706247  0.16902206  0.10347679 -0.07028390 -0.12744431
+                   Z  0.38696974  0.31614990  0.17132391 -0.31546338 -0.12863170
+  7  3  O1         X  0.01745820  0.00980405  0.02211723 -0.00483668 -0.08311109
+                   Y -0.00477303  0.00878855  0.09733433 -0.01189310  0.02304757
+                   Z  0.03894567 -0.01160614 -0.01993915  0.01683686  0.02735551
+  8  3  H2         X  0.09092841 -0.04261655  0.01446680  0.04850338 -0.05628622
+                   Y  0.02176628 -0.01205925  0.08696733  0.02091384  0.06860476
+                   Z  0.29348065 -0.18187037 -0.00133119  0.12130165 -0.09251747
+  9  3  H3         X -0.16221303  0.15548330  0.08464626 -0.18396920 -0.14217741
+                   Y -0.40944417  0.29910946  0.12387730 -0.25290262  0.13068579
+                   Z -0.22070737  0.17472002 -0.00277278 -0.13799677  0.09613545
+ 10  4  O1         X -0.00502954  0.00004329  0.01865030  0.03397714 -0.05565674
+                   Y  0.00164711  0.01865445 -0.09351020 -0.03706241 -0.07915719
+                   Z  0.00525938 -0.00622204 -0.02160839 -0.04943497  0.01799848
+ 11  4  H2         X -0.02823657 -0.10843917  0.03439521 -0.11623400 -0.08408567
+                   Y -0.01611968  0.04425854 -0.11019304 -0.04545808 -0.05018028
+                   Z -0.01819206 -0.14632767  0.00236373 -0.23113277 -0.02496410
+ 12  4  H3         X  0.03120977  0.22554875 -0.03949236  0.33399312 -0.04349346
+                   Y -0.00624152 -0.30777115  0.04343974 -0.40279565 -0.05229195
+                   Z -0.00559518  0.16563462 -0.11148487  0.12003389 -0.01112069
+ 13  5  O1         X -0.02458627  0.02612173  0.08632627  0.01287199  0.08280959
+                   Y  0.01848059 -0.01221160  0.00220466  0.05250397  0.02473424
+                   Z  0.00494975 -0.01498315 -0.02340162 -0.00249134 -0.01716630
+ 14  5  H2         X  0.12658515 -0.17599783  0.19205524 -0.02257202  0.15769953
+                   Y -0.03766860 -0.04343158  0.05048940 -0.01216131  0.12384587
+                   Z -0.29607217  0.35025026 -0.20326072  0.04081920 -0.12182268
+ 15  5  H3         X -0.02636942 -0.03182680  0.13164866 -0.01536275  0.15461428
+                   Y  0.02078590  0.01819548 -0.02185026  0.06696228 -0.01450876
+                   Z  0.07689777 -0.18421872  0.09357585 -0.10507074  0.10436115
+
+ TRANS. SAYVETZ    X -0.00000211  0.00000041 -0.00000059 -0.00000010  0.00000229
+                   Y -0.00000045  0.00000177 -0.00000012 -0.00000091  0.00000039
+                   Z  0.00000054 -0.00000124  0.00000003 -0.00000035 -0.00000124
+               TOTAL  0.00000222  0.00000220  0.00000060  0.00000098  0.00000263
+
+   ROT. SAYVETZ    X  0.00027462  0.00040205 -0.00002010 -0.00006873  0.00019955
+                   Y  0.00045826  0.00011572  0.00008229  0.00031254  0.00019876
+                   Z -0.00012767  0.00023718  0.00033771  0.00030832  0.00008916
+               TOTAL  0.00054929  0.00048092  0.00034817  0.00044437  0.00029542
+
+                           16          17          18          19          20
+       FREQUENCY:       204.53      224.77      236.71      241.71      264.89  
+        SYMMETRY:                                                             
+    REDUCED MASS:      7.72897     4.59995    11.13721    15.07303     4.88123
+    IR INTENSITY:      0.00000     0.00000     0.00000     0.00000     0.00000
+
+  1  1  O1         X  0.05547206  0.02915786 -0.01552268 -0.08374179 -0.00360699
+                   Y  0.00794648  0.00465482  0.07699233  0.07821514 -0.02795635
+                   Z -0.04846079  0.00955909  0.01128723  0.05139391 -0.00339437
+  2  1  H2         X  0.03544893  0.05686623  0.06695270 -0.05266784 -0.15145982
+                   Y  0.01522000  0.01122175  0.09660110  0.07136462 -0.10407412
+                   Z  0.03067064  0.00956608  0.01171600 -0.04219425 -0.27388938
+  3  1  H3         X  0.14742971 -0.39481955 -0.25506399 -0.17867166  0.11363830
+                   Y -0.05222304 -0.10136745  0.02717871  0.15414124  0.25601980
+                   Z -0.04912719 -0.05493090 -0.02337128  0.05451551  0.05931049
+  4  2  O1         X -0.06717755  0.02596237 -0.03456795 -0.00379677 -0.05860383
+                   Y -0.04893402  0.00502874 -0.09561353 -0.06813684  0.00050426
+                   Z  0.04708082 -0.04029410  0.02923595  0.00968904  0.03081440
+  5  2  H2         X -0.06911077  0.01455232 -0.11457173  0.00133680  0.12042846
+                   Y -0.00104133  0.00774212 -0.01405417 -0.05914961 -0.13688968
+                   Z  0.11837075 -0.06934237 -0.07396696  0.03915981  0.33425618
+  6  2  H3         X -0.03999837 -0.01231178 -0.13470127  0.00524281  0.18381495
+                   Y -0.21565801  0.17043205 -0.18794582 -0.06049938  0.13182713
+                   Z -0.17070475  0.19448704  0.09927999  0.00264248 -0.23432904
+  7  3  O1         X  0.03062810 -0.05583329  0.09241488 -0.01141706  0.06751855
+                   Y  0.09877597  0.03448623 -0.02310772  0.03894450  0.00564322
+                   Z -0.01498614  0.04689791 -0.04019676  0.00276065 -0.01422515
+  8  3  H2         X  0.08919241 -0.00998738  0.07693622  0.01211318  0.08886794
+                   Y  0.12892044  0.07153820 -0.06270690  0.06053818  0.05046753
+                   Z  0.13457143  0.08415147  0.10795226  0.00659182 -0.16045455
+  9  3  H3         X -0.07915081 -0.23322985  0.23703940 -0.06170479 -0.26922580
+                   Y -0.13266882 -0.13097039 -0.08367917  0.00672704 -0.09606826
+                   Z -0.16350901 -0.05954283 -0.07860432 -0.01800733 -0.08026498
+ 10  4  O1         X -0.05466429 -0.01189924 -0.01214085  0.11903647  0.00850842
+                   Y  0.04983434 -0.02550938 -0.05057878  0.04153139 -0.02855294
+                   Z  0.02940689 -0.00860711 -0.01105814 -0.05725032  0.00798247
+ 11  4  H2         X -0.10404434  0.16546059  0.04198292  0.13103048  0.12880470
+                   Y  0.09883099  0.05865296 -0.02470982 -0.03059123 -0.03307343
+                   Z -0.04484303  0.18510139  0.04800257 -0.02232191  0.15664902
+ 12  4  H3         X  0.06250689 -0.21676367 -0.05740050  0.09746920 -0.20331852
+                   Y -0.18427724 -0.11791609 -0.12971694  0.14721791  0.19364652
+                   Z  0.17438227  0.17101663  0.07931585 -0.13796775 -0.08057216
+ 13  5  O1         X  0.03548851  0.06420408 -0.01650213 -0.01170380 -0.00486149
+                   Y -0.07055467 -0.01006744  0.10528851 -0.09440338  0.02667709
+                   Z -0.00538009 -0.03569454  0.00258013  0.00279760 -0.01658646
+ 14  5  H2         X  0.04206989 -0.14769855 -0.05792780 -0.01359536 -0.14849613
+                   Y -0.24039674 -0.15111951  0.06744771 -0.16963572  0.08805699
+                   Z -0.07713306  0.30926680  0.06642128 -0.02003958  0.27224109
+ 15  5  H3         X -0.08032573 -0.04086750 -0.02037717 -0.07350247 -0.00517105
+                   Y -0.00500257  0.04540997  0.10557087 -0.05902459  0.02598183
+                   Z -0.07425936 -0.32319150 -0.10737429 -0.01141875 -0.06580707
+
+ TRANS. SAYVETZ    X -0.00000029 -0.00000037  0.00000040  0.00000018  0.00000001
+                   Y  0.00000126  0.00000019  0.00000023 -0.00000083  0.00000075
+                   Z -0.00000062 -0.00000041 -0.00000046  0.00000002  0.00000024
+               TOTAL  0.00000143  0.00000058  0.00000065  0.00000085  0.00000079
+
+   ROT. SAYVETZ    X  0.00026225 -0.00046855 -0.00008137  0.00021192 -0.00026123
+                   Y -0.00008546 -0.00012414 -0.00008719  0.00030109  0.00008756
+                   Z  0.00011183 -0.00112934 -0.00038503 -0.00001166 -0.00027102
+               TOTAL  0.00029763  0.00122897  0.00040308  0.00036838  0.00038647
+
+                           21          22          23          24          25
+       FREQUENCY:       307.20      320.98      343.56      348.57      432.57  
+        SYMMETRY:                                                             
+    REDUCED MASS:      3.61197     4.16635     4.79645     4.11743     4.69622
+    IR INTENSITY:      0.00000     0.00000     0.00000     0.00000     0.00000
+
+  1  1  O1         X -0.00403537  0.04393697  0.02807950  0.03131360  0.02725292
+                   Y -0.04337570  0.03254282  0.00019877 -0.03277101  0.01044777
+                   Z  0.00392148  0.00831178  0.00336066  0.02031557  0.00575650
+  2  1  H2         X  0.03242011 -0.14038104  0.18449480  0.22523962 -0.19407181
+                   Y -0.08527228  0.00526984  0.02627034 -0.04210306 -0.04293677
+                   Z -0.32881548  0.11631775 -0.06902103 -0.34369819 -0.00042395
+  3  1  H3         X -0.09713945 -0.26916875 -0.17026349 -0.42340589 -0.11268950
+                   Y  0.27853845 -0.18849267  0.04724389  0.25179500 -0.05451338
+                   Z  0.05058387 -0.06446459 -0.00977990  0.02132637 -0.02080986
+  4  2  O1         X  0.01243976 -0.03841268 -0.00937006 -0.00319563 -0.00647001
+                   Y  0.03485481 -0.02955052  0.00605637  0.00501237 -0.02170075
+                   Z  0.02011653 -0.01135178 -0.00126158  0.00205117 -0.00517535
+  5  2  H2         X  0.03626748  0.16447930 -0.01741050 -0.04430845  0.17534436
+                   Y  0.03000602 -0.31946125  0.00334568  0.15051959 -0.17301169
+                   Z  0.08209202  0.11689745 -0.02915883  0.11546512  0.28405139
+  6  2  H3         X  0.05948444  0.17587123 -0.02457347 -0.03515645  0.21615354
+                   Y -0.04498164  0.39056907  0.02065497 -0.03358294  0.28219553
+                   Z -0.14049705  0.06939269  0.03903358  0.01495110 -0.05869256
+  7  3  O1         X -0.04263900  0.02328113 -0.00347057  0.01590172 -0.04564013
+                   Y -0.02600077 -0.02067686 -0.02428006  0.01477449  0.03102247
+                   Z -0.02598449 -0.01607502  0.00138053  0.00636065 -0.01907210
+  8  3  H2         X  0.06869785  0.12533711  0.16739552 -0.15613181 -0.16902959
+                   Y  0.05706935  0.12000222  0.14230947 -0.13538474 -0.15631750
+                   Z  0.10548781 -0.27844997 -0.02886069 -0.06742844  0.40051821
+  9  3  H3         X  0.27350044 -0.18025011 -0.09267026 -0.04980761  0.51493521
+                   Y  0.16094067  0.17953166  0.04523456 -0.06545274 -0.06305230
+                   Z  0.09458638  0.11160675  0.04566363 -0.04519657 -0.07782763
+ 10  4  O1         X  0.00525232 -0.01010616 -0.02788038 -0.02837350 -0.00955907
+                   Y  0.00810861  0.00900438 -0.00310529  0.05259525 -0.00482220
+                   Z -0.02342474 -0.02006838  0.03849096 -0.02420483  0.01898715
+ 11  4  H2         X  0.17528833 -0.03662437 -0.23912750 -0.06767977 -0.12269936
+                   Y -0.03062481  0.07038312 -0.43972061 -0.17014792 -0.04858846
+                   Z  0.19578525 -0.06977930 -0.09786755 -0.00988156 -0.10736556
+ 12  4  H3         X -0.11757503  0.07333750  0.31985565  0.19676078  0.10428753
+                   Y -0.15976085 -0.21726059  0.18792632 -0.22110207  0.09223982
+                   Z  0.18135208  0.13457352 -0.29590697  0.10231702 -0.12029030
+ 13  5  O1         X  0.00624880 -0.01993046  0.03219786 -0.01008343  0.00847621
+                   Y  0.02766221  0.00794930  0.01974390 -0.03207718 -0.00597097
+                   Z  0.03928708  0.03881032 -0.02760956 -0.00517077 -0.02194185
+ 14  5  H2         X  0.12233100  0.12990948 -0.08974333  0.03668873 -0.04593543
+                   Y -0.36467124 -0.04020426 -0.25292462  0.31257941  0.04941236
+                   Z -0.31421124 -0.25693227  0.10380982  0.02853040  0.09872898
+ 15  5  H3         X -0.19247844 -0.02297000 -0.34833105  0.22951630  0.04539348
+                   Y  0.13893126  0.01126303  0.24166160 -0.16668892 -0.02788806
+                   Z -0.14721828  0.12675911  0.11416835  0.19390248 -0.05753068
+
+ TRANS. SAYVETZ    X -0.00000021  0.00000042 -0.00000029  0.00000037  0.00000069
+                   Y -0.00000012  0.00000047 -0.00000008  0.00000048 -0.00000000
+                   Z  0.00000002  0.00000019  0.00000004  0.00000022 -0.00000001
+               TOTAL  0.00000024  0.00000066  0.00000030  0.00000065  0.00000069
+
+   ROT. SAYVETZ    X -0.00023978 -0.00003928  0.00010547 -0.00021078  0.00005873
+                   Y  0.00014468 -0.00019955  0.00040844  0.00008917 -0.00015819
+                   Z  0.00002999  0.00001155  0.00009175 -0.00003903 -0.00007726
+               TOTAL  0.00028165  0.00020371  0.00043170  0.00023217  0.00018559
+
+                           26          27          28          29          30
+       FREQUENCY:       545.00      637.43      651.61      664.96      780.62  
+        SYMMETRY:                                                             
+    REDUCED MASS:      2.43400     2.50041     2.62885     2.55389     2.86425
+    IR INTENSITY:      0.00000     0.00000     0.00000     0.00000     0.00000
+
+  1  1  O1         X  0.01914589  0.03320938  0.01664095  0.02651577 -0.01693408
+                   Y -0.00313974 -0.01536643  0.00703784  0.01546931 -0.02014144
+                   Z  0.00005875  0.02053546  0.00373310 -0.00184263  0.00479727
+  2  1  H2         X -0.20507110 -0.22997156 -0.39391647 -0.50715989  0.42916017
+                   Y -0.07519772 -0.11294582 -0.09458278 -0.11598225  0.07669598
+                   Z -0.12455995 -0.21133010 -0.02479987 -0.03469761 -0.05360920
+  3  1  H3         X -0.09804738 -0.28527946 -0.05895505 -0.06039660 -0.01501375
+                   Y  0.05853649  0.09748969 -0.04810130 -0.05758141  0.11035778
+                   Z -0.00173595  0.00600974 -0.01415029 -0.02410475  0.02799894
+  4  2  O1         X -0.00018119  0.01478687  0.02040610  0.01351126 -0.01715292
+                   Y  0.03678732  0.00843534 -0.00569594  0.01061265  0.00528426
+                   Z  0.04559382  0.00443693 -0.01337253  0.01499953  0.01334353
+  5  2  H2         X  0.05949100 -0.06573995 -0.08176228 -0.02266163  0.07938878
+                   Y -0.46203896  0.13644970  0.31300384 -0.06044830 -0.28161814
+                   Z -0.58116530 -0.02565713  0.19954690 -0.20508781 -0.16496090
+  6  2  H3         X  0.01794628 -0.07007147 -0.06886432 -0.03939223  0.07077077
+                   Y -0.13968420 -0.13914079 -0.09102956 -0.14229583  0.07999432
+                   Z -0.16731206 -0.00805883  0.04594491 -0.05591446 -0.05475545
+  7  3  O1         X -0.01552090  0.00464654 -0.00960488  0.02496718  0.00889667
+                   Y  0.00270109 -0.00829642 -0.01191433  0.02643523  0.02184464
+                   Z  0.00468526  0.00026997 -0.00350075  0.01644206  0.00912252
+  8  3  H2         X  0.24148427  0.07795049  0.10194225 -0.46485142 -0.30354839
+                   Y  0.21312892  0.06939206  0.07919813 -0.39370842 -0.26001665
+                   Z  0.19738421 -0.04960364  0.08143427 -0.23752091 -0.07063906
+  9  3  H3         X  0.05974822 -0.07842963  0.04819227 -0.09579748  0.01772141
+                   Y  0.00622709  0.02663767  0.00951743 -0.09393985 -0.07827147
+                   Z  0.00714426  0.02242212  0.01037950 -0.06097491 -0.05497384
+ 10  4  O1         X -0.00241128  0.00602198  0.00991930 -0.00695323  0.01519225
+                   Y  0.00556999 -0.03329965 -0.00983249  0.00643625 -0.02288599
+                   Z -0.00889890  0.03397882 -0.02267322  0.00043979 -0.00075890
+ 11  4  H2         X  0.02026662 -0.25293545  0.06484342  0.01877687 -0.03820756
+                   Y -0.03216550  0.48460455  0.19405641 -0.23177126  0.42216481
+                   Z  0.02947398 -0.42860560 -0.01257092  0.09878994 -0.19103734
+ 12  4  H3         X  0.00342781  0.02767912 -0.10024908  0.05953988 -0.10979434
+                   Y -0.04477170  0.18209887 -0.10509308 -0.00251141  0.01401476
+                   Z  0.03171055 -0.16251230  0.11325632 -0.02424721  0.02831012
+ 13  5  O1         X -0.00838683 -0.01001588  0.01575646  0.01665497  0.01990521
+                   Y -0.01957345  0.00915081 -0.01010662  0.01558396  0.00641158
+                   Z -0.02052347  0.01724564 -0.03664015  0.01311378 -0.01414211
+ 14  5  H2         X -0.04730966  0.02243621 -0.07167782  0.03910984 -0.02693217
+                   Y  0.17997078 -0.07022687  0.05402764 -0.17380769 -0.10664981
+                   Z  0.12182738 -0.07096196  0.14855607 -0.09503103  0.03341743
+ 15  5  H3         X  0.06478221  0.08226853 -0.28257282 -0.11264552 -0.26077816
+                   Y -0.05863944 -0.04942788  0.17324269  0.08908386  0.17389314
+                   Z  0.15528935 -0.28528591  0.60229328 -0.04607291  0.30405039
+
+ TRANS. SAYVETZ    X -0.00000011 -0.00000021 -0.00000008  0.00000054 -0.00000003
+                   Y  0.00000041 -0.00000000 -0.00000065 -0.00000031 -0.00000003
+                   Z -0.00000009  0.00000004  0.00000008 -0.00000006  0.00000001
+               TOTAL  0.00000043  0.00000021  0.00000066  0.00000063  0.00000004
+
+   ROT. SAYVETZ    X -0.00015612  0.00007157 -0.00003978  0.00004513 -0.00002108
+                   Y  0.00001815 -0.00021723 -0.00002214  0.00004809 -0.00002884
+                   Z  0.00007940  0.00016258 -0.00003405 -0.00004657 -0.00023461
+               TOTAL  0.00017609  0.00028061  0.00005685  0.00008073  0.00023731
+
+ REFERENCE ON SAYVETZ CONDITIONS - A. SAYVETZ, J.CHEM.PHYS., 7, 383-389(1939).
+
+ NOTE - THE MODES J,K ARE ORTHONORMALIZED ACCORDING TO
+ SUM ON I   M(I) * (X(I,J)*X(I,K) + Y(I,J)*Y(I,K) + Z(I,J)*Z(I,K)) = DELTA(J,K)
+
+  MODE FREQ(CM**-1)  SYMMETRY  RED. MASS  IR INTENS.
+     1       0.729            17.005362    0.000000
+     2       0.604            17.363389    0.000000
+     3       0.388            16.947117    0.000000
+     4       0.001            18.010557    0.000000
+     5       0.001            18.010558    0.000000
+     6       0.001            18.010555    0.000000
+     7      21.584            13.336955    0.000000
+     8      36.411            15.386086    0.000000
+     9      52.860            17.056861    0.000000
+    10      53.827            17.354089    0.000000
+    11     129.874             3.851717    0.000000
+    12     138.655             3.817636    0.000000
+    13     161.817            11.978110    0.000000
+    14     177.342             5.353917    0.000000
+    15     189.015            11.725674    0.000000
+    16     204.530             7.728975    0.000000
+    17     224.770             4.599947    0.000000
+    18     236.712            11.137209    0.000000
+    19     241.712            15.073030    0.000000
+    20     264.894             4.881234    0.000000
+    21     307.195             3.611969    0.000000
+    22     320.980             4.166348    0.000000
+    23     343.565             4.796452    0.000000
+    24     348.575             4.117427    0.000000
+    25     432.569             4.696222    0.000000
+    26     545.002             2.433997    0.000000
+    27     637.426             2.500408    0.000000
+    28     651.614             2.628854    0.000000
+    29     664.958             2.553888    0.000000
+    30     780.624             2.864249    0.000000
+
+     -------------------------------
+     THERMOCHEMISTRY AT T=  298.15 K
+     -------------------------------
+
+ USING IDEAL GAS, RIGID ROTOR, HARMONIC NORMAL MODE APPROXIMATIONS.
+ P=  1.01325E+05 PASCAL.
+ ALL FREQUENCIES ARE SCALED BY   1.00000
+ THE MOMENTS OF INERTIA ARE (IN AMU*BOHR**2)
+   1089.17212  1101.22391  2156.40073
+ THE ROTATIONAL SYMMETRY NUMBER IS  1.0
+ THE ROTATIONAL CONSTANTS ARE (IN GHZ)
+      1.65547     1.63735     0.83616
+      7 -     30 VIBRATIONAL MODES ARE USED IN THERMOCHEMISTRY.
+ THE HARMONIC ZERO POINT ENERGY IS (SCALED BY   1.000)
+        0.016327 HARTREE/MOLECULE     3583.255193 CM**-1/MOLECULE 
+       10.245051 KCAL/MOL               42.865293 KJ/MOL
+
+ WARNING: THE HESSIAN MATRIX FOR AN EFFECTIVE FRAGMENT RUN
+ DOES NOT INCLUDE THE INTERNAL VIBRATIONS OF THE FRAGMENTS.
+ THIS MEANS THE ZERO POINT CONTRIBUTIONS OMIT THESE FREQUENCIES,
+ AND IN TURN THE THERMOCHEMICAL QUANTITIES OMIT THESE TOO.
+
+               Q               LN Q
+ ELEC.     1.00000E+00       0.000000
+ TRANS.    3.35892E+07      17.329715
+ ROT.      5.75695E+05      13.263333
+ VIB.      7.33764E+05      13.505943
+ TOT.      1.41889E+19      44.098991
+
+              E         H         G         CV        CP        S
+           KJ/MOL    KJ/MOL    KJ/MOL   J/MOL-K   J/MOL-K   J/MOL-K
+ ELEC.      0.000     0.000     0.000     0.000     0.000     0.000
+ TRANS.     3.718     6.197   -42.959    12.472    20.786   164.872
+ ROT.       3.718     3.718   -32.879    12.472    12.472   122.748
+ VIB.      73.313    73.313     9.385   162.240   162.240   214.415
+ TOTAL     80.750    83.228   -66.454   187.184   195.498   502.036
+ VIB. THERMAL CORRECTION E(T)-E(0) = H(T)-H(0) = 30447.439 J/MOL
+
+              E         H         G         CV        CP        S
+         KCAL/MOL  KCAL/MOL  KCAL/MOL CAL/MOL-K CAL/MOL-K CAL/MOL-K
+ ELEC.      0.000     0.000     0.000     0.000     0.000     0.000
+ TRANS.     0.889     1.481   -10.268     2.981     4.968    39.405
+ ROT.       0.889     0.889    -7.858     2.981     2.981    29.338
+ VIB.      17.522    17.522     2.243    38.776    38.776    51.246
+ TOTAL     19.300    19.892   -15.883    44.738    46.725   119.989
+ VIB. THERMAL CORRECTION E(T)-E(0) = H(T)-H(0) =  7277.112 CAL/MOL
+ ......END OF NORMAL COORDINATE ANALYSIS......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS  44.44%
+                16471  WORDS OF DYNAMIC MEMORY USED
+ EXECUTION OF GAMESS TERMINATED NORMALLY Mon Nov 28 22:04:34 2016
+ DDI: 263640 bytes (0.3 MB / 0 MWords) used by master data server.
+
+ ----------------------------------------
+ CPU timing information for all processes
+ ========================================
+ 0: 0.134 + 0.30 = 0.165
+ ----------------------------------------
+ ddikick.x: exited gracefully.
+unset echo
+----- accounting info -----
+Files used on the master node compute-3-0 were:
+-rw-rw-r-- 1 sarom sarom  41908 Nov 29  2016 .//efp2-5h2o-seminum.dat
+-rw-rw-r-- 1 sarom sarom  45842 Nov 29  2016 .//efp2-5h2o-seminum.F05
+-rw-rw-r-- 1 sarom sarom      0 Nov 29  2016 .//efp2-5h2o-seminum.F08
+-rw-rw-r-- 1 sarom sarom 229040 Nov 29  2016 .//efp2-5h2o-seminum.F10
+-rw-rw-r-- 1 sarom sarom      0 Nov 29  2016 .//efp2-5h2o-seminum.F25
+-rw-rw-r-- 1 sarom sarom  45842 Nov 28 17:27 .//efp2-5h2o-seminum.inp
+-rw-rw-r-- 1 sarom sarom  88213 Nov 29  2016 .//efp2-5h2o-seminum.log
+-rw-rw-r-- 1 sarom sarom  36989 Nov 29  2016 .//efp2-5h2o-seminum.rst
+Mon Nov 28 22:04:37 CST 2016
+0.197u 0.570s 0:04.38 17.3%	0+0k 0+224io 0pf+0w
