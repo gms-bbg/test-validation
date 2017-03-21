@@ -1,7 +1,7 @@
-# cluster-duck
+# test-validation
 A generic logfile validation written in Python 3 (~ 1 GB repo)
 
-## Wiki: https://github.com/saromleang/cluster-duck/wiki
+## Wiki: https://github.com/gms-bbg/test-validation/wiki
 
 ```
 usage: checkgms.py [-h] [--dryrun] [--file FILE_SUBSTRING] [--folder FOLDER_SUBSTRING]
