@@ -107,6 +107,18 @@ def l_box(*args):
     Color.reset,
   )
 
+#Formated printing within [ ] with left-justification
+#Print width = 22
+#Color = light grey
+def l_box_small(*args):
+  input_string = ' '.join(map(str, args))
+  return '{0}[{1:<20}]{2}'.format(
+    Color.lightgrey,
+    input_string,
+    Color.reset,
+  )
+
+
 #Formated printing within [ ] with right-justification
 #Print width = 42
 #Color = light grey
@@ -203,29 +215,39 @@ def seperator():
   return '{0}'.format(Color.lightgrey)+'='*84+'{0}'.format(Color.reset)
 
 #Parse input argument
-def parse_arguments():
+def parse_arguments(validation=True):
   run_arguments={}
 
-  parser = argparse.ArgumentParser(description='GAMESS Test Validation')
-
-  parser.add_argument('--dryrun',help='cycles through filelist without parsing', action="store_true")
-  parser.add_argument('--file',help='process file(s) containing substring (default ".log")', default=".log")
-  parser.add_argument('--folder',help='process folder(s) containing substring (default "")', default="")
-  parser.add_argument('-a','--array',help='print out array values', action="store_true")
-  parser.add_argument('-d','--debug',help='debug print control', action="store_true")
-  parser.add_argument('-e','--exit_on_fail',help='exit on first failed validation', action="store_true")
-  parser.add_argument('-g','--group',help='print group header for values', action="store_true")
-  parser.add_argument('-p','--verbose_parsing',help='verbose printing during parsing', action="store_true")
-  parser.add_argument('-v','--verbose_validation',help='verbose printing during validation', action="store_true")
+  if validation:
+    parser = argparse.ArgumentParser(description='GAMESS Test Validation')
+    parser.add_argument('--dryrun',help='cycles through filelist without parsing', action="store_true")
+    parser.add_argument('--file',help='process file(s) containing substring (default ".log")', default=".log")
+    parser.add_argument('--folder',help='process folder(s) containing substring (default "")', default="")
+    parser.add_argument('-a','--array',help='print out array values', action="store_true")
+    parser.add_argument('-d','--debug',help='debug print control', action="store_true")
+    parser.add_argument('-e','--exit_on_fail',help='exit on first failed validation', action="store_true")
+    parser.add_argument('-g','--group',help='print group header for values', action="store_true")
+    parser.add_argument('-p','--verbose_parsing',help='verbose printing during parsing', action="store_true")
+    parser.add_argument('-v','--verbose_validation',help='verbose printing during validation', action="store_true")
+  else:
+    parser = argparse.ArgumentParser(description='GAMESS Test Launch')
+    parser.add_argument('--file',help='process file(s) containing substring (default ".inp")', default=".inp")
+    parser.add_argument('--folder',help='process folder(s) containing substring (default "")', default="")
+    parser.add_argument('-n','--ncpus',help='number of GAMESS compute processes', default="1")
 
   args=parser.parse_args()
+
+  run_arguments["filter_file"]=args.file
+  run_arguments["filter_folder"]=args.folder
+
+  if not validation:
+    run_arguments["ncpus"]=args.ncpus
+    return run_arguments
 
   run_arguments["array"]=args.array
   run_arguments["debug"]=args.debug
   run_arguments["dryrun"]=args.dryrun
   run_arguments["exit_on_fail"]=args.exit_on_fail
-  run_arguments["filter_file"]=args.file
-  run_arguments["filter_folder"]=args.folder
   run_arguments["group"]=args.group
   run_arguments["verbose_parsing"]=args.verbose_parsing
   run_arguments["verbose_validation"]=args.verbose_validation
@@ -251,7 +273,7 @@ def get_log_file_paths(folder_string_match="",file_string_match=""):
 
   return logFiles
 
-#Returns an array containing file paths to log files as elements
+#Returns an array containing file paths to input files as elements
 def get_input_file_paths(folder_string_match="",file_string_match="",script_path="."):
   inputFiles=[]
   for (directory_path,directory_name,directory_files) in os.walk(script_path):
