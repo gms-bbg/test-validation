@@ -2,7 +2,7 @@ import argparse
 import json
 import os
 
-class ColorX:
+class Color:
   reset = '\033[0m'
   bold = '\033[01m'
   disable = '\033[02m'
@@ -27,7 +27,7 @@ class ColorX:
   lightcyan = '\033[96m'
 
 #Rename to Color if you want clean text without the color markup.
-class Color:
+class ColorX:
   reset = ''
   bold = ''
   disable = ''
@@ -234,7 +234,7 @@ def parse_arguments():
 
 #Returns an array containing file paths to log files as elements
 def get_log_file_paths(folder_string_match="",file_string_match=""):
-  inputFiles=[]
+  logFiles=[]
   for (directory_path,directory_name,directory_files) in os.walk("."):
     for file_name in directory_files:
       if "globop" in file_name:
@@ -247,6 +247,25 @@ def get_log_file_paths(folder_string_match="",file_string_match=""):
           continue
         if '.log' not in file_name:
           continue
+      logFiles.append(directory_path+"/"+file_name)
+
+  return logFiles
+
+#Returns an array containing file paths to log files as elements
+def get_input_file_paths(folder_string_match="",file_string_match="",script_path="."):
+  inputFiles=[]
+  for (directory_path,directory_name,directory_files) in os.walk(script_path):
+    for file_name in directory_files:
+      if "globop" in file_name:
+        continue
+      if len(folder_string_match) > 0:
+        if folder_string_match not in directory_path:
+          continue
+      if len(file_string_match) > 0:
+        if file_string_match not in file_name:
+          continue
+      if '.inp' not in file_name:
+        continue
       inputFiles.append(directory_path+"/"+file_name)
 
   return inputFiles
