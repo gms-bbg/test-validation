@@ -278,11 +278,13 @@ def parse(file_handle=None,parse_memory_map=None,run_arguments=None, parse_group
 
                 #Calculate tolerance
                 if parse_tolerance is not None:
-                  if parse_tolerance > 0:
+                  if parse_tolerance < 0:
                     lhs=parsed_value.replace("-","").split(".")[0]
                     rhs=parsed_value.replace("-","").split(".")[1]
                     if len(lhs) > 4:
                       parse_tolerance=10**(len(lhs)-14)
+                    else:
+                      parse_tolerance=10**(-(len(rhs)-1))
 
                 parsed_values.append(
                   create_JSON(
@@ -325,11 +327,13 @@ def parse(file_handle=None,parse_memory_map=None,run_arguments=None, parse_group
 
                 #Calculate tolerance
                 if parse_tolerance is not None:
-                  if parse_tolerance > 0:
+                  if parse_tolerance < 0:
                     lhs=parsed_value.replace("-","").split(".")[0]
                     rhs=parsed_value.replace("-","").split(".")[1]
                     if len(lhs) > 4:
                       parse_tolerance=10**(len(lhs)-14)
+                    else:
+                      parse_tolerance=10**(-(len(rhs)-1))
 
                 parsed_values.append(
                   create_JSON(
@@ -372,11 +376,13 @@ def parse(file_handle=None,parse_memory_map=None,run_arguments=None, parse_group
 
               #Calculate tolerance
               if parse_tolerance is not None:
-                if parse_tolerance > 0:
+                if parse_tolerance < 0:
                   lhs=parsed_value.replace("-","").split(".")[0]
                   rhs=parsed_value.replace("-","").split(".")[1]
                   if len(lhs) > 4:
                     parse_tolerance=10**(len(lhs)-14)
+                  else:
+                    parse_tolerance=10**(-(len(rhs)-1))
 
               parsed_values.append(
                 create_JSON(
@@ -418,11 +424,13 @@ def parse(file_handle=None,parse_memory_map=None,run_arguments=None, parse_group
 
               #Calculate tolerance
               if parse_tolerance is not None:
-                if parse_tolerance > 0:
+                if parse_tolerance < 0:
                   lhs=parsed_value.replace("-","").split(".")[0]
                   rhs=parsed_value.replace("-","").split(".")[1]
                   if len(lhs) > 4:
                     parse_tolerance=10**(len(lhs)-14)
+                  else:
+                    parse_tolerance=10**(-(len(rhs)-1))
 
               parsed_values.append(
                 create_JSON(
@@ -477,7 +485,7 @@ def parse(file_handle=None,parse_memory_map=None,run_arguments=None, parse_group
               if len(lhs) > 4:
                 parse_tolerance=10**(len(lhs)-14)
               else:
-                parse_tolerance=10**(-len(rhs))
+                parse_tolerance=10**(-(len(rhs)-1))
 
           parsed_values.append(
             create_JSON(
