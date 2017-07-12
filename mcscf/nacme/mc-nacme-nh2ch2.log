@@ -1,0 +1,2776 @@
+-catch_rsh /opt/gridengine/default/spool/compute-0-2/active_jobs/23910.1/pe_hostfile
+compute-0-2
+The primary node assigned by SGE to this run is compute-0-2
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+Deleting shmid=3964928.
+Deleting shmid=3997697.
+Deleting shmid=4227074.
+source /home/sarom/gamess.github.2017-05-31.14.06/install.info
+setenv GMS_PATH /home/sarom/gamess.github.2017-05-31.14.06
+setenv GMS_BUILD_DIR /home/sarom/gamess.github.2017-05-31.14.06
+setenv GMS_TARGET linux64
+setenv GMS_FORTRAN gfortran
+setenv GMS_GFORTRAN_VERNO 4.4
+setenv GMS_MATHLIB mkl-so
+setenv GMS_MATHLIB_PATH /share/apps/intel/compilers_and_libraries_2017.1.132/linux/mkl/lib/intel64
+setenv GMS_MKL_VERNO 12
+setenv GMS_DDI_COMM sockets
+setenv GMS_LIBCCHEM false
+setenv GMS_EIGEN_PATH
+setenv GMS_PHI false
+setenv GMS_SHMTYPE sysv
+setenv GMS_OPENMP false
+unset echo
+mc-nacme-nh2ch2
+tests/mcscf/nacme
+----- GAMESS execution script 'rungms' -----
+This job is running on host compute-0-2.local
+under operating system Linux at Fri Jun 2 04:00:57 CDT 2017
+Available scratch disk space (Kbyte units) at beginning of the job is
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/sda1             16126920   3867312  11440408  26% /
+GAMESS temporary binary files will be written to /scratch
+GAMESS supplementary output files will be written to /home/sarom/restart
+Copying input file mc-nacme-nh2ch2.inp to your run's scratch directory...
+cp tests/mcscf/nacme/mc-nacme-nh2ch2.inp /scratch/mc-nacme-nh2ch2.F05
+unset echo
+The generated host list is
+compute-0-2.local
+/home/sarom/gamess.github.2017-05-31.14.06/ddikick.x /home/sarom/gamess.github.2017-05-31.14.06/gamess.00.x mc-nacme-nh2ch2 -ddi 1 1 compute-0-2.local -scr /scratch
+
+ Distributed Data Interface kickoff program.
+ Initiating 1 compute processes on 1 nodes to run the following command:
+ /home/sarom/gamess.github.2017-05-31.14.06/gamess.00.x mc-nacme-nh2ch2 
+
+          ******************************************************
+          *         GAMESS VERSION = 20 APR 2017 (R1)          *
+          *             FROM IOWA STATE UNIVERSITY             *
+          * M.W.SCHMIDT, K.K.BALDRIDGE, J.A.BOATZ, S.T.ELBERT, *
+          *   M.S.GORDON, J.H.JENSEN, S.KOSEKI, N.MATSUNAGA,   *
+          *          K.A.NGUYEN, S.J.SU, T.L.WINDUS,           *
+          *       TOGETHER WITH M.DUPUIS, J.A.MONTGOMERY       *
+          *         J.COMPUT.CHEM.  14, 1347-1363(1993)        *
+          **************** 64 BIT LINUX VERSION ****************
+
+  SINCE 1993, STUDENTS AND POSTDOCS WORKING AT IOWA STATE UNIVERSITY
+  AND ALSO IN THEIR VARIOUS JOBS AFTER LEAVING ISU HAVE MADE IMPORTANT
+  CONTRIBUTIONS TO THE CODE:
+     IVANA ADAMOVIC, CHRISTINE AIKENS, YURI ALEXEEV, POOJA ARORA,
+     ANDREY ASADCHEV, ROB BELL, PRADIPTA BANDYOPADHYAY, JONATHAN BENTZ,
+     BRETT BODE, KURT BRORSEN, CALEB CARLIN, GALINA CHABAN, WEI CHEN,
+     CHEOL HO CHOI, PAUL DAY, ALBERT DEFUSCO, NUWAN DESILVA, TIM DUDLEY,
+     DMITRI FEDOROV, GRAHAM FLETCHER, MARK FREITAG, KURT GLAESEMANN,
+     DAN KEMP, GRANT MERRILL, NORIYUKI MINEZAWA, JONATHAN MULLIN,
+     TAKESHI NAGATA, SEAN NEDD, HEATHER NETZLOFF, BOSILJKA NJEGIC, RYAN OLSON,
+     MIKE PAK, SPENCER PRUITT, LUKE ROSKOP, JIM SHOEMAKER, LYUDMILA SLIPCHENKO,
+     TONY SMITH, SAROM SOK LEANG, JIE SONG, TETSUYA TAKETSUGU, SIMON WEBB,
+     PENG XU, SOOHAENG YOO, FEDERICO ZAHARIEV
+
+  ADDITIONAL CODE HAS BEEN PROVIDED BY COLLABORATORS IN OTHER GROUPS:
+     IOWA STATE UNIVERSITY:
+          JOE IVANIC, AARON WEST, LAIMUTIS BYTAUTAS, KLAUS RUEDENBERG
+     UNIVERSITY OF TOKYO: KIMIHIKO HIRAO, TAKAHITO NAKAJIMA,
+          TAKAO TSUNEDA, MUNEAKI KAMIYA, SUSUMU YANAGISAWA,
+          KIYOSHI YAGI, MAHITO CHIBA, SEIKEN TOKURA, NAOAKI KAWAKAMI
+     UNIVERSITY OF AARHUS: FRANK JENSEN
+     UNIVERSITY OF IOWA: VISVALDAS KAIRYS, HUI LI
+     NATIONAL INST. OF STANDARDS AND TECHNOLOGY: WALT STEVENS, DAVID GARMER
+     UNIVERSITY OF PISA: BENEDETTA MENNUCCI, JACOPO TOMASI
+     UNIVERSITY OF MEMPHIS: HENRY KURTZ, PRAKASHAN KORAMBATH
+     UNIVERSITY OF ALBERTA: TOBY ZENG, MARIUSZ KLOBUKOWSKI
+     UNIVERSITY OF NEW ENGLAND: MARK SPACKMAN
+     MIE UNIVERSITY: HIROAKI UMEDA
+     NAT. INST. OF ADVANCED INDUSTRIAL SCIENCE AND TECHNOLOGY: KAZUO KITAURA
+     MICHIGAN STATE UNIVERSITY:
+          KAROL KOWALSKI, MARTA WLOCH, JEFFREY GOUR, JESSE LUTZ,
+          WEI LI, PIOTR PIECUCH
+     UNIVERSITY OF SILESIA: MONIKA MUSIAL, STANISLAW KUCHARSKI
+     FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX:
+          OLIVIER QUINET, BENOIT CHAMPAGNE
+     UNIVERSITY OF CALIFORNIA - SANTA BARBARA: BERNARD KIRTMAN
+     INSTITUTE FOR MOLECULAR SCIENCE:
+          KAZUYA ISHIMURA, MICHIO KATOUDA, AND SHIGERU NAGASE
+     UNIVERSITY OF NOTRE DAME: ANNA POMOGAEVA, DAN CHIPMAN
+     KYUSHU UNIVERSITY:
+          HARUYUKI NAKANO,
+          FENG LONG GU, JACEK KORCHOWIEC, MARCIN MAKOWSKI, AND YURIKO AOKI,
+          HIROTOSHI MORI AND EISAKU MIYOSHI
+     PENNSYLVANIA STATE UNIVERSITY:
+          TZVETELIN IORDANOV, CHET SWALINA, JONATHAN SKONE,
+          SHARON HAMMES-SCHIFFER
+     WASEDA UNIVERSITY:
+          MASATO KOBAYASHI, TOMOKO AKAMA, TSUGUKI TOUMA,
+          TAKESHI YOSHIKAWA, YASUHIRO IKABATA, JUNJI SEINO,
+          YUYA NAKAJIMA, HIROMI NAKAI
+     NANJING UNIVERSITY: SHUHUA LI
+     UNIVERSITY OF NEBRASKA:
+          PEIFENG SU, DEJUN SI, NANDUN THELLAMUREGE, YALI WANG, HUI LI
+     UNIVERSITY OF ZURICH: ROBERTO PEVERATI, KIM BALDRIDGE
+     N. COPERNICUS UNIVERSITY AND JACKSON STATE UNIVERSITY:
+          MARIA BARYSZ
+     UNIVERSITY OF COPENHAGEN: Jimmy Kromann, CASPER STEINMANN
+     TOKYO INSTITUTE OF TECHNOLOGY: HIROYA NAKATA
+     NAGOYA UNIVERSITY: YOSHIO NISHIMOTO, STEPHAN IRLE
+     MOSCOW STATE UNIVERSITY: VLADIMIR MIRONOV
+
+ EXECUTION OF GAMESS BEGUN Fri Jun  2 04:00:57 2017
+
+            ECHO OF THE FIRST FEW INPUT CARDS -
+ INPUT CARD>!   this is a CH2NH2+ test case used in Columbus...from Aaron (4/2012)          
+ INPUT CARD>!   1st orbital space is CH2 and NH2 sigma bonds, without any antibonds,        
+ INPUT CARD>!                        so the first ORMAS subspace is doubly occupied.        
+ INPUT CARD>!   2nd orbital space is CN's pi/pi*                                            
+ INPUT CARD>!   3rd orbital space is CN's sigma/sigma*                                      
+ INPUT CARD>!                                                                               
+ INPUT CARD>!   The MCSCF ran for 7 iterations, the CP-MCHF for 6 iterations                
+ INPUT CARD>!                                                                               
+ INPUT CARD>!       STATE-SPECIFIC GRADIENT OF STATE   3 (OVERALL STATE   4)                
+ INPUT CARD>!       ENERGY=      -93.6015651803 SPIN=  0.00 WEIGHT= 0.050000                
+ INPUT CARD>!       UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z       
+ INPUT CARD>!          1 N               -0.019019704       0.241648308      -0.324393030   
+ INPUT CARD>!          2 C               -0.003448944      -0.043306500       0.435314522   
+ INPUT CARD>!          3 H                0.052049827      -0.251571533      -0.145386912   
+ INPUT CARD>!          4 H               -0.010836398       0.020811318      -0.026896958   
+ INPUT CARD>!          5 H               -0.009617242      -0.021237165       0.011410981   
+ INPUT CARD>!          6 H               -0.009127539       0.053655572       0.049951397   
+ INPUT CARD>!                                                                               
+ INPUT CARD>!       NONADIABATIC COUPLING MATRIX ELEMENT (NACME), IN ONE/BOHR               
+ INPUT CARD>!       <STATE  2, WEIGHT=   0.05000 | D/DQ | STATE  1, WEIGHT=   0.90000>      
+ INPUT CARD>!         ATOM               D/DX           D/DY           D/DZ                 
+ INPUT CARD>!          1 N               0.0429180     -0.0002847      0.2372465            
+ INPUT CARD>!          2 C               0.0413341     -0.0175498      0.1764592            
+ INPUT CARD>!          3 H              -0.0048181     -0.0409116     -0.0021023            
+ INPUT CARD>!          4 H              -0.0131474      0.0289883     -0.0199986            
+ INPUT CARD>!          5 H              -0.0089250      0.0072620     -0.0148161            
+ INPUT CARD>!          6 H              -0.0180977     -0.0091622     -0.0164083            
+ INPUT CARD>!                                                                               
+ INPUT CARD>!   This run takes 33 seconds on 2.66 GHz Cloverton (27 Apr 2015)               
+ INPUT CARD>!                                                                               
+ INPUT CARD> $contrl icharg=+1 mult=1 scftyp=mcscf runtyp=nacme ispher=1 $end               
+ INPUT CARD> $system mwords=100 memddi=30 $end                                              
+ INPUT CARD> $guess  guess=moread norb=36 $end                                              
+ INPUT CARD> $basis  GBASIS=N31 NGAUSS=6 NDFUNC=1 $end                                      
+ INPUT CARD> $statpt opttol=1.0d-6 $end                                                     
+ INPUT CARD> $MCSCF  cistep=ormas fullnr=.t. $end                                           
+ INPUT CARD> $det    iroot=1 nstate=18 clobbr=.false. WSTATE(1)=90,5,5 mxxpan=50 $end       
+ INPUT CARD> $CPMCHF cptol=1E-06 maxit=140 gcrodr=.t. micit=80 kicit=10 $END                
+ INPUT CARD>!            this is scenario "a"                                               
+ INPUT CARD> $cpmchf prcchg=.true. $end                                                     
+ INPUT CARD> $det    ncore=2 nact=8 nels=12 $end                                            
+ INPUT CARD> $ORMAS  nspace=3 mstart(1)=3,7,9 mine(1)=8,2,2 maxe(1)=8,2,2 $end              
+ INPUT CARD>!            this is scenario "b"                                               
+ INPUT CARD>x$cpmchf prcchg=.false. $end                                                    
+ INPUT CARD>x$det    ncore=6 nact=4 nels=4 $end                                             
+ INPUT CARD>x$ormas  nspace=2 mstart(1)=7,9   mine(1)=2,2   maxe(1)=2,2 $end                
+ INPUT CARD>                                                                                
+ INPUT CARD> $DATA                                                                          
+ INPUT CARD>GAMESS input generated by Newton-X                                              
+ INPUT CARD>C1                                                                              
+  100000000 WORDS OF MEMORY AVAILABLE
+
+     BASIS OPTIONS
+     -------------
+     GBASIS=N31          IGAUSS=       6      POLAR=POPN31  
+     NDFUNC=       1     NFFUNC=       0     DIFFSP=       F
+     NPFUNC=       0      DIFFS=       F     BASNAM=        
+
+
+     RUN TITLE
+     ---------
+ GAMESS input generated by Newton-X                                              
+
+ THE POINT GROUP OF THE MOLECULE IS C1      
+ THE ORDER OF THE PRINCIPAL AXIS IS     0
+
+ ATOM      ATOMIC                      COORDINATES (BOHR)
+           CHARGE         X                   Y                   Z
+ N           7.0     0.1349345236       -0.2302860340        1.1864918624
+ C           6.0     0.1780914998       -0.0067007227       -1.2313169565
+ H           1.0    -0.1822912836        1.2379421469        1.7158668883
+ H           1.0    -0.0283501606       -1.8850340060        2.0594358536
+ H           1.0     0.3121234714        1.8018664283       -1.9456799805
+ H           1.0     0.4371980283       -1.6496485275       -2.0853094338
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 N          2 C          3 H          4 H          5 H     
+
+   1 N       0.0000000    1.2851113 *  0.8427991 *  0.9937949 *  1.9779864 *
+   2 C       1.2851113 *  0.0000000    1.7036635 *  2.0080731 *  1.0314470 *
+   3 H       0.8427991 *  1.7036635 *  0.0000000    1.6645731 *  1.9778336 *
+   4 H       0.9937949 *  2.0080731 *  1.6645731 *  0.0000000    2.8863265 *
+   5 H       1.9779864 *  1.0314470 *  1.9778336 *  2.8863265 *  0.0000000  
+   6 H       1.8940286 *  0.9893940 *  2.5472555 *  2.2106094 *  1.8291550 *
+
+                6 H     
+
+   1 N       1.8940286 *
+   2 C       0.9893940 *
+   3 H       2.5472555 *
+   4 H       2.2106094 *
+   5 H       1.8291550 *
+   6 H       0.0000000  
+
+  * ... LESS THAN  3.000
+
+
+     ATOMIC BASIS SET
+     ----------------
+ THE CONTRACTED PRIMITIVE FUNCTIONS HAVE BEEN UNNORMALIZED
+ THE CONTRACTED BASIS FUNCTIONS ARE NOW NORMALIZED TO UNITY
+
+  SHELL TYPE  PRIMITIVE        EXPONENT          CONTRACTION COEFFICIENT(S)
+
+ N         
+
+      1   S       1          4173.5114600    0.001834772160
+      1   S       2           627.4579110    0.013994627002
+      1   S       3           142.9020930    0.068586551812
+      1   S       4            40.2343293    0.232240873040
+      1   S       5            12.8202129    0.469069948082
+      1   S       6             4.3904370    0.360455199063
+
+      2   L       7            11.6263619   -0.114961181702    0.067579743878
+      2   L       8             2.7162798   -0.169117478561    0.323907295893
+      2   L       9             0.7722184    1.145851947027    0.740895139755
+
+      3   L      10             0.2120315    1.000000000000    1.000000000000
+
+      4   D      11             0.8000000    1.000000000000
+
+ C         
+
+      5   S      12          3047.5248800    0.001834737132
+      5   S      13           457.3695180    0.014037322813
+      5   S      14           103.9486850    0.068842622264
+      5   S      15            29.2101553    0.232184443216
+      5   S      16             9.2866630    0.467941348435
+      5   S      17             3.1639270    0.362311985337
+
+      6   L      18             7.8682723   -0.119332419775    0.068999066591
+      6   L      19             1.8812885   -0.160854151696    0.316423960957
+      6   L      20             0.5442493    1.143456437840    0.744308290898
+
+      7   L      21             0.1687145    1.000000000000    1.000000000000
+
+      8   D      22             0.8000000    1.000000000000
+
+ H         
+
+      9   S      23            18.7311370    0.033494604338
+      9   S      24             2.8253944    0.234726953484
+      9   S      25             0.6401217    0.813757326146
+
+     10   S      26             0.1612778    1.000000000000
+
+ H         
+
+     11   S      27            18.7311370    0.033494604338
+     11   S      28             2.8253944    0.234726953484
+     11   S      29             0.6401217    0.813757326146
+
+     12   S      30             0.1612778    1.000000000000
+
+ H         
+
+     13   S      31            18.7311370    0.033494604338
+     13   S      32             2.8253944    0.234726953484
+     13   S      33             0.6401217    0.813757326146
+
+     14   S      34             0.1612778    1.000000000000
+
+ H         
+
+     15   S      35            18.7311370    0.033494604338
+     15   S      36             2.8253944    0.234726953484
+     15   S      37             0.6401217    0.813757326146
+
+     16   S      38             0.1612778    1.000000000000
+
+ TOTAL NUMBER OF BASIS SET SHELLS             =   16
+ NUMBER OF CARTESIAN GAUSSIAN BASIS FUNCTIONS =   38
+ NOTE: THIS RUN WILL RESTRICT THE MO VARIATION SPACE TO SPHERICAL HARMONICS.
+ THE NUMBER OF ORBITALS KEPT IN THE VARIATIONAL SPACE WILL BE PRINTED LATER.
+ NUMBER OF ELECTRONS                          =   16
+ CHARGE OF MOLECULE                           =    1
+ SPIN MULTIPLICITY                            =    1
+ NUMBER OF OCCUPIED ORBITALS (ALPHA)          =    8
+ NUMBER OF OCCUPIED ORBITALS (BETA )          =    8
+ TOTAL NUMBER OF ATOMS                        =    6
+ THE NUCLEAR REPULSION ENERGY IS       40.4829849545
+
+     $CONTRL OPTIONS
+     ---------------
+ SCFTYP=MCSCF        RUNTYP=NACME        EXETYP=RUN     
+ MPLEVL=       0     CITYP =NONE         CCTYP =NONE         VBTYP =NONE    
+ DFTTYP=NONE         TDDFT =NONE    
+ MULT  =       1     ICHARG=       1     NZVAR =       0     COORD =UNIQUE  
+ PP    =NONE         RELWFN=NONE         LOCAL =NONE         NUMGRD=       F
+ ISPHER=       1     NOSYM =       0     MAXIT =      30     UNITS =ANGS    
+ PLTORB=       F     MOLPLT=       F     AIMPAC=       F     FRIEND=        
+ NPRINT=       7     IREST =       0     GEOM  =INPUT   
+ NORMF =       0     NORMP =       0     ITOL  =      20     ICUT  =       9
+ INTTYP=BEST         GRDTYP=BEST         QMTTOL= 1.0E-06
+
+     $SYSTEM OPTIONS
+     ---------------
+  REPLICATED MEMORY=   100000000 WORDS (ON EVERY NODE).
+ DISTRIBUTED MEMDDI=          30 MILLION WORDS IN AGGREGATE,
+ MEMDDI DISTRIBUTED OVER   1 PROCESSORS IS    30000000 WORDS/PROCESSOR.
+ TOTAL MEMORY REQUESTED ON EACH PROCESSOR=   130000000 WORDS.
+ TIMLIM=      525600.00 MINUTES, OR     365.0 DAYS.
+ PARALL= F  BALTYP=  DLB     KDIAG=    0  COREFL= F
+ MXSEQ2=     300 MXSEQ3=     150  mem10=         0
+
+          ----------------
+          PROPERTIES INPUT
+          ----------------
+
+     MOMENTS            FIELD           POTENTIAL          DENSITY
+ IEMOM =       1   IEFLD =       0   IEPOT =       0   IEDEN =       0
+ WHERE =COMASS     WHERE =NUCLEI     WHERE =NUCLEI     WHERE =NUCLEI  
+ OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH    
+ IEMINT=       0   IEFINT=       0                     IEDINT=       0
+                                                       MORB  =       0
+
+     -------------------------------
+     INTEGRAL TRANSFORMATION OPTIONS
+     -------------------------------
+     NWORD  =            0
+     CUTOFF = 1.0E-09     MPTRAN =       0
+     DIRTRF =       F     AOINTS =DUP     
+
+          ----------------------
+          MCSCF INPUT PARAMETERS
+          ----------------------
+ CONVERGER SELECTION: FOCAS = F  SOSCF = F  FULLNR = T  QUD = F  JACOBI = F
+ SECULAR EQUATION METHOD CISTEP = ORMAS   
+ --- GENERAL INPUT OPTIONS:
+ MAXIT =      30  MICIT =       1  ACURCY= 1.000E-05
+ DAMP  =   0.000  CANONC=       T  ENGTOL= 1.000E-10
+ EKT   =       F  NPUNCH=       2  NWORD =         0
+ REGENERATE CI AFTER CONVERGENCE = NONE    
+ DIABATIZATION AFTER CONVERGENCE =        F
+ --- INPUT FOR FULLNR CONVERGER:
+ METHOD=DM2       FORS  =       F  DROPC =       T
+ LINSER=       F  FCORE =       F  NORB  =      38
+
+          ----------------------
+          INTEGRAL INPUT OPTIONS
+          ----------------------
+ NOPK  =       1 NORDER=       0 SCHWRZ=       T
+
+     ------------------------------------------
+     THE POINT GROUP IS C1 , NAXIS= 0, ORDER= 1
+     ------------------------------------------
+
+ -- VARIATIONAL SPACE WILL BE RESTRICTED TO PURE SPHERICAL HARMONICS ONLY --
+ AFTER EXCLUDING CONTAMINANT COMBINATIONS FROM THE CARTESIAN GAUSSIAN BASIS
+ SET, THE NUMBER OF SPHERICAL HARMONICS KEPT IN THE VARIATION SPACE IS   36
+
+     DIMENSIONS OF THE SYMMETRY SUBSPACES ARE
+ A   =   36
+
+ ..... DONE SETTING UP THE RUN .....
+ STEP CPU TIME =     0.03 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS  75.00%
+
+     ------------------------------
+     CPHF RESPONSE SOLUTION OPTIONS
+     ------------------------------
+     POLAR  =       F     NWORD  =       0
+     CPHF   =MO      
+
+          ********************
+          1 ELECTRON INTEGRALS
+          ********************
+ TIME TO DO   DIPOLE INTEGRALS=      0.00
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS  75.00%
+
+          -------------
+          GUESS OPTIONS
+          -------------
+          GUESS =MOREAD            NORB  =      36          NORDER=       0
+          MIX   =       F          PRTMO =       F          PUNMO =       F
+          TOLZ  = 1.0E-08          TOLE  = 1.0E-05
+          SYMDEN=       F          PURIFY=       F
+
+ INITIAL GUESS ORBITALS GENERATED BY MOREAD   ROUTINE.
+
+ STATISTICS FOR GENERATION OF SYMMETRY ORBITAL -Q- MATRIX
+ NUMBER OF CARTESIAN ATOMIC ORBITALS=         38
+ NUMBER OF SPHERICAL CONTAMINANTS DROPPED=     2
+ NUMBER OF LINEARLY DEPENDENT MOS DROPPED=     0
+ TOTAL NUMBER OF MOS IN VARIATION SPACE=      36
+
+ SYMMETRIES FOR INITIAL GUESS ORBITALS FOLLOW.   BOTH SET(S).
+     8 ORBITALS ARE OCCUPIED (    2 CORE ORBITALS).
+     1=A        2=A        3=A        4=A        5=A        6=A        7=A   
+     8=A        9=A       10=A       11=A       12=A       13=A       14=A   
+    15=A       16=A       17=A       18=A       19=A       20=A       21=A   
+    22=A       23=A       24=A       25=A       26=A       27=A       28=A   
+    29=A       30=A       31=A       32=A       33=A       34=A       35=A   
+    36=A   
+ ...... END OF INITIAL ORBITAL SELECTION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  60.00%
+
+                    ----------------------
+                    AO INTEGRAL TECHNOLOGY
+                    ----------------------
+     S,P,L SHELL ROTATED AXIS INTEGRALS, REPROGRAMMED BY
+        KAZUYA ISHIMURA (IMS) AND JOSE SIERRA (SYNSTAR).
+     S,P,D,L SHELL ROTATED AXIS INTEGRALS PROGRAMMED BY
+        KAZUYA ISHIMURA (INSTITUTE FOR MOLECULAR SCIENCE).
+     S,P,D,F,G SHELL TO TOTAL QUARTET ANGULAR MOMENTUM SUM 5,
+        ERIC PROGRAM BY GRAHAM FLETCHER (ELORET AND NASA ADVANCED
+        SUPERCOMPUTING DIVISION, AMES RESEARCH CENTER).
+     S,P,D,F,G,L SHELL GENERAL RYS QUADRATURE PROGRAMMED BY
+        MICHEL DUPUIS (PACIFIC NORTHWEST NATIONAL LABORATORY).
+
+          --------------------
+          2 ELECTRON INTEGRALS
+          --------------------
+
+ THE -PK- OPTION IS OFF, THE INTEGRALS ARE NOT IN SUPERMATRIX FORM.
+ STORING   15000 INTEGRALS/RECORD ON DISK, USING 12 BYTES/INTEGRAL.
+ TWO ELECTRON INTEGRAL EVALUATION REQUIRES   90532 WORDS OF MEMORY.
+ SCHWARZ INEQUALITY OVERHEAD:       741 INTEGRALS, T=        0.00
+ II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =  214
+ II,JST,KST,LST =  5  1  1  1 NREC =         1 INTLOC = 1189
+ II,JST,KST,LST =  6  1  1  1 NREC =         1 INTLOC = 3226
+ II,JST,KST,LST =  7  1  1  1 NREC =         2 INTLOC =  977
+ II,JST,KST,LST =  8  1  1  1 NREC =         3 INTLOC = 8233
+ II,JST,KST,LST =  9  1  1  1 NREC =         7 INTLOC = 6163
+ II,JST,KST,LST = 10  1  1  1 NREC =         8 INTLOC = 6074
+ II,JST,KST,LST = 11  1  1  1 NREC =         9 INTLOC = 7474
+ II,JST,KST,LST = 12  1  1  1 NREC =        10 INTLOC =10442
+ II,JST,KST,LST = 13  1  1  1 NREC =        12 INTLOC =  111
+ II,JST,KST,LST = 14  1  1  1 NREC =        13 INTLOC = 6548
+ II,JST,KST,LST = 15  1  1  1 NREC =        14 INTLOC =14894
+ II,JST,KST,LST = 16  1  1  1 NREC =        16 INTLOC =10236
+ SCHWARZ INEQUALITY TEST SKIPPED           5 INTEGRAL BLOCKS.
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =              262689
+         18 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.05 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  88.89%
+
+          -----------------
+          MCSCF CALCULATION
+          -----------------
+
+ ----- NUCLEAR ENERGY ----- =        40.4829849545
+
+     ------------------------------------------------------------
+       DIRECT DETERMINANT ORMAS-CI INPUT SORTER
+       PROGRAM WRITTEN BY JOE IVANIC AND MIKE SCHMIDT
+       ORMAS = OCCUPATION RESTRICTED MULTIPLE ACTIVE SPACE
+     ------------------------------------------------------------
+
+ RUNTYP=NACME    INVOLVING AN ANALYTIC NUCLEAR GRADIENT
+ HAS BEEN REQUESTED FOR A RUN AVERAGING OVER   3 STATES.
+ THIS REQUIRES SOLUTION OF THE MULTI-REFERENCE RESPONSE EQUATIONS,
+ REQUIRING MORE COMPUTER TIME THAN SINGLE STATE GRADIENTS.
+ PROVIDING $CPMCHF INPUT MAY HELP RESPONSE SOLVING.
+
+ THE POINT GROUP                  =   C1      
+ THE STATE SYMMETRY               =   A       
+ NUMBER OF CORE ORBITALS          =    2
+ NUMBER OF ACTIVE ORBITALS        =    8
+ NUMBER OF ALPHA ELECTRONS        =    8 (   6 ACTIVE)
+ NUMBER OF BETA ELECTRONS         =    8 (   6 ACTIVE)
+ NUMBER OF OCCUPIED ORBITALS      =   10
+
+ NUMBER OF CI STATES REQUESTED    =   18
+ NUMBER OF CI STARTING VECTORS    =   18
+ MAX. NO. OF CI EXPANSION VECTORS =   50
+ SIZE OF INITIAL CI GUESS MATRIX  =  300
+
+ MAX. NO. OF CI ITERS/STATE       =  100
+ CI DIAGONALIZATION CRITERION     = 1.00E-06
+ PURE SPIN STATE AVERAGED 1E- AND 2E- DENSITY MATRIX OPTION=.T.
+ STATE=   1 DM2 WEIGHT=   0.90000     STATE=   2 DM2 WEIGHT=   0.05000
+ STATE=   3 DM2 WEIGHT=   0.05000
+ STATE-AVERAGED MCSCF USING IROOT=  1 AS ITS STATE-SPECIFIC E
+
+ CORRELATION ENERGY ANALYSIS      =    F
+
+ FULLY DIRECT OPTION              =    F
+
+ CALC. OF DAVIDSON Q CORRECTION   =    F
+
+ BLOCK SPACE MIXING IN NO DIAG    =    F
+
+ SYMMETRIES FOR THE   2 CORE,   8 ACTIVE ARE
+
+     CORE= A     A   
+
+   ACTIVE= A     A     A     A     A     A     A     A   
+
+ THE NUMBER OF SPACES             =   3
+ EACH SPACE STARTS AT ORBITAL     =   3   7   9
+ NO OF ORBITALS IN EACH SPACE     =   4   2   2
+ MIN NO OF ELECS IN EACH SPACE    =   8   2   2
+ MAX NO OF ELECS IN EACH SPACE    =   8   2   2
+
+ SPACE SPECIFICATIONS HAVE PASSED PRELIMINARY CHECKS
+
+ ALL VALID DETERMINANTS WILL BE EXPRESSED AS PAIRS OF ALPHA AND BETA STRINGS.
+
+ MIN NO OF ALPHA ELECS =    4   0   0
+ MAX NO OF ALPHA ELECS =    4   2   2
+
+ MIN NO OF BETA  ELECS =    4   0   0
+ MAX NO OF BETA  ELECS =    4   2   2
+
+     --------------------------------------------
+     PARTIAL TWO ELECTRON INTEGRAL TRANSFORMATION
+     --------------------------------------------
+
+ NUMBER OF CORE MOLECULAR ORBITALS     =    2
+ NUMBER OF OCCUPIED MOLECULAR ORBITALS =   10
+ TOTAL NUMBER OF MOLECULAR ORBITALS    =   36
+ TOTAL NUMBER OF ATOMIC ORBITALS       =   38
+ THRESHOLD FOR KEEPING TRANSFORMED 2E- INTEGRALS = 1.000E-09
+ AO INTEGRALS WILL BE READ IN FROM DISK...
+
+ PLAN A: REQUIREMENTS FOR FULLY IN-MEMORY TRANSFORMATION:
+ # OF WORDS AVAILABLE =            100000000
+ # OF WORDS NEEDED    =               348878
+
+ CHOOSING IN MEMORY PARTIAL TRANSFORMATION...
+ TOTAL NUMBER OF TRANSFORMED 2E- INTEGRALS KEPT =        68865
+ ----- FROZEN CORE ENERGY =       -92.5697919006
+ ... END OF INTEGRAL TRANSFORMATION ...
+ STEP CPU TIME =     0.03 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  91.67%
+
+     --------------------------------------------------
+                 DIRECT DETERMINANT ORMAS-CI 
+                PROGRAM WRITTEN BY JOE IVANIC
+     --------------------------------------------------
+
+ STORAGE OF BINOMIAL COEFFICIENTS REQUIRES          43 WORDS
+
+ TOTAL NUMBER OF ALPHA GROUPS  =            3
+ TOTAL NUMBER OF BETA  GROUPS  =            3
+
+ TOTAL NUMBER OF ALPHA STRINGS =            6
+ TOTAL NUMBER OF BETA  STRINGS =            6
+
+ STORAGE OF TABLES REQUIRES                       246 WORDS
+
+ TOTAL NUMBER OF ALPHA-BETA GROUP COMBINATIONS =            9
+ OF THESE THE ALLOWED NUMBER OF COMBINATIONS   =            3
+
+ TOTAL NUMBER OF (B -> B`) WHERE  (B` > B)  =           12
+
+ TIME FOR SETTING UP TABLE SET 1 :          0.0
+
+ THE NUMBER OF DETERMINANTS HAVING SPACE SYMMETRY A  
+ IN POINT GROUP C1   WITH SZ=  0.0 IS             18
+
+ INTEGRAL STORAGE REQUIRES                   30739 WORDS
+ EXTRA ORMAS STORAGE REQUIRES               186299 WORDS
+ (EXTRA ORMAS STORAGE INCLUDES THAT FOR MXXPAN = 50)
+ TOTAL ORMAS CALCULATION REQUIRES           217327 WORDS
+
+ FULLY DIRECT WOULD REQUIRE                 217246 WORDS
+ SMALL CI MATRIX, JUST USING INCORE DIAGONALIZATION...
+
+ INITIAL ORMAS VECTOR GUESS TIME :          0.0
+
+ CI EIGENVECTORS WILL BE LABELED IN GROUP=C1      
+ PRINTING ALL NON-ZERO CI COEFFICIENTS
+
+ STATE   1  ENERGY=       -94.3550444159  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.9683275307
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.1254498005
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.1212930880
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.1212930880
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |  -0.0602880758
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.0553999786
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.0553999786
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.0466190441
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.0466190441
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.0337047741
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.0337047741
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.0141761907
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0129142699
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0129142699
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.0103347538
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0103347538
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.0044898489
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.0044898489
+
+ STATE   2  ENERGY=       -94.1355396584  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.7047960235
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.7047960235
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0497834219
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0497834219
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.0248985322
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.0248985322
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.0090068571
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.0090068571
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.0083246030
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.0083246030
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.0036648466
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.0036648466
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0006210607
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.0006210607
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.0000000000
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.0000000000
+
+ STATE   3  ENERGY=       -93.9840714066  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.6752014188
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.6752014188
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.1712096859
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.1349030441
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.1212491830
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.1212491830
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.0560718854
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.0560718854
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.0348861986
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0348861986
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.0282276680
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.0282276680
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0142977806
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0142977806
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.0139298875
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.0139298875
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.0133178463
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0012888026
+
+ STATE   4  ENERGY=       -93.6531754527  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.9626341312
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.1065150588
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.1065150588
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.1004491360
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.1004491360
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0886096128
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.0691183218
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.0691183218
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.0589955521
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.0589955521
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0473516691
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.0414535839
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.0414535839
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.0115727927
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.0115727927
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0111994138
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.0035349533
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0035349533
+
+ STATE   5  ENERGY=       -93.3937601858  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.6920250830
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.6920250830
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.1009776941
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.1009776941
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.0747223970
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.0747223970
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.0673775295
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.0673775295
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0272819042
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0272819042
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0047167551
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0047167551
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.0038822226
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0038822226
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0000000000
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0000000000
+
+ STATE   6  ENERGY=       -93.2319558678  S=  2.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.4082482905
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.4082482905
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.4082482905
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.4082482905
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.4082482905
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.4082482905
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.0000000000
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.0000000000
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.0000000000
+
+ STATE   7  ENERGY=       -93.1300259100  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.7013320281
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.7013320281
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.0748141454
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.0748141454
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.0479562042
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.0479562042
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.0112027718
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.0112027718
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.0104714104
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.0104714104
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.0010489150
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.0010489150
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.0004239200
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.0004239200
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.0000000000
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0000000000
+
+ STATE   8  ENERGY=       -93.0806569784  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.4531991362
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.4531991362
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.4082744111
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.4082744111
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.2958105621
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.2958105621
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.1573885742
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.1573885742
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.0762828701
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.0749266736
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.0749266736
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0583413719
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.0583413719
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0567765775
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.0457320387
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0457320387
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0050802800
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |  -0.0028712868
+
+ STATE   9  ENERGY=       -93.0671014945  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.5358899733
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.5358899733
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.3512886312
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.3512886312
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.2222621365
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.2222621365
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.1290264947
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.1290264947
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |  -0.0874425172
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.0827323407
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0827323407
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.0767327992
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.0767327992
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.0634899237
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0634899237
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0622262553
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.0411482111
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0011570534
+
+ STATE  10  ENERGY=       -93.0072052276  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.5208597926
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.5208597926
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.4255224189
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.4255224189
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.1574423961
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.1574423961
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.1215009352
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.1215009352
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0890081663
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.0890081663
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0104910994
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0104910994
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0072557119
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0072557119
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |  -0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0000000000
+
+ STATE  11  ENERGY=       -92.8618906255  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.5441628467
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.5441628467
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.4497525786
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.4497525786
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.0319743229
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.0319743229
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.0201199971
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.0201199971
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0103948396
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.0103948396
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.0068735116
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.0068735116
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.0051908355
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.0051908355
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0000000000
+
+ STATE  12  ENERGY=       -92.7074371387  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.4779745565
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.4779745565
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.4340760206
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.4340760206
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.2609035065
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.1392926672
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.1392926672
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.1194260351
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.1037074306
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.1037074306
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.0966749702
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.0875280350
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0438985359
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0438985359
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0309275496
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.0309275496
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0201704339
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.0201704339
+
+ STATE  13  ENERGY=       -92.6191895328  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.6811933864
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.6811933864
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.1246423741
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.1246423741
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.1202848816
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.1202848816
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.0745177303
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.0745177303
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0176487888
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0176487888
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.0093314154
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0093314154
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0044664273
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0044664273
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.0000000000
+
+ STATE  14  ENERGY=       -92.3536001040  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.6530894501
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.6530894501
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.1766714350
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.1691237129
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.1691237129
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.1030034304
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.0914626440
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.0914626440
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.0893505501
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.0893505501
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.0628096803
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0628096803
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.0537676981
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.0537676981
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0381675741
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.0091965742
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0021120939
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0021120939
+
+ STATE  15  ENERGY=       -92.0408962810  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.9390277021
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.1947630073
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.1227244761
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.1227244761
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.1010174266
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.1010174266
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0890222718
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0826004562
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.0826004562
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.0596921007
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.0596921007
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0217070495
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0217070495
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.0087472708
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.0046556758
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.0046556758
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0013273806
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.0013273806
+
+ STATE  16  ENERGY=       -91.8498479458  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.7043112683
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.7043112683
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0491786966
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0491786966
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.0264107043
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.0264107043
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.0207071423
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.0207071423
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.0197826223
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.0197826223
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.0030137430
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.0030137430
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0005893213
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.0005893213
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |  -0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.0000000000
+
+ STATE  17  ENERGY=       -91.6564812434  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.6332656669
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.6332656669
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.3466014397
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |  -0.1574602455
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.1057308487
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.1057308487
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.1021159335
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.1021159335
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.0596358780
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0596358780
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.0237077762
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.0237077762
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.0229982067
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.0192280614
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.0171421572
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.0171421572
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0065656189
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0065656189
+
+ STATE  18  ENERGY=       -91.1664888671  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.8946581482
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.2331760003
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.2331760003
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.1530606057
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.1530606057
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.1117571665
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.0810449049
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.0756451548
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.0756451548
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.0734717861
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.0734717861
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0254900837
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.0254900837
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.0243409731
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.0243409731
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0140419864
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.0021733687
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.0021733687
+
+ ..... DONE WITH ORMAS-CI COMPUTATION .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  92.31%
+
+     -------------------------------------------------------
+      ONE AND TWO PARTICLE ORMAS DENSITY MATRIX COMPUTATION
+                  PROGRAM WRITTEN BY JOE IVANIC
+     -------------------------------------------------------
+
+ THE DENSITIES ARE STATE AVERAGED OVER   3 ROOT(S)
+ STATE=   1   ENERGY=      -94.3550444159   WEIGHT= 0.90000   S=  0.00
+ STATE=   3   ENERGY=      -93.9840714066   WEIGHT= 0.05000   S=  0.00
+ STATE=   4   ENERGY=      -93.6531754527   WEIGHT= 0.05000   S=  0.00
+ SIEVING THE A    SYMMETRY NONZERO DENSITY ELEMENTS IN GROUP C1      
+         95 NONZERO DM2 ELEMENTS WRITTEN IN       1 RECORDS TO FILE 70 LABELED AS DEN2P1 
+         95 NONZERO DM2 ELEMENTS WRITTEN IN       1 RECORDS TO FILE 71 LABELED AS DEN2P2 
+         95 NONZERO DM2 ELEMENTS WRITTEN IN       1 RECORDS TO FILE 72 LABELED AS DEN2P3 
+         95 NONZERO DM2 ELEMENTS WRITTEN IN       1 RECORDS TO FILE 73 LABELED AS DEN2P4 
+         95 NONZERO DM2 ELEMENTS WRITTEN IN       1 RECORDS TO FILE 15
+ ..... DONE WITH 1 AND 2 PARTICLE DENSITY MATRIX .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  92.31%
+
+     --------------------------------     -----------------------------
+     MCHF NEWTON-RAPHSON OPTIMIZATION     CODE WRITTEN BY MICHEL DUPUIS
+     --------------------------------     -----------------------------
+ FORMING FOCK OPERATOR OVER ACTIVE ORBITAL DENSITY, MEMORY=     81219
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  92.31%
+ MEMORY DEMAND FOR 2 ELECTRON NTN-RPH CONTRIBUTIONS
+      METHOD=DM2     NEEDS    112072 WORDS
+      METHOD=TEI     NEEDS     79646 WORDS
+ TOTAL AVAILABLE MEMORY IS 100000000 WORDS
+ CHOOSING DM2 DRIVEN METHOD...
+ FORMING -LGR- + -COU- + -EXC- FROM (IJ//KL) INTEGRALS
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  92.31%
+ FORMING -LGR- + -COU- + -EXC- FROM (AJ//KL) INTEGRALS
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  92.31%
+ FORMING         -COU-         FROM (AB//KL) INTEGRALS
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  85.71%
+ FORMING                 -EXC- FROM (AJ//BL) INTEGRALS
+ ..... DONE WITH 2 ELECTRON CONTRIBUTIONS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  85.71%
+ ..... DONE WITH 1 ELECTRON CONTRIBUTIONS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  85.71%
+ NUMBER OF INDEPENDENT ORBITAL ROTATION PARAMETERS =   288
+ ..... DONE SOLVING NEWTON-RAPHSON EQUATIONS .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  92.86%
+ ..... DONE WITH NTN-RPH ORBITAL ROTATIONS ..... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  92.86%
+ MAXIMUM MEMORY USED BY NTN-RPH CODE WAS    112072 WORDS.
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+   1      -94.301402317 -0.301402317  0.039005   27    7 9.565E-02  1   0.0000
+   2      -94.315677715 -0.014275398  0.005669   36    9 6.883E-03  1   0.0000
+   3      -94.316163471 -0.000485755  0.001167   36    9 6.991E-06  1   0.0000
+   4      -94.316166721 -0.000003250  0.000220   36    9 7.306E-08  1   0.0000
+   5      -94.316166843 -0.000000122  0.000046   20    7 3.485E-09  1   0.0000
+   6      -94.316166849 -0.000000006  0.000011   20    7 1.619E-10  1   0.0000
+   7      -94.316166849 -0.000000000  0.000003   20    7 2.099E-11  1   0.0000
+
+          --------------------
+          LAGRANGIAN CONVERGED
+          --------------------
+
+ FINAL MCSCF ENERGY IS      -94.3758844874 AFTER   7 ITERATIONS
+
+ -MCCI- BASED ON OPTIMIZED ORBITALS
+ ----------------------------------
+
+ PLEASE NOTE: ORMAS IS NOT INVARIANT TO ORBITAL ROTATIONS BETWEEN THE
+ DIFFERENT ACTIVE SPACES.  THE CI EXPANSION JUST BELOW IS FOR THE
+ OPTIMIZED ORBITALS USED IN THE LAST ITERATION.  THE NATURAL ORBITALS
+ ARE GENERATED BELOW, BUT THE NO'S ROTATE BETWEEN THE ACTIVE SPACES,
+ SO THE NATURAL ORBITALS DO NOT REPRODUCE THE ORMAS WAVEFUNCTION.
+
+ CI EIGENVECTORS WILL BE LABELED IN GROUP=C1      
+ PRINTING ALL NON-ZERO CI COEFFICIENTS
+
+ STATE   1  ENERGY=       -94.3758844874  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.9631380885
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.1529248182
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.1269430336
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.1269430336
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |  -0.0599350506
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.0518742184
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.0518742184
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.0464052136
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.0464052136
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.0340385513
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.0340385513
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0178356671
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0178356671
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.0168746338
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0102032606
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.0102032606
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.0033580906
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.0033580906
+
+ STATE   2  ENERGY=       -94.1514215870  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.7044666473
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.7044666473
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0495960163
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0495960163
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.0314886029
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.0314886029
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.0115205839
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.0115205839
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.0103043724
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.0103043724
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.0057003243
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.0057003243
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0020120171
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.0020120171
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0000000000
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0000000000
+
+ STATE   3  ENERGY=       -93.9558510246  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.6662190015
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.6662190015
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.1889509067
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.1737872996
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.1307995654
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.1307995654
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.0577667111
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.0577667111
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.0322677733
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0322677733
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.0322126376
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.0322126376
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0196662319
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0196662319
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.0160909737
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.0125464058
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.0125464058
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0019957665
+
+ STATE   4  ENERGY=       -93.6015651803  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.9473944102
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.1367859791
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.1367859791
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.1139418136
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.1139418136
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.1046854479
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.0781534601
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.0781534601
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.0614369552
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.0614369552
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.0525048584
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.0525048584
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0427582836
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.0193286616
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.0193286616
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0140705604
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.0048277760
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0048277760
+
+ STATE   5  ENERGY=       -93.3364873158  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.6880328128
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.6880328128
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.1205220890
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.1205220890
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.0771434819
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.0771434819
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.0697438485
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.0697438485
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.0348682121
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.0348682121
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.0069922439
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.0069922439
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0022955694
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.0022955694
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |  -0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.0000000000
+
+ STATE   6  ENERGY=       -93.1824385311  S=  2.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.4082482905
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.4082482905
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.4082482905
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.4082482905
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.4082482905
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.4082482905
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.0000000000
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.0000000000
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.0000000000
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0000000000
+
+ STATE   7  ENERGY=       -93.0566087899  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.7029969352
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.7029969352
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.0639769369
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.0639769369
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.0382292998
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.0382292998
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.0112446130
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.0112446130
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.0106169265
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.0106169265
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0011897152
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0011897152
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.0004531951
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.0004531951
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.0000000000
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0000000000
+
+ STATE   8  ENERGY=       -92.9977566060  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.4850407673
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.4850407673
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.3879952823
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.3879952823
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.2751740290
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.2751740290
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.1128212532
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.1128212532
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.1043314247
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.1043314247
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.0868594921
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0728830812
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.0728830812
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0628100601
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.0628100601
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0593637564
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0105183484
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0052931851
+
+ STATE   9  ENERGY=       -92.9834801525  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.4604707229
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.4604707229
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.4189160171
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.4189160171
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.2421492353
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.2421492353
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.1767667819
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.1767667819
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |  -0.0842854218
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0817773501
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.0817773501
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.0767196014
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.0767196014
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.0707251517
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0545332748
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.0545332748
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0445296455
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0017561057
+
+ STATE  10  ENERGY=       -92.9011784634  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.5428230206
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.5428230206
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.3837718630
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.3837718630
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.1853049121
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.1853049121
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.1330756051
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.1330756051
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.0752400687
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0752400687
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0167995520
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0167995520
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0084856061
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0084856061
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.0000000000
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.0000000000
+
+ STATE  11  ENERGY=       -92.7759859688  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.5675438810
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.5675438810
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.4174344173
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.4174344173
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.0408921589
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.0408921589
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.0402398099
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.0402398099
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.0175592080
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.0175592080
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0062357221
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.0062357221
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0019569102
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0019569102
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.0000000000
+
+ STATE  12  ENERGY=       -92.5780736484  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.4726262920
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.4726262920
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.4181926018
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.4181926018
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.2773626216
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.1687110513
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.1687110513
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.1208111282
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.1169875113
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.1169875113
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.1049305737
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.0855733570
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0544336902
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0544336902
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0317533080
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.0317533080
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0262535998
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.0262535998
+
+ STATE  13  ENERGY=       -92.4669132895  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.6697314758
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.6697314758
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.1531745695
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.1531745695
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.1410472435
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.1410472435
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.0864437528
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.0864437528
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0227804931
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0227804931
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.0091420767
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0091420767
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0052844936
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0052844936
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.0000000000
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |  -0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.0000000000
+
+ STATE  14  ENERGY=       -92.1897897766  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.6379551039
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.6379551039
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.1875915678
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.1825097610
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.1825097610
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.1193170458
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.1126453484
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.1126453484
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.1063397685
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.1063397685
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.0717393214
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0717393214
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.0633184100
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.0633184100
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0582828930
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.0140581180
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0063055799
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0063055799
+
+ STATE  15  ENERGY=       -91.8701620013  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.9279721834
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.2287530684
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.1336712684
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.1336712684
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.1061530144
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.1061530144
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0899066287
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0821283082
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.0821283082
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.0499635371
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.0499635371
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0275182540
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0275182540
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.0111389937
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.0055724076
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.0055724076
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0000144622
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.0000144622
+
+ STATE  16  ENERGY=       -91.6787713401  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.7036126208
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.7036126208
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.0490486929
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.0490486929
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.0334767344
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.0334767344
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.0268102177
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.0268102177
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.0257862785
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.0257862785
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.0040782785
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.0040782785
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.0015689132
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0015689132
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0000000000
+
+ STATE  17  ENERGY=       -91.4381838873  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.6174873079
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.6174873079
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.3864452124
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |  -0.1770815985
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.1090643781
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.1090643781
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.1048980339
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.1048980339
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0602391962
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.0602391962
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.0285351304
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.0285351304
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.0250479731
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.0215440936
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.0200110586
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.0200110586
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0085240719
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0085240719
+
+ STATE  18  ENERGY=       -90.8707591044  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.8679476209
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.2617457860
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.2617457860
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.1651909224
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.1651909224
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.1275013359
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.0848427794
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.0848427794
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.0830004592
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.0820087133
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.0820087133
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.0313034766
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.0313034766
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0301844615
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.0301844615
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0166712511
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.0028340661
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.0028340661
+
+ DENSITY MATRIX OVER ACTIVE MO-S
+
+             1           2           3           4           5
+
+    1    2.0000000
+    2    0.0000000   2.0000000
+    3    0.0000000   0.0000000   2.0000000
+    4    0.0000000   0.0000000   0.0000000   2.0000000
+    5    0.0000000   0.0000000   0.0000000   0.0000000   1.7773113
+    6    0.0000000   0.0000000   0.0000000   0.0000000   0.1702837
+    7    0.0000000   0.0000000   0.0000000   0.0000000   0.0000000
+    8    0.0000000   0.0000000   0.0000000   0.0000000   0.0000000
+
+             6           7           8
+
+    6    0.2226887
+    7    0.0000000   1.9760043
+    8    0.0000000  -0.0546240   0.0239957
+
+ * * * WARNING * * *
+ YOUR NATURAL ORBITALS HAVE   4 DOUBLY OCCUPIED ACTIVE ORBITALS.
+ AT THE VERY LEAST, THIS IS A WASTE OF COMPUTER TIME,
+ BUT IT MAY REVEAL A FLAW IN YOUR MCSCF COMPUTATION:
+   CHECK YOUR FORMULATION OF THE ACTIVE SPACE,
+   AS WELL AS MECHANICAL THINGS LIKE STARTING ORBITALS.
+
+ FORMING THE "STANDARD FOCK OPERATOR" USING INTEGRALS FROM DISK...
+     2 FILLED,    8 ACTIVE, AND   26 VIRTUAL ORBITALS  WILL BE CANONICALIZED
+
+          ----------------------
+          MCSCF NATURAL ORBITALS
+          ----------------------
+
+                      1          2          3          4          5
+                  -15.8281   -11.5118     2.0000     2.0000     2.0000
+                     A          A          A          A          A   
+    1  N  1  S    1.007905   0.009820  -0.083114  -0.082761   0.014725
+    2  N  1  S   -0.007951  -0.008789   0.270142   0.319747  -0.052547
+    3  N  1  X    0.003554   0.000546  -0.045677  -0.031600  -0.014073
+    4  N  1  Y    0.000496  -0.000140   0.041812   0.039240   0.358043
+    5  N  1  Z   -0.017200  -0.003769   0.157264   0.127895  -0.030452
+    6  N  1  S   -0.045110  -0.006193   0.304593   0.274866  -0.100404
+    7  N  1  X    0.002141   0.000453  -0.020638  -0.014656  -0.002827
+    8  N  1  Y    0.002904   0.000106  -0.006699  -0.012808   0.167916
+    9  N  1  Z   -0.007045  -0.002939   0.058711   0.082198  -0.014662
+   10  N  1 XX    0.001149   0.001190  -0.009901  -0.017094   0.002547
+   11  N  1 YY   -0.001990  -0.000336   0.023754   0.019066   0.002261
+   12  N  1 ZZ    0.000841  -0.000854  -0.013853  -0.001972  -0.004808
+   13  N  1 XY    0.000163   0.000140  -0.003597  -0.003319  -0.007430
+   14  N  1 XZ    0.000334   0.000201  -0.002289  -0.004506   0.000929
+   15  N  1 YZ    0.000265   0.000124  -0.001234  -0.001607   0.002129
+   16  C  2  S   -0.005367   1.004620   0.111245  -0.074710  -0.014142
+   17  C  2  S   -0.005843   0.003500  -0.292364   0.255486   0.028112
+   18  C  2  X    0.000058  -0.001893  -0.035565   0.017182  -0.012273
+   19  C  2  Y    0.000085  -0.000452   0.050983   0.012677   0.356541
+   20  C  2  Z    0.001118   0.013088   0.170889  -0.102971   0.021139
+   21  C  2  S    0.003624  -0.029031  -0.283825   0.191862   0.045569
+   22  C  2  X   -0.000031  -0.000965  -0.011262   0.006670  -0.006003
+   23  C  2  Y   -0.002563  -0.000814   0.028130   0.027039   0.147872
+   24  C  2  Z    0.004043   0.004462   0.040971  -0.048513   0.019076
+   25  C  2 XX    0.000906   0.000346   0.014353  -0.017635  -0.003103
+   26  C  2 YY    0.000443  -0.001555  -0.030845   0.016073   0.002413
+   27  C  2 ZZ   -0.001348   0.001209   0.016492   0.001562   0.000690
+   28  C  2 XY   -0.000002   0.000085   0.003183  -0.001244   0.004651
+   29  C  2 XZ    0.000192   0.000068   0.000954  -0.003462   0.000215
+   30  C  2 YZ    0.000171  -0.000189  -0.005576   0.001878  -0.004484
+   31  H  3  S   -0.015267  -0.003621   0.145995   0.154886   0.137008
+   32  H  3  S    0.002914   0.000586  -0.007336   0.000505  -0.007099
+   33  H  4  S   -0.014435  -0.003878   0.107168   0.114937  -0.163765
+   34  H  4  S    0.002184  -0.000372  -0.005433  -0.004177  -0.002022
+   35  H  5  S   -0.002431  -0.011634  -0.129784   0.126712   0.171045
+   36  H  5  S   -0.000584  -0.000461  -0.035099   0.030767   0.055670
+   37  H  6  S   -0.002845  -0.012217  -0.186960   0.126731  -0.148142
+   38  H  6  S   -0.002635  -0.000840  -0.046794   0.049650  -0.043189
+
+                      6          7          8          9         10
+                    2.0000     1.9775     1.7957     0.2043     0.0225
+                     A          A          A          A          A   
+    1  N  1  S   -0.005348   0.077149  -0.015885   0.008046   0.084418
+    2  N  1  S    0.010536  -0.160691   0.041459  -0.025164  -0.476976
+    3  N  1  X   -0.034729  -0.045196   0.505332  -0.525407  -0.057963
+    4  N  1  Y    0.391840   0.018450   0.038876  -0.031104   0.009294
+    5  N  1  Z   -0.000918   0.480512   0.055023  -0.068502   0.830955
+    6  N  1  S   -0.035531  -0.127172   0.050563  -0.035312  -0.370954
+    7  N  1  X   -0.015332  -0.023785   0.349353  -0.292779   0.018106
+    8  N  1  Y    0.234562   0.009818   0.031681  -0.020646  -0.023265
+    9  N  1  Z   -0.001666   0.226870   0.035961  -0.043352   0.192971
+   10  N  1 XX    0.000629   0.002927  -0.004734  -0.002786  -0.015602
+   11  N  1 YY    0.002929   0.014365   0.004068   0.003755   0.015147
+   12  N  1 ZZ   -0.003558  -0.017292   0.000666  -0.000969   0.000455
+   13  N  1 XY   -0.011202  -0.001440   0.007036  -0.000710  -0.000517
+   14  N  1 XZ   -0.000868  -0.004114  -0.023619  -0.033510   0.009621
+   15  N  1 YZ    0.031726   0.006933   0.000625  -0.002412   0.003417
+   16  C  2  S    0.004189   0.072334   0.014288   0.010377  -0.102395
+   17  C  2  S   -0.014603  -0.142449  -0.030055  -0.026618   0.494464
+   18  C  2  X    0.009405   0.017210   0.324736   0.552225  -0.019461
+   19  C  2  Y   -0.343365   0.025212   0.007755   0.020176  -0.065104
+   20  C  2  Z   -0.007966  -0.405032   0.008743   0.039360   0.836337
+   21  C  2  S   -0.027588   0.032776  -0.033598  -0.061015   0.435863
+   22  C  2  X    0.007228   0.006249   0.179370   0.484106   0.015928
+   23  C  2  Y   -0.211498  -0.004891  -0.002580   0.024675  -0.048021
+   24  C  2  Z   -0.012464  -0.063405   0.006177   0.019106   0.258060
+   25  C  2 XX   -0.000209   0.009652  -0.000340  -0.004535  -0.012480
+   26  C  2 YY   -0.007003   0.024210  -0.000827   0.000918  -0.045431
+   27  C  2 ZZ    0.007212  -0.033862   0.001167   0.003617   0.057911
+   28  C  2 XY   -0.006745  -0.000900  -0.002777  -0.001214   0.002173
+   29  C  2 XZ   -0.002676  -0.001620   0.033099   0.018932  -0.006124
+   30  C  2 YZ    0.033412   0.009525   0.002664   0.000519  -0.017447
+   31  H  3  S    0.204747   0.069965  -0.007480   0.025336  -0.031179
+   32  H  3  S    0.041425   0.039790   0.001899   0.016606  -0.044151
+   33  H  4  S   -0.185797   0.066126  -0.011927   0.022859   0.010619
+   34  H  4  S   -0.050473   0.026956  -0.001112   0.016876  -0.029505
+   35  H  5  S   -0.197334   0.054274  -0.002139   0.015202  -0.028134
+   36  H  5  S   -0.076495   0.045842   0.000820   0.004338  -0.021144
+   37  H  6  S    0.177994   0.063706   0.005220   0.012764  -0.025638
+   38  H  6  S    0.065953   0.056006  -0.000118   0.006106  -0.059836
+
+          ------------------------
+          MCSCF OPTIMIZED ORBITALS
+          ------------------------
+
+                      1          2          3          4          5
+                  -15.8281   -11.5118    -1.5961    -1.1798    -1.1254
+                     A          A          A          A          A   
+    1  N  1  S    1.007905   0.009820  -0.109985   0.041983   0.011782
+    2  N  1  S   -0.007951  -0.008789   0.403534  -0.115193  -0.044462
+    3  N  1  X    0.003554   0.000546  -0.048711   0.030737  -0.025940
+    4  N  1  Y    0.000496  -0.000140   0.061851  -0.046010   0.480386
+    5  N  1  Z   -0.017200  -0.003769   0.181497  -0.090532  -0.029346
+    6  N  1  S   -0.045110  -0.006193   0.375781  -0.162135  -0.107589
+    7  N  1  X    0.002141   0.000453  -0.022431   0.013715  -0.008326
+    8  N  1  Y    0.002904   0.000106  -0.007749  -0.013650   0.244705
+    9  N  1  Z   -0.007045  -0.002939   0.099180  -0.019575  -0.013974
+   10  N  1 XX    0.001149   0.001190  -0.019657   0.001952   0.002509
+   11  N  1 YY   -0.001990  -0.000336   0.027146  -0.013961   0.003074
+   12  N  1 ZZ    0.000841  -0.000854  -0.007489   0.012008  -0.005583
+   13  N  1 XY    0.000163   0.000140  -0.004826   0.002602  -0.011132
+   14  N  1 XZ    0.000334   0.000201  -0.005107   0.000288   0.000498
+   15  N  1 YZ    0.000265   0.000124  -0.000514  -0.001526   0.014093
+   16  C  2  S   -0.005367   1.004620  -0.022117  -0.132153  -0.014612
+   17  C  2  S   -0.005843   0.003500   0.112095   0.371806   0.029571
+   18  C  2  X    0.000058  -0.001893   0.001927   0.038798  -0.006838
+   19  C  2  Y    0.000085  -0.000452   0.006393  -0.019104   0.197364
+   20  C  2  Z    0.001118   0.013088  -0.025067  -0.197198   0.011825
+   21  C  2  S    0.003624  -0.029031   0.056508   0.338756   0.039602
+   22  C  2  X   -0.000031  -0.000965   0.001990   0.012521  -0.002477
+   23  C  2  Y   -0.002563  -0.000814   0.022059  -0.000997   0.055651
+   24  C  2  Z    0.004043   0.004462  -0.028603  -0.056378   0.011374
+   25  C  2 XX    0.000906   0.000346  -0.010141  -0.020288  -0.003475
+   26  C  2 YY    0.000443  -0.001555   0.001664   0.035101   0.000354
+   27  C  2 ZZ   -0.001348   0.001209   0.008477  -0.014813   0.003121
+   28  C  2 XY   -0.000002   0.000085  -0.000281  -0.002976   0.001641
+   29  C  2 XZ    0.000192   0.000068  -0.002899  -0.002121  -0.000895
+   30  C  2 YZ    0.000171  -0.000189   0.001149   0.003739   0.008761
+   31  H  3  S   -0.015267  -0.003621   0.206787  -0.081871   0.204585
+   32  H  3  S    0.002914   0.000586  -0.000368   0.004270   0.009418
+   33  H  4  S   -0.014435  -0.003878   0.144028  -0.038866  -0.222468
+   34  H  4  S    0.002184  -0.000372  -0.008374   0.006393  -0.021130
+   35  H  5  S   -0.002431  -0.011634   0.048516   0.182718   0.086844
+   36  H  5  S   -0.000584  -0.000461   0.008574   0.049443   0.023286
+   37  H  6  S   -0.002845  -0.012217   0.051684   0.210716  -0.063489
+   38  H  6  S   -0.002635  -0.000840   0.030461   0.058749  -0.013077
+
+                      6          7          8          9         10
+                   -0.8870    -0.7585    -0.1475    -1.1158     0.6073
+                     A          A          A          A          A   
+    1  N  1  S    0.002145  -0.016196   0.007400   0.077299   0.084281
+    2  N  1  S   -0.001165   0.042438  -0.023475  -0.161540  -0.476690
+    3  N  1  X    0.022334   0.526074  -0.504638  -0.045300  -0.057883
+    4  N  1  Y   -0.219793   0.040096  -0.029514   0.018467   0.009261
+    5  N  1  Z    0.004379   0.057736  -0.066231   0.481990   0.830098
+    6  N  1  S    0.024424   0.051944  -0.033248  -0.127832  -0.370727
+    7  N  1  X    0.011099   0.360857  -0.278478  -0.023753   0.018148
+    8  N  1  Y   -0.152633   0.032486  -0.019354   0.009776  -0.023282
+    9  N  1  Z    0.002475   0.037677  -0.041869   0.227214   0.192567
+   10  N  1 XX   -0.000792  -0.004618  -0.002974   0.002899  -0.015607
+   11  N  1 YY    0.000452   0.003914   0.003916   0.014392   0.015121
+   12  N  1 ZZ    0.000340   0.000704  -0.000942  -0.017291   0.000486
+   13  N  1 XY    0.007117   0.007058  -0.000426  -0.001441  -0.000515
+   14  N  1 XZ    0.000866  -0.022251  -0.034434  -0.004096   0.009628
+   15  N  1 YZ   -0.028530   0.000721  -0.002385   0.006939   0.003405
+   16  C  2  S   -0.002750   0.013859   0.010944   0.072151  -0.102523
+   17  C  2  S    0.008588  -0.028959  -0.027806  -0.141568   0.494717
+   18  C  2  X   -0.015600   0.302241   0.564850   0.017175  -0.019491
+   19  C  2  Y    0.456534   0.006937   0.020471   0.025096  -0.065149
+   20  C  2  Z    0.025712   0.007151   0.039680  -0.403542   0.837057
+   21  C  2  S    0.026234  -0.031114  -0.062318   0.033552   0.435804
+   22  C  2  X   -0.009629   0.159735   0.490935   0.006278   0.015917
+   23  C  2  Y    0.254038  -0.003571   0.024551  -0.004977  -0.048012
+   24  C  2  Z    0.020625   0.005403   0.019339  -0.062946   0.258172
+   25  C  2 XX   -0.000358  -0.000157  -0.004545   0.009630  -0.012498
+   26  C  2 YY    0.005446  -0.000863   0.000884   0.024129  -0.045474
+   27  C  2 ZZ   -0.005088   0.001020   0.003661  -0.033759   0.057971
+   28  C  2 XY    0.008196  -0.002726  -0.001324  -0.000896   0.002175
+   29  C  2 XZ    0.002529   0.032310   0.020249  -0.001631  -0.006121
+   30  C  2 YZ   -0.032849   0.002641   0.000626   0.009494  -0.017464
+   31  H  3  S   -0.121154  -0.008494   0.025014   0.069910  -0.031304
+   32  H  3  S   -0.041394   0.001229   0.016669   0.039712  -0.044221
+   33  H  4  S    0.119535  -0.012838   0.022360   0.066144   0.010501
+   34  H  4  S    0.045179  -0.001791   0.016818   0.026903  -0.029553
+   35  H  5  S    0.240448  -0.002749   0.015104   0.054224  -0.028231
+   36  H  5  S    0.089827   0.000645   0.004367   0.045804  -0.021226
+   37  H  6  S   -0.231386   0.004702   0.012964   0.063660  -0.025751
+   38  H  6  S   -0.079495  -0.000364   0.006097   0.055899  -0.059936
+
+                     11         12         13         14         15
+                   -0.0161     0.0362     0.0932     0.1426     0.3546
+                     A          A          A          A          A   
+    1  N  1  S   -0.087490  -0.000689   0.052211  -0.005362   0.009413
+    2  N  1  S    0.129741   0.019018  -0.061625   0.005290   0.104896
+    3  N  1  X   -0.041923   0.005922   0.030808  -0.008320  -0.013008
+    4  N  1  Y   -0.080466  -0.237083  -0.079386   0.176128   0.044178
+    5  N  1  Z    0.151620   0.034657  -0.097323  -0.005295   0.035600
+    6  N  1  S    1.498070  -0.363814  -1.117099   0.248464  -1.634475
+    7  N  1  X   -0.151220   0.071556   0.064464  -0.054151  -0.057532
+    8  N  1  Y   -0.162509  -0.858778  -0.328611   1.068932  -0.031140
+    9  N  1  Z    0.445530   0.105142  -0.064111  -0.036797   1.038492
+   10  N  1 XX   -0.001275   0.006024   0.013044  -0.007965   0.065965
+   11  N  1 YY   -0.013111  -0.005181  -0.009673   0.000599   0.047896
+   12  N  1 ZZ    0.014385  -0.000843  -0.003371   0.007366  -0.113861
+   13  N  1 XY   -0.000281   0.002445   0.002308  -0.000057   0.000289
+   14  N  1 XZ   -0.002919   0.000426  -0.003294  -0.000606   0.006948
+   15  N  1 YZ    0.004965   0.023344   0.006547   0.024416   0.022482
+   16  C  2  S   -0.045943   0.049899  -0.092552   0.002863  -0.022896
+   17  C  2  S    0.090068  -0.078704   0.116081   0.014722  -0.232436
+   18  C  2  X    0.010237  -0.004956   0.045042   0.001896   0.011346
+   19  C  2  Y   -0.012518  -0.181178  -0.076213  -0.298343   0.049230
+   20  C  2  Z   -0.065840   0.058627  -0.156532   0.013551  -0.551436
+   21  C  2  S    0.887556  -0.640922   1.982179  -0.096479   1.825800
+   22  C  2  X    0.104141  -0.039735   0.158396   0.066920  -0.084711
+   23  C  2  Y   -0.035589  -0.560250  -0.340324  -1.931531  -0.267061
+   24  C  2  Z   -0.322330   0.365333  -0.497531  -0.197654   2.432685
+   25  C  2 XX    0.003670  -0.000663   0.001659  -0.001668  -0.043289
+   26  C  2 YY   -0.007959   0.009794  -0.010492   0.001164   0.022377
+   27  C  2 ZZ    0.004289  -0.009130   0.008833   0.000504   0.020912
+   28  C  2 XY    0.001558  -0.002015  -0.001288   0.005961  -0.000378
+   29  C  2 XZ   -0.002420   0.000051   0.001576   0.000894  -0.002044
+   30  C  2 YZ   -0.010097  -0.014649  -0.003832  -0.011940  -0.008547
+   31  H  3  S   -0.055803   0.030361   0.010950   0.008482   0.079441
+   32  H  3  S   -0.888742   1.393535   1.377907  -1.134719  -0.789306
+   33  H  4  S   -0.086443  -0.080593   0.010645  -0.009131  -0.058248
+   34  H  4  S   -1.301070  -1.233305   0.210303   0.977331  -0.260397
+   35  H  5  S    0.002334   0.045260  -0.057424   0.021669   0.195205
+   36  H  5  S   -0.423247   1.271249  -0.952938   2.067510   0.163272
+   37  H  6  S   -0.027574   0.008666  -0.039482  -0.006090   0.149987
+   38  H  6  S   -0.691953  -0.150462  -1.831035  -2.000000  -0.019324
+
+                     16         17         18         19         20
+                    0.5013     0.5209     0.5626     0.6117     0.6576
+                     A          A          A          A          A   
+    1  N  1  S    0.005683  -0.000670   0.007458   0.002213   0.009082
+    2  N  1  S   -0.002796   0.054530   0.181616  -0.123028  -0.010682
+    3  N  1  X   -0.209506   0.103796   0.047399  -0.077767  -0.869195
+    4  N  1  Y   -0.033657  -0.018820  -0.071733  -0.063645  -0.025450
+    5  N  1  Z   -0.199552  -0.316040  -0.308983  -0.026759  -0.102180
+    6  N  1  S   -0.382096  -0.640170  -0.254501  -0.346755  -0.122679
+    7  N  1  X   -0.049233  -0.215056  -0.102591  -0.028228   1.348630
+    8  N  1  Y    0.135930   0.281242   0.226610   0.269233  -0.087444
+    9  N  1  Z    0.881264   1.771601   0.921331   0.814159   0.117869
+   10  N  1 XX    0.036231   0.078271  -0.033608   0.103610  -0.018116
+   11  N  1 YY   -0.034621  -0.089422   0.001141  -0.029745   0.013579
+   12  N  1 ZZ   -0.001610   0.011151   0.032467  -0.073865   0.004536
+   13  N  1 XY   -0.004968   0.009617   0.011743   0.020176  -0.013706
+   14  N  1 XZ    0.078120  -0.037109   0.000156  -0.002004   0.020929
+   15  N  1 YZ    0.023360   0.054798  -0.074481  -0.058021   0.006445
+   16  C  2  S   -0.002551   0.010896   0.029289  -0.036609   0.005246
+   17  C  2  S   -0.010049  -0.049961   0.646802  -1.026094   0.098285
+   18  C  2  X   -0.891644   0.403766   0.021790   0.112902   0.200696
+   19  C  2  Y    0.044883   0.251079  -0.401982  -0.316914   0.012242
+   20  C  2  Z    0.028560   0.218197   0.092553  -0.074500   0.027495
+   21  C  2  S    0.868072   1.522508  -0.671227   2.659936  -0.087055
+   22  C  2  X    1.030098  -0.400505  -0.148159  -0.108130  -0.779206
+   23  C  2  Y   -0.332338  -1.040873   1.314678   0.976363  -0.016133
+   24  C  2  Z    0.412052   0.761762   0.687039   0.677567  -0.028385
+   25  C  2 XX   -0.005946  -0.027179  -0.093782   0.103470  -0.020767
+   26  C  2 YY   -0.032874  -0.038211   0.032059  -0.132077   0.011616
+   27  C  2 ZZ    0.038820   0.065391   0.061723   0.028607   0.009152
+   28  C  2 XY    0.011245   0.015082  -0.022446  -0.004079   0.001059
+   29  C  2 XZ   -0.047287   0.016146  -0.008355   0.001566  -0.042685
+   30  C  2 YZ   -0.027412  -0.065409   0.073874   0.065615  -0.011869
+   31  H  3  S   -0.162717  -0.331551  -0.253558  -0.298426   0.096920
+   32  H  3  S   -0.170419  -0.468449  -0.449363  -0.787064   0.129806
+   33  H  4  S   -0.209387  -0.512600   0.255242   0.016722   0.019532
+   34  H  4  S   -0.009706  -0.061680  -0.140624  -0.086047  -0.033200
+   35  H  5  S    0.009494   0.182255   0.014745  -0.673271   0.060002
+   36  H  5  S    0.108206   0.431547  -0.246535  -0.444680  -0.024016
+   37  H  6  S   -0.102770  -0.168721   0.593816  -0.140743   0.011835
+   38  H  6  S   -0.130964  -0.270982   0.891409   0.206138   0.038916
+
+                     21         22         23         24         25
+                    0.8421     0.8873     0.9833     1.0183     1.2060
+                     A          A          A          A          A   
+    1  N  1  S   -0.054548   0.047370  -0.003872   0.048179  -0.014465
+    2  N  1  S    0.147983  -0.140784  -0.193796  -0.079203  -1.804997
+    3  N  1  X   -0.046610   0.075525   0.009777   0.112918   0.030574
+    4  N  1  Y   -0.391844   0.541750  -0.238622  -0.841992   0.001793
+    5  N  1  Z    0.337436  -0.297469   0.009578  -0.273162  -0.113908
+    6  N  1  S    0.781254  -0.801100   0.327105  -0.697242   5.041164
+    7  N  1  X    0.064641  -0.047852  -0.023039  -0.169903  -0.114293
+    8  N  1  Y    0.287998  -1.913191   0.764191   1.917573   0.650518
+    9  N  1  Z   -1.169560   1.126074  -0.214387   0.960981  -1.062603
+   10  N  1 XX    0.081165  -0.056802   0.006735  -0.178034   0.129442
+   11  N  1 YY   -0.127175   0.049198   0.051197   0.184542  -0.020745
+   12  N  1 ZZ    0.046010   0.007605  -0.057932  -0.006508  -0.108696
+   13  N  1 XY   -0.033100  -0.064585   0.023377   0.014701   0.123078
+   14  N  1 XZ    0.011327  -0.018938   0.024112  -0.044361   0.039096
+   15  N  1 YZ    0.167942   0.088602  -0.023570   0.120302   0.003128
+   16  C  2  S    0.017913   0.001292   0.037213  -0.031919   0.019727
+   17  C  2  S    0.084550  -0.470753  -1.407138   0.008728   0.466853
+   18  C  2  X    0.025880  -0.010587  -0.097830   0.009832   0.051237
+   19  C  2  Y   -0.675693  -0.704877   0.179707  -0.070490  -0.135225
+   20  C  2  Z   -0.099468   0.225525   0.481199   0.011440  -0.276046
+   21  C  2  S   -1.460853   2.217956   2.445281   1.096934  -3.433346
+   22  C  2  X   -0.059408  -0.004161   0.185714  -0.022168  -0.055090
+   23  C  2  Y    2.033444   2.186184  -0.799899  -0.961799   0.104232
+   24  C  2  Z   -0.688147   0.565965  -0.866915   0.823568  -1.159536
+   25  C  2 XX   -0.001151  -0.020315  -0.105458   0.028339   0.023205
+   26  C  2 YY    0.065395   0.005812   0.194120  -0.024632   0.091894
+   27  C  2 ZZ   -0.064243   0.014502  -0.088662  -0.003707  -0.115100
+   28  C  2 XY   -0.012118  -0.026772   0.008115   0.065447   0.087879
+   29  C  2 XZ   -0.012148   0.010277  -0.019592   0.046640  -0.013881
+   30  C  2 YZ   -0.117026  -0.115949   0.047297  -0.124460  -0.000905
+   31  H  3  S   -0.078192   0.437916  -0.015874   0.558668  -0.246038
+   32  H  3  S   -0.094561   0.299531  -0.295411  -1.825533  -0.936118
+   33  H  4  S   -0.716825   0.159699   0.070812   0.349410   0.089154
+   34  H  4  S    1.251965  -1.221246   0.359018   0.549797  -0.413113
+   35  H  5  S    0.301208   0.366714   0.524436  -0.004107   0.186448
+   36  H  5  S   -1.429125  -1.902915  -0.809617   0.583783   0.307898
+   37  H  6  S   -0.047029  -0.273597   0.637895  -0.388348  -0.084745
+   38  H  6  S    1.286724   1.152754  -1.913508  -0.049033   0.550030
+
+                     26         27         28         29         30
+                    1.2577     1.4126     1.6450     1.7353     1.9926
+                     A          A          A          A          A   
+    1  N  1  S    0.009528   0.003579   0.000067   0.001893   0.019457
+    2  N  1  S   -0.562491   0.094931  -0.091859  -0.036034   0.347644
+    3  N  1  X    0.074963   0.139941   0.009117   0.014177   0.012470
+    4  N  1  Y   -0.148852  -0.014209   0.119831  -0.057820   0.042965
+    5  N  1  Z   -0.150175  -0.009555  -0.047464  -0.015793  -0.198027
+    6  N  1  S    1.107991  -0.333437   0.064458  -0.060944  -0.657747
+    7  N  1  X   -0.047585  -0.009568   0.013960   0.007412   0.139368
+    8  N  1  Y   -1.049788   0.046659  -1.674099  -0.678399  -0.296838
+    9  N  1  Z    0.220133   0.117416   0.293351   0.143900  -0.057471
+   10  N  1 XX    0.000195  -0.092351  -0.264428   0.027551   0.566923
+   11  N  1 YY    0.016968   0.072217   0.211360   0.004501  -0.388343
+   12  N  1 ZZ   -0.017163   0.020134   0.053068  -0.032052  -0.178579
+   13  N  1 XY   -0.455006  -0.045223   0.585452  -0.453154   0.020785
+   14  N  1 XZ   -0.012453   0.618070   0.030313  -0.035835  -0.010218
+   15  N  1 YZ    0.079950   0.003812   0.392016  -0.224035   0.260546
+   16  C  2  S    0.002713  -0.002831  -0.003398   0.000033   0.036781
+   17  C  2  S    0.158196  -0.020604   0.024720   0.053753   0.338782
+   18  C  2  X    0.000901   0.259500  -0.014553  -0.002208  -0.030719
+   19  C  2  Y    0.280532  -0.006829   0.196956  -0.102222   0.182322
+   20  C  2  Z    0.065681   0.003230   0.069355   0.028381   0.261314
+   21  C  2  S   -0.340866   0.251391   0.338082   0.107222  -0.686620
+   22  C  2  X   -0.024826  -0.062011  -0.030036  -0.001721  -0.093981
+   23  C  2  Y    0.991754  -0.085414   1.835132   0.478614   0.487553
+   24  C  2  Z   -0.083030   0.120191   0.103811   0.051306  -0.085067
+   25  C  2 XX    0.006538   0.049953  -0.160080  -0.096627   0.727728
+   26  C  2 YY    0.014991  -0.048663   0.138213   0.037333  -0.340364
+   27  C  2 ZZ   -0.021529  -0.001290   0.021867   0.059294  -0.387364
+   28  C  2 XY   -0.359669   0.086874   0.322098   0.803022   0.256084
+   29  C  2 XZ   -0.049937  -0.585386   0.040672   0.087254   0.005843
+   30  C  2 YZ    0.059144  -0.021493   0.043827   0.305558  -0.218470
+   31  H  3  S    0.580987   0.032659   0.325448   0.250929   0.371191
+   32  H  3  S   -0.344831  -0.012621   0.334741   0.178970   0.280433
+   33  H  4  S   -0.531458   0.042820  -0.533030  -0.330128   0.420932
+   34  H  4  S   -0.347377   0.014661  -0.496125  -0.187392  -0.013164
+   35  H  5  S   -0.511826  -0.010503  -0.644973   0.007063   0.016356
+   36  H  5  S   -0.056848   0.029148  -0.747724  -0.255047  -0.078522
+   37  H  6  S    0.465257  -0.066147   0.450790  -0.044641   0.677538
+   38  H  6  S    0.229698  -0.017628   0.668352   0.240541   0.220783
+
+                     31         32         33         34         35
+                    2.1501     2.3064     2.4302     2.5891     2.6305
+                     A          A          A          A          A   
+    1  N  1  S    0.000279  -0.023048   0.004060  -0.071983  -0.044492
+    2  N  1  S   -0.206506   0.477288  -0.089641  -0.330442  -0.323947
+    3  N  1  X   -0.008092  -0.034950  -0.046799  -0.055163  -0.016444
+    4  N  1  Y    0.121403   0.180562  -0.027387   0.149604   0.069533
+    5  N  1  Z    0.160440  -0.246168   0.040745  -0.100115   0.012285
+    6  N  1  S    0.310582   0.193134  -0.024778   2.803195   1.683449
+    7  N  1  X   -0.023679  -0.163633  -0.341005  -0.066271  -0.012864
+    8  N  1  Y    1.079369   0.675969  -0.075800   0.922555  -0.078738
+    9  N  1  Z   -0.439214   0.285656  -0.049673  -1.334174  -0.465596
+   10  N  1 XX    0.003297  -0.072717  -0.001960  -0.832343  -0.560576
+   11  N  1 YY   -0.361582   0.391090  -0.069690   0.163475   0.470483
+   12  N  1 ZZ    0.358285  -0.318374   0.071650   0.668868   0.090093
+   13  N  1 XY   -0.363446  -0.240559  -0.044466  -0.290291   0.006922
+   14  N  1 XZ   -0.064239   0.138960   0.910964  -0.075256  -0.115946
+   15  N  1 YZ    0.379555   0.109231  -0.046693   0.558193  -0.762720
+   16  C  2  S   -0.024153  -0.007108   0.003045   0.035751   0.027847
+   17  C  2  S   -0.428883   0.321003  -0.067843  -0.310060  -0.072095
+   18  C  2  X    0.002432   0.052244   0.141492   0.000710  -0.031888
+   19  C  2  Y    0.270809  -0.004705   0.023457   0.068131   0.016672
+   20  C  2  Z   -0.232565   0.019625   0.013180  -0.513264  -0.170316
+   21  C  2  S    0.168056  -0.051016   0.021219  -2.253082  -1.225038
+   22  C  2  X   -0.006547   0.113649   0.254314   0.023285  -0.033170
+   23  C  2  Y   -0.226797  -0.340744   0.066733  -0.307855   0.428289
+   24  C  2  Z    0.080492  -0.384183   0.075661  -1.000243  -0.473807
+   25  C  2 XX   -0.418452  -0.088142   0.015167   0.653903   0.414765
+   26  C  2 YY    0.182443   0.882923  -0.179331  -0.222008  -0.173350
+   27  C  2 ZZ    0.236009  -0.794781   0.164165  -0.431895  -0.241415
+   28  C  2 XY    0.225319  -0.014994  -0.065456   0.009604   0.139489
+   29  C  2 XZ   -0.033445   0.165726   0.936447   0.077209   0.004196
+   30  C  2 YZ   -0.603422  -0.112447  -0.084740   0.448465  -0.855664
+   31  H  3  S   -0.462054  -0.737983   0.146241  -1.051601  -0.205039
+   32  H  3  S   -0.444316  -0.141069  -0.018097  -0.108893  -0.057997
+   33  H  4  S    0.745566   0.080297   0.018731   0.141869  -0.748305
+   34  H  4  S    0.252959   0.175553  -0.026387   0.283430   0.139350
+   35  H  5  S   -0.507616  -0.515361   0.073062   0.491853  -0.144914
+   36  H  5  S    0.226354   0.290061  -0.050590   0.119572  -0.058303
+   37  H  6  S    0.310057  -0.445665   0.187549   0.110528   0.676068
+   38  H  6  S   -0.256750  -0.069546  -0.029581  -0.090700   0.069395
+
+                     36
+                    2.7372
+                     A   
+    1  N  1  S   -0.021510
+    2  N  1  S   -0.038472
+    3  N  1  X    0.042735
+    4  N  1  Y   -0.112013
+    5  N  1  Z   -0.436825
+    6  N  1  S    0.833599
+    7  N  1  X    0.147969
+    8  N  1  Y   -0.696707
+    9  N  1  Z   -1.058507
+   10  N  1 XX   -0.109003
+   11  N  1 YY   -1.015555
+   12  N  1 ZZ    1.124558
+   13  N  1 XY    0.252752
+   14  N  1 XZ    0.047766
+   15  N  1 YZ   -0.492000
+   16  C  2  S   -0.001057
+   17  C  2  S   -0.516361
+   18  C  2  X    0.019290
+   19  C  2  Y    0.034105
+   20  C  2  Z   -0.703355
+   21  C  2  S   -0.859114
+   22  C  2  X    0.006213
+   23  C  2  Y    0.392732
+   24  C  2  Z   -0.648470
+   25  C  2 XX    0.184335
+   26  C  2 YY    0.636597
+   27  C  2 ZZ   -0.820932
+   28  C  2 XY   -0.038449
+   29  C  2 XZ   -0.006206
+   30  C  2 YZ    0.147540
+   31  H  3  S    1.046042
+   32  H  3  S    0.300447
+   33  H  4  S   -0.034184
+   34  H  4  S   -0.081174
+   35  H  5  S   -0.213114
+   36  H  5  S   -0.169902
+   37  H  6  S   -0.211944
+   38  H  6  S    0.127725
+
+ THIS RUN IS GOING TO SOLVE THE CP-MC-HF RESPONSE EQUATIONS,
+ USING CANONICAL ACTIVE ORBITALS TO IMPROVE THEIR CONVERGENCE.
+ ROTATION OF THE ACTIVE ORBITALS REQUIRES REGENERATION OF THE CI STATES,
+ THE 1 PARTICLE DENSITY, AND THE 2 PARTICLE DENSITY OVER THE NEW ACTIVE
+ ORBITALS.  AWAY WE GO...
+
+          ------------------------------
+          CASSCF INTEGRAL TRANSFORMATION
+          ------------------------------
+ AO INTEGRALS WILL BE READ IN FROM DISK...
+
+ NUMBER OF CORE MOLECULAR ORBITALS     =     2
+ NUMBER OF OCCUPIED MOLECULAR ORBITALS =    10
+ TOTAL NUMBER OF MOLECULAR ORBITALS    =    36
+ TOTAL NUMBER OF ATOMIC ORBITALS       =    36
+
+ ----- CHOOSING THREE STEPS TRANSFORMATION -----
+ NUMBER OF WORDS USED      =     315646
+ NUMBER OF WORDS AVAILABLE =   99960139
+ NUMBER OF PASSES          =          1
+
+ ----- NUCLEAR REPULSION ENERGY =     40.48298495
+ ----- FROZEN CORE ENERGY       =    -92.56438701
+
+ ... SYMMETRY ...           CPU =    0.00
+ ... (PQ|RS) -> (PQ|KL) ... CPU =    0.01
+ ... (PQ|KL) -> (IJ|KL) ... CPU =    0.00
+
+ NUMBER OF (PQ|KL) INTEGRALS WRITTEN      26675
+ NUMBER OF (IJ|KL) INTEGRALS WRITTEN        666
+ ..... END OF CAS INTEGRAL TRANSFORMATION .....
+ STEP CPU TIME =     0.28 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS  97.62%
+
+     --------------------------------------------------
+                 DIRECT DETERMINANT ORMAS-CI 
+                PROGRAM WRITTEN BY JOE IVANIC
+     --------------------------------------------------
+
+ STORAGE OF BINOMIAL COEFFICIENTS REQUIRES          43 WORDS
+
+ TOTAL NUMBER OF ALPHA GROUPS  =            3
+ TOTAL NUMBER OF BETA  GROUPS  =            3
+
+ TOTAL NUMBER OF ALPHA STRINGS =            6
+ TOTAL NUMBER OF BETA  STRINGS =            6
+
+ STORAGE OF TABLES REQUIRES                       246 WORDS
+
+ TOTAL NUMBER OF ALPHA-BETA GROUP COMBINATIONS =            9
+ OF THESE THE ALLOWED NUMBER OF COMBINATIONS   =            3
+
+ TOTAL NUMBER OF (B -> B`) WHERE  (B` > B)  =           12
+
+ TIME FOR SETTING UP TABLE SET 1 :          0.0
+
+ THE NUMBER OF DETERMINANTS HAVING SPACE SYMMETRY A  
+ IN POINT GROUP C1   WITH SZ=  0.0 IS             18
+
+ INTEGRAL STORAGE REQUIRES                   30739 WORDS
+ EXTRA ORMAS STORAGE REQUIRES               186299 WORDS
+ (EXTRA ORMAS STORAGE INCLUDES THAT FOR MXXPAN = 50)
+ TOTAL ORMAS CALCULATION REQUIRES           217327 WORDS
+
+ FULLY DIRECT WOULD REQUIRE                 217246 WORDS
+ SMALL CI MATRIX, JUST USING INCORE DIAGONALIZATION...
+
+ INITIAL ORMAS VECTOR GUESS TIME :          0.0
+
+ CI EIGENVECTORS WILL BE LABELED IN GROUP=C1      
+ PRINTING ALL NON-ZERO CI COEFFICIENTS
+
+ STATE   1  ENERGY=       -94.3758844874  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.9765561081
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.1646748560
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |  -0.0623632919
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.0562249068
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.0562249068
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.0481713662
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0481713662
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.0383892398
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.0383892398
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0178356671
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0178356671
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.0176348933
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.0132293539
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.0132293539
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.0074352921
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.0074352921
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0024960244
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.0024960244
+
+ STATE   2  ENERGY=       -94.1514215870  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.7038297157
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.7038297157
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.0489590847
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.0489590847
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.0323706001
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.0323706001
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.0270592637
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.0270592637
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.0169943391
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.0169943391
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.0124025811
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.0124025811
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0020120171
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.0020120171
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.0000000000
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0000000000
+
+ STATE   3  ENERGY=       -93.9558510246  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.6621111928
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.6621111928
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.2666078490
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.1247435867
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.1247435867
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.1057361327
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.0536011660
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.0536011660
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0319678546
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.0319678546
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.0233768789
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0196662319
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0196662319
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.0187814986
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.0187814986
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0043156367
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.0008847332
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.0008847332
+
+ STATE   4  ENERGY=       -93.6015651803  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.9210064231
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.1874160930
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.1874160930
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.1252324940
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.1219862709
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.1219862709
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.0913142050
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.0913142050
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.0694814125
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.0694814125
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.0525048584
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.0525048584
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0390292377
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.0343096270
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.0343096270
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0161824556
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0058408331
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.0058408331
+
+ STATE   5  ENERGY=       -93.3364873158  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.6942414973
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.6942414973
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.1267307734
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.1267307734
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0346555284
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0346555284
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.0227369349
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.0227369349
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.0138888450
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.0138888450
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0072049275
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0072049275
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.0022955694
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0022955694
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0000000000
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0000000000
+
+ STATE   6  ENERGY=       -93.1824385311  S=  2.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.4082482905
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.4082482905
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.4082482905
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.4082482905
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.4082482905
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.4082482905
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.0000000000
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.0000000000
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0000000000
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0000000000
+
+ STATE   7  ENERGY=       -93.0566087899  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.7029969352
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.7029969352
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.0634082204
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.0634082204
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.0377818182
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.0377818182
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.0181259922
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.0181259922
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.0037355473
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.0037355473
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.0018622045
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.0018622045
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0011256844
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0011256844
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.0000000000
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0000000000
+
+ STATE   8  ENERGY=       -92.9977566060  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.4935351888
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.4935351888
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.3879952823
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.3879952823
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.2309328306
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.2309328306
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.1570624517
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.1570624517
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.1139300112
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.1139300112
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0741200990
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.0741200990
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.0731872286
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0731872286
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.0718016640
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0408746059
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0261946425
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0244008016
+
+ STATE   9  ENERGY=       -92.9834801525  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.4646758188
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.4646758188
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.4189160171
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.4189160171
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.2168757133
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.2168757133
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.2020403038
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.2020403038
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.0856764442
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0789740732
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.0789740732
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.0761840294
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.0761840294
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0593016441
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.0593016441
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |  -0.0522913094
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0135328047
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0093609395
+
+ STATE  10  ENERGY=       -92.9011784634  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.5347554985
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.5347554985
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.3763572406
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.3763572406
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.2474789265
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.2474789265
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.0752400687
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0752400687
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.0709015907
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.0709015907
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.0209549842
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.0209549842
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.0043301739
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.0043301739
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.0000000000
+
+ STATE  11  ENERGY=       -92.7759859688  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.5635095126
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.5635095126
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.4179115873
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.4179115873
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.0659800976
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.0659800976
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.0508966423
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.0508966423
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0276971979
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0276971979
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.0075547246
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.0075547246
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0062357221
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.0062357221
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.0000000000
+
+ STATE  12  ENERGY=       -92.5780736484  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.4662962660
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.4662962660
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.4118625758
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.4118625758
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.2697018270
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.2337895319
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.2337895319
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.1129141140
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.0974753850
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.0778819487
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.0669187615
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.0669187615
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0544336902
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0544336902
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0159739922
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.0159739922
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.0074356861
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0074356861
+
+ STATE  13  ENERGY=       -92.4669132895  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.6472553438
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.6472553438
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.1906557062
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.1906557062
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.1794604602
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.1794604602
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.1089198848
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.1089198848
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0230857870
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.0230857870
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.0091420767
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0091420767
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0049791997
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0049791997
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |  -0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0000000000
+
+ STATE  14  ENERGY=       -92.1897897766  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.6126305932
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.6126305932
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.1970746593
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.1970746593
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.1947016004
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.1431466497
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.1431466497
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.1414588757
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.1368410698
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.1368410698
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.0876068032
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |  -0.0856940224
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.0856940224
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.0777602743
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.0777602743
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.0283502310
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0063055799
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0063055799
+
+ STATE  15  ENERGY=       -91.8701620013  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.9349442239
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.2332289316
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.1356312762
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.1356312762
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.1081130222
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.1081130222
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0883654219
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |   0.0283354489
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.0283354489
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0275182540
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0275182540
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.0114748907
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |   0.0114748907
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.0101840233
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.0029127227
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |  -0.0029127227
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.0010597741
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0010597741
+
+ STATE  16  ENERGY=       -91.6787713401  S=  1.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.7015870521
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |  -0.7015870521
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.0510742617
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |  -0.0510742617
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.0485183166
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.0485183166
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.0459357029
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.0459357029
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |   0.0260991986
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.0260991986
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.0043911986
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |   0.0043911986
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0015689132
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.0015689132
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |  -0.0000000000
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.0000000000
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.0000000000
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.0000000000
+
+ STATE  17  ENERGY=       -91.4381838873  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.5986615589
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.5986615589
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |  -0.4740345292
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.1035916368
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.1035916368
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |  -0.1003336686
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.0965535319
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.0965535319
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0590213010
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.0590213010
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |  -0.0243149190
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |   0.0144903439
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |   0.0144903439
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |  -0.0114357608
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |  -0.0085240719
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |  -0.0085240719
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |   0.0059662720
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |   0.0059662720
+
+ STATE  18  ENERGY=       -90.8707591044  S=  0.00  SZ=  0.00  SPACE SYM=A   
+
+         ALPHA           |          BETA           | CI COEFFICIENT
+ 1           2     3     | 1           2     3     |
+-------------------------|-------------------------|---------------
+  1  2  3  4  6     8    |  1  2  3  4  6     8    |   0.8207747401
+  1  2  3  4  5     8    |  1  2  3  4  6     8    |   0.3042481216
+  1  2  3  4  6     8    |  1  2  3  4  5     8    |   0.3042481216
+  1  2  3  4  6     7    |  1  2  3  4  6     8    |  -0.1727715904
+  1  2  3  4  6     8    |  1  2  3  4  6     7    |  -0.1727715904
+  1  2  3  4  5     8    |  1  2  3  4  5     8    |   0.1637792249
+  1  2  3  4  5     8    |  1  2  3  4  6     7    |  -0.1001657577
+  1  2  3  4  6     7    |  1  2  3  4  5     8    |  -0.1001657577
+  1  2  3  4  5     7    |  1  2  3  4  6     8    |  -0.0973316916
+  1  2  3  4  6     8    |  1  2  3  4  5     7    |  -0.0973316916
+  1  2  3  4  6     7    |  1  2  3  4  6     7    |   0.0871696218
+  1  2  3  4  5     7    |  1  2  3  4  5     8    |  -0.0468891337
+  1  2  3  4  5     8    |  1  2  3  4  5     7    |  -0.0468891337
+  1  2  3  4  5     7    |  1  2  3  4  6     7    |   0.0393625529
+  1  2  3  4  6     7    |  1  2  3  4  5     7    |   0.0393625529
+  1  2  3  4  5     7    |  1  2  3  4  5     7    |   0.0233970804
+  1  2  3  4        7  8 |  1  2  3  4  5  6       |   0.0028340661
+  1  2  3  4  5  6       |  1  2  3  4        7  8 |   0.0028340661
+
+ ..... DONE WITH ORMAS-CI COMPUTATION .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS  97.67%
+
+     -------------------------------------------------------
+      ONE AND TWO PARTICLE ORMAS DENSITY MATRIX COMPUTATION
+                  PROGRAM WRITTEN BY JOE IVANIC
+     -------------------------------------------------------
+
+ THE DENSITIES ARE STATE AVERAGED OVER   3 ROOT(S)
+ STATE=   1   ENERGY=      -94.3758844874   WEIGHT= 0.90000   S=  0.00
+ STATE=   3   ENERGY=      -93.9558510246   WEIGHT= 0.05000   S=  0.00
+ STATE=   4   ENERGY=      -93.6015651803   WEIGHT= 0.05000   S=  0.00
+ SIEVING THE A    SYMMETRY NONZERO DENSITY ELEMENTS IN GROUP C1      
+         95 NONZERO DM2 ELEMENTS WRITTEN IN       1 RECORDS TO FILE 70 LABELED AS DEN2P1 
+         95 NONZERO DM2 ELEMENTS WRITTEN IN       1 RECORDS TO FILE 71 LABELED AS DEN2P2 
+         95 NONZERO DM2 ELEMENTS WRITTEN IN       1 RECORDS TO FILE 72 LABELED AS DEN2P3 
+         95 NONZERO DM2 ELEMENTS WRITTEN IN       1 RECORDS TO FILE 73 LABELED AS DEN2P4 
+         95 NONZERO DM2 ELEMENTS WRITTEN IN       1 RECORDS TO FILE 15
+ ..... DONE WITH 1 AND 2 PARTICLE DENSITY MATRIX .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS  97.67%
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS  97.67%
+ DDI: Creating Array [0] - 1444 x 55 = 79420 words.
+ DDI: Creating Array [1] - 26 x 550 = 14300 words.
+ DDI: Creating Array [2] - 55 x 55 = 3025 words.
+ DDI: Creating Array [3] - 741 x 55 = 40755 words.
+
+     ----------------------------------------------------------------
+     PROPERTY VALUES FOR THE MCSCF SELF-CONSISTENT FIELD WAVEFUNCTION
+     ----------------------------------------------------------------
+
+ THIS MCSCF AVERAGED   3 ROOTS OF DIFFERENT ENERGY.
+ SINCE NO STATE-SPECIFIC DENSITY MATRIX IS AVAILABLE,
+ PROPERTIES WILL NOT BE COMPUTED.
+
+
+     --------------------------------------------
+     PARTIAL TWO ELECTRON INTEGRAL TRANSFORMATION
+     --------------------------------------------
+
+ NUMBER OF CORE MOLECULAR ORBITALS     =    0
+ NUMBER OF OCCUPIED MOLECULAR ORBITALS =   10
+ TOTAL NUMBER OF MOLECULAR ORBITALS    =   36
+ TOTAL NUMBER OF ATOMIC ORBITALS       =   38
+ THRESHOLD FOR KEEPING TRANSFORMED 2E- INTEGRALS = 1.000E-09
+
+ -------------------------------     ------------------------------
+ DISTRIBUTED DATA TRANSFORMATION     PROGRAM WRITTEN BY G. FLETCHER
+ -------------------------------     ------------------------------
+
+ THE DISTRIBUTED MEMORY REQUIRED FOR THIS STEP IS MEMDDI=         1 MWORDS
+ CREATING DISTRIBUTED STORAGE FOR [VIR OCC|VIR OCC] INTEGRALS
+ CREATING DISTRIBUTED STORAGE FOR [VIR OCC|OCC OCC] INTEGRALS
+ CREATING DISTRIBUTED STORAGE FOR [OCC OCC|OCC OCC] INTEGRALS
+ CREATING DISTRIBUTED STORAGE FOR [VIR VIR|OCC OCC] INTEGRALS
+ FOR    1 PROCESSORS, THE REPLICATED MEMORY NEEDED IS       92980 WORDS.
+ SCHWARZ INEQUALITY OVERHEAD:       741 INTEGRALS, T=        0.00
+
+      DIRECT 4-INDEX TRANSFORMATION 
+      SCHWARZ INEQUALITY TEST SKIPPED          9 INTEGRAL BLOCKS
+ ... END OF INTEGRAL TRANSFORMATION ...
+ CPU     0: STEP CPU TIME=     0.09 TOTAL CPU TIME=        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  96.23%
+
+     ---------------------------------------------
+     1ST AND 2ND INTEGRAL DERIVATIVE CONTRIBUTIONS
+     ---------------------------------------------
+ ...... END OF 1-ELECTRON GRAD+HESS+FOCKDER ......
+ CPU     0: STEP CPU TIME=     0.01 TOTAL CPU TIME=        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  96.30%
+
+     ----------------------------------------------
+     TWO ELECTRON INTEGRAL DERIVATIVE CONTRIBUTIONS
+     ----------------------------------------------
+
+     200723 WORDS REQUIRED, 100000000 WORDS AVAILABLE
+ THE COARSE/FINE SCHWARZ SCREENINGS SKIPPED          0/         2 BLOCKS.
+ THE NUMBER OF DERIVATIVE INTEGRAL BLOCKS COMPUTED WAS      9180
+ CPU     0: STEP CPU TIME=     3.16 TOTAL CPU TIME=        3.7 (    0.1 MIN)
+ TOTAL WALL CLOCK TIME=        3.7 SECONDS, CPU UTILIZATION IS  99.19%
+ ...... END OF 2-ELECTRON GRAD+HESS+LAGDER ......
+ CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=        3.7 (    0.1 MIN)
+ TOTAL WALL CLOCK TIME=        3.7 SECONDS, CPU UTILIZATION IS  99.19%
+ COMPUTING NACME FOR STATE WITH E=      -94.3758844874 S=  0.0
+ COMPUTING NACME FOR STATE WITH E=      -93.9558510246 S=  0.0
+ COMPUTING NACME FOR STATE WITH E=      -93.6015651803 S=  0.0
+
+     -------------------------------------------------
+     COUPLED-PERTURBED MULTICONFIGURATION HARTREE-FOCK
+     Z-VECTOR VERSION
+     -------------------------------------------------
+
+ SETTING UP RIGHT-HAND SIDE OF CPMCHF EQUATIONS.
+ # OF WORDS REQUIRED  =     209743
+ # OF WORDS AVAILABLE =  100000000
+ NOTE THAT THE CP-MCHF DISTRIBUTED MEMORY REQUIREMENTS ARE JUST THE
+ MEMORY NEEDED TO STORE TRANSFORMED INTEGRAL CLASSES (ALLOCATED ABOVE).
+
+  --- DIPOLE MOMENTS (DEBYE) ---
+  1,  1 :  DIPOLE   -0.282038   -0.168923    0.367228    0.492886
+  1,  2 : TDIPOLE    0.290671   -0.198772    2.744592    2.767090
+  2,  2 :  DIPOLE   -0.410257   -0.140203   -0.060076    0.437695
+  1,  3 : TDIPOLE    0.059165   -0.021578    0.316056    0.322270
+  2,  3 : TDIPOLE    0.286393   -0.178671    2.450794    2.473931
+  3,  3 :  DIPOLE    0.187282   -0.597438    6.117862    6.149816
+
+  --- OSCILLATOR STRENGTHS  ---
+
+             1           2           3
+
+    1    0.0000000
+    2    0.3318701   0.0000000
+    3    0.0082984   0.2237518   0.0000000
+
+
+ CALCULATING MCSCF ELECTRONIC HESSIAN ON THE FLY.
+ # OF ORBITAL ROTATIONS   =        296
+ LENGTH OF DET. EXPANSION =         18
+
+ SOLVING CPMCHF EQUATIONS - ESSENTIAL MEMORY.
+ # OF WORDS REQUIRED  =     267615
+ # OF WORDS AVAILABLE =  100000000
+ DDI: Creating Array [4] - 1 x 1 = 1 words.
+ DDI: Creating Array [5] - 1 x 1 = 1 words.
+ DDI: Creating Array [6] - 1 x 1 = 1 words.
+ DDI: Creating Array [7] - 1 x 1 = 1 words.
+
+ MASTER NODE HAS FINISHED WITH (OO|OO) INTEGRALS, T=    0.0
+ MASTER NODE HAS FINISHED WITH (VO|OO) INTEGRALS, T=    0.0
+ MASTER NODE HAS FINISHED WITH (VV|OO) INTEGRALS, T=    0.0
+ MASTER NODE HAS FINISHED WITH (VO|VO) INTEGRALS, T=    0.0
+
+ FINISHED SETTING UP RIGHT-HAND SIDE.
+ CPU     0: STEP CPU TIME=     0.08 TOTAL CPU TIME=        3.8 (    0.1 MIN)
+ TOTAL WALL CLOCK TIME=        3.8 SECONDS, CPU UTILIZATION IS  99.21%
+
+ SOLVING FOR    6 NUCLEAR RESPONSES AND 0 ELECTRIC FIELD RESPONSES
+
+ POSSIBLE RESET OF SMALL PRECONDITIONING ELEMENTS TO 1:
+ ORBITAL ELEMENTS RESET     =          8
+ DETERMINANT ELEMENTS RESET =          4
+
+ SOLVING CPMCHF EQUATIONS - EXTRA SOLVER MEMORY.
+ # OF WORDS REQUIRED  =     504057
+ # OF WORDS AVAILABLE =   99732385
+
+ PRECONDITIONED GCRODR SOLVER   CONV. TOLERANCE=1.00E-06
+ ITER   RESPONSE ERROR    IMPROVED     ORB-ORB     CI-ORB
+   1      1.11210E+00         1            0.0        0.0
+ DUE TO LARGE RES. NORM, GUESS SET TO 0 VECTOR.
+   1      5.81238E-02         1            0.0        0.0
+   2      2.62431E-08         0            0.0        0.0
+   1      6.16206E-02         5            0.1        0.0
+   2      6.15982E-02         5            0.0        0.0
+   3      3.03321E-07         0            0.0        0.0
+ THE CPMCHF HAS CONVERGED AFTER   3 ITERATIONS.
+
+ STATE-SPECIFIC GRADIENT OF STATE   1 (OVERALL STATE   1)
+ ENERGY=      -94.3758844874 SPIN=  0.00 WEIGHT= 0.900000
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 N               -0.027567915       0.191864467       0.108858882
+    2 C               -0.017005333       0.001495248      -0.038968672
+    3 H                0.046540553      -0.229502742      -0.141017257
+    4 H               -0.001171048       0.003324794      -0.013783335
+    5 H                0.005312962      -0.029503559       0.023111247
+    6 H               -0.006109220       0.062321792       0.061799135
+
+ STATE-SPECIFIC GRADIENT OF STATE   2 (OVERALL STATE   3)
+ ENERGY=      -93.9558510246 SPIN=  0.00 WEIGHT= 0.050000
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 N               -0.028904633       0.215587459      -0.198221653
+    2 C               -0.019684034      -0.025318174       0.269925551
+    3 H                0.053524693      -0.223606362      -0.143245823
+    4 H               -0.002404026       0.000279638      -0.013606175
+    5 H                0.000380658      -0.026255304       0.023054102
+    6 H               -0.002912658       0.059312743       0.062093999
+
+ STATE-SPECIFIC GRADIENT OF STATE   3 (OVERALL STATE   4)
+ ENERGY=      -93.6015651803 SPIN=  0.00 WEIGHT= 0.050000
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 N               -0.019019679       0.241648257      -0.324392969
+    2 C               -0.003448885      -0.043306601       0.435314527
+    3 H                0.052049826      -0.251571499      -0.145387077
+    4 H               -0.010836451       0.020811389      -0.026896822
+    5 H               -0.009617260      -0.021237156       0.011411023
+    6 H               -0.009127551       0.053655608       0.049951320
+
+ NACME FOR STATE J->I HAVE OPPOSITE SIGN TO THE NACME CONNECTING STATE I->J,
+ SO ONLY NACME FOR I>J ARE PRINTED, FOR STATES WITH SPIN QUANTUM NO. S=  0.00
+
+ NONADIABATIC COUPLING MATRIX ELEMENT (NACME), IN ONE/BOHR
+ <STATE  2, WEIGHT=   0.05000 | D/DQ | STATE  1, WEIGHT=   0.90000>
+   ATOM               D/DX           D/DY           D/DZ
+    1 N               0.0429181     -0.0002848      0.2372466
+    2 C               0.0413344     -0.0175502      0.1764593
+    3 H              -0.0048181     -0.0409115     -0.0021029
+    4 H              -0.0131475      0.0289885     -0.0199981
+    5 H              -0.0089251      0.0072621     -0.0148160
+    6 H              -0.0180979     -0.0091621     -0.0164086
+
+ NONADIABATIC COUPLING MATRIX ELEMENT (NACME), IN ONE/BOHR
+ <STATE  3, WEIGHT=   0.05000 | D/DQ | STATE  1, WEIGHT=   0.90000>
+   ATOM               D/DX           D/DY           D/DZ
+    1 N               0.0276089     -0.0105038      0.1743144
+    2 C              -0.0060789      0.0032130     -0.0523298
+    3 H              -0.0071114     -0.0100305      0.0048047
+    4 H              -0.0074209      0.0065463      0.0001913
+    5 H               0.0057906     -0.0007910     -0.0030003
+    6 H               0.0007459      0.0010712     -0.0042212
+
+ NONADIABATIC COUPLING MATRIX ELEMENT (NACME), IN ONE/BOHR
+ <STATE  3, WEIGHT=   0.05000 | D/DQ | STATE  2, WEIGHT=   0.05000>
+   ATOM               D/DX           D/DY           D/DZ
+    1 N               0.0677215     -0.0160156      0.4829154
+    2 C               0.0064550      0.0085470     -0.1707479
+    3 H              -0.0211076     -0.0518623      0.0108971
+    4 H              -0.0219679      0.0355554     -0.0114328
+    5 H               0.0064554      0.0008069     -0.0176330
+    6 H              -0.0073874     -0.0009811     -0.0211054
+
+ TOTAL REPLICATED MEMORY USED FOR NACME RESPONSES=       771672 WORDS.
+ FREEING DISTRIBUTED STORAGE FOR [VIR VIR|OCC OCC] INTEGRALS
+ FREEING DISTRIBUTED STORAGE FOR [OCC OCC|OCC OCC] INTEGRALS
+ FREEING DISTRIBUTED STORAGE FOR [VIR OCC|OCC OCC] INTEGRALS
+ FREEING DISTRIBUTED STORAGE FOR [VIR OCC|VIR OCC] INTEGRALS
+
+ ...... DONE WITH CPMCHF EQUATIONS ......
+ CPU     0: STEP CPU TIME=     8.23 TOTAL CPU TIME=       12.0 (    0.2 MIN)
+ TOTAL WALL CLOCK TIME=       12.0 SECONDS, CPU UTILIZATION IS  99.58%
+               771672  WORDS OF DYNAMIC MEMORY USED
+ EXECUTION OF GAMESS TERMINATED NORMALLY Fri Jun  2 04:01:09 2017
+ DDI: 1363672 bytes (1.3 MB / 0 MWords) used by master data server.
+
+ ----------------------------------------
+ CPU timing information for all processes
+ ========================================
+ 0: 11.892 + 0.108 = 12.01
+ ----------------------------------------
+ ddikick.x: exited gracefully.
+unset echo
+----- accounting info -----
+Files used on the master node compute-0-2.local were:
+-rw-rw-r-- 1 sarom sarom   29862 Jun  2 04:00 /scratch/mc-nacme-nh2ch2.F05
+-rw-rw-r-- 1 sarom sarom 3240288 Jun  2 04:00 /scratch/mc-nacme-nh2ch2.F08
+-rw-rw-r-- 1 sarom sarom    5336 Jun  2 04:00 /scratch/mc-nacme-nh2ch2.F09
+-rw-rw-r-- 1 sarom sarom 2257680 Jun  2 04:01 /scratch/mc-nacme-nh2ch2.F10
+-rw-rw-r-- 1 sarom sarom    2760 Jun  2 04:01 /scratch/mc-nacme-nh2ch2.F12
+-rw-rw-r-- 1 sarom sarom  268112 Jun  2 04:01 /scratch/mc-nacme-nh2ch2.F13
+-rw-rw-r-- 1 sarom sarom  180464 Jun  2 04:00 /scratch/mc-nacme-nh2ch2.F15
+-rw-rw-r-- 1 sarom sarom  373312 Jun  2 04:00 /scratch/mc-nacme-nh2ch2.F16
+-rw-rw-r-- 1 sarom sarom  208080 Jun  2 04:01 /scratch/mc-nacme-nh2ch2.F18
+-rw-rw-r-- 1 sarom sarom    7920 Jun  2 04:01 /scratch/mc-nacme-nh2ch2.F19
+-rw-rw-r-- 1 sarom sarom  180016 Jun  2 04:00 /scratch/mc-nacme-nh2ch2.F70
+-rw-rw-r-- 1 sarom sarom  180016 Jun  2 04:00 /scratch/mc-nacme-nh2ch2.F71
+-rw-rw-r-- 1 sarom sarom  180016 Jun  2 04:00 /scratch/mc-nacme-nh2ch2.F72
+-rw-rw-r-- 1 sarom sarom  180016 Jun  2 04:00 /scratch/mc-nacme-nh2ch2.F73
+rm: cannot remove `/scratch/sarom': Is a directory
+rm: cannot remove `/scratch/tmp': Is a directory
+ls: No match.
+ls: No match.
+ls: No match.
+Fri Jun  2 04:01:12 CDT 2017
+0.150u 0.040s 0:15.32 1.2%	0+0k 64+432io 0pf+0w
+Deleting shmid=3964928.
+Deleting shmid=3997697.
+Deleting shmid=4227074.
+/opt/gridengine/default/spool/compute-0-2/active_jobs/23910.1/pe_hostfile compute-0-2.local

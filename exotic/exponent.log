@@ -1,0 +1,3757 @@
+-catch_rsh /opt/gridengine/default/spool/compute-0-2/active_jobs/23547.1/pe_hostfile
+compute-0-2
+The primary node assigned by SGE to this run is compute-0-2
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+Deleting shmid=3964928.
+Deleting shmid=3997697.
+Deleting shmid=4227074.
+source /home/sarom/gamess.github.2017-05-31.14.06/install.info
+setenv GMS_PATH /home/sarom/gamess.github.2017-05-31.14.06
+setenv GMS_BUILD_DIR /home/sarom/gamess.github.2017-05-31.14.06
+setenv GMS_TARGET linux64
+setenv GMS_FORTRAN gfortran
+setenv GMS_GFORTRAN_VERNO 4.4
+setenv GMS_MATHLIB mkl-so
+setenv GMS_MATHLIB_PATH /share/apps/intel/compilers_and_libraries_2017.1.132/linux/mkl/lib/intel64
+setenv GMS_MKL_VERNO 12
+setenv GMS_DDI_COMM sockets
+setenv GMS_LIBCCHEM false
+setenv GMS_EIGEN_PATH
+setenv GMS_PHI false
+setenv GMS_SHMTYPE sysv
+setenv GMS_OPENMP false
+unset echo
+exponent
+tests/exotic
+----- GAMESS execution script 'rungms' -----
+This job is running on host compute-0-2.local
+under operating system Linux at Fri Jun 2 01:09:27 CDT 2017
+Available scratch disk space (Kbyte units) at beginning of the job is
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/sda1             16126920   3867312  11440408  26% /
+GAMESS temporary binary files will be written to /scratch
+GAMESS supplementary output files will be written to /home/sarom/restart
+Copying input file exponent.inp to your run's scratch directory...
+cp tests/exotic/exponent.inp /scratch/exponent.F05
+unset echo
+The generated host list is
+compute-0-2.local
+/home/sarom/gamess.github.2017-05-31.14.06/ddikick.x /home/sarom/gamess.github.2017-05-31.14.06/gamess.00.x exponent -ddi 1 1 compute-0-2.local -scr /scratch
+
+ Distributed Data Interface kickoff program.
+ Initiating 1 compute processes on 1 nodes to run the following command:
+ /home/sarom/gamess.github.2017-05-31.14.06/gamess.00.x exponent 
+
+          ******************************************************
+          *         GAMESS VERSION = 20 APR 2017 (R1)          *
+          *             FROM IOWA STATE UNIVERSITY             *
+          * M.W.SCHMIDT, K.K.BALDRIDGE, J.A.BOATZ, S.T.ELBERT, *
+          *   M.S.GORDON, J.H.JENSEN, S.KOSEKI, N.MATSUNAGA,   *
+          *          K.A.NGUYEN, S.J.SU, T.L.WINDUS,           *
+          *       TOGETHER WITH M.DUPUIS, J.A.MONTGOMERY       *
+          *         J.COMPUT.CHEM.  14, 1347-1363(1993)        *
+          **************** 64 BIT LINUX VERSION ****************
+
+  SINCE 1993, STUDENTS AND POSTDOCS WORKING AT IOWA STATE UNIVERSITY
+  AND ALSO IN THEIR VARIOUS JOBS AFTER LEAVING ISU HAVE MADE IMPORTANT
+  CONTRIBUTIONS TO THE CODE:
+     IVANA ADAMOVIC, CHRISTINE AIKENS, YURI ALEXEEV, POOJA ARORA,
+     ANDREY ASADCHEV, ROB BELL, PRADIPTA BANDYOPADHYAY, JONATHAN BENTZ,
+     BRETT BODE, KURT BRORSEN, CALEB CARLIN, GALINA CHABAN, WEI CHEN,
+     CHEOL HO CHOI, PAUL DAY, ALBERT DEFUSCO, NUWAN DESILVA, TIM DUDLEY,
+     DMITRI FEDOROV, GRAHAM FLETCHER, MARK FREITAG, KURT GLAESEMANN,
+     DAN KEMP, GRANT MERRILL, NORIYUKI MINEZAWA, JONATHAN MULLIN,
+     TAKESHI NAGATA, SEAN NEDD, HEATHER NETZLOFF, BOSILJKA NJEGIC, RYAN OLSON,
+     MIKE PAK, SPENCER PRUITT, LUKE ROSKOP, JIM SHOEMAKER, LYUDMILA SLIPCHENKO,
+     TONY SMITH, SAROM SOK LEANG, JIE SONG, TETSUYA TAKETSUGU, SIMON WEBB,
+     PENG XU, SOOHAENG YOO, FEDERICO ZAHARIEV
+
+  ADDITIONAL CODE HAS BEEN PROVIDED BY COLLABORATORS IN OTHER GROUPS:
+     IOWA STATE UNIVERSITY:
+          JOE IVANIC, AARON WEST, LAIMUTIS BYTAUTAS, KLAUS RUEDENBERG
+     UNIVERSITY OF TOKYO: KIMIHIKO HIRAO, TAKAHITO NAKAJIMA,
+          TAKAO TSUNEDA, MUNEAKI KAMIYA, SUSUMU YANAGISAWA,
+          KIYOSHI YAGI, MAHITO CHIBA, SEIKEN TOKURA, NAOAKI KAWAKAMI
+     UNIVERSITY OF AARHUS: FRANK JENSEN
+     UNIVERSITY OF IOWA: VISVALDAS KAIRYS, HUI LI
+     NATIONAL INST. OF STANDARDS AND TECHNOLOGY: WALT STEVENS, DAVID GARMER
+     UNIVERSITY OF PISA: BENEDETTA MENNUCCI, JACOPO TOMASI
+     UNIVERSITY OF MEMPHIS: HENRY KURTZ, PRAKASHAN KORAMBATH
+     UNIVERSITY OF ALBERTA: TOBY ZENG, MARIUSZ KLOBUKOWSKI
+     UNIVERSITY OF NEW ENGLAND: MARK SPACKMAN
+     MIE UNIVERSITY: HIROAKI UMEDA
+     NAT. INST. OF ADVANCED INDUSTRIAL SCIENCE AND TECHNOLOGY: KAZUO KITAURA
+     MICHIGAN STATE UNIVERSITY:
+          KAROL KOWALSKI, MARTA WLOCH, JEFFREY GOUR, JESSE LUTZ,
+          WEI LI, PIOTR PIECUCH
+     UNIVERSITY OF SILESIA: MONIKA MUSIAL, STANISLAW KUCHARSKI
+     FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX:
+          OLIVIER QUINET, BENOIT CHAMPAGNE
+     UNIVERSITY OF CALIFORNIA - SANTA BARBARA: BERNARD KIRTMAN
+     INSTITUTE FOR MOLECULAR SCIENCE:
+          KAZUYA ISHIMURA, MICHIO KATOUDA, AND SHIGERU NAGASE
+     UNIVERSITY OF NOTRE DAME: ANNA POMOGAEVA, DAN CHIPMAN
+     KYUSHU UNIVERSITY:
+          HARUYUKI NAKANO,
+          FENG LONG GU, JACEK KORCHOWIEC, MARCIN MAKOWSKI, AND YURIKO AOKI,
+          HIROTOSHI MORI AND EISAKU MIYOSHI
+     PENNSYLVANIA STATE UNIVERSITY:
+          TZVETELIN IORDANOV, CHET SWALINA, JONATHAN SKONE,
+          SHARON HAMMES-SCHIFFER
+     WASEDA UNIVERSITY:
+          MASATO KOBAYASHI, TOMOKO AKAMA, TSUGUKI TOUMA,
+          TAKESHI YOSHIKAWA, YASUHIRO IKABATA, JUNJI SEINO,
+          YUYA NAKAJIMA, HIROMI NAKAI
+     NANJING UNIVERSITY: SHUHUA LI
+     UNIVERSITY OF NEBRASKA:
+          PEIFENG SU, DEJUN SI, NANDUN THELLAMUREGE, YALI WANG, HUI LI
+     UNIVERSITY OF ZURICH: ROBERTO PEVERATI, KIM BALDRIDGE
+     N. COPERNICUS UNIVERSITY AND JACKSON STATE UNIVERSITY:
+          MARIA BARYSZ
+     UNIVERSITY OF COPENHAGEN: Jimmy Kromann, CASPER STEINMANN
+     TOKYO INSTITUTE OF TECHNOLOGY: HIROYA NAKATA
+     NAGOYA UNIVERSITY: YOSHIO NISHIMOTO, STEPHAN IRLE
+     MOSCOW STATE UNIVERSITY: VLADIMIR MIRONOV
+
+ EXECUTION OF GAMESS BEGUN Fri Jun  2 01:09:27 2017
+
+            ECHO OF THE FIRST FEW INPUT CARDS -
+ INPUT CARD>!  F atom, 6-311G(d) orbital exponent optimization test.                        
+ INPUT CARD>!  Both MCSCF and CI are run in the same job stream, to test                    
+ INPUT CARD>!  their coexistence.                                                           
+ INPUT CARD>!                                                                               
+ INPUT CARD>!  The d exponent is optimized, using a wavefunction that                       
+ INPUT CARD>!  preserves both space and spin symmetry for the open shell                    
+ INPUT CARD>!  atom.  The optimization is on a variational energy, the                      
+ INPUT CARD>!  singles and doubles CI function.  The result is a final                      
+ INPUT CARD>!  CI energy of -99.5662491856, with zeta(d)=1.633187.                          
+ INPUT CARD>!                                                                               
+ INPUT CARD>!  It is interesting to compare this value to the 6-311G(d)                     
+ INPUT CARD>!  value obtained by Pople for F, using UHF (spin and space                     
+ INPUT CARD>!  symmetry broken) + UMP2 (non-variational), zeta(d)=1.750.                    
+ INPUT CARD>!  You can easily convert this job to a UHF + UMP2 trudge,                      
+ INPUT CARD>!  and then you will learn Pople didn't use the frozen core                     
+ INPUT CARD>!  approximation.  A frozen core UMP2 exponent optimization                     
+ INPUT CARD>!  gives a value very close to the CISD value found here.                       
+ INPUT CARD>!                                                                               
+ INPUT CARD>!  This run takes 37 seconds on a mac G4 (28 May 2005)                          
+ INPUT CARD>!                                                                               
+ INPUT CARD> $contrl scftyp=mcscf mult=2 cityp=guga runtyp=trudge $end                      
+ INPUT CARD> $system memory=700000 $end                                                     
+ INPUT CARD> $trudge optmiz=basis npar=1 iex(1)=12 $end                                     
+ INPUT CARD> $guess  guess=huckel $end                                                      
+ INPUT CARD>!                                                                               
+ INPUT CARD>!   input to define the MCSCF orbital optimization.  Note that                  
+ INPUT CARD>!   the three 2-P states are averaged to preserve radial degeneracy.            
+ INPUT CARD>!   This is really an open shell SCF computation, since there is                
+ INPUT CARD>!   the same number of configurations as degenerate roots of the                
+ INPUT CARD>!   Hamiltonian.                                                                
+ INPUT CARD>!                                                                               
+ INPUT CARD> $det    group=c1 ncore=2 nact=3 nels=5 nstate=3 wstate(1)=1,1,1 $end           
+ INPUT CARD>!                                                                               
+ INPUT CARD>!   Actually, there is an equivalent SCFTYP=GVB way to obtain the               
+ INPUT CARD>!   ground state energy, see REFS.DOC.  It needs NOSYM=1 since                  
+ INPUT CARD>!   the canonicalizations mess up orbital symmetry.                             
+ INPUT CARD>!                                                                               
+ INPUT CARD>--- $contrl scftyp=gvb nosym=1 $end                                             
+ INPUT CARD>--- $scf    nco=2 nseto=1 no=3 couple=.true.                                    
+ INPUT CARD>---             F(1)=  1.0  0.83333333333333                                    
+ INPUT CARD>---         ALPHA(1)=  2.0  1.66666666666667  1.33333333333333                  
+ INPUT CARD>---          BETA(1)= -1.0 -0.83333333333333 -0.66666666666667  $end            
+ INPUT CARD>!                                                                               
+ INPUT CARD>!   input to define the 2nd order CI following the MCSCF,                       
+ INPUT CARD>!   including which state's energy is to be optimized by TRUDGE.                
+ INPUT CARD>!   Note that the CI also correlates the 2s pair.  This is really               
+ INPUT CARD>!   equivalent to a singles and doubles CI from the three SCF                   
+ INPUT CARD>!   determinants for F.                                                         
+ INPUT CARD>!                                                                               
+ INPUT CARD> $cidrt  group=c1 soci=.true. nfzc=1 ndoc=3 nalp=1 next=-1 $end                 
+     700000 WORDS OF MEMORY AVAILABLE
+
+
+     RUN TITLE
+     ---------
+ F atom...2-P                                                                    
+
+ THE POINT GROUP OF THE MOLECULE IS DNH     
+ THE ORDER OF THE PRINCIPAL AXIS IS     2
+
+ ATOM      ATOMIC                      COORDINATES (BOHR)
+           CHARGE         X                   Y                   Z
+ F           9.0     0.0000000000        0.0000000000        0.0000000000
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 F     
+
+   1 F       0.0000000  
+
+  * ... LESS THAN  3.000
+
+
+     ATOMIC BASIS SET
+     ----------------
+ THE CONTRACTED PRIMITIVE FUNCTIONS HAVE BEEN UNNORMALIZED
+ THE CONTRACTED BASIS FUNCTIONS ARE NOW NORMALIZED TO UNITY
+
+  SHELL TYPE  PRIMITIVE        EXPONENT          CONTRACTION COEFFICIENT(S)
+
+ F         
+
+      1   S       1         11427.1000000    0.001800930156
+      1   S       2          1722.3500000    0.013741901192
+      1   S       3           395.7460000    0.068133405910
+      1   S       4           115.1390000    0.233325020240
+      1   S       5            33.6026000    0.589086051102
+      1   S       6             4.9190100    0.299505025981
+
+      2   L       7            55.4441000    0.114536015543    0.035460887379
+      2   L       8            12.6323000    0.920512124917    0.237450915490
+      2   L       9             3.7175600   -0.003378040458    0.820457707996
+
+      3   L      10             1.1654500    1.000000000000    1.000000000000
+
+      4   L      11             0.3218920    1.000000000000    1.000000000000
+
+      5   D      12             0.8000000    1.000000000000
+
+ TOTAL NUMBER OF BASIS SET SHELLS             =    5
+ NUMBER OF CARTESIAN GAUSSIAN BASIS FUNCTIONS =   19
+ NUMBER OF ELECTRONS                          =    9
+ CHARGE OF MOLECULE                           =    0
+ SPIN MULTIPLICITY                            =    2
+ NUMBER OF OCCUPIED ORBITALS (ALPHA)          =    5
+ NUMBER OF OCCUPIED ORBITALS (BETA )          =    4
+ TOTAL NUMBER OF ATOMS                        =    1
+ THE NUCLEAR REPULSION ENERGY IS        0.0000000000
+
+ THIS MOLECULE IS RECOGNIZED AS BEING LINEAR,
+ ORBITAL LZ DEGENERACY TOLERANCE ETOLLZ= 1.00E-06
+
+     $CONTRL OPTIONS
+     ---------------
+ SCFTYP=MCSCF        RUNTYP=TRUDGE       EXETYP=RUN     
+ MPLEVL=       0     CITYP =GUGA         CCTYP =NONE         VBTYP =NONE    
+ DFTTYP=NONE         TDDFT =NONE    
+ MULT  =       2     ICHARG=       0     NZVAR =       0     COORD =UNIQUE  
+ PP    =NONE         RELWFN=NONE         LOCAL =NONE         NUMGRD=       F
+ ISPHER=      -1     NOSYM =       0     MAXIT =      30     UNITS =ANGS    
+ PLTORB=       F     MOLPLT=       F     AIMPAC=       F     FRIEND=        
+ NPRINT=       7     IREST =       0     GEOM  =INPUT   
+ NORMF =       0     NORMP =       0     ITOL  =      20     ICUT  =       9
+ INTTYP=BEST         GRDTYP=BEST         QMTTOL= 1.0E-06
+
+     $SYSTEM OPTIONS
+     ---------------
+  REPLICATED MEMORY=      700000 WORDS (ON EVERY NODE).
+ DISTRIBUTED MEMDDI=           0 MILLION WORDS IN AGGREGATE,
+ MEMDDI DISTRIBUTED OVER   1 PROCESSORS IS           0 WORDS/PROCESSOR.
+ TOTAL MEMORY REQUESTED ON EACH PROCESSOR=      700000 WORDS.
+ TIMLIM=      525600.00 MINUTES, OR     365.0 DAYS.
+ PARALL= F  BALTYP=  DLB     KDIAG=    0  COREFL= F
+ MXSEQ2=     300 MXSEQ3=     150  mem10=         0
+
+          ----------------
+          PROPERTIES INPUT
+          ----------------
+
+     MOMENTS            FIELD           POTENTIAL          DENSITY
+ IEMOM =       1   IEFLD =       0   IEPOT =       0   IEDEN =       0
+ WHERE =COMASS     WHERE =NUCLEI     WHERE =NUCLEI     WHERE =NUCLEI  
+ OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH    
+ IEMINT=       0   IEFINT=       0                     IEDINT=       0
+                                                       MORB  =       0
+
+     -------------------------------
+     INTEGRAL TRANSFORMATION OPTIONS
+     -------------------------------
+     NWORD  =            0
+     CUTOFF = 1.0E-09     MPTRAN =       0
+     DIRTRF =       F     AOINTS =DUP     
+
+          ----------------------
+          MCSCF INPUT PARAMETERS
+          ----------------------
+ CONVERGER SELECTION: FOCAS = F  SOSCF = T  FULLNR = F  QUD = F  JACOBI = F
+ SECULAR EQUATION METHOD CISTEP = ALDET   
+ --- GENERAL INPUT OPTIONS:
+ MAXIT =      60  MICIT =       5  ACURCY= 1.000E-06
+ DAMP  =   0.000  CANONC=       T  ENGTOL= 1.000E-10
+ EKT   =       F  NPUNCH=       2  NWORD =         0
+ REGENERATE CI AFTER CONVERGENCE = NONE    
+ DIABATIZATION AFTER CONVERGENCE =        F
+ --- INPUT FOR SOSCF CONVERGER:
+ FORS  =       T  NOFO  =       1
+
+          ----------------------
+          INTEGRAL INPUT OPTIONS
+          ----------------------
+ NOPK  =       1 NORDER=       0 SCHWRZ=       F
+
+     ------------------------------------------
+     THE POINT GROUP IS DNH, NAXIS= 2, ORDER= 8
+     ------------------------------------------
+
+     DIMENSIONS OF THE SYMMETRY SUBSPACES ARE
+ AG  =    7     AU  =    0     B3U =    3     B3G =    1     B1G =    1
+ B1U =    3     B2U =    3     B2G =    1
+
+ ..... DONE SETTING UP THE RUN .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS   0.00%
+
+     --------------------------------
+     NON-GRADIENT ENERGY MINIMIZATION
+     --------------------------------
+ $TRURST KSTART=-1  JSTART= 0  TOLF=  0.001000 TOLR=  0.050000
+         FNOISE=  0.000500  FNOT=   0.000000000
+ $END
+ ----- TRUDGE RESTART DATA AT NSTEP   0 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      0.800000,
+ $END
+
+          ********************
+          1 ELECTRON INTEGRALS
+          ********************
+ TIME TO DO   DIPOLE INTEGRALS=      0.00
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS   0.00%
+
+          -------------
+          GUESS OPTIONS
+          -------------
+          GUESS =HUCKEL            NORB  =       0          NORDER=       0
+          MIX   =       F          PRTMO =       F          PUNMO =       F
+          TOLZ  = 1.0E-08          TOLE  = 1.0E-05
+          SYMDEN=       F          PURIFY=       F
+
+ INITIAL GUESS ORBITALS GENERATED BY HUCKEL   ROUTINE.
+ HUCKEL GUESS REQUIRES      3656 WORDS.
+
+ GUESS=HUCKEL IS USUALLY A VERY BAD IDEA FOR SCFTYP=MCSCF   
+ YOU PROBABLY SHOULD USE GUESS=MOREAD FOR THIS RUN!
+
+ SYMMETRIES FOR INITIAL GUESS ORBITALS FOLLOW.   BOTH SET(S).
+     5 ORBITALS ARE OCCUPIED (    1 CORE ORBITALS).
+     2=AG       3=B3U      4=B2U      5=B1U      6=AG       7=AG       8=AG  
+     9=AG      10=AG      11=B3U     12=B3U     13=B3G     14=B1G     15=B1U 
+ ...... END OF INITIAL ORBITAL SELECTION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS   0.00%
+
+                    ----------------------
+                    AO INTEGRAL TECHNOLOGY
+                    ----------------------
+     S,P,L SHELL ROTATED AXIS INTEGRALS, REPROGRAMMED BY
+        KAZUYA ISHIMURA (IMS) AND JOSE SIERRA (SYNSTAR).
+     S,P,D,L SHELL ROTATED AXIS INTEGRALS PROGRAMMED BY
+        KAZUYA ISHIMURA (INSTITUTE FOR MOLECULAR SCIENCE).
+     S,P,D,F,G SHELL TO TOTAL QUARTET ANGULAR MOMENTUM SUM 5,
+        ERIC PROGRAM BY GRAHAM FLETCHER (ELORET AND NASA ADVANCED
+        SUPERCOMPUTING DIVISION, AMES RESEARCH CENTER).
+     S,P,D,F,G,L SHELL GENERAL RYS QUADRATURE PROGRAMMED BY
+        MICHEL DUPUIS (PACIFIC NORTHWEST NATIONAL LABORATORY).
+
+          --------------------
+          2 ELECTRON INTEGRALS
+          --------------------
+
+ THE -PK- OPTION IS OFF, THE INTEGRALS ARE NOT IN SUPERMATRIX FORM.
+ STORING   15000 INTEGRALS/RECORD ON DISK, USING 12 BYTES/INTEGRAL.
+ TWO ELECTRON INTEGRAL EVALUATION REQUIRES   90411 WORDS OF MEMORY.
+ II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =  214
+ II,JST,KST,LST =  5  1  1  1 NREC =         1 INTLOC =  776
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS  66.67%
+
+          -----------------
+          MCSCF CALCULATION
+          -----------------
+
+ ----- NUCLEAR ENERGY ----- =         0.0000000000
+
+     --------------------------------------------------
+          AMES LABORATORY DETERMINANTAL FULL CI
+     PROGRAM WRITTEN BY JOE IVANIC AND KLAUS RUEDENBERG
+     --------------------------------------------------
+
+ THE POINT GROUP                  =   C1      
+ THE STATE SYMMETRY               =   A       
+ NUMBER OF CORE ORBITALS          =    2
+ NUMBER OF ACTIVE ORBITALS        =    3
+ NUMBER OF ALPHA ELECTRONS        =    5 (   3 ACTIVE)
+ NUMBER OF BETA ELECTRONS         =    4 (   2 ACTIVE)
+ NUMBER OF OCCUPIED ORBITALS      =    5
+ NUMBER OF CI STATES REQUESTED    =    3
+ NUMBER OF CI STARTING VECTORS    =    3
+ MAX. NO. OF CI EXPANSION VECTORS =   10
+ SIZE OF INITIAL CI GUESS MATRIX  =  300
+ MAX. NO. OF CI ITERS/STATE       =  100
+ CI DIAGONALIZATION CRITERION     = 1.00E-06
+ PURE SPIN STATE AVERAGED 1E- AND 2E- DENSITY MATRIX OPTION=.T.
+ STATE=   1 DM2 WEIGHT=   0.33333     STATE=   2 DM2 WEIGHT=   0.33333
+ STATE=   3 DM2 WEIGHT=   0.33333
+ STATE-AVERAGED MCSCF USING IROOT=  0 AS ITS STATE-SPECIFIC E
+
+ CORRELATION ENERGY ANALYSIS      =    F
+
+ SYMMETRIES FOR THE   2 CORE,   3 ACTIVE ARE
+
+     CORE= A     A   
+
+   ACTIVE= A     A     A   
+ OPENING FILE DAFL30 WITH      81 LOGICAL RECORDS OF     361 WORDS
+ WITH A MAXIMUM OF          81 PHYSICAL RECORDS OF    2048 WORDS
+
+          ------------------------------
+          CASSCF INTEGRAL TRANSFORMATION
+          ------------------------------
+ AO INTEGRALS WILL BE READ IN FROM DISK...
+
+ NUMBER OF CORE MOLECULAR ORBITALS     =     2
+ NUMBER OF OCCUPIED MOLECULAR ORBITALS =     5
+ TOTAL NUMBER OF MOLECULAR ORBITALS    =    19
+ TOTAL NUMBER OF ATOMIC ORBITALS       =    19
+
+ ----- CHOOSING THREE STEPS TRANSFORMATION -----
+ NUMBER OF WORDS USED      =      72921
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF PASSES          =          1
+
+ ----- NUCLEAR REPULSION ENERGY =      0.00000000
+ ----- FROZEN CORE ENERGY       =    -87.40840792
+
+ ... SYMMETRY ...           CPU =    0.00
+ ... (PQ|RS) -> (PQ|KL) ... CPU =    0.00
+ ... (PQ|KL) -> (IJ|KL) ... CPU =    0.00
+
+ NUMBER OF (PQ|KL) INTEGRALS WRITTEN        198
+ NUMBER OF (IJ|KL) INTEGRALS WRITTEN          9
+ ..... END OF CAS INTEGRAL TRANSFORMATION .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS  66.67%
+
+     --------------------------------------------------
+          AMES LABORATORY DETERMINANTAL FULL CI
+     PROGRAM WRITTEN BY JOE IVANIC AND KLAUS RUEDENBERG
+     --------------------------------------------------
+
+ THE NUMBER OF DETERMINANTS HAVING SPACE SYMMETRY A  
+ IN POINT GROUP C1   WITH SZ=  0.5 IS              3
+ WHICH INCLUDES              3 CSFS WITH S=  0.5
+ THE DETERMINANT FULL CI REQUIRES          169955 WORDS
+ SMALL CI MATRIX, JUST USING INCORE DIAGONALIZATION...
+
+ CI EIGENVECTORS WILL BE LABELED IN GROUP=C1      
+ PRINTING ALL NON-ZERO CI COEFFICIENTS
+
+ STATE   1  ENERGY=       -99.3167694135  S=  0.50  SZ=  0.50  SPACE SYM=A   
+
+ ALPH| BETA| CI COEFFICIENT
+-----|-----|---------------
+ 111 | 110 |                                                                                                       1.0000000000
+
+ STATE   2  ENERGY=       -99.3167694135  S=  0.50  SZ=  0.50  SPACE SYM=A   
+
+ ALPH| BETA| CI COEFFICIENT
+-----|-----|---------------
+ 111 | 101 |                                                                                                       1.0000000000
+
+ STATE   3  ENERGY=       -99.3167694135  S=  0.50  SZ=  0.50  SPACE SYM=A   
+
+ ALPH| BETA| CI COEFFICIENT
+-----|-----|---------------
+ 111 | 011 |                                                                                                       1.0000000000
+ ..... DONE WITH DETERMINANT CI COMPUTATION .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS  66.67%
+
+     --------------------------------------------------
+      ONE AND TWO PARTICLE DENSITY MATRIX COMPUTATION
+     PROGRAM WRITTEN BY JOE IVANIC AND KLAUS RUEDENBERG
+     --------------------------------------------------
+
+      30221 WORDS WILL BE USED TO FORM THE DENSITIES
+ THE DENSITIES ARE STATE AVERAGED OVER   3 ROOT(S)
+ STATE=   1   ENERGY=      -99.3167694135   WEIGHT= 0.33333   S=  0.50
+ STATE=   2   ENERGY=      -99.3167694135   WEIGHT= 0.33333   S=  0.50
+ STATE=   3   ENERGY=      -99.3167694135   WEIGHT= 0.33333   S=  0.50
+ SIEVING THE A    SYMMETRY NONZERO DENSITY ELEMENTS IN GROUP C1      
+          9 NONZERO DM2 ELEMENTS WRITTEN IN       1 RECORDS TO FILE 15
+ ..... DONE WITH 1 AND 2 PARTICLE DENSITY MATRIX .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS  50.00%
+
+          --------------------------------------
+          APPROXIMATE SECOND-ORDER MCSCF PROGRAM
+          --------------------------------------
+          PROGRAM WRITTEN BY G.CHABAN, A.MARQUEZ, AND M.DUPUIS
+
+  NUMBER OF WORDS NEEDED     =      33671
+  NUMBER AVAILABLE           =     700000
+
+ ----- GAMMA(IJKL)*(PQ|KL) PRODUCTS ----- CPU TIME =      0.000
+ ----- ORBITAL SYMMETRY             ----- CPU TIME =      0.000
+ ----- FOCK OPERATORS CONSTRUCTION  ----- CPU TIME =      0.000
+     MICIT =   1 ASYMM =    2.146030 ROTMAX =    0.021435
+ ----- EFFECTIVE FOCK + ROTATE ORBS ----- CPU TIME =      0.000
+     MICIT =   2 ASYMM =    0.385557 ROTMAX =    0.002086
+     MICIT =   3 ASYMM =    0.302729 ROTMAX =    0.001963
+     MICIT =   4 ASYMM =    0.251475 ROTMAX =    0.001843
+     MICIT =   5 ASYMM =    0.209780 ROTMAX =    0.002447
+ ..... DONE WITH CASSCF ORBITAL UPDATE .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS  75.00%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+   1      -99.316769414 -0.316769414  2.146030    6    1 2.144E-02  5   0.0000
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   2      -99.391206143 -0.074436729  0.152580    6    1 1.936E-04  1   0.0000
+   3      -99.393015154 -0.001809011  0.077614    8    1 2.669E-05  1   0.0000
+   4      -99.393552792 -0.000537638  0.027572    7    2 6.525E-06  1   0.0000
+   5      -99.393619044 -0.000066252  0.017856    7    2 1.490E-06  1   0.0000
+   6      -99.393638716 -0.000019671  0.012836    7    2 2.407E-06  1   0.0000
+   7      -99.393656820 -0.000018104  0.006061    6    1 5.662E-07  1   0.0000
+   8      -99.393660497 -0.000003677  0.001744    7    1 3.141E-08  1   0.0000
+   9      -99.393660749 -0.000000252  0.000606    8    1 4.201E-09  1   0.0000
+  10      -99.393660773 -0.000000024  0.000345    6    1 2.603E-10  1   0.0000
+  11      -99.393660779 -0.000000006  0.000089    7    1 7.538E-11  1   0.0000
+  12      -99.393660780 -0.000000001  0.000016    7    2 1.202E-12  1   0.0000
+  13      -99.393660780 -0.000000000  0.000002    7    2 5.309E-15  1   0.0000
+
+          ----------------
+          ENERGY CONVERGED
+          ----------------
+
+ FINAL MCSCF ENERGY IS      -99.3936607797 AFTER  13 ITERATIONS
+
+ -MCCI- BASED ON OPTIMIZED ORBITALS
+ ----------------------------------
+
+ PLEASE NOTE: IF THE ACTIVE ORBITALS ARE CANONICALIZED BELOW,
+ THE FOLLOWING CI EXPANSION COEFFICIENTS AND THE DENSITY DO NOT
+ CORRESPOND TO THE PRINTED ORBITALS.  THE PRINTED EXPANSIONS MATCH
+ THE ORBITALS USED DURING THE LAST ITERATION.  IF YOU WISH TO SEE
+ CI EXPANSIONS BASED ON THE CANONICAL (OR NATURAL) ORBITALS, YOU
+ MUST RUN A CI CALCULATION WITH THAT ORBITAL CHOICE READ IN $VEC.
+
+ CI EIGENVECTORS WILL BE LABELED IN GROUP=C1      
+ PRINTING ALL NON-ZERO CI COEFFICIENTS
+
+ STATE   1  ENERGY=       -99.3936607797  S=  0.50  SZ=  0.50  SPACE SYM=A   
+
+ ALPH| BETA| CI COEFFICIENT
+-----|-----|---------------
+ 111 | 110 |                                                                                                       1.0000000000
+
+ STATE   2  ENERGY=       -99.3936607797  S=  0.50  SZ=  0.50  SPACE SYM=A   
+
+ ALPH| BETA| CI COEFFICIENT
+-----|-----|---------------
+ 111 | 011 |                                                                                                       1.0000000000
+
+ STATE   3  ENERGY=       -99.3936607797  S=  0.50  SZ=  0.50  SPACE SYM=A   
+
+ ALPH| BETA| CI COEFFICIENT
+-----|-----|---------------
+ 111 | 101 |                                                                                                       1.0000000000
+
+ DENSITY MATRIX OVER ACTIVE MO-S
+
+             1           2           3
+
+    1    1.6666667
+    2    0.0000000   1.6666667
+    3    0.0000000   0.0000000   1.6666667
+
+ FORMING THE "STANDARD FOCK OPERATOR" USING INTEGRALS FROM DISK...
+     2 FILLED,    3 ACTIVE, AND   14 VIRTUAL ORBITALS  WILL BE CANONICALIZED
+
+          ----------------------
+          MCSCF NATURAL ORBITALS
+          ----------------------
+
+                      1          2          3          4          5
+                  -26.3738    -1.5638     1.6667     1.6667     1.6667
+                     AG         AG         B2U        B1U        B3U 
+    1  F  1  S    0.547686  -0.127454  -0.000000  -0.000000  -0.000000
+    2  F  1  S    0.473522  -0.213649  -0.000000  -0.000000  -0.000000
+    3  F  1  X    0.000000  -0.000000  -0.000000  -0.000000   0.322022
+    4  F  1  Y    0.000000  -0.000000   0.322022  -0.000000  -0.000000
+    5  F  1  Z    0.000000  -0.000000  -0.000000   0.322022  -0.000000
+    6  F  1  S    0.005595   0.669086  -0.000000  -0.000000  -0.000000
+    7  F  1  X    0.000000  -0.000000  -0.000000  -0.000000   0.481995
+    8  F  1  Y    0.000000  -0.000000   0.481995  -0.000000  -0.000000
+    9  F  1  Z    0.000000  -0.000000  -0.000000   0.481995  -0.000000
+   10  F  1  S    0.000807   0.412063  -0.000000  -0.000000  -0.000000
+   11  F  1  X    0.000000  -0.000000  -0.000000  -0.000000   0.419011
+   12  F  1  Y    0.000000  -0.000000   0.419011  -0.000000  -0.000000
+   13  F  1  Z    0.000000  -0.000000  -0.000000   0.419011  -0.000000
+   14  F  1 XX   -0.000418   0.021790  -0.000000  -0.000000  -0.000000
+   15  F  1 YY   -0.000418   0.021790  -0.000000  -0.000000  -0.000000
+   16  F  1 ZZ   -0.000418   0.021790  -0.000000  -0.000000  -0.000000
+   17  F  1 XY    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   18  F  1 XZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   19  F  1 YZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     8 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)=-2.00( 36.7%)  0.00( 26.6%)  2.00( 36.7%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00( 13.3%)  0.00( 73.4%)  2.00( 13.3%) 
+ MO    15 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    16 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+
+          ------------------------
+          MCSCF OPTIMIZED ORBITALS
+          ------------------------
+
+                      1          2          3          4          5
+                  -26.3738    -1.5638    -0.5832    -0.5832    -0.5832
+                     AG         AG         B1U        B3U        B2U 
+    1  F  1  S    0.547686  -0.127454  -0.000000  -0.000000  -0.000000
+    2  F  1  S    0.473522  -0.213649  -0.000000  -0.000000  -0.000000
+    3  F  1  X    0.000000  -0.000000  -0.000000   0.322022  -0.000000
+    4  F  1  Y    0.000000  -0.000000  -0.000000  -0.000000   0.322022
+    5  F  1  Z    0.000000  -0.000000   0.322022  -0.000000  -0.000000
+    6  F  1  S    0.005595   0.669086  -0.000000  -0.000000  -0.000000
+    7  F  1  X    0.000000  -0.000000  -0.000000   0.481995  -0.000000
+    8  F  1  Y    0.000000  -0.000000  -0.000000  -0.000000   0.481995
+    9  F  1  Z    0.000000  -0.000000   0.481995  -0.000000  -0.000000
+   10  F  1  S    0.000807   0.412063  -0.000000  -0.000000  -0.000000
+   11  F  1  X    0.000000  -0.000000  -0.000000   0.419011  -0.000000
+   12  F  1  Y    0.000000  -0.000000  -0.000000  -0.000000   0.419011
+   13  F  1  Z    0.000000  -0.000000   0.419011  -0.000000  -0.000000
+   14  F  1 XX   -0.000418   0.021790  -0.000000  -0.000000  -0.000000
+   15  F  1 YY   -0.000418   0.021790  -0.000000  -0.000000  -0.000000
+   16  F  1 ZZ   -0.000418   0.021790  -0.000000  -0.000000  -0.000000
+   17  F  1 XY    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   18  F  1 XZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   19  F  1 YZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+
+                      6          7          8          9         10
+                    0.7447     1.1749     1.1749     1.1749     2.1021
+                     AG         B1U        B3U        B2U        B1G 
+    1  F  1  S    0.063268   0.000000   0.000000   0.000000   0.000000
+    2  F  1  S    0.101876   0.000000   0.000000   0.000000   0.000000
+    3  F  1  X   -0.000000   0.000000  -0.236171   0.000000   0.000000
+    4  F  1  Y   -0.000000   0.000000   0.000000  -0.236171   0.000000
+    5  F  1  Z   -0.000000  -0.236171   0.000000   0.000000   0.000000
+    6  F  1  S   -1.629447   0.000000   0.000000   0.000000   0.000000
+    7  F  1  X   -0.000000   0.000000  -0.778686   0.000000   0.000000
+    8  F  1  Y   -0.000000   0.000000   0.000000  -0.778686   0.000000
+    9  F  1  Z   -0.000000  -0.778686   0.000000   0.000000   0.000000
+   10  F  1  S    3.201107   0.000000   0.000000   0.000000   0.000000
+   11  F  1  X   -0.000000   0.000000   1.148432   0.000000   0.000000
+   12  F  1  Y   -0.000000   0.000000   0.000000   1.148432   0.000000
+   13  F  1  Z   -0.000000   1.148432   0.000000   0.000000   0.000000
+   14  F  1 XX   -0.778078   0.000000   0.000000   0.000000   0.000000
+   15  F  1 YY   -0.778078   0.000000   0.000000   0.000000   0.000000
+   16  F  1 ZZ   -0.778078   0.000000   0.000000   0.000000   0.000000
+   17  F  1 XY   -0.000000   0.000000   0.000000   0.000000   1.000000
+   18  F  1 XZ   -0.000000   0.000000   0.000000   0.000000   0.000000
+   19  F  1 YZ   -0.000000   0.000000   0.000000   0.000000   0.000000
+
+                     11         12         13         14         15
+                    2.1021     2.1021     2.1021     2.1021     3.4121
+                     B2G        B3G        AG         AG         AG  
+    1  F  1  S    0.000000   0.000000   0.000000  -0.000000  -0.138269
+    2  F  1  S    0.000000   0.000000   0.000000  -0.000000  -0.303242
+    3  F  1  X    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    4  F  1  Y    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    5  F  1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    6  F  1  S    0.000000   0.000000   0.000000  -0.000000   0.138116
+    7  F  1  X    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    8  F  1  Y    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    9  F  1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   10  F  1  S    0.000000   0.000000   0.000000  -0.000000   2.992907
+   11  F  1  X    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   12  F  1  Y    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   13  F  1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   14  F  1 XX    0.000000   0.000000   0.999834  -0.018203  -1.502881
+   15  F  1 YY    0.000000   0.000000  -0.484153   0.874983  -1.502881
+   16  F  1 ZZ    0.000000   0.000000  -0.515681  -0.856781  -1.502881
+   17  F  1 XY    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   18  F  1 XZ    1.000000   0.000000   0.000000  -0.000000  -0.000000
+   19  F  1 YZ    0.000000   1.000000   0.000000  -0.000000  -0.000000
+
+                     16         17         18         19
+                    6.5772     6.5772     6.5772    69.1662
+                     B3U        B2U        B1U        AG  
+    1  F  1  S   -0.000000  -0.000000  -0.000000  -2.328516
+    2  F  1  S   -0.000000  -0.000000  -0.000000   2.422084
+    3  F  1  X   -1.253818  -0.000000  -0.000000   0.000000
+    4  F  1  Y   -0.000000  -1.253818  -0.000000   0.000000
+    5  F  1  Z   -0.000000  -0.000000  -1.253818   0.000000
+    6  F  1  S   -0.000000  -0.000000  -0.000000  -0.093470
+    7  F  1  X    1.359611  -0.000000  -0.000000   0.000000
+    8  F  1  Y   -0.000000   1.359611  -0.000000   0.000000
+    9  F  1  Z   -0.000000  -0.000000   1.359611   0.000000
+   10  F  1  S   -0.000000  -0.000000  -0.000000  -0.321584
+   11  F  1  X   -0.516402  -0.000000  -0.000000   0.000000
+   12  F  1  Y   -0.000000  -0.516402  -0.000000   0.000000
+   13  F  1  Z   -0.000000  -0.000000  -0.516402   0.000000
+   14  F  1 XX   -0.000000  -0.000000  -0.000000   0.174722
+   15  F  1 YY   -0.000000  -0.000000  -0.000000   0.174722
+   16  F  1 ZZ   -0.000000  -0.000000  -0.000000   0.174722
+   17  F  1 XY   -0.000000  -0.000000  -0.000000   0.000000
+   18  F  1 XZ   -0.000000  -0.000000  -0.000000   0.000000
+   19  F  1 YZ   -0.000000  -0.000000  -0.000000   0.000000
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS  80.00%
+
+     ----------------------------------------------------------------
+     PROPERTY VALUES FOR THE MCSCF SELF-CONSISTENT FIELD WAVEFUNCTION
+     ----------------------------------------------------------------
+
+ ALL STATES AVERAGED IN THE MCSCF ARE DEGENERATE, THEREFORE
+ PROPERTIES WILL BE COMPUTED USING THE AVERAGE DENSITY MATRIX
+
+
+          -----------------
+          ENERGY COMPONENTS
+          -----------------
+
+         WAVEFUNCTION NORMALIZATION =       1.0000000000
+
+                ONE ELECTRON ENERGY =    -139.3018711226
+                TWO ELECTRON ENERGY =      39.9082103429
+           NUCLEAR REPULSION ENERGY =       0.0000000000
+                                      ------------------
+                       TOTAL ENERGY =     -99.3936607797
+
+ ELECTRON-ELECTRON POTENTIAL ENERGY =      39.9082103429
+  NUCLEUS-ELECTRON POTENTIAL ENERGY =    -238.6768232390
+   NUCLEUS-NUCLEUS POTENTIAL ENERGY =       0.0000000000
+                                      ------------------
+             TOTAL POTENTIAL ENERGY =    -198.7686128961
+               TOTAL KINETIC ENERGY =      99.3749521164
+                 VIRIAL RATIO (V/T) =       2.0001882634
+
+          ---------------------------------------
+          MULLIKEN AND LOWDIN POPULATION ANALYSES
+          ---------------------------------------
+
+               ----- POPULATIONS IN EACH AO -----
+                             MULLIKEN      LOWDIN
+              1  F  1  S      1.07692     1.02412
+              2  F  1  S      0.91967     0.94951
+              3  F  1  X      0.37263     0.38214
+              4  F  1  Y      0.37263     0.38214
+              5  F  1  Z      0.37263     0.38214
+              6  F  1  S      1.17721     0.96102
+              7  F  1  X      0.75142     0.74691
+              8  F  1  Y      0.75142     0.74691
+              9  F  1  Z      0.75142     0.74691
+             10  F  1  S      0.74438     0.54666
+             11  F  1  X      0.54262     0.53761
+             12  F  1  Y      0.54262     0.53761
+             13  F  1  Z      0.54262     0.53761
+             14  F  1 XX      0.02727     0.17290
+             15  F  1 YY      0.02727     0.17290
+             16  F  1 ZZ      0.02727     0.17290
+             17  F  1 XY      0.00000     0.00000
+             18  F  1 XZ      0.00000     0.00000
+             19  F  1 YZ      0.00000     0.00000
+
+          ----- MULLIKEN ATOMIC OVERLAP POPULATIONS -----
+          (OFF-DIAGONAL ELEMENTS NEED TO BE MULTIPLIED BY 2)
+
+             1
+
+    1    9.0000000
+
+          TOTAL MULLIKEN AND LOWDIN ATOMIC POPULATIONS
+       ATOM         MULL.POP.    CHARGE          LOW.POP.     CHARGE
+    1 F             9.000000    0.000000         9.000000   -0.000000
+
+          ---------------------
+          ELECTROSTATIC MOMENTS
+          ---------------------
+
+ POINT   1           X           Y           Z (BOHR)    CHARGE
+                 0.000000    0.000000    0.000000        0.00 (A.U.)
+         DX          DY          DZ         /D/  (DEBYE)
+     0.000000    0.000000    0.000000    0.000000
+ ...... END OF PROPERTY EVALUATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS  80.00%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1         0
+ TRANSFORMATION       1         0
+ ENERGY MATRIX        1         0
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1         0
+ 2E-DENSITY MATRIX    0         0
+ LAGRANGIAN MATRIX    0         0
+------------------------------------
+
+ -DRT- TABLE          0         0
+ TRANSFORMATION   
+
+          -----------------------     ----------------------------
+          GUGA DISTINCT ROW TABLE     WRITTEN BY B.R.BROOKS,P.SAXE
+          -----------------------     ----------------------------
+
+      GROUP=C1           NPRT=       0
+       FORS=       F   INTACT=       F
+       FOCI=       F   MXNINT=   50000
+       SOCI=       T   MXNEME=   10000
+     IEXCIT=       0
+
+      -CORE-    -INTERNAL-  -EXTERNAL-
+     NFZC=   1   NDOC=   3   NEXT=  14
+     NMCC=   0   NAOS=   0   NFZV=   0
+                 NBOS=   0
+                 NALP=   1
+                 NVAL=   0
+
+ THE MAXIMUM ELECTRON EXCITATION WILL BE   3
+
+ THE FOLLOWING ANALYSIS IS BASED UPON THE $DATA POINT GROUP:
+
+ SYMMETRIES FOR THE   1 CORE,   4 ACTIVE,  14 EXTERNAL MO-S ARE
+     CORE= AG  
+   ACTIVE= AG    B1U   B3U   B2U 
+           DOC   DOC   DOC   ALP 
+ EXTERNAL= AG    B1U   B3U   B2U   B1G   B2G   B3G   AG    AG    AG  
+           B3U   B2U   B1U   AG  
+
+ THE FOLLOWING ANALYSIS IS BASED UPON THE $DRT POINT GROUP:
+
+ SYMMETRIES FOR THE   1 CORE,   4 ACTIVE,  14 EXTERNAL MO-S ARE
+     CORE= A   
+   ACTIVE= A     A     A     A   
+           DOC   DOC   DOC   ALP 
+ EXTERNAL= A     A     A     A     A     A     A     A     A     A   
+           A     A     A     A   
+
+ MOLECULAR CHARGE          =    0
+ NUMBER OF ALPHA ELECTRONS =    5
+ NUMBER OF  BETA ELECTRONS =    4
+
+ THE ELECTRONIC STATE IS  2-A   
+
+ THE DISTINCT ROW TABLE HAS        75 ROWS.
+  THE WAVEFUNCTION CONTAINS      4512 WALKS (CSF-S).
+
+ TOTAL NUMBER OF INTEGRALS =      16509
+ NUMBER OF INTEGRALS/GROUP =      16509
+ NUMBER OF INTEGRAL GROUPS =          1
+ MAXIMUM RECORD SIZES ARE    4512 FOR UNIT 11    4512 FOR UNIT 12
+                            30001 FOR UNIT 15   30001 FOR UNIT 16
+ ...... END OF -DRT- GENERATION ...... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS  80.00%
+
+     --------------------------------------------
+     PARTIAL TWO ELECTRON INTEGRAL TRANSFORMATION
+     --------------------------------------------
+
+ NUMBER OF CORE MOLECULAR ORBITALS     =    1
+ NUMBER OF OCCUPIED MOLECULAR ORBITALS =   19
+ TOTAL NUMBER OF MOLECULAR ORBITALS    =   19
+ TOTAL NUMBER OF ATOMIC ORBITALS       =   19
+ THRESHOLD FOR KEEPING TRANSFORMED 2E- INTEGRALS = 1.000E-09
+ AO INTEGRALS WILL BE READ IN FROM DISK...
+ EVALUATING THE FROZEN CORE ENERGY...
+ ----- FROZEN CORE ENERGY =       -75.4766576629
+
+ PLAN A: REQUIREMENTS FOR FULLY IN-MEMORY TRANSFORMATION:
+ # OF WORDS AVAILABLE =               700000
+ # OF WORDS NEEDED    =               126825
+
+ CHOOSING IN MEMORY PARTIAL TRANSFORMATION...
+ TOTAL NUMBER OF TRANSFORMED 2E- INTEGRALS KEPT =         2148
+ ... END OF INTEGRAL TRANSFORMATION ...
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS  80.00%
+
+          ------------------------
+          GUGA-CI INTEGRAL SORTING
+          ------------------------
+
+     80721 WORDS NEEDED TO SORT          16509 GUGA INTEGRALS IN MEMORY
+    700000 WORDS ARE AVAILABLE
+ CHOOSING IN-MEMORY SORTING...
+ IN CORE ALGORITHM SORTED            171 NON-ZERO 1E- INTEGRALS
+ IN CORE ALGORITHM SORTED           2148 NON-ZERO 2E- INTEGRALS
+ ...... END OF INTEGRAL SORTING ...... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  66.67%
+
+ -------------------------     ---------------------------------------
+ ENERGY MATRIX CALCULATION     WRITTEN BY B.R.BROOKS,W.D.LAIDIG,P.SAXE
+ -------------------------     ---------------------------------------
+
+ COMPUTING THE HAMILTONIAN FOR THE      4512 CSF-S...
+
+     1126381 IS THE TOTAL NUMBER OF GENERATED LOOPS
+     1126381 WERE CREATED BY THE LOOP-DRIVEN ALGORITHM
+           0 WERE CREATED IMPLICITLY
+
+      153611 IS THE TOTAL NUMBER OF PROCESSED LOOPS
+       11826     DIAGONAL LOOPS ARE STORED ON WORK15 IN     2 BUFFERS OF  10000 ELEMENTS.
+      141785 OFF DIAGONAL LOOPS ARE STORED ON WORK16 IN    15 BUFFERS OF  10000 ELEMENTS.
+ ...... END OF ENERGY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.08 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  92.31%
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     352318
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0  10(MAX.TOL.STATE)    -99.393660780  1    -99.393660780  2    -99.393660780  3
+   1   8  0.30658140  4    -99.504573450  1    -99.504571392  2    -99.504568838  3
+   2   7  0.07431824  1    -99.543229445  1    -99.543203685  2    -99.543149847  3
+   3   6  0.01990826  3    -99.544131767  1    -99.544131366  2    -99.544130121  3
+   4   5  0.99999221  4    -99.544175146  1    -99.544175004  2    -99.544174998  3
+   5   4  0.00113708  3    -99.544178049  1    -99.544178043  2    -99.544178036  3
+   6   3  0.00010775  2    -99.544178102  1    -99.544178102  2    -99.544178097  3
+   7   3  0.00003515  3    -99.544178103  1    -99.544178103  2    -99.544178102  3
+   8   3  0.00000807  3    -99.544178103  1    -99.544178103  2    -99.544178103  3
+   9   3  0.00000113  3    -99.544178103  1    -99.544178103  2    -99.544178103  3
+  10   1  0.00000018  1    -99.544178103  1    -99.544178103  2    -99.544178103  3
+
+ STATE #    1  ENERGY =     -99.544178103
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        4    0.983943  222100000000000000
+
+ STATE #    2  ENERGY =     -99.544178103
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.984452  221200000000000000
+
+ STATE #    3  ENERGY =     -99.544178103
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.983943  212200000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.06 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  90.00%
+
+          --------------------------------------
+          CI DENSITY MATRIX AND NATURAL ORBITALS
+          --------------------------------------
+ PROPERTIES WILL BE COMPUTED FOR STATE -IROOT-   1 WITH E=      -99.5441781026
+ NFLGDM=   1   0   0
+ NWORD=         0  IBLOCK=   0
+ NUMBER OF STATES         =      3
+ NUMBER OF CONFIGURATIONS =   4512
+
+          CI EIGENSTATE    1 TOTAL ENERGY =      -99.5441781026
+          DENSITY MATRIX OF STATE   1 SAVED FOR PROPERTY ANALYSIS
+
+          NATURAL ORBITALS IN ATOMIC ORBITAL BASIS
+          ----------------------------------------
+
+                      1          2          3          4          5
+                    2.0000     1.9872     1.9811     1.9801     0.9973
+                     AG         AG         B3U        B1U        B2U 
+    1  F  1  S    0.547686  -0.127570  -0.000000  -0.000000  -0.000000
+    2  F  1  S    0.473522  -0.213229  -0.000000  -0.000000  -0.000000
+    3  F  1  X    0.000000  -0.000000   0.323155  -0.000000  -0.000000
+    4  F  1  Y    0.000000  -0.000000  -0.000000  -0.000000   0.329884
+    5  F  1  Z    0.000000  -0.000000  -0.000000   0.323158  -0.000000
+    6  F  1  S    0.005595   0.661997  -0.000000  -0.000000  -0.000000
+    7  F  1  X    0.000000  -0.000000   0.467821  -0.000000  -0.000000
+    8  F  1  Y    0.000000  -0.000000  -0.000000  -0.000000   0.492200
+    9  F  1  Z    0.000000  -0.000000  -0.000000   0.467834  -0.000000
+   10  F  1  S    0.000807   0.429175  -0.000000  -0.000000  -0.000000
+   11  F  1  X    0.000000  -0.000000   0.434955  -0.000000  -0.000000
+   12  F  1  Y    0.000000  -0.000000  -0.000000  -0.000000   0.399482
+   13  F  1  Z    0.000000  -0.000000  -0.000000   0.434937  -0.000000
+   14  F  1 XX   -0.000418   0.017236  -0.000000  -0.000000  -0.000000
+   15  F  1 YY   -0.000418   0.016127  -0.000000  -0.000000  -0.000000
+   16  F  1 ZZ   -0.000418   0.017235  -0.000000  -0.000000  -0.000000
+   17  F  1 XY    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   18  F  1 XZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   19  F  1 YZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+
+                      6          7          8          9         10
+                    0.0119     0.0119     0.0074     0.0051     0.0034
+                     B3U        B1U        AG         B2U        B3G 
+    1  F  1  S   -0.000000  -0.000000  -0.154799  -0.000000   0.000000
+    2  F  1  S   -0.000000  -0.000000  -0.225915  -0.000000   0.000000
+    3  F  1  X   -0.584087  -0.000000   0.000000  -0.000000   0.000000
+    4  F  1  Y   -0.000000  -0.000000   0.000000  -0.564256   0.000000
+    5  F  1  Z   -0.000000  -0.584051   0.000000  -0.000000   0.000000
+    6  F  1  S   -0.000000  -0.000000   1.388111  -0.000000   0.000000
+    7  F  1  X   -0.368404  -0.000000   0.000000  -0.000000   0.000000
+    8  F  1  Y   -0.000000  -0.000000   0.000000  -0.368019   0.000000
+    9  F  1  Z   -0.000000  -0.368439   0.000000  -0.000000   0.000000
+   10  F  1  S   -0.000000  -0.000000  -0.893880  -0.000000   0.000000
+   11  F  1  X    0.951226  -0.000000   0.000000  -0.000000   0.000000
+   12  F  1  Y   -0.000000  -0.000000   0.000000   0.970807   0.000000
+   13  F  1  Z   -0.000000   0.951255   0.000000  -0.000000   0.000000
+   14  F  1 XX   -0.000000  -0.000000  -0.315152  -0.000000   0.000000
+   15  F  1 YY   -0.000000  -0.000000  -0.020289  -0.000000   0.000000
+   16  F  1 ZZ   -0.000000  -0.000000  -0.314866  -0.000000   0.000000
+   17  F  1 XY   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   18  F  1 XZ   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   19  F  1 YZ   -0.000000  -0.000000   0.000000  -0.000000   1.000000
+
+                     11         12         13         14         15
+                    0.0034     0.0033     0.0032     0.0032     0.0005
+                     B1G        AG         B2G        AG         B3U 
+    1  F  1  S    0.000000   0.039025   0.000000  -0.000462  -0.000000
+    2  F  1  S    0.000000   0.046801   0.000000  -0.000552  -0.000000
+    3  F  1  X    0.000000   0.000000   0.000000  -0.000000  -1.133996
+    4  F  1  Y    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    5  F  1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    6  F  1  S    0.000000  -0.246065   0.000000   0.002899  -0.000000
+    7  F  1  X    0.000000   0.000000   0.000000  -0.000000   1.527296
+    8  F  1  Y    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    9  F  1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   10  F  1  S    0.000000   0.017798   0.000000  -0.000189  -0.000000
+   11  F  1  X    0.000000   0.000000   0.000000  -0.000000  -0.816775
+   12  F  1  Y    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   13  F  1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   14  F  1 XX    0.000000  -0.373851   0.000000   0.870068  -0.000000
+   15  F  1 YY    0.000000   1.086260   0.000000  -0.011984  -0.000000
+   16  F  1 ZZ    0.000000  -0.392860   0.000000  -0.861879  -0.000000
+   17  F  1 XY    1.000000   0.000000   0.000000  -0.000000  -0.000000
+   18  F  1 XZ    0.000000   0.000000   1.000000  -0.000000  -0.000000
+   19  F  1 YZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+
+                     16         17         18         19
+                    0.0005     0.0003     0.0002     0.0000
+                     B1U        B2U        AG         AG  
+    1  F  1  S   -0.000000  -0.000000  -0.282195  -2.310835
+    2  F  1  S   -0.000000  -0.000000   0.028897   2.432065
+    3  F  1  X   -0.000000  -0.000000   0.000000   0.000000
+    4  F  1  Y   -0.000000  -1.142071   0.000000   0.000000
+    5  F  1  Z   -1.134014  -0.000000   0.000000   0.000000
+    6  F  1  S   -0.000000  -0.000000  -0.838849  -0.035655
+    7  F  1  X   -0.000000  -0.000000   0.000000   0.000000
+    8  F  1  Y   -0.000000   1.519708   0.000000   0.000000
+    9  F  1  Z    1.527284  -0.000000   0.000000   0.000000
+   10  F  1  S   -0.000000  -0.000000   4.244500  -0.691721
+   11  F  1  X   -0.000000  -0.000000   0.000000   0.000000
+   12  F  1  Y   -0.000000  -0.811840   0.000000   0.000000
+   13  F  1  Z   -0.816751  -0.000000   0.000000   0.000000
+   14  F  1 XX   -0.000000  -0.000000  -1.670971   0.326367
+   15  F  1 YY   -0.000000  -0.000000  -1.615195   0.324699
+   16  F  1 ZZ   -0.000000  -0.000000  -1.670908   0.326365
+   17  F  1 XY   -0.000000  -0.000000   0.000000   0.000000
+   18  F  1 XZ   -0.000000  -0.000000   0.000000   0.000000
+   19  F  1 YZ   -0.000000  -0.000000   0.000000   0.000000
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  90.00%
+
+     --------------------------------------------------------
+     GUGA  CI PROPERTIES...FOR THE WAVEFUNCTION OF STATE    1
+               USING THE EXPECTATION VALUE DENSITY
+     --------------------------------------------------------
+
+          -----------------
+          ENERGY COMPONENTS
+          -----------------
+
+         WAVEFUNCTION NORMALIZATION =       1.0000000000
+
+                ONE ELECTRON ENERGY =    -139.0179217048
+                TWO ELECTRON ENERGY =      39.4737436022
+           NUCLEAR REPULSION ENERGY =       0.0000000000
+                                      ------------------
+                       TOTAL ENERGY =     -99.5441781026
+
+ ELECTRON-ELECTRON POTENTIAL ENERGY =      39.4737436022
+  NUCLEUS-ELECTRON POTENTIAL ENERGY =    -238.4251251127
+   NUCLEUS-NUCLEUS POTENTIAL ENERGY =       0.0000000000
+                                      ------------------
+             TOTAL POTENTIAL ENERGY =    -198.9513815105
+               TOTAL KINETIC ENERGY =      99.4072034079
+                 VIRIAL RATIO (V/T) =       2.0013779152
+
+          ---------------------------------------
+          MULLIKEN AND LOWDIN POPULATION ANALYSES
+          ---------------------------------------
+
+               ----- POPULATIONS IN EACH AO -----
+                             MULLIKEN      LOWDIN
+              1  F  1  S      1.07694     1.02406
+              2  F  1  S      0.91964     0.94930
+              3  F  1  X      0.44620     0.45384
+              4  F  1  Y      0.23369     0.24019
+              5  F  1  Z      0.44598     0.45362
+              6  F  1  S      1.15903     0.95217
+              7  F  1  X      0.86436     0.87015
+              8  F  1  Y      0.46099     0.45426
+              9  F  1  Z      0.86394     0.86972
+             10  F  1  S      0.77409     0.55214
+             11  F  1  X      0.68294     0.66951
+             12  F  1  Y      0.30804     0.30827
+             13  F  1  Z      0.68255     0.66914
+             14  F  1 XX      0.02445     0.17505
+             15  F  1 YY      0.02272     0.17355
+             16  F  1 ZZ      0.02445     0.17505
+             17  F  1 XY      0.00337     0.00337
+             18  F  1 XZ      0.00324     0.00324
+             19  F  1 YZ      0.00337     0.00337
+
+          ----- MULLIKEN ATOMIC OVERLAP POPULATIONS -----
+          (OFF-DIAGONAL ELEMENTS NEED TO BE MULTIPLIED BY 2)
+
+             1
+
+    1    9.0000000
+
+          TOTAL MULLIKEN AND LOWDIN ATOMIC POPULATIONS
+       ATOM         MULL.POP.    CHARGE          LOW.POP.     CHARGE
+    1 F             9.000000    0.000000         9.000000   -0.000000
+
+          ---------------------
+          ELECTROSTATIC MOMENTS
+          ---------------------
+
+ POINT   1           X           Y           Z (BOHR)    CHARGE
+                 0.000000    0.000000    0.000000       -0.00 (A.U.)
+         DX          DY          DZ         /D/  (DEBYE)
+     0.000000    0.000000    0.000000    0.000000
+ ...... END OF PROPERTY EVALUATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  90.00%
+
+ TRUDGE ENERGY VALUE AT NSTEP=   0 IS      -99.5441781026
+ ----- TRUDGE RESTART DATA AT NSTEP   1 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      0.884137,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  90.00%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  90.00%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   1      -99.393133392 -0.393133392  0.031961    6    2 4.993E-05  1   0.0000
+   2      -99.393379335 -0.000245943  0.003955    9    5 5.654E-06  1   0.0000
+   3      -99.393398050 -0.000018714  0.000903   19    2 2.930E-08  1   0.0000
+   4      -99.393398192 -0.000000143  0.000009   15    2 3.584E-12  1   0.0000
+   5      -99.393398192 -0.000000000  0.000001   15    2 5.175E-14  1   0.0000
+
+          ----------------
+          ENERGY CONVERGED
+          ----------------
+
+ FINAL MCSCF ENERGY IS      -99.3933981925 AFTER   5 ITERATIONS
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     8 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)=-2.00(  1.2%)  0.00( 97.7%)  2.00(  1.2%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00( 48.8%)  0.00(  2.3%)  2.00( 48.8%) 
+ MO    15 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    16 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  95.24%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1        -5
+ TRANSFORMATION       1        -5
+ ENERGY MATRIX        1        -5
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1        -5
+ 2E-DENSITY MATRIX    0        -5
+ LAGRANGIAN MATRIX    0        -5
+------------------------------------
+
+ -DRT- TABLE          0        -5
+ TRANSFORMATION   
+
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     329608
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0   3(MAX.TOL.STATE)    -99.393398192  1    -99.393398192  2    -99.393398192  3
+   1   3  0.11714461  1    -99.510644063  1    -99.510643822  2    -99.510641041  3
+   2   3  0.07362867  1    -99.548200720  1    -99.548178153  2    -99.548128232  3
+   3   3  0.01941044  3    -99.549068853  1    -99.549068266  2    -99.549067297  3
+   4   3  0.00394851  1    -99.549112089  1    -99.549112049  2    -99.549112031  3
+   5   3  0.00046844  1    -99.549112978  1    -99.549112977  2    -99.549112977  3
+   6   3  0.00007094  2    -99.549112996  1    -99.549112996  2    -99.549112996  3
+   7   3  0.00001134  3    -99.549112996  1    -99.549112996  2    -99.549112996  3
+   8   3  0.00000182  3    -99.549112996  1    -99.549112996  2    -99.549112996  3
+   9   3  0.00000027  2    -99.549112996  1    -99.549112996  2    -99.549112996  3
+
+ STATE #    1  ENERGY =     -99.549112996
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.984370  221200000000000000
+
+ STATE #    2  ENERGY =     -99.549112996
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.973333  212200000000000000
+        4   -0.147079  222100000000000000
+
+ STATE #    3  ENERGY =     -99.549112996
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.147077  212200000000000000
+        4    0.973321  222100000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.12 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.3 SECONDS, CPU UTILIZATION IS  96.97%
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.3 SECONDS, CPU UTILIZATION IS  96.97%
+
+ TRUDGE ENERGY VALUE AT NSTEP=   1 IS      -99.5491129963
+ LOOKS =  1   ALF =  0.1000  FUNC =      -99.5491129963
+             AMIN =  0.1000  FMIN =      -99.5491129963
+            ANEXT =  0.0000 FNEXT =      -99.5441781026
+ ----- TRUDGE RESTART DATA AT NSTEP   2 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      0.841017,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.3 SECONDS, CPU UTILIZATION IS  94.12%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.3 SECONDS, CPU UTILIZATION IS  94.12%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   1      -99.393483957 -0.393483957  0.012782    6    2 8.393E-06  1   0.0000
+   2      -99.393526639 -0.000042682  0.001577    8    3 1.027E-06  1   0.0000
+   3      -99.393529908 -0.000003269  0.000370   15    2 5.703E-09  1   0.0000
+   4      -99.393529944 -0.000000036  0.000036   15    2 2.122E-11  1   0.0000
+   5      -99.393529944 -0.000000000  0.000002   15    2 1.131E-13  1   0.0000
+
+          ---------------
+          SQCDF CONVERGED (BUT THE LAGRANGIAN MATRIX IS NOT ENTIRELY SYMMETRIC)
+          ---------------
+
+ FINAL MCSCF ENERGY IS      -99.3935299443 AFTER   5 ITERATIONS
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     8 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)=-2.00( 11.4%)  0.00( 77.2%)  2.00( 11.4%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00( 38.6%)  0.00( 22.8%)  2.00( 38.6%) 
+ MO    15 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    16 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.3 SECONDS, CPU UTILIZATION IS  97.06%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1        -5
+ TRANSFORMATION       1        -5
+ ENERGY MATRIX        1        -5
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1        -5
+ 2E-DENSITY MATRIX    0        -5
+ LAGRANGIAN MATRIX    0        -5
+------------------------------------
+
+ -DRT- TABLE          0        -5
+ TRANSFORMATION   
+
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     329608
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0   3(MAX.TOL.STATE)    -99.393529944  1    -99.393529944  2    -99.393529944  3
+   1   3  0.11554307  1    -99.507632684  1    -99.507630693  2    -99.507628293  3
+   2   3  0.07396832  1    -99.545757959  1    -99.545733445  2    -99.545681613  3
+   3   3  0.01964476  3    -99.546641353  1    -99.546640926  2    -99.546639789  3
+   4   3  0.00402765  1    -99.546685684  1    -99.546685645  2    -99.546685626  3
+   5   3  0.00047135  1    -99.546686575  1    -99.546686574  2    -99.546686574  3
+   6   3  0.00007236  2    -99.546686593  1    -99.546686593  2    -99.546686593  3
+   7   3  0.00001167  3    -99.546686594  1    -99.546686594  2    -99.546686594  3
+   8   3  0.00000184  3    -99.546686594  1    -99.546686594  2    -99.546686594  3
+   9   3  0.00000027  3    -99.546686594  1    -99.546686594  2    -99.546686594  3
+
+ STATE #    1  ENERGY =     -99.546686594
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        4    0.983450  222100000000000000
+
+ STATE #    2  ENERGY =     -99.546686594
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.905633  221200000000000000
+        2   -0.385173  212200000000000000
+
+ STATE #    3  ENERGY =     -99.546686594
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.385804  221200000000000000
+        2    0.904910  212200000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.12 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  95.74%
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  97.87%
+
+ TRUDGE ENERGY VALUE AT NSTEP=   2 IS      -99.5466865936
+ LOOKS =  2   ALF =  0.0500  FUNC =      -99.5466865936
+             AMIN =  0.1000  FMIN =      -99.5491129963
+            ANEXT =  0.0500 FNEXT =      -99.5466865936
+ ----- TRUDGE RESTART DATA AT NSTEP   3 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      0.929467,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  97.87%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  97.87%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   1      -99.393075959 -0.393075959  0.027668    6    2 3.605E-05  1   0.0000
+   2      -99.393255043 -0.000179084  0.003356    9    4 4.104E-06  1   0.0000
+   3      -99.393268606 -0.000013563  0.000743   19    2 2.211E-08  1   0.0000
+   4      -99.393268716 -0.000000111  0.000020   15    2 6.615E-12  1   0.0000
+   5      -99.393268716 -0.000000000  0.000002   15    2 1.296E-13  1   0.0000
+
+          ---------------
+          SQCDF CONVERGED (BUT THE LAGRANGIAN MATRIX IS NOT ENTIRELY SYMMETRIC)
+          ---------------
+
+ FINAL MCSCF ENERGY IS      -99.3932687164 AFTER   5 ITERATIONS
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     8 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)=-2.00(  4.6%)  0.00( 90.7%)  2.00(  4.6%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00( 45.4%)  0.00(  9.3%)  2.00( 45.4%) 
+ MO    15 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    16 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  95.83%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1        -5
+ TRANSFORMATION       1        -5
+ ENERGY MATRIX        1        -5
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1        -5
+ 2E-DENSITY MATRIX    0        -5
+ LAGRANGIAN MATRIX    0        -5
+------------------------------------
+
+ -DRT- TABLE          0        -5
+ TRANSFORMATION   
+
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     329608
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0   3(MAX.TOL.STATE)    -99.393268716  1    -99.393268716  2    -99.393268716  3
+   1   3  0.11863482  1    -99.513594068  1    -99.513593514  2    -99.513591032  3
+   2   3  0.07330451  1    -99.550545407  1    -99.550524070  2    -99.550475935  3
+   3   3  0.01921194  3    -99.551401082  1    -99.551400502  2    -99.551399640  3
+   4   3  0.00387118  1    -99.551443386  1    -99.551443346  2    -99.551443328  3
+   5   3  0.00046649  1    -99.551444276  1    -99.551444275  2    -99.551444274  3
+   6   3  0.00006975  2    -99.551444293  1    -99.551444293  2    -99.551444293  3
+   7   3  0.00001104  3    -99.551444294  1    -99.551444294  2    -99.551444294  3
+   8   3  0.00000181  3    -99.551444294  1    -99.551444294  2    -99.551444294  3
+   9   3  0.00000026  2    -99.551444294  1    -99.551444294  2    -99.551444294  3
+
+ STATE #    1  ENERGY =     -99.551444294
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.984371  221200000000000000
+
+ STATE #    2  ENERGY =     -99.551444294
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.978087  212200000000000000
+        4   -0.111048  222100000000000000
+
+ STATE #    3  ENERGY =     -99.551444294
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.111048  212200000000000000
+        4    0.978087  222100000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.12 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS  96.67%
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS  96.67%
+
+ TRUDGE ENERGY VALUE AT NSTEP=   3 IS      -99.5514442937
+ LOOKS =  3   ALF =  0.1500  FUNC =      -99.5514442937
+             AMIN =  0.1500  FMIN =      -99.5514442937
+            ANEXT =  0.1000 FNEXT =      -99.5491129963
+ ----- TRUDGE RESTART DATA AT NSTEP   4 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      0.977122,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS  96.67%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS  98.33%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   1      -99.393115692 -0.393115692  0.010776    6    2 5.267E-06  1   0.0000
+   2      -99.393142186 -0.000026493  0.001257    8    5 5.997E-07  1   0.0000
+   3      -99.393144128 -0.000001942  0.000261   15    2 3.748E-09  1   0.0000
+   4      -99.393144149 -0.000000021  0.000023   15    2 5.949E-12  1   0.0000
+   5      -99.393144149 -0.000000000  0.000002   15    2 9.921E-14  1   0.0000
+
+          ---------------
+          SQCDF CONVERGED (BUT THE LAGRANGIAN MATRIX IS NOT ENTIRELY SYMMETRIC)
+          ---------------
+
+ FINAL MCSCF ENERGY IS      -99.3931441492 AFTER   5 ITERATIONS
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     8 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-2.00( 11.8%) -0.00( 76.5%)  2.00( 11.8%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00( 38.2%) -0.00( 23.5%)  2.00( 38.2%) 
+ MO    15 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    16 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS  96.72%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1        -5
+ TRANSFORMATION       1        -5
+ ENERGY MATRIX        1        -5
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1        -5
+ 2E-DENSITY MATRIX    0        -5
+ LAGRANGIAN MATRIX    0        -5
+------------------------------------
+
+ -DRT- TABLE          0        -5
+ TRANSFORMATION   
+
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     329608
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0   3(MAX.TOL.STATE)    -99.393144149  1    -99.393144149  2    -99.393144149  3
+   1   3  0.11999907  1    -99.516462302  1    -99.516460087  2    -99.516457696  3
+   2   3  0.07301014  1    -99.552776967  1    -99.552756280  2    -99.552709615  3
+   3   3  0.01905349  3    -99.553623372  1    -99.553622872  2    -99.553622127  3
+   4   3  0.00379556  1    -99.553664877  1    -99.553664839  2    -99.553664821  3
+   5   3  0.00046515  1    -99.553665771  1    -99.553665770  2    -99.553665769  3
+   6   3  0.00006870  2    -99.553665788  1    -99.553665788  2    -99.553665788  3
+   7   3  0.00001079  3    -99.553665789  1    -99.553665789  2    -99.553665789  3
+   8   3  0.00000180  3    -99.553665789  1    -99.553665789  2    -99.553665789  3
+   9   3  0.00000026  3    -99.553665789  1    -99.553665789  2    -99.553665789  3
+
+ STATE #    1  ENERGY =     -99.553665789
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.984358  221200000000000000
+
+ STATE #    2  ENERGY =     -99.553665789
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        4    0.983922  222100000000000000
+
+ STATE #    3  ENERGY =     -99.553665789
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.983933  212200000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.13 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS  98.63%
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS  98.63%
+
+ TRUDGE ENERGY VALUE AT NSTEP=   4 IS      -99.5536657886
+ LOOKS =  4   ALF =  0.2000  FUNC =      -99.5536657886
+             AMIN =  0.2000  FMIN =      -99.5536657886
+            ANEXT =  0.1500 FNEXT =      -99.5514442937
+ ----- TRUDGE RESTART DATA AT NSTEP   5 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      1.027220,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS  98.63%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS  97.30%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   1      -99.393005758 -0.393005758  0.009400    6    2 3.865E-06  1   0.0000
+   2      -99.393025343 -0.000019585  0.001060    8    4 4.337E-07  1   0.0000
+   3      -99.393026740 -0.000001396  0.000284   15    2 3.067E-09  1   0.0000
+   4      -99.393026758 -0.000000019  0.000025   15    2 6.357E-12  1   0.0000
+   5      -99.393026758 -0.000000000  0.000002   15    2 9.962E-14  1   0.0000
+
+          ----------------
+          ENERGY CONVERGED
+          ----------------
+
+ FINAL MCSCF ENERGY IS      -99.3930267585 AFTER   5 ITERATIONS
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     8 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)=-2.00( 15.1%)  0.00( 69.8%)  2.00( 15.1%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00( 34.9%)  0.00( 30.2%)  2.00( 34.9%) 
+ MO    15 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    16 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS  97.30%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1        -5
+ TRANSFORMATION       1        -5
+ ENERGY MATRIX        1        -5
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1        -5
+ 2E-DENSITY MATRIX    0        -5
+ LAGRANGIAN MATRIX    0        -5
+------------------------------------
+
+ -DRT- TABLE          0        -5
+ TRANSFORMATION   
+
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     329608
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0   3(MAX.TOL.STATE)    -99.393026758  1    -99.393026758  2    -99.393026758  3
+   1   3  0.12121989  1    -99.519222819  1    -99.519220740  2    -99.519218543  3
+   2   3  0.07275572  1    -99.554878938  1    -99.554859658  2    -99.554814677  3
+   3   3  0.01893076  3    -99.555720064  1    -99.555719524  2    -99.555718908  3
+   4   3  0.00372534  1    -99.555760788  1    -99.555760748  2    -99.555760730  3
+   5   3  0.00046487  1    -99.555761685  1    -99.555761684  2    -99.555761683  3
+   6   3  0.00006769  2    -99.555761702  1    -99.555761702  2    -99.555761702  3
+   7   3  0.00001056  3    -99.555761702  1    -99.555761702  2    -99.555761702  3
+   8   3  0.00000179  3    -99.555761702  1    -99.555761702  2    -99.555761702  3
+   9   3  0.00000025  2    -99.555761702  1    -99.555761702  2    -99.555761702  3
+
+ STATE #    1  ENERGY =     -99.555761702
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        4    0.983506  222100000000000000
+
+ STATE #    2  ENERGY =     -99.555761702
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.983499  212200000000000000
+
+ STATE #    3  ENERGY =     -99.555761702
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.984388  221200000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.13 TOTAL CPU TIME =        0.9 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.9 SECONDS, CPU UTILIZATION IS  97.70%
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.9 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.9 SECONDS, CPU UTILIZATION IS  97.70%
+
+ TRUDGE ENERGY VALUE AT NSTEP=   5 IS      -99.5557617021
+ LOOKS =  5   ALF =  0.2500  FUNC =      -99.5557617021
+             AMIN =  0.2500  FMIN =      -99.5557617021
+            ANEXT =  0.2000 FNEXT =      -99.5536657886
+ ----- TRUDGE RESTART DATA AT NSTEP   6 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      1.079887,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.9 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.9 SECONDS, CPU UTILIZATION IS  97.70%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.9 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.9 SECONDS, CPU UTILIZATION IS  97.70%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   1      -99.392902987 -0.392902987  0.008175    6    2 2.829E-06  1   0.0000
+   2      -99.392917497 -0.000014510  0.000885    7    3 3.097E-07  1   0.0000
+   3      -99.392918484 -0.000000988  0.000309   15    2 2.578E-09  1   0.0000
+   4      -99.392918502 -0.000000017  0.000027   15    2 6.875E-12  1   0.0000
+   5      -99.392918502 -0.000000000  0.000002   15    2 1.042E-13  1   0.0000
+
+          ----------------
+          ENERGY CONVERGED
+          ----------------
+
+ FINAL MCSCF ENERGY IS      -99.3929185019 AFTER   5 ITERATIONS
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     8 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)=-2.00( 30.1%)  0.00( 39.8%)  2.00( 30.1%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00( 19.9%)  0.00( 60.2%)  2.00( 19.9%) 
+ MO    15 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    16 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.9 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.9 SECONDS, CPU UTILIZATION IS  98.85%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1        -5
+ TRANSFORMATION       1        -5
+ ENERGY MATRIX        1        -5
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1        -5
+ 2E-DENSITY MATRIX    0        -5
+ LAGRANGIAN MATRIX    0        -5
+------------------------------------
+
+ -DRT- TABLE          0        -5
+ TRANSFORMATION   
+
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     329608
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0   3(MAX.TOL.STATE)    -99.392918502  1    -99.392918502  2    -99.392918502  3
+   1   3  0.12228282  1    -99.521850256  1    -99.521848711  2    -99.521846729  3
+   2   3  0.07254868  1    -99.556835087  1    -99.556817370  2    -99.556774019  3
+   3   3  0.01884873  3    -99.557674657  1    -99.557674056  2    -99.557673575  3
+   4   3  0.00365961  1    -99.557714682  1    -99.557714642  2    -99.557714623  3
+   5   3  0.00046539  1    -99.557715583  1    -99.557715582  2    -99.557715582  3
+   6   3  0.00006680  2    -99.557715600  1    -99.557715600  2    -99.557715600  3
+   7   3  0.00001035  3    -99.557715600  1    -99.557715600  2    -99.557715600  3
+   8   3  0.00000178  3    -99.557715600  1    -99.557715600  2    -99.557715600  3
+   9   3  0.00000024  3    -99.557715600  1    -99.557715600  2    -99.557715600  3
+
+ STATE #    1  ENERGY =     -99.557715600
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.984346  221200000000000000
+
+ STATE #    2  ENERGY =     -99.557715600
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2   -0.258129  212200000000000000
+        4    0.949898  222100000000000000
+
+ STATE #    3  ENERGY =     -99.557715600
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.949982  212200000000000000
+        4    0.258154  222100000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.12 TOTAL CPU TIME =        1.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.0 SECONDS, CPU UTILIZATION IS  98.00%
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.0 SECONDS, CPU UTILIZATION IS  98.00%
+
+ TRUDGE ENERGY VALUE AT NSTEP=   6 IS      -99.5577156004
+ LOOKS =  6   ALF =  0.3000  FUNC =      -99.5577156004
+             AMIN =  0.3000  FMIN =      -99.5577156004
+            ANEXT =  0.2500 FNEXT =      -99.5557617021
+ ----- TRUDGE RESTART DATA AT NSTEP   7 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      1.135254,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.0 SECONDS, CPU UTILIZATION IS  98.00%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.0 SECONDS, CPU UTILIZATION IS  98.00%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   1      -99.392809511 -0.392809511  0.007072    6    2 2.062E-06  1   0.0000
+   2      -99.392820323 -0.000010812  0.000728    7    4 2.168E-07  1   0.0000
+   3      -99.392821006 -0.000000683  0.000332   15    2 2.211E-09  1   0.0000
+   4      -99.392821023 -0.000000016  0.000029   15    2 7.488E-12  1   0.0000
+   5      -99.392821023 -0.000000000  0.000002   15    2 1.158E-13  1   0.0000
+
+          ----------------
+          ENERGY CONVERGED
+          ----------------
+
+ FINAL MCSCF ENERGY IS      -99.3928210227 AFTER   5 ITERATIONS
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     8 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)=-2.00( 27.2%)  0.00( 45.7%)  2.00( 27.2%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00( 22.8%)  0.00( 54.3%)  2.00( 22.8%) 
+ MO    15 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    16 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        1.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.0 SECONDS, CPU UTILIZATION IS  98.02%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1        -5
+ TRANSFORMATION       1        -5
+ ENERGY MATRIX        1        -5
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1        -5
+ 2E-DENSITY MATRIX    0        -5
+ LAGRANGIAN MATRIX    0        -5
+------------------------------------
+
+ -DRT- TABLE          0        -5
+ TRANSFORMATION   
+
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     329608
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0   3(MAX.TOL.STATE)    -99.392821023  1    -99.392821023  2    -99.392821023  3
+   1   3  0.12317472  1    -99.524318520  1    -99.524316055  2    -99.524311565  3
+   2   3  0.07239474  1    -99.558628607  1    -99.558611910  2    -99.558568764  3
+   3   3  0.01881843  3    -99.559470297  1    -99.559469687  2    -99.559469459  3
+   4   3  0.00359385  1    -99.559509788  1    -99.559509749  2    -99.559509730  3
+   5   3  0.00046657  1    -99.559510697  1    -99.559510696  2    -99.559510696  3
+   6   3  0.00006598  2    -99.559510714  1    -99.559510714  2    -99.559510714  3
+   7   3  0.00001023  3    -99.559510714  1    -99.559510714  2    -99.559510714  3
+   8   3  0.00000178  3    -99.559510714  1    -99.559510714  2    -99.559510714  3
+   9   3  0.00000024  3    -99.559510714  1    -99.559510714  2    -99.559510714  3
+
+ STATE #    1  ENERGY =     -99.559510714
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.984484  221200000000000000
+
+ STATE #    2  ENERGY =     -99.559510714
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        4    0.983976  222100000000000000
+
+ STATE #    3  ENERGY =     -99.559510714
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.983977  212200000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.13 TOTAL CPU TIME =        1.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.1 SECONDS, CPU UTILIZATION IS  99.12%
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.1 SECONDS, CPU UTILIZATION IS  99.12%
+
+ TRUDGE ENERGY VALUE AT NSTEP=   7 IS      -99.5595107141
+ LOOKS =  7   ALF =  0.3500  FUNC =      -99.5595107141
+             AMIN =  0.3500  FMIN =      -99.5595107141
+            ANEXT =  0.3000 FNEXT =      -99.5577156004
+ ----- TRUDGE RESTART DATA AT NSTEP   8 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      1.193460,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.1 SECONDS, CPU UTILIZATION IS  99.12%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.1 SECONDS, CPU UTILIZATION IS  98.25%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   1      -99.392726981 -0.392726981  0.006071    6    2 1.495E-06  1   0.0000
+   2      -99.392735147 -0.000008166  0.000603   15    2 1.473E-07  1   0.0000
+   3      -99.392735605 -0.000000458  0.000347   15    2 1.908E-09  1   0.0000
+   4      -99.392735621 -0.000000016  0.000030   15    2 8.065E-12  1   0.0000
+   5      -99.392735621 -0.000000000  0.000002   15    2 1.380E-13  1   0.0000
+
+          ----------------
+          ENERGY CONVERGED
+          ----------------
+
+ FINAL MCSCF ENERGY IS      -99.3927356206 AFTER   5 ITERATIONS
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     8 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)=-2.00( 35.9%)  0.00( 28.2%)  2.00( 35.9%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00( 14.1%)  0.00( 71.8%)  2.00( 14.1%) 
+ MO    15 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    16 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.1 SECONDS, CPU UTILIZATION IS  98.25%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1        -5
+ TRANSFORMATION       1        -5
+ ENERGY MATRIX        1        -5
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1        -5
+ 2E-DENSITY MATRIX    0        -5
+ LAGRANGIAN MATRIX    0        -5
+------------------------------------
+
+ -DRT- TABLE          0        -5
+ TRANSFORMATION   
+
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     329608
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0   3(MAX.TOL.STATE)    -99.392735621  1    -99.392735621  2    -99.392735621  3
+   1   3  0.12387642  1    -99.526593324  1    -99.526591013  2    -99.526589011  3
+   2   3  0.07230867  1    -99.560243050  1    -99.560227771  2    -99.560187063  3
+   3   3  0.01881663  3    -99.561090282  1    -99.561089646  2    -99.561089452  3
+   4   3  0.00354043  1    -99.561129255  1    -99.561129213  2    -99.561129194  3
+   5   3  0.00046789  1    -99.561130167  1    -99.561130166  2    -99.561130165  3
+   6   3  0.00006540  2    -99.561130184  1    -99.561130184  2    -99.561130184  3
+   7   3  0.00001005  3    -99.561130184  1    -99.561130184  2    -99.561130184  3
+   8   3  0.00000177  3    -99.561130184  1    -99.561130184  2    -99.561130184  3
+   9   3  0.00000024  2    -99.561130184  1    -99.561130184  2    -99.561130184  3
+
+ STATE #    1  ENERGY =     -99.561130184
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        4    0.984114  222100000000000000
+
+ STATE #    2  ENERGY =     -99.561130184
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.984114  212200000000000000
+
+ STATE #    3  ENERGY =     -99.561130184
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.984556  221200000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.13 TOTAL CPU TIME =        1.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.3 SECONDS, CPU UTILIZATION IS  98.43%
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.3 SECONDS, CPU UTILIZATION IS  98.43%
+
+ TRUDGE ENERGY VALUE AT NSTEP=   8 IS      -99.5611301840
+ LOOKS =  8   ALF =  0.4000  FUNC =      -99.5611301840
+             AMIN =  0.4000  FMIN =      -99.5611301840
+            ANEXT =  0.3500 FNEXT =      -99.5595107141
+ ----- TRUDGE RESTART DATA AT NSTEP   9 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      1.254650,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.3 SECONDS, CPU UTILIZATION IS  98.43%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.3 SECONDS, CPU UTILIZATION IS  98.43%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   1      -99.392656573 -0.392656573  0.005158    6    2 1.080E-06  1   0.0000
+   2      -99.392662906 -0.000006333  0.000603   15    2 9.556E-08  1   0.0000
+   3      -99.392663202 -0.000000296  0.000342   15    2 1.621E-09  1   0.0000
+   4      -99.392663216 -0.000000014  0.000030   15    2 8.226E-12  1   0.0000
+   5      -99.392663216 -0.000000000  0.000002   15    2 1.727E-13  1   0.0000
+
+          ---------------
+          SQCDF CONVERGED (BUT THE LAGRANGIAN MATRIX IS NOT ENTIRELY SYMMETRIC)
+          ---------------
+
+ FINAL MCSCF ENERGY IS      -99.3926632159 AFTER   5 ITERATIONS
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     8 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)=-2.00( 44.5%)  0.00( 11.0%)  2.00( 44.5%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00(  5.5%)  0.00( 89.0%)  2.00(  5.5%) 
+ MO    15 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    16 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.3 SECONDS, CPU UTILIZATION IS  98.43%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1        -5
+ TRANSFORMATION       1        -5
+ ENERGY MATRIX        1        -5
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1        -5
+ 2E-DENSITY MATRIX    0        -5
+ LAGRANGIAN MATRIX    0        -5
+------------------------------------
+
+ -DRT- TABLE          0        -5
+ TRANSFORMATION   
+
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     329608
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0   3(MAX.TOL.STATE)    -99.392663216  1    -99.392663216  2    -99.392663216  3
+   1   3  0.12437598  1    -99.528646069  1    -99.528645664  2    -99.528643463  3
+   2   3  0.07228300  1    -99.561660833  1    -99.561647411  2    -99.561608086  3
+   3   3  0.01886265  3    -99.562517788  1    -99.562517037  2    -99.562517003  3
+   4   3  0.00348969  1    -99.562556312  1    -99.562556270  2    -99.562556246  3
+   5   3  0.00047051  1    -99.562557229  1    -99.562557228  2    -99.562557228  3
+   6   3  0.00006492  2    -99.562557246  1    -99.562557246  2    -99.562557246  3
+   7   3  0.00000993  3    -99.562557247  1    -99.562557247  2    -99.562557247  3
+   8   3  0.00000176  3    -99.562557247  1    -99.562557247  2    -99.562557247  3
+   9   3  0.00000023  3    -99.562557247  1    -99.562557247  2    -99.562557247  3
+
+ STATE #    1  ENERGY =     -99.562557247
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        4    0.983659  222100000000000000
+
+ STATE #    2  ENERGY =     -99.562557247
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.983207  221200000000000000
+
+ STATE #    3  ENERGY =     -99.562557247
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.984183  212200000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.13 TOTAL CPU TIME =        1.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.4 SECONDS, CPU UTILIZATION IS  98.57%
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.4 SECONDS, CPU UTILIZATION IS  98.57%
+
+ TRUDGE ENERGY VALUE AT NSTEP=   9 IS      -99.5625572467
+ LOOKS =  9   ALF =  0.4500  FUNC =      -99.5625572467
+             AMIN =  0.4500  FMIN =      -99.5625572467
+            ANEXT =  0.4000 FNEXT =      -99.5611301840
+ ----- TRUDGE RESTART DATA AT NSTEP  10 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      1.318977,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.4 SECONDS, CPU UTILIZATION IS  98.57%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        1.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.4 SECONDS, CPU UTILIZATION IS  99.29%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   1      -99.392598994 -0.392598994  0.004323    6    2 7.802E-07  1   0.0000
+   2      -99.392604121 -0.000005126  0.000605   15    2 5.776E-08  1   0.0000
+   3      -99.392604304 -0.000000183  0.000305   15    2 1.304E-09  1   0.0000
+   4      -99.392604315 -0.000000011  0.000028   15    2 7.586E-12  1   0.0000
+   5      -99.392604315 -0.000000000  0.000002   15    2 2.178E-13  1   0.0000
+
+          ---------------
+          SQCDF CONVERGED (BUT THE LAGRANGIAN MATRIX IS NOT ENTIRELY SYMMETRIC)
+          ---------------
+
+ FINAL MCSCF ENERGY IS      -99.3926043155 AFTER   5 ITERATIONS
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     8 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-2.00( 48.3%) -0.00(  3.3%)  2.00( 48.3%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-2.00(  1.7%) -0.00( 96.7%)  2.00(  1.7%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    15 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    16 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.4 SECONDS, CPU UTILIZATION IS  98.58%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1        -5
+ TRANSFORMATION       1        -5
+ ENERGY MATRIX        1        -5
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1        -5
+ 2E-DENSITY MATRIX    0        -5
+ LAGRANGIAN MATRIX    0        -5
+------------------------------------
+
+ -DRT- TABLE          0        -5
+ TRANSFORMATION   
+
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     329608
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0   3(MAX.TOL.STATE)    -99.392604315  1    -99.392604315  2    -99.392604315  3
+   1   3  0.12466221  1    -99.530447352  1    -99.530447335  2    -99.530441838  3
+   2   3  0.07232499  1    -99.562865986  1    -99.562853856  2    -99.562814298  3
+   3   3  0.01895982  2    -99.563736203  1    -99.563735628  2    -99.563735381  3
+   4   3  0.00344008  1    -99.563774421  1    -99.563774379  2    -99.563774353  3
+   5   3  0.00047374  1    -99.563775346  1    -99.563775345  2    -99.563775345  3
+   6   3  0.00006444  2    -99.563775363  1    -99.563775363  2    -99.563775363  3
+   7   3  0.00000988  3    -99.563775364  1    -99.563775364  2    -99.563775364  3
+   8   3  0.00000175  3    -99.563775364  1    -99.563775364  2    -99.563775364  3
+   9   3  0.00000023  3    -99.563775364  1    -99.563775364  2    -99.563775364  3
+
+ STATE #    1  ENERGY =     -99.563775364
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        4    0.984735  222100000000000000
+
+ STATE #    2  ENERGY =     -99.563775364
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.984735  221200000000000000
+
+ STATE #    3  ENERGY =     -99.563775364
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.984738  212200000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.13 TOTAL CPU TIME =        1.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.5 SECONDS, CPU UTILIZATION IS  99.35%
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.5 SECONDS, CPU UTILIZATION IS  99.35%
+
+ TRUDGE ENERGY VALUE AT NSTEP=  10 IS      -99.5637753637
+ LOOKS = 10   ALF =  0.5000  FUNC =      -99.5637753637
+             AMIN =  0.5000  FMIN =      -99.5637753637
+            ANEXT =  0.4500 FNEXT =      -99.5625572467
+ ----- TRUDGE RESTART DATA AT NSTEP  11 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      1.386602,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.5 SECONDS, CPU UTILIZATION IS  99.35%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.5 SECONDS, CPU UTILIZATION IS  98.70%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   1      -99.392554472 -0.392554472  0.004797   15    2 5.684E-07  1   0.0000
+   2      -99.392558870 -0.000004397  0.000606   15    2 3.136E-08  1   0.0000
+   3      -99.392558980 -0.000000110  0.000231   15    2 9.322E-10  1   0.0000
+   4      -99.392558987 -0.000000007  0.000024   15    2 7.544E-12  1   0.0000
+   5      -99.392558987 -0.000000000  0.000002   15    2 2.681E-13  1   0.0000
+
+          ----------------
+          ENERGY CONVERGED
+          ----------------
+
+ FINAL MCSCF ENERGY IS      -99.3925589873 AFTER   5 ITERATIONS
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     8 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)= 0.00( 99.9%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00( 49.9%)  2.00( 49.9%) 
+ MO    15 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    16 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        1.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.5 SECONDS, CPU UTILIZATION IS  99.35%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1        -5
+ TRANSFORMATION       1        -5
+ ENERGY MATRIX        1        -5
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1        -5
+ 2E-DENSITY MATRIX    0        -5
+ LAGRANGIAN MATRIX    0        -5
+------------------------------------
+
+ -DRT- TABLE          0        -5
+ TRANSFORMATION   
+
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     329608
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0   3(MAX.TOL.STATE)    -99.392558987  1    -99.392558987  2    -99.392558987  3
+   1   3  0.12471993  1    -99.531962108  1    -99.531959722  2    -99.531958205  3
+   2   3  0.07246068  1    -99.563842957  1    -99.563831729  2    -99.563794682  3
+   3   3  0.01908466  2    -99.564729352  1    -99.564728842  2    -99.564728608  3
+   4   3  0.00340229  1    -99.564767345  1    -99.564767299  2    -99.564767276  3
+   5   3  0.00047549  1    -99.564768276  1    -99.564768275  2    -99.564768275  3
+   6   3  0.00006416  2    -99.564768293  1    -99.564768293  2    -99.564768293  3
+   7   3  0.00000977  3    -99.564768293  1    -99.564768293  2    -99.564768293  3
+   8   3  0.00000175  3    -99.564768293  1    -99.564768293  2    -99.564768293  3
+   9   3  0.00000023  2    -99.564768293  1    -99.564768293  2    -99.564768293  3
+
+ STATE #    1  ENERGY =     -99.564768293
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.984224  221200000000000000
+
+ STATE #    2  ENERGY =     -99.564768293
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.982894  212200000000000000
+        4   -0.062081  222100000000000000
+
+ STATE #    3  ENERGY =     -99.564768293
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.062099  212200000000000000
+        4    0.982264  222100000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.12 TOTAL CPU TIME =        1.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.7 SECONDS, CPU UTILIZATION IS  98.80%
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.7 SECONDS, CPU UTILIZATION IS  98.80%
+
+ TRUDGE ENERGY VALUE AT NSTEP=  11 IS      -99.5647682933
+ LOOKS = 11   ALF =  0.5500  FUNC =      -99.5647682933
+             AMIN =  0.5500  FMIN =      -99.5647682933
+            ANEXT =  0.5000 FNEXT =      -99.5637753637
+ ----- TRUDGE RESTART DATA AT NSTEP  12 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      1.457695,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.7 SECONDS, CPU UTILIZATION IS  98.80%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.7 SECONDS, CPU UTILIZATION IS  98.80%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   1      -99.392522757 -0.392522757  0.005721   15    2 4.224E-07  1   0.0000
+   2      -99.392526776 -0.000004020  0.000605   15    2 1.468E-08  1   0.0000
+   3      -99.392526842 -0.000000066  0.000138   15    2 5.297E-10  1   0.0000
+   4      -99.392526846 -0.000000003  0.000018   15    2 1.160E-11  1   0.0000
+   5      -99.392526846 -0.000000000  0.000001    6    2 2.545E-13  1   0.0000
+
+          ----------------
+          ENERGY CONVERGED
+          ----------------
+
+ FINAL MCSCF ENERGY IS      -99.3925268456 AFTER   5 ITERATIONS
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     8 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-2.00(  1.2%)  0.00( 97.6%)  2.00(  1.2%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00( 48.8%)  0.00(  2.4%)  2.00( 48.8%) 
+ MO    15 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    16 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        1.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.7 SECONDS, CPU UTILIZATION IS  99.40%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1        -5
+ TRANSFORMATION       1        -5
+ ENERGY MATRIX        1        -5
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1        -5
+ 2E-DENSITY MATRIX    0        -5
+ LAGRANGIAN MATRIX    0        -5
+------------------------------------
+
+ -DRT- TABLE          0        -5
+ TRANSFORMATION   
+
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     329608
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0   3(MAX.TOL.STATE)    -99.392526846  1    -99.392526846  2    -99.392526846  3
+   1   3  0.12453712  1    -99.533156904  1    -99.533156637  2    -99.533154771  3
+   2   3  0.07266726  2    -99.564574765  1    -99.564565035  2    -99.564529275  3
+   3   3  0.01925261  2    -99.565481382  1    -99.565480923  2    -99.565480519  3
+   4   3  0.00336782  1    -99.565519143  1    -99.565519098  2    -99.565519069  3
+   5   3  0.00047949  1    -99.565520082  1    -99.565520081  2    -99.565520081  3
+   6   3  0.00006403  2    -99.565520099  1    -99.565520099  2    -99.565520099  3
+   7   3  0.00000970  3    -99.565520100  1    -99.565520100  2    -99.565520100  3
+   8   3  0.00000174  3    -99.565520100  1    -99.565520100  2    -99.565520100  3
+   9   3  0.00000022  3    -99.565520100  1    -99.565520100  2    -99.565520100  3
+
+ STATE #    1  ENERGY =     -99.565520100
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.984940  221200000000000000
+
+ STATE #    2  ENERGY =     -99.565520100
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        4    0.984940  222100000000000000
+
+ STATE #    3  ENERGY =     -99.565520100
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.984980  212200000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.12 TOTAL CPU TIME =        1.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.8 SECONDS, CPU UTILIZATION IS  98.89%
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.8 SECONDS, CPU UTILIZATION IS  98.89%
+
+ TRUDGE ENERGY VALUE AT NSTEP=  12 IS      -99.5655200996
+ LOOKS = 12   ALF =  0.6000  FUNC =      -99.5655200996
+             AMIN =  0.6000  FMIN =      -99.5655200996
+            ANEXT =  0.5500 FNEXT =      -99.5647682933
+ ----- TRUDGE RESTART DATA AT NSTEP  13 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      1.532433,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.8 SECONDS, CPU UTILIZATION IS  98.89%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.8 SECONDS, CPU UTILIZATION IS  98.89%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   1      -99.392503123 -0.392503123  0.006575   15    2 3.247E-07  1   0.0000
+   2      -99.392507007 -0.000003884  0.000602   15    2 5.983E-09  1   0.0000
+   3      -99.392507049 -0.000000042  0.000056   15    2 1.559E-10  1   0.0000
+   4      -99.392507049 -0.000000001  0.000007    9    5 1.018E-11  1   0.0000
+   5      -99.392507050 -0.000000000  0.000001   15    2 1.263E-13  1   0.0000
+
+          ----------------
+          ENERGY CONVERGED
+          ----------------
+
+ FINAL MCSCF ENERGY IS      -99.3925070495 AFTER   5 ITERATIONS
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     8 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-2.00( 22.2%)  0.00( 55.6%)  2.00( 22.2%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00( 27.8%)  0.00( 44.4%)  2.00( 27.8%) 
+ MO    15 (    7) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    16 (    7) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        1.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.8 SECONDS, CPU UTILIZATION IS  98.90%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1        -5
+ TRANSFORMATION       1        -5
+ ENERGY MATRIX        1        -5
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1        -5
+ 2E-DENSITY MATRIX    0        -5
+ LAGRANGIAN MATRIX    0        -5
+------------------------------------
+
+ -DRT- TABLE          0        -5
+ TRANSFORMATION   
+
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     329608
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0   3(MAX.TOL.STATE)    -99.392507050  1    -99.392507050  2    -99.392507050  3
+   1   3  0.12410794  1    -99.534003650  1    -99.534000906  2    -99.533998414  3
+   2   3  0.07293794  2    -99.565046613  1    -99.565037988  2    -99.565002176  3
+   3   3  0.01946140  2    -99.565976441  1    -99.565976205  2    -99.565975623  3
+   4   3  0.00333704  1    -99.566014134  1    -99.566014084  2    -99.566014059  3
+   5   3  0.00048283  1    -99.566015082  1    -99.566015082  2    -99.566015081  3
+   6   3  0.00006372  2    -99.566015100  1    -99.566015100  2    -99.566015100  3
+   7   3  0.00000968  3    -99.566015100  1    -99.566015100  2    -99.566015100  3
+   8   3  0.00000174  3    -99.566015100  1    -99.566015100  2    -99.566015100  3
+   9   3  0.00000022  1    -99.566015100  1    -99.566015100  2    -99.566015100  3
+
+ STATE #    1  ENERGY =     -99.566015100
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.985117  212200000000000000
+
+ STATE #    2  ENERGY =     -99.566015100
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.057598  221200000000000000
+        4    0.983432  222100000000000000
+
+ STATE #    3  ENERGY =     -99.566015100
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.983433  221200000000000000
+        4   -0.057596  222100000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.12 TOTAL CPU TIME =        1.9 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.9 SECONDS, CPU UTILIZATION IS  98.96%
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.9 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.9 SECONDS, CPU UTILIZATION IS  98.96%
+
+ TRUDGE ENERGY VALUE AT NSTEP=  13 IS      -99.5660151002
+ LOOKS = 13   ALF =  0.6500  FUNC =      -99.5660151002
+             AMIN =  0.6500  FMIN =      -99.5660151002
+            ANEXT =  0.6000 FNEXT =      -99.5655200996
+ ----- TRUDGE RESTART DATA AT NSTEP  14 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      1.611002,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.9 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.9 SECONDS, CPU UTILIZATION IS  98.96%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        1.9 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.9 SECONDS, CPU UTILIZATION IS  98.45%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   1      -99.392494395 -0.392494395  0.007344   18    2 2.609E-07  1   0.0000
+   2      -99.392498286 -0.000003891  0.000595   18    2 3.086E-09  1   0.0000
+   3      -99.392498317 -0.000000031  0.000008    6    2 1.895E-11  1   0.0000
+   4      -99.392498317 -0.000000000  0.000005   18    2 9.585E-13  1   0.0000
+   5      -99.392498317 -0.000000000  0.000000    6    2 5.229E-15  1   0.0000
+
+          --------------------
+          LAGRANGIAN CONVERGED
+          --------------------
+
+ FINAL MCSCF ENERGY IS      -99.3924983169 AFTER   5 ITERATIONS
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    4) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     8 (    4) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)=-2.00(  5.1%)  0.00( 89.9%)  2.00(  5.1%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00( 44.9%)  0.00( 10.1%)  2.00( 44.9%) 
+ MO    15 (    7) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    16 (    7) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        1.9 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        1.9 SECONDS, CPU UTILIZATION IS  99.48%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1        -5
+ TRANSFORMATION       1        -5
+ ENERGY MATRIX        1        -5
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1        -5
+ 2E-DENSITY MATRIX    0        -5
+ LAGRANGIAN MATRIX    0        -5
+------------------------------------
+
+ -DRT- TABLE          0        -5
+ TRANSFORMATION   
+
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     329608
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0   3(MAX.TOL.STATE)    -99.392498317  1    -99.392498317  2    -99.392498317  3
+   1   3  0.12341873  1    -99.534463823  1    -99.534463659  2    -99.534459547  3
+   2   3  0.07330340  2    -99.565242978  1    -99.565235486  2    -99.565200292  3
+   3   3  0.01969814  2    -99.566199212  1    -99.566199054  2    -99.566198239  3
+   4   3  0.00331368  1    -99.566236785  1    -99.566236734  2    -99.566236703  3
+   5   3  0.00048801  1    -99.566237743  1    -99.566237742  2    -99.566237742  3
+   6   3  0.00006370  2    -99.566237761  1    -99.566237761  2    -99.566237761  3
+   7   3  0.00000965  3    -99.566237761  1    -99.566237761  2    -99.566237761  3
+   8   3  0.00000172  3    -99.566237761  1    -99.566237761  2    -99.566237761  3
+   9   3  0.00000021  3    -99.566237761  1    -99.566237761  2    -99.566237761  3
+
+ STATE #    1  ENERGY =     -99.566237761
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.984410  221200000000000000
+
+ STATE #    2  ENERGY =     -99.566237761
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.606113  212200000000000000
+        4    0.776038  222100000000000000
+
+ STATE #    3  ENERGY =     -99.566237761
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.776771  212200000000000000
+        4   -0.605669  222100000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.12 TOTAL CPU TIME =        2.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.1 SECONDS, CPU UTILIZATION IS  99.03%
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.1 SECONDS, CPU UTILIZATION IS  99.03%
+
+ TRUDGE ENERGY VALUE AT NSTEP=  14 IS      -99.5662377611
+ LOOKS = 14   ALF =  0.7000  FUNC =      -99.5662377611
+             AMIN =  0.7000  FMIN =      -99.5662377611
+            ANEXT =  0.6500 FNEXT =      -99.5660151002
+ ----- TRUDGE RESTART DATA AT NSTEP  15 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      1.693600,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.1 SECONDS, CPU UTILIZATION IS  99.03%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.1 SECONDS, CPU UTILIZATION IS  99.03%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   1      -99.392494974 -0.392494974  0.008009   18    2 2.194E-07  1   0.0000
+   2      -99.392498926 -0.000003951  0.000583   18    2 3.668E-09  1   0.0000
+   3      -99.392498954 -0.000000028  0.000028    9    2 1.729E-10  1   0.0000
+   4      -99.392498954 -0.000000001  0.000016   18    2 4.949E-12  1   0.0000
+   5      -99.392498955 -0.000000000  0.000000   18    2 1.647E-15  1   0.0000
+
+          --------------------
+          LAGRANGIAN CONVERGED
+          --------------------
+
+ FINAL MCSCF ENERGY IS      -99.3924989545 AFTER   5 ITERATIONS
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     7 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     8 (    4) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)= 0.00( 99.7%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00( 49.8%)  2.00( 49.8%) 
+ MO    15 (    7) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    16 (    7) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.1 SECONDS, CPU UTILIZATION IS  99.03%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1        -5
+ TRANSFORMATION       1        -5
+ ENERGY MATRIX        1        -5
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1        -5
+ 2E-DENSITY MATRIX    0        -5
+ LAGRANGIAN MATRIX    0        -5
+------------------------------------
+
+ -DRT- TABLE          0        -5
+ TRANSFORMATION   
+
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     329608
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0   3(MAX.TOL.STATE)    -99.392498955  1    -99.392498955  2    -99.392498955  3
+   1   3  0.12246791  1    -99.534510133  1    -99.534509951  2    -99.534508305  3
+   2   3  0.07373480  2    -99.565148596  1    -99.565142212  2    -99.565109177  3
+   3   3  0.01995561  2    -99.566134049  1    -99.566133921  2    -99.566133045  3
+   4   3  0.00329803  1    -99.566171584  1    -99.566171532  2    -99.566171498  3
+   5   3  0.00049214  1    -99.566172553  1    -99.566172553  2    -99.566172552  3
+   6   3  0.00006372  2    -99.566172571  1    -99.566172571  2    -99.566172571  3
+   7   3  0.00000960  2    -99.566172572  1    -99.566172572  2    -99.566172572  3
+   8   3  0.00000172  3    -99.566172572  1    -99.566172572  2    -99.566172572  3
+   9   3  0.00000021  2    -99.566172572  1    -99.566172572  2    -99.566172572  3
+
+ STATE #    1  ENERGY =     -99.566172572
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.985405  221200000000000000
+
+ STATE #    2  ENERGY =     -99.566172572
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.770850  212200000000000000
+        4    0.613883  222100000000000000
+
+ STATE #    3  ENERGY =     -99.566172572
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2   -0.613882  212200000000000000
+        4    0.770828  222100000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.13 TOTAL CPU TIME =        2.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.2 SECONDS, CPU UTILIZATION IS  99.09%
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.2 SECONDS, CPU UTILIZATION IS  99.09%
+
+ TRUDGE ENERGY VALUE AT NSTEP=  15 IS      -99.5661725715
+ LOOKS = 15   ALF =  0.7500  FUNC =      -99.5661725715
+             AMIN =  0.7000  FMIN =      -99.5662377611
+            ANEXT =  0.7500 FNEXT =      -99.5661725715
+ ----- TRUDGE RESTART DATA AT NSTEP  16 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      1.633186,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.2 SECONDS, CPU UTILIZATION IS  99.09%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.2 SECONDS, CPU UTILIZATION IS  99.09%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   1      -99.392495154 -0.392495154  0.006283   18    2 1.348E-07  1   0.0000
+   2      -99.392497619 -0.000002464  0.000451   18    2 4.046E-09  1   0.0000
+   3      -99.392497640 -0.000000021  0.000043    9    2 2.271E-10  1   0.0000
+   4      -99.392497641 -0.000000001  0.000013   18    2 2.209E-12  1   0.0000
+   5      -99.392497641 -0.000000000  0.000001   18    2 1.362E-14  1   0.0000
+
+          --------------------
+          LAGRANGIAN CONVERGED
+          --------------------
+
+ FINAL MCSCF ENERGY IS      -99.3924976409 AFTER   5 ITERATIONS
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     7 (    4) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     8 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)=-2.00(  5.2%)  0.00( 89.5%)  2.00(  5.2%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00( 44.8%)  0.00( 10.5%)  2.00( 44.8%) 
+ MO    15 (    7) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    16 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    17 (    7) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        2.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.2 SECONDS, CPU UTILIZATION IS  99.10%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1        -5
+ TRANSFORMATION       1        -5
+ ENERGY MATRIX        1        -5
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1        -5
+ 2E-DENSITY MATRIX    0        -5
+ LAGRANGIAN MATRIX    0        -5
+------------------------------------
+
+ -DRT- TABLE          0        -5
+ TRANSFORMATION   
+
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     329608
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0   3(MAX.TOL.STATE)    -99.392497641  1    -99.392497641  2    -99.392497641  3
+   1   3  0.12318472  1    -99.534518868  1    -99.534517366  2    -99.534516656  3
+   2   3  0.07341272  2    -99.565246627  1    -99.565239588  2    -99.565206112  3
+   3   3  0.01976208  2    -99.566210636  1    -99.566210444  2    -99.566209731  3
+   4   3  0.00331014  1    -99.566248206  1    -99.566248155  2    -99.566248125  3
+   5   3  0.00048821  1    -99.566249166  1    -99.566249166  2    -99.566249165  3
+   6   3  0.00006372  2    -99.566249184  1    -99.566249184  2    -99.566249184  3
+   7   3  0.00000960  3    -99.566249185  1    -99.566249185  2    -99.566249185  3
+   8   3  0.00000173  3    -99.566249185  1    -99.566249185  2    -99.566249185  3
+   9   3  0.00000022  3    -99.566249185  1    -99.566249185  2    -99.566249185  3
+
+ STATE #    1  ENERGY =     -99.566249185
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        4    0.985054  222100000000000000
+
+ STATE #    2  ENERGY =     -99.566249185
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.985051  221200000000000000
+
+ STATE #    3  ENERGY =     -99.566249185
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.985303  212200000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.12 TOTAL CPU TIME =        2.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.3 SECONDS, CPU UTILIZATION IS  99.14%
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        2.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.3 SECONDS, CPU UTILIZATION IS  99.57%
+
+ TRUDGE ENERGY VALUE AT NSTEP=  16 IS      -99.5662491846
+ LOOKS = 16   ALF =  0.7137  FUNC =      -99.5662491846
+             AMIN =  0.7137  FMIN =      -99.5662491846
+            ANEXT =  0.7000 FNEXT =      -99.5662377611
+  NEW CURVATURE =  0.57570E-01   ALPHA =   0.7136765
+  OLD CURVATURE =  0.00000E+00   ALFSET=   0.2000000
+ ----- TRUDGE RESTART DATA AT NSTEP  17 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      1.994778,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.3 SECONDS, CPU UTILIZATION IS  99.57%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.3 SECONDS, CPU UTILIZATION IS  99.57%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   1      -99.392494260 -0.392494260  0.031405   18    2 1.844E-06  1   0.0000
+   2      -99.392539183 -0.000044923  0.001781   18    2 2.871E-08  1   0.0000
+   3      -99.392539400 -0.000000217  0.000148    9    2 1.638E-09  1   0.0000
+   4      -99.392539407 -0.000000007  0.000054   18    2 3.996E-11  1   0.0000
+   5      -99.392539407 -0.000000000  0.000003    9    2 7.972E-13  1   0.0000
+
+          ---------------
+          SQCDF CONVERGED (BUT THE LAGRANGIAN MATRIX IS NOT ENTIRELY SYMMETRIC)
+          ---------------
+
+ FINAL MCSCF ENERGY IS      -99.3925394073 AFTER   5 ITERATIONS
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    4) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     8 (    4) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)=-2.00(  3.0%)  0.00( 94.1%)  2.00(  3.0%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00( 47.0%)  0.00(  5.9%)  2.00( 47.0%) 
+ MO    15 (    7) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    16 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    17 (    7) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.3 SECONDS, CPU UTILIZATION IS  99.15%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1        -5
+ TRANSFORMATION       1        -5
+ ENERGY MATRIX        1        -5
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1        -5
+ 2E-DENSITY MATRIX    0        -5
+ LAGRANGIAN MATRIX    0        -5
+------------------------------------
+
+ -DRT- TABLE          0        -5
+ TRANSFORMATION   
+
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     329608
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0   3(MAX.TOL.STATE)    -99.392539407  1    -99.392539407  2    -99.392539407  3
+   1   3  0.11764045  1    -99.531521820  1    -99.531521405  2    -99.531519339  3
+   2   3  0.07548184  2    -99.562622138  1    -99.562618731  2    -99.562586850  3
+   3   3  0.02091908  1    -99.563718253  1    -99.563718012  2    -99.563716845  3
+   4   3  0.00328236  1    -99.563755849  1    -99.563755786  2    -99.563755745  3
+   5   3  0.00050870  2    -99.563756867  1    -99.563756867  2    -99.563756866  3
+   6   3  0.00006342  2    -99.563756886  1    -99.563756886  2    -99.563756886  3
+   7   3  0.00000960  2    -99.563756886  1    -99.563756886  2    -99.563756886  3
+   8   3  0.00000169  3    -99.563756886  1    -99.563756886  2    -99.563756886  3
+   9   3  0.00000021  3    -99.563756886  1    -99.563756886  2    -99.563756886  3
+
+ STATE #    1  ENERGY =     -99.563756886
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        4    0.985989  222100000000000000
+
+ STATE #    2  ENERGY =     -99.563756886
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.983452  221200000000000000
+        2    0.070705  212200000000000000
+
+ STATE #    3  ENERGY =     -99.563756886
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1   -0.070703  221200000000000000
+        2    0.983452  212200000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.13 TOTAL CPU TIME =        2.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.5 SECONDS, CPU UTILIZATION IS  99.19%
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.5 SECONDS, CPU UTILIZATION IS  99.19%
+
+ TRUDGE ENERGY VALUE AT NSTEP=  17 IS      -99.5637568864
+ LOOKS =  1   ALF =  0.2000  FUNC =      -99.5637568864
+             AMIN =  0.0000  FMIN =      -99.5662491846
+            ANEXT =  0.2000 FNEXT =      -99.5637568864
+ ----- TRUDGE RESTART DATA AT NSTEP  18 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      1.337140,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.5 SECONDS, CPU UTILIZATION IS  99.19%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.5 SECONDS, CPU UTILIZATION IS  99.19%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   1      -99.391986939 -0.391986939  0.089589   18    2 3.822E-05  1   0.0000
+   2      -99.392578731 -0.000591793  0.006393   18    2 3.346E-06  1   0.0000
+   3      -99.392589630 -0.000010899  0.001289    9    2 1.693E-07  1   0.0000
+   4      -99.392590574 -0.000000943  0.000086    9    2 4.048E-10  1   0.0000
+   5      -99.392590576 -0.000000002  0.000018    9    2 2.868E-11  1   0.0000
+   6      -99.392590576 -0.000000000  0.000000   18    1 1.761E-16  1   0.0000
+
+          --------------------
+          LAGRANGIAN CONVERGED
+          --------------------
+
+ FINAL MCSCF ENERGY IS      -99.3925905763 AFTER   6 ITERATIONS
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     8 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)=-2.00(  8.2%)  0.00( 83.7%)  2.00(  8.2%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00( 41.8%)  0.00( 16.3%)  2.00( 41.8%) 
+ MO    15 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    16 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.5 SECONDS, CPU UTILIZATION IS  99.19%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1        -5
+ TRANSFORMATION       1        -5
+ ENERGY MATRIX        1        -5
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1        -5
+ 2E-DENSITY MATRIX    0        -5
+ LAGRANGIAN MATRIX    0        -5
+------------------------------------
+
+ -DRT- TABLE          0        -5
+ TRANSFORMATION   
+
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     329608
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0   3(MAX.TOL.STATE)    -99.392590576  1    -99.392590576  2    -99.392590576  3
+   1   3  0.12470134  1    -99.530891694  1    -99.530891251  2    -99.530885715  3
+   2   3  0.07235200  1    -99.563156569  1    -99.563144682  2    -99.563105345  3
+   3   3  0.01899218  2    -99.564030912  1    -99.564030385  2    -99.564030098  3
+   4   3  0.00342817  1    -99.564069066  1    -99.564069023  2    -99.564068998  3
+   5   3  0.00047442  1    -99.564069993  1    -99.564069992  2    -99.564069992  3
+   6   3  0.00006433  2    -99.564070010  1    -99.564070010  2    -99.564070010  3
+   7   3  0.00000987  3    -99.564070011  1    -99.564070011  2    -99.564070011  3
+   8   3  0.00000175  3    -99.564070011  1    -99.564070011  2    -99.564070011  3
+   9   3  0.00000023  1    -99.564070011  1    -99.564070011  2    -99.564070011  3
+
+ STATE #    1  ENERGY =     -99.564070011
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.984768  212200000000000000
+
+ STATE #    2  ENERGY =     -99.564070011
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.984627  221200000000000000
+
+ STATE #    3  ENERGY =     -99.564070011
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        4    0.984626  222100000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.13 TOTAL CPU TIME =        2.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.6 SECONDS, CPU UTILIZATION IS  99.23%
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.6 SECONDS, CPU UTILIZATION IS  99.23%
+
+ TRUDGE ENERGY VALUE AT NSTEP=  18 IS      -99.5640700107
+ LOOKS =  2   ALF = -0.2000  FUNC =      -99.5640700107
+             AMIN =  0.0000  FMIN =      -99.5662491846
+            ANEXT = -0.2000 FNEXT =      -99.5640700107
+ ----- TRUDGE RESTART DATA AT NSTEP  19 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      1.622276,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.6 SECONDS, CPU UTILIZATION IS  99.23%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.6 SECONDS, CPU UTILIZATION IS  99.23%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   1      -99.392444667 -0.392444667  0.022008   15    2 5.244E-06  1   0.0000
+   2      -99.392496872 -0.000052205  0.002357   15    2 2.262E-07  1   0.0000
+   3      -99.392497830 -0.000000958  0.000615   15    2 8.170E-09  1   0.0000
+   4      -99.392497886 -0.000000056  0.000079   15    2 1.217E-10  1   0.0000
+   5      -99.392497887 -0.000000001  0.000004   15    2 3.126E-12  1   0.0000
+
+          ---------------
+          SQCDF CONVERGED (BUT THE LAGRANGIAN MATRIX IS NOT ENTIRELY SYMMETRIC)
+          ---------------
+
+ FINAL MCSCF ENERGY IS      -99.3924978868 AFTER   5 ITERATIONS
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    4) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     8 (    4) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-2.00( 21.9%) -0.00( 56.2%)  2.00( 21.9%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00( 28.1%) -0.00( 43.8%)  2.00( 28.1%) 
+ MO    15 (    7) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    16 (    7) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.6 SECONDS, CPU UTILIZATION IS  98.85%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1        -5
+ TRANSFORMATION       1        -5
+ ENERGY MATRIX        1        -5
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1        -5
+ 2E-DENSITY MATRIX    0        -5
+ LAGRANGIAN MATRIX    0        -5
+------------------------------------
+
+ -DRT- TABLE          0        -5
+ TRANSFORMATION   
+
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     329608
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0   3(MAX.TOL.STATE)    -99.392497887  1    -99.392497887  2    -99.392497887  3
+   1   3  0.12330174  1    -99.534495678  1    -99.534494212  2    -99.534493466  3
+   2   3  0.07335826  2    -99.565247550  1    -99.565240351  2    -99.565206765  3
+   3   3  0.01972786  2    -99.566207746  1    -99.566207539  2    -99.566206845  3
+   4   3  0.00331269  1    -99.566245320  1    -99.566245269  2    -99.566245239  3
+   5   3  0.00048762  1    -99.566246279  1    -99.566246278  2    -99.566246278  3
+   6   3  0.00006373  2    -99.566246297  1    -99.566246297  2    -99.566246297  3
+   7   3  0.00000961  3    -99.566246297  1    -99.566246297  2    -99.566246297  3
+   8   3  0.00000173  3    -99.566246297  1    -99.566246297  2    -99.566246297  3
+   9   3  0.00000022  3    -99.566246297  1    -99.566246297  2    -99.566246297  3
+
+ STATE #    1  ENERGY =     -99.566246297
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1   -0.225770  221200000000000000
+        4    0.958629  222100000000000000
+
+ STATE #    2  ENERGY =     -99.566246297
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.959074  221200000000000000
+        4    0.225669  222100000000000000
+
+ STATE #    3  ENERGY =     -99.566246297
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.984833  212200000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.13 TOTAL CPU TIME =        2.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.7 SECONDS, CPU UTILIZATION IS  99.27%
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        2.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.7 SECONDS, CPU UTILIZATION IS  99.63%
+
+ TRUDGE ENERGY VALUE AT NSTEP=  19 IS      -99.5662462970
+ LOOKS =  3   ALF = -0.0067  FUNC =      -99.5662462970
+             AMIN =  0.0000  FMIN =      -99.5662491846
+            ANEXT = -0.0067 FNEXT =      -99.5662462970
+  NEW CURVATURE =  0.58393E-01   ALPHA =   0.0000000
+  OLD CURVATURE =  0.57570E-01   ALFSET=   0.0500000
+ F=      -99.5662491846 DELTA F=0.00000E+00 DELTA R=0.00000E+00
+ ----- TRUDGE RESTART DATA AT NSTEP  20 --------
+ $TRUDGE OPTMIZ=BASIS     NPAR= 1
+         IEX(1)=   12,
+         P(1)=      1.633186,
+ $END
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.7 SECONDS, CPU UTILIZATION IS  99.63%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2863
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.7 SECONDS, CPU UTILIZATION IS  99.27%
+
+ ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
+       ----------START APPROXIMATE SECOND ORDER MCSCF----------
+   1      -99.392497564 -0.392497564  0.001085   18    2 4.441E-09  1   0.0000
+   2      -99.392497640 -0.000000076  0.000081   18    2 8.060E-11  1   0.0000
+   3      -99.392497641 -0.000000001  0.000004    9    2 3.787E-12  1   0.0000
+
+          ---------------
+          SQCDF CONVERGED (BUT THE LAGRANGIAN MATRIX IS NOT ENTIRELY SYMMETRIC)
+          ---------------
+
+ FINAL MCSCF ENERGY IS      -99.3924976409 AFTER   3 ITERATIONS
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     7 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     8 (    4) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    13 (    6) HAS LZ(WEIGHT)=-2.00(  5.2%)  0.00( 89.5%)  2.00(  5.2%) 
+ MO    14 (    6) HAS LZ(WEIGHT)=-2.00( 44.8%)  0.00( 10.5%)  2.00( 44.8%) 
+ MO    15 (    7) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    16 (    7) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ .....DONE WITH MCSCF ITERATIONS.....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.7 SECONDS, CPU UTILIZATION IS  99.27%
+
+ GUGA CI OPTIONS      NRNFG     NPFLG
+ ------------------------------------
+
+ -DRT- TABLE          1        -5
+ TRANSFORMATION       1        -5
+ ENERGY MATRIX        1        -5
+ DIAGONALIZATION      1         0
+ 1E-DENSITY MATRIX    1        -5
+ 2E-DENSITY MATRIX    0        -5
+ LAGRANGIAN MATRIX    0        -5
+------------------------------------
+
+ -DRT- TABLE          0        -5
+ TRANSFORMATION   
+
+
+          -----------------------------------------
+          DAVIDSON METHOD CI-MATRIX DIAGONALIZATION
+                   WRITTEN BY STEVE ELBERT
+          -----------------------------------------
+ NUMBER OF STATES REQUESTED =     3
+ MAX. NUMB. OF EXPAN. VEC   =    30
+ MAX. NUMB. IMPROVED STATES =     3
+ MAX. NUMB. OF ITERATIONS   =    50
+ CONVERGENCE CRITERION      =    1.0E-06
+
+ CHOOSING OUT OF MEMORY STORAGE OF HAMILTONIAN,
+ AND IN MEMORY STORAGE OF TRIAL VECTORS.
+
+ NUMBER OF WORDS AVAILABLE =     700000
+ NUMBER OF WORDS USED      =     329608
+ ENERGY MATRIX BUFFER SIZE =      10000
+
+ ITER. NO.JUST IMPROVED    ENERGY AND STATE
+   0   3(MAX.TOL.STATE)    -99.392497641  1    -99.392497641  2    -99.392497641  3
+   1   3  0.12318489  1    -99.534519036  1    -99.534518899  2    -99.534514849  3
+   2   3  0.07341345  2    -99.565246713  1    -99.565239521  2    -99.565204558  3
+   3   3  0.01976734  2    -99.566210644  1    -99.566210515  2    -99.566209660  3
+   4   3  0.00330847  1    -99.566248207  1    -99.566248155  2    -99.566248123  3
+   5   3  0.00048920  1    -99.566249167  1    -99.566249167  2    -99.566249166  3
+   6   3  0.00006368  2    -99.566249185  1    -99.566249185  2    -99.566249185  3
+   7   3  0.00000964  3    -99.566249186  1    -99.566249186  2    -99.566249186  3
+   8   3  0.00000172  3    -99.566249186  1    -99.566249186  2    -99.566249186  3
+   9   3  0.00000022  3    -99.566249186  1    -99.566249186  2    -99.566249186  3
+
+ STATE #    1  ENERGY =     -99.566249186
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        4    0.985303  222100000000000000
+
+ STATE #    2  ENERGY =     -99.566249186
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        1    0.985240  221200000000000000
+
+ STATE #    3  ENERGY =     -99.566249186
+
+      CSF      COEF    OCCUPANCY (IGNORING CORE)
+      ---      ----    --------- --------- -----
+        2    0.985244  212200000000000000
+ ...... END OF CI-MATRIX DIAGONALIZATION ......
+ STEP CPU TIME =     0.12 TOTAL CPU TIME =        2.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.9 SECONDS, CPU UTILIZATION IS  99.30%
+ ...... END OF DENSITY MATRIX CALCULATION ...... 
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.9 SECONDS, CPU UTILIZATION IS  98.95%
+
+ TRUDGE ENERGY VALUE AT NSTEP=  20 IS      -99.5662491856
+
+ NON-GRADIENT ENERGY MINIMIZATION  ...  CONVERGED
+
+ CONJUGATE DIRECTION =     0
+ PARAMETER =     1
+ VALUE OF THE FUNCTION =       -99.5662491856
+                  FNOT =       -99.5662491846
+ $TRURST KSTART= 0  JSTART= 1  TOLF=  0.001000 TOLR=  0.050000
+         FNOISE=  0.000500  FNOT= -99.566249185
+         RNOT(1)=  0.713676
+         CURV(1)=  0.058393
+         ALPH(1)=  0.050000
+            V(1)=  1.000000
+ $END
+ ...... END OF NON-GRADIENT ENERGY MINIMIZATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        2.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.9 SECONDS, CPU UTILIZATION IS  98.95%
+               580000  WORDS OF DYNAMIC MEMORY USED
+ EXECUTION OF GAMESS TERMINATED NORMALLY Fri Jun  2 01:09:30 2017
+ DDI: 263640 bytes (0.3 MB / 0 MWords) used by master data server.
+
+ ----------------------------------------
+ CPU timing information for all processes
+ ========================================
+ 0: 2.654 + 0.199 = 2.854
+ ----------------------------------------
+ ddikick.x: exited gracefully.
+unset echo
+----- accounting info -----
+Files used on the master node compute-0-2.local were:
+-rw-rw-r-- 1 sarom sarom    2450 Jun  2 01:09 /scratch/exponent.F05
+-rw-rw-r-- 1 sarom sarom  180016 Jun  2 01:09 /scratch/exponent.F08
+-rw-rw-r-- 1 sarom sarom  181392 Jun  2 01:09 /scratch/exponent.F09
+-rw-rw-r-- 1 sarom sarom 1897760 Jun  2 01:09 /scratch/exponent.F10
+-rw-rw-r-- 1 sarom sarom  322056 Jun  2 01:09 /scratch/exponent.F11
+-rw-rw-r-- 1 sarom sarom  108496 Jun  2 01:09 /scratch/exponent.F12
+-rw-rw-r-- 1 sarom sarom    2208 Jun  2 01:09 /scratch/exponent.F13
+-rw-rw-r-- 1 sarom sarom  400008 Jun  2 01:09 /scratch/exponent.F14
+-rw-rw-r-- 1 sarom sarom  356336 Jun  2 01:09 /scratch/exponent.F15
+-rw-rw-r-- 1 sarom sarom 3000440 Jun  2 01:09 /scratch/exponent.F16
+-rw-rw-r-- 1 sarom sarom    3696 Jun  2 01:09 /scratch/exponent.F23
+rm: cannot remove `/scratch/sarom': Is a directory
+rm: cannot remove `/scratch/tmp': Is a directory
+ls: No match.
+ls: No match.
+ls: No match.
+Fri Jun  2 01:09:33 CDT 2017
+0.146u 0.028s 0:06.12 2.6%	0+0k 8+376io 0pf+0w
+Deleting shmid=3964928.
+Deleting shmid=3997697.
+Deleting shmid=4227074.
+/opt/gridengine/default/spool/compute-0-2/active_jobs/23547.1/pe_hostfile compute-0-2.local
