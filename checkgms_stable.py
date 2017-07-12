@@ -85,16 +85,17 @@ def validate(validation_json=None,parsed_json=None):
         #If validation value name matches, proceed
         if validation_json["validation"][i]["name"] == parsed_json["validation"][i]["name"]:
 
+          #Changed: using absolute values during error calculation. Allowing sign changes.
           if hasattr(validation_json["validation"][i]["value"], '__len__') and (not isinstance(validation_json["validation"][i]["value"], str)):
             error=[]
             for validation_element_value, parsed_element_value in zip(validation_json["validation"][i]["value"],parsed_json["validation"][i]["value"]):
-              element_error=float(validation_element_value)-float(parsed_element_value)
+              element_error=abs(float(validation_element_value))-abs(float(parsed_element_value))
               error.append(element_error)
           else:
             if validation_json["validation"][i]["type"] == "float":
-              error=float(validation_json["validation"][i]["value"])-float(parsed_json["validation"][i]["value"])
+              error=abs(float(validation_json["validation"][i]["value"]))-abs(float(parsed_json["validation"][i]["value"]))
             elif validation_json["validation"][i]["type"] == "integer":
-              error=int(validation_json["validation"][i]["value"])-int(parsed_json["validation"][i]["value"])
+              error=abs(int(validation_json["validation"][i]["value"]))-abs(int(parsed_json["validation"][i]["value"]))
 
           parsed_json["validation"][i]["error"]=error
 
