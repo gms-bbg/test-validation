@@ -229,6 +229,7 @@ def parse_arguments(validation=True):
     parser.add_argument('-g','--group',help='print group header for values', action="store_true")
     parser.add_argument('-p','--verbose_parsing',help='verbose printing during parsing', action="store_true")
     parser.add_argument('-v','--verbose_validation',help='verbose printing during validation', action="store_true")
+    parser.add_argument('--skip_json',help='skip creation of new JSON validation files', action="store_true")
   else:
     parser = argparse.ArgumentParser(description='GAMESS Test Launch')
     parser.add_argument('--file',help='process file(s) containing substring (default ".inp")', default=".inp")
@@ -251,6 +252,7 @@ def parse_arguments(validation=True):
   run_arguments["group"]=args.group
   run_arguments["verbose_parsing"]=args.verbose_parsing
   run_arguments["verbose_validation"]=args.verbose_validation
+  run_arguments["skip_json"]=args.skip_json
 
   return run_arguments
 

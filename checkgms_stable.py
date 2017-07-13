@@ -60,10 +60,13 @@ def checkgms(filenum=None,log_file_path=None,log_file_count=0,run_arguments={},p
           print(l_box("Validation result"),file_progress(filenum,log_file_count),l_(log_file_path),fail_box())
       return validated_json["result"]
     else:
-      print(l_box("Creating validation file"),file_progress(filenum,log_file_count),l_(validation_file_path))
-      if not run_arguments["dryrun"]:
-        with open(validation_file_path,'w',encoding="utf-8",errors='ignore') as validation_file:
-          validation_file.write(json.dumps(parsed_json,indent=2))
+      if run_arguments["skip_json"]:
+        print(l_box("Skipping validation file creation"),file_progress(filenum,log_file_count),l_(validation_file_path))
+      else:
+        print(l_box("Creating validation file"),file_progress(filenum,log_file_count),l_(validation_file_path))
+        if not run_arguments["dryrun"]:
+          with open(validation_file_path,'w',encoding="utf-8",errors='ignore') as validation_file:
+            validation_file.write(json.dumps(parsed_json,indent=2))
       return
 
 def validate(validation_json=None,parsed_json=None):
