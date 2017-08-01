@@ -19,7 +19,7 @@ parse_groups=get_parse_groups(run_arguments=run_arguments)
 
 #Populate the log_file_paths array
 log_file_paths=[]
-log_file_paths=get_log_file_paths(folder_string_match=run_arguments["filter_folder"],file_string_match=run_arguments["filter_file"])
+log_file_paths=get_log_file_paths(folder_string_match=run_arguments["filter_folder"],file_string_match=run_arguments["filter_file"],folder_string_skip=run_arguments["skip_folder"],file_string_skip=run_arguments["skip_file"])
 
 #Loop through the log_file_paths array and validate
 for filenum, log_file_path in enumerate(log_file_paths,start=1):

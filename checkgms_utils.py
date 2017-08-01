@@ -221,25 +221,31 @@ def parse_arguments(validation=True):
   if validation:
     parser = argparse.ArgumentParser(description='GAMESS Test Validation')
     parser.add_argument('--dryrun',help='cycles through filelist without parsing', action="store_true")
-    parser.add_argument('--file',help='process file(s) containing substring (default ".log")', default=".log")
-    parser.add_argument('--folder',help='process folder(s) containing substring (default "")', default="")
+    parser.add_argument('--file',help='process file(s) containing substring', default="")
+    parser.add_argument('--folder',help='process folder(s) containing substring', default="")
     parser.add_argument('-a','--array',help='print out array values', action="store_true")
     parser.add_argument('-d','--debug',help='debug print control', action="store_true")
     parser.add_argument('-e','--exit_on_fail',help='exit on first failed validation', action="store_true")
     parser.add_argument('-g','--group',help='print group header for values', action="store_true")
     parser.add_argument('-p','--verbose_parsing',help='verbose printing during parsing', action="store_true")
     parser.add_argument('-v','--verbose_validation',help='verbose printing during validation', action="store_true")
-    parser.add_argument('--skip_json',help='skip creation of new JSON validation files', action="store_true")
+    parser.add_argument('--skip_file',help='skip file(s) containing substring', default="")
+    parser.add_argument('--skip_folder',help='skip folder(s) containing substring', default="")
+    parser.add_argument('--skip_json_create',help='skip creation of new JSON validation files', action="store_true")
   else:
     parser = argparse.ArgumentParser(description='GAMESS Test Launch')
-    parser.add_argument('--file',help='process file(s) containing substring (default ".inp")', default=".inp")
-    parser.add_argument('--folder',help='process folder(s) containing substring (default "")', default="")
+    parser.add_argument('--file',help='process file(s) containing substring', default="")
+    parser.add_argument('--folder',help='process folder(s) containing substring', default="")
     parser.add_argument('-n','--ncpus',help='number of GAMESS compute processes', default="1")
+    parser.add_argument('--skip_file',help='skip file(s) containing substring', default="")
+    parser.add_argument('--skip_folder',help='skip folder(s) containing substring', default="")
 
   args=parser.parse_args()
 
   run_arguments["filter_file"]=args.file
   run_arguments["filter_folder"]=args.folder
+  run_arguments["skip_file"]=args.skip_file
+  run_arguments["skip_folder"]=args.skip_folder
 
   if not validation:
     run_arguments["ncpus"]=args.ncpus
@@ -252,21 +258,41 @@ def parse_arguments(validation=True):
   run_arguments["group"]=args.group
   run_arguments["verbose_parsing"]=args.verbose_parsing
   run_arguments["verbose_validation"]=args.verbose_validation
-  run_arguments["skip_json"]=args.skip_json
+  run_arguments["skip_json_create"]=args.skip_json_create
 
   return run_arguments
 
 #Returns an array containing file paths to log files as elements
-def get_log_file_paths(folder_string_match="",file_string_match=""):
+def get_log_file_paths(folder_string_match="",file_string_match="",folder_string_skip="",file_string_skip=""):
   logFiles=[]
+  folder_string_match_array=folder_string_match.split(",")
+  file_string_match_array=file_string_match.split(",")
+  folder_string_skip_array=folder_string_skip.split(",")
+  file_string_skip_array=file_string_skip.split(",")
   for (directory_path,directory_name,directory_files) in os.walk("."):
     directory_files.sort()
     for file_name in directory_files:
-      if "globop" in file_name:
-        continue
+      #Skip folders containing folder_string_skip
+      if len(folder_string_skip_array[0]) > 0:
+        skip=False
+        for skip_string in folder_string_skip_array:
+          if skip_string in directory_path:
+            skip=True
+        if skip:
+          continue
+      #Skip files containing folder_string_skip
+      if len(file_string_skip_array[0]) > 0:
+        skip=False
+        for skip_string in file_string_skip_array:
+          if skip_string in file_name:
+            skip=True
+        if skip:
+          continue
+      #Skip folders not containing folder_string_match
       if len(folder_string_match) > 0:
         if folder_string_match not in directory_path:
           continue
+      #Skip files not containing file_string_match
       if len(file_string_match) > 0:
         if file_string_match not in file_name:
           continue
@@ -277,19 +303,48 @@ def get_log_file_paths(folder_string_match="",file_string_match=""):
   return logFiles
 
 #Returns an array containing file paths to input files as elements
-def get_input_file_paths(folder_string_match="",file_string_match="",script_path="."):
+def get_input_file_paths(folder_string_match="",file_string_match="",folder_string_skip="",file_string_skip="",script_path="."):
   inputFiles=[]
+  folder_string_match_array=folder_string_match.split(",")
+  file_string_match_array=file_string_match.split(",")
+  folder_string_skip_array=folder_string_skip.split(",")
+  file_string_skip_array=file_string_skip.split(",")
   for (directory_path,directory_name,directory_files) in os.walk(script_path):
     directory_files.sort()
     for file_name in directory_files:
-      if "globop" in file_name:
-        continue
-      if len(folder_string_match) > 0:
-        if folder_string_match not in directory_path:
+      #Skip folders containing folder_string_skip
+      if len(folder_string_skip_array[0]) > 0:
+        skip=False
+        for skip_string in folder_string_skip_array:
+          if skip_string in directory_path:
+            skip=True
+        if skip:
           continue
-      if len(file_string_match) > 0:
-        if file_string_match not in file_name:
+      #Skip files containing folder_string_skip
+      if len(file_string_skip_array[0]) > 0:
+        skip=False
+        for skip_string in file_string_skip_array:
+          if skip_string in file_name:
+            skip=True
+        if skip:
           continue
+      #Skip folders not containing folder_string_match
+      if len(folder_string_match_array[0]) > 0:
+        skip=False
+        for match_string in folder_string_match_array:
+          if match_string not in directory_path:
+            skip=True
+        if skip:
+          continue
+      #Skip files not containing file_string_match
+      if len(file_string_match_array[0]) > 0:
+        skip=False
+        for match_string in file_string_match_array:
+          if match_string not in file_name:
+            skip=True
+        if skip:
+          continue
+      #Skip files not containing ".inp"
       if '.inp' not in file_name:
         continue
       inputFiles.append(directory_path+"/"+file_name)
