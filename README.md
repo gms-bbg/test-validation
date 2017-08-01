@@ -12,16 +12,16 @@ GAMESS Test Validation
 optional arguments:
   -h, --help                show this help message and exit
   --dryrun                  cycles through filelist without parsing
-  --file FILE_SUBSTRING     process file(s) containing substring
-  --folder FOLDER_SUBSTRING process folder(s) containing substring
+  --file SUBSTRING          process file(s) containing substring
+  --folder SUBSTRING        process folder(s) containing substring
   -a, --array               print out array values
   -d, --debug               debug print control
   -e, --exit_on_fail        exit on first failed validation
   -g, --group               print group header for values
   -p, --verbose_parsing     verbose printing during parsing
   -v, --verbose_validation  verbose printing during validation
-  --skip_file               skip file(s) containing substring
-  --skip_folder             skip folder(s) containing substring
+  --skip_file SUBSTRING     skip file(s) containing substring
+  --skip_folder SUBSTRING   skip folder(s) containing substring
   --skip_json_create        skip creation of new JSON validation files
 ```
 
