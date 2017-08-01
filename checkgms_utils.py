@@ -289,11 +289,11 @@ def get_log_file_paths(folder_string_match="",file_string_match="",folder_string
         if skip:
           continue
       #Skip folders not containing folder_string_match
-      if len(folder_string_match) > 0:
+      if len(folder_string_match[0]) > 0:
         if folder_string_match not in directory_path:
           continue
       #Skip files not containing file_string_match
-      if len(file_string_match) > 0:
+      if len(file_string_match[0]) > 0:
         if file_string_match not in file_name:
           continue
         if '.log' not in file_name:
