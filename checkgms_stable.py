@@ -6,7 +6,7 @@ import mmap
 from checkgms_utils import *
 from checkgms_parsers import parser
 
-def checkgms(filenum=None,log_file_path=None,log_file_count=0,run_arguments={},parse_groups=None):
+def checkgms(filenum=None,log_file_path=None,log_file_count=0,run_arguments={},parse_groups=None,file_extension=".log"):
 
   if log_file_path is None:
     print(lr_box("log_file_path is undefined!"))
@@ -21,11 +21,11 @@ def checkgms(filenum=None,log_file_path=None,log_file_count=0,run_arguments={},p
   validated_json={}
 
   log_filename=log_file_path.split("/")[-1]
-  base_filename=log_filename.replace(".log","")
-  validation_file_path=log_file_path.replace(".log",".json")
+  base_filename=log_filename.replace(file_extension,"")
+  validation_file_path=log_file_path.replace(file_extension,".json")
 
   with open(log_file_path,'r',encoding="utf-8",errors='ignore') as opened_file:
-    print(l_box("Parsing log file"),file_progress(filenum,log_file_count),l_(log_file_path))
+    print(l_box("Parsing"),file_progress(filenum,log_file_count),l_(log_file_path))
     if not run_arguments["dryrun"]:
       #Create a memory map of the log file for faster searching if a given regex_string exists within the document
       parse_memory_map = mmap.mmap(opened_file.fileno(), 0, access=mmap.ACCESS_READ)
@@ -34,7 +34,7 @@ def checkgms(filenum=None,log_file_path=None,log_file_count=0,run_arguments={},p
     else:
       values_json={}
 
-    parsed_json["name"]=log_filename
+    parsed_json["name"]=log_filename.replace(file_extension,".log")
     parsed_json["validation"]=values_json
 
     if run_arguments["verbose_parsing"]:
@@ -42,20 +42,21 @@ def checkgms(filenum=None,log_file_path=None,log_file_count=0,run_arguments={},p
       print_parsed_JSON(parsed_json=parsed_json,run_arguments=run_arguments)
 
     #Check if validation file exists. Yes, validate. No, save the parsed JSON as a validation file.
-    if os.path.isfile(validation_file_path):
+    if os.path.isfile(validation_file_path) and not run_arguments["json_create"]:
+      print(l_box("Validating"),file_progress(filenum,log_file_count),l_(log_file_path))
       if not run_arguments["dryrun"]:
-        print(l_box("Validating log file"),file_progress(filenum,log_file_count),l_(log_file_path))
         with open(validation_file_path,'r',encoding="utf-8",errors='ignore') as validation_file:
           validation_json=json.load(validation_file)
-        #Validate parsed JSON and return a modified JSON containg calculated errors and validation results ("pass/fail/skip")
+        #Validate parsed JSON and return a modified JSON containg calculated errors and validation results ("pass/fail/skip/validation")
         validated_json=validate(validation_json=validation_json,parsed_json=parsed_json)
-      if run_arguments["verbose_validation"]:
-        #Formatted printing of the validated JSON
-        print_validated_JSON(validated_json=validated_json,run_arguments=run_arguments)
+        if run_arguments["verbose_validation"] and validated_json["result"]!="validation":
+          #Formatted printing of the validated JSON
+          print_validated_JSON(validated_json=validated_json,run_arguments=run_arguments)
       else:
         #Early return if its a dry run
         if run_arguments["dryrun"]:
-          return
+          validated_json["result"]="skip"
+          return validated_json["result"]
         #Simplified formatted printing for validation results
         if validated_json["result"] == "pass":
           print(l_box("Validation result"),file_progress(filenum,log_file_count),l_(log_file_path),pass_box())
@@ -63,14 +64,15 @@ def checkgms(filenum=None,log_file_path=None,log_file_count=0,run_arguments={},p
           print(l_box("Validation result"),file_progress(filenum,log_file_count),l_(log_file_path),fail_box())
       return validated_json["result"]
     else:
+      validated_json["result"]="skip"
       if run_arguments["skip_json_create"]:
         print(l_box("Skipping validation file creation"),file_progress(filenum,log_file_count),l_(validation_file_path))
       else:
+        print(l_box("Creating validation file"),file_progress(filenum,log_file_count),l_(validation_file_path))
         if not run_arguments["dryrun"]:
-          print(l_box("Creating validation file"),file_progress(filenum,log_file_count),l_(validation_file_path))
           with open(validation_file_path,'w',encoding="utf-8",errors='ignore') as validation_file:
             validation_file.write(json.dumps(parsed_json,indent=2))
-      return
+      return validated_json["result"]
 
 def validate(validation_json=None,parsed_json=None):
   if validation_json is None:
@@ -123,13 +125,13 @@ def validate(validation_json=None,parsed_json=None):
         else:
           print(lr_box("Validation entries do not match!"),validation_json["validation"][i]["name"],'vs.',parsed_json["validation"][i]["name"])
           parsed_json["validation"][i]["result"]="fail"
-          parsed_json["result"]="skip"
+          parsed_json["result"]="validation"
     else:
       print(lr_box("Number of validations do not match!"),len(validation_json["validation"]),'vs.',len(parsed_json["validation"]))
-      parsed_json["result"]="skip"
+      parsed_json["result"]="validation"
   else:
     print(lr_box("Validating incorrect files!"),validation_json["name"],'vs.',parsed_json["name"])
-    parsed_json["result"]="fail"
+    parsed_json["result"]="validation"
 
   return parsed_json
 

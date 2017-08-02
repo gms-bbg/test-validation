@@ -223,6 +223,7 @@ def parse_arguments(validation=True):
     parser.add_argument('--dryrun',help='cycles through filelist without parsing', action="store_true")
     parser.add_argument('--file',help='process file(s) containing substring', default="")
     parser.add_argument('--folder',help='process folder(s) containing substring', default="")
+    parser.add_argument('--json_create',help='force the creation of JSON validation files', action="store_true")
     parser.add_argument('-a','--array',help='print out array values', action="store_true")
     parser.add_argument('-d','--debug',help='debug print control', action="store_true")
     parser.add_argument('-e','--exit_on_fail',help='exit on first failed validation', action="store_true")
@@ -254,6 +255,7 @@ def parse_arguments(validation=True):
   run_arguments["array"]=args.array
   run_arguments["debug"]=args.debug
   run_arguments["dryrun"]=args.dryrun
+  run_arguments["json_create"]=args.json_create
   run_arguments["exit_on_fail"]=args.exit_on_fail
   run_arguments["group"]=args.group
   run_arguments["verbose_parsing"]=args.verbose_parsing
@@ -263,7 +265,7 @@ def parse_arguments(validation=True):
   return run_arguments
 
 #Returns an array containing file paths to log files as elements
-def get_log_file_paths(folder_string_match="",file_string_match="",folder_string_skip="",file_string_skip=""):
+def get_log_file_paths(folder_string_match="",file_string_match="",folder_string_skip="",file_string_skip="",file_extension=".log"):
   logFiles=[]
   folder_string_match_array=folder_string_match.split(",")
   file_string_match_array=file_string_match.split(",")
@@ -305,7 +307,7 @@ def get_log_file_paths(folder_string_match="",file_string_match="",folder_string
         if skip:
           continue
       #Skip files not containing ".log"
-      if '.log' not in file_name:
+      if file_extension not in file_name:
         continue
       logFiles.append(directory_path+"/"+file_name)
 
