@@ -23,7 +23,12 @@ log_file_paths=get_log_file_paths(folder_string_match=run_arguments["filter_fold
 
 #Loop through the log_file_paths array and validate
 for filenum, log_file_path in enumerate(log_file_paths,start=1):
-  validation_result=checkgms(filenum=filenum,log_file_path=log_file_path,log_file_count=len(log_file_paths),run_arguments=run_arguments,parse_groups=parse_groups)
+  try:
+    validation_result=checkgms(filenum=filenum,log_file_path=log_file_path,log_file_count=len(log_file_paths),run_arguments=run_arguments,parse_groups=parse_groups)
+  except KeyboardInterrupt:
+    sys.exit(1)
+  except:
+    sys.exit(1)
 
   if run_arguments["exit_on_fail"]:
     if "pass" not in str(validation_result):

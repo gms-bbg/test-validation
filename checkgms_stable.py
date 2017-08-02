@@ -43,8 +43,8 @@ def checkgms(filenum=None,log_file_path=None,log_file_count=0,run_arguments={},p
 
     #Check if validation file exists. Yes, validate. No, save the parsed JSON as a validation file.
     if os.path.isfile(validation_file_path):
-      print(l_box("Validating log file"),file_progress(filenum,log_file_count),l_(log_file_path))
       if not run_arguments["dryrun"]:
+        print(l_box("Validating log file"),file_progress(filenum,log_file_count),l_(log_file_path))
         with open(validation_file_path,'r',encoding="utf-8",errors='ignore') as validation_file:
           validation_json=json.load(validation_file)
         #Validate parsed JSON and return a modified JSON containg calculated errors and validation results ("pass/fail/skip")
@@ -53,6 +53,9 @@ def checkgms(filenum=None,log_file_path=None,log_file_count=0,run_arguments={},p
         #Formatted printing of the validated JSON
         print_validated_JSON(validated_json=validated_json,run_arguments=run_arguments)
       else:
+        #Early return if its a dry run
+        if run_arguments["dryrun"]:
+          return
         #Simplified formatted printing for validation results
         if validated_json["result"] == "pass":
           print(l_box("Validation result"),file_progress(filenum,log_file_count),l_(log_file_path),pass_box())

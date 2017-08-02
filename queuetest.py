@@ -45,5 +45,7 @@ for filenum, input_file_path in enumerate(input_file_paths,start=1):
     print(l_box_small("Submitting job for input file"),file_progress(filenum,len(input_file_paths)),input_file_path)
    #print(job_submission_command)
     os.system(job_submission_command)
+  except KeyboardInterrupt:
+    sys.exit(1)
   except:
     sys.exit(1)

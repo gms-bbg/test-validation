@@ -41,5 +41,7 @@ for filenum, input_file_path in enumerate(input_file_paths,start=1):
     run_command=rungms_path+" "+input_file_path+" 00 "+run_arguments["ncpus"]+" "+run_arguments["ncpus"]+ " > "+input_file_path.replace(".inp",".log")+" 2>&1"
     print(l_box_small("Running input file"),file_progress(filenum,len(input_file_paths)),input_file_path)
     os.system(run_command)
+  except KeyboardInterrupt:
+    sys.exit(1)
   except:
     sys.exit(1)
