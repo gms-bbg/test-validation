@@ -6,7 +6,7 @@ import mmap
 from checkgms_utils import *
 from checkgms_parsers import parser
 
-def checkgms(filenum=None,log_file_path=None,log_file_count=0,run_arguments={},parse_groups=None,file_extension=".log"):
+def checkgms(filenum=None,log_file_path=None,log_file_count=0,run_arguments={},parse_groups=None,file_extension=".log",json_protect=None):
 
   if log_file_path is None:
     print(lr_box("log_file_path is undefined!"))
@@ -63,15 +63,22 @@ def checkgms(filenum=None,log_file_path=None,log_file_count=0,run_arguments={},p
         else:
           print(l_box("Validation result"),file_progress(filenum,log_file_count),l_(log_file_path),fail_box())
       return validated_json["result"]
+    #Check if validation file exists AND if it is projected
+    elif os.path.isfile(validation_file_path) and json_protect is not None and json_protect in validation_file_path:
+      validated_json["result"]="skip"
+      print(l_box("Skipping validation file create"),file_progress(filenum,log_file_count),l_(validation_file_path))
+      return validated_json["result"]
+    #Chekf if we are skipping validation file creation
+    elif run_arguments["skip_json_create"]:
+      validated_json["result"]="skip"
+      print(l_box("Skipping validation file create"),file_progress(filenum,log_file_count),l_(validation_file_path))
+      return validated_json["result"]
     else:
       validated_json["result"]="skip"
-      if run_arguments["skip_json_create"]:
-        print(l_box("Skipping validation file creation"),file_progress(filenum,log_file_count),l_(validation_file_path))
-      else:
-        print(l_box("Creating validation file"),file_progress(filenum,log_file_count),l_(validation_file_path))
-        if not run_arguments["dryrun"]:
-          with open(validation_file_path,'w',encoding="utf-8",errors='ignore') as validation_file:
-            validation_file.write(json.dumps(parsed_json,indent=2))
+      print(l_box("Creating validation file"),file_progress(filenum,log_file_count),l_(validation_file_path))
+      if not run_arguments["dryrun"]:
+        with open(validation_file_path,'w',encoding="utf-8",errors='ignore') as validation_file:
+          validation_file.write(json.dumps(parsed_json,indent=2))
       return validated_json["result"]
 
 def validate(validation_json=None,parsed_json=None):
@@ -291,9 +298,9 @@ def parse(file_handle=None,parse_memory_map=None,run_arguments=None, parse_group
                     lhs=parsed_value.replace("-","").split(".")[0]
                     rhs=parsed_value.replace("-","").split(".")[1]
                     if len(lhs) > 4:
-                      parse_tolerance=10**(len(lhs)-13)
+                      parse_tolerance=5.0*10**(len(lhs)-13)
                     else:
-                      parse_tolerance=10**(-(len(rhs)-1))
+                      parse_tolerance=5.0*10**(-(len(rhs)-2))
 
                 parsed_values.append(
                   create_JSON(
@@ -340,9 +347,9 @@ def parse(file_handle=None,parse_memory_map=None,run_arguments=None, parse_group
                     lhs=parsed_value.replace("-","").split(".")[0]
                     rhs=parsed_value.replace("-","").split(".")[1]
                     if len(lhs) > 4:
-                      parse_tolerance=10**(len(lhs)-13)
+                      parse_tolerance=5.0*10**(len(lhs)-13)
                     else:
-                      parse_tolerance=10**(-(len(rhs)-1))
+                      parse_tolerance=5.0*10**(-(len(rhs)-2))
 
                 parsed_values.append(
                   create_JSON(
@@ -389,9 +396,9 @@ def parse(file_handle=None,parse_memory_map=None,run_arguments=None, parse_group
                   lhs=parsed_value.replace("-","").split(".")[0]
                   rhs=parsed_value.replace("-","").split(".")[1]
                   if len(lhs) > 4:
-                    parse_tolerance=10**(len(lhs)-13)
+                    parse_tolerance=5.0*10**(len(lhs)-13)
                   else:
-                    parse_tolerance=10**(-(len(rhs)-1))
+                    parse_tolerance=5.0*10**(-(len(rhs)-2))
 
               parsed_values.append(
                 create_JSON(
@@ -437,9 +444,9 @@ def parse(file_handle=None,parse_memory_map=None,run_arguments=None, parse_group
                   lhs=parsed_value.replace("-","").split(".")[0]
                   rhs=parsed_value.replace("-","").split(".")[1]
                   if len(lhs) > 4:
-                    parse_tolerance=10**(len(lhs)-13)
+                    parse_tolerance=5.0*10**(len(lhs)-13)
                   else:
-                    parse_tolerance=10**(-(len(rhs)-1))
+                    parse_tolerance=5.0*10**(-(len(rhs)-2))
 
               parsed_values.append(
                 create_JSON(
@@ -492,9 +499,9 @@ def parse(file_handle=None,parse_memory_map=None,run_arguments=None, parse_group
                 rhs=parsed_value.replace("-","").split(".")[1]
 
               if len(lhs) > 4:
-                parse_tolerance=10**(len(lhs)-13)
+                parse_tolerance=5.0*10**(len(lhs)-13)
               else:
-                parse_tolerance=10**(-(len(rhs)-1))
+                parse_tolerance=5.0*10**(-(len(rhs)-2))
 
           parsed_values.append(
             create_JSON(

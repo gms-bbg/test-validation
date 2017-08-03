@@ -10,6 +10,8 @@ from checkgms_stable import *
 
 #A way to have log files containing values you wish to reproduce without having the extension .log
 file_extension=".SERIAL"
+#A way to selectively protect the overwritting of existing validation files when --json_create is passed in
+json_protect="protect.json"
 
 run_arguments=parse_arguments()
 
@@ -30,7 +32,7 @@ else:
 #Loop through the log_file_paths array and validate
 for filenum, log_file_path in enumerate(log_file_paths,start=1):
   if run_arguments["json_create"]:
-    validation_result=checkgms(filenum=filenum,log_file_path=log_file_path,log_file_count=len(log_file_paths),run_arguments=run_arguments,parse_groups=parse_groups,file_extension=file_extension)
+    validation_result=checkgms(filenum=filenum,log_file_path=log_file_path,log_file_count=len(log_file_paths),run_arguments=run_arguments,parse_groups=parse_groups,file_extension=file_extension,json_protect=json_protect)
   else:
     validation_result=checkgms(filenum=filenum,log_file_path=log_file_path,log_file_count=len(log_file_paths),run_arguments=run_arguments,parse_groups=parse_groups)
 

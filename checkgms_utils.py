@@ -372,7 +372,7 @@ def create_JSON(value_name=None,value_header="Validation Values",value_value=Non
   value["precision"]=value_precision
   if (value_type == "float") or (value_type == "float_array"):
     if value_tolerance is None:
-      value["tolerance"]=10**(-value_precision)
+      value["tolerance"]=5.0*10**(-(value_precision-2))
     else:
       value["tolerance"]=value_tolerance
   elif value_type == "integer":
