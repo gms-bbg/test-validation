@@ -1,0 +1,3589 @@
+-catch_rsh /opt/gridengine/default/spool/compute-1-1/active_jobs/35878.1/pe_hostfile
+compute-1-1
+The primary node assigned by SGE to this run is compute-1-1
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+source /home/sarom/dir.git.branch.saromleang-travis-ci/install.info
+setenv GMS_PATH /home/sarom/dir.git.branch.saromleang-travis-ci
+setenv GMS_BUILD_DIR /home/sarom/dir.git.branch.saromleang-travis-ci
+setenv GMS_TARGET linux64
+setenv GMS_FORTRAN gfortran
+setenv GMS_GFORTRAN_VERNO 4.4
+setenv GMS_MATHLIB mkl-so
+setenv GMS_MATHLIB none
+setenv GMS_MATHLIB_PATH /share/apps/intel/compilers_and_libraries_2017.1.132/linux/mkl/lib/intel64
+setenv GMS_MKL_VERNO 12
+setenv GMS_DDI_COMM sockets
+setenv GMS_LIBCCHEM false
+setenv GMS_EIGEN_PATH
+setenv GMS_PHI false
+setenv GMS_SHMTYPE sysv
+setenv GMS_OPENMP false
+unset echo
+efp1-hcn-seminum
+/home/sarom/dir.git.branch.saromleang-travis-ci/tests/numdiff/parallel
+----- GAMESS execution script 'rungms' -----
+This job is running on host compute-1-1.local
+under operating system Linux at Wed Aug 9 20:33:26 CDT 2017
+Available scratch disk space (Kbyte units) at beginning of the job is
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/sda1             16126920   9109384   6198336  60% /
+GAMESS temporary binary files will be written to /scratch
+GAMESS supplementary output files will be written to /home/sarom/restart
+Copying input file efp1-hcn-seminum.inp to your run's scratch directory...
+cp /home/sarom/dir.git.branch.saromleang-travis-ci/tests/numdiff/parallel/efp1-hcn-seminum.inp /scratch/efp1-hcn-seminum.F05
+unset echo
+The generated host list is
+compute-1-1.local
+/home/sarom/dir.git.branch.saromleang-travis-ci/ddikick.x /home/sarom/dir.git.branch.saromleang-travis-ci/gamess.00.x efp1-hcn-seminum -ddi 1 1 compute-1-1.local -scr /scratch
+
+ Distributed Data Interface kickoff program.
+ Initiating 1 compute processes on 1 nodes to run the following command:
+ /home/sarom/dir.git.branch.saromleang-travis-ci/gamess.00.x efp1-hcn-seminum 
+
+          ******************************************************
+          *         GAMESS VERSION = 20 APR 2017 (R1)          *
+          *             FROM IOWA STATE UNIVERSITY             *
+          * M.W.SCHMIDT, K.K.BALDRIDGE, J.A.BOATZ, S.T.ELBERT, *
+          *   M.S.GORDON, J.H.JENSEN, S.KOSEKI, N.MATSUNAGA,   *
+          *          K.A.NGUYEN, S.J.SU, T.L.WINDUS,           *
+          *       TOGETHER WITH M.DUPUIS, J.A.MONTGOMERY       *
+          *         J.COMPUT.CHEM.  14, 1347-1363(1993)        *
+          **************** 64 BIT LINUX VERSION ****************
+
+  SINCE 1993, STUDENTS AND POSTDOCS WORKING AT IOWA STATE UNIVERSITY
+  AND ALSO IN THEIR VARIOUS JOBS AFTER LEAVING ISU HAVE MADE IMPORTANT
+  CONTRIBUTIONS TO THE CODE:
+     IVANA ADAMOVIC, CHRISTINE AIKENS, YURI ALEXEEV, POOJA ARORA,
+     ANDREY ASADCHEV, ROB BELL, PRADIPTA BANDYOPADHYAY, JONATHAN BENTZ,
+     BRETT BODE, KURT BRORSEN, CALEB CARLIN, GALINA CHABAN, WEI CHEN,
+     CHEOL HO CHOI, PAUL DAY, ALBERT DEFUSCO, NUWAN DESILVA, TIM DUDLEY,
+     DMITRI FEDOROV, GRAHAM FLETCHER, MARK FREITAG, KURT GLAESEMANN,
+     DAN KEMP, GRANT MERRILL, NORIYUKI MINEZAWA, JONATHAN MULLIN,
+     TAKESHI NAGATA, SEAN NEDD, HEATHER NETZLOFF, BOSILJKA NJEGIC, RYAN OLSON,
+     MIKE PAK, SPENCER PRUITT, LUKE ROSKOP, JIM SHOEMAKER, LYUDMILA SLIPCHENKO,
+     TONY SMITH, SAROM SOK LEANG, JIE SONG, TETSUYA TAKETSUGU, SIMON WEBB,
+     PENG XU, SOOHAENG YOO, FEDERICO ZAHARIEV
+
+  ADDITIONAL CODE HAS BEEN PROVIDED BY COLLABORATORS IN OTHER GROUPS:
+     IOWA STATE UNIVERSITY:
+          JOE IVANIC, AARON WEST, LAIMUTIS BYTAUTAS, KLAUS RUEDENBERG
+     UNIVERSITY OF TOKYO: KIMIHIKO HIRAO, TAKAHITO NAKAJIMA,
+          TAKAO TSUNEDA, MUNEAKI KAMIYA, SUSUMU YANAGISAWA,
+          KIYOSHI YAGI, MAHITO CHIBA, SEIKEN TOKURA, NAOAKI KAWAKAMI
+     UNIVERSITY OF AARHUS: FRANK JENSEN
+     UNIVERSITY OF IOWA: VISVALDAS KAIRYS, HUI LI
+     NATIONAL INST. OF STANDARDS AND TECHNOLOGY: WALT STEVENS, DAVID GARMER
+     UNIVERSITY OF PISA: BENEDETTA MENNUCCI, JACOPO TOMASI
+     UNIVERSITY OF MEMPHIS: HENRY KURTZ, PRAKASHAN KORAMBATH
+     UNIVERSITY OF ALBERTA: TOBY ZENG, MARIUSZ KLOBUKOWSKI
+     UNIVERSITY OF NEW ENGLAND: MARK SPACKMAN
+     MIE UNIVERSITY: HIROAKI UMEDA
+     NAT. INST. OF ADVANCED INDUSTRIAL SCIENCE AND TECHNOLOGY: KAZUO KITAURA
+     MICHIGAN STATE UNIVERSITY:
+          KAROL KOWALSKI, MARTA WLOCH, JEFFREY GOUR, JESSE LUTZ,
+          WEI LI, PIOTR PIECUCH
+     UNIVERSITY OF SILESIA: MONIKA MUSIAL, STANISLAW KUCHARSKI
+     FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX:
+          OLIVIER QUINET, BENOIT CHAMPAGNE
+     UNIVERSITY OF CALIFORNIA - SANTA BARBARA: BERNARD KIRTMAN
+     INSTITUTE FOR MOLECULAR SCIENCE:
+          KAZUYA ISHIMURA, MICHIO KATOUDA, AND SHIGERU NAGASE
+     UNIVERSITY OF NOTRE DAME: ANNA POMOGAEVA, DAN CHIPMAN
+     KYUSHU UNIVERSITY:
+          HARUYUKI NAKANO,
+          FENG LONG GU, JACEK KORCHOWIEC, MARCIN MAKOWSKI, AND YURIKO AOKI,
+          HIROTOSHI MORI AND EISAKU MIYOSHI
+     PENNSYLVANIA STATE UNIVERSITY:
+          TZVETELIN IORDANOV, CHET SWALINA, JONATHAN SKONE,
+          SHARON HAMMES-SCHIFFER
+     WASEDA UNIVERSITY:
+          MASATO KOBAYASHI, TOMOKO AKAMA, TSUGUKI TOUMA,
+          TAKESHI YOSHIKAWA, YASUHIRO IKABATA, JUNJI SEINO,
+          YUYA NAKAJIMA, HIROMI NAKAI
+     NANJING UNIVERSITY: SHUHUA LI
+     UNIVERSITY OF NEBRASKA:
+          PEIFENG SU, DEJUN SI, NANDUN THELLAMUREGE, YALI WANG, HUI LI
+     UNIVERSITY OF ZURICH: ROBERTO PEVERATI, KIM BALDRIDGE
+     N. COPERNICUS UNIVERSITY AND JACKSON STATE UNIVERSITY:
+          MARIA BARYSZ
+     UNIVERSITY OF COPENHAGEN: Jimmy Kromann, CASPER STEINMANN
+     TOKYO INSTITUTE OF TECHNOLOGY: HIROYA NAKATA
+     NAGOYA UNIVERSITY: YOSHIO NISHIMOTO, STEPHAN IRLE
+     MOSCOW STATE UNIVERSITY: VLADIMIR MIRONOV
+
+ EXECUTION OF GAMESS BEGUN Wed Aug  9 20:33:26 2017
+
+            ECHO OF THE FIRST FEW INPUT CARDS -
+ INPUT CARD>!  HCN plus a single water fragment                                             
+ INPUT CARD>!  numerical hessian, given the transition state geometry                       
+ INPUT CARD>!                                                                               
+ INPUT CARD>!  FINAL E=-91.5709962135 after 12 iterations.                                  
+ INPUT CARD>!       FREQ=1241.84i, 41.15,  69.15,   84.36,   138.94                         
+ INPUT CARD>!  INTENSITY=  ---    0.06299, 0.11794, 0.15225, 0.07261                        
+ INPUT CARD>!       FREQ= 213.94, 267.28,  2126.18, 3061.87                                 
+ INPUT CARD>!  INTENSITY=1.14744, 0.03389, 1.02862, 3.81223                                 
+ INPUT CARD>!                                                                               
+ INPUT CARD>!  This test takes 2 seconds on 2.66 GHz Cloverton (15 Apr 2015)                
+ INPUT CARD>!  answers have not changes appreciably since 2005                              
+ INPUT CARD>!                                                                               
+ INPUT CARD> $CONTRL SCFTYP=RHF RUNTYP=hessian  $END                                        
+ INPUT CARD> $SYSTEM TIMLIM=30 mwords=1 $END                                                
+ INPUT CARD> $GUESS  GUESS=HUCKEL $END                                                      
+ INPUT CARD> $BASIS  GBASIS=STO NGAUSS=3 $END                                               
+ INPUT CARD>----- $gddi ngroup=2 PAROUT=.true. $end                                         
+ INPUT CARD> $force  nvib=2 $end                                                            
+ INPUT CARD> $DATA                                                                          
+ INPUT CARD>HYDROGEN CYANIDE...STO-3G...INTRINSIC REACTION COORDINATE                       
+ INPUT CARD>C1                                                                              
+ INPUT CARD>NITROGEN    7.0   -.0394151464    .1905055977   -.3962002940                    
+ INPUT CARD>CARBON      6.0   1.1780819610    .2191548604   -.4155352053                    
+ INPUT CARD>HYDROGEN    1.0    .8402901875    .2685973952    .7402695252                    
+ INPUT CARD> $END                                                                           
+ INPUT CARD> $efrag                                                                         
+ INPUT CARD>                                                                                
+ INPUT CARD>fragname=h2orhf                                                                 
+ INPUT CARD>ZO1                .1721193443    .4826326033   2.9325474149                    
+ INPUT CARD>ZH2                .6773867890    .8002646103   3.6637745831                    
+ INPUT CARD>ZH3               -.7363078345    .5575342481   3.1775540649                    
+ INPUT CARD> $end                                                                           
+    1000000 WORDS OF MEMORY AVAILABLE
+
+     BASIS OPTIONS
+     -------------
+     GBASIS=STO          IGAUSS=       3      POLAR=NONE    
+     NDFUNC=       0     NFFUNC=       0     DIFFSP=       F
+     NPFUNC=       0      DIFFS=       F     BASNAM=        
+
+
+     RUN TITLE
+     ---------
+ HYDROGEN CYANIDE...STO-3G...INTRINSIC REACTION COORDINATE                       
+
+ THE POINT GROUP OF THE MOLECULE IS C1      
+ THE ORDER OF THE PRINCIPAL AXIS IS     0
+
+ ATOM      ATOMIC                      COORDINATES (BOHR)
+           CHARGE         X                   Y                   Z
+ NITROGEN    7.0    -0.0744838265        0.3600033788       -0.7487099919
+ CARBON      6.0     2.2262520974        0.4141426350       -0.7852476763
+ HYDROGEN    1.0     1.5879182045        0.5075754779        1.3989065597
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 NITR       2 CARB       3 HYDR  
+
+   1 NITR    0.0000000    1.2179876 *  1.4392857 *
+   2 CARB    1.2179876 *  0.0000000    1.2051690 *
+   3 HYDR    1.4392857 *  1.2051690 *  0.0000000  
+
+  * ... LESS THAN  3.000
+
+
+     ATOMIC BASIS SET
+     ----------------
+ THE CONTRACTED PRIMITIVE FUNCTIONS HAVE BEEN UNNORMALIZED
+ THE CONTRACTED BASIS FUNCTIONS ARE NOW NORMALIZED TO UNITY
+
+  SHELL TYPE  PRIMITIVE        EXPONENT          CONTRACTION COEFFICIENT(S)
+
+ NITROGEN  
+
+      1   S       1            99.1061690    0.154328967295
+      1   S       2            18.0523124    0.535328142282
+      1   S       3             4.8856602    0.444634542185
+
+      2   L       4             3.7804559   -0.099967229187    0.155916274999
+      2   L       5             0.8784966    0.399512826089    0.607683718598
+      2   L       6             0.2857144    0.700115468880    0.391957393099
+
+ CARBON    
+
+      3   S       7            71.6168373    0.154328967295
+      3   S       8            13.0450963    0.535328142282
+      3   S       9             3.5305122    0.444634542185
+
+      4   L      10             2.9412494   -0.099967229187    0.155916274999
+      4   L      11             0.6834831    0.399512826089    0.607683718598
+      4   L      12             0.2222899    0.700115468880    0.391957393099
+
+ HYDROGEN  
+
+      5   S      13             3.4252509    0.154328967295
+      5   S      14             0.6239137    0.535328142282
+      5   S      15             0.1688554    0.444634542185
+
+ TOTAL NUMBER OF BASIS SET SHELLS             =    5
+ NUMBER OF CARTESIAN GAUSSIAN BASIS FUNCTIONS =   11
+ NUMBER OF ELECTRONS                          =   14
+ CHARGE OF MOLECULE                           =    0
+ SPIN MULTIPLICITY                            =    1
+ NUMBER OF OCCUPIED ORBITALS (ALPHA)          =    7
+ NUMBER OF OCCUPIED ORBITALS (BETA )          =    7
+ TOTAL NUMBER OF ATOMS                        =    3
+ THE NUCLEAR REPULSION ENERGY IS       23.4558807833
+
+     $CONTRL OPTIONS
+     ---------------
+ SCFTYP=RHF          RUNTYP=HESSIAN      EXETYP=RUN     
+ MPLEVL=       0     CITYP =NONE         CCTYP =NONE         VBTYP =NONE    
+ DFTTYP=NONE         TDDFT =NONE    
+ MULT  =       1     ICHARG=       0     NZVAR =       0     COORD =UNIQUE  
+ PP    =NONE         RELWFN=NONE         LOCAL =NONE         NUMGRD=       F
+ ISPHER=      -1     NOSYM =       0     MAXIT =      30     UNITS =ANGS    
+ PLTORB=       F     MOLPLT=       F     AIMPAC=       F     FRIEND=        
+ NPRINT=       7     IREST =       0     GEOM  =INPUT   
+ NORMF =       0     NORMP =       0     ITOL  =      20     ICUT  =       9
+ INTTYP=BEST         GRDTYP=BEST         QMTTOL= 1.0E-06
+
+     $SYSTEM OPTIONS
+     ---------------
+  REPLICATED MEMORY=     1000000 WORDS (ON EVERY NODE).
+ DISTRIBUTED MEMDDI=           0 MILLION WORDS IN AGGREGATE,
+ MEMDDI DISTRIBUTED OVER   1 PROCESSORS IS           0 WORDS/PROCESSOR.
+ TOTAL MEMORY REQUESTED ON EACH PROCESSOR=     1000000 WORDS.
+ TIMLIM=          30.00 MINUTES, OR       0.0 DAYS.
+ PARALL= F  BALTYP=  DLB     KDIAG=    0  COREFL= F
+ MXSEQ2=     300 MXSEQ3=     150  mem10=         0
+
+ READING $EFRAG GROUP
+ COORD=CART      POSITION=OPTIMIZE  POLMETHD=FRGSCF   NBUFFMO=0
+ READING COORDINATES OF FRAGMENT   1 NAMED   H2ORHF
+ FINISHED READING $EFRAG GROUP,   1 FRAGMENTS WILL BE USED.
+
+
+
+     SUMMARY OF THE EFFECTIVE FRAGMENT POTENTIAL MODEL CHOSEN
+     --------------------------------------------------------
+ TOTAL NUMBER OF MULTIPOLE POINTS   =         8  (EFP1/EFP2 ELECTROSTATICS)
+ TOTAL NUMBER OF POLARIZABLE POINTS =         5  (EFP1/EFP2 INDUCTION)
+ TOTAL NUMBER OF L-J POINTS         =         0  (REPULSION AND DISPERSION)
+ TOTAL NUMBER OF REPULSIVE POINTS   =         3  (EFP1 REPULSION/ETC.)
+
+ THIS IS A -EFP1- TYPE RUN, WITH PAULI REPULSION, CHARGE TRANSFER, AND
+ HIGHER ORDER EFFECTS COLLECTED IN A FITTED REPULSIVE POTENTIAL.
+
+ OPTIONS FOR EFP SCREENING:
+     ELECTROSTATIC AB INITIO-EFP GAUSSIAN SCREENING IS ON
+     ELECTROSTATIC EFP-EFP SCREENING CHOICE IS GAUSSIAN, FOR CHARGE/CHARGE
+     POLARIZATION EFP-EFP SCREENING IS OFF
+
+     $EWALD OPTIONS
+     -----------
+
+     IFEWLD   =        F         TINFOIL        =        T
+     BETA    =    0.200         ELECTRIC CONST =     1.00
+     EPSILON =     1.00         CUT_OFF        = 0.10E+04
+     CUTLIST =  1000.00         LEVEL          =    1
+     KMAX    =       10         EWLDPL         =        F
+
+            MULTIPOLE COORDINATES, ELECTRONIC AND NUCLEAR CHARGES
+
+                  X              Y              Z           ELEC.   NUC.
+ ZO1        0.3252583979   0.9120433730   5.5417110602    8.00000    0.0
+ ZH2        1.2800754189   1.5122808311   6.9235300428    1.00000    0.0
+ ZH3       -1.3914200498   1.0535869577   6.0047064938    1.00000    0.0
+ O1         0.3252583979   0.9120433730   5.5417110602   -8.21083    0.0
+ H2         1.2800754189   1.5122808311   6.9235300428   -0.55665    0.0
+ H3        -1.3914200498   1.0535869577   6.0047064938   -0.55665    0.0
+ B12        0.8026670873   1.2121619279   6.2326201183   -0.33793    0.0
+ B13       -0.5330806470   0.9828149911   5.7732083438   -0.33793    0.0
+
+   CHARGE SCREENING PARAMETERS (COEF AND ZETA)
+   ICHGP=   3 AI-FRAGMENT SCREENING= 1   FRAGMENT-FRAGMENT SCREENING= 1
+
+             GAUSSIAN DAMPING    EXPONENTIAL DAMPING
+ ZO1        3.17107   0.30798      3.17107   0.30798
+ ZH2       -0.74355   0.22035     -0.74355   0.22035
+ ZH3       -0.74355   0.22035     -0.74355   0.22035
+ O1         3.06389   0.30817      3.06389   0.30817
+ H2        -1.50149   0.23358     -1.50149   0.23358
+ H3        -1.50149   0.23358     -1.50149   0.23358
+ B12        1.99014   0.44003      1.99014   0.44003
+ B13        1.99014   0.44003      1.99014   0.44003
+
+   SCREENING FOR POLARIZATION WITH EXPONENTIAL FORMULA  OFF
+
+   SCREENING FOR POLARIZATION WITH TANG-TOENNIS FORMULA  OFF
+
+                  DIPOLE MOMENTS AND THE SECOND MOMENT TENSOR
+
+                  X        Y        Z           XX/XY    YY/XZ    ZZ/YZ
+ O1           -0.15583  0.15172  0.37734     -3.66156 -4.47178 -4.09465
+                                              0.08270  0.13659  0.19457
+ H2            0.04039  0.01786  0.04028     -0.27915 -0.28220 -0.27041
+                                              0.00234  0.00526  0.00611
+ H3           -0.05948  0.00072  0.00593     -0.26837 -0.28400 -0.27939
+                                             -0.00198 -0.00594  0.00207
+ B12          -0.09744 -0.06039 -0.13892     -0.13335 -0.15171 -0.12996
+                                              0.00570  0.01212  0.01138
+ B13           0.17367 -0.01384 -0.04568     -0.11637 -0.15454 -0.14410
+                                             -0.00111 -0.00551  0.00501
+
+                  THE THIRD MOMENT TENSOR
+
+               XXX/XYY  YYY/YYZ  ZZZ/XZZ  XXY/YZZ  XXZ/XYZ
+ O1           -0.31681  0.35041  0.85696  0.10763  0.26521
+              -0.12465  0.28815 -0.14097  0.10904 -0.00925
+ H2            0.04497  0.01808  0.02977  0.00410  0.00905
+               0.01506  0.01183  0.00924  0.00082 -0.00313
+ H3           -0.04637 -0.00107  0.00095 -0.00220 -0.00522
+              -0.02230  0.00061 -0.02001 -0.00085  0.00091
+ B12          -0.30824 -0.17466 -0.39888 -0.05781 -0.13196
+              -0.10026 -0.13329 -0.10118 -0.05750 -0.00039
+ B13           0.51737 -0.03432 -0.11524 -0.01047 -0.03754
+               0.17221 -0.03917  0.17364 -0.00946  0.00082
+
+                  POLARIZABLE POINTS AND THE POLARIZABILITY TENSOR
+
+              X       Y       Z       XX/YZ    YY/YX    ZZ/ZX    XY/ZY     XZ
+ LMO1      0.3252  0.9121  5.5419   0.00140  0.00135  0.00150 -0.00002 -0.00006
+                                    0.00008 -0.00002 -0.00006  0.00008
+ LMO2     -0.6020  1.0011  5.8222   2.77886  0.78542  0.85776 -0.13247 -0.46055
+                                    0.01593 -0.27165 -0.79659  0.00610
+ LMO3      0.8190  1.2451  6.3109   1.26518  1.03847  2.11840  0.33529  0.77577
+                                    0.57421  0.47447  1.11181  0.58404
+ LMO4      0.4153  1.2636  5.1044   1.33609  0.54684  1.28578  0.27554  0.00908
+                                    0.14895  0.09294  0.10023 -0.38195
+ LMO5      0.4417  0.3594  5.4789   1.35045  1.02476  0.79350 -0.15948  0.18450
+                                    0.11338  0.02312  0.09334  0.64428
+
+                    --------------                     ------------------
+                      REP POINTS                         REP PARAMETERS  
+                    --------------                     ------------------
+
+                X         Y         Z               COEF       N          ZETA
+
+  O1         0.32526   0.91204   5.54171        -0.00016       0       0.01886
+                                                 1.24695       0       0.41986
+  H2         1.28008   1.51228   6.92353         0.00044       0       0.06432
+                                                 0.11726       0       0.69633
+  H3        -1.39142   1.05359   6.00471         0.00044       0       0.06432
+                                                 0.11726       0       0.69633
+
+          ----------------
+          PROPERTIES INPUT
+          ----------------
+
+     MOMENTS            FIELD           POTENTIAL          DENSITY
+ IEMOM =       1   IEFLD =       0   IEPOT =       0   IEDEN =       0
+ WHERE =COMASS     WHERE =NUCLEI     WHERE =NUCLEI     WHERE =NUCLEI  
+ OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH    
+ IEMINT=       0   IEFINT=       0                     IEDINT=       0
+                                                       MORB  =       0
+          EXTRAPOLATION IN EFFECT
+          SOSCF IN EFFECT
+ ORBITAL PRINTING OPTION: NPREO=     1    11     2     1
+
+     -------------------------------
+     INTEGRAL TRANSFORMATION OPTIONS
+     -------------------------------
+     NWORD  =            0
+     CUTOFF = 1.0E-09     MPTRAN =       0
+     DIRTRF =       F     AOINTS =DUP     
+
+          ----------------------
+          INTEGRAL INPUT OPTIONS
+          ----------------------
+ NOPK  =       1 NORDER=       0 SCHWRZ=       F
+
+     ------------------------------------------
+     THE POINT GROUP IS C1 , NAXIS= 0, ORDER= 1
+     ------------------------------------------
+
+     DIMENSIONS OF THE SYMMETRY SUBSPACES ARE
+ A   =   11
+
+ ..... DONE SETTING UP THE RUN .....
+ STEP CPU TIME =     0.03 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS 100.00%
+
+     ---------------------------------
+     HESSIAN MATRIX CONTROL PARAMETERS
+     ---------------------------------
+     METHOD=SEMINUM    NVIB  =       2   VIBSIZ= 0.01000
+     RDHESS=       F   PURIFY=       F   PRTIFC=       F
+     VIBANL=       T   DECOMP=       F   PROJCT=       F
+     SCLFAC= 1.00000   PRTSCN=       F   NPRT  =       0
+     PULCOR=       F   NPUN  =       0   REDOVB=       T
+     HSSTYP=GENERAL 
+     THERMOCHEMISTRY WILL BE PRINTED FOR    1 TEMPERATURES:
+      298.15000
+
+ SPECIAL CODE WILL BE USED FOR RHF + FRAGMENT DIFFERENTIATION.
+ WAVEFUNCTIONS FOR ALL FRAGMENT DISPLACEMENTS WILL BE EVALUATED FIRST,
+ TOGETHER WITH 1E- AND FRAGMENT DERIVATIVE CONTRIBUTIONS.
+ THEN ALL 2E- CONTRIBUTIONS TO THE GRADIENT WILL BE DONE IN ONE GRADIENT PASS.
+1     ATOM  0                    --------------------
+     COORD  0                    UNDISPLACED GEOMETRY
+       VIB  0                    --------------------
+
+ ATOM                    X                    Y                    Z
+ NITROGEN         -0.0744838265        0.3600033788       -0.7487099919
+ CARBON            2.2262520974        0.4141426350       -0.7852476763
+ HYDROGEN          1.5879182045        0.5075754779        1.3989065597
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5417110602
+ ZH2               1.2800754189   1.5122808311   6.9235300428
+ ZH3              -1.3914200498   1.0535869577   6.0047064938
+
+          ********************
+          1 ELECTRON INTEGRALS
+          ********************
+ TIME TO DO ORDINARY INTEGRALS=      0.00
+ TIME TO DO FRAGMENT INTEGRALS=      0.00
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS 100.00%
+
+          -------------
+          GUESS OPTIONS
+          -------------
+          GUESS =HUCKEL            NORB  =       0          NORDER=       0
+          MIX   =       F          PRTMO =       F          PUNMO =       F
+          TOLZ  = 1.0E-08          TOLE  = 1.0E-05
+          SYMDEN=       F          PURIFY=       F
+
+ INITIAL GUESS ORBITALS GENERATED BY HUCKEL   ROUTINE.
+ HUCKEL GUESS REQUIRES      3516 WORDS.
+
+ SYMMETRIES FOR INITIAL GUESS ORBITALS FOLLOW.   BOTH SET(S).
+     7 ORBITALS ARE OCCUPIED (    2 CORE ORBITALS).
+     3=A        4=A        5=A        6=A        7=A        8=A        9=A   
+    10=A       11=A   
+ ...... END OF INITIAL ORBITAL SELECTION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS 100.00%
+
+                    ----------------------
+                    AO INTEGRAL TECHNOLOGY
+                    ----------------------
+     S,P,L SHELL ROTATED AXIS INTEGRALS, REPROGRAMMED BY
+        KAZUYA ISHIMURA (IMS) AND JOSE SIERRA (SYNSTAR).
+     S,P,D,L SHELL ROTATED AXIS INTEGRALS PROGRAMMED BY
+        KAZUYA ISHIMURA (INSTITUTE FOR MOLECULAR SCIENCE).
+     S,P,D,F,G SHELL TO TOTAL QUARTET ANGULAR MOMENTUM SUM 5,
+        ERIC PROGRAM BY GRAHAM FLETCHER (ELORET AND NASA ADVANCED
+        SUPERCOMPUTING DIVISION, AMES RESEARCH CENTER).
+     S,P,D,F,G,L SHELL GENERAL RYS QUADRATURE PROGRAMMED BY
+        MICHEL DUPUIS (PACIFIC NORTHWEST NATIONAL LABORATORY).
+
+          --------------------
+          2 ELECTRON INTEGRALS
+          --------------------
+
+ THE -PK- OPTION IS OFF, THE INTEGRALS ARE NOT IN SUPERMATRIX FORM.
+ STORING   15000 INTEGRALS/RECORD ON DISK, USING 12 BYTES/INTEGRAL.
+ TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89371 WORDS OF MEMORY.
+ II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =  143
+ II,JST,KST,LST =  5  1  1  1 NREC =         1 INTLOC = 1362
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2032
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS  80.00%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4558807833
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1838820098
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0938828619
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0008891508
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004011817
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1786038806
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+
+     NUCLEAR ENERGY =        23.1786038806
+     MAXIT =   30     NPUNCH=    2
+     EXTRAP=T  DAMP=F  SHIFT=F  RSTRCT=F  DIIS=F  DEM=F  SOSCF=T
+     DENSITY MATRIX CONV=  1.00E-05
+     SOSCF WILL OPTIMIZE      28 ORBITAL ROTATIONS, SOGTOL=   0.250
+     MEMORY REQUIRED FOR RHF ITERS=     31356 WORDS.
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.3962225642   -91.3962225642   0.563059287   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5570425792    -0.1608200151   0.150787612   0.041597822
+   3  2  0      -91.5673752784    -0.0103326992   0.075981031   0.027968159
+   4  3  0      -91.5701936415    -0.0028183631   0.018149889   0.006630918
+   5  4  0      -91.5707512998    -0.0005576583   0.022967887   0.003202326
+   6  5  0      -91.5709920561    -0.0002407563   0.001718827   0.000550529
+   7  6  0      -91.5709955432    -0.0000034871   0.000926137   0.000282410
+   8  7  0      -91.5709961825    -0.0000006393   0.000127717   0.000050896
+   9  8  0      -91.5709962050    -0.0000000224   0.000100176   0.000019183
+  10  9  0      -91.5709962129    -0.0000000080   0.000021904   0.000006125
+  11 10  0      -91.5709962135    -0.0000000005   0.000009564   0.000002519
+  12 11  0      -91.5709962135    -0.0000000001   0.000001925   0.000000538
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709962135 AFTER  12 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01843         -0.04684
+                Y(IND)            0.00970          0.02465
+                Z(IND)            0.04318          0.10974
+
+          ------------
+          EIGENVECTORS
+          ------------
+
+                      1          2          3          4          5
+                  -15.3935   -11.0216    -1.2114    -0.6174    -0.5174
+                     A          A          A          A          A   
+    1  N  1  S    0.994020  -0.000172  -0.195075  -0.154842   0.060909
+    2  N  1  S    0.028250  -0.008292   0.624892   0.700691  -0.311729
+    3  N  1  X    0.007407  -0.003703   0.225141  -0.288555   0.454409
+    4  N  1  Y    0.000198  -0.000050   0.006716  -0.014815  -0.007826
+    5  N  1  Z    0.000351   0.000803   0.023434  -0.159620  -0.378316
+    6  C  2  S    0.000393   0.992913  -0.150709   0.133893  -0.094836
+    7  C  2  S   -0.008333   0.031402   0.337619  -0.474356   0.338854
+    8  C  2  X    0.006409  -0.008554  -0.192358  -0.109192  -0.127740
+    9  C  2  Y    0.000184  -0.000028  -0.002452  -0.014859  -0.020757
+   10  C  2  Z    0.000564   0.003613   0.043641  -0.243081  -0.356094
+   11  H  3  S   -0.001973  -0.006641   0.093110  -0.341009  -0.380970
+
+                      6          7          8          9         10
+                   -0.4323    -0.3751     0.2705     0.3355     0.5285
+                     A          A          A          A          A   
+    1  N  1  S    0.000007  -0.016841  -0.016509  -0.000016   0.041375
+    2  N  1  S    0.000061   0.131977   0.107304   0.000044  -0.239469
+    3  N  1  X   -0.019018  -0.485679   0.099005   0.017002  -0.133687
+    4  N  1  Y    0.757507  -0.023068   0.048649  -0.701312   0.001162
+    5  N  1  Z   -0.037941  -0.205346   0.931795   0.034764   0.088852
+    6  C  2  S   -0.000157  -0.135070  -0.051337   0.000053   0.060291
+    7  C  2  S    0.000777   0.638305   0.244518  -0.000197  -0.329063
+    8  C  2  X   -0.011105   0.571512   0.125572  -0.022326  -0.155060
+    9  C  2  Y    0.485917   0.005003  -0.014151   0.910812  -0.052019
+   10  C  2  Z   -0.024362  -0.170050  -0.349486  -0.045223  -0.969246
+   11  H  3  S   -0.000038  -0.002064  -0.511909   0.000034   1.005165
+
+                     11
+                    1.0484
+                     A   
+    1  N  1  S   -0.118863
+    2  N  1  S    1.049324
+    3  N  1  X    1.049467
+    4  N  1  Y    0.021743
+    5  N  1  Z   -0.075383
+    6  C  2  S    0.146931
+    7  C  2  S   -1.142544
+    8  C  2  X    1.202818
+    9  C  2  Y    0.022707
+   10  C  2  Z   -0.132129
+   11  H  3  S    0.287515
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS 100.00%
+
+     ----------------------------------------------------------------
+     PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
+     ----------------------------------------------------------------
+
+          -----------------
+          ENERGY COMPONENTS
+          -----------------
+
+         WAVEFUNCTION NORMALIZATION =       1.0000000000
+
+                ONE ELECTRON ENERGY =    -170.3292078454
+                TWO ELECTRON ENERGY =      55.5958564193
+           NUCLEAR REPULSION ENERGY =      23.4558807833
+          EFFECTIVE FRAGMENT ENERGY =      -0.2935255707
+                                      ------------------
+                       TOTAL ENERGY =     -91.5709962135
+
+ ELECTRON-ELECTRON POTENTIAL ENERGY =      55.5958564193
+  NUCLEUS-ELECTRON POTENTIAL ENERGY =    -261.9143276528
+   NUCLEUS-NUCLEUS POTENTIAL ENERGY =      23.4558807833
+ ELECTRON-FRAGMENT MULTIPOLE ENERGY =       0.2684507901
+ ELECTRON-FRAGMENT REMAINDER ENERGY =       0.0024007679
+            FRAGMENT-NUCLEAR ENERGY =      -0.2772769027
+    TOTAL FRAGMENT INDUCTION ENERGY =      -0.0002423148
+ ELECTRON-FRAGMENT EXCHANGE REPULSION =      0.0000000000
+                                      ------------------
+             TOTAL POTENTIAL ENERGY =    -182.8692581096
+                                      ------------------
+            SOLUTE POTENTIAL ENERGY =    -182.8625904502
+              SOLUTE KINETIC ENERGY =      91.2982618961
+                 VIRIAL RATIO (V/T) =       2.0029142576
+
+          ---------------------------------------
+          MULLIKEN AND LOWDIN POPULATION ANALYSES
+          ---------------------------------------
+
+     ATOMIC MULLIKEN POPULATION IN EACH MOLECULAR ORBITAL
+
+                      1          2          3          4          5
+
+                  2.000000   2.000000   2.000000   2.000000   2.000000
+
+    1             2.001999  -0.001557   1.230454   0.981391   1.052433
+    2            -0.001902   2.002272   0.680515   0.662190   0.597194
+    3            -0.000097  -0.000715   0.089031   0.356419   0.350373
+
+                      6          7
+
+                  2.000000   2.000000
+
+    1             1.338785   0.557345
+    2             0.661215   1.442793
+    3            -0.000000  -0.000138
+
+               ----- POPULATIONS IN EACH AO -----
+                             MULLIKEN      LOWDIN
+              1  N  1  S      1.99786     1.99718
+              2  N  1  S      1.80930     1.67409
+              3  N  1  X      1.39505     1.44287
+              4  N  1  Y      1.33689     1.32583
+              5  N  1  Z      0.62176     0.62641
+              6  C  2  S      1.99627     1.99394
+              7  C  2  S      1.60563     1.51799
+              8  C  2  X      1.05830     1.18367
+              9  C  2  Y      0.66147     0.67269
+             10  C  2  Z      0.72261     0.74878
+             11  H  3  S      0.79487     0.81655
+
+          ----- MULLIKEN ATOMIC OVERLAP POPULATIONS -----
+          (OFF-DIAGONAL ELEMENTS NEED TO BE MULTIPLIED BY 2)
+
+             1           2           3
+
+    1    6.6202583
+    2    0.5029810   5.3243279
+    3    0.0376111   0.2169678   0.5402940
+
+          TOTAL MULLIKEN AND LOWDIN ATOMIC POPULATIONS
+       ATOM         MULL.POP.    CHARGE          LOW.POP.     CHARGE
+    1 NITROGEN      7.160850   -0.160850         7.066379   -0.066379
+    2 CARBON        6.044277   -0.044277         6.117075   -0.117075
+    3 HYDROGEN      0.794873    0.205127         0.816546    0.183454
+
+          -------------------------------
+          BOND ORDER AND VALENCE ANALYSIS     BOND ORDER THRESHOLD=0.050
+          -------------------------------
+
+                   BOND                       BOND                       BOND
+  ATOM PAIR DIST  ORDER      ATOM PAIR DIST  ORDER      ATOM PAIR DIST  ORDER
+    1   2  1.218  2.361        1   3  1.439  0.335        2   3  1.205  0.623
+
+                       TOTAL       BONDED        FREE
+      ATOM            VALENCE     VALENCE     VALENCE
+    1 NITROGEN          2.696       2.696      -0.000
+    2 CARBON            2.983       2.983      -0.000
+    3 HYDROGEN          0.958       0.958       0.000
+
+          ----------------------------
+          SOLUTE ELECTROSTATIC MOMENTS
+          ----------------------------
+
+ POINT   1           X           Y           Z (BOHR)    CHARGE
+                 1.009680    0.389562   -0.684811       -0.00 (A.U.)
+         DX          DY          DZ         /D/  (DEBYE)
+     0.007018    0.068686    1.407167    1.408860
+
+          ----------------------------------------
+          EFFECTIVE FRAGMENT ELECTROSTATIC MOMENTS
+          ----------------------------------------
+
+ FRAGMENT   1  H2ORHF
+          X           Y           Z (BOHR)    CHARGE
+     0.282627    0.953552    5.644942       -0.00 (A.U.)
+         DX          DY          DZ         /D/  (DEBYE)
+    -0.828990    0.786184    2.003683    2.306524
+
+
+          ----------------------------
+          SYSTEM ELECTROSTATIC MOMENTS
+          ----------------------------
+
+ POINT   1           X           Y           Z (BOHR)    CHARGE
+                 1.009680    0.389562   -0.684811       -0.00 (A.U.)
+         DX          DY          DZ         /D/  (DEBYE)
+    -0.821971    0.854870    3.410850    3.611141
+ ...... END OF PROPERTY EVALUATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS 100.00%
+
+ BEGINNING ONE ELECTRON GRADIENT...
+ TIME TO DO ORDINARY GRADIENT INTEGRALS=      0.00
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+
+                     -----------------------------
+                     FRAGMENT GRADIENT INFORMATION
+                     -----------------------------
+
+
+      FRAGMENT NO.    1     E'X               E'Y               E'Z 
+      TOTALS          -0.000005325      -0.000012256      -0.000019019
+      TORQUE           0.000000296       0.000001763      -0.000011023
+
+      TOTAL FORCE ON ALL FRAGMENTS
+      FORCE           -0.000005325      -0.000012256      -0.000019019
+ TIME TO DO FRAGMENT GRADIENT INTEGRALS=      0.02
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS 100.00%
+1 FRAGMENT  1                    -------------------
+     TRANS  1                    NUCLEAR COORDINATES
+       VIB  1                    -------------------
+
+ ATOM                    X                    Y                    Z
+ NITROGEN         -0.0744838265        0.3600033788       -0.7487099919
+ CARBON            2.2262520974        0.4141426350       -0.7852476763
+ HYDROGEN          1.5879182045        0.5075754779        1.3989065597
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3352583979   0.9120433730   5.5417110602
+ ZH2               1.2900754189   1.5122808311   6.9235300428
+ ZH3              -1.3814200498   1.0535869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  87.50%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4558807833
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1838831611
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0938854772
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0009097362
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004001165
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1786217647
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709961791   -91.5709961791   0.000084804   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709961828    -0.0000000037   0.000037910   0.000013680
+   3  2  0      -91.5709961832    -0.0000000004   0.000014356   0.000009907
+   4  3  0      -91.5709961836    -0.0000000004   0.000004628   0.000002420
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709961836 AFTER   4 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01831         -0.04654
+                Y(IND)            0.00973          0.02473
+                Z(IND)            0.04331          0.11009
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  87.50%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+
+                     -----------------------------
+                     FRAGMENT GRADIENT INFORMATION
+                     -----------------------------
+
+
+      FRAGMENT NO.    1     E'X               E'Y               E'Z 
+      TOTALS           0.000011316      -0.000012092      -0.000030376
+      TORQUE           0.000005604      -0.000036156      -0.000004688
+
+      TOTAL FORCE ON ALL FRAGMENTS
+      FORCE            0.000011316      -0.000012092      -0.000030376
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  90.00%
+1 FRAGMENT  1                    -------------------
+     TRANS  2                    NUCLEAR COORDINATES
+       VIB  1                    -------------------
+
+ ATOM                    X                    Y                    Z
+ NITROGEN         -0.0744838265        0.3600033788       -0.7487099919
+ CARBON            2.2262520974        0.4141426350       -0.7852476763
+ HYDROGEN          1.5879182045        0.5075754779        1.3989065597
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9220433730   5.5417110602
+ ZH2               1.2800754189   1.5222808311   6.9235300428
+ ZH3              -1.3914200498   1.0635869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  90.00%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4558807833
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1838752078
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0939107612
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0009360917
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004006430
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1786302630
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709963215   -91.5709963215   0.000022958   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709963219    -0.0000000004   0.000004153   0.000001873
+   3  2  0      -91.5709963219    -0.0000000000   0.000002796   0.000000570
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709963219 AFTER   3 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01840         -0.04678
+                Y(IND)            0.00977          0.02483
+                Z(IND)            0.04314          0.10965
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  90.00%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+
+                     -----------------------------
+                     FRAGMENT GRADIENT INFORMATION
+                     -----------------------------
+
+
+      FRAGMENT NO.    1     E'X               E'Y               E'Z 
+      TOTALS          -0.000005176      -0.000009419      -0.000015071
+      TORQUE           0.000003305      -0.000002584      -0.000008142
+
+      TOTAL FORCE ON ALL FRAGMENTS
+      FORCE           -0.000005176      -0.000009419      -0.000015071
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  91.67%
+1 FRAGMENT  1                    -------------------
+     TRANS  3                    NUCLEAR COORDINATES
+       VIB  1                    -------------------
+
+ ATOM                    X                    Y                    Z
+ NITROGEN         -0.0744838265        0.3600033788       -0.7487099919
+ CARBON            2.2262520974        0.4141426350       -0.7852476763
+ HYDROGEN          1.5879182045        0.5075754779        1.3989065597
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5517110602
+ ZH2               1.2800754189   1.5122808311   6.9335300428
+ ZH3              -1.3914200498   1.0535869577   6.0147064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS 100.00%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4558807833
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1833140068
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0935770721
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0008798859
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0003984892
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1794711011
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709961078   -91.5709961078   0.000246091   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709961325    -0.0000000247   0.000024020   0.000008142
+   3  2  0      -91.5709961330    -0.0000000005   0.000012865   0.000002694
+   4  3  0      -91.5709961331    -0.0000000001   0.000004464   0.000001856
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709961331 AFTER   4 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01828         -0.04646
+                Y(IND)            0.00963          0.02449
+                Z(IND)            0.04292          0.10909
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS 100.00%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+
+                     -----------------------------
+                     FRAGMENT GRADIENT INFORMATION
+                     -----------------------------
+
+
+      FRAGMENT NO.    1     E'X               E'Y               E'Z 
+      TOTALS          -0.000016431      -0.000008415       0.000034894
+      TORQUE          -0.000006015      -0.000007532      -0.000011908
+
+      TOTAL FORCE ON ALL FRAGMENTS
+      FORCE           -0.000016431      -0.000008415       0.000034894
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  93.33%
+1 FRAGMENT  1                    -------------------
+       ROT  1                    NUCLEAR COORDINATES
+       VIB  1                    -------------------
+
+ ATOM                    X                    Y                    Z
+ NITROGEN         -0.0744838265        0.3600033788       -0.7487099919
+ CARBON            2.2262520974        0.4141426350       -0.7852476763
+ HYDROGEN          1.5879182045        0.5075754779        1.3989065597
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9130777423   5.5413011468
+ ZH2               1.2800754189   1.4994672293   6.9290533137
+ ZH3              -1.3914200498   1.0499843727   6.0056888432
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  93.33%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4558807833
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1841577428
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0942148505
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0011679936
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0003994085
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1782767751
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709961704   -91.5709961704   0.000019148   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709961708    -0.0000000004   0.000005977   0.000002353
+   3  2  0      -91.5709961708    -0.0000000000   0.000003815   0.000000991
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709961708 AFTER   3 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01840         -0.04677
+                Y(IND)            0.00953          0.02423
+                Z(IND)            0.04324          0.10990
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.1 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  93.33%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+
+                     -----------------------------
+                     FRAGMENT GRADIENT INFORMATION
+                     -----------------------------
+
+
+      FRAGMENT NO.    1     E'X               E'Y               E'Z 
+      TOTALS          -0.000000094      -0.000009295      -0.000025318
+      TORQUE           0.000008132      -0.000011976      -0.000005486
+
+      TOTAL FORCE ON ALL FRAGMENTS
+      FORCE           -0.000000094      -0.000009295      -0.000025318
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  94.12%
+1 FRAGMENT  1                    -------------------
+       ROT  2                    NUCLEAR COORDINATES
+       VIB  1                    -------------------
+
+ ATOM                    X                    Y                    Z
+ NITROGEN         -0.0744838265        0.3600033788       -0.7487099919
+ CARBON            2.2262520974        0.4141426350       -0.7852476763
+ HYDROGEN          1.5879182045        0.5075754779        1.3989065597
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3242239725   0.9120433730   5.5412899106
+ ZH2               1.2928112125   1.5122808311   6.9134917918
+ ZH3              -1.3877387649   1.0535869577   6.0214286930
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  94.12%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4558807833
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1843748237
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0941340995
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0007533886
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004119734
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1777132752
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709955391   -91.5709955391   0.000122802   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709955438    -0.0000000047   0.000096375   0.000034754
+   3  2  0      -91.5709955457    -0.0000000019   0.000042214   0.000027857
+   4  3  0      -91.5709955487    -0.0000000030   0.000006410   0.000003279
+   5  4  0      -91.5709955488    -0.0000000001   0.000009163   0.000001529
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709955488 AFTER   5 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01846         -0.04693
+                Y(IND)            0.00966          0.02455
+                Z(IND)            0.04318          0.10975
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  94.12%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+
+                     -----------------------------
+                     FRAGMENT GRADIENT INFORMATION
+                     -----------------------------
+
+
+      FRAGMENT NO.    1     E'X               E'Y               E'Z 
+      TOTALS          -0.000043000      -0.000016726      -0.000028825
+      TORQUE          -0.000013918       0.000131213      -0.000027957
+
+      TOTAL FORCE ON ALL FRAGMENTS
+      FORCE           -0.000043000      -0.000016726      -0.000028825
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.03 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS 100.00%
+1 FRAGMENT  1                    -------------------
+       ROT  3                    NUCLEAR COORDINATES
+       VIB  1                    -------------------
+
+ ATOM                    X                    Y                    Z
+ NITROGEN         -0.0744838265        0.3600033788       -0.7487099919
+ CARBON            2.2262520974        0.4141426350       -0.7852476763
+ HYDROGEN          1.5879182045        0.5075754779        1.3989065597
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3256713412   0.9124717595   5.5417110602
+ ZH2               1.2744383472   1.5222272171   6.9235300428
+ ZH3              -1.3923366856   1.0368417687   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  95.00%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4558807833
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1838719382
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0939022965
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0009350221
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004002304
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1786413403
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709962553   -91.5709962553   0.000022141   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709962556    -0.0000000003   0.000018212   0.000006464
+   3  2  0      -91.5709962557    -0.0000000001   0.000007468   0.000005121
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709962557 AFTER   3 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01846         -0.04692
+                Y(IND)            0.00962          0.02446
+                Z(IND)            0.04319          0.10977
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  95.00%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+
+                     -----------------------------
+                     FRAGMENT GRADIENT INFORMATION
+                     -----------------------------
+
+
+      FRAGMENT NO.    1     E'X               E'Y               E'Z 
+      TOTALS           0.000000988      -0.000009337      -0.000019964
+      TORQUE           0.000006091      -0.000015092       0.000002559
+
+      TOTAL FORCE ON ALL FRAGMENTS
+      FORCE            0.000000988      -0.000009337      -0.000019964
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  95.45%
+1 FRAGMENT  1                    -------------------
+     TRANS  1                    NUCLEAR COORDINATES
+       VIB  2                    -------------------
+
+ ATOM                    X                    Y                    Z
+ NITROGEN         -0.0744838265        0.3600033788       -0.7487099919
+ CARBON            2.2262520974        0.4141426350       -0.7852476763
+ HYDROGEN          1.5879182045        0.5075754779        1.3989065597
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3152583979   0.9120433730   5.5417110602
+ ZH2               1.2700754189   1.5122808311   6.9235300428
+ ZH3              -1.4014200498   1.0535869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  95.45%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4558807833
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1838795532
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0938795750
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0008687658
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004022280
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1785881930
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709960727   -91.5709960727   0.000085498   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709960764    -0.0000000038   0.000037780   0.000013634
+   3  2  0      -91.5709960769    -0.0000000004   0.000014463   0.000009962
+   4  3  0      -91.5709960773    -0.0000000004   0.000004748   0.000002451
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709960773 AFTER   4 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01855         -0.04714
+                Y(IND)            0.00966          0.02456
+                Z(IND)            0.04304          0.10940
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  95.45%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+
+                     -----------------------------
+                     FRAGMENT GRADIENT INFORMATION
+                     -----------------------------
+
+
+      FRAGMENT NO.    1     E'X               E'Y               E'Z 
+      TOTALS          -0.000021921      -0.000012428      -0.000007783
+      TORQUE          -0.000004990       0.000039488      -0.000017354
+
+      TOTAL FORCE ON ALL FRAGMENTS
+      FORCE           -0.000021921      -0.000012428      -0.000007783
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.2 SECONDS, CPU UTILIZATION IS  95.83%
+1 FRAGMENT  1                    -------------------
+     TRANS  2                    NUCLEAR COORDINATES
+       VIB  2                    -------------------
+
+ ATOM                    X                    Y                    Z
+ NITROGEN         -0.0744838265        0.3600033788       -0.7487099919
+ CARBON            2.2262520974        0.4141426350       -0.7852476763
+ HYDROGEN          1.5879182045        0.5075754779        1.3989065597
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9020433730   5.5417110602
+ ZH2               1.2800754189   1.5022808311   6.9235300428
+ ZH3              -1.3914200498   1.0435869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.3 SECONDS, CPU UTILIZATION IS  96.00%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4558807833
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1838875675
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0938540939
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0008419096
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004017158
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1785793157
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709960764   -91.5709960764   0.000022216   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709960768    -0.0000000004   0.000004129   0.000001880
+   3  2  0      -91.5709960768    -0.0000000000   0.000002763   0.000000575
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709960768 AFTER   3 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01845         -0.04690
+                Y(IND)            0.00963          0.02447
+                Z(IND)            0.04321          0.10983
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.2 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.3 SECONDS, CPU UTILIZATION IS  96.00%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+
+                     -----------------------------
+                     FRAGMENT GRADIENT INFORMATION
+                     -----------------------------
+
+
+      FRAGMENT NO.    1     E'X               E'Y               E'Z 
+      TOTALS          -0.000005502      -0.000015081      -0.000022875
+      TORQUE          -0.000002760       0.000006127      -0.000013900
+
+      TOTAL FORCE ON ALL FRAGMENTS
+      FORCE           -0.000005502      -0.000015081      -0.000022875
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.3 SECONDS, CPU UTILIZATION IS  96.30%
+1 FRAGMENT  1                    -------------------
+     TRANS  3                    NUCLEAR COORDINATES
+       VIB  2                    -------------------
+
+ ATOM                    X                    Y                    Z
+ NITROGEN         -0.0744838265        0.3600033788       -0.7487099919
+ CARBON            2.2262520974        0.4141426350       -0.7852476763
+ HYDROGEN          1.5879182045        0.5075754779        1.3989065597
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5317110602
+ ZH2               1.2800754189   1.5122808311   6.9135300428
+ ZH3              -1.3914200498   1.0535869577   5.9947064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.3 SECONDS, CPU UTILIZATION IS  96.30%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4558807833
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1844526405
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0941900382
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0008985199
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004038960
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1777327285
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709957226   -91.5709957226   0.000248556   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709957478    -0.0000000252   0.000024261   0.000008184
+   3  2  0      -91.5709957484    -0.0000000005   0.000012894   0.000002786
+   4  3  0      -91.5709957485    -0.0000000001   0.000004455   0.000001891
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709957485 AFTER   4 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01858         -0.04722
+                Y(IND)            0.00976          0.02481
+                Z(IND)            0.04344          0.11040
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.3 SECONDS, CPU UTILIZATION IS 100.00%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+
+                     -----------------------------
+                     FRAGMENT GRADIENT INFORMATION
+                     -----------------------------
+
+
+      FRAGMENT NO.    1     E'X               E'Y               E'Z 
+      TOTALS           0.000006094      -0.000016211      -0.000074196
+      TORQUE           0.000006730       0.000011233      -0.000010118
+
+      TOTAL FORCE ON ALL FRAGMENTS
+      FORCE            0.000006094      -0.000016211      -0.000074196
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.3 SECONDS, CPU UTILIZATION IS 100.00%
+1 FRAGMENT  1                    -------------------
+       ROT  1                    NUCLEAR COORDINATES
+       VIB  2                    -------------------
+
+ ATOM                    X                    Y                    Z
+ NITROGEN         -0.0744838265        0.3600033788       -0.7487099919
+ CARBON            2.2262520974        0.4141426350       -0.7852476763
+ HYDROGEN          1.5879182045        0.5075754779        1.3989065597
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9110131545   5.5421312965
+ ZH2               1.2800754189   1.5250385605   6.9178789143
+ ZH3              -1.3914200498   1.0571795392   6.0036881683
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.3 SECONDS, CPU UTILIZATION IS 100.00%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4558807833
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1835962953
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0935399163
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0006022794
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004029739
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1789438771
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709961742   -91.5709961742   0.000019205   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709961746    -0.0000000004   0.000005983   0.000002373
+   3  2  0      -91.5709961746    -0.0000000000   0.000003786   0.000001052
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709961746 AFTER   3 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01846         -0.04692
+                Y(IND)            0.00986          0.02507
+                Z(IND)            0.04311          0.10958
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.3 SECONDS, CPU UTILIZATION IS 100.00%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+
+                     -----------------------------
+                     FRAGMENT GRADIENT INFORMATION
+                     -----------------------------
+
+
+      FRAGMENT NO.    1     E'X               E'Y               E'Z 
+      TOTALS          -0.000010667      -0.000015361      -0.000012568
+      TORQUE          -0.000008181       0.000015797      -0.000016798
+
+      TOTAL FORCE ON ALL FRAGMENTS
+      FORCE           -0.000010667      -0.000015361      -0.000012568
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.3 SECONDS, CPU UTILIZATION IS  96.88%
+1 FRAGMENT  1                    -------------------
+       ROT  2                    NUCLEAR COORDINATES
+       VIB  2                    -------------------
+
+ ATOM                    X                    Y                    Z
+ NITROGEN         -0.0744838265        0.3600033788       -0.7487099919
+ CARBON            2.2262520974        0.4141426350       -0.7852476763
+ HYDROGEN          1.5879182045        0.5075754779        1.3989065597
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3262885602   0.9120433730   5.5421425328
+ ZH2               1.2672398813   1.5122808311   6.9334404362
+ ZH3              -1.3949339314   1.0535869577   5.9879483185
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.3 SECONDS, CPU UTILIZATION IS 100.00%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4558807833
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1833685595
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0936226798
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0010329672
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0003899036
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1795326076
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709955745   -91.5709955745   0.000122303   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709955791    -0.0000000046   0.000096519   0.000034808
+   3  2  0      -91.5709955810    -0.0000000019   0.000042215   0.000027852
+   4  3  0      -91.5709955840    -0.0000000030   0.000006427   0.000003226
+   5  4  0      -91.5709955841    -0.0000000001   0.000009272   0.000001511
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709955841 AFTER   5 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01839         -0.04675
+                Y(IND)            0.00974          0.02475
+                Z(IND)            0.04317          0.10974
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.3 SECONDS, CPU UTILIZATION IS 100.00%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+
+                     -----------------------------
+                     FRAGMENT GRADIENT INFORMATION
+                     -----------------------------
+
+
+      FRAGMENT NO.    1     E'X               E'Y               E'Z 
+      TOTALS           0.000032654      -0.000007990      -0.000010164
+      TORQUE           0.000014134      -0.000127658       0.000005771
+
+      TOTAL FORCE ON ALL FRAGMENTS
+      FORCE            0.000032654      -0.000007990      -0.000010164
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.3 SECONDS, CPU UTILIZATION IS 100.00%
+1 FRAGMENT  1                    -------------------
+       ROT  3                    NUCLEAR COORDINATES
+       VIB  2                    -------------------
+
+ ATOM                    X                    Y                    Z
+ NITROGEN         -0.0744838265        0.3600033788       -0.7487099919
+ CARBON            2.2262520974        0.4141426350       -0.7852476763
+ HYDROGEN          1.5879182045        0.5075754779        1.3989065597
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3248411915   0.9116191373   5.5417110602
+ ZH2               1.2856127466   1.5022785727   6.9235300428
+ ZH3              -1.3903360107   1.0703221432   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.3 SECONDS, CPU UTILIZATION IS 100.00%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4558807833
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1838911698
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0938624870
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0008427174
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004021257
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1785677183
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709960352   -91.5709960352   0.000022971   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709960356    -0.0000000003   0.000018311   0.000006501
+   3  2  0      -91.5709960357    -0.0000000001   0.000007659   0.000005239
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709960357 AFTER   3 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01840         -0.04676
+                Y(IND)            0.00977          0.02484
+                Z(IND)            0.04317          0.10972
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.3 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.3 SECONDS, CPU UTILIZATION IS 100.00%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+
+                     -----------------------------
+                     FRAGMENT GRADIENT INFORMATION
+                     -----------------------------
+
+
+      FRAGMENT NO.    1     E'X               E'Y               E'Z 
+      TOTALS          -0.000011579      -0.000015096      -0.000018137
+      TORQUE          -0.000005187       0.000018338      -0.000024476
+
+      TOTAL FORCE ON ALL FRAGMENTS
+      FORCE           -0.000011579      -0.000015096      -0.000018137
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS 100.00%
+
+ THE MINIMUM MEMORY REQUIRED FOR THIS RUN IS      18492 WORDS.
+ USING     346574 WORDS OF MEMORY.
+ SCHWARZ SCREENING SKIPPED          0 BLOCKS, COMPUTED        107 BLOCKS
+
+ ...... END OF 2-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS 100.00%
+  $VIB   
+          IVIB=   0 IATOM=   0 ICOORD=   0 E=      -91.5709962135
+  6.615360841E-05 1.447788928E-06 6.166327001E-05-1.834105933E-05-2.039034057E-05
+ -7.117806137E-05-4.248711395E-05 3.119871195E-05 2.853424654E-05
+-5.325433420E-06-1.225616037E-05-1.901945546E-05
+ 2.957694750E-07 1.763468304E-06-1.102284436E-05
+ -8.219713180E-01 8.548695434E-01 3.410850434E+00
+ THE VIB 0 GRADIENT RMS = 3.48874029E-05
+  $VIB   
+          IVIB=   1 IATOM=   4 ICOORD=   1 E=      -91.5709961836
+  4.488731763E-05 2.152425151E-07 5.132321978E-05-3.656353465E-06-1.879453764E-05
+ -5.134539955E-05-5.254708858E-05 3.067086099E-05 3.039782976E-05
+ 1.131612616E-05-1.209156593E-05-3.037565027E-05
+ 5.603809478E-06-3.615646245E-05-4.687789898E-06
+  7.399186839E-03 6.871341981E-02 1.407558006E+00
+  $VIB   
+          IVIB=   1 IATOM=   4 ICOORD=   2 E=      -91.5709963219
+  7.028422160E-05 2.295671524E-06 6.006477988E-05-2.259464093E-05-1.806851814E-05
+ -7.190264341E-05-4.251383724E-05 2.519201260E-05 2.690904633E-05
+-5.175741670E-06-9.419166042E-06-1.507118308E-05
+ 3.304886162E-06-2.583699703E-06-8.141541077E-06
+  7.020050889E-03 6.876807839E-02 1.407046548E+00
+  $VIB   
+          IVIB=   1 IATOM=   4 ICOORD=   3 E=      -91.5709961331
+  1.154958400E-04 1.662170983E-06 4.888053114E-05-6.652002834E-05-2.272262540E-05
+ -8.465514324E-05-3.254450665E-05 2.947518387E-05 8.809613779E-07
+-1.643130326E-05-8.414729523E-06 3.489365045E-05
+-6.014554626E-06-7.531851749E-06-1.190769367E-05
+  6.876304001E-03 6.861248072E-02 1.405868415E+00
+  $VIB   
+          IVIB=   1 IATOM=   5 ICOORD=   1 E=      -91.5709961708
+  6.343564813E-05 2.326942387E-06 6.113411742E-05-1.647208724E-05-1.795765807E-05
+ -6.890513974E-05-4.686973965E-05 2.492546125E-05 3.308884739E-05
+-9.381947930E-08-9.294745640E-06-2.531782534E-05
+ 8.131542985E-06-1.197553813E-05-5.485838845E-06
+  7.070334247E-03 6.881271220E-02 1.407227876E+00
+  $VIB   
+          IVIB=   1 IATOM=   5 ICOORD=   2 E=      -91.5709955488
+  7.763775815E-05 4.568741377E-06 8.809738185E-05-1.850936666E-05-2.324138425E-05
+ -1.028777499E-04-1.612854002E-05 3.539902233E-05 4.360501205E-05
+-4.299984975E-05-1.672637952E-05-2.882464426E-05
+-1.391814320E-05 1.312131408E-04-2.795670963E-05
+  6.119605947E-03 6.866011851E-02 1.407191514E+00
+  $VIB   
+          IVIB=   1 IATOM=   5 ICOORD=   3 E=      -91.5709962557
+  6.373997876E-05 4.877328797E-06 5.699751801E-05-1.687181615E-05-2.107095051E-05
+ -6.503825444E-05-4.785608520E-05 2.553020111E-05 2.800452252E-05
+ 9.879243315E-07-9.336579460E-06-1.996378636E-05
+ 6.091136521E-06-1.509166994E-05 2.559274740E-06
+  7.267284458E-03 6.877157663E-02 1.407188412E+00
+  $VIB   
+          IVIB=   2 IATOM=   4 ICOORD=   1 E=      -91.5709960773
+  8.728727015E-05 2.676045715E-06 7.213381043E-05-3.250979032E-05-2.196288129E-05
+ -9.114049170E-05-3.285662775E-05 3.171458258E-05 2.678993831E-05
+-2.192085038E-05-1.242774707E-05-7.783257323E-06
+-4.989696846E-06 3.948776936E-05-1.735442893E-05
+  6.634860127E-03 6.865779682E-02 1.406774026E+00
+  $VIB   
+          IVIB=   2 IATOM=   4 ICOORD=   2 E=      -91.5709960768
+  6.190439685E-05 5.941671287E-07 6.339077259E-05-1.359715803E-05-2.270128509E-05
+ -7.064271538E-05-4.280527269E-05 3.718802927E-05 3.012710818E-05
+-5.501964435E-06-1.508091137E-05-2.287516567E-05
+-2.759954571E-06 6.127208037E-06-1.390009952E-05
+  7.013537662E-03 6.860301640E-02 1.407285123E+00
+  $VIB   
+          IVIB=   2 IATOM=   4 ICOORD=   3 E=      -91.5709957485
+  1.603207933E-05 1.243721035E-06 7.490736305E-05 3.102006974E-05-1.800080671E-05
+ -5.768043004E-05-5.314591265E-05 3.296766952E-05 5.696931883E-05
+ 6.093765349E-06-1.621058391E-05-7.419625212E-05
+ 6.729788912E-06 1.123253301E-05-1.011802507E-05
+  7.159470667E-03 6.875970823E-02 1.408479824E+00
+  $VIB   
+          IVIB=   2 IATOM=   5 ICOORD=   1 E=      -91.5709961746
+  6.875065156E-05 5.618995671E-07 6.233567185E-05-1.969618441E-05-2.281701298E-05
+ -7.366565758E-05-3.838779993E-05 3.761642022E-05 2.389799523E-05
+-1.066666547E-05-1.536130688E-05-1.256800978E-05
+-8.180802467E-06 1.579673170E-05-1.679849302E-05
+  6.963058904E-03 6.855772999E-02 1.407103456E+00
+  $VIB   
+          IVIB=   2 IATOM=   5 ICOORD=   2 E=      -91.5709955841
+  5.522773841E-05-1.672295829E-06 3.531838791E-05-1.829130956E-05-1.756072307E-05
+ -3.982095326E-05-6.959052846E-05 2.722277790E-05 1.466625494E-05
+ 3.265410132E-05-7.989759061E-06-1.016368987E-05
+ 1.413431600E-05-1.276580614E-04 5.770841544E-06
+  7.913334191E-03 6.870900394E-02 1.407119953E+00
+  $VIB   
+          IVIB=   2 IATOM=   5 ICOORD=   3 E=      -91.5709960357
+  6.839032055E-05-1.974913975E-06 6.655211269E-05-1.925307702E-05-1.967154066E-05
+ -7.751127555E-05-3.755783679E-05 3.674202829E-05 2.909627170E-05
+-1.157940498E-05-1.509557372E-05-1.813710912E-05
+-5.187303636E-06 1.833798958E-05-2.447621878E-05
+  6.763662748E-03 6.860048179E-02 1.407145407E+00
+1   ATOM  1
+                                        -------------------
+   COORD  1                             NUCLEAR COORDINATES
+                                        -------------------
+     VIB  1
+
+                       ATOM             X              Y              Z
+
+                 1  NITROGEN        -0.064484       0.360003      -0.748710
+                 2  CARBON           2.226252       0.414143      -0.785248
+                 3  HYDROGEN         1.587918       0.507575       1.398907
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5417110602
+ ZH2               1.2800754189   1.5122808311   6.9235300428
+ ZH3              -1.3914200498   1.0535869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS 100.00%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2034
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS 100.00%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.5412604281
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1839625418
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0939218194
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0008684219
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004026036
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.2638418852
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709275526   -91.5709275526   0.002886604   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709355242    -0.0000079715   0.001820111   0.000660793
+   3  2  0      -91.5709372634    -0.0000017392   0.001295440   0.000280788
+   4  3  0      -91.5709383115    -0.0000010481   0.000369790   0.000084761
+   5  4  0      -91.5709384098    -0.0000000983   0.000138954   0.000035447
+   6  5  0      -91.5709384228    -0.0000000131   0.000026723   0.000009249
+   7  6  0      -91.5709384236    -0.0000000008   0.000016062   0.000003403
+   8  7  0      -91.5709384238    -0.0000000002   0.000005427   0.000001097
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709384238 AFTER   8 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01860         -0.04727
+                Y(IND)            0.00976          0.02481
+                Z(IND)            0.04347          0.11048
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS 100.00%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS  97.50%
+ ...... END OF 2-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS  97.50%
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 NITROGEN         0.011560714       0.000282113       0.000054861
+    2 CARBON          -0.011372489      -0.000291411       0.000066129
+    3 HYDROGEN        -0.000160914       0.000017131      -0.000152646
+      TOTAL QM TRANS.  0.000027311       0.000007833      -0.000031656
+      TOTAL QM TORQUE  0.000002486      -0.000014913       0.000013698
+  EFP           TRANS GRADIENT                           TORQUE
+    1  -0.0000273 -0.0000078  0.0000317    -0.0000024  0.0000129 -0.0000136
+  $VIB   
+          IVIB=   1 IATOM=   1 ICOORD=   1 E=      -91.5709384238
+  1.156071422E-02 2.821128855E-04 5.486125963E-05-1.137248920E-02-2.914105504E-04
+  6.612903939E-05-1.609141062E-04 1.713051551E-05-1.526461563E-04
+-2.731091609E-05-7.832850653E-06 3.165585702E-05
+-2.448793411E-06 1.285371036E-05-1.358609903E-05
+  7.391777636E-03 6.935284767E-02 1.419287167E+00
+1   ATOM  1
+                                        -------------------
+   COORD  2                             NUCLEAR COORDINATES
+                                        -------------------
+     VIB  1
+
+                       ATOM             X              Y              Z
+
+                 1  NITROGEN        -0.074484       0.370003      -0.748710
+                 2  CARBON           2.226252       0.414143      -0.785248
+                 3  HYDROGEN         1.587918       0.507575       1.398907
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5417110602
+ ZH2               1.2800754189   1.5122808311   6.9235300428
+ ZH3              -1.3914200498   1.0535869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS 100.00%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2032
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS 100.00%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4580697713
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1838842327
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0938696712
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0008672297
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004014727
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1807816245
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709792717   -91.5709792717   0.003999051   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709935687    -0.0000142970   0.001330951   0.000476882
+   3  2  0      -91.5709955535    -0.0000019847   0.001058317   0.000237277
+   4  3  0      -91.5709961189    -0.0000005654   0.000205962   0.000104591
+   5  4  0      -91.5709961560    -0.0000000371   0.000162575   0.000055574
+   6  5  0      -91.5709961659    -0.0000000098   0.000024379   0.000012688
+   7  6  0      -91.5709961669    -0.0000000010   0.000005144   0.000001995
+   8  7  0      -91.5709961670    -0.0000000000   0.000007331   0.000001237
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709961670 AFTER   8 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01844         -0.04688
+                Y(IND)            0.00971          0.02467
+                Z(IND)            0.04318          0.10975
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS 100.00%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS 100.00%
+ ...... END OF 2-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS 100.00%
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 NITROGEN         0.000315819       0.000007435       0.000051217
+    2 CARBON          -0.000288500      -0.000023312      -0.000017207
+    3 HYDROGEN        -0.000020696       0.000027504      -0.000015106
+      TOTAL QM TRANS.  0.000006624       0.000011626       0.000018904
+      TOTAL QM TORQUE  0.000000544      -0.000004806       0.000007381
+  EFP           TRANS GRADIENT                           TORQUE
+    1  -0.0000066 -0.0000116 -0.0000189     0.0000009  0.0000050 -0.0000072
+  $VIB   
+          IVIB=   1 IATOM=   1 ICOORD=   2 E=      -91.5709961670
+  3.158194197E-04 7.434606580E-06 5.121653901E-05-2.884996274E-04-2.331247191E-05
+ -1.720666472E-05-2.069580749E-05 2.750374551E-05-1.510608871E-05
+-6.623983075E-06-1.162588093E-05-1.890378586E-05
+ 8.853109645E-07 5.035385739E-06-7.222605007E-06
+  7.188791556E-03 6.689638165E-02 1.407371354E+00
+1   ATOM  1
+                                        -------------------
+   COORD  3                             NUCLEAR COORDINATES
+                                        -------------------
+     VIB  1
+
+                       ATOM             X              Y              Z
+
+                 1  NITROGEN        -0.074484       0.360003      -0.738710
+                 2  CARBON           2.226252       0.414143      -0.785248
+                 3  HYDROGEN         1.587918       0.507575       1.398907
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5417110602
+ ZH2               1.2800754189   1.5122808311   6.9235300428
+ ZH3              -1.3914200498   1.0535869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS  97.67%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2034
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS  97.67%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4619370017
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1841361960
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0940195290
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0009011734
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004014059
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1842810441
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709778287   -91.5709778287   0.003318379   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709925278    -0.0000146991   0.001400904   0.000561876
+   3  2  0      -91.5709952726    -0.0000027447   0.001666638   0.000355191
+   4  3  0      -91.5709964853    -0.0000012127   0.000272576   0.000189534
+   5  4  0      -91.5709966582    -0.0000001729   0.000140631   0.000085452
+   6  5  0      -91.5709966785    -0.0000000203   0.000060424   0.000016754
+   7  6  0      -91.5709966806    -0.0000000021   0.000017472   0.000004581
+   8  7  0      -91.5709966809    -0.0000000002   0.000015075   0.000002586
+   9  8  0      -91.5709966810    -0.0000000001   0.000002128   0.000000702
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709966810 AFTER   9 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01856         -0.04717
+                Y(IND)            0.00968          0.02460
+                Z(IND)            0.04312          0.10959
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.4 SECONDS, CPU UTILIZATION IS  97.67%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  97.78%
+ ...... END OF 2-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  97.78%
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 NITROGEN         0.000029036      -0.000009862      -0.000153821
+    2 CARBON          -0.000468106       0.000020497       0.000970195
+    3 HYDROGEN         0.000456440       0.000003279      -0.000783983
+      TOTAL QM TRANS.  0.000017370       0.000013913       0.000032391
+      TOTAL QM TORQUE  0.000000368      -0.000030705       0.000015934
+  EFP           TRANS GRADIENT                           TORQUE
+    1  -0.0000174 -0.0000139 -0.0000324    -0.0000004  0.0000303 -0.0000159
+  $VIB   
+          IVIB=   1 IATOM=   1 ICOORD=   3 E=      -91.5709966810
+  2.903624787E-05-9.862261977E-06-1.538205697E-04-4.681064897E-04 2.049661104E-05
+  9.701953499E-04 4.564400338E-04 3.278826324E-06-7.839833648E-04
+-1.736979032E-05-1.391317546E-05-3.239141458E-05
+-3.921710731E-07 3.027714819E-05-1.589194122E-05
+  9.366944698E-03 6.867636179E-02 1.403982153E+00
+1   ATOM  2
+                                        -------------------
+   COORD  1                             NUCLEAR COORDINATES
+                                        -------------------
+     VIB  1
+
+                       ATOM             X              Y              Z
+
+                 1  NITROGEN        -0.074484       0.360003      -0.748710
+                 2  CARBON           2.236252       0.414143      -0.785248
+                 3  HYDROGEN         1.587918       0.507575       1.398907
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5417110602
+ ZH2               1.2800754189   1.5122808311   6.9235300428
+ ZH3              -1.3914200498   1.0535869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS 100.00%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2032
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS 100.00%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.3737131777
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1838294202
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0938556650
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0008894911
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004010172
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.0965165665
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709294807   -91.5709294807   0.004564100   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709409788    -0.0000114981   0.001480210   0.000484414
+   3  2  0      -91.5709431791    -0.0000022002   0.001657877   0.000310805
+   4  3  0      -91.5709440967    -0.0000009177   0.000397896   0.000158688
+   5  4  0      -91.5709442430    -0.0000001462   0.000212903   0.000053964
+   6  5  0      -91.5709442710    -0.0000000280   0.000081837   0.000018338
+   7  6  0      -91.5709442765    -0.0000000055   0.000009228   0.000004286
+   8  7  0      -91.5709442766    -0.0000000001   0.000004581   0.000001403
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709442766 AFTER   8 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01831         -0.04654
+                Y(IND)            0.00963          0.02448
+                Z(IND)            0.04288          0.10899
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.4 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS 100.00%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  97.92%
+ ...... END OF 2-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  97.92%
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 NITROGEN        -0.010906167      -0.000287558      -0.000407451
+    2 CARBON           0.010349076       0.000241288       0.000141690
+    3 HYDROGEN         0.000547920       0.000063267       0.000334174
+      TOTAL QM TRANS. -0.000009170       0.000016997       0.000068414
+      TOTAL QM TORQUE -0.000002004      -0.000001287       0.000010066
+  EFP           TRANS GRADIENT                           TORQUE
+    1   0.0000092 -0.0000170 -0.0000684     0.0000019  0.0000026 -0.0000101
+  $VIB   
+          IVIB=   1 IATOM=   2 ICOORD=   1 E=      -91.5709442766
+ -1.090616672E-02-2.875578928E-04-4.074508192E-04 1.034907633E-02 2.412881672E-04
+  1.416901264E-04 5.479202212E-04 6.326690782E-05 3.341742371E-04
+ 9.170172285E-06-1.699718229E-05-6.841354452E-05
+ 1.850350490E-06 2.558605179E-06-1.008143052E-05
+  3.850796321E-03 6.807788968E-02 1.394551466E+00
+1   ATOM  2
+                                        -------------------
+   COORD  2                             NUCLEAR COORDINATES
+                                        -------------------
+     VIB  1
+
+                       ATOM             X              Y              Z
+
+                 1  NITROGEN        -0.074484       0.360003      -0.748710
+                 2  CARBON           2.226252       0.424143      -0.785248
+                 3  HYDROGEN         1.587918       0.507575       1.398907
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5417110602
+ ZH2               1.2800754189   1.5122808311   6.9235300428
+ ZH3              -1.3914200498   1.0535869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  97.92%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2034
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  97.92%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4542933812
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1838809274
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0938725782
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0008752683
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004012823
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1770138616
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709794082   -91.5709794082   0.003795953   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709937610    -0.0000143528   0.001277234   0.000512228
+   3  2  0      -91.5709956674    -0.0000019064   0.001028292   0.000249556
+   4  3  0      -91.5709962519    -0.0000005845   0.000262030   0.000120981
+   5  4  0      -91.5709963103    -0.0000000584   0.000211814   0.000071650
+   6  5  0      -91.5709963303    -0.0000000200   0.000044067   0.000013559
+   7  6  0      -91.5709963327    -0.0000000024   0.000021011   0.000006464
+   8  7  0      -91.5709963332    -0.0000000005   0.000026154   0.000003759
+   9  8  0      -91.5709963334    -0.0000000002   0.000002527   0.000000510
+  10  9  0      -91.5709963334    -0.0000000000   0.000000379   0.000000095
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709963334 AFTER  10 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01841         -0.04680
+                Y(IND)            0.00971          0.02469
+                Z(IND)            0.04317          0.10972
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  97.92%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.03 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS 100.00%
+ ...... END OF 2-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS 100.00%
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 NITROGEN        -0.000222866      -0.000005840       0.000099099
+    2 CARBON           0.000271583      -0.000003031       0.000008363
+    3 HYDROGEN        -0.000045039       0.000018497      -0.000085952
+      TOTAL QM TRANS.  0.000003678       0.000009625       0.000021510
+      TOTAL QM TORQUE -0.000003209       0.000001160       0.000011748
+  EFP           TRANS GRADIENT                           TORQUE
+    1  -0.0000037 -0.0000096 -0.0000215     0.0000033 -0.0000011 -0.0000116
+  $VIB   
+          IVIB=   1 IATOM=   2 ICOORD=   2 E=      -91.5709963334
+ -2.228660668E-04-5.840157373E-06 9.909898160E-05 2.715830777E-04-3.031379971E-06
+  8.362949117E-06-4.503861455E-05 1.849692749E-05-8.595210905E-05
+-3.678394695E-06-9.625390124E-06-2.150982186E-05
+ 3.250272904E-06-1.125494438E-06-1.160640861E-05
+  6.803175605E-03 6.411958168E-02 1.406784959E+00
+1   ATOM  2
+                                        -------------------
+   COORD  3                             NUCLEAR COORDINATES
+                                        -------------------
+     VIB  1
+
+                       ATOM             X              Y              Z
+
+                 1  NITROGEN        -0.074484       0.360003      -0.748710
+                 2  CARBON           2.226252       0.414143      -0.775248
+                 3  HYDROGEN         1.587918       0.507575       1.398907
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5417110602
+ ZH2               1.2800754189   1.5122808311   6.9235300428
+ ZH3              -1.3914200498   1.0535869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  98.04%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2032
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  98.04%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4681061953
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1840862447
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0939928585
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0008873058
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004022742
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1905121238
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709694779   -91.5709694779   0.003377963   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709851668    -0.0000156889   0.001425397   0.000599330
+   3  2  0      -91.5709878564    -0.0000026895   0.001378464   0.000378240
+   4  3  0      -91.5709890399    -0.0000011836   0.000337754   0.000170136
+   5  4  0      -91.5709891751    -0.0000001352   0.000254608   0.000078749
+   6  5  0      -91.5709892039    -0.0000000288   0.000021709   0.000008991
+   7  6  0      -91.5709892047    -0.0000000008   0.000025654   0.000004612
+   8  7  0      -91.5709892050    -0.0000000003   0.000005159   0.000001558
+   9  8  0      -91.5709892050    -0.0000000000   0.000002939   0.000000698
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709892050 AFTER   9 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01824         -0.04636
+                Y(IND)            0.00970          0.02465
+                Z(IND)            0.04315          0.10968
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  98.04%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  98.11%
+ ...... END OF 2-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  98.11%
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 NITROGEN         0.000176206       0.000055955       0.001100670
+    2 CARBON           0.000228880       0.000063409       0.001483665
+    3 HYDROGEN        -0.000421156      -0.000106465      -0.002551465
+      TOTAL QM TRANS. -0.000016070       0.000012900       0.000032869
+      TOTAL QM TORQUE -0.000002903       0.000031969       0.000004515
+  EFP           TRANS GRADIENT                           TORQUE
+    1   0.0000161 -0.0000129 -0.0000329     0.0000028 -0.0000315 -0.0000045
+  $VIB   
+          IVIB=   1 IATOM=   2 ICOORD=   3 E=      -91.5709892050
+  1.762056895E-04 5.595548461E-05 1.100669728E-03 2.288804846E-04 6.340928262E-05
+  1.483664908E-03-4.211563161E-04-1.064646653E-04-2.551465347E-03
+ 1.607014375E-05-1.290010203E-05-3.286928889E-05
+ 2.808649247E-06-3.147350606E-05-4.537123155E-06
+  2.167508512E-03 6.851067438E-02 1.401498096E+00
+1   ATOM  3
+                                        -------------------
+   COORD  1                             NUCLEAR COORDINATES
+                                        -------------------
+     VIB  1
+
+                       ATOM             X              Y              Z
+
+                 1  NITROGEN        -0.074484       0.360003      -0.748710
+                 2  CARBON           2.226252       0.414143      -0.785248
+                 3  HYDROGEN         1.597918       0.507575       1.398907
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5417110602
+ ZH2               1.2800754189   1.5122808311   6.9235300428
+ ZH3              -1.3914200498   1.0535869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS 100.00%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2032
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS 100.00%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4533221992
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1838516108
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0938678145
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0008891543
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004009705
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1760909577
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709942651   -91.5709942651   0.001773196   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709980163    -0.0000037512   0.000926647   0.000266005
+   3  2  0      -91.5709987796    -0.0000007633   0.000714981   0.000164267
+   4  3  0      -91.5709990419    -0.0000002623   0.000121679   0.000048524
+   5  4  0      -91.5709990595    -0.0000000176   0.000071406   0.000020240
+   6  5  0      -91.5709990640    -0.0000000045   0.000029064   0.000009270
+   7  6  0      -91.5709990645    -0.0000000005   0.000004007   0.000001941
+   8  7  0      -91.5709990645    -0.0000000000   0.000001311   0.000000445
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709990645 AFTER   8 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01850         -0.04701
+                Y(IND)            0.00967          0.02457
+                Z(IND)            0.04304          0.10941
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  98.15%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS  98.21%
+ ...... END OF 2-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS  98.21%
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 NITROGEN        -0.000047785       0.000023414       0.000562598
+    2 CARBON           0.000590151      -0.000024663      -0.000462931
+    3 HYDROGEN        -0.000527818       0.000013355      -0.000090650
+      TOTAL QM TRANS.  0.000014548       0.000012107       0.000009017
+      TOTAL QM TORQUE  0.000004029      -0.000028223       0.000015845
+  EFP           TRANS GRADIENT                           TORQUE
+    1  -0.0000145 -0.0000121 -0.0000090    -0.0000038  0.0000279 -0.0000158
+  $VIB   
+          IVIB=   1 IATOM=   3 ICOORD=   1 E=      -91.5709990645
+ -4.778522154E-05 2.341406931E-05 5.625980568E-04 5.901508734E-04-2.466299614E-05
+ -4.629307298E-04-5.278175530E-04 1.335546571E-05-9.065020456E-05
+-1.454809715E-05-1.210653894E-05-9.017122695E-06
+-3.808187233E-06 2.793791704E-05-1.580261403E-05
+  9.708899185E-03 6.860787181E-02 1.407319575E+00
+1   ATOM  3
+                                        -------------------
+   COORD  2                             NUCLEAR COORDINATES
+                                        -------------------
+     VIB  1
+
+                       ATOM             X              Y              Z
+
+                 1  NITROGEN        -0.074484       0.360003      -0.748710
+                 2  CARBON           2.226252       0.414143      -0.785248
+                 3  HYDROGEN         1.587918       0.517575       1.398907
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5417110602
+ ZH2               1.2800754189   1.5122808311   6.9235300428
+ ZH3              -1.3914200498   1.0535869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS  98.21%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2032
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS  98.21%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4548503061
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1838864270
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0938775684
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0008777131
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004013243
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1775626995
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709925568   -91.5709925568   0.001355227   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709948704    -0.0000023136   0.000596481   0.000279402
+   3  2  0      -91.5709954400    -0.0000005696   0.000957398   0.000182769
+   4  3  0      -91.5709957502    -0.0000003101   0.000200065   0.000064466
+   5  4  0      -91.5709957752    -0.0000000250   0.000147076   0.000042353
+   6  5  0      -91.5709957851    -0.0000000099   0.000015409   0.000005856
+   7  6  0      -91.5709957852    -0.0000000002   0.000006667   0.000004422
+   8  7  0      -91.5709957853    -0.0000000001   0.000002178   0.000000960
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709957853 AFTER   8 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01846         -0.04691
+                Y(IND)            0.00960          0.02441
+                Z(IND)            0.04322          0.10985
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS  98.21%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS  98.28%
+ ...... END OF 2-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS 100.00%
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 NITROGEN         0.000052020      -0.000001226       0.000032309
+    2 CARBON           0.000014710      -0.000035291      -0.000213186
+    3 HYDROGEN        -0.000060925       0.000054882       0.000201613
+      TOTAL QM TRANS.  0.000005805       0.000018365       0.000020736
+      TOTAL QM TORQUE  0.000006186      -0.000005770       0.000015732
+  EFP           TRANS GRADIENT                           TORQUE
+    1  -0.0000058 -0.0000184 -0.0000207    -0.0000063  0.0000058 -0.0000171
+  $VIB   
+          IVIB=   1 IATOM=   3 ICOORD=   2 E=      -91.5709957853
+  5.202031250E-05-1.225592767E-06 3.230865471E-05 1.471016143E-05-3.529104471E-05
+ -2.131861902E-04-6.092525977E-05 5.488205688E-05 2.016131794E-04
+-5.805212410E-06-1.836541946E-05-2.073564423E-05
+-6.294190345E-06 5.791073238E-06-1.712286718E-05
+  7.080753402E-03 7.495637864E-02 1.407418234E+00
+1   ATOM  3
+                                        -------------------
+   COORD  3                             NUCLEAR COORDINATES
+                                        -------------------
+     VIB  1
+
+                       ATOM             X              Y              Z
+
+                 1  NITROGEN        -0.074484       0.360003      -0.748710
+                 2  CARBON           2.226252       0.414143      -0.785248
+                 3  HYDROGEN         1.587918       0.507575       1.408907
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5417110602
+ ZH2               1.2800754189   1.5122808311   6.9235300428
+ ZH3              -1.3914200498   1.0535869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS  98.31%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2032
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS  98.31%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4373746138
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1839942194
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0939433745
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0008883422
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004025793
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1599227828
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709781286   -91.5709781286   0.000602214   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709789815    -0.0000008529   0.000306231   0.000112383
+   3  2  0      -91.5709790725    -0.0000000910   0.000118777   0.000065102
+   4  3  0      -91.5709791136    -0.0000000411   0.000065868   0.000019560
+   5  4  0      -91.5709791170    -0.0000000035   0.000039191   0.000008221
+   6  5  0      -91.5709791180    -0.0000000009   0.000014068   0.000004131
+   7  6  0      -91.5709791181    -0.0000000002   0.000002983   0.000001042
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709791181 AFTER   7 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01864         -0.04737
+                Y(IND)            0.00978          0.02486
+                Z(IND)            0.04352          0.11061
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS 100.00%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS 100.00%
+ ...... END OF 2-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS 100.00%
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 NITROGEN        -0.000111540      -0.000042601      -0.000740099
+    2 CARBON           0.000275483      -0.000137611      -0.002591368
+    3 HYDROGEN        -0.000160720       0.000194160       0.003378833
+      TOTAL QM TRANS.  0.000003223       0.000013948       0.000047366
+      TOTAL QM TORQUE -0.000004557      -0.000015454       0.000011901
+  EFP           TRANS GRADIENT                           TORQUE
+    1  -0.0000032 -0.0000139 -0.0000474     0.0000049  0.0000161 -0.0000118
+  $VIB   
+          IVIB=   1 IATOM=   3 ICOORD=   3 E=      -91.5709791181
+ -1.115402025E-04-4.260082865E-05-7.400990248E-04 2.754831214E-04-1.376108538E-04
+ -2.591367962E-03-1.607201413E-04 1.941599886E-04 3.378833023E-03
+-3.222775814E-06-1.394830620E-05-4.736603682E-05
+ 4.908385941E-06 1.607755042E-05-1.175492054E-05
+  9.695412956E-03 6.894353309E-02 1.417273546E+00
+1   ATOM  1
+                                        -------------------
+   COORD  1                             NUCLEAR COORDINATES
+                                        -------------------
+     VIB  2
+
+                       ATOM             X              Y              Z
+
+                 1  NITROGEN        -0.084484       0.360003      -0.748710
+                 2  CARBON           2.226252       0.414143      -0.785248
+                 3  HYDROGEN         1.587918       0.507575       1.398907
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5417110602
+ ZH2               1.2800754189   1.5122808311   6.9235300428
+ ZH3              -1.3914200498   1.0535869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS 100.00%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2032
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS 100.00%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.3711934161
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1838008606
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0938436125
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0009099237
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0003997582
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.0940591085
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709301691   -91.5709301691   0.002855864   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709381172    -0.0000079482   0.001844545   0.000663912
+   3  2  0      -91.5709398828    -0.0000017656   0.001318542   0.000285698
+   4  3  0      -91.5709409767    -0.0000010939   0.000392493   0.000088383
+   5  4  0      -91.5709410835    -0.0000001068   0.000142522   0.000037248
+   6  5  0      -91.5709410975    -0.0000000139   0.000028121   0.000009650
+   7  6  0      -91.5709410984    -0.0000000009   0.000016818   0.000003599
+   8  7  0      -91.5709410986    -0.0000000002   0.000006139   0.000001246
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709410986 AFTER   8 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01826         -0.04641
+                Y(IND)            0.00963          0.02449
+                Z(IND)            0.04289          0.10901
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS 100.00%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.03 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS 100.00%
+ ...... END OF 2-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS 100.00%
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 NITROGEN        -0.011022368      -0.000266548       0.000076570
+    2 CARBON           0.010945051       0.000238444      -0.000215329
+    3 HYDROGEN         0.000060636       0.000044768       0.000208287
+      TOTAL QM TRANS. -0.000016681       0.000016664       0.000069528
+      TOTAL QM TORQUE -0.000003077       0.000011721       0.000008327
+  EFP           TRANS GRADIENT                           TORQUE
+    1   0.0000167 -0.0000167 -0.0000695     0.0000030 -0.0000094 -0.0000085
+  $VIB   
+          IVIB=   2 IATOM=   1 ICOORD=   1 E=      -91.5709410986
+ -1.102236774E-02-2.665478007E-04 7.657035799E-05 1.094505125E-02 2.384436328E-04
+ -2.153289823E-04 6.063557126E-05 4.476823086E-05 2.082867714E-04
+ 1.668092004E-05-1.666406303E-05-6.952814733E-05
+ 3.036008968E-06-9.407103428E-06-8.456506656E-06
+  6.669468499E-03 6.802535381E-02 1.395147406E+00
+1   ATOM  1
+                                        -------------------
+   COORD  2                             NUCLEAR COORDINATES
+                                        -------------------
+     VIB  2
+
+                       ATOM             X              Y              Z
+
+                 1  NITROGEN        -0.074484       0.350003      -0.748710
+                 2  CARBON           2.226252       0.414143      -0.785248
+                 3  HYDROGEN         1.587918       0.507575       1.398907
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5417110602
+ ZH2               1.2800754189   1.5122808311   6.9235300428
+ ZH3              -1.3914200498   1.0535869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS 100.00%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2034
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS 100.00%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4533134406
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1838792743
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0938956982
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0009109323
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004008915
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1760485090
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709792943   -91.5709792943   0.003996090   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709935861    -0.0000142918   0.001329442   0.000476846
+   3  2  0      -91.5709955704    -0.0000019843   0.001058851   0.000237158
+   4  3  0      -91.5709961352    -0.0000005648   0.000206408   0.000105086
+   5  4  0      -91.5709961726    -0.0000000374   0.000160203   0.000055948
+   6  5  0      -91.5709961832    -0.0000000106   0.000025215   0.000010029
+   7  6  0      -91.5709961840    -0.0000000008   0.000004490   0.000001779
+   8  7  0      -91.5709961841    -0.0000000000   0.000007966   0.000001247
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709961841 AFTER   8 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01841         -0.04680
+                Y(IND)            0.00969          0.02463
+                Z(IND)            0.04317          0.10973
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS 100.00%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS 100.00%
+ ...... END OF 2-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS 100.00%
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 NITROGEN        -0.000232720      -0.000008136       0.000072645
+    2 CARBON           0.000301491      -0.000013864      -0.000127228
+    3 HYDROGEN        -0.000064862       0.000034897       0.000073938
+      TOTAL QM TRANS.  0.000003910       0.000012897       0.000019355
+      TOTAL QM TORQUE -0.000001183       0.000001403       0.000014752
+  EFP           TRANS GRADIENT                           TORQUE
+    1  -0.0000039 -0.0000129 -0.0000194    -0.0000003 -0.0000016 -0.0000148
+  $VIB   
+          IVIB=   2 IATOM=   1 ICOORD=   2 E=      -91.5709961841
+ -2.327196297E-04-8.135813652E-06 7.264482191E-05 3.014913412E-04-1.386372926E-05
+ -1.272277504E-04-6.486192110E-05 3.489654360E-05 7.393782722E-05
+-3.909788625E-06-1.289700107E-05-1.935489897E-05
+-2.698277142E-07-1.614488441E-06-1.479445777E-05
+  6.832590202E-03 7.047012504E-02 1.406913210E+00
+1   ATOM  1
+                                        -------------------
+   COORD  3                             NUCLEAR COORDINATES
+                                        -------------------
+     VIB  2
+
+                       ATOM             X              Y              Z
+
+                 1  NITROGEN        -0.074484       0.360003      -0.758710
+                 2  CARBON           2.226252       0.414143      -0.785248
+                 3  HYDROGEN         1.587918       0.507575       1.398907
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5417110602
+ ZH2               1.2800754189   1.5122808311   6.9235300428
+ ZH3              -1.3914200498   1.0535869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS 100.00%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2032
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS 100.00%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4495106644
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1836289498
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0937468401
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0008772235
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004009582
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1726111399
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709791074   -91.5709791074   0.003311709   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709937831    -0.0000146757   0.001399401   0.000559037
+   3  2  0      -91.5709965273    -0.0000027441   0.001683057   0.000354810
+   4  3  0      -91.5709977472    -0.0000012200   0.000278859   0.000191153
+   5  4  0      -91.5709979214    -0.0000001741   0.000142006   0.000085799
+   6  5  0      -91.5709979421    -0.0000000208   0.000060962   0.000017227
+   7  6  0      -91.5709979443    -0.0000000022   0.000018388   0.000004759
+   8  7  0      -91.5709979446    -0.0000000003   0.000015630   0.000002705
+   9  8  0      -91.5709979447    -0.0000000001   0.000002244   0.000000732
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709979447 AFTER   9 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01830         -0.04651
+                Y(IND)            0.00972          0.02469
+                Z(IND)            0.04323          0.10989
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS 100.00%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS 100.00%
+ ...... END OF 2-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS 100.00%
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 NITROGEN         0.000048117       0.000011830       0.000285943
+    2 CARBON           0.000491467      -0.000059759      -0.001110287
+    3 HYDROGEN        -0.000546236       0.000058599       0.000830659
+      TOTAL QM TRANS. -0.000006651       0.000010671       0.000006315
+      TOTAL QM TORQUE -0.000000963       0.000026822       0.000006170
+  EFP           TRANS GRADIENT                           TORQUE
+    1   0.0000067 -0.0000107 -0.0000063     0.0000010 -0.0000264 -0.0000062
+  $VIB   
+          IVIB=   2 IATOM=   1 ICOORD=   3 E=      -91.5709979447
+  4.811735908E-05 1.183041060E-05 2.859428020E-04 4.914674619E-04-5.975860815E-05
+ -1.110286612E-03-5.462355152E-04 5.859930852E-05 8.306587813E-04
+ 6.650695961E-06-1.067111104E-05-6.314972398E-06
+ 9.882821628E-07-2.638509416E-05-6.215434966E-06
+  4.764865897E-03 6.869522485E-02 1.410292716E+00
+1   ATOM  2
+                                        -------------------
+   COORD  1                             NUCLEAR COORDINATES
+                                        -------------------
+     VIB  2
+
+                       ATOM             X              Y              Z
+
+                 1  NITROGEN        -0.074484       0.360003      -0.748710
+                 2  CARBON           2.216252       0.414143      -0.785248
+                 3  HYDROGEN         1.587918       0.507575       1.398907
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5417110602
+ ZH2               1.2800754189   1.5122808311   6.9235300428
+ ZH3              -1.3914200498   1.0535869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS 100.00%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2034
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS 100.00%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.5386976440
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1839342100
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0939098607
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0008888775
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004013404
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.2613411104
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709278717   -91.5709278717   0.004622399   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709394554    -0.0000115837   0.001496273   0.000491400
+   3  2  0      -91.5709416730    -0.0000022176   0.001679493   0.000314546
+   4  3  0      -91.5709425971    -0.0000009241   0.000398901   0.000156481
+   5  4  0      -91.5709427396    -0.0000001426   0.000209348   0.000053621
+   6  5  0      -91.5709427666    -0.0000000270   0.000080420   0.000018007
+   7  6  0      -91.5709427719    -0.0000000052   0.000009122   0.000004228
+   8  7  0      -91.5709427719    -0.0000000001   0.000004376   0.000001309
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709427719 AFTER   8 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01855         -0.04715
+                Y(IND)            0.00977          0.02482
+                Z(IND)            0.04347          0.11049
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS 100.00%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.03 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS 100.00%
+ ...... END OF 2-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS 100.00%
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 NITROGEN         0.011409525       0.000302745       0.000551503
+    2 CARBON          -0.010728474      -0.000293947      -0.000312475
+    3 HYDROGEN        -0.000661077      -0.000001276      -0.000269303
+      TOTAL QM TRANS.  0.000019974       0.000007522      -0.000030275
+      TOTAL QM TORQUE  0.000001402      -0.000002777       0.000012081
+  EFP           TRANS GRADIENT                           TORQUE
+    1  -0.0000200 -0.0000075  0.0000303    -0.0000013  0.0000015 -0.0000121
+  $VIB   
+          IVIB=   2 IATOM=   2 ICOORD=   1 E=      -91.5709427719
+  1.140952509E-02 3.027448813E-04 5.515030305E-04-1.072847430E-02-2.939473812E-04
+ -3.124748094E-04-6.610767286E-04-1.275725116E-06-2.693030432E-04
+-1.997406192E-05-7.521775047E-06 3.027482185E-05
+-1.259997603E-06 1.516903264E-06-1.206873261E-05
+  1.057685101E-02 6.929926318E-02 1.419753566E+00
+1   ATOM  2
+                                        -------------------
+   COORD  2                             NUCLEAR COORDINATES
+                                        -------------------
+     VIB  2
+
+                       ATOM             X              Y              Z
+
+                 1  NITROGEN        -0.074484       0.360003      -0.748710
+                 2  CARBON           2.226252       0.404143      -0.785248
+                 3  HYDROGEN         1.587918       0.507575       1.398907
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5417110602
+ ZH2               1.2800754189   1.5122808311   6.9235300428
+ ZH3              -1.3914200498   1.0535869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS 100.00%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2032
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS 100.00%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4570737770
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1838826805
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0938928731
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0009029665
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004010793
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1798001106
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709790048   -91.5709790048   0.003798335   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709933616    -0.0000143568   0.001278424   0.000512014
+   3  2  0      -91.5709952686    -0.0000019070   0.001028277   0.000249557
+   4  3  0      -91.5709958538    -0.0000005851   0.000261319   0.000120727
+   5  4  0      -91.5709959120    -0.0000000582   0.000212832   0.000071314
+   6  5  0      -91.5709959315    -0.0000000195   0.000043227   0.000014815
+   7  6  0      -91.5709959339    -0.0000000024   0.000019447   0.000006461
+   8  7  0      -91.5709959345    -0.0000000005   0.000027082   0.000003780
+   9  8  0      -91.5709959347    -0.0000000002   0.000002203   0.000000390
+  10  9  0      -91.5709959347    -0.0000000000   0.000000317   0.000000086
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709959347 AFTER  10 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01845         -0.04688
+                Y(IND)            0.00968          0.02461
+                Z(IND)            0.04318          0.10977
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS 100.00%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS 100.00%
+ ...... END OF 2-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.7 SECONDS, CPU UTILIZATION IS 100.00%
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 NITROGEN         0.000306900       0.000004730       0.000018824
+    2 CARBON          -0.000263580      -0.000035067      -0.000154683
+    3 HYDROGEN        -0.000036362       0.000045243       0.000152610
+      TOTAL QM TRANS.  0.000006959       0.000014906       0.000016751
+      TOTAL QM TORQUE  0.000002609      -0.000004787       0.000010341
+  EFP           TRANS GRADIENT                           TORQUE
+    1  -0.0000070 -0.0000149 -0.0000168    -0.0000027  0.0000047 -0.0000105
+  $VIB   
+          IVIB=   2 IATOM=   2 ICOORD=   2 E=      -91.5709959347
+  3.069003304E-04 4.729535692E-06 1.882350977E-05-2.635795682E-04-3.506668281E-05
+ -1.546827643E-04-3.636170142E-05 4.524324037E-05 1.526101024E-04
+-6.959059101E-06-1.490609336E-05-1.675084811E-05
+-2.651290322E-06 4.749992841E-06-1.045393104E-05
+  7.252783937E-03 7.325033916E-02 1.407499801E+00
+1   ATOM  2
+                                        -------------------
+   COORD  3                             NUCLEAR COORDINATES
+                                        -------------------
+     VIB  2
+
+                       ATOM             X              Y              Z
+
+                 1  NITROGEN        -0.074484       0.360003      -0.748710
+                 2  CARBON           2.226252       0.414143      -0.795248
+                 3  HYDROGEN         1.587918       0.507575       1.398907
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5417110602
+ ZH2               1.2800754189   1.5122808311   6.9235300428
+ ZH3              -1.3914200498   1.0535869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS  98.67%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2034
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS  98.67%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4434005495
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1836785758
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0937733359
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0008909952
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004000967
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1664395364
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709682755   -91.5709682755   0.003384377   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709839637    -0.0000156882   0.001423097   0.000598449
+   3  2  0      -91.5709866536    -0.0000026899   0.001384198   0.000374681
+   4  3  0      -91.5709878267    -0.0000011732   0.000326942   0.000169582
+   5  4  0      -91.5709879613    -0.0000001345   0.000248089   0.000078681
+   6  5  0      -91.5709879893    -0.0000000280   0.000021597   0.000009262
+   7  6  0      -91.5709879901    -0.0000000008   0.000024259   0.000004536
+   8  7  0      -91.5709879904    -0.0000000003   0.000005397   0.000001645
+   9  8  0      -91.5709879904    -0.0000000000   0.000002997   0.000000737
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709879904 AFTER   9 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01862         -0.04732
+                Y(IND)            0.00970          0.02465
+                Z(IND)            0.04320          0.10979
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS  98.67%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.03 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS 100.00%
+ ...... END OF 2-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS 100.00%
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 NITROGEN        -0.000103431      -0.000054353      -0.000979962
+    2 CARBON          -0.000225101      -0.000099633      -0.001562980
+    3 HYDROGEN         0.000355030       0.000165665       0.002548788
+      TOTAL QM TRANS.  0.000026498       0.000011679       0.000005845
+      TOTAL QM TORQUE  0.000002291      -0.000035492       0.000017523
+  EFP           TRANS GRADIENT                           TORQUE
+    1  -0.0000265 -0.0000117 -0.0000058    -0.0000022  0.0000350 -0.0000175
+  $VIB   
+          IVIB=   2 IATOM=   2 ICOORD=   3 E=      -91.5709879904
+ -1.034314860E-04-5.435250972E-05-9.799622061E-04-2.251005206E-04-9.963343799E-05
+ -1.562980279E-03 3.550299322E-04 1.656647372E-04 2.548787591E-03
+-2.649792393E-05-1.167878959E-05-5.845106419E-06
+-2.195757814E-06 3.501364405E-05-1.750399998E-05
+  1.193697999E-02 6.885946531E-02 1.412744497E+00
+1   ATOM  3
+                                        -------------------
+   COORD  1                             NUCLEAR COORDINATES
+                                        -------------------
+     VIB  2
+
+                       ATOM             X              Y              Z
+
+                 1  NITROGEN        -0.074484       0.360003      -0.748710
+                 2  CARBON           2.226252       0.414143      -0.785248
+                 3  HYDROGEN         1.577918       0.507575       1.398907
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5417110602
+ ZH2               1.2800754189   1.5122808311   6.9235300428
+ ZH3              -1.3914200498   1.0535869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS 100.00%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2032
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS 100.00%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4584047448
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1839121101
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0938977279
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0008892365
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004013812
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1810827622
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709933956   -91.5709933956   0.001772942   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709971541    -0.0000037585   0.000930148   0.000265393
+   3  2  0      -91.5709979186    -0.0000007644   0.000710637   0.000165911
+   4  3  0      -91.5709981815    -0.0000002629   0.000118843   0.000048494
+   5  4  0      -91.5709981986    -0.0000000171   0.000069170   0.000020147
+   6  5  0      -91.5709982031    -0.0000000045   0.000026703   0.000009013
+   7  6  0      -91.5709982035    -0.0000000005   0.000003620   0.000001924
+   8  7  0      -91.5709982036    -0.0000000000   0.000001331   0.000000445
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709982036 AFTER   8 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01836         -0.04667
+                Y(IND)            0.00973          0.02473
+                Z(IND)            0.04331          0.11008
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS 100.00%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS  98.75%
+ ...... END OF 2-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS  98.75%
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 NITROGEN         0.000174749      -0.000020811      -0.000440082
+    2 CARBON          -0.000618905      -0.000016166       0.000313512
+    3 HYDROGEN         0.000440323       0.000049388       0.000155654
+      TOTAL QM TRANS. -0.000003833       0.000012411       0.000029084
+      TOTAL QM TORQUE -0.000004623       0.000024639       0.000006236
+  EFP           TRANS GRADIENT                           TORQUE
+    1   0.0000038 -0.0000124 -0.0000291     0.0000044 -0.0000244 -0.0000063
+  $VIB   
+          IVIB=   2 IATOM=   3 ICOORD=   1 E=      -91.5709982036
+  1.747494772E-04-2.081090956E-05-4.400820653E-04-6.189054153E-04-1.616556813E-05
+  3.135115919E-04 4.403232023E-04 4.938751645E-05 1.556543571E-04
+ 3.832737583E-06-1.241103883E-05-2.908388396E-05
+ 4.411480542E-06-2.441846388E-05-6.274174205E-06
+  4.447979232E-03 6.876775161E-02 1.407039677E+00
+1   ATOM  3
+                                        -------------------
+   COORD  2                             NUCLEAR COORDINATES
+                                        -------------------
+     VIB  2
+
+                       ATOM             X              Y              Z
+
+                 1  NITROGEN        -0.074484       0.360003      -0.748710
+                 2  CARBON           2.226252       0.414143      -0.785248
+                 3  HYDROGEN         1.587918       0.497575       1.398907
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5417110602
+ ZH2               1.2800754189   1.5122808311   6.9235300428
+ ZH3              -1.3914200498   1.0535869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS  98.75%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2032
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS 100.00%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4568262410
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1838772726
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0938879139
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0009004944
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0004010356
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1795605134
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709931847   -91.5709931847   0.001356836   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709955012    -0.0000023165   0.000597370   0.000279438
+   3  2  0      -91.5709960713    -0.0000005700   0.000958573   0.000182810
+   4  3  0      -91.5709963815    -0.0000003102   0.000200426   0.000064472
+   5  4  0      -91.5709964065    -0.0000000250   0.000147062   0.000042358
+   6  5  0      -91.5709964164    -0.0000000099   0.000015071   0.000005652
+   7  6  0      -91.5709964165    -0.0000000002   0.000006511   0.000004350
+   8  7  0      -91.5709964166    -0.0000000001   0.000002174   0.000000949
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709964166 AFTER   8 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01840         -0.04677
+                Y(IND)            0.00979          0.02489
+                Z(IND)            0.04313          0.10963
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS 100.00%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS 100.00%
+ ...... END OF 2-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS 100.00%
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 NITROGEN         0.000079708       0.000003681       0.000087550
+    2 CARBON          -0.000049819      -0.000007283       0.000059068
+    3 HYDROGEN        -0.000024995       0.000009754      -0.000129370
+      TOTAL QM TRANS.  0.000004893       0.000006153       0.000017247
+      TOTAL QM TORQUE -0.000006712       0.000002178       0.000006303
+  EFP           TRANS GRADIENT                           TORQUE
+    1  -0.0000049 -0.0000062 -0.0000172     0.0000068 -0.0000022 -0.0000049
+  $VIB   
+          IVIB=   2 IATOM=   3 ICOORD=   2 E=      -91.5709964166
+  7.970811087E-05 3.681454091E-06 8.754954460E-05-4.981939625E-05-7.282922625E-06
+  5.906782363E-05-2.499538352E-05 9.754365506E-06-1.293700628E-04
+-4.893329390E-06-6.152897039E-06-1.724730572E-05
+ 6.828027658E-06-2.189538748E-06-4.928909755E-06
+  6.964372229E-03 6.241788961E-02 1.406923965E+00
+1   ATOM  3
+                                        -------------------
+   COORD  3                             NUCLEAR COORDINATES
+                                        -------------------
+     VIB  2
+
+                       ATOM             X              Y              Z
+
+                 1  NITROGEN        -0.074484       0.360003      -0.748710
+                 2  CARBON           2.226252       0.414143      -0.785248
+                 3  HYDROGEN         1.587918       0.507575       1.388907
+ COORDINATES OF FRAGMENT MULTIPOLE CENTERS (BOHR)
+ MULTIPOLE NAME        X              Y              Z
+ ------------------------------------------------------------
+ FRAGNAME=H2ORHF
+ ZO1               0.3252583979   0.9120433730   5.5417110602
+ ZH2               1.2800754189   1.5122808311   6.9235300428
+ ZH3              -1.3914200498   1.0535869577   6.0047064938
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS  98.80%
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                2032
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS  98.80%
+
+ EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
+   -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       23.4745065968
+   -- NUCLEAR CHARGE - EFP CHARGE       =       -0.1837705008
+   -- NUCLEAR CHARGE - EFP DIPOLE       =       -0.0938226201
+   -- NUCLEAR CHARGE - EFP QUADRUPOLE   =        0.0008899686
+   -- NUCLEAR CHARGE - EFP OCTUPOLE     =       -0.0003997977
+ THE TOTAL NUCLEAR CHARGE/EFP ENERGY    =       23.1974036469
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+     DENSITY MATRIX CONV=  1.00E-05
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
+   1  0  0      -91.5709784548   -91.5709784548   0.000603601   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1  0      -91.5709793176    -0.0000008629   0.000309778   0.000114689
+   3  2  0      -91.5709794097    -0.0000000920   0.000118288   0.000066453
+   4  3  0      -91.5709794515    -0.0000000418   0.000066343   0.000019607
+   5  4  0      -91.5709794550    -0.0000000035   0.000039246   0.000008255
+   6  5  0      -91.5709794559    -0.0000000009   0.000014356   0.000004140
+   7  6  0      -91.5709794561    -0.0000000002   0.000002984   0.000001052
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -91.5709794561 AFTER   7 ITERATIONS
+
+          INDUCED DIPOLE     ATOMIC UNITS          DEBYE
+                X(IND)           -0.01822         -0.04632
+                Y(IND)            0.00962          0.02444
+                Z(IND)            0.04284          0.10889
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS  98.80%
+ READY TO DO 1E- PART OF GRAD WRT FRAGMENT
+ ..... END OF 1-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.9 SECONDS, CPU UTILIZATION IS  98.82%
+ ...... END OF 2-ELECTRON GRADIENT ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.9 SECONDS, CPU UTILIZATION IS  98.82%
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 NITROGEN         0.000249129       0.000046533       0.000874219
+    2 CARBON          -0.000327481       0.000100622       0.002508719
+    3 HYDROGEN         0.000085618      -0.000136542      -0.003391598
+      TOTAL QM TRANS.  0.000007266       0.000010612      -0.000008660
+      TOTAL QM TORQUE  0.000003858       0.000011734       0.000010134
+  EFP           TRANS GRADIENT                           TORQUE
+    1  -0.0000073 -0.0000106  0.0000087    -0.0000042 -0.0000124 -0.0000103
+  $VIB   
+          IVIB=   2 IATOM=   3 ICOORD=   3 E=      -91.5709794561
+  2.491285475E-04 4.653289982E-05 8.742192183E-04-3.274808284E-04 1.006216484E-04
+  2.508718968E-03 8.561846636E-05-1.365422134E-04-3.391597861E-03
+-7.266183745E-06-1.061233484E-05 8.659673776E-06
+-4.215665468E-06-1.236211106E-05-1.027890718E-05
+  4.323562513E-03 6.842747823E-02 1.397097346E+00
+ ...... END OF NUMERICAL HESSIAN CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.9 SECONDS, CPU UTILIZATION IS  98.82%
+
+          ---------------
+          ENERGY GRADIENT
+          ---------------
+
+ UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
+    1 NITROGEN         0.000066154       0.000001448       0.000061663
+    2 CARBON          -0.000018341      -0.000020390      -0.000071178
+    3 HYDROGEN        -0.000042487       0.000031199       0.000028534
+      TOTAL QM TRANS.  0.000005325       0.000012256       0.000019019
+      TOTAL QM TORQUE -0.000000318      -0.000001506       0.000010999
+  EFP           TRANS GRADIENT                           TORQUE
+    1  -0.0000053 -0.0000123 -0.0000190     0.0000003  0.0000018 -0.0000110
+
+          -------------------------------
+          CARTESIAN FORCE CONSTANT MATRIX
+          -------------------------------
+
+                                   1                          2
+                               NITROGEN                   CARBON    
+                          X        Y        Z        X        Y        Z
+  1   NITROGEN     X 1.129154 0.027430-0.001020-1.115831-0.026491 0.014027
+                   Y 0.027430 0.000779-0.001078-0.029507-0.000500 0.005508
+                   Z-0.001020-0.001078-0.021988-0.047963 0.004013 0.104028
+  2   CARBON       X-1.115831-0.029507-0.047963 1.053878 0.026760 0.022704
+                   Y-0.026491-0.000500 0.004013 0.026760 0.001602 0.008152
+                   Z 0.014027 0.005508 0.104028 0.022704 0.008152 0.152332
+  3   HYDROGEN     X-0.011102 0.002210 0.050134 0.060451-0.000429-0.038816
+                   Y-0.001383-0.000307-0.002764 0.003227-0.001369-0.013610
+                   Z-0.018040-0.004454-0.080724 0.030161-0.011920-0.255008
+ FRAG.  1 TRANS.   X-0.002160-0.000129-0.001121 0.001450 0.000161 0.002059
+                   Y 0.000430 0.000074-0.000164-0.000462 0.000248-0.000062
+                   Z 0.005016 0.000022-0.001303-0.004906-0.000237-0.001350
+ FRAG.  1 ROT.     X-0.000270 0.000073-0.000065 0.000158 0.000269 0.000244
+                   Y 0.001117 0.000322 0.002736 0.000021-0.000289-0.003239
+                   Z-0.000244 0.000361-0.000481 0.000109-0.000064 0.000636
+
+                                   3
+                               HYDROGEN  
+                          X        Y        Z
+  3   HYDROGEN     X-0.048407-0.001799-0.012316
+                   Y-0.001799 0.002256 0.016542
+                   Z-0.012316 0.016542 0.338522
+ FRAG.  1 TRANS.   X-0.000952-0.000049 0.000191
+                   Y 0.000015-0.000605-0.000164
+                   Z 0.001017-0.000175-0.002803
+ FRAG.  1 ROT.     X-0.000418-0.000645 0.000458
+                   Y 0.002645 0.000404 0.001434
+                   Z-0.000496-0.000585-0.000064
+
+                    FRAGMENT  1   TRANSLATION             ROTATION 
+                          X        Y        Z        X        Y        Z
+ FRAG.  1 TRANS.   X 0.001662 0.000017-0.001128 0.000529-0.003782 0.000631
+                   Y 0.000017 0.000283 0.000390 0.000303-0.000436 0.000288
+                   Z-0.001128 0.000390 0.005454-0.000637-0.000936-0.000090
+ FRAG.  1 ROT.     X 0.000529 0.000303-0.000637 0.000816-0.001396 0.000565
+                   Y-0.003782-0.000436-0.000936-0.001396 0.012944-0.001679
+                   Z 0.000631 0.000288-0.000090 0.000565-0.001679 0.001352
+
+          ------------------------          ----------------
+          DIPOLE DERIVATIVE TENSOR          (DEBYE/ANGSTROM)
+          ------------------------          ----------------
+
+        ATOM                 MU-X           MU-Y           MU-Z
+     NITROGEN   D/DX     0.068248317    0.125429982    2.280876670
+                D/DY     0.033656148   -0.337669788    0.043288318
+                D/DZ     0.434833395   -0.001782301   -0.596261663
+     CARBON     D/DX    -0.635520017   -0.115403062   -2.381253216
+                D/DY    -0.042481828   -0.862731485   -0.067542829
+                D/DZ    -0.923081207   -0.032955965   -1.062630890
+     HYDROGEN   D/DX     0.497084858   -0.015106450    0.026446451
+                D/DY     0.010996426    1.184715429    0.046701642
+                D/DZ     0.507566269    0.048760114    1.906374507
+     H2ORHF     D/DT     0.072218403    0.005255610    0.074075352
+                D/DR     0.000615411    0.015596096   -0.022542069
+
+          --------------------------------------------------------
+          NORMAL COORDINATE ANALYSIS IN THE HARMONIC APPROXIMATION
+          --------------------------------------------------------
+
+          ATOMIC WEIGHTS (AMU)
+
+    1     NITROGEN         14.00307
+    2     CARBON           12.00000
+    3     HYDROGEN          1.00782
+
+ FRAGMENT MASSES USED ARE (IN AMU)
+    1  H2ORHF   18.010560
+
+ FRAGMENT MOMENTS OF INERTIA USED (LOW TRIANGLE) ARE (IN AMU)
+    1  H2ORHF    2.300739  -0.364586   5.804595  -0.607938  -0.824782   4.208385
+
+ MODE(S)     1 TO     1 TREATED AS IMAGINARY.
+
+ MODES    2 TO    7 ARE TAKEN AS ROTATIONS AND TRANSLATIONS.
+
+ ANALYZING SYMMETRY OF NORMAL MODES...
+
+     FREQUENCIES IN CM**-1, IR INTENSITIES IN DEBYE**2/AMU-ANGSTROM**2,
+     REDUCED MASSES IN AMU.
+
+                            1           2           3           4           5
+       FREQUENCY:      1241.84 I     10.95        2.56        0.11        4.20  
+        SYMMETRY:         A           A           A           A           A   
+    REDUCED MASS:      1.17402     7.84650    10.57616    11.24705    15.23207
+    IR INTENSITY:      0.21110     0.00575     0.00234     0.00001     0.00832
+
+  1   NITROGEN     X -0.02346300 -0.00760330  0.12211643  0.12222748 -0.01591322
+                   Y -0.00369965 -0.09489910  0.01706548 -0.00398371 -0.03999770
+                   Z -0.06344012  0.00749918  0.09632251 -0.08636100 -0.00678554
+  2   CARBON       X -0.05027284 -0.01585734  0.12280329  0.12220994 -0.01411772
+                   Y  0.00223737  0.23099536  0.01477170 -0.00251161 -0.11897832
+                   Z  0.07002554 -0.03033665  0.13619498 -0.08582785 -0.01021967
+  3   HYDROGEN     X  0.91390496  0.00531394  0.08488138  0.12164595 -0.00947104
+                   Y  0.02504462  0.19763953  0.02548136 -0.00521530 -0.02235339
+                   Z  0.06212726 -0.02271975  0.12464291 -0.08586570 -0.01298036
+  4  1  ZO1        X  0.00122856  0.01302473  0.01729730  0.12067478  0.00322722
+                   Y  0.00020654  0.08383015  0.04509327 -0.01049992  0.19869215
+                   Z -0.00065526 -0.00672512  0.10194822 -0.08563363 -0.03213611
+  5  1  ZH2        X -0.00709416 -0.04176820 -0.00381809  0.12003355  0.02059815
+                   Y -0.00160838  0.19019112  0.04789585 -0.01151095  0.24776601
+                   Z  0.00588398 -0.01506530  0.11532126 -0.08475137 -0.06545598
+  6  1  ZH3        X -0.00151766  0.00258099  0.01007527  0.12049807  0.00698168
+                   Y -0.00185116 -0.15112857  0.05105964 -0.01214257  0.28576032
+                   Z -0.01020857  0.02638183  0.07334666 -0.08578667 -0.04483331
+
+ TRANS. SAYVETZ    X  0.00019976 -0.12256676  3.55216491  5.47327309 -0.32237688
+                   Y  0.00009953  3.02247560  1.26290296 -0.28296355  1.70540541
+                   Z -0.00027595 -0.37808836  4.92956577 -3.86736567 -0.85590283
+               TOTAL  0.00035491  3.04849671  6.20591799  6.70770482  1.93517548
+
+   ROT. SAYVETZ    X  0.00000270 -1.34149131 -2.09052178  0.50751189-19.60979811
+                   Y  0.00300439  2.01599376 -8.08266658 -0.11459097  1.21433192
+                   Z  0.00047493  5.21702898  0.39327432  0.08967950 -3.57482674
+               TOTAL  0.00304170  5.75162769  8.35789717  0.52796006 19.96993165
+
+                            6           7           8           9          10
+       FREQUENCY:         5.24        6.34       41.15       69.15       84.36  
+        SYMMETRY:         A           A           A           A           A   
+    REDUCED MASS:     13.80970    14.30661     3.64036     3.84723     3.00699
+    IR INTENSITY:      0.00731     0.00717     0.06299     0.11794     0.15225
+
+  1   NITROGEN     X  0.04060418 -0.06623748  0.00091881  0.00897024  0.00363408
+                   Y  0.17114904  0.16529538 -0.04255103 -0.00086131  0.04351353
+                   Z -0.07003233  0.03585373 -0.11978585  0.15677814 -0.02823232
+  2   CARBON       X  0.04398895 -0.06438564  0.00204542  0.00566444  0.00668795
+                   Y  0.07321024  0.04764980  0.00679640 -0.01307896 -0.08002779
+                   Z -0.00180917 -0.02146056  0.02209024 -0.09106051 -0.03975365
+  3   HYDROGEN     X -0.01585201 -0.00434858 -0.13571111  0.23313834  0.01449028
+                   Y  0.06349127  0.04641142  0.13891937  0.16462604  0.27345315
+                   Z -0.01888954 -0.00386778 -0.02449366 -0.03184903 -0.05229827
+  4  1  ZO1        X -0.12713003  0.13858341 -0.01312895 -0.01498925  0.00237578
+                   Y  0.04933651  0.03954691  0.05432252  0.03389358  0.04575327
+                   Z -0.05174344  0.03986162  0.05351947 -0.06850342  0.03837503
+  5  1  ZH2        X -0.14799905  0.21203572  0.20118177 -0.11195267 -0.15984683
+                   Y -0.00143648 -0.03393447 -0.67110003 -0.51464463  0.13168188
+                   Z -0.01526837  0.02102613  0.22054444  0.23677210  0.11314267
+  6  1  ZH3        X -0.13650785  0.16027397  0.05061335 -0.05080435 -0.02652972
+                   Y  0.11387255  0.11476891  0.08697914 -0.03618612 -0.79547234
+                   Z -0.10624367  0.09728882  0.27987744 -0.17987315  0.18837355
+
+ TRANS. SAYVETZ    X -1.23969211  0.88731381 -0.05559280  0.02476455 -0.00408718
+                   Y  4.24157179  3.64723125 -0.09408965 -0.01611053 -0.01258277
+                   Z -1.97150956  0.99746134 -0.07659521  0.03218896 -0.00740967
+               TOTAL  4.83886534  3.88388346  0.13345505  0.04369166  0.01516359
+
+   ROT. SAYVETZ    X  5.12843298  5.06652447 -0.45590607 -0.11616060 -0.29688394
+                   Y-12.97164050 15.62502807 -0.47261566  0.18726374 -0.10897741
+                   Z -0.02764528 -2.75890617 -0.33765597 -0.24449099 -0.03760307
+               TOTAL 13.94865751 16.65601200  0.73839519  0.32914562  0.31848099
+
+                           11          12          13          14          15
+       FREQUENCY:       138.94      213.98      267.28     2126.18     3061.87  
+        SYMMETRY:         A           A           A           A           A   
+    REDUCED MASS:      5.66563     1.15329     5.15761    11.95249     1.05700
+    IR INTENSITY:      0.07261     1.14744     0.03389     1.02862     3.81223
+
+  1   NITROGEN     X -0.01806392 -0.00313190  0.02150433 -0.18359260 -0.00799777
+                   Y  0.00615769 -0.00948103  0.00422739 -0.00451191 -0.00105710
+                   Z  0.02104352 -0.01423419  0.06073313 -0.00092323 -0.01731502
+  2   CARBON       X -0.01682893 -0.00231379  0.01981838  0.20825045  0.01132121
+                   Y -0.00201852 -0.03501305 -0.00842871  0.00535253 -0.00273829
+                   Z  0.17937897  0.01057838 -0.06840816  0.00565445 -0.06053896
+  3   HYDROGEN     X -0.17309764 -0.04818875  0.15565789  0.06744477 -0.02405553
+                   Y  0.15176789  0.88245810  0.14126113 -0.00004670  0.04783674
+                   Z  0.12531880 -0.04108482 -0.04088460 -0.04426146  0.96903970
+  4  1  ZO1        X  0.02635815  0.01110021 -0.07684934  0.00022045 -0.00005380
+                   Y  0.00936288 -0.04906128 -0.01465298 -0.00004236  0.00004799
+                   Z -0.15541220  0.01994474 -0.01149296 -0.00057113 -0.00049138
+  5  1  ZH2        X  0.13332225 -0.04367654  0.43627783  0.00005373  0.00093480
+                   Y -0.12956388  0.13593586  0.07120948 -0.00012310 -0.00071600
+                   Z -0.16897555 -0.02256476 -0.40335357 -0.00042086 -0.00084263
+  6  1  ZH3        X  0.06807381 -0.01553816  0.09371252  0.00016750  0.00028833
+                   Y -0.23806659  0.29615034  0.06087321 -0.00016883 -0.00058032
+                   Z  0.07490201 -0.18435966  0.59782109 -0.00072882  0.00096925
+
+ TRANS. SAYVETZ    X -0.00478143 -0.00231865  0.00076240 -0.00013302 -0.00001049
+                   Y -0.00578902 -0.01282024 -0.00083844  0.00003108  0.00001017
+                   Z -0.00709279 -0.00331740  0.00050814  0.00002358 -0.00004057
+               TOTAL  0.01032873  0.01344395  0.00124196  0.00013863  0.00004312
+
+   ROT. SAYVETZ    X -0.04343036 -0.06648534 -0.00490842 -0.00006514  0.00010679
+                   Y -0.05289258  0.00883853 -0.01953233  0.00007395  0.00019177
+                   Z  0.00240690 -0.02755035 -0.00205894 -0.00002562  0.00004474
+               TOTAL  0.06848076  0.07250822  0.02024460  0.00010183  0.00022401
+
+ REFERENCE ON SAYVETZ CONDITIONS - A. SAYVETZ, J.CHEM.PHYS., 7, 383-389(1939).
+
+ NOTE - THE MODES J,K ARE ORTHONORMALIZED ACCORDING TO
+ SUM ON I   M(I) * (X(I,J)*X(I,K) + Y(I,J)*Y(I,K) + Z(I,J)*Z(I,K)) = DELTA(J,K)
+
+  MODE FREQ(CM**-1)  SYMMETRY  RED. MASS  IR INTENS.
+     1    1241.838    A        1.174024    0.211096
+     2      10.954    A        7.846497    0.005749
+     3       2.559    A       10.576164    0.002340
+     4       0.106    A       11.247050    0.000008
+     5       4.199    A       15.232068    0.008317
+     6       5.245    A       13.809701    0.007312
+     7       6.341    A       14.306609    0.007165
+     8      41.149    A        3.640357    0.062994
+     9      69.153    A        3.847234    0.117938
+    10      84.357    A        3.006988    0.152253
+    11     138.935    A        5.665634    0.072608
+    12     213.979    A        1.153293    1.147440
+    13     267.276    A        5.157610    0.033894
+    14    2126.182    A       11.952487    1.028620
+    15    3061.866    A        1.057002    3.812229
+
+     -------------------------------
+     THERMOCHEMISTRY AT T=  298.15 K
+     -------------------------------
+
+ USING IDEAL GAS, RIGID ROTOR, HARMONIC NORMAL MODE APPROXIMATIONS.
+ P=  1.01325E+05 PASCAL.
+ ALL FREQUENCIES ARE SCALED BY   1.00000
+ THE MOMENTS OF INERTIA ARE (IN AMU*BOHR**2)
+     38.55861   449.03282   487.17429
+ THE ROTATIONAL SYMMETRY NUMBER IS  1.0
+ THE ROTATIONAL CONSTANTS ARE (IN GHZ)
+     46.76227     4.01549     3.70112
+   1 IMAGINARY FREQUENCY VIBRATION(S) IS(ARE) EXCLUDED
+     FROM THE FOLLOWING THERMOCHEMICAL ANALYSIS.
+      8 -     15 VIBRATIONAL MODES ARE USED IN THERMOCHEMISTRY.
+ THE HARMONIC ZERO POINT ENERGY IS (SCALED BY   1.000)
+        0.013676 HARTREE/MOLECULE     3001.448328 CM**-1/MOLECULE 
+        8.581580 KCAL/MOL               35.905331 KJ/MOL
+
+ WARNING: THE HESSIAN MATRIX FOR AN EFFECTIVE FRAGMENT RUN
+ DOES NOT INCLUDE THE INTERNAL VIBRATIONS OF THE FRAGMENTS.
+ THIS MEANS THE ZERO POINT CONTRIBUTIONS OMIT THESE FREQUENCIES,
+ AND IN TURN THE THERMOCHEMICAL QUANTITIES OMIT THESE TOO.
+
+               Q               LN Q
+ ELEC.     1.00000E+00       0.000000
+ TRANS.    1.18736E+07      16.289829
+ ROT.      3.28763E+04      10.400508
+ VIB.      2.56705E+02       5.547927
+ TOT.      1.00208E+14      32.238265
+
+              E         H         G         CV        CP        S
+           KJ/MOL    KJ/MOL    KJ/MOL   J/MOL-K   J/MOL-K   J/MOL-K
+ ELEC.      0.000     0.000     0.000     0.000     0.000     0.000
+ TRANS.     3.718     6.197   -40.382    12.472    20.786   156.226
+ ROT.       3.718     3.718   -25.782    12.472    12.472    98.946
+ VIB.      46.614    46.614    22.152    47.632    47.632    82.046
+ TOTAL     54.051    56.530   -44.011    72.575    80.889   337.218
+ VIB. THERMAL CORRECTION E(T)-E(0) = H(T)-H(0) = 10709.028 J/MOL
+
+              E         H         G         CV        CP        S
+         KCAL/MOL  KCAL/MOL  KCAL/MOL CAL/MOL-K CAL/MOL-K CAL/MOL-K
+ ELEC.      0.000     0.000     0.000     0.000     0.000     0.000
+ TRANS.     0.889     1.481    -9.651     2.981     4.968    37.339
+ ROT.       0.889     0.889    -6.162     2.981     2.981    23.649
+ VIB.      11.141    11.141     5.295    11.384    11.384    19.609
+ TOTAL     12.919    13.511   -10.519    17.346    19.333    80.597
+ VIB. THERMAL CORRECTION E(T)-E(0) = H(T)-H(0) =  2559.519 CAL/MOL
+ ......END OF NORMAL COORDINATE ANALYSIS......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.9 SECONDS, CPU UTILIZATION IS  98.82%
+               580000  WORDS OF DYNAMIC MEMORY USED
+ EXECUTION OF GAMESS TERMINATED NORMALLY Wed Aug  9 20:33:27 2017
+ DDI: 263640 bytes (0.3 MB / 0 MWords) used by master data server.
+
+ ----------------------------------------
+ CPU timing information for all processes
+ ========================================
+ 0: 0.809 + 0.48 = 0.858
+ ----------------------------------------
+ ddikick.x: exited gracefully.
+unset echo
+----- accounting info -----
+Files used on the master node compute-1-1.local were:
+-rw-rw-r-- 1 sarom sarom 1.2K Aug  9 20:33 /scratch/efp1-hcn-seminum.F05
+-rw-rw-r-- 1 sarom sarom 176K Aug  9 20:33 /scratch/efp1-hcn-seminum.F08
+-rw-rw-r-- 1 sarom sarom 2.0M Aug  9 20:33 /scratch/efp1-hcn-seminum.F10
+-rw-rw-r-- 1 sarom sarom 7.9K Aug  9 20:33 /scratch/efp1-hcn-seminum.F25
+rm: cannot remove `/scratch/tmp': Is a directory
+ls: No match.
+ls: No match.
+ls: No match.
+Wed Aug  9 20:33:30 CDT 2017
+0.259u 0.149s 0:04.33 9.0%	0+0k 0+360io 0pf+0w
+/opt/gridengine/default/spool/compute-1-1/active_jobs/35878.1/pe_hostfile compute-1-1.local

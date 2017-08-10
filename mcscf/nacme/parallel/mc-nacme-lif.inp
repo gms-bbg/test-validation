@@ -12,7 +12,7 @@
 !       UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z
 !          1 LITHIUM          0.000000000       0.000000000      -0.004684247
 !          2 FLUORINE         0.000000000       0.000000000       0.004684247
-!       
+!
 !       NONADIABATIC COUPLING MATRIX ELEMENT (NACME), IN ONE/BOHR
 !       <STATE  4, WEIGHT=   0.50000 | D/DQ | STATE  1, WEIGHT=   0.50000>
 !         ATOM               D/DX           D/DY           D/DZ
@@ -65,7 +65,7 @@
 !    difference between the two state energies works like that.
 !
  $contrl scftyp=mcscf runtyp=nacme ispher=1 units=bohr $end
- $system mwords=2 memddi=2 $end
+ $system parall=.t. mwords=2 memddi=2 $end
  $guess  guess=moread norb=49 $end
 !    Running in lower symmetry, we have to skip over a doubly degenate
 !    singlet in order to arrive at the 2nd 1-sigma-plus state.
@@ -74,6 +74,8 @@
          nstgss=50 mxxpan=150 $end
             this gives diagonalization issues: cvgtol=1d-7  !!!
  $mcscf  fullnr=.true. maxit=5 acurcy=1d-6 $end
+ $scf    dirscf=.t. $end
+ $trans  dirtrf=.t. $end
 
  $data
 LiF NACME test case....basis sets are modified Huzinaga sets
@@ -119,10 +121,10 @@ Fluorine 9.0   0 0 10.371660993
    d 1 ; 1 0.5   1.0
 
  $end
- 
+
 --- NATURAL ORBITALS OF MCSCF --- GENERATED AT Tue Dec 18 15:51:58 2007
 E(MCSCF)=     -106.8832378821, E(NUC)=        2.6032474469
- $VEC   
+ $VEC
  1  1 1.09551646E-06-2.69449598E-06 1.18588131E-05-1.72723056E-05 9.27999206E-05
  1  2-2.04666340E-04 1.36195995E-04 0.00000000E+00 0.00000000E+00 1.55127035E-05
  1  3 0.00000000E+00 0.00000000E+00-7.41030091E-05 0.00000000E+00 0.00000000E+00
@@ -662,4 +664,4 @@ E(MCSCF)=     -106.8832378821, E(NUC)=        2.6032474469
 49  9 1.84771130E-05-3.69542260E-05 0.00000000E+00 0.00000000E+00 0.00000000E+00
 49 10-5.08970314E-05-5.08970314E-05 1.01794063E-04 0.00000000E+00 0.00000000E+00
 49 11 0.00000000E+00
- $END   
+ $END

@@ -298,7 +298,7 @@ def parse(file_handle=None,parse_memory_map=None,run_arguments=None, parse_group
                     lhs=parsed_value.replace("-","").split(".")[0]
                     rhs=parsed_value.replace("-","").split(".")[1]
                     if len(lhs) > 4:
-                      parse_tolerance=5.0*10**(len(lhs)-13)
+                      parse_tolerance=5.0*10**(len(lhs)-12)
                     else:
                       parse_tolerance=5.0*10**(-(len(rhs)-2))
 
@@ -347,7 +347,7 @@ def parse(file_handle=None,parse_memory_map=None,run_arguments=None, parse_group
                     lhs=parsed_value.replace("-","").split(".")[0]
                     rhs=parsed_value.replace("-","").split(".")[1]
                     if len(lhs) > 4:
-                      parse_tolerance=5.0*10**(len(lhs)-13)
+                      parse_tolerance=5.0*10**(len(lhs)-12)
                     else:
                       parse_tolerance=5.0*10**(-(len(rhs)-2))
 
@@ -396,7 +396,7 @@ def parse(file_handle=None,parse_memory_map=None,run_arguments=None, parse_group
                   lhs=parsed_value.replace("-","").split(".")[0]
                   rhs=parsed_value.replace("-","").split(".")[1]
                   if len(lhs) > 4:
-                    parse_tolerance=5.0*10**(len(lhs)-13)
+                    parse_tolerance=5.0*10**(len(lhs)-12)
                   else:
                     parse_tolerance=5.0*10**(-(len(rhs)-2))
 
@@ -444,7 +444,7 @@ def parse(file_handle=None,parse_memory_map=None,run_arguments=None, parse_group
                   lhs=parsed_value.replace("-","").split(".")[0]
                   rhs=parsed_value.replace("-","").split(".")[1]
                   if len(lhs) > 4:
-                    parse_tolerance=5.0*10**(len(lhs)-13)
+                    parse_tolerance=5.0*10**(len(lhs)-12)
                   else:
                     parse_tolerance=5.0*10**(-(len(rhs)-2))
 
@@ -499,7 +499,7 @@ def parse(file_handle=None,parse_memory_map=None,run_arguments=None, parse_group
                 rhs=parsed_value.replace("-","").split(".")[1]
 
               if len(lhs) > 4:
-                parse_tolerance=5.0*10**(len(lhs)-13)
+                parse_tolerance=5.0*10**(len(lhs)-12)
               else:
                 parse_tolerance=5.0*10**(-(len(rhs)-2))
 

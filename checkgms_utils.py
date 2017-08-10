@@ -238,6 +238,7 @@ def parse_arguments(validation=True):
     parser.add_argument('--file',help='process file(s) containing substring', default="")
     parser.add_argument('--folder',help='process folder(s) containing substring', default="")
     parser.add_argument('-n','--ncpus',help='number of GAMESS compute processes', default="1")
+    parser.add_argument('--output_extension',help='extension to use for output files default(".log")', default=".log")
     parser.add_argument('--skip_file',help='skip file(s) containing substring', default="")
     parser.add_argument('--skip_folder',help='skip folder(s) containing substring', default="")
 
@@ -250,6 +251,7 @@ def parse_arguments(validation=True):
 
   if not validation:
     run_arguments["ncpus"]=args.ncpus
+    run_arguments["output_extension"]=args.output_extension
     return run_arguments
 
   run_arguments["array"]=args.array

@@ -9,7 +9,7 @@ from checkgms_utils import *
 from checkgms_stable import *
 
 #A way to have log files containing values you wish to reproduce without having the extension .log
-file_extension=".SERIAL"
+file_extension=".VALIDATION"
 #A way to selectively protect the overwritting of existing validation files when --json_create is passed in
 json_protect="protect.json"
 

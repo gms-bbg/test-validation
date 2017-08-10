@@ -39,9 +39,9 @@ for filenum, input_file_path in enumerate(input_file_paths,start=1):
 
   try:
     if (int(run_arguments["ncpus"]) <= ppn):
-      job_submission_command="sarom-gms"+" "+input_file_path+" -l "+input_file_path.replace(".inp",".log")+" "+"-p "+run_arguments["ncpus"]+" "+"-ppn "+run_arguments["ncpus"]+" "+"-w 240:0:0"
+      job_submission_command="sarom-gms"+" "+input_file_path+" -l "+input_file_path.replace(".inp",run_arguments["output_extension"])+" "+"-p "+run_arguments["ncpus"]+" "+"-ppn "+run_arguments["ncpus"]+" "+"-w 240:0:0"
     else:
-      job_submission_command="sarom-gms"+" "+input_file_path+" -l "+input_file_path.replace(".inp",".log")+" "+"-p "+run_arguments["ncpus"]+" "+"-ppn "+str(ppn)+" "+"-w 240:0:0"
+      job_submission_command="sarom-gms"+" "+input_file_path+" -l "+input_file_path.replace(".inp",run_arguments["output_extension"])+" "+"-p "+run_arguments["ncpus"]+" "+"-ppn "+str(ppn)+" "+"-w 240:0:0"
     print(l_box_small("Submitting job for input file"),file_progress(filenum,len(input_file_paths)),input_file_path)
    #print(job_submission_command)
     os.system(job_submission_command)
