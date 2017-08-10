@@ -3,51 +3,56 @@ A generic logfile validation written in Python 3 (~ 1 GB repo)
 
 ## Wiki: https://github.com/gms-bbg/test-validation/wiki
 
+# Directory structure
 ```
-usage: checkgms.py [-h] [--dryrun] [--file FILE_SUBSTRING] [--folder FOLDER_SUBSTRING]
-                   [-a] [-d] [-e] [-g] [-p] [-v]
-
-GAMESS Test Validation
-
-optional arguments:
-  -h, --help                show this help message and exit
-  --dryrun                  cycles through filelist without parsing
-  --file SUBSTRING          process file(s) containing substring
-  --folder SUBSTRING        process folder(s) containing substring
-  -a, --array               print out array values
-  -d, --debug               debug print control
-  -e, --exit_on_fail        exit on first failed validation
-  -g, --group               print group header for values
-  -p, --verbose_parsing     verbose printing during parsing
-  -v, --verbose_validation  verbose printing during validation
-  --skip_file SUBSTRING     skip file(s) containing substring
-  --skip_folder SUBSTRING   skip folder(s) containing substring
-  --skip_json_create        skip creation of new JSON validation files
+test-validation/
+├── _parsegroups_/  contains .parsegroup files that define the parsing for a particular parse group
+├── R-7gradient/    EFP R**-7 Gradient
+├── cc/             Coupled-Cluster Methods
+├── ci/             Configuration-Interaction (CI) Methods
+├── cim/            Cluster-In-Molecule Framework
+├── comp/           Composite Methods
+├── dft/            Density Functional Theory (DFT)
+├── dftb/           DFT Tight-Binding
+├── ecp/            Effective Core Potentials
+├── eda/            Energy Decomposition Analysis
+├── efmo/           Effective Fragment Molecular Orbital Method
+├── efp-ci/         Effective Fragment Potential Method - CI
+├── excitations/    Excited-State methods
+├── exotic/
+├── exrep/
+├── globop/
+├── gvb/
+├── libcchem/
+├── mcp/
+├── mcscf/
+├── mp2/
+├── numdiff/
+├── openmp/
+├── pes/
+├── qmefpea/
+├── quanpol/
+├── relwfn/
+├── rhf/
+├── rohf/
+├── runtest/
+├── semi-emperical/
+├── solvent/
+├── spectra/
+├── standard/
+├── svd/
+├── tddft/
+├── testsets/
+├── travis-ci/
+├── trf/
+├── uhf/
+└── checkgms.py
+└── checkgms_parsers.py
+└── checkgms_stable.py
+└── checkgms_utils.py
+└── queuetest.py
+└── runtest.py
+└── parse.inp
+└── LICENSE
+└── README.md
 ```
-
-## Usage:
-
-1.  Run `./checkgms.py` the to create validation files (*.json) from existing log files.
-2.  Run `./checkgms.py` again to validate (*.log) files.
-
-## To perform validation on only the standard test folder:
-```
-./checkgms.py --folder=standard
-```
-
-## To perform validation on only exam27 in the standard test folder:
-```
-./checkgms.py --folder=standard --file=exam27
-```
-## For a very verbose parsing:
-```
-./checkgms.py -p -g -a
-```
-
-## For a very verbose validation:
-```
-./checkgms.py -p -v -g -a
-```
-
-
-
