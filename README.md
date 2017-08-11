@@ -74,6 +74,7 @@ test-validation/
 └── parse.inp             Defines the order of the parse groups
 └── LICENSE
 └── README.md
+└── TIMINGS.md            Contains run timings on BOLT and test input categorization
 ```
 
 # checkgms.py Usage
