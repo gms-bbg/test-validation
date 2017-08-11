@@ -1,4 +1,6 @@
-# Timings of test runs on 1 CPU core on BOLT
+# Timings
+
+On one CPU core of BOLT.
 
  | Log File | Seconds | Test Category  |
  | -------- | ------: | -------------: |
