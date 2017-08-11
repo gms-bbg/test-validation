@@ -1,5 +1,5 @@
-# test-validation
-A generic logfile validation written in Python 3 (~ 1 GB repo)
+# Test-Validation
+A generic logfile validation written in Python 3
 
 ## Wiki: https://github.com/gms-bbg/test-validation/wiki
 
@@ -74,4 +74,53 @@ test-validation/
 └── parse.inp             Defines the order of the parse groups
 └── LICENSE
 └── README.md
+```
+
+# checkgms.py Usage
+```
+./checkgms.py --help
+
+usage: checkgms.py [-h] [--dryrun] [--file FILE] [--folder FOLDER]
+                   [--json_create] [-a] [-d] [-e] [-g] [-p] [-v]
+                   [--skip_file SKIP_FILE] [--skip_folder SKIP_FOLDER]
+                   [--skip_json_create]
+
+GAMESS Test Validation
+
+optional arguments:
+  -h, --help                 show this help message and exit
+  --dryrun                   cycles through filelist without parsing
+  --file FILE                process file(s) containing substring
+  --folder FOLDER            process folder(s) containing substring
+  --json_create              force the creation of JSON validation files
+  -a, --array                print out array values
+  -d, --debug                debug print control
+  -e, --exit_on_fail         exit on first failed validation
+  -g, --group                print group header for values
+  -p, --verbose_parsing      verbose printing during parsing
+  -v, --verbose_validation   verbose printing during validation
+  --skip_file SKIP_FILE      skip file(s) containing substring
+  --skip_folder SKIP_FOLDER  skip folder(s) containing substring
+  --skip_json_create         skip creation of new JSON validation files
+```
+
+# queuetest.py / runtest.py Usage
+```
+./queuetest.py --help
+
+usage: queuetest.py / runtest.py
+                    [-h] [--file FILE] [--folder FOLDER] [-n NCPUS]
+                    [--output_extension OUTPUT_EXTENSION]
+                    [--skip_file SKIP_FILE] [--skip_folder SKIP_FOLDER]
+
+GAMESS Test Launch
+
+optional arguments:
+  -h, --help                     show this help message and exit
+  --file FILE                    process file(s) containing substring
+  --folder FOLDER                process folder(s) containing substring
+  -n NCPUS, --ncpus NCPUS        number of GAMESS compute processes
+  --output_extension EXTENSION   extension to use for output files default(".log")
+  --skip_file SKIP_FILE          skip file(s) containing substring
+  --skip_folder SKIP_FOLDER      skip folder(s) containing substring
 ```
