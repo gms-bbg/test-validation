@@ -78,7 +78,7 @@ test-validation/
 
 # checkgms.py Usage
 
-Must called within the test-validation folder.
+Must be called within the test-validation folder.
 
 ```
 ./checkgms.py --help
