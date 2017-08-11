@@ -77,6 +77,9 @@ test-validation/
 ```
 
 # checkgms.py Usage
+
+Must called within the test-validation folder.
+
 ```
 ./checkgms.py --help
 
@@ -105,6 +108,9 @@ optional arguments:
 ```
 
 # queuetest.py / runtest.py Usage
+
+Must be called one directory-level **above** test-validation.
+
 ```
 ./queuetest.py --help
 
