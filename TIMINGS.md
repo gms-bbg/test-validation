@@ -2,8 +2,8 @@
 
 On one CPU core of BOLT.
 
-| Log File | Seconds | Minutes | Test Category  | Include in Coverage |
-| -------- | ------: | ------: | -------------: | ------------------: |
+| Log File | Seconds | Minutes | Test Category  | Coverage |
+| -------- | ------: | ------: | -------------: | -------: |
 | /cc/cc-ccsd-gly.log | 847.2 | 14.1 | Medium
 | /cc/cc-compare.log | 297.3 | 5.0 | Small
 | /cc/cc-crcc-hf.log | 55.5 | 0.9 | Small
