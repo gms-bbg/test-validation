@@ -36,14 +36,14 @@ test-validation/
 ├── rohf/                 Restricted Open-shell Hartree-Fock (ROHF)
 ├── semi-emperical/       Semi-empirical methods
 ├── solvent/              Solvent methods
-    ├── efp-ctcut/        EFP Charge-Transfer (CT) Cutoff
-    ├── efp1/             Effective Fragment Potential 1 Method
-    ├── efp2/             Generalized Effective Fragment Potential Method
-    ├── mnsol/            University of Minnesota Solvation Models
-    ├── pcm/              Polarizable Continuum Model (PCM)
-    ├── reorg/            Solvent Reorganization Energy
-    ├── scrf/             Self-Consistent Reaction Field (SCRF)
-    └── svpe/             Surface and Volume Polarization for Electrostatics (SVPE)
+|   ├── efp-ctcut/        EFP Charge-Transfer (CT) Cutoff
+|   ├── efp1/             Effective Fragment Potential 1 Method
+|   ├── efp2/             Generalized Effective Fragment Potential Method
+|   ├── mnsol/            University of Minnesota Solvation Models
+|   ├── pcm/              Polarizable Continuum Model (PCM)
+|   ├── reorg/            Solvent Reorganization Energy
+|   ├── scrf/             Self-Consistent Reaction Field (SCRF)
+|   └── svpe/             Surface and Volume Polarization for Electrostatics (SVPE)
 ├── spectra/              Spectra runs
 ├── standard/             Standard GAMESS test set (not validated in this test suite)
 ├── svd/                  Single-Value Decomposition (SVD)
