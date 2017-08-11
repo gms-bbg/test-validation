@@ -132,7 +132,7 @@ optional arguments:
   --skip_folder SKIP_FOLDER      skip folder(s) containing substring
 ```
 
-# Example usage
+# Example Usage
 
 -  Validate all existing log files with minimal verbosity:
 
