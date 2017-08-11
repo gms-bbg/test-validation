@@ -6,53 +6,59 @@ A generic logfile validation written in Python 3 (~ 1 GB repo)
 # Directory structure
 ```
 test-validation/
-├── _parsegroups_/  contains .parsegroup files that define the parsing for a particular parse group
-├── R-7gradient/    EFP R**-7 Gradient
-├── cc/             Coupled-Cluster Methods
-├── ci/             Configuration-Interaction (CI) Methods
-├── cim/            Cluster-In-Molecule Framework
-├── comp/           Composite Methods
-├── dft/            Density Functional Theory (DFT)
-├── dftb/           DFT Tight-Binding
-├── ecp/            Effective Core Potentials
-├── eda/            Energy Decomposition Analysis
-├── efmo/           Effective Fragment Molecular Orbital Method
-├── efp-ci/         Effective Fragment Potential Method - CI
-├── excitations/    Excited-State methods
-├── exotic/
-├── exrep/
-├── globop/
-├── gvb/
-├── libcchem/
-├── mcp/
-├── mcscf/
-├── mp2/
-├── numdiff/
-├── openmp/
-├── pes/
-├── qmefpea/
-├── quanpol/
-├── relwfn/
-├── rhf/
-├── rohf/
-├── runtest/
-├── semi-emperical/
-├── solvent/
-├── spectra/
-├── standard/
-├── svd/
-├── tddft/
-├── testsets/
-├── travis-ci/
-├── trf/
-├── uhf/
-└── checkgms.py
-└── checkgms_parsers.py
-└── checkgms_stable.py
-└── checkgms_utils.py
-└── queuetest.py
-└── runtest.py
-└── parse.inp
+├── R-7gradient/          Effective Fragment Potential Method (EFP) R**-7 Gradient
+├── cc/                   Coupled-Cluster methods
+├── ci/                   Configuration-Interaction (CI) methods
+├── cim/                  Cluster-In-Molecule Framework
+├── comp/                 Composite methods
+├── dft/                  Density Functional Theory (DFT)
+├── dftb/                 DFT Tight-Binding
+├── ecp/                  Effective Core Potentials
+├── eda/                  Energy Decomposition Analysis
+├── efmo/                 Effective Fragment Molecular Orbital Method
+├── efp-ci/               Effective Fragment Potential Method - CI
+├── excitations/          Excited-State methods
+├── exotic/               "exotic" runs
+├── exrep/                EFP Exchange-Repulsion
+├── globop/               Global optimization methods (e.g. Monte-Carlo, Genetic Algorithm)
+├── gvb/                  General Valence (Van-Vleck) Bond Theory
+├── libcchem/             LIBCCHEM runs
+├── mcp/                  Model Core Potentials
+├── mcscf/                Multi-configurational Self-Consistent Field methods
+├── mp2/                  Second-Order Pertubation Theory methods
+├── numdiff/              Numerical Differentiation
+├── openmp/               Threaded methods (e.g. SCF Fock build)
+├── pes/                  Potential Energy Surface
+├── qmefpea/              QM-EFP Energy Analysis
+├── quanpol/              Quantum Chemistry Polarizable Force Field Program (QUANPOL)
+├── relwfn/               Relativistic wavefunction methods
+├── rhf/                  Restricted Hartree-Fock (RHF) for closed-shell
+├── rohf/                 Restricted Open-shell Hartree-Fock (ROHF)
+├── semi-emperical/       Semi-empirical methods
+├── solvent/              Solvent methods
+    ├── efp-ctcut/        EFP Charge-Transfer (CT) Cutoff
+    ├── efp1/             Effective Fragment Potential 1 Method
+    ├── efp2/             Generalized Effective Fragment Potential Method
+    ├── mnsol/            University of Minnesota Solvation Models
+    ├── pcm/              Polarizable Continuum Model (PCM)
+    ├── reorg/            Solvent Reorganization Energy
+    ├── scrf/             Self-Consistent Reaction Field (SCRF)
+    └── svpe/             Surface and Volume Polarization for Electrostatics (SVPE)
+├── spectra/              Spectra runs
+├── standard/             Standard GAMESS test set (not validated in this test suite)
+├── svd/                  Single-Value Decomposition (SVD)
+├── tddft/                Time-Dependent Density Functional Theory (TDDFT)
+├── travis-ci/            Standard GAMESS test set (validated in this test suite)
+├── trf/                  Integral transformation runs
+├── uhf/                  Un-restricted Hartree-Fock (UHF) for open-shell
+├── _parsegroups_/        contains .parsegroup files that define the parsing for a particular parse group
+└── checkgms.py           Main script to run test validation of *.log files or generate validation files from *.log files
+└── checkgms_parsers.py   Defines log file parsing
+└── checkgms_stable.py    Defines flow for parsing and validation
+└── checkgms_utils.py     Defines utility functions
+└── queuetest.py          Script to submit jobs to a queuing system
+└── runtest.py            Script to run calculations directly
+└── parse.inp             Defines the order of the parse groups
 └── LICENSE
 └── README.md
 ```
