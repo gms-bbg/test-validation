@@ -57,11 +57,11 @@ def checkgms(filenum=None,log_file_path=None,log_file_count=0,run_arguments={},p
         if run_arguments["dryrun"]:
           validated_json["result"]="skip"
           return validated_json["result"]
-        #Simplified formatted printing for validation results
-        if validated_json["result"] == "pass":
-          print(l_box("Validation result"),file_progress(filenum,log_file_count),l_(log_file_path),pass_box())
-        else:
-          print(l_box("Validation result"),file_progress(filenum,log_file_count),l_(log_file_path),fail_box())
+      #Simplified formatted printing for validation results
+      if validated_json["result"] == "pass":
+        print(l_box("Validation result"),file_progress(filenum,log_file_count),l_(log_file_path),pass_box())
+      else:
+        print(l_box("Validation result"),file_progress(filenum,log_file_count),l_(log_file_path),fail_box())
       return validated_json["result"]
     #Check if validation file exists AND if it is projected
     elif os.path.isfile(validation_file_path) and json_protect is not None and json_protect in validation_file_path:
