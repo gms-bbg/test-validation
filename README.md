@@ -109,7 +109,7 @@ optional arguments:
 
 # queuetest.py / runtest.py Usage
 
-Must be called one directory-level **above** test-validation.
+Must be called one directory-level **above** the test-validation folder.
 
 ```
 ./queuetest.py --help
