@@ -2,9 +2,11 @@
 
 On one CPU core of BOLT.
 
-Category breakdown:
+## Category breakdown:
 Small : total wall-clock less than 5 minutes
+
 Medium: total wall-clock less than 30 minutes
+
 Large : 
 
 | Log File | Seconds | Minutes | Category  | Coverage |
