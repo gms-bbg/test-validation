@@ -18,14 +18,27 @@ test-validation/
 ├── efmo/                 Effective Fragment Molecular Orbital Method
 ├── efp-ci/               Effective Fragment Potential Method - CI
 ├── excitations/          Excited-State methods
+|   └── tddft_os/         Time-Dependent Density Functional Theory (TDDFT)
 ├── exotic/               "exotic" runs
 ├── exrep/                EFP Exchange-Repulsion
 ├── globop/               Global optimization methods (e.g. Monte-Carlo, Genetic Algorithm)
 ├── gvb/                  General Valence (Van-Vleck) Bond Theory
 ├── libcchem/             LIBCCHEM runs
+|   ├── cc/               CC
+|   ├── mp2/              Second-Order Pertubation Theory methods
+|   ├── paper/            Benchmark inputs for LIBCCHEM
+|   ├── ri/               Resolution of the Identity (RI)
+|   ├── scf/              Self-Consistent Field (SCF)
+|   └── zapt/             Z-Average Perturbation Theory (ZAPT)
 ├── mcp/                  Model Core Potentials
 ├── mcscf/                Multi-configurational Self-Consistent Field methods
-├── mp2/                  Second-Order Pertubation Theory methods
+|   ├── diabat/           Diabatic state generation
+|   ├── freq/             Hessian
+|   ├── mrpt/             Multi-reference Perturbation Theory (MRPT)
+|   ├── nacme/            Non-adiabatic Coupling Matrix Elements (NACME)
+|   ├── psi/              
+|   └── xing/             Inter-system crossings/Conical intersections 
+├── mp2/                  MP2
 ├── numdiff/              Numerical Differentiation
 ├── openmp/               Threaded methods (e.g. SCF Fock build)
 ├── pes/                  Potential Energy Surface
@@ -47,7 +60,7 @@ test-validation/
 ├── spectra/              Spectra runs
 ├── standard/             Standard GAMESS test set (not validated in this test suite)
 ├── svd/                  Single-Value Decomposition (SVD)
-├── tddft/                Time-Dependent Density Functional Theory (TDDFT)
+├── tddft/                TDDFT
 ├── travis-ci/            Standard GAMESS test set (validated in this test suite)
 ├── trf/                  Integral transformation runs
 ├── uhf/                  Un-restricted Hartree-Fock (UHF) for open-shell
