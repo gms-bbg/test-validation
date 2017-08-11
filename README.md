@@ -130,3 +130,44 @@ optional arguments:
   --skip_file SKIP_FILE          skip file(s) containing substring
   --skip_folder SKIP_FOLDER      skip folder(s) containing substring
 ```
+
+# Example usage
+
+-  Validate all existing log files with minimal verbosity:
+
+   ```./checkgms.py```
+
+-  Validate all existing log files with minimal verbosity BUT exit on the first failure:
+
+   ```./checkgms.py -e```
+
+-  Validate all existing log files and show each validation made:
+
+   ```./checkgms.py -v```
+
+-  Validate all existing log files and show each validation made along with parse group headers:
+
+   ```./checkgms.py -v -g```
+
+-  Validate all folders containing the sub-string 'parallel':
+
+   ```./checkgms.py --folder=parallel```
+
+-  Validate all folders containing the sub-string 'parallel' but SKIP all folders containing the sub-string 'libcchem':
+
+   ```./checkgms.py --folder=parallel --skip_folder=libcchem```
+
+-  Validate all folders containing the sub-string 'parallel' AND all files containing sub-string 'mp2' but SKIP all folders containing the sub-string 'libcchem':
+
+   ```./checkgms.py --folder=parallel --skip_folder=libcchem --file=mp2```
+
+-  Validate all folders containing the sub-string 'parallel' AND all files containing sub-string 'mp2' but SKIP all folders containing the sub-string 'libcchem' AND SKIP all files containing the substring 'zapt':
+
+   ```./checkgms.py --folder=parallel --skip_folder=libcchem --file=mp2 --skip_file=zapt```
+
+-  Validate all existing log files with minimal verbosity BUT do not create NEW validation files (*.json) if they do not already exist:
+
+   ```./checkgms.py --skip_json_create```
+
+-  To see what files get picked up by the ```--folder, --skip_folder, --file, skip_file``` flags just add the ```--dryrun``` flag to the command.  This will not perform the validation.
+
