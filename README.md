@@ -113,7 +113,7 @@ usage: queuetest.py / runtest.py
                     [--output_extension OUTPUT_EXTENSION]
                     [--skip_file SKIP_FILE] [--skip_folder SKIP_FOLDER]
 
-GAMESS Test Launch
+GAMESS Test Submission / Launch
 
 optional arguments:
   -h, --help                     show this help message and exit
