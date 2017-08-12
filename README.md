@@ -106,6 +106,7 @@ optional arguments:
   --skip_file SKIP_FILE      skip file(s) containing substring
   --skip_folder SKIP_FOLDER  skip folder(s) containing substring
   --skip_json_create         skip creation of new JSON validation files
+  --test_type TEST_TYPE      test input type: small, medium, large
 ```
 
 # queuetest.py / runtest.py Usage
@@ -130,6 +131,7 @@ optional arguments:
   --output_extension EXTENSION   extension to use for output files default(".log")
   --skip_file SKIP_FILE          skip file(s) containing substring
   --skip_folder SKIP_FOLDER      skip folder(s) containing substring
+  --test_type TEST_TYPE          test input type: small, medium, large
 ```
 
 # Example Usage
