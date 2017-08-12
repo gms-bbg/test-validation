@@ -233,21 +233,26 @@ def parse_arguments(validation=True):
     parser.add_argument('--skip_file',help='skip file(s) containing substring', default="")
     parser.add_argument('--skip_folder',help='skip folder(s) containing substring', default="")
     parser.add_argument('--skip_json_create',help='skip creation of new JSON validation files', action="store_true")
+    parser.add_argument('--test_type',help='test input type: small, medium, large', default="")
   else:
     parser = argparse.ArgumentParser(description='GAMESS Test Launch')
     parser.add_argument('--file',help='process file(s) containing substring', default="")
     parser.add_argument('--folder',help='process folder(s) containing substring', default="")
+    parser.add_argument('-d','--debug',help='debug print control', action="store_true")
     parser.add_argument('-n','--ncpus',help='number of GAMESS compute processes', default="1")
     parser.add_argument('--output_extension',help='extension to use for output files default(".log")', default=".log")
     parser.add_argument('--skip_file',help='skip file(s) containing substring', default="")
     parser.add_argument('--skip_folder',help='skip folder(s) containing substring', default="")
+    parser.add_argument('--test_type',help='test input type: small, medium, large', default="")
 
   args=parser.parse_args()
 
+  run_arguments["debug"]=args.debug
   run_arguments["filter_file"]=args.file
   run_arguments["filter_folder"]=args.folder
   run_arguments["skip_file"]=args.skip_file
   run_arguments["skip_folder"]=args.skip_folder
+  run_arguments["test_type"]=args.test_type
 
   if not validation:
     run_arguments["ncpus"]=args.ncpus
@@ -255,7 +260,6 @@ def parse_arguments(validation=True):
     return run_arguments
 
   run_arguments["array"]=args.array
-  run_arguments["debug"]=args.debug
   run_arguments["dryrun"]=args.dryrun
   run_arguments["json_create"]=args.json_create
   run_arguments["exit_on_fail"]=args.exit_on_fail

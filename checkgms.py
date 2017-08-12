@@ -8,9 +8,18 @@ import sys
 from checkgms_utils import *
 from checkgms_stable import *
 
-#A way to have log files containing values you wish to reproduce without having the extension .log
+"""
+If --json_create flag is passed to trigger the creation of new *.json validation files then it will look or log
+files containg the extension specified by file_extension to parse in order to generate the new *.json validation file.
+"""
 file_extension=".VALIDATION"
-#A way to selectively protect the overwritting of existing validation files when --json_create is passed in
+
+"""
+In some cases we may have a *.json validation file that we wish to protect from being over-written even when the --json_create
+flag is passed in. A way to allow this is by renaming the file so that it ends with what is specified by json_protect.
+
+Meaning if --json_protect is passed in then the script will skip all input files that match the filename patter *project.json
+"""
 json_protect="protect.json"
 
 run_arguments=parse_arguments()
