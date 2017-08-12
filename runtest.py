@@ -34,12 +34,31 @@ for filenum, input_file_path in enumerate(input_file_paths,start=1):
     match = regex.search(parse_memory_map)
     #If found then skip
     if match:
-      print(l_box_small("Skipping input file"),file_progress(filenum,len(input_file_paths)),input_file_path)
+      if run_arguments["debug"]:
+        print(l_box_small("Skipping input file"),file_progress(filenum,len(input_file_paths)),input_file_path)
       continue
+
+    #If --test_type is passed in:
+    if "small" in run_arguments["test_type"]:
+      regex_string="TRAVIS-CI SMALL"
+    elif "medium" in run_arguments["test_type"]:
+      regex_string="TRAVIS-CI MEDIUM"
+    elif "large" in run_arguments["test_type"]:
+      regex_string="TRAVIS-CI LARGE"
+
+    if len(run_arguments["test_type"]) > 0:
+      regex=re.compile(str.encode(regex_string,'ascii'), re.MULTILINE)
+      match = regex.search(parse_memory_map)
+      if not match:
+        if run_arguments["debug"]:
+          print(l_box_small("Skipping input file"),file_progress(filenum,len(input_file_paths)),input_file_path)
+        continue
 
   try:
     run_command=rungms_path+" "+input_file_path+" 00 "+run_arguments["ncpus"]+" "+run_arguments["ncpus"]+ " > "+input_file_path.replace(".inp",".log")+" 2>&1"
     print(l_box_small("Running input file"),file_progress(filenum,len(input_file_paths)),input_file_path)
+    if run_arguments["debug"]:
+      print(run_command)
     os.system(run_command)
   except KeyboardInterrupt:
     sys.exit(1)

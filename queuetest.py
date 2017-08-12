@@ -34,7 +34,8 @@ for filenum, input_file_path in enumerate(input_file_paths,start=1):
     match = regex.search(parse_memory_map)
     #If found then skip
     if match:
-     #print(l_box_small("Skipping input file"),file_progress(filenum,len(input_file_paths)),input_file_path)
+      if run_arguments["debug"]:
+        print(l_box_small("Skipping input file"),file_progress(filenum,len(input_file_paths)),input_file_path)
       continue
 
     #If --test_type is passed in:
@@ -49,9 +50,9 @@ for filenum, input_file_path in enumerate(input_file_paths,start=1):
       regex=re.compile(str.encode(regex_string,'ascii'), re.MULTILINE)
       match = regex.search(parse_memory_map)
       if not match:
-       #print(l_box_small("Skipping input file"),file_progress(filenum,len(input_file_paths)),input_file_path)
+        if run_arguments["debug"]:
+          print(l_box_small("Skipping input file"),file_progress(filenum,len(input_file_paths)),input_file_path)
         continue
-
 
   try:
     if (int(run_arguments["ncpus"]) <= ppn):
@@ -59,8 +60,9 @@ for filenum, input_file_path in enumerate(input_file_paths,start=1):
     else:
       job_submission_command="sarom-gms"+" "+input_file_path+" -l "+input_file_path.replace(".inp",run_arguments["output_extension"])+" "+"-p "+run_arguments["ncpus"]+" "+"-ppn "+str(ppn)+" "+"-w 240:0:0"
     print(l_box_small("Submitting job for input file"),file_progress(filenum,len(input_file_paths)),input_file_path)
-    print(job_submission_command)
-   #os.system(job_submission_command)
+    if run_arguments["debug"]:
+      print(job_submission_command)
+    os.system(job_submission_command)
   except KeyboardInterrupt:
     sys.exit(1)
   except:
