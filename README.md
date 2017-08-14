@@ -10,7 +10,7 @@ https://github.com/gms-bbg/test-validation/wiki
 
 # Directory structure
 ```
-tests/
+test-validation/
 ├── R-7gradient/          Effective Fragment Potential Method (EFP) R**-7 Gradient
 ├── cc/                   Coupled-Cluster methods
 ├── ci/                   Configuration-Interaction (CI) methods
