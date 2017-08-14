@@ -1,11 +1,16 @@
 # Test-Validation
 A generic logfile validation written in Python 3
 
-## Wiki: https://github.com/gms-bbg/test-validation/wiki
+# Code Coverage
+<div align="center">
+<a href="https://codecov.io/gh/gms-bbg/gamess"><img src="https://codecov.io/gh/gms-bbg/gamess/branch/saromleang%2Ftravis-ci/graph/badge.svg?token=KSgdn9T8Yc" alt="Codecov" /></a><br><img src="https://codecov.io/gh/gms-bbg/gamess/commit/11becfe62332699828a81bcbe779273beab79c45/graphs/tree.svg?token=KSgdn9T8Yc"></div>
+
+# Wiki
+https://github.com/gms-bbg/test-validation/wiki
 
 # Directory structure
 ```
-test-validation/
+tests/
 ├── R-7gradient/          Effective Fragment Potential Method (EFP) R**-7 Gradient
 ├── cc/                   Coupled-Cluster methods
 ├── ci/                   Configuration-Interaction (CI) methods
@@ -87,7 +92,7 @@ Must be called within the test-validation folder.
 usage: checkgms.py [-h] [--dryrun] [--file FILE] [--folder FOLDER]
                    [--json_create] [-a] [-d] [-e] [-g] [-p] [-v]
                    [--skip_file SKIP_FILE] [--skip_folder SKIP_FOLDER]
-                   [--skip_json_create]
+                   [--skip_json_create] [--test_type TEST_TYPE]
 
 GAMESS Test Validation
 
@@ -114,17 +119,20 @@ optional arguments:
 Must be called one directory-level **above** the test-validation folder.
 
 ```
-./queuetest.py --help
+tests/queuetest.py --help
+tests/runtest.py --help
 
 usage: queuetest.py / runtest.py
-                    [-h] [--file FILE] [--folder FOLDER] [-n NCPUS]
+                    [-h] [--dryrun] [--file FILE] [--folder FOLDER] [-n NCPUS]
                     [--output_extension OUTPUT_EXTENSION]
                     [--skip_file SKIP_FILE] [--skip_folder SKIP_FOLDER]
+                    [--test_type TEST_TYPE]
 
 GAMESS Test Submission / Launch
 
 optional arguments:
   -h, --help                     show this help message and exit
+  --dryrun                       cycles through filelist without parsing
   --file FILE                    process file(s) containing substring
   --folder FOLDER                process folder(s) containing substring
   -n NCPUS, --ncpus NCPUS        number of GAMESS compute processes

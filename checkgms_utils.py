@@ -1,6 +1,7 @@
 import argparse
 import json
 import os
+import sys
 
 class ColorX:
   reset = '\033[0m'
@@ -64,17 +65,23 @@ def n_(input_string,precision=10):
       int(input_string)
   )
 
+#Formatted printing for numerical values with adjustable precision.
+#Print width = 10
+#Must be able to typecast input_string into a float or int.
+def n_small(input_string,precision=10):
+  if precision > 0:
+    return '{0:10.{1}f}'.format(
+      float(input_string),precision
+  )
+  else:
+    return '{0:20}'.format(
+      int(input_string)
+  )
+
 #Formatted printing with left-justification
 #Print width = 20
 def ls_(input_string,precision=10):
   return '{0:<20}'.format(
-    str(input_string)
-  )
-
-#Formatted printing with right-justification
-#Print width = 20
-def rs_(input_string,precision=10):
-  return '{0:>20}'.format(
     str(input_string)
   )
 
@@ -85,12 +92,107 @@ def cs_(input_string,precision=10):
     str(input_string)
   )
 
+#Formatted printing with right-justification
+#Print width = 20
+def rs_(input_string,precision=10):
+  return '{0:>20}'.format(
+    str(input_string)
+  )
+
 #Formated printing within [ ] with left-justification
 #Print width = 40
 #Color = light grey
 def l_(*args):
   input_string = ' '.join(map(str, args))
   return '{0}{1:<40}{2}'.format(
+    Color.lightgrey,
+    input_string,
+    Color.reset,
+  )
+
+#Formated printing within [ ] with center-justification
+#Print width = 40
+#Color = light grey
+def c_(*args):
+  input_string = ' '.join(map(str, args))
+  return '{0}{1:^40}{2}'.format(
+    Color.lightgrey,
+    input_string,
+    Color.reset,
+  )
+
+#Formated printing within [ ] with right-justification
+#Print width = 40
+#Color = light grey
+def r_(*args):
+  input_string = ' '.join(map(str, args))
+  return '{0}{1:>40}{2}'.format(
+    Color.lightgrey,
+    input_string,
+    Color.reset,
+  )
+
+#Formated printing within [ ] with left-justification
+#Print width = 20
+#Color = light grey
+def l_small(*args):
+  input_string = ' '.join(map(str, args))
+  return '{0}{1:<20}{2}'.format(
+    Color.lightgrey,
+    input_string,
+    Color.reset,
+  )
+
+#Formated printing within [ ] with center-justification
+#Print width = 20
+#Color = light grey
+def c_small(*args):
+  input_string = ' '.join(map(str, args))
+  return '{0}{1:^20}{2}'.format(
+    Color.lightgrey,
+    input_string,
+    Color.reset,
+  )
+
+#Formated printing within [ ] with right-justification
+#Print width = 20
+#Color = light grey
+def r_small(*args):
+  input_string = ' '.join(map(str, args))
+  return '{0}{1:>20}{2}'.format(
+    Color.lightgrey,
+    input_string,
+    Color.reset,
+  )
+
+#Formated printing within [ ] with left-justification
+#Print width = 60
+#Color = light grey
+def l_large(*args):
+  input_string = ' '.join(map(str, args))
+  return '{0}{1:<60}{2}'.format(
+    Color.lightgrey,
+    input_string,
+    Color.reset,
+  )
+
+#Formated printing within [ ] with center-justification
+#Print width = 60
+#Color = light grey
+def c_large(*args):
+  input_string = ' '.join(map(str, args))
+  return '{0}{1:^60}{2}'.format(
+    Color.lightgrey,
+    input_string,
+    Color.reset,
+  )
+
+#Formated printing within [ ] with right-justification
+#Print width = 60
+#Color = light grey
+def r_large(*args):
+  input_string = ' '.join(map(str, args))
+  return '{0}{1:>60}{2}'.format(
     Color.lightgrey,
     input_string,
     Color.reset,
@@ -107,17 +209,19 @@ def l_box(*args):
     Color.reset,
   )
 
-#Formated printing within [ ] with left-justification
-#Print width = 22
+#Formated printing within [ ] with center-justification
+#Print width = 40 (42 if you include '[' ']')
 #Color = light grey
-def l_box_small(*args):
+def c_box(*args):
+  """
+  Color for general values
+  """
   input_string = ' '.join(map(str, args))
-  return '{0}[{1:<20}]{2}'.format(
+  return '{0}[{1:^40}]{2}'.format(
     Color.lightgrey,
     input_string,
     Color.reset,
   )
-
 
 #Formated printing within [ ] with right-justification
 #Print width = 42
@@ -130,15 +234,67 @@ def r_box(*args):
     Color.reset,
   )
 
-#Formated printing within [ ] with center-justification
-#Print width = 40 (42 if you include '[' ']')
+#Formated printing within [ ] with left-justification
+#Print width = 62
 #Color = light grey
-def c_box(*args):
-  """
-  Color for general values
-  """
+def l_box_large(*args):
   input_string = ' '.join(map(str, args))
-  return '{0}[{1:^40}]{2}'.format(
+  return '{0}[{1:<60}]{2}'.format(
+    Color.lightgrey,
+    input_string,
+    Color.reset,
+  )
+
+#Formated printing within [ ] with center-justification
+#Print width = 62
+#Color = light grey
+def c_box_large(*args):
+  input_string = ' '.join(map(str, args))
+  return '{0}[{1:^60}]{2}'.format(
+    Color.lightgrey,
+    input_string,
+    Color.reset,
+  )
+
+#Formated printing within [ ] with right-justification
+#Print width = 62
+#Color = light grey
+def r_box_large(*args):
+  input_string = ' '.join(map(str, args))
+  return '{0}[{1:>60}]{2}'.format(
+    Color.lightgrey,
+    input_string,
+    Color.reset,
+  )
+
+#Formated printing within [ ] with left-justification
+#Print width = 22
+#Color = light grey
+def l_box_small(*args):
+  input_string = ' '.join(map(str, args))
+  return '{0}[{1:<20}]{2}'.format(
+    Color.lightgrey,
+    input_string,
+    Color.reset,
+  )
+
+#Formated printing within [ ] with center-justification
+#Print width = 22
+#Color = light grey
+def c_box_small(*args):
+  input_string = ' '.join(map(str, args))
+  return '{0}[{1:^20}]{2}'.format(
+    Color.lightgrey,
+    input_string,
+    Color.reset,
+  )
+
+#Formated printing within [ ] with right-justification
+#Print width = 22
+#Color = light grey
+def r_box_small(*args):
+  input_string = ' '.join(map(str, args))
+  return '{0}[{1:>20}]{2}'.format(
     Color.lightgrey,
     input_string,
     Color.reset,
@@ -211,8 +367,8 @@ def validation_header():
 #Formated printing of "="*84
 #Print width = 84
 #Color = light grey
-def seperator():
-  return '{0}'.format(Color.lightgrey)+'='*84+'{0}'.format(Color.reset)
+def seperator(columns=84):
+  return '{0}'.format(Color.lightgrey)+'='*columns+'{0}'.format(Color.reset)
 
 #Parse input argument
 def parse_arguments(validation=True):
@@ -236,31 +392,36 @@ def parse_arguments(validation=True):
     parser.add_argument('--test_type',help='test input type: small, medium, large', default="")
   else:
     parser = argparse.ArgumentParser(description='GAMESS Test Launch')
+    parser.add_argument('--dryrun',help='cycles through filelist without parsing', action="store_true")
     parser.add_argument('--file',help='process file(s) containing substring', default="")
     parser.add_argument('--folder',help='process folder(s) containing substring', default="")
+    parser.add_argument('-c','--coverage',help='run code coverage', action="store_true")
     parser.add_argument('-d','--debug',help='debug print control', action="store_true")
     parser.add_argument('-n','--ncpus',help='number of GAMESS compute processes', default="1")
     parser.add_argument('--output_extension',help='extension to use for output files default(".log")', default=".log")
     parser.add_argument('--skip_file',help='skip file(s) containing substring', default="")
     parser.add_argument('--skip_folder',help='skip folder(s) containing substring', default="")
     parser.add_argument('--test_type',help='test input type: small, medium, large', default="")
+    parser.add_argument('--stderr',help='print to stderr', action="store_true")
 
   args=parser.parse_args()
 
-  run_arguments["debug"]=args.debug
+  run_arguments["dryrun"]=args.dryrun
   run_arguments["filter_file"]=args.file
   run_arguments["filter_folder"]=args.folder
+  run_arguments["debug"]=args.debug
   run_arguments["skip_file"]=args.skip_file
   run_arguments["skip_folder"]=args.skip_folder
   run_arguments["test_type"]=args.test_type
 
   if not validation:
+    run_arguments["coverage"]=args.coverage
     run_arguments["ncpus"]=args.ncpus
     run_arguments["output_extension"]=args.output_extension
+    run_arguments["stderr"]=args.stderr
     return run_arguments
 
   run_arguments["array"]=args.array
-  run_arguments["dryrun"]=args.dryrun
   run_arguments["json_create"]=args.json_create
   run_arguments["exit_on_fail"]=args.exit_on_fail
   run_arguments["group"]=args.group

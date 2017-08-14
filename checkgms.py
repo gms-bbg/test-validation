@@ -40,6 +40,7 @@ else:
 
 #Loop through the log_file_paths array and validate
 for filenum, log_file_path in enumerate(log_file_paths,start=1):
+
   if run_arguments["json_create"]:
     validation_result=checkgms(filenum=filenum,log_file_path=log_file_path,log_file_count=len(log_file_paths),run_arguments=run_arguments,parse_groups=parse_groups,file_extension=file_extension,json_protect=json_protect)
   else:
