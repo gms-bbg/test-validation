@@ -123,10 +123,10 @@ tests/queuetest.py --help
 tests/runtest.py --help
 
 usage: queuetest.py / runtest.py
-                    [-h] [--dryrun] [--file FILE] [--folder FOLDER] [-n NCPUS]
-                    [--output_extension OUTPUT_EXTENSION]
-                    [--skip_file SKIP_FILE] [--skip_folder SKIP_FOLDER]
-                    [--test_type TEST_TYPE]
+                  [-h] [--dryrun] [--file FILE] [--folder FOLDER] [-c] [-d]
+                  [-n NCPUS] [--output_extension OUTPUT_EXTENSION]
+                  [--skip_file SKIP_FILE] [--skip_folder SKIP_FOLDER]
+                  [--test_type TEST_TYPE] [--stderr]
 
 GAMESS Test Submission / Launch
 
