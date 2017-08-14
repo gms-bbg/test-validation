@@ -135,11 +135,14 @@ optional arguments:
   --dryrun                       cycles through filelist without parsing
   --file FILE                    process file(s) containing substring
   --folder FOLDER                process folder(s) containing substring
+  -c, --coverage                 run code coverage
+  -d, --debug                    debug print control
   -n NCPUS, --ncpus NCPUS        number of GAMESS compute processes
   --output_extension EXTENSION   extension to use for output files default(".log")
   --skip_file SKIP_FILE          skip file(s) containing substring
   --skip_folder SKIP_FOLDER      skip folder(s) containing substring
   --test_type TEST_TYPE          test input type: small, medium, large
+  --stderr                       print to stderr
 ```
 
 # Example Usage
