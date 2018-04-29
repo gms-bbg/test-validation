@@ -185,3 +185,8 @@ optional arguments:
 
 -  To see what files get picked up by the ```--folder, --skip_folder, --file, skip_file``` flags just add the ```--dryrun``` flag to the command.  This will not perform the validation.
 
+- Full test usage for GAMESS Fortran:
+
+  ```
+  tests/queuetest.py --skip_folder=/libcchem --skip_file=elmom-
+  ```
