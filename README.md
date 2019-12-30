@@ -1,10 +1,6 @@
 # Test-Validation
 A generic logfile validation written in Python 3
 
-# Code Coverage
-<div align="center">
-<a href="https://codecov.io/gh/gms-bbg/gamess"><img src="https://codecov.io/gh/gms-bbg/gamess/branch/saromleang%2Ftravis-ci/graph/badge.svg?token=KSgdn9T8Yc" alt="Codecov" /></a><br><img src="https://codecov.io/gh/gms-bbg/gamess/commit/11becfe62332699828a81bcbe779273beab79c45/graphs/tree.svg?token=KSgdn9T8Yc"></div>
-
 # Wiki
 https://github.com/gms-bbg/test-validation/wiki
 
