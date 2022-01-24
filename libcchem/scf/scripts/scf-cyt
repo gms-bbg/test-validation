@@ -1,0 +1,33 @@
+#!/bin/csh
+
+if (-e ../../../../install.info) then
+   source ../../../../install.info
+else if (-e ../../../install.info) then
+   source ../../../install.info
+else if (-e ../../install.info) then
+   source ../../install.info
+else if (-e ../install.info) then
+   source ../install.info
+else if (-e install.info) then
+   source install.info
+else
+   echo "Please run 'config' first, to set up GAMESS compiling information"
+   exit
+endif
+
+set inputfile="scf-cyt"
+set logs="${GMS_BUILD_DIR}/tests/libcchem/scf"
+
+if ( -e ${logs}/${inputfile}.log ) then
+   echo "${inputfile} has been run already; skipping run..."
+   cd ${logs}
+else
+   cd ${GMS_BUILD_DIR}
+   echo "Running ${logs}/${inputfile}.inp ..."
+   ${GMS_BUILD_DIR}/rungms.interactive ${logs}/${inputfile}.inp >& ${logs}/${inputfile}.log
+   cd ${logs}
+endif
+
+cp scripts/${inputfile}-chk .
+./${inputfile}-chk
+rm ${inputfile}-chk
