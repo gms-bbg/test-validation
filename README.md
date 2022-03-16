@@ -1,12 +1,16 @@
 # Test-Validation
 A generic logfile validation written in Python 3
 
+# Code Coverage
+<div align="center">
+<a href="https://codecov.io/gh/gms-bbg/gamess"><img src="https://codecov.io/gh/gms-bbg/gamess/branch/saromleang%2Ftravis-ci/graph/badge.svg?token=KSgdn9T8Yc" alt="Codecov" /></a><br><img src="https://codecov.io/gh/gms-bbg/gamess/commit/11becfe62332699828a81bcbe779273beab79c45/graphs/tree.svg?token=KSgdn9T8Yc"></div>
+
 # Wiki
 https://github.com/gms-bbg/test-validation/wiki
 
 # Directory structure
 ```
-test-validation/
+tests/
 ├── R-7gradient/          Effective Fragment Potential Method (EFP) R**-7 Gradient
 ├── cc/                   Coupled-Cluster methods
 ├── ci/                   Configuration-Interaction (CI) methods
@@ -107,7 +111,7 @@ optional arguments:
   --skip_file SKIP_FILE      skip file(s) containing substring
   --skip_folder SKIP_FOLDER  skip folder(s) containing substring
   --skip_json_create         skip creation of new JSON validation files
-  --test_type TEST_TYPE      test input type: small, medium, large
+  --test_type TEST_TYPE      test input type: small, medium, large, msucc
 ```
 
 # queuetest.py / runtest.py Usage
@@ -137,7 +141,7 @@ optional arguments:
   --output_extension EXTENSION   extension to use for output files default(".log")
   --skip_file SKIP_FILE          skip file(s) containing substring
   --skip_folder SKIP_FOLDER      skip folder(s) containing substring
-  --test_type TEST_TYPE          test input type: small, medium, large
+  --test_type TEST_TYPE          test input type: small, medium, large, msucc
   --stderr                       print to stderr
 ```
 
@@ -181,8 +185,3 @@ optional arguments:
 
 -  To see what files get picked up by the ```--folder, --skip_folder, --file, skip_file``` flags just add the ```--dryrun``` flag to the command.  This will not perform the validation.
 
-- Full test usage for GAMESS Fortran:
-
-  ```
-  tests/queuetest.py --skip_folder=/libcchem --skip_file=elmom-
-  ```
