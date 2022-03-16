@@ -4,6 +4,7 @@
 import re
 import json
 import sys
+import os
 
 from checkgms_utils import *
 from checkgms_stable import *
@@ -11,45 +12,94 @@ from checkgms_stable import *
 """
 If --json_create flag is passed to trigger the creation of new *.json validation files then it will look or log
 files containg the extension specified by file_extension to parse in order to generate the new *.json validation file.
+
+TODO - make file_extension a flag in checkgms.py
+
 """
-file_extension=".VALIDATION"
+file_extension = ".VALIDATION"
 
 """
 In some cases we may have a *.json validation file that we wish to protect from being over-written even when the --json_create
 flag is passed in. A way to allow this is by renaming the file so that it ends with what is specified by json_protect.
 
-Meaning if --json_protect is passed in then the script will skip all input files that match the filename patter *project.json
+Meaning if --json_protect is passed in then the script will skip all input files that match the filename pattern *project.json
 """
-json_protect="protect.json"
+json_protect = "protect.json"
 
-run_arguments=parse_arguments()
+run_arguments = parse_arguments()
 
-print(c_box("Run parameters"))
-print (json.dumps(run_arguments,indent=2))
+if run_arguments["mode"] == "none":
+    print("Exiting on failure!")
+    print(
+        "Need to specify testing mode, -m {validation,regression,both}, --mode {validation,regression,both}")
+    sys.exit(1)
 
-#Populate the parser_groups array
-parse_groups=[]
-parse_groups=get_parse_groups(run_arguments=run_arguments)
+if int(run_arguments["ncpus"]) > 1:
+    if len(run_arguments["filter_folder"]) < 1:
+        run_arguments["filter_folder"] = "parallel"
+    else:
+        run_arguments["filter_folder"] += ",parallel"
 
-#Populate the log_file_paths array
-log_file_paths=[]
+# Populate the log_file_paths array
+log_file_paths = []
 if run_arguments["json_create"]:
-  log_file_paths=get_log_file_paths(folder_string_match=run_arguments["filter_folder"],file_string_match=run_arguments["filter_file"],folder_string_skip=run_arguments["skip_folder"],file_string_skip=run_arguments["skip_file"],file_extension=file_extension)
+    log_file_paths = get_log_file_paths(
+        filepath_string_match=run_arguments["filter_filepath"],
+        folder_string_match=run_arguments["filter_folder"],
+        file_string_match=run_arguments["filter_file"],
+        folder_string_skip=run_arguments["skip_folder"],
+        file_string_skip=run_arguments["skip_file"],
+        file_extension=file_extension,
+        test_path=run_arguments["test_path"])
 else:
-  log_file_paths=get_log_file_paths(folder_string_match=run_arguments["filter_folder"],file_string_match=run_arguments["filter_file"],folder_string_skip=run_arguments["skip_folder"],file_string_skip=run_arguments["skip_file"])
+    log_file_paths = get_log_file_paths(
+        filepath_string_match=run_arguments["filter_filepath"],
+        folder_string_match=run_arguments["filter_folder"],
+        file_string_match=run_arguments["filter_file"],
+        folder_string_skip=run_arguments["skip_folder"],
+        file_string_skip=run_arguments["skip_file"],
+        test_path=run_arguments["test_path"])
 
-#Loop through the log_file_paths array and validate
-for filenum, log_file_path in enumerate(log_file_paths,start=1):
+# Loop through the log_file_paths array and validate
+for filenum, log_file_path in enumerate(log_file_paths, start=1):
 
-  if run_arguments["json_create"]:
-    validation_result=checkgms(filenum=filenum,log_file_path=log_file_path,log_file_count=len(log_file_paths),run_arguments=run_arguments,parse_groups=parse_groups,file_extension=file_extension,json_protect=json_protect)
-  else:
-    validation_result=checkgms(filenum=filenum,log_file_path=log_file_path,log_file_count=len(log_file_paths),run_arguments=run_arguments,parse_groups=parse_groups)
+    if run_arguments["json_create"]:
+        validation_result = checkgms(
+            filenum=filenum,
+            log_file_path=log_file_path,
+            log_file_count=len(log_file_paths),
+            run_arguments=run_arguments,
+            file_extension=file_extension,
+            json_protect=json_protect)
+    else:
+        validation_result = checkgms(
+            filenum=filenum,
+            log_file_path=log_file_path,
+            log_file_count=len(log_file_paths),
+            run_arguments=run_arguments,
+        )
 
-  if "skip" in str(validation_result):
-    continue
+    if "skip" in str(validation_result):
+        continue
 
-  if run_arguments["exit_on_fail"]:
     if "pass" not in str(validation_result):
-      print("Exiting on failure!")
-      sys.exit(1)
+        if run_arguments["fail_rename"]:
+            os.rename(
+                log_file_path,
+                log_file_path.replace(
+                    ".log",
+                    run_arguments["fail_extension"]))
+
+    if "empty" in str(validation_result):
+        print("Empty Log File",log_file_path)
+
+    if "unknown" in str(validation_result):
+        print("Parser Exception",log_file_path)
+
+    if run_arguments["exit_on_fail"]:
+        if "pass" not in str(validation_result):
+            if not run_arguments["no_dump"]:
+                os.system("cat " + log_file_path)
+            print("Exiting on failure!")
+            print("File", log_file_path)
+            sys.exit(1)
