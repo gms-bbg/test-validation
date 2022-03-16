@@ -101,31 +101,52 @@ Electrostatics
 Must be called within the test-validation folder.
 
 ```
-./checkgms.py --help
-
-usage: checkgms.py [-h] [--dryrun] [--file FILE] [--folder FOLDER]
-                   [--json_create] [-a] [-d] [-e] [-g] [-p] [-v]
-                   [--skip_file SKIP_FILE] [--skip_folder SKIP_FOLDER]
-                   [--skip_json_create] [--test_type TEST_TYPE]
+usage: checkgms.py [-h] [-r] [-m {validation,regression,both}] [-a ARCH] [-s SYSTEM] [-n NCPUS] [-g NACCELERATORS] [--dryrun] [--file FILE]
+                   [--folder FOLDER] [--filepath FILEPATH] [--test_path TEST_PATH] [--json_create] [--array] [-d] [-i] [-e] [--group] [-p] [-v]
+                   [--skip_file SKIP_FILE] [--skip_folder SKIP_FOLDER] [--skip_json_create] [--test_type TEST_TYPE] [--fail_rename FAIL_RENAME]
+                   [--no_dump]
 
 GAMESS Test Validation
 
 optional arguments:
-  -h, --help                 show this help message and exit
-  --dryrun                   cycles through filelist without parsing
-  --file FILE                process file(s) containing substring
-  --folder FOLDER            process folder(s) containing substring
-  --json_create              force the creation of JSON validation files
-  -a, --array                print out array values
-  -d, --debug                debug print control
-  -e, --exit_on_fail         exit on first failed validation
-  -g, --group                print group header for values
-  -p, --verbose_parsing      verbose printing during parsing
-  -v, --verbose_validation   verbose printing during validation
-  --skip_file SKIP_FILE      skip file(s) containing substring
-  --skip_folder SKIP_FOLDER  skip folder(s) containing substring
-  --skip_json_create         skip creation of new JSON validation files
-  --test_type TEST_TYPE      test input type: small, medium, large, msucc
+  -h, --help            show this help message and exit
+  -r, --regression      performance regression testing
+  -m {validation,regression,both}, --mode {validation,regression,both}
+                        testing mode, default: validation
+  -a ARCH, --arch ARCH  architecture string used for performance regression
+  -s SYSTEM, --system SYSTEM
+                        HPC system string used for performance regression
+  -n NCPUS, --ncpus NCPUS
+                        number of GAMESS compute processes for performance regression
+  -g NACCELERATORS, --naccelerators NACCELERATORS
+                        number of accelerators for performance regression
+  --dryrun              cycles through filelist without parsing
+  --file FILE           process file(s) containing substring
+  --folder FOLDER       process folder(s) containing substring
+  --filepath FILEPATH   process filepath(s) containing substring
+  --test_path TEST_PATH
+                        process file(s) in the specified path
+  --json_create         force the creation of JSON validation files
+  --array               print out array values
+  -d, --debug           debug print control
+  -i, --print_to_stdout
+                        print_to_stdout
+  -e, --exit_on_fail    exit on first failed validation
+  --group               print group header for values
+  -p, --verbose_parsing
+                        verbose printing during parsing
+  -v, --verbose_validation
+                        verbose printing during validation
+  --skip_file SKIP_FILE
+                        skip file(s) containing substring
+  --skip_folder SKIP_FOLDER
+                        skip folder(s) containing substring
+  --skip_json_create    skip creation of new JSON validation files
+  --test_type TEST_TYPE
+                        test input type: small, medium, large, msucc
+  --fail_rename FAIL_RENAME
+                        if validation fail, replaces ".log" with arg value
+  --no_dump             suppress logfile output when exiting on failure
 ```
 
 # queuetest.py / runtest.py Usage
