@@ -16,10 +16,10 @@ set CHECKPATH=$0
 set CHECKPATH=$CHECKPATH:h/scripts
 if(! -e $CHECKPATH/chkabs && -e ./scripts) set CHECKPATH=./scripts
 if(! -e $CHECKPATH/chkabs) then
-   echo Run this script as: 
-   echo "    cd ~/gamess/tests"
-   echo "       (or wherever else the output files from 'runall' might be)"
-   echo "    ~/gamess/tests/standard/checktst"
+   echo "Run this script as:" >> /dev/stderr
+   echo "    cd ~/gamess/tests" >> /dev/stderr
+   echo "       (or wherever else the output files from 'runall' might be)" >> /dev/stderr
+   echo "    ~/gamess/tests/standard/checktst" >> /dev/stderr
    exit
 endif
 #
@@ -36,7 +36,7 @@ set LOGPATH=.
 #--   set LOGPATH=`pwd`
 #--endif
 #
-set Ntest=47
+set Ntest=48
 set ext=log
 set exam=$LOGPATH/exam
 set script=$CHECKPATH/exam
@@ -47,9 +47,9 @@ echo "the output files (exam??.$ext) will be taken from $LOGPATH"
 #
 if (-e $exam"01."$ext) then
 else
-   echo "The output files do not seem to exist."
-   echo "Please change directory to the location of the log files"
-   echo "prior to running 'checktst'."
+   echo "The output files do not seem to exist." >> /dev/stderr
+   echo "Please change directory to the location of the log files" >> /dev/stderr
+   echo "prior to running 'checktst'." >> /dev/stderr
    exit
 endif
 

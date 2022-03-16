@@ -6,58 +6,76 @@ https://github.com/gms-bbg/test-validation/wiki
 
 # Directory structure
 ```
-test-validation/
+tests/
 ├── R-7gradient/          Effective Fragment Potential Method (EFP) R**-7 Gradient
 ├── cc/                   Coupled-Cluster methods
-├── ci/                   Configuration-Interaction (CI) methods
+├── ci/                   Configuration-Interaction methods
 ├── cim/                  Cluster-In-Molecule Framework
 ├── comp/                 Composite methods
-├── dft/                  Density Functional Theory (DFT)
+├── dft/                  Density Functional Theory (legacy)
+├── dft-new/              Density Functional Theory (new)
 ├── dftb/                 DFT Tight-Binding
 ├── ecp/                  Effective Core Potentials
 ├── eda/                  Energy Decomposition Analysis
 ├── efmo/                 Effective Fragment Molecular Orbital Method
 ├── efp-ci/               Effective Fragment Potential Method - CI
+├── efp-mpiomp/           Effective Fragment Potential Method (MPI+OpenMP)
 ├── excitations/          Excited-State methods
-|   └── tddft_os/         Time-Dependent Density Functional Theory (TDDFT)
+|   └── tddft_os/         Time-Dependent Density Functional Theory
 ├── exotic/               "exotic" runs
 ├── exrep/                EFP Exchange-Repulsion
+├── fmo/                  Fragment Molecular Orbital Method
 ├── globop/               Global optimization methods (e.g. Monte-Carlo, Genetic Algorithm)
 ├── gvb/                  General Valence (Van-Vleck) Bond Theory
+├── info-regression-baseline/ Directory for baseline performance info
 ├── libcchem/             LIBCCHEM runs
+|   ├── ahf/              Accelerated Hartree Fock
 |   ├── cc/               CC
+|   ├── genfock/          Generalized Fock Build
 |   ├── mp2/              Second-Order Pertubation Theory methods
 |   ├── paper/            Benchmark inputs for LIBCCHEM
-|   ├── ri/               Resolution of the Identity (RI)
-|   ├── scf/              Self-Consistent Field (SCF)
-|   └── zapt/             Z-Average Perturbation Theory (ZAPT)
+|   ├── ri/               Resolution of the Identity
+|   ├── scf/              Self-Consistent Field
+|   └── zapt/             Z-Average Perturbation Theory
 ├── mcp/                  Model Core Potentials
+├── mcpdft/               Multi-configurational Pair Density Functional Theory
 ├── mcscf/                Multi-configurational Self-Consistent Field methods
 |   ├── diabat/           Diabatic state generation
 |   ├── freq/             Hessian
-|   ├── mrpt/             Multi-reference Perturbation Theory (MRPT)
+|   ├── mrpt/             Multi-reference Perturbation Theory
 |   ├── nacme/            Non-adiabatic Coupling Matrix Elements (NACME)
 |   ├── psi/              
 |   └── xing/             Inter-system crossings/Conical intersections 
 ├── mp2/                  MP2
+├── neb/                  Nudged Elastic Band Method
 ├── numdiff/              Numerical Differentiation
-├── openmp/               Threaded methods (e.g. SCF Fock build)
 ├── pes/                  Potential Energy Surface
 ├── qmefpea/              QM-EFP Energy Analysis
-├── quanpol/              Quantum Chemistry Polarizable Force Field Program (QUANPOL)
+├── quanpol/              Quantum Chemistry Polarizable Force Field Program
+├── quao-bug/             Quasi-Atomic Orbital
 ├── relwfn/               Relativistic wavefunction methods
 ├── rhf/                  Restricted Hartree-Fock (RHF) for closed-shell
+├── rhf-mpiomp/           Restricted Hartree-Fock (RHF) for closed-shell (MPI+OpenMP)
+├── ricc-mpiomp/          Resolution of the Identity Coupled-Cluster (MPI+OpenMP)
+├── rimp2-mpiomp/         Resolution of the Identify MP2 Energy (MPI+OpenMP)
+├── rimpgrd-mpiomp/       Resolution of the Identify MP2 Gradient (MPI+OpenMP)
 ├── rohf/                 Restricted Open-shell Hartree-Fock (ROHF)
 ├── semi-emperical/       Semi-empirical methods
+├── sformas/              Spin-flip ORMAS
 ├── solvent/              Solvent methods
-|   ├── efp-ctcut/        EFP Charge-Transfer (CT) Cutoff
+|   ├── cmirs/            Composite Method for Implicit Representation of Solvent
+|   ├── efp-ctcut/        EFP Charge-Transfer Cutoff
 |   ├── efp1/             Effective Fragment Potential 1 Method
 |   ├── efp2/             Generalized Effective Fragment Potential Method
 |   ├── mnsol/            University of Minnesota Solvation Models
-|   ├── pcm/              Polarizable Continuum Model (PCM)
+|   ├── pcm/              Polarizable Continuum Model
+|   ├── qm-efp2/          QM+EFP2
 |   ├── reorg/            Solvent Reorganization Energy
 |   ├── scrf/             Self-Consistent Reaction Field (SCRF)
-|   └── svpe/             Surface and Volume Polarization for Electrostatics (SVPE)
+|   ├── ssvpe/            Surface and Simulation of Volume Polarization for                           
+Electrostatics
+|   ├── svp/              Surface and Volume Polarization
+|   └── svpe/             Surface and Volume Polarization for Electrostatics
 ├── spectra/              Spectra runs
 ├── standard/             Standard GAMESS test set (not validated in this test suite)
 ├── svd/                  Single-Value Decomposition (SVD)
@@ -70,8 +88,8 @@ test-validation/
 └── checkgms_parsers.py   Defines log file parsing
 └── checkgms_stable.py    Defines flow for parsing and validation
 └── checkgms_utils.py     Defines utility functions
-└── queuetest.py          Script to submit jobs to a queuing system
-└── runtest.py            Script to run calculations directly
+└── queuetest.py          Script to submit GAMESS jobs to a queuing system
+└── runtest.py            Script to run GAMESS calculations directly
 └── parse.inp             Defines the order of the parse groups
 └── LICENSE
 └── README.md
@@ -107,7 +125,7 @@ optional arguments:
   --skip_file SKIP_FILE      skip file(s) containing substring
   --skip_folder SKIP_FOLDER  skip folder(s) containing substring
   --skip_json_create         skip creation of new JSON validation files
-  --test_type TEST_TYPE      test input type: small, medium, large
+  --test_type TEST_TYPE      test input type: small, medium, large, msucc
 ```
 
 # queuetest.py / runtest.py Usage
@@ -115,30 +133,107 @@ optional arguments:
 Must be called one directory-level **above** the test-validation folder.
 
 ```
-tests/queuetest.py --help
-tests/runtest.py --help
+usage: queuetest.py [-h] [--pre PRE] [--post POST] [--dryrun] [--no_counter] [-i] [--file FILE] [--folder FOLDER] [--filepath FILEPATH] [--path PATH]
+                    [--version VERSION] [-d] [-n NCPUS] [-t THREADS] [--mpi] [--hpe-cray-ex] [--hpe-cray-cs] [--cray-xt] [--cray-xc]
+                    [--output_extension OUTPUT_EXTENSION] [-q QUEUE] [--skip_file SKIP_FILE] [--skip_folder SKIP_FOLDER] [--skip_log] [--no_skip]
+                    [--test_type TEST_TYPE] [--stderr] [-c] [--breakdown] [--no_accumulate] [--sourcefile SOURCEFILE] [--bwrap]
 
-usage: queuetest.py / runtest.py
-                  [-h] [--dryrun] [--file FILE] [--folder FOLDER] [-c] [-d]
-                  [-n NCPUS] [--output_extension OUTPUT_EXTENSION]
-                  [--skip_file SKIP_FILE] [--skip_folder SKIP_FOLDER]
-                  [--test_type TEST_TYPE] [--stderr]
-
-GAMESS Test Submission / Launch
+GAMESS Test Launch
 
 optional arguments:
-  -h, --help                     show this help message and exit
-  --dryrun                       cycles through filelist without parsing
-  --file FILE                    process file(s) containing substring
-  --folder FOLDER                process folder(s) containing substring
-  -c, --coverage                 run code coverage
-  -d, --debug                    debug print control
-  -n NCPUS, --ncpus NCPUS        number of GAMESS compute processes
-  --output_extension EXTENSION   extension to use for output files default(".log")
-  --skip_file SKIP_FILE          skip file(s) containing substring
-  --skip_folder SKIP_FOLDER      skip folder(s) containing substring
-  --test_type TEST_TYPE          test input type: small, medium, large
-  --stderr                       print to stderr
+  -h, --help            show this help message and exit
+  --pre PRE             command to run before each test
+  --post POST           command to run after each test
+  --dryrun              cycles through filelist without parsing
+  --no_counter          suppress the file counter
+  -i, --print_to_stdout
+                        print_to_stdout
+  --file FILE           process file(s) containing substring
+  --folder FOLDER       process folder(s) containing substring
+  --filepath FILEPATH   process filepath(s) containing substring
+  --path PATH           Use a different GAMESS path
+  --version VERSION     Use a GAMESS version
+  -d, --debug           debug print control
+  -n NCPUS, --ncpus NCPUS
+                        number of GAMESS compute processes
+  -t THREADS, --threads THREADS
+                        number of parallel GAMESS computing
+  --mpi                 use mpi
+  --hpe-cray-ex         use hpe-cray-ex
+  --hpe-cray-cs         use hpe-cray-cs
+  --cray-xt             use cray-xt
+  --cray-xc             use cray-xc
+  --output_extension OUTPUT_EXTENSION
+                        extension to use for output files default(".log")
+  -q QUEUE, --queue QUEUE
+                        specify SLURM queue
+  --skip_file SKIP_FILE
+                        skip file(s) containing substring
+  --skip_folder SKIP_FOLDER
+                        skip folder(s) containing substring
+  --skip_log            skip file if log file exists
+  --no_skip             ignore TRAVIS-CI SKIP tags during input filtering
+  --test_type TEST_TYPE
+                        test input type: small, medium, large, msucc
+  --stderr              print to stderr
+  -c, --coverage        run code coverage with GNU gcov
+  --breakdown           breakdown coverage information per input
+  --no_accumulate       do not accumulate coverage statistics across inputs
+  --sourcefile SOURCEFILE
+                        limit coverage data to source file substring, only valid with --breakdown
+  --bwrap               execute tests in a bwrap sandbox to avoid leftover semaphores
+```
+
+```
+usage: runtest.py [-h] [--pre PRE] [--post POST] [--dryrun] [--no_counter] [-i] [--file FILE] [--folder FOLDER] [--filepath FILEPATH] [--path PATH]
+                  [--version VERSION] [-d] [-n NCPUS] [-t THREADS] [--mpi] [--hpe-cray-ex] [--hpe-cray-cs] [--cray-xt] [--cray-xc]
+                  [--output_extension OUTPUT_EXTENSION] [-q QUEUE] [--skip_file SKIP_FILE] [--skip_folder SKIP_FOLDER] [--skip_log] [--no_skip]
+                  [--test_type TEST_TYPE] [--stderr] [-c] [--breakdown] [--no_accumulate] [--sourcefile SOURCEFILE] [--bwrap]
+
+GAMESS Test Launch
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --pre PRE             command to run before each test
+  --post POST           command to run after each test
+  --dryrun              cycles through filelist without parsing
+  --no_counter          suppress the file counter
+  -i, --print_to_stdout
+                        print_to_stdout
+  --file FILE           process file(s) containing substring
+  --folder FOLDER       process folder(s) containing substring
+  --filepath FILEPATH   process filepath(s) containing substring
+  --path PATH           Use a different GAMESS path
+  --version VERSION     Use a GAMESS version
+  -d, --debug           debug print control
+  -n NCPUS, --ncpus NCPUS
+                        number of GAMESS compute processes
+  -t THREADS, --threads THREADS
+                        number of parallel GAMESS computing
+  --mpi                 use mpi
+  --hpe-cray-ex         use hpe-cray-ex
+  --hpe-cray-cs         use hpe-cray-cs
+  --cray-xt             use cray-xt
+  --cray-xc             use cray-xc
+  --output_extension OUTPUT_EXTENSION
+                        extension to use for output files default(".log")
+  -q QUEUE, --queue QUEUE
+                        specify SLURM queue
+  --skip_file SKIP_FILE
+                        skip file(s) containing substring
+  --skip_folder SKIP_FOLDER
+                        skip folder(s) containing substring
+  --skip_log            skip file if log file exists
+  --no_skip             ignore TRAVIS-CI SKIP tags during input filtering
+  --test_type TEST_TYPE
+                        test input type: small, medium, large, msucc
+  --stderr              print to stderr
+  -c, --coverage        run code coverage with GNU gcov
+  --breakdown           breakdown coverage information per input
+  --no_accumulate       do not accumulate coverage statistics across inputs
+  --sourcefile SOURCEFILE
+                        limit coverage data to source file substring, only valid with --breakdown
+  --bwrap               execute tests in a bwrap sandbox to avoid leftover semaphores
 ```
 
 # Example Usage
@@ -175,14 +270,13 @@ optional arguments:
 
    ```./checkgms.py --folder=parallel --skip_folder=libcchem --file=mp2 --skip_file=zapt```
 
+-  Validate a particular log file when the absolute full/relative path is known:
+
+   ```./checkgms.py --filepath=travis-ci/parallel/exam01.log```
+
 -  Validate all existing log files with minimal verbosity BUT do not create NEW validation files (*.json) if they do not already exist:
 
    ```./checkgms.py --skip_json_create```
 
 -  To see what files get picked up by the ```--folder, --skip_folder, --file, skip_file``` flags just add the ```--dryrun``` flag to the command.  This will not perform the validation.
 
-- Full test usage for GAMESS Fortran:
-
-  ```
-  tests/queuetest.py --skip_folder=/libcchem --skip_file=elmom-
-  ```
