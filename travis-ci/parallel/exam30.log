@@ -1,19 +1,27 @@
-source /home/sarom/dir.git.dev/install.info
-setenv GMS_PATH /export/home/sarom/dir.git.dev
-setenv GMS_BUILD_DIR /export/home/sarom/dir.git.dev
+source /Users/sarom/GAMESS-Development/gamess/install.info
+setenv GMS_VERSION 00
+setenv GMS_PATH /Users/sarom/GAMESS-Development/gamess
+setenv GMS_BUILD_DIR /Users/sarom/GAMESS-Development/gamess
 setenv GMS_TARGET linux64
 setenv GMS_HPC_SYSTEM_TARGET generic
-setenv GMS_FORTRAN oneapi-ifort
-setenv GMS_IFORT_VERNO 20
-setenv GMS_MATHLIB mkl
-setenv GMS_MATHLIB_PATH /shared/compilers/intel/oneapi/mkl/2022.0.1/lib/intel64
-setenv GMS_MKL_VERNO oneapi
+setenv GMS_ARCH arm
+setenv GMS_FORTRAN gfortran
+setenv GMS_GFORTRAN_VERNO 14.1
+setenv GMS_MATHLIB none
+setenv GMS_THREADED_BLAS false
+setenv GMS_LAPACK_LINK_LINE 
 setenv GMS_DDI_COMM sockets
-setenv GMS_MSUCC false
-setenv GMS_LIBCCHEM false
+setenv GMS_MSUAUTO false
+setenv GMS_HPCCHEM false
+setenv GMS_HPCCHEM_PATH
+setenv GMS_HPCCHEM_USE_DATA_SERVERS false
 setenv GMS_PHI none
 setenv GMS_SHMTYPE sysv
 setenv GMS_OPENMP false
+setenv GMS_OPENMP_OFFLOAD false
+setenv GMS_USE_HIPFORT false
+setenv USE_CUBLAS false
+setenv USE_HIPBLAS false
 setenv GMS_LIBXC false
 setenv GMS_MDI false
 setenv GMS_VM2 false
@@ -22,220 +30,293 @@ setenv VB2000 false
 setenv XMVB false
 setenv NEO false
 setenv NBO false
-setenv GMS_FPE_FLAGS -fpe0
-setenv GMS_FPE_FLAGS 
+setenv RISM false
+setenv GMS_FPE_FLAGS -ffpe-trap=invalid,zero,overflow -finit-real=snan -finit-integer=-9223372036854775808
 unset echo
-SLURM has assigned the following compute nodes to this run:
-compute-0-6
-srun mkdir -p /tmp/373927
-unset echo
-Input file supplied : /export/home/sarom/dir.git.dev/tests/travis-ci/parallel/exam30.inp
------ GAMESS execution script 'rungms-dev' -----
-This job is running on host compute-0-6.local
-under operating system Linux at Tue Mar 15 13:07:11 CDT 2022 with sockets communication mode
-Available scratch disk space (Kbyte units) at beginning of the job is
-Filesystem     1K-blocks    Used Available Use% Mounted on
-/dev/sda1       15995808 6172864   8987360  41% /
-GAMESS temporary binary files will be written to /tmp/373927
-GAMESS supplementary output files will be written to /export/home/sarom/restart
+TERM_PROGRAM=Apple_Terminal
+TERM=xterm-256color
+SHELL=/bin/bash
+TMPDIR=/var/folders/sd/9w2pshtj1cx7jvxnw95lstjr0000gp/T/
+HOMEBREW_REPOSITORY=/opt/homebrew
+TERM_PROGRAM_VERSION=455.1
+TERM_SESSION_ID=E3731169-BECF-4F18-9F46-17B6FDC36B77
+USER=sarom
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.yJPjuo0ExF/Listeners
+__CF_USER_TEXT_ENCODING=0x1F6:0x0:0x0
+PATH=/opt/homebrew/opt/gnu-sed/libexec/gnubin:/opt/homebrew/opt/make/libexec/gnubin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/krb5/bin:/usr/local/ossh/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+_=misc/automation/rungms
+__CFBundleIdentifier=com.apple.Terminal
+PWD=/Users/sarom/GAMESS-Development/gamess
+EDITOR=nano
+LANG=en_US.UTF-8
+XPC_FLAGS=0x0
+KRB5_CONFIG=/etc/krb5.conf
+XPC_SERVICE_NAME=0
+HOME=/Users/sarom
+SHLVL=3
+HOMEBREW_PREFIX=/opt/homebrew
+LOGNAME=sarom
+VISUAL=nano
+HOMEBREW_CELLAR=/opt/homebrew/Cellar
+INFOPATH=/opt/homebrew/share/info:
+HOSTTYPE=unknown
+VENDOR=apple
+OSTYPE=darwin
+MACHTYPE=unknown
+GROUP=staff
+HOST=Mac
+NO_STOP_MESSAGE=1
+GMS_VERSION=00
+GMS_PATH=/Users/sarom/GAMESS-Development/gamess
+GMS_BUILD_DIR=/Users/sarom/GAMESS-Development/gamess
+GMS_TARGET=linux64
+GMS_HPC_SYSTEM_TARGET=generic
+GMS_ARCH=arm
+GMS_FORTRAN=gfortran
+GMS_GFORTRAN_VERNO=14.1
+GMS_MATHLIB=none
+GMS_THREADED_BLAS=false
+GMS_LAPACK_LINK_LINE=
+GMS_DDI_COMM=sockets
+GMS_MSUAUTO=false
+GMS_HPCCHEM=false
+GMS_HPCCHEM_PATH=
+GMS_HPCCHEM_USE_DATA_SERVERS=false
+GMS_PHI=none
+GMS_SHMTYPE=sysv
+GMS_OPENMP=false
+GMS_OPENMP_OFFLOAD=false
+GMS_USE_HIPFORT=false
+USE_CUBLAS=false
+USE_HIPBLAS=false
+GMS_LIBXC=false
+GMS_MDI=false
+GMS_VM2=false
+TINKER=false
+VB2000=false
+XMVB=false
+NEO=false
+NBO=false
+RISM=false
+GMS_FPE_FLAGS=-ffpe-trap=invalid,zero,overflow -finit-real=snan -finit-integer=-9223372036854775808
+LD_LIBRARY_PATH=
 Copying input file exam30.inp to your run's scratch directory...
-cp /export/home/sarom/dir.git.dev/tests/travis-ci/parallel/exam30.inp /tmp/373927/exam30.F05
+cp /Users/sarom/GAMESS-Development/gamess/tests/travis-ci/parallel/exam30.inp /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F05
+unset echo
+----- GAMESS execution script 'rungms' -----
+This job is running on host Mac
+under operating system Darwin at Wed May 14 01:38:52 EDT 2025
+Available scratch disk space (Kbyte units) at beginning of the job is
+Filesystem   1024-blocks      Used Available Capacity iused     ifree %iused  Mounted on
+/dev/disk3s5   239362496 154754860  65547060    71% 1523235 655470600    0%   /System/Volumes/Data
+GAMESS temporary binary files will be written to /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9
+GAMESS supplementary output files will be written to /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9
+limit stacksize 32768
 unset echo
 setenv NO_STOP_MESSAGE 1
-setenv AUXDATA /home/sarom/dir.git.dev/auxdata
+setenv AUXDATA /Users/sarom/GAMESS-Development/gamess/auxdata
 setenv EXTBAS /dev/null
-setenv NUCBAS /dev/null
-setenv EXTCAB /home/sarom/dir.git.dev/auxdata/AUXBAS/auxdef21
-setenv POSBAS /dev/null
-setenv DFTBPAR /home/sarom/dir.git.dev/auxdata/DFTB
-setenv ERICFMT /home/sarom/dir.git.dev/auxdata/ericfmt.dat
-setenv MCPPATH /home/sarom/dir.git.dev/auxdata/MCP
-setenv BASPATH /home/sarom/dir.git.dev/auxdata/BASES
-setenv QUANPOL /home/sarom/dir.git.dev/auxdata/QUANPOL
-setenv MAKEFP /export/home/sarom/restart/exam30.efp
-setenv GAMMA /export/home/sarom/restart/exam30.gamma
-setenv TRAJECT /export/home/sarom/restart/exam30.trj
-setenv RESTART /export/home/sarom/restart/exam30.rst
-setenv QMWAVE /export/home/sarom/restart/exam30.qmw
-setenv MDDIP /export/home/sarom/restart/exam30.dip
-setenv OPTHES1 /export/home/sarom/restart/exam30.hs1
-setenv OPTHES2 /export/home/sarom/restart/exam30.hs2
-setenv FCIDUMP /export/home/sarom/restart/exam30.FCIDUMP
-setenv XYZ /tmp/373927/exam30.xyz
-setenv INPUT /tmp/373927/exam30.F05
-setenv PUNCH /export/home/sarom/restart/exam30.dat
-setenv AOINTS /tmp/373927/exam30.F08
-setenv MOINTS /tmp/373927/exam30.F09
-setenv DICTNRY /tmp/373927/exam30.F10
-setenv DRTFILE /tmp/373927/exam30.F11
-setenv CIVECTR /tmp/373927/exam30.F12
-setenv CASINTS /tmp/373927/exam30.F13
-setenv CIINTS /tmp/373927/exam30.F14
-setenv WORK15 /tmp/373927/exam30.F15
-setenv WORK16 /tmp/373927/exam30.F16
-setenv CSFSAVE /tmp/373927/exam30.F17
-setenv FOCKDER /tmp/373927/exam30.F18
-setenv WORK19 /tmp/373927/exam30.F19
-setenv DASORT /tmp/373927/exam30.F20
-setenv DIABDAT /tmp/373927/exam30.F21
-setenv DFTINTS /tmp/373927/exam30.F21
-setenv DFTGRID /tmp/373927/exam30.F22
-setenv JKFILE /tmp/373927/exam30.F23
-setenv ORDINT /tmp/373927/exam30.F24
-setenv EFPIND /tmp/373927/exam30.F25
-setenv PCMDATA /tmp/373927/exam30.F26
-setenv PCMINTS /tmp/373927/exam30.F27
-setenv SVPWRK1 /tmp/373927/exam30.F26
-setenv SVPWRK2 /tmp/373927/exam30.F27
-setenv COSCAV /tmp/373927/exam30.F26
-setenv COSDATA /export/home/sarom/restart/exam30.cosmo
-setenv COSPOT /export/home/sarom/restart/exam30.pot
-setenv MLTPL /tmp/373927/exam30.F28
-setenv MLTPLT /tmp/373927/exam30.F29
-setenv DAFL30 /tmp/373927/exam30.F30
-setenv SOINTX /tmp/373927/exam30.F31
-setenv SOINTY /tmp/373927/exam30.F32
-setenv SOINTZ /tmp/373927/exam30.F33
-setenv SORESC /tmp/373927/exam30.F34
-setenv GCILIST /tmp/373927/exam30.F37
-setenv HESSIAN /tmp/373927/exam30.F38
-setenv QMMMTEI /tmp/373927/exam30.F39
-setenv SOCCDAT /tmp/373927/exam30.F40
-setenv AABB41 /tmp/373927/exam30.F41
-setenv BBAA42 /tmp/373927/exam30.F42
-setenv BBBB43 /tmp/373927/exam30.F43
-setenv REMD /tmp/373927/exam30.F44
-setenv UNV /tmp/373927/exam30.F45
-setenv UNPV /tmp/373927/exam30.F46
-setenv MCQD50 /tmp/373927/exam30.F50
-setenv MCQD51 /tmp/373927/exam30.F51
-setenv MCQD52 /tmp/373927/exam30.F52
-setenv MCQD53 /tmp/373927/exam30.F53
-setenv MCQD54 /tmp/373927/exam30.F54
-setenv MCQD55 /tmp/373927/exam30.F55
-setenv MCQD56 /tmp/373927/exam30.F56
-setenv MCQD57 /tmp/373927/exam30.F57
-setenv MCQD58 /tmp/373927/exam30.F58
-setenv MCQD59 /tmp/373927/exam30.F59
-setenv MCQD60 /tmp/373927/exam30.F60
-setenv MCQD61 /tmp/373927/exam30.F61
-setenv MCQD62 /tmp/373927/exam30.F62
-setenv MCQD63 /tmp/373927/exam30.F63
-setenv MCQD64 /tmp/373927/exam30.F64
-setenv NMRINT1 /tmp/373927/exam30.F61
-setenv NMRINT2 /tmp/373927/exam30.F62
-setenv NMRINT3 /tmp/373927/exam30.F63
-setenv NMRINT4 /tmp/373927/exam30.F64
-setenv NMRINT5 /tmp/373927/exam30.F65
-setenv NMRINT6 /tmp/373927/exam30.F66
-setenv DCPHFH2 /tmp/373927/exam30.F67
-setenv DCPHF21 /tmp/373927/exam30.F68
-setenv ELNUINT /tmp/373927/exam30.F67
-setenv NUNUINT /tmp/373927/exam30.F68
-setenv GVVPT /tmp/373927/exam30.F69
-setenv NUMOIN /tmp/373927/exam30.F69
-setenv NUMOCAS /tmp/373927/exam30.F70
-setenv NUELMO /tmp/373927/exam30.F71
-setenv NUELCAS /tmp/373927/exam30.F72
-setenv RIVMAT /tmp/373927/exam30.F51
-setenv RIT2A /tmp/373927/exam30.F52
-setenv RIT3A /tmp/373927/exam30.F53
-setenv RIT2B /tmp/373927/exam30.F54
-setenv RIT3B /tmp/373927/exam30.F55
-setenv DEN2P1 /tmp/373927/exam30.F70
-setenv DEN2P2 /tmp/373927/exam30.F71
-setenv DEN2P3 /tmp/373927/exam30.F72
-setenv DEN2P4 /tmp/373927/exam30.F73
-setenv DEN2NM /tmp/373927/exam30.F74
-setenv DEN2OPT /tmp/373927/exam30.F75
-setenv GMCREF /tmp/373927/exam30.F70
-setenv GMCO2R /tmp/373927/exam30.F71
-setenv GMCROC /tmp/373927/exam30.F72
-setenv GMCOOC /tmp/373927/exam30.F73
-setenv GMCCC0 /tmp/373927/exam30.F74
-setenv GMCHMA /tmp/373927/exam30.F75
-setenv GMCEI1 /tmp/373927/exam30.F76
-setenv GMCEI2 /tmp/373927/exam30.F77
-setenv GMCEOB /tmp/373927/exam30.F78
-setenv GMCEDT /tmp/373927/exam30.F79
-setenv GMCERF /tmp/373927/exam30.F80
-setenv GMCHCR /tmp/373927/exam30.F81
-setenv GMCGJK /tmp/373927/exam30.F82
-setenv GMCGAI /tmp/373927/exam30.F83
-setenv GMCGEO /tmp/373927/exam30.F84
-setenv GMCTE1 /tmp/373927/exam30.F85
-setenv GMCTE2 /tmp/373927/exam30.F86
-setenv GMCHEF /tmp/373927/exam30.F87
-setenv GMCMOL /tmp/373927/exam30.F88
-setenv GMCMOS /tmp/373927/exam30.F89
-setenv GMCWGT /tmp/373927/exam30.F90
-setenv GMCRM2 /tmp/373927/exam30.F91
-setenv GMCRM1 /tmp/373927/exam30.F92
-setenv GMCR00 /tmp/373927/exam30.F93
-setenv GMCRP1 /tmp/373927/exam30.F94
-setenv GMCRP2 /tmp/373927/exam30.F95
-setenv GMCVEF /tmp/373927/exam30.F96
-setenv GMCDIN /tmp/373927/exam30.F97
-setenv GMC2SZ /tmp/373927/exam30.F98
-setenv GMCCCS /tmp/373927/exam30.F99
+setenv NUCBAS /Users/sarom/GAMESS-Development/gamess/tests/travis-ci/parallel/exam30.nucbas
+setenv EXTCAB /Users/sarom/GAMESS-Development/gamess/auxdata/AUXBAS/auxdef21
+setenv POSBAS /Users/sarom/GAMESS-Development/gamess/tests/travis-ci/parallel/exam30.posbas
+setenv DFTBPAR /Users/sarom/GAMESS-Development/gamess/auxdata/DFTB
+setenv ERICFMT /Users/sarom/GAMESS-Development/gamess/auxdata/ericfmt.dat
+setenv MCPPATH /Users/sarom/GAMESS-Development/gamess/auxdata/MCP
+setenv BASPATH /Users/sarom/GAMESS-Development/gamess/auxdata/BASES
+setenv QUANPOL /Users/sarom/GAMESS-Development/gamess/auxdata/QUANPOL
+setenv MAKEFP /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.efp
+setenv GAMMA /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.gamma
+setenv TRAJECT /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.trj
+setenv RESTART /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.rst
+setenv QMWAVE /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.qmw
+setenv MDDIP /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.dip
+setenv OPTHES1 /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.hs1
+setenv OPTHES2 /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.hs2
+setenv FCIDUMP /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.FCIDUMP
+setenv XYZ /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.xyz
+setenv IRCDATA /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F04
+setenv INPUT /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F05
+setenv PUNCH /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.dat
+setenv NAMDRST /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.namdrst
+setenv AOINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F08
+setenv MOINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F09
+setenv DICTNRY /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F10
+setenv DRTFILE /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F11
+setenv CIVECTR /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F12
+setenv CASINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F13
+setenv CIINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F14
+setenv WORK15 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F15
+setenv WORK16 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F16
+setenv CSFSAVE /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F17
+setenv FOCKDER /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F18
+setenv WORK19 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F19
+setenv DASORT /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F20
+setenv DIABDAT /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F21
+setenv DFTINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F21
+setenv DFTGRID /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F22
+setenv JKFILE /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F23
+setenv ORDINT /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F24
+setenv EFPIND /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F25
+setenv PCMDATA /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F26
+setenv PCMINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F27
+setenv SVPWRK1 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F26
+setenv SVPWRK2 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F27
+setenv COSCAV /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F26
+setenv COSDATA /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.cosmo
+setenv COSPOT /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.pot
+setenv MLTPL /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F28
+setenv MLTPLT /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F29
+setenv DAFL30 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F30
+setenv SOINTX /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F31
+setenv SOINTY /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F32
+setenv SOINTZ /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F33
+setenv SORESC /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F34
+setenv RISM01 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F26R
+setenv RISM02 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F27R
+setenv QOPWRF /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.wrf
+setenv GCILIST /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F37
+setenv HESSIAN /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F38
+setenv QMMMTEI /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F39
+setenv SOCCDAT /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F40
+setenv AABB41 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F41
+setenv BBAA42 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F42
+setenv BBBB43 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F43
+setenv REMD /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F44
+setenv UNV /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F45
+setenv UNPV /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F46
+setenv MCQD50 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F50
+setenv MCQD51 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F51
+setenv MCQD52 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F52
+setenv MCQD53 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F53
+setenv MCQD54 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F54
+setenv MCQD55 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F55
+setenv MCQD56 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F56
+setenv MCQD57 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F57
+setenv MCQD58 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F58
+setenv MCQD59 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F59
+setenv MCQD60 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F60
+setenv MCQD61 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F61
+setenv MCQD62 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F62
+setenv MCQD63 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F63
+setenv MCQD64 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F64
+setenv NMRINT1 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F61
+setenv NMRINT2 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F62
+setenv NMRINT3 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F63
+setenv NMRINT4 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F64
+setenv NMRINT5 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F65
+setenv NMRINT6 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F66
+setenv DCPHFH2 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F67
+setenv DCPHF21 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F68
+setenv ELNUINT /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F67
+setenv NUNUINT /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F68
+setenv GVVPT /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F69
+setenv NUMOIN /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F69
+setenv NUMOCAS /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F70
+setenv NUELMO /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F71
+setenv NUELCAS /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F72
+setenv EPOVRLP /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F73
+setenv RIVMAT /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F51
+setenv RIT2A /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F52
+setenv RIT3A /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F53
+setenv RIT2B /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F54
+setenv RIT3B /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F55
+setenv KI /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F47
+setenv BI /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F48
+setenv PRMERI /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F49
+setenv TRSERI /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F50
+setenv PVP /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F51
+setenv TPVPI /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F52
+setenv TPVPJ /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F53
+setenv PPVPP /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F54
+setenv TPPVPP /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F55
+setenv DEN2P1 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F70
+setenv DEN2P2 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F71
+setenv DEN2P3 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F72
+setenv DEN2P4 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F73
+setenv DEN2NM /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F74
+setenv DEN2OPT /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F75
+setenv GMCREF /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F70
+setenv GMCO2R /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F71
+setenv GMCROC /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F72
+setenv GMCOOC /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F73
+setenv GMCCC0 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F74
+setenv GMCHMA /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F75
+setenv GMCEI1 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F76
+setenv GMCEI2 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F77
+setenv GMCEOB /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F78
+setenv GMCEDT /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F79
+setenv GMCERF /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F80
+setenv GMCHCR /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F81
+setenv GMCGJK /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F82
+setenv GMCGAI /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F83
+setenv GMCGEO /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F84
+setenv GMCTE1 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F85
+setenv GMCTE2 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F86
+setenv GMCHEF /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F87
+setenv GMCMOL /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F88
+setenv GMCMOS /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F89
+setenv GMCWGT /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F90
+setenv GMCRM2 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F91
+setenv GMCRM1 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F92
+setenv GMCR00 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F93
+setenv GMCRP1 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F94
+setenv GMCRP2 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F95
+setenv GMCVEF /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F96
+setenv GMCDIN /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F97
+setenv GMC2SZ /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F98
+setenv GMCCCS /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F99
 unset echo
-rm: cannot remove ‘/export/home/sarom/restart/exam30.casino’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam30.dmn’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam30.cim’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam30.cosmo’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam30.pot’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam30.gamma’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam30.efp’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam30.dip’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam30.hs1’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam30.hs2’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam30.dat’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam30.qmw’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam30.rst’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam30.trj’: No such file or directory
- 
-Assuming a single but multicore node.
- 
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.casino: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.dmn: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.cim: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.cosmo: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.pot: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.gamma: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.efp: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.dip: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.hs1: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.hs2: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.dat: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.qmw: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.rst: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam30/2025_05_14-01_38_52-349878D9/exam30.trj: No such file or directory
 The generated host list is
-compute-0-6.local:cpus=3
+Mac
 -----debug-----
 the execution path is
-/opt/openmpi/bin /shared/compilers/aocc-compiler-3.2.0/share/opt-viewer /shared/compilers/aocc-compiler-3.2.0/bin /shared/git/2.9.5/bin /shared/compilers/gcc/5.5.0/bin /shared/cmake/3.12.0/bin /export/home/sarom/bin /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el7_4.x86_64/jre/bin/ /usr/lib64/qt-3.3/bin /usr/local/bin /usr/bin /usr/local/sbin /usr/sbin /opt/pdsh/bin /opt/rocks/bin /opt/rocks/sbin
+/opt/homebrew/opt/gnu-sed/libexec/gnubin /opt/homebrew/opt/make/libexec/gnubin /opt/homebrew/bin /opt/homebrew/sbin /usr/local/krb5/bin /usr/local/ossh/bin /usr/local/bin /System/Cryptexes/App/usr/bin /usr/bin /bin /usr/sbin /sbin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
 the library path is
-/opt/openmpi/lib:/shared/compilers/aocc-compiler-3.2.0/ompd:/shared/compilers/aocc-compiler-3.2.0/lib:/shared/compilers/aocc-compiler-3.2.0/lib32:/usr/lib64:/usr/lib:/shared/compilers/gcc/5.5.0/lib64:
-The dynamically linked libraries for this binary are
-/home/sarom/dir.git.dev/gamess.00.x :
 
-	linux-vdso.so.1 =>  (0x00007ffef3df3000)
-	libpthread.so.0 => /usr/lib64/libpthread.so.0 (0x00007f8c80935000)
-	libm.so.6 => /usr/lib64/libm.so.6 (0x00007f8c80632000)
-	libc.so.6 => /usr/lib64/libc.so.6 (0x00007f8c8026f000)
-	/lib64/ld-linux-x86-64.so.2 (0x000055f4c2456000)
-	libgcc_s.so.1 => /shared/compilers/gcc/5.5.0/lib64/libgcc_s.so.1 (0x00007f8c80058000)
-	libdl.so.2 => /usr/lib64/libdl.so.2 (0x00007f8c7fe53000)
+The dynamically linked libraries for this binary are
+/Users/sarom/GAMESS-Development/gamess/gamess.00.x :
+
+ldd: Command not found.
 --------------
-/home/sarom/dir.git.dev/ddikick.x /home/sarom/dir.git.dev/gamess.00.x exam30 -ddi 1 3 compute-0-6.local:cpus=3 -scr /tmp/373927
+/Users/sarom/GAMESS-Development/gamess/ddikick.x /Users/sarom/GAMESS-Development/gamess/gamess.00.x exam30 -ddi 1 1 Mac -scr /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9
 
  Distributed Data Interface kickoff program.
- Initiating 3 compute processes on 1 nodes to run the following command:
- /home/sarom/dir.git.dev/gamess.00.x exam30 
+ Initiating 1 compute processes on 1 nodes to run the following command:
+ /Users/sarom/GAMESS-Development/gamess/gamess.00.x exam30 
 
           *******************************************************
           *                                                     *
-          *      GAMESS VERSION = 30 SEP 2021 (R2 Patch 1)      *
+          *      GAMESS VERSION = 15 JUL 2024 (R2 Patch 1)          *
           *                                                     *
           *              doi.org/10.1063/5.0005188              *
           *                                                     *
-          **************** 64 BIT INTEL VERSION *****************
+          **************** 64 BIT LINUX VERSION *****************
+ 
+           git commit: bf99997cb9bae7c41d40f16e0cbc3a8d2532d8b0
+ 
 
   GAMESS HAS BEEN MADE POSSIBLE WITH IMPORTANT CONTRIBUTIONS FROM
   THE FOLLOWING INDIVIDUALS (IN ALPHABETICAL ORDER):
 
      IVANA ADAMOVIC, CHRISTINE AIKENS, TOMOKO AKAMA,
-     YURI ALEXEEV, YURIKO AOKI, POOJA ARORA, TOSHIO ASADA,
-     ANDREY ASADCHEV, KIM K. BALDRIDGE, PRADIPTA BANDYOPADHYAY,
-     TAYLOR A. BARNES, MARIA BARYSZ, ROB BELL,
-     JONATHAN BENTZ, COLLEEN BERTONI,
+     MELISA ALKAN, YURI ALEXEEV, YURIKO AOKI, POOJA ARORA,
+     TOSHIO ASADA, ANDREY ASADCHEV, KIM K. BALDRIDGE,
+     PRADIPTA BANDYOPADHYAY, TAYLOR A. BARNES, MARIA BARYSZ,
+     ROB BELL, JONATHAN BENTZ, COLLEEN BERTONI,
      JERRY A. BOATZ, BRETT BODE, KURT BRORSEN, KURT R. BRORSEN,
      LAIMUTIS BYTAUTAS, CALEB CARLIN, LAURA CARRINGTON,
      GALINA CHABAN, BENOIT CHAMPAGNE, WEI CHEN, MAHITO CHIBA,
@@ -243,20 +324,23 @@ The dynamically linked libraries for this binary are
      DIPAYAN DATTA, PAUL DAY, ALBERT DEFUSCO,
      NUWAN DESILVA, J. EMILIANO DEUSTUA,
      TIM DUDLEY, MICHEL DUPUIS, STEVEN T. ELBERT,
-     DMITRI FEDOROV, ALEX FINDLATER, GRAHAM FLETCHER,
-     MARK FREITAG, CHRISTIAN FRIEDL, DAVID GARMER,
-     IGOR S. GERASIMOV, KURT GLAESEMANN, MARK S. GORDON,
-     JEFFREY GOUR, FENG LONG GU, EMILIE B. GUIDEZ,
-     ANASTASIA GUNINA, SHARON HAMMES-SCHIFFER, MASATAKE HARUTA,
-     KIMIHIKO HIRAO, YASUHIRO IKABATA, TZVETELIN IORDANOV,
-     STEPHAN IRLE, KAZUYA ISHIMURA, JOE IVANIC, FRANK JENSEN,
-     JAN H. JENSEN, VISVALDAS KAIRYS, MUNEAKI KAMIYA,
-     MICHIO KATOUDA, NAOAKI KAWAKAMI, DAN KEMP, BERNARD KIRTMAN,
-     KAZUO KITAURA, MARIUSZ KLOBUKOWSKI, MASATO KOBAYASHI,
-     PRAKASHAN KORAMBATH, JACEK KORCHOWIEC, SHIRO KOSEKI,
-     KAROL KOWALSKI, JIMMY KROMANN, STANISLAW KUCHARSKI,
-     HENRY KURTZ, SAROM SOK LEANG, HUI LI, SHUHUA LI, WEI LI,
-     JESSE LUTZ, ALEKSANDR O. LYKHIN, MARCIN MAKOWSKI,
+     DMITRI FEDOROV, KATHERINE FERRERAS, MICHAEL FILATOV,
+     ALEX FINDLATER,GRAHAM FLETCHER, MARK FREITAG,
+     CHRISTIAN FRIEDL, DAVID GARMER, 
+     IGOR S. GERASIMOV, KURT GLAESEMANN,
+     MARK S. GORDON, JEFFREY R. GOUR, FENG LONG GU,
+     EMILIE B. GUIDEZ, ANASTASIA GUNINA, SHARON HAMMES-SCHIFFER,
+     MASATAKE HARUTA, KIMIHIKO HIRAO, YASUHIRO IKABATA,
+     TZVETELIN IORDANOV, STEPHAN IRLE, KAZUYA ISHIMURA,
+     JOE IVANIC, FRANK JENSEN, JAN H. JENSEN, VISVALDAS KAIRYS,
+     MUNEAKI KAMIYA, MICHIO KATOUDA, NAOAKI KAWAKAMI, DAN KEMP,
+     BERNARD KIRTMAN, KAZUO KITAURA, MARIUSZ KLOBUKOWSKI,
+     MASATO KOBAYASHI, KONSTANTIN KOMAROV, PRAKASHAN KORAMBATH,
+     JACEK KORCHOWIEC, SHIRO KOSEKI, KAROL KOWALSKI,
+     JIMMY KROMANN, STANISLAW A. KUCHARSKI, HENRY KURTZ,
+     SAROM SOK LEANG, SEUNGHOON LEE, HUI LI, SHUHUA LI, WEI LI,
+     JESSE J. LUTZ, ALEKSANDR O. LYKHIN,
+     ILIAS MAGOULAS, MARCIN MAKOWSKI,
      JOANI MATO, NIKITA MATSUNAGA, BENEDETTA MENNUCCI,
      GRANT MERRILL, NORIYUKI MINEZAWA, VLADIMIR MIRONOV,
      EISAKU MIYOSHI, JOHN A. MONTGOMERY JR., HIROTOSHI MORI,
@@ -270,13 +354,15 @@ The dynamically linked libraries for this binary are
      KLAUS RUEDENBERG, ANDREW SAND, TOSAPORN SATTASATHUCHANA,
      NOZOMI SAWADA, MICHAEL W. SCHMIDT, PATRICK E. SCHNEIDER,
      JUNJI SEINO, PRACHI SHARMA, JUN SHEN, JIM SHOEMAKER,
-     YINAN SHU, DEJUN SI, JONATHAN SKONE, LYUDMILA SLIPCHENKO,
-     TONY SMITH, JIE SONG, MARK SPACKMAN, CASPER STEINMANN,
-     WALT STEVENS, PEIFENG SU, SHUJUN SU, CHET SWALINA,
-     TETSUYA TAKETSUGU, ZHEN TAO, NANDUN THELLAMUREGE
-     SEIKEN TOKURA, JACOPO TOMASI, TSUGUKI TOUMA, TAKAO TSUNEDA,
-     HIROAKI UMEDA, JORGE LUIS GALVEZ VALLEJO, YALI WANG,
-     SIMON WEBB, AARON WEST, THERESA L. WINDUS, MARTA WLOCH,
+     GEORGE SCHOENDORFF, YINAN SHU, DEJUN SI, JONATHAN SKONE,
+     LYUDMILA SLIPCHENKO, TONY SMITH, JIE SONG, MARK SPACKMAN,
+     CASPER STEINMANN, WALT STEVENS, PEIFENG SU, SHUJUN SU,
+     CHET SWALINA, CHINAMI TAKASHIMA, TETSUYA TAKETSUGU,
+     ZHEN TAO, NANDUN THELLAMUREGE, ANANTA TIWARI,
+     SEIKEN TOKURA, JACOPO TOMASI,
+     TSUGUKI TOUMA, TAKAO TSUNEDA, HIROAKI UMEDA,
+     JORGE LUIS GALVEZ VALLEJO, YALI WANG, SIMON WEBB,
+     AARON WEST, THERESA L. WINDUS, MARTA WLOCH,
      PENG XU, KIYOSHI YAGI, SUSUMU YANAGISAWA, YANG YANG,
      SOOHAENG YOO, TAKESHI YOSHIKAWA, FEDERICO ZAHARIEV,
      TOBY ZENG
@@ -284,9 +370,11 @@ The dynamically linked libraries for this binary are
   WHO ARE SUPPORTED BY THEIR INSTITUTION/UNIVERSITY/COMPANY/GROUP
   (IN ALPHABETICAL ORDER):
 
-     EP ANALYTICS, FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX,
+     EP ANALYTICS,
+     FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX,
      INSTITUTE FOR MOLECULAR SCIENCE, IOWA STATE UNIVERSITY,
      JACKSON STATE UNIVERSITY, JOHANNES KEPLER UNIVERSITY LINZ,
+     KYUNGPOOK NATIONAL UNIVERSITY
      KYUSHU UNIVERSITY, MICHIGAN STATE UNIVERSITY,
      MIE UNIVERSITY, THE MOLECULAR SCIENCES SOFTWARE INSTITUTE,
      MOSCOW STATE UNIVERSITY,
@@ -303,7 +391,8 @@ The dynamically linked libraries for this binary are
      UNIVERSITY OF NEBRASKA, UNIVERSITY OF NEW ENGLAND,
      UNIVERSITY OF NOTRE DAME, UNIVERSITY OF PISA,
      UNIVERSITY OF SILESIA, UNIVERSITY OF TOKYO,
-     UNIVERSITY OF ZURICH, WASEDA UNIVERSITY, YALE UNIVERSITY
+     UNIVERSITY OF ZURICH, WASEDA UNIVERSITY,
+     YALE UNIVERSITY
 
   GAMESS SOFTWARE MANAGEMENT TEAM FOR THIS RELEASE:
      MARK S. GORDON (TEAM LEAD),
@@ -313,13 +402,10 @@ The dynamically linked libraries for this binary are
      KRISTOPHER KEIPERT (ADVISOR),
      SAROM S. LEANG (DEVELOPMENT LEAD),
      BUU PHAM,
-     JORGE LUIS GALVEZ VALLEJO (WEBSITE ADMINISTRATOR),
+     JACKSON HAYES (WEBSITE ADMINISTRATOR),
      PENG XU
 
-
- PARALLEL VERSION RUNNING ON        3 PROCESSORS IN        1 NODES.
-
- EXECUTION OF GAMESS BEGUN 13:07:11 15-MAR-2022    
+ EXECUTION OF GAMESS BEGUN 01:38:52 14-MAY-2025    
 
             ECHO OF THE FIRST FEW INPUT CARDS -
  INPUT CARD>!   EXAM30.                                                                     
@@ -372,7 +458,7 @@ The dynamically linked libraries for this binary are
  INPUT CARD>H2  2 1.951      1 150.0     3 0.0                                              
  INPUT CARD>O1 13 0.9438636  2 177.0     3 0.0                                              
  INPUT CARD>H3 14 0.9438636 13 106.70327 3 140.0                                            
-    1000000 WORDS OF MEMORY AVAILABLE
+      1000000 WORDS OF MEMORY AVAILABLE
 
      BASIS OPTIONS
      -------------
@@ -568,10 +654,10 @@ The dynamically linked libraries for this binary are
      ---------------
   REPLICATED MEMORY=     1000000 WORDS (ON EVERY NODE).
  DISTRIBUTED MEMDDI=           0 MILLION WORDS IN AGGREGATE,
- MEMDDI DISTRIBUTED OVER   3 PROCESSORS IS           0 WORDS/PROCESSOR.
+ MEMDDI DISTRIBUTED OVER   1 PROCESSORS IS           0 WORDS/PROCESSOR.
  TOTAL MEMORY REQUESTED ON EACH PROCESSOR=     1000000 WORDS.
  TIMLIM=           2.00 MINUTES, OR       0.0 DAYS.
- PARALL= T  BALTYP=  DLB     KDIAG=    0  COREFL= F
+ PARALL= F  BALTYP=  DLB     KDIAG=    0  COREFL= F
  MXSEQ2=     300 MXSEQ3=     150  mem10=         0  mem22=         0
 
  READING $EFRAG GROUP
@@ -632,10 +718,10 @@ The dynamically linked libraries for this binary are
  H3         1.1535425232   9.0228278017  -2.1471385642   -0.55665    0.0
  B12        2.2410796562   8.1979677513  -0.4070299790   -0.33793    0.0
  B13        1.3444976037   8.8828949035  -1.2873121071   -0.33793    0.0
- ZO1        4.7287261325   5.1994071897   0.0000000000    8.00000    0.0
+ ZO1        4.7287261325   5.1994071897  -0.0000000000    8.00000    0.0
  ZH2        3.9345815954   3.6023102281   0.0000000000    1.00000    0.0
  ZH3        6.1288005668   5.0757557725   1.0981284790    1.00000    0.0
- O1         4.7287261325   5.1994071897   0.0000000000   -8.21083    0.0
+ O1         4.7287261325   5.1994071897  -0.0000000000   -8.21083    0.0
  H2         3.9345815954   3.6023102281   0.0000000000   -0.55665    0.0
  H3         6.1288005668   5.0757557725   1.0981284790   -0.55665    0.0
  B12        4.3316537217   4.4008591129  -0.0000002579   -0.33793    0.0
@@ -794,7 +880,7 @@ The dynamically linked libraries for this binary are
                                                  0.11726       0       0.69633
   H3         1.15354   9.02283  -2.14714         0.00044       0       0.06432
                                                  0.11726       0       0.69633
-  O1         4.72873   5.19941   0.00000        -0.00016       0       0.01886
+  O1         4.72873   5.19941  -0.00000        -0.00016       0       0.01886
                                                  1.24695       0       0.41986
   H2         3.93458   3.60231   0.00000         0.00044       0       0.06432
                                                  0.11726       0       0.69633
@@ -835,11 +921,18 @@ The dynamically linked libraries for this binary are
           SOSCF IN EFFECT
  ORBITAL PRINTING OPTION: NPREO=     1    60     2     1
 
+     ----------------------
+     TARGET OFFLOAD OPTIONS
+     ----------------------
+     RHF    =       F
+     CPHF    =       F
+     MAKEFP =       F
+
      -------------------------------
      INTEGRAL TRANSFORMATION OPTIONS
      -------------------------------
      NWORD  =            0
-     CUTOFF = 1.0E-09     MPTRAN =       0
+     CUTTRF = 1.0E-09     MPTRAN =       0
      DIRTRF =       F     AOINTS =DUP     
 
           ----------------------
@@ -872,8 +965,8 @@ The dynamically linked libraries for this binary are
  A   =   60
 
  ..... DONE SETTING UP THE RUN .....
- CPU     0: STEP CPU TIME=     0.02 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    96.50%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    77.72%
 
                     --------------------------------
                     SINGLE POINT ENERGY AND GRADIENT
@@ -883,10 +976,10 @@ The dynamically linked libraries for this binary are
           1 ELECTRON INTEGRALS
           ********************
  TIME TO DO ORDINARY INTEGRALS=      0.00
- TIME TO DO FRAGMENT INTEGRALS=      0.05
+ TIME TO DO FRAGMENT INTEGRALS=      0.02
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.05 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    98.43%
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    93.76%
 
           -------------
           GUESS OPTIONS
@@ -905,8 +998,8 @@ The dynamically linked libraries for this binary are
     11=A       12=A       13=A       14=A       15=A       16=A       17=A   
     18=A       19=A       20=A       21=A       22=A   
  ...... END OF INITIAL ORBITAL SELECTION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    98.50%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    94.14%
 
                     ----------------------
                     AO INTEGRAL TECHNOLOGY
@@ -930,38 +1023,38 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   90774 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:      1830 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =    2
- II,JST,KST,LST =  5  1  1  1 NREC =         1 INTLOC =    2
- II,JST,KST,LST =  6  1  1  1 NREC =         1 INTLOC =   62
- II,JST,KST,LST =  7  1  1  1 NREC =         1 INTLOC =  293
- II,JST,KST,LST =  8  1  1  1 NREC =         1 INTLOC = 1232
- II,JST,KST,LST =  9  1  1  1 NREC =         1 INTLOC = 2348
- II,JST,KST,LST = 10  1  1  1 NREC =         1 INTLOC = 2744
- II,JST,KST,LST = 11  1  1  1 NREC =         1 INTLOC = 3793
- II,JST,KST,LST = 12  1  1  1 NREC =         1 INTLOC = 8248
- II,JST,KST,LST = 13  1  1  1 NREC =         1 INTLOC =14880
- II,JST,KST,LST = 14  1  1  1 NREC =         2 INTLOC = 1114
- II,JST,KST,LST = 15  1  1  1 NREC =         2 INTLOC = 7660
- II,JST,KST,LST = 16  1  1  1 NREC =         2 INTLOC =10829
- II,JST,KST,LST = 17  1  1  1 NREC =         3 INTLOC = 6581
- II,JST,KST,LST = 18  1  1  1 NREC =         3 INTLOC =14463
- II,JST,KST,LST = 19  1  1  1 NREC =         6 INTLOC =10066
- II,JST,KST,LST = 20  1  1  1 NREC =         7 INTLOC = 8370
- II,JST,KST,LST = 21  1  1  1 NREC =         8 INTLOC =  939
- II,JST,KST,LST = 22  1  1  1 NREC =        10 INTLOC = 3856
- II,JST,KST,LST = 23  1  1  1 NREC =        11 INTLOC = 8748
- II,JST,KST,LST = 24  1  1  1 NREC =        12 INTLOC = 8831
- II,JST,KST,LST = 25  1  1  1 NREC =        15 INTLOC = 5227
- II,JST,KST,LST = 26  1  1  1 NREC =        16 INTLOC = 3199
- II,JST,KST,LST = 27  1  1  1 NREC =        17 INTLOC = 8274
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    7
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   22
+ II,JST,KST,LST =  5  1  1  1 NREC =         1 INTLOC =   67
+ II,JST,KST,LST =  6  1  1  1 NREC =         1 INTLOC =  214
+ II,JST,KST,LST =  7  1  1  1 NREC =         1 INTLOC = 1189
+ II,JST,KST,LST =  8  1  1  1 NREC =         1 INTLOC = 2365
+ II,JST,KST,LST =  9  1  1  1 NREC =         1 INTLOC = 3802
+ II,JST,KST,LST = 10  1  1  1 NREC =         1 INTLOC = 5539
+ II,JST,KST,LST = 11  1  1  1 NREC =         1 INTLOC =11904
+ II,JST,KST,LST = 12  1  1  1 NREC =         2 INTLOC = 6299
+ II,JST,KST,LST = 13  1  1  1 NREC =         4 INTLOC = 7026
+ II,JST,KST,LST = 14  1  1  1 NREC =         4 INTLOC =14703
+ II,JST,KST,LST = 15  1  1  1 NREC =         5 INTLOC = 8923
+ II,JST,KST,LST = 16  1  1  1 NREC =         6 INTLOC = 4177
+ II,JST,KST,LST = 17  1  1  1 NREC =         8 INTLOC = 7721
+ II,JST,KST,LST = 18  1  1  1 NREC =        11 INTLOC = 5419
+ II,JST,KST,LST = 19  1  1  1 NREC =        19 INTLOC = 2360
+ II,JST,KST,LST = 20  1  1  1 NREC =        20 INTLOC =14229
+ II,JST,KST,LST = 21  1  1  1 NREC =        22 INTLOC =13323
+ II,JST,KST,LST = 22  1  1  1 NREC =        28 INTLOC =13162
+ II,JST,KST,LST = 23  1  1  1 NREC =        31 INTLOC = 3645
+ II,JST,KST,LST = 24  1  1  1 NREC =        33 INTLOC =13151
+ II,JST,KST,LST = 25  1  1  1 NREC =        41 INTLOC = 5525
+ II,JST,KST,LST = 26  1  1  1 NREC =        44 INTLOC = 8968
+ II,JST,KST,LST = 27  1  1  1 NREC =        48 INTLOC = 1154
  SCHWARZ INEQUALITY TEST SKIPPED        1566 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =              861776
          58 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.07 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    97.55%
+ STEP CPU TIME =     0.07 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    98.17%
 
  EFP ADDITIVE CONTRIBUTIONS TO THE "NUCLEAR ENERGY":
    -- NUCLEAR CHARGE - NUCLEAR CHARGE   =       71.8993117329
@@ -1011,10 +1104,12 @@ The dynamically linked libraries for this binary are
           -----------------
           DENSITY CONVERGED
           -----------------
-     TIME TO FORM FOCK OPERATORS=       0.1 SECONDS (       0.0 SEC/ITER)
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
      TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
 
  FINAL RHF ENERGY IS     -169.0085355753 AFTER  12 ITERATIONS
+
+ Alpha HOMO=   -11.486014 eV, LUMO=    4.920703 eV, gap=   16.406717 eV
 
           INDUCED DIPOLE     ATOMIC UNITS          DEBYE
                 X(IND)            0.34473          0.87621
@@ -1793,8 +1888,8 @@ The dynamically linked libraries for this binary are
    59  H  6  Y    0.505852   0.570928   0.394702  -0.293322  -0.059475
    60  H  6  Z   -0.000063  -0.000002   0.000024  -0.000028  -0.000028
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.08 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    97.53%
+ STEP CPU TIME =     0.05 TOTAL CPU TIME =          0.2 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    98.55%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -1984,12 +2079,12 @@ The dynamically linked libraries for this binary are
 
                        TOTAL       BONDED        FREE
       ATOM            VALENCE     VALENCE     VALENCE
-    1 C                 4.086       4.086      -0.000
+    1 C                 4.086       4.086       0.000
     2 O                 1.986       1.986      -0.000
     3 N                 2.927       2.927      -0.000
     4 H                 0.827       0.827      -0.000
     5 H                 0.910       0.910      -0.000
-    6 H                 0.952       0.952      -0.000
+    6 H                 0.952       0.952       0.000
 
           ----------------------------
           SOLUTE ELECTROSTATIC MOMENTS
@@ -2032,8 +2127,8 @@ The dynamically linked libraries for this binary are
          DX          DY          DZ         /D/  (DEBYE)
     -1.141519   -3.031152    1.096602    3.419573
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    97.54%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.2 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    98.58%
 
  BEGINNING ONE ELECTRON GRADIENT...
  TIME TO DO ORDINARY GRADIENT INTEGRALS=      0.00
@@ -2058,10 +2153,10 @@ The dynamically linked libraries for this binary are
 
       TOTAL FORCE ON ALL FRAGMENTS
       FORCE            0.002187503      -0.002237646      -0.003647926
- TIME TO DO FRAGMENT GRADIENT INTEGRALS=      0.34
+ TIME TO DO FRAGMENT GRADIENT INTEGRALS=      0.27
  ..... END OF 1-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.34 TOTAL CPU TIME=          0.6 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.6 SECONDS, CPU UTILIZATION IS    97.24%
+ STEP CPU TIME =     0.27 TOTAL CPU TIME =          0.4 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.4 SECONDS, CPU UTILIZATION IS    99.29%
 
           ----------------------
           GRADIENT OF THE ENERGY
@@ -2072,8 +2167,8 @@ The dynamically linked libraries for this binary are
  THE COARSE/FINE SCHWARZ SCREENINGS SKIPPED         1566/        3582 BLOCKS.
  THE NUMBER OF GRADIENT INTEGRAL BLOCKS COMPUTED WAS     65727
  ...... END OF 2-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.13 TOTAL CPU TIME=          0.7 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.7 SECONDS, CPU UTILIZATION IS    97.55%
+ STEP CPU TIME =     0.19 TOTAL CPU TIME =          0.6 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.6 SECONDS, CPU UTILIZATION IS    99.50%
 
                          ----------------------
                          GRADIENT OF THE ENERGY
@@ -2097,9 +2192,9 @@ The dynamically linked libraries for this binary are
                        RMS GRADIENT =    0.008157644
   $VIB   
           IVIB=   0 IATOM=   0 ICOORD=   0 E=     -169.0085355753
-  2.901588266E-02 3.351001188E-03 4.999645661E-04-1.510988813E-02-4.870006020E-03
- -8.996328811E-04-1.412918730E-02 8.737341062E-03-3.131833269E-03 1.548835559E-03
- -5.899607985E-03 6.214969605E-03-1.052167751E-03 1.683917494E-03 7.949572805E-04
+  2.901588266E-02 3.351001188E-03 4.999645661E-04-1.510988813E-02-4.870006021E-03
+ -8.996328811E-04-1.412918731E-02 8.737341062E-03-3.131833269E-03 1.548835559E-03
+ -5.899607985E-03 6.214969605E-03-1.052167751E-03 1.683917495E-03 7.949572805E-04
  -2.460977722E-03-7.649998726E-04 1.695010176E-04
  1.465850593E-03-1.692128791E-03-7.300103877E-03
  8.835636501E-03 6.074563580E-03 4.571402121E-03
@@ -2110,36 +2205,24 @@ The dynamically linked libraries for this binary are
  -1.141518804E+00-3.031151821E+00 1.096601950E+00
 
 ..... END OF SINGLE POINT GRADIENT .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.7 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.7 SECONDS, CPU UTILIZATION IS    97.55%
-                992212  WORDS OF DYNAMIC MEMORY USED
- EXECUTION OF GAMESS TERMINATED NORMALLY 13:07:12 15-MAR-2022    
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.6 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.6 SECONDS, CPU UTILIZATION IS    99.48%
+               992212  WORDS OF DYNAMIC MEMORY USED
+ EXECUTION OF GAMESS TERMINATED NORMALLY 01:38:53 14-MAY-2025    
  DDI: 263640 bytes (0.3 MB / 0 MWords) used by master data server.
 
  ----------------------------------------
  CPU timing information for all processes
  ========================================
- 0: 0.654 + 0.53 = 0.707
- 1: 0.617 + 0.44 = 0.661
- 2: 0.601 + 0.49 = 0.650
+ 0: 0.604 + 0.14 = 0.619
  ----------------------------------------
  ddikick.x: exited gracefully.
 unset echo
 ----- accounting info -----
-Files used on the master node compute-0-6.local were:
--rw-rw-r-- 1 sarom sarom    1260 Mar 15 13:07 /tmp/373927/exam30.F05
--rw-rw-r-- 1 sarom sarom 3600320 Mar 15 13:07 /tmp/373927/exam30.F08
--rw-rw-r-- 1 sarom sarom 3600320 Mar 15 13:07 /tmp/373927/exam30.F08.001
--rw-rw-r-- 1 sarom sarom 3240288 Mar 15 13:07 /tmp/373927/exam30.F08.002
--rw-rw-r-- 1 sarom sarom 2094080 Mar 15 13:07 /tmp/373927/exam30.F10
--rw-rw-r-- 1 sarom sarom  219720 Mar 15 13:07 /tmp/373927/exam30.F25
--rw-rw-r-- 1 sarom sarom  219720 Mar 15 13:07 /tmp/373927/exam30.F25.001
--rw-rw-r-- 1 sarom sarom  219720 Mar 15 13:07 /tmp/373927/exam30.F25.002
-/usr/bin/rm: cannot remove ‘/tmp/373927’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373927’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373927’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373927’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373927’: No such file or directory
-srun: error: compute-0-6: tasks 1-5: Exited with exit code 1
-Tue Mar 15 13:07:15 CDT 2022
-0.217u 0.110s 0:04.36 7.3%	0+0k 88+1776io 0pf+0w
+Files used on the parent node Mac were:
+-rw-r--r--@ 1 sarom  staff      1260 May 14 01:38 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F05
+-rw-r--r--@ 1 sarom  staff  10440928 May 14 01:38 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F08
+-rw-r--r--@ 1 sarom  staff   2094080 May 14 01:38 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F10
+-rw-r--r--@ 1 sarom  staff    659160 May 14 01:38 /Users/sarom/GAMESS-Development/gamess/scratch/exam30/2025_05_14-01_38_52-349878D9/exam30.F25
+Wed May 14 01:38:54 EDT 2025
+0.676u 0.105s 0:01.88 40.9%	0+0k 0+0io 130pf+0w

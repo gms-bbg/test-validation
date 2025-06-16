@@ -1,19 +1,27 @@
-source /home/sarom/dir.git.dev/install.info
-setenv GMS_PATH /export/home/sarom/dir.git.dev
-setenv GMS_BUILD_DIR /export/home/sarom/dir.git.dev
+source /Users/sarom/GAMESS-Development/gamess/install.info
+setenv GMS_VERSION 00
+setenv GMS_PATH /Users/sarom/GAMESS-Development/gamess
+setenv GMS_BUILD_DIR /Users/sarom/GAMESS-Development/gamess
 setenv GMS_TARGET linux64
 setenv GMS_HPC_SYSTEM_TARGET generic
-setenv GMS_FORTRAN oneapi-ifort
-setenv GMS_IFORT_VERNO 20
-setenv GMS_MATHLIB mkl
-setenv GMS_MATHLIB_PATH /shared/compilers/intel/oneapi/mkl/2022.0.1/lib/intel64
-setenv GMS_MKL_VERNO oneapi
+setenv GMS_ARCH arm
+setenv GMS_FORTRAN gfortran
+setenv GMS_GFORTRAN_VERNO 14.1
+setenv GMS_MATHLIB none
+setenv GMS_THREADED_BLAS false
+setenv GMS_LAPACK_LINK_LINE 
 setenv GMS_DDI_COMM sockets
-setenv GMS_MSUCC false
-setenv GMS_LIBCCHEM false
+setenv GMS_MSUAUTO false
+setenv GMS_HPCCHEM false
+setenv GMS_HPCCHEM_PATH
+setenv GMS_HPCCHEM_USE_DATA_SERVERS false
 setenv GMS_PHI none
 setenv GMS_SHMTYPE sysv
 setenv GMS_OPENMP false
+setenv GMS_OPENMP_OFFLOAD false
+setenv GMS_USE_HIPFORT false
+setenv USE_CUBLAS false
+setenv USE_HIPBLAS false
 setenv GMS_LIBXC false
 setenv GMS_MDI false
 setenv GMS_VM2 false
@@ -22,220 +30,293 @@ setenv VB2000 false
 setenv XMVB false
 setenv NEO false
 setenv NBO false
-setenv GMS_FPE_FLAGS -fpe0
-setenv GMS_FPE_FLAGS 
+setenv RISM false
+setenv GMS_FPE_FLAGS -ffpe-trap=invalid,zero,overflow -finit-real=snan -finit-integer=-9223372036854775808
 unset echo
-SLURM has assigned the following compute nodes to this run:
-compute-1-1
-srun mkdir -p /tmp/373910
-unset echo
-Input file supplied : /export/home/sarom/dir.git.dev/tests/travis-ci/parallel/exam13.inp
------ GAMESS execution script 'rungms-dev' -----
-This job is running on host compute-1-1.local
-under operating system Linux at Tue Mar 15 13:06:23 CDT 2022 with sockets communication mode
-Available scratch disk space (Kbyte units) at beginning of the job is
-Filesystem     1K-blocks    Used Available Use% Mounted on
-/dev/sda1       15995808 6128224   9032000  41% /
-GAMESS temporary binary files will be written to /tmp/373910
-GAMESS supplementary output files will be written to /export/home/sarom/restart
+TERM_PROGRAM=Apple_Terminal
+TERM=xterm-256color
+SHELL=/bin/bash
+TMPDIR=/var/folders/sd/9w2pshtj1cx7jvxnw95lstjr0000gp/T/
+HOMEBREW_REPOSITORY=/opt/homebrew
+TERM_PROGRAM_VERSION=455.1
+TERM_SESSION_ID=E3731169-BECF-4F18-9F46-17B6FDC36B77
+USER=sarom
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.yJPjuo0ExF/Listeners
+__CF_USER_TEXT_ENCODING=0x1F6:0x0:0x0
+PATH=/opt/homebrew/opt/gnu-sed/libexec/gnubin:/opt/homebrew/opt/make/libexec/gnubin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/krb5/bin:/usr/local/ossh/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+_=misc/automation/rungms
+__CFBundleIdentifier=com.apple.Terminal
+PWD=/Users/sarom/GAMESS-Development/gamess
+EDITOR=nano
+LANG=en_US.UTF-8
+XPC_FLAGS=0x0
+KRB5_CONFIG=/etc/krb5.conf
+XPC_SERVICE_NAME=0
+HOME=/Users/sarom
+SHLVL=3
+HOMEBREW_PREFIX=/opt/homebrew
+LOGNAME=sarom
+VISUAL=nano
+HOMEBREW_CELLAR=/opt/homebrew/Cellar
+INFOPATH=/opt/homebrew/share/info:
+HOSTTYPE=unknown
+VENDOR=apple
+OSTYPE=darwin
+MACHTYPE=unknown
+GROUP=staff
+HOST=Mac
+NO_STOP_MESSAGE=1
+GMS_VERSION=00
+GMS_PATH=/Users/sarom/GAMESS-Development/gamess
+GMS_BUILD_DIR=/Users/sarom/GAMESS-Development/gamess
+GMS_TARGET=linux64
+GMS_HPC_SYSTEM_TARGET=generic
+GMS_ARCH=arm
+GMS_FORTRAN=gfortran
+GMS_GFORTRAN_VERNO=14.1
+GMS_MATHLIB=none
+GMS_THREADED_BLAS=false
+GMS_LAPACK_LINK_LINE=
+GMS_DDI_COMM=sockets
+GMS_MSUAUTO=false
+GMS_HPCCHEM=false
+GMS_HPCCHEM_PATH=
+GMS_HPCCHEM_USE_DATA_SERVERS=false
+GMS_PHI=none
+GMS_SHMTYPE=sysv
+GMS_OPENMP=false
+GMS_OPENMP_OFFLOAD=false
+GMS_USE_HIPFORT=false
+USE_CUBLAS=false
+USE_HIPBLAS=false
+GMS_LIBXC=false
+GMS_MDI=false
+GMS_VM2=false
+TINKER=false
+VB2000=false
+XMVB=false
+NEO=false
+NBO=false
+RISM=false
+GMS_FPE_FLAGS=-ffpe-trap=invalid,zero,overflow -finit-real=snan -finit-integer=-9223372036854775808
+LD_LIBRARY_PATH=
 Copying input file exam13.inp to your run's scratch directory...
-cp /export/home/sarom/dir.git.dev/tests/travis-ci/parallel/exam13.inp /tmp/373910/exam13.F05
+cp /Users/sarom/GAMESS-Development/gamess/tests/travis-ci/parallel/exam13.inp /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F05
+unset echo
+----- GAMESS execution script 'rungms' -----
+This job is running on host Mac
+under operating system Darwin at Wed May 14 01:38:31 EDT 2025
+Available scratch disk space (Kbyte units) at beginning of the job is
+Filesystem   1024-blocks      Used Available Capacity iused     ifree %iused  Mounted on
+/dev/disk3s5   239362496 154646340  65655580    71% 1523122 656555800    0%   /System/Volumes/Data
+GAMESS temporary binary files will be written to /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9
+GAMESS supplementary output files will be written to /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9
+limit stacksize 32768
 unset echo
 setenv NO_STOP_MESSAGE 1
-setenv AUXDATA /home/sarom/dir.git.dev/auxdata
+setenv AUXDATA /Users/sarom/GAMESS-Development/gamess/auxdata
 setenv EXTBAS /dev/null
-setenv NUCBAS /dev/null
-setenv EXTCAB /home/sarom/dir.git.dev/auxdata/AUXBAS/auxdef21
-setenv POSBAS /dev/null
-setenv DFTBPAR /home/sarom/dir.git.dev/auxdata/DFTB
-setenv ERICFMT /home/sarom/dir.git.dev/auxdata/ericfmt.dat
-setenv MCPPATH /home/sarom/dir.git.dev/auxdata/MCP
-setenv BASPATH /home/sarom/dir.git.dev/auxdata/BASES
-setenv QUANPOL /home/sarom/dir.git.dev/auxdata/QUANPOL
-setenv MAKEFP /export/home/sarom/restart/exam13.efp
-setenv GAMMA /export/home/sarom/restart/exam13.gamma
-setenv TRAJECT /export/home/sarom/restart/exam13.trj
-setenv RESTART /export/home/sarom/restart/exam13.rst
-setenv QMWAVE /export/home/sarom/restart/exam13.qmw
-setenv MDDIP /export/home/sarom/restart/exam13.dip
-setenv OPTHES1 /export/home/sarom/restart/exam13.hs1
-setenv OPTHES2 /export/home/sarom/restart/exam13.hs2
-setenv FCIDUMP /export/home/sarom/restart/exam13.FCIDUMP
-setenv XYZ /tmp/373910/exam13.xyz
-setenv INPUT /tmp/373910/exam13.F05
-setenv PUNCH /export/home/sarom/restart/exam13.dat
-setenv AOINTS /tmp/373910/exam13.F08
-setenv MOINTS /tmp/373910/exam13.F09
-setenv DICTNRY /tmp/373910/exam13.F10
-setenv DRTFILE /tmp/373910/exam13.F11
-setenv CIVECTR /tmp/373910/exam13.F12
-setenv CASINTS /tmp/373910/exam13.F13
-setenv CIINTS /tmp/373910/exam13.F14
-setenv WORK15 /tmp/373910/exam13.F15
-setenv WORK16 /tmp/373910/exam13.F16
-setenv CSFSAVE /tmp/373910/exam13.F17
-setenv FOCKDER /tmp/373910/exam13.F18
-setenv WORK19 /tmp/373910/exam13.F19
-setenv DASORT /tmp/373910/exam13.F20
-setenv DIABDAT /tmp/373910/exam13.F21
-setenv DFTINTS /tmp/373910/exam13.F21
-setenv DFTGRID /tmp/373910/exam13.F22
-setenv JKFILE /tmp/373910/exam13.F23
-setenv ORDINT /tmp/373910/exam13.F24
-setenv EFPIND /tmp/373910/exam13.F25
-setenv PCMDATA /tmp/373910/exam13.F26
-setenv PCMINTS /tmp/373910/exam13.F27
-setenv SVPWRK1 /tmp/373910/exam13.F26
-setenv SVPWRK2 /tmp/373910/exam13.F27
-setenv COSCAV /tmp/373910/exam13.F26
-setenv COSDATA /export/home/sarom/restart/exam13.cosmo
-setenv COSPOT /export/home/sarom/restart/exam13.pot
-setenv MLTPL /tmp/373910/exam13.F28
-setenv MLTPLT /tmp/373910/exam13.F29
-setenv DAFL30 /tmp/373910/exam13.F30
-setenv SOINTX /tmp/373910/exam13.F31
-setenv SOINTY /tmp/373910/exam13.F32
-setenv SOINTZ /tmp/373910/exam13.F33
-setenv SORESC /tmp/373910/exam13.F34
-setenv GCILIST /tmp/373910/exam13.F37
-setenv HESSIAN /tmp/373910/exam13.F38
-setenv QMMMTEI /tmp/373910/exam13.F39
-setenv SOCCDAT /tmp/373910/exam13.F40
-setenv AABB41 /tmp/373910/exam13.F41
-setenv BBAA42 /tmp/373910/exam13.F42
-setenv BBBB43 /tmp/373910/exam13.F43
-setenv REMD /tmp/373910/exam13.F44
-setenv UNV /tmp/373910/exam13.F45
-setenv UNPV /tmp/373910/exam13.F46
-setenv MCQD50 /tmp/373910/exam13.F50
-setenv MCQD51 /tmp/373910/exam13.F51
-setenv MCQD52 /tmp/373910/exam13.F52
-setenv MCQD53 /tmp/373910/exam13.F53
-setenv MCQD54 /tmp/373910/exam13.F54
-setenv MCQD55 /tmp/373910/exam13.F55
-setenv MCQD56 /tmp/373910/exam13.F56
-setenv MCQD57 /tmp/373910/exam13.F57
-setenv MCQD58 /tmp/373910/exam13.F58
-setenv MCQD59 /tmp/373910/exam13.F59
-setenv MCQD60 /tmp/373910/exam13.F60
-setenv MCQD61 /tmp/373910/exam13.F61
-setenv MCQD62 /tmp/373910/exam13.F62
-setenv MCQD63 /tmp/373910/exam13.F63
-setenv MCQD64 /tmp/373910/exam13.F64
-setenv NMRINT1 /tmp/373910/exam13.F61
-setenv NMRINT2 /tmp/373910/exam13.F62
-setenv NMRINT3 /tmp/373910/exam13.F63
-setenv NMRINT4 /tmp/373910/exam13.F64
-setenv NMRINT5 /tmp/373910/exam13.F65
-setenv NMRINT6 /tmp/373910/exam13.F66
-setenv DCPHFH2 /tmp/373910/exam13.F67
-setenv DCPHF21 /tmp/373910/exam13.F68
-setenv ELNUINT /tmp/373910/exam13.F67
-setenv NUNUINT /tmp/373910/exam13.F68
-setenv GVVPT /tmp/373910/exam13.F69
-setenv NUMOIN /tmp/373910/exam13.F69
-setenv NUMOCAS /tmp/373910/exam13.F70
-setenv NUELMO /tmp/373910/exam13.F71
-setenv NUELCAS /tmp/373910/exam13.F72
-setenv RIVMAT /tmp/373910/exam13.F51
-setenv RIT2A /tmp/373910/exam13.F52
-setenv RIT3A /tmp/373910/exam13.F53
-setenv RIT2B /tmp/373910/exam13.F54
-setenv RIT3B /tmp/373910/exam13.F55
-setenv DEN2P1 /tmp/373910/exam13.F70
-setenv DEN2P2 /tmp/373910/exam13.F71
-setenv DEN2P3 /tmp/373910/exam13.F72
-setenv DEN2P4 /tmp/373910/exam13.F73
-setenv DEN2NM /tmp/373910/exam13.F74
-setenv DEN2OPT /tmp/373910/exam13.F75
-setenv GMCREF /tmp/373910/exam13.F70
-setenv GMCO2R /tmp/373910/exam13.F71
-setenv GMCROC /tmp/373910/exam13.F72
-setenv GMCOOC /tmp/373910/exam13.F73
-setenv GMCCC0 /tmp/373910/exam13.F74
-setenv GMCHMA /tmp/373910/exam13.F75
-setenv GMCEI1 /tmp/373910/exam13.F76
-setenv GMCEI2 /tmp/373910/exam13.F77
-setenv GMCEOB /tmp/373910/exam13.F78
-setenv GMCEDT /tmp/373910/exam13.F79
-setenv GMCERF /tmp/373910/exam13.F80
-setenv GMCHCR /tmp/373910/exam13.F81
-setenv GMCGJK /tmp/373910/exam13.F82
-setenv GMCGAI /tmp/373910/exam13.F83
-setenv GMCGEO /tmp/373910/exam13.F84
-setenv GMCTE1 /tmp/373910/exam13.F85
-setenv GMCTE2 /tmp/373910/exam13.F86
-setenv GMCHEF /tmp/373910/exam13.F87
-setenv GMCMOL /tmp/373910/exam13.F88
-setenv GMCMOS /tmp/373910/exam13.F89
-setenv GMCWGT /tmp/373910/exam13.F90
-setenv GMCRM2 /tmp/373910/exam13.F91
-setenv GMCRM1 /tmp/373910/exam13.F92
-setenv GMCR00 /tmp/373910/exam13.F93
-setenv GMCRP1 /tmp/373910/exam13.F94
-setenv GMCRP2 /tmp/373910/exam13.F95
-setenv GMCVEF /tmp/373910/exam13.F96
-setenv GMCDIN /tmp/373910/exam13.F97
-setenv GMC2SZ /tmp/373910/exam13.F98
-setenv GMCCCS /tmp/373910/exam13.F99
+setenv NUCBAS /Users/sarom/GAMESS-Development/gamess/tests/travis-ci/parallel/exam13.nucbas
+setenv EXTCAB /Users/sarom/GAMESS-Development/gamess/auxdata/AUXBAS/auxdef21
+setenv POSBAS /Users/sarom/GAMESS-Development/gamess/tests/travis-ci/parallel/exam13.posbas
+setenv DFTBPAR /Users/sarom/GAMESS-Development/gamess/auxdata/DFTB
+setenv ERICFMT /Users/sarom/GAMESS-Development/gamess/auxdata/ericfmt.dat
+setenv MCPPATH /Users/sarom/GAMESS-Development/gamess/auxdata/MCP
+setenv BASPATH /Users/sarom/GAMESS-Development/gamess/auxdata/BASES
+setenv QUANPOL /Users/sarom/GAMESS-Development/gamess/auxdata/QUANPOL
+setenv MAKEFP /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.efp
+setenv GAMMA /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.gamma
+setenv TRAJECT /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.trj
+setenv RESTART /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.rst
+setenv QMWAVE /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.qmw
+setenv MDDIP /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.dip
+setenv OPTHES1 /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.hs1
+setenv OPTHES2 /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.hs2
+setenv FCIDUMP /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.FCIDUMP
+setenv XYZ /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.xyz
+setenv IRCDATA /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F04
+setenv INPUT /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F05
+setenv PUNCH /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.dat
+setenv NAMDRST /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.namdrst
+setenv AOINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F08
+setenv MOINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F09
+setenv DICTNRY /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F10
+setenv DRTFILE /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F11
+setenv CIVECTR /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F12
+setenv CASINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F13
+setenv CIINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F14
+setenv WORK15 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F15
+setenv WORK16 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F16
+setenv CSFSAVE /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F17
+setenv FOCKDER /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F18
+setenv WORK19 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F19
+setenv DASORT /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F20
+setenv DIABDAT /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F21
+setenv DFTINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F21
+setenv DFTGRID /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F22
+setenv JKFILE /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F23
+setenv ORDINT /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F24
+setenv EFPIND /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F25
+setenv PCMDATA /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F26
+setenv PCMINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F27
+setenv SVPWRK1 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F26
+setenv SVPWRK2 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F27
+setenv COSCAV /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F26
+setenv COSDATA /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.cosmo
+setenv COSPOT /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.pot
+setenv MLTPL /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F28
+setenv MLTPLT /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F29
+setenv DAFL30 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F30
+setenv SOINTX /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F31
+setenv SOINTY /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F32
+setenv SOINTZ /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F33
+setenv SORESC /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F34
+setenv RISM01 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F26R
+setenv RISM02 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F27R
+setenv QOPWRF /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.wrf
+setenv GCILIST /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F37
+setenv HESSIAN /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F38
+setenv QMMMTEI /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F39
+setenv SOCCDAT /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F40
+setenv AABB41 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F41
+setenv BBAA42 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F42
+setenv BBBB43 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F43
+setenv REMD /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F44
+setenv UNV /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F45
+setenv UNPV /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F46
+setenv MCQD50 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F50
+setenv MCQD51 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F51
+setenv MCQD52 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F52
+setenv MCQD53 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F53
+setenv MCQD54 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F54
+setenv MCQD55 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F55
+setenv MCQD56 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F56
+setenv MCQD57 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F57
+setenv MCQD58 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F58
+setenv MCQD59 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F59
+setenv MCQD60 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F60
+setenv MCQD61 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F61
+setenv MCQD62 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F62
+setenv MCQD63 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F63
+setenv MCQD64 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F64
+setenv NMRINT1 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F61
+setenv NMRINT2 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F62
+setenv NMRINT3 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F63
+setenv NMRINT4 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F64
+setenv NMRINT5 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F65
+setenv NMRINT6 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F66
+setenv DCPHFH2 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F67
+setenv DCPHF21 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F68
+setenv ELNUINT /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F67
+setenv NUNUINT /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F68
+setenv GVVPT /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F69
+setenv NUMOIN /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F69
+setenv NUMOCAS /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F70
+setenv NUELMO /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F71
+setenv NUELCAS /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F72
+setenv EPOVRLP /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F73
+setenv RIVMAT /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F51
+setenv RIT2A /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F52
+setenv RIT3A /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F53
+setenv RIT2B /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F54
+setenv RIT3B /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F55
+setenv KI /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F47
+setenv BI /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F48
+setenv PRMERI /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F49
+setenv TRSERI /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F50
+setenv PVP /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F51
+setenv TPVPI /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F52
+setenv TPVPJ /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F53
+setenv PPVPP /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F54
+setenv TPPVPP /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F55
+setenv DEN2P1 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F70
+setenv DEN2P2 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F71
+setenv DEN2P3 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F72
+setenv DEN2P4 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F73
+setenv DEN2NM /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F74
+setenv DEN2OPT /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F75
+setenv GMCREF /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F70
+setenv GMCO2R /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F71
+setenv GMCROC /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F72
+setenv GMCOOC /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F73
+setenv GMCCC0 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F74
+setenv GMCHMA /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F75
+setenv GMCEI1 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F76
+setenv GMCEI2 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F77
+setenv GMCEOB /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F78
+setenv GMCEDT /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F79
+setenv GMCERF /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F80
+setenv GMCHCR /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F81
+setenv GMCGJK /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F82
+setenv GMCGAI /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F83
+setenv GMCGEO /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F84
+setenv GMCTE1 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F85
+setenv GMCTE2 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F86
+setenv GMCHEF /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F87
+setenv GMCMOL /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F88
+setenv GMCMOS /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F89
+setenv GMCWGT /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F90
+setenv GMCRM2 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F91
+setenv GMCRM1 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F92
+setenv GMCR00 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F93
+setenv GMCRP1 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F94
+setenv GMCRP2 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F95
+setenv GMCVEF /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F96
+setenv GMCDIN /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F97
+setenv GMC2SZ /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F98
+setenv GMCCCS /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F99
 unset echo
-rm: cannot remove ‘/export/home/sarom/restart/exam13.casino’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam13.dmn’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam13.cim’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam13.cosmo’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam13.pot’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam13.gamma’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam13.efp’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam13.dip’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam13.hs1’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam13.hs2’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam13.dat’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam13.qmw’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam13.rst’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam13.trj’: No such file or directory
- 
-Assuming a single but multicore node.
- 
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.casino: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.dmn: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.cim: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.cosmo: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.pot: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.gamma: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.efp: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.dip: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.hs1: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.hs2: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.dat: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.qmw: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.rst: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.trj: No such file or directory
 The generated host list is
-compute-1-1.local:cpus=3
+Mac
 -----debug-----
 the execution path is
-/opt/openmpi/bin /shared/compilers/aocc-compiler-3.2.0/share/opt-viewer /shared/compilers/aocc-compiler-3.2.0/bin /shared/git/2.9.5/bin /shared/compilers/gcc/5.5.0/bin /shared/cmake/3.12.0/bin /export/home/sarom/bin /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el7_4.x86_64/jre/bin/ /usr/lib64/qt-3.3/bin /usr/local/bin /usr/bin /usr/local/sbin /usr/sbin /opt/pdsh/bin /opt/rocks/bin /opt/rocks/sbin
+/opt/homebrew/opt/gnu-sed/libexec/gnubin /opt/homebrew/opt/make/libexec/gnubin /opt/homebrew/bin /opt/homebrew/sbin /usr/local/krb5/bin /usr/local/ossh/bin /usr/local/bin /System/Cryptexes/App/usr/bin /usr/bin /bin /usr/sbin /sbin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
 the library path is
-/opt/openmpi/lib:/shared/compilers/aocc-compiler-3.2.0/ompd:/shared/compilers/aocc-compiler-3.2.0/lib:/shared/compilers/aocc-compiler-3.2.0/lib32:/usr/lib64:/usr/lib:/shared/compilers/gcc/5.5.0/lib64:
-The dynamically linked libraries for this binary are
-/home/sarom/dir.git.dev/gamess.00.x :
 
-	linux-vdso.so.1 =>  (0x00007fff9a5f7000)
-	libpthread.so.0 => /usr/lib64/libpthread.so.0 (0x00007f16f85ae000)
-	libm.so.6 => /usr/lib64/libm.so.6 (0x00007f16f82ab000)
-	libc.so.6 => /usr/lib64/libc.so.6 (0x00007f16f7ee8000)
-	/lib64/ld-linux-x86-64.so.2 (0x0000558488b97000)
-	libgcc_s.so.1 => /shared/compilers/gcc/5.5.0/lib64/libgcc_s.so.1 (0x00007f16f7cd1000)
-	libdl.so.2 => /usr/lib64/libdl.so.2 (0x00007f16f7acc000)
+The dynamically linked libraries for this binary are
+/Users/sarom/GAMESS-Development/gamess/gamess.00.x :
+
+ldd: Command not found.
 --------------
-/home/sarom/dir.git.dev/ddikick.x /home/sarom/dir.git.dev/gamess.00.x exam13 -ddi 1 3 compute-1-1.local:cpus=3 -scr /tmp/373910
+/Users/sarom/GAMESS-Development/gamess/ddikick.x /Users/sarom/GAMESS-Development/gamess/gamess.00.x exam13 -ddi 1 1 Mac -scr /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9
 
  Distributed Data Interface kickoff program.
- Initiating 3 compute processes on 1 nodes to run the following command:
- /home/sarom/dir.git.dev/gamess.00.x exam13 
+ Initiating 1 compute processes on 1 nodes to run the following command:
+ /Users/sarom/GAMESS-Development/gamess/gamess.00.x exam13 
 
           *******************************************************
           *                                                     *
-          *      GAMESS VERSION = 30 SEP 2021 (R2 Patch 1)      *
+          *      GAMESS VERSION = 15 JUL 2024 (R2 Patch 1)          *
           *                                                     *
           *              doi.org/10.1063/5.0005188              *
           *                                                     *
-          **************** 64 BIT INTEL VERSION *****************
+          **************** 64 BIT LINUX VERSION *****************
+ 
+           git commit: bf99997cb9bae7c41d40f16e0cbc3a8d2532d8b0
+ 
 
   GAMESS HAS BEEN MADE POSSIBLE WITH IMPORTANT CONTRIBUTIONS FROM
   THE FOLLOWING INDIVIDUALS (IN ALPHABETICAL ORDER):
 
      IVANA ADAMOVIC, CHRISTINE AIKENS, TOMOKO AKAMA,
-     YURI ALEXEEV, YURIKO AOKI, POOJA ARORA, TOSHIO ASADA,
-     ANDREY ASADCHEV, KIM K. BALDRIDGE, PRADIPTA BANDYOPADHYAY,
-     TAYLOR A. BARNES, MARIA BARYSZ, ROB BELL,
-     JONATHAN BENTZ, COLLEEN BERTONI,
+     MELISA ALKAN, YURI ALEXEEV, YURIKO AOKI, POOJA ARORA,
+     TOSHIO ASADA, ANDREY ASADCHEV, KIM K. BALDRIDGE,
+     PRADIPTA BANDYOPADHYAY, TAYLOR A. BARNES, MARIA BARYSZ,
+     ROB BELL, JONATHAN BENTZ, COLLEEN BERTONI,
      JERRY A. BOATZ, BRETT BODE, KURT BRORSEN, KURT R. BRORSEN,
      LAIMUTIS BYTAUTAS, CALEB CARLIN, LAURA CARRINGTON,
      GALINA CHABAN, BENOIT CHAMPAGNE, WEI CHEN, MAHITO CHIBA,
@@ -243,20 +324,23 @@ The dynamically linked libraries for this binary are
      DIPAYAN DATTA, PAUL DAY, ALBERT DEFUSCO,
      NUWAN DESILVA, J. EMILIANO DEUSTUA,
      TIM DUDLEY, MICHEL DUPUIS, STEVEN T. ELBERT,
-     DMITRI FEDOROV, ALEX FINDLATER, GRAHAM FLETCHER,
-     MARK FREITAG, CHRISTIAN FRIEDL, DAVID GARMER,
-     IGOR S. GERASIMOV, KURT GLAESEMANN, MARK S. GORDON,
-     JEFFREY GOUR, FENG LONG GU, EMILIE B. GUIDEZ,
-     ANASTASIA GUNINA, SHARON HAMMES-SCHIFFER, MASATAKE HARUTA,
-     KIMIHIKO HIRAO, YASUHIRO IKABATA, TZVETELIN IORDANOV,
-     STEPHAN IRLE, KAZUYA ISHIMURA, JOE IVANIC, FRANK JENSEN,
-     JAN H. JENSEN, VISVALDAS KAIRYS, MUNEAKI KAMIYA,
-     MICHIO KATOUDA, NAOAKI KAWAKAMI, DAN KEMP, BERNARD KIRTMAN,
-     KAZUO KITAURA, MARIUSZ KLOBUKOWSKI, MASATO KOBAYASHI,
-     PRAKASHAN KORAMBATH, JACEK KORCHOWIEC, SHIRO KOSEKI,
-     KAROL KOWALSKI, JIMMY KROMANN, STANISLAW KUCHARSKI,
-     HENRY KURTZ, SAROM SOK LEANG, HUI LI, SHUHUA LI, WEI LI,
-     JESSE LUTZ, ALEKSANDR O. LYKHIN, MARCIN MAKOWSKI,
+     DMITRI FEDOROV, KATHERINE FERRERAS, MICHAEL FILATOV,
+     ALEX FINDLATER,GRAHAM FLETCHER, MARK FREITAG,
+     CHRISTIAN FRIEDL, DAVID GARMER, 
+     IGOR S. GERASIMOV, KURT GLAESEMANN,
+     MARK S. GORDON, JEFFREY R. GOUR, FENG LONG GU,
+     EMILIE B. GUIDEZ, ANASTASIA GUNINA, SHARON HAMMES-SCHIFFER,
+     MASATAKE HARUTA, KIMIHIKO HIRAO, YASUHIRO IKABATA,
+     TZVETELIN IORDANOV, STEPHAN IRLE, KAZUYA ISHIMURA,
+     JOE IVANIC, FRANK JENSEN, JAN H. JENSEN, VISVALDAS KAIRYS,
+     MUNEAKI KAMIYA, MICHIO KATOUDA, NAOAKI KAWAKAMI, DAN KEMP,
+     BERNARD KIRTMAN, KAZUO KITAURA, MARIUSZ KLOBUKOWSKI,
+     MASATO KOBAYASHI, KONSTANTIN KOMAROV, PRAKASHAN KORAMBATH,
+     JACEK KORCHOWIEC, SHIRO KOSEKI, KAROL KOWALSKI,
+     JIMMY KROMANN, STANISLAW A. KUCHARSKI, HENRY KURTZ,
+     SAROM SOK LEANG, SEUNGHOON LEE, HUI LI, SHUHUA LI, WEI LI,
+     JESSE J. LUTZ, ALEKSANDR O. LYKHIN,
+     ILIAS MAGOULAS, MARCIN MAKOWSKI,
      JOANI MATO, NIKITA MATSUNAGA, BENEDETTA MENNUCCI,
      GRANT MERRILL, NORIYUKI MINEZAWA, VLADIMIR MIRONOV,
      EISAKU MIYOSHI, JOHN A. MONTGOMERY JR., HIROTOSHI MORI,
@@ -270,13 +354,15 @@ The dynamically linked libraries for this binary are
      KLAUS RUEDENBERG, ANDREW SAND, TOSAPORN SATTASATHUCHANA,
      NOZOMI SAWADA, MICHAEL W. SCHMIDT, PATRICK E. SCHNEIDER,
      JUNJI SEINO, PRACHI SHARMA, JUN SHEN, JIM SHOEMAKER,
-     YINAN SHU, DEJUN SI, JONATHAN SKONE, LYUDMILA SLIPCHENKO,
-     TONY SMITH, JIE SONG, MARK SPACKMAN, CASPER STEINMANN,
-     WALT STEVENS, PEIFENG SU, SHUJUN SU, CHET SWALINA,
-     TETSUYA TAKETSUGU, ZHEN TAO, NANDUN THELLAMUREGE
-     SEIKEN TOKURA, JACOPO TOMASI, TSUGUKI TOUMA, TAKAO TSUNEDA,
-     HIROAKI UMEDA, JORGE LUIS GALVEZ VALLEJO, YALI WANG,
-     SIMON WEBB, AARON WEST, THERESA L. WINDUS, MARTA WLOCH,
+     GEORGE SCHOENDORFF, YINAN SHU, DEJUN SI, JONATHAN SKONE,
+     LYUDMILA SLIPCHENKO, TONY SMITH, JIE SONG, MARK SPACKMAN,
+     CASPER STEINMANN, WALT STEVENS, PEIFENG SU, SHUJUN SU,
+     CHET SWALINA, CHINAMI TAKASHIMA, TETSUYA TAKETSUGU,
+     ZHEN TAO, NANDUN THELLAMUREGE, ANANTA TIWARI,
+     SEIKEN TOKURA, JACOPO TOMASI,
+     TSUGUKI TOUMA, TAKAO TSUNEDA, HIROAKI UMEDA,
+     JORGE LUIS GALVEZ VALLEJO, YALI WANG, SIMON WEBB,
+     AARON WEST, THERESA L. WINDUS, MARTA WLOCH,
      PENG XU, KIYOSHI YAGI, SUSUMU YANAGISAWA, YANG YANG,
      SOOHAENG YOO, TAKESHI YOSHIKAWA, FEDERICO ZAHARIEV,
      TOBY ZENG
@@ -284,9 +370,11 @@ The dynamically linked libraries for this binary are
   WHO ARE SUPPORTED BY THEIR INSTITUTION/UNIVERSITY/COMPANY/GROUP
   (IN ALPHABETICAL ORDER):
 
-     EP ANALYTICS, FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX,
+     EP ANALYTICS,
+     FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX,
      INSTITUTE FOR MOLECULAR SCIENCE, IOWA STATE UNIVERSITY,
      JACKSON STATE UNIVERSITY, JOHANNES KEPLER UNIVERSITY LINZ,
+     KYUNGPOOK NATIONAL UNIVERSITY
      KYUSHU UNIVERSITY, MICHIGAN STATE UNIVERSITY,
      MIE UNIVERSITY, THE MOLECULAR SCIENCES SOFTWARE INSTITUTE,
      MOSCOW STATE UNIVERSITY,
@@ -303,7 +391,8 @@ The dynamically linked libraries for this binary are
      UNIVERSITY OF NEBRASKA, UNIVERSITY OF NEW ENGLAND,
      UNIVERSITY OF NOTRE DAME, UNIVERSITY OF PISA,
      UNIVERSITY OF SILESIA, UNIVERSITY OF TOKYO,
-     UNIVERSITY OF ZURICH, WASEDA UNIVERSITY, YALE UNIVERSITY
+     UNIVERSITY OF ZURICH, WASEDA UNIVERSITY,
+     YALE UNIVERSITY
 
   GAMESS SOFTWARE MANAGEMENT TEAM FOR THIS RELEASE:
      MARK S. GORDON (TEAM LEAD),
@@ -313,13 +402,10 @@ The dynamically linked libraries for this binary are
      KRISTOPHER KEIPERT (ADVISOR),
      SAROM S. LEANG (DEVELOPMENT LEAD),
      BUU PHAM,
-     JORGE LUIS GALVEZ VALLEJO (WEBSITE ADMINISTRATOR),
+     JACKSON HAYES (WEBSITE ADMINISTRATOR),
      PENG XU
 
-
- PARALLEL VERSION RUNNING ON        3 PROCESSORS IN        1 NODES.
-
- EXECUTION OF GAMESS BEGUN 13:06:23 15-MAR-2022    
+ EXECUTION OF GAMESS BEGUN 01:38:31 14-MAY-2025    
 
             ECHO OF THE FIRST FEW INPUT CARDS -
  INPUT CARD>! EXAM 13.                                                                      
@@ -372,7 +458,7 @@ The dynamically linked libraries for this binary are
  INPUT CARD>  S    1                                                                        
  INPUT CARD>    1    0.2825          1.0                                                    
  INPUT CARD>  P    3                                                                        
-    1000000 WORDS OF MEMORY AVAILABLE
+      1000000 WORDS OF MEMORY AVAILABLE
 
 
      RUN TITLE
@@ -479,10 +565,10 @@ The dynamically linked libraries for this binary are
      ---------------
   REPLICATED MEMORY=     1000000 WORDS (ON EVERY NODE).
  DISTRIBUTED MEMDDI=           0 MILLION WORDS IN AGGREGATE,
- MEMDDI DISTRIBUTED OVER   3 PROCESSORS IS           0 WORDS/PROCESSOR.
+ MEMDDI DISTRIBUTED OVER   1 PROCESSORS IS           0 WORDS/PROCESSOR.
  TOTAL MEMORY REQUESTED ON EACH PROCESSOR=     1000000 WORDS.
  TIMLIM=           1.00 MINUTES, OR       0.0 DAYS.
- PARALL= T  BALTYP=  DLB     KDIAG=    0  COREFL= F
+ PARALL= F  BALTYP=  DLB     KDIAG=    0  COREFL= F
  MXSEQ2=     300 MXSEQ3=     150  mem10=         0  mem22=         0
 
           ----------------
@@ -499,11 +585,18 @@ The dynamically linked libraries for this binary are
           SOSCF IN EFFECT
  ORBITAL PRINTING OPTION: NPREO=     1    36     2     1
 
+     ----------------------
+     TARGET OFFLOAD OPTIONS
+     ----------------------
+     RHF    =       F
+     CPHF    =       F
+     MAKEFP =       F
+
      -------------------------------
      INTEGRAL TRANSFORMATION OPTIONS
      -------------------------------
      NWORD  =            0
-     CUTOFF = 1.0E-09     MPTRAN =       0
+     CUTTRF = 1.0E-09     MPTRAN =       0
      DIRTRF =       F     AOINTS =DUP     
 
           ----------------------
@@ -523,15 +616,15 @@ The dynamically linked libraries for this binary are
  A1  =   16     A2  =    3     B1  =    6     B2  =    9
 
  ..... DONE SETTING UP THE RUN .....
- CPU     0: STEP CPU TIME=     0.02 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    95.84%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    99.31%
 
           ********************
           1 ELECTRON INTEGRALS
           ********************
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    95.67%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    99.36%
 
           -------------
           GUESS OPTIONS
@@ -555,8 +648,8 @@ The dynamically linked libraries for this binary are
      2=A1       3=B2       4=A1       5=B1       6=B2       7=A1       8=A1  
      9=A1      10=A1      11=A1      12=A1      13=A1      14=A1      15=A1  
  ...... END OF INITIAL ORBITAL SELECTION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    95.95%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    99.42%
 
                     ----------------------
                     AO INTEGRAL TECHNOLOGY
@@ -583,22 +676,22 @@ The dynamically linked libraries for this binary are
  II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    7
  II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   22
  II,JST,KST,LST =  5  1  1  1 NREC =         1 INTLOC =   56
- II,JST,KST,LST =  6  1  1  1 NREC =         1 INTLOC =   93
- II,JST,KST,LST =  7  1  1  1 NREC =         1 INTLOC =  192
- II,JST,KST,LST =  8  1  1  1 NREC =         1 INTLOC =  192
- II,JST,KST,LST =  9  1  1  1 NREC =         1 INTLOC =  327
- II,JST,KST,LST = 10  1  1  1 NREC =         1 INTLOC =  756
- II,JST,KST,LST = 11  1  1  1 NREC =         1 INTLOC = 3960
- II,JST,KST,LST = 12  1  1  1 NREC =         1 INTLOC = 3960
- II,JST,KST,LST = 13  1  1  1 NREC =         1 INTLOC = 3960
- II,JST,KST,LST = 14  1  1  1 NREC =         1 INTLOC = 3960
- II,JST,KST,LST = 15  1  1  1 NREC =         1 INTLOC = 4457
- II,JST,KST,LST = 16  1  1  1 NREC =         1 INTLOC = 5914
+ II,JST,KST,LST =  6  1  1  1 NREC =         1 INTLOC =  121
+ II,JST,KST,LST =  7  1  1  1 NREC =         1 INTLOC =  220
+ II,JST,KST,LST =  8  1  1  1 NREC =         1 INTLOC =  496
+ II,JST,KST,LST =  9  1  1  1 NREC =         1 INTLOC = 1057
+ II,JST,KST,LST = 10  1  1  1 NREC =         1 INTLOC = 3607
+ II,JST,KST,LST = 11  1  1  1 NREC =         1 INTLOC = 9538
+ II,JST,KST,LST = 12  1  1  1 NREC =         1 INTLOC = 9538
+ II,JST,KST,LST = 13  1  1  1 NREC =         1 INTLOC = 9538
+ II,JST,KST,LST = 14  1  1  1 NREC =         1 INTLOC = 9538
+ II,JST,KST,LST = 15  1  1  1 NREC =         2 INTLOC =  481
+ II,JST,KST,LST = 16  1  1  1 NREC =         2 INTLOC = 7963
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =               53427
-          5 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          4 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.01 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    94.18%
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    99.76%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -632,6 +725,8 @@ The dynamically linked libraries for this binary are
 
  FINAL RHF ENERGY IS      -76.0440311075 AFTER  10 ITERATIONS
 
+ Alpha HOMO=   -13.688447 eV, LUMO=    6.285074 eV, gap=   19.973521 eV
+
           ------------
           EIGENVECTORS
           ------------
@@ -639,40 +734,40 @@ The dynamically linked libraries for this binary are
                       1          2          3          4          5
                   -20.5518    -1.3474    -0.7142    -0.5774    -0.5030
                      A1         A1         B2         A1         B1  
-    1  O  1  S    0.375354  -0.086406   0.000000   0.028847   0.000000
-    2  O  1  S    0.051165  -0.010383   0.000000   0.003404   0.000000
-    3  O  1  S    0.679520  -0.158546   0.000000   0.051335   0.000000
-    4  O  1  S    0.003177   0.491680   0.000000  -0.175705   0.000000
-    5  O  1  S    0.001520   0.396331   0.000000  -0.267244   0.000000
-    6  O  1  X    0.000000   0.000000   0.000000   0.000000   0.354939
-    7  O  1  Y    0.000000   0.000000   0.279631   0.000000   0.000000
-    8  O  1  Z    0.001850   0.045958   0.000000   0.311632   0.000000
-    9  O  1  X    0.000000   0.000000   0.000000   0.000000   0.403092
-   10  O  1  Y    0.000000   0.000000   0.187000   0.000000   0.000000
-   11  O  1  Z    0.000655   0.010370   0.000000   0.321482   0.000000
-   12  O  1  X    0.000000   0.000000   0.000000   0.000000   0.450577
-   13  O  1  Y    0.000000   0.000000   0.356098   0.000000   0.000000
-   14  O  1  Z   -0.001496   0.055646   0.000000   0.387746   0.000000
-   15  O  1 XX    0.000247  -0.007135   0.000000  -0.008014   0.000000
-   16  O  1 YY   -0.000234   0.005365   0.000000   0.000419   0.000000
-   17  O  1 ZZ   -0.000013   0.001770   0.000000   0.007595   0.000000
-   18  O  1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
-   19  O  1 XZ    0.000000   0.000000   0.000000   0.000000   0.007512
-   20  O  1 YZ    0.000000   0.000000   0.023679   0.000000   0.000000
-   21  O  1 XX    0.000120   0.004352   0.000000  -0.015329   0.000000
-   22  O  1 YY   -0.000064  -0.006117   0.000000  -0.015110   0.000000
-   23  O  1 ZZ   -0.000056   0.001765   0.000000   0.030438   0.000000
-   24  O  1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
-   25  O  1 XZ    0.000000   0.000000   0.000000   0.000000   0.028218
-   26  O  1 YZ    0.000000   0.000000   0.013106   0.000000   0.000000
+    1  O  1  S    0.375354  -0.086406  -0.000000   0.028847   0.000000
+    2  O  1  S    0.051165  -0.010383  -0.000000   0.003404   0.000000
+    3  O  1  S    0.679520  -0.158546  -0.000000   0.051335   0.000000
+    4  O  1  S    0.003177   0.491680  -0.000000  -0.175705   0.000000
+    5  O  1  S    0.001520   0.396331  -0.000000  -0.267244   0.000000
+    6  O  1  X    0.000000  -0.000000  -0.000000   0.000000   0.354939
+    7  O  1  Y    0.000000  -0.000000   0.279631   0.000000   0.000000
+    8  O  1  Z    0.001850   0.045958  -0.000000   0.311632   0.000000
+    9  O  1  X    0.000000  -0.000000  -0.000000   0.000000   0.403092
+   10  O  1  Y    0.000000  -0.000000   0.187000   0.000000   0.000000
+   11  O  1  Z    0.000655   0.010370  -0.000000   0.321482   0.000000
+   12  O  1  X    0.000000  -0.000000  -0.000000   0.000000   0.450577
+   13  O  1  Y    0.000000  -0.000000   0.356098   0.000000   0.000000
+   14  O  1  Z   -0.001496   0.055646  -0.000000   0.387746   0.000000
+   15  O  1 XX    0.000247  -0.007135  -0.000000  -0.008014   0.000000
+   16  O  1 YY   -0.000234   0.005365  -0.000000   0.000419   0.000000
+   17  O  1 ZZ   -0.000013   0.001770  -0.000000   0.007595   0.000000
+   18  O  1 XY    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   19  O  1 XZ    0.000000  -0.000000  -0.000000   0.000000   0.007512
+   20  O  1 YZ    0.000000  -0.000000   0.023679   0.000000   0.000000
+   21  O  1 XX    0.000120   0.004352  -0.000000  -0.015329   0.000000
+   22  O  1 YY   -0.000064  -0.006117  -0.000000  -0.015110   0.000000
+   23  O  1 ZZ   -0.000056   0.001765  -0.000000   0.030438   0.000000
+   24  O  1 XY    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   25  O  1 XZ    0.000000  -0.000000  -0.000000   0.000000   0.028218
+   26  O  1 YZ    0.000000  -0.000000   0.013106   0.000000   0.000000
    27  H  2  S    0.000590   0.144843  -0.237473   0.141931   0.000000
    28  H  2  S   -0.000357   0.028560  -0.131311   0.064680   0.000000
-   29  H  2  X    0.000000   0.000000   0.000000   0.000000   0.020593
+   29  H  2  X    0.000000  -0.000000  -0.000000   0.000000   0.020593
    30  H  2  Y    0.000557   0.021858  -0.011290   0.015350   0.000000
    31  H  2  Z   -0.000365  -0.014490   0.018716   0.002886   0.000000
    32  H  3  S    0.000590   0.144843   0.237473   0.141931   0.000000
    33  H  3  S   -0.000357   0.028560   0.131311   0.064680   0.000000
-   34  H  3  X    0.000000   0.000000   0.000000   0.000000   0.020593
+   34  H  3  X    0.000000  -0.000000  -0.000000   0.000000   0.020593
    35  H  3  Y   -0.000557  -0.021858  -0.011290  -0.015350   0.000000
    36  H  3  Z   -0.000365  -0.014490  -0.018716   0.002886   0.000000
 
@@ -719,42 +814,42 @@ The dynamically linked libraries for this binary are
                      11         12         13         14         15
                     1.0114     1.0544     1.2946     1.2993     1.3481
                      A1         B2         A1         A2         B1  
-    1  O  1  S    0.021226   0.000000   0.014583   0.000000   0.000000
-    2  O  1  S    0.002358   0.000000   0.001726   0.000000   0.000000
-    3  O  1  S    0.018054   0.000000   0.009114   0.000000   0.000000
-    4  O  1  S   -0.253406   0.000000  -0.233079   0.000000   0.000000
-    5  O  1  S    0.622526   0.000000   0.391177   0.000000   0.000000
-    6  O  1  X    0.000000   0.000000   0.000000   0.000000  -0.026695
-    7  O  1  Y    0.000000  -0.295952   0.000000   0.000000   0.000000
-    8  O  1  Z   -0.137152   0.000000  -0.059371   0.000000   0.000000
-    9  O  1  X    0.000000   0.000000   0.000000   0.000000  -0.102719
-   10  O  1  Y    0.000000   1.717901   0.000000   0.000000   0.000000
-   11  O  1  Z    0.120529   0.000000  -0.080976   0.000000   0.000000
-   12  O  1  X    0.000000   0.000000   0.000000   0.000000   0.006661
-   13  O  1  Y    0.000000  -0.514808   0.000000   0.000000   0.000000
-   14  O  1  Z   -0.068849   0.000000   0.029924   0.000000   0.000000
-   15  O  1 XX   -0.005622   0.000000   0.017310   0.000000   0.000000
-   16  O  1 YY    0.003115   0.000000   0.033347   0.000000   0.000000
-   17  O  1 ZZ    0.002508   0.000000  -0.050657   0.000000   0.000000
-   18  O  1 XY    0.000000   0.000000   0.000000  -0.051640   0.000000
-   19  O  1 XZ    0.000000   0.000000   0.000000   0.000000  -0.056128
-   20  O  1 YZ    0.000000  -0.001827   0.000000   0.000000   0.000000
-   21  O  1 XX   -0.463143   0.000000  -0.443029   0.000000   0.000000
-   22  O  1 YY    0.525550   0.000000  -0.465023   0.000000   0.000000
-   23  O  1 ZZ   -0.062407   0.000000   0.908053   0.000000   0.000000
-   24  O  1 XY    0.000000   0.000000   0.000000   0.925060   0.000000
-   25  O  1 XZ    0.000000   0.000000   0.000000   0.000000   0.971802
-   26  O  1 YZ    0.000000   0.586463   0.000000   0.000000   0.000000
-   27  H  2  S    0.510380  -0.315285   0.109241   0.000000   0.000000
-   28  H  2  S   -0.595435   1.623763  -0.173467   0.000000   0.000000
-   29  H  2  X    0.000000   0.000000   0.000000  -0.120278   0.088777
-   30  H  2  Y   -0.180581   0.134911   0.010453   0.000000   0.000000
-   31  H  2  Z    0.069407  -0.142152   0.124125   0.000000   0.000000
-   32  H  3  S    0.510380   0.315285   0.109241   0.000000   0.000000
-   33  H  3  S   -0.595435  -1.623763  -0.173467   0.000000   0.000000
-   34  H  3  X    0.000000   0.000000   0.000000   0.120278   0.088777
-   35  H  3  Y    0.180581   0.134911  -0.010453   0.000000   0.000000
-   36  H  3  Z    0.069407   0.142152   0.124125   0.000000   0.000000
+    1  O  1  S    0.021226  -0.000000   0.014583   0.000000  -0.000000
+    2  O  1  S    0.002358  -0.000000   0.001726   0.000000  -0.000000
+    3  O  1  S    0.018054  -0.000000   0.009114   0.000000  -0.000000
+    4  O  1  S   -0.253406  -0.000000  -0.233079   0.000000  -0.000000
+    5  O  1  S    0.622526  -0.000000   0.391177   0.000000  -0.000000
+    6  O  1  X   -0.000000  -0.000000   0.000000   0.000000  -0.026695
+    7  O  1  Y   -0.000000  -0.295952   0.000000   0.000000  -0.000000
+    8  O  1  Z   -0.137152  -0.000000  -0.059371   0.000000  -0.000000
+    9  O  1  X   -0.000000  -0.000000   0.000000   0.000000  -0.102719
+   10  O  1  Y   -0.000000   1.717901   0.000000   0.000000  -0.000000
+   11  O  1  Z    0.120529  -0.000000  -0.080976   0.000000  -0.000000
+   12  O  1  X   -0.000000  -0.000000   0.000000   0.000000   0.006661
+   13  O  1  Y   -0.000000  -0.514808   0.000000   0.000000  -0.000000
+   14  O  1  Z   -0.068849  -0.000000   0.029924   0.000000  -0.000000
+   15  O  1 XX   -0.005622  -0.000000   0.017310   0.000000  -0.000000
+   16  O  1 YY    0.003115  -0.000000   0.033347   0.000000  -0.000000
+   17  O  1 ZZ    0.002508  -0.000000  -0.050657   0.000000  -0.000000
+   18  O  1 XY   -0.000000  -0.000000   0.000000  -0.051640  -0.000000
+   19  O  1 XZ   -0.000000  -0.000000   0.000000   0.000000  -0.056128
+   20  O  1 YZ   -0.000000  -0.001827   0.000000   0.000000  -0.000000
+   21  O  1 XX   -0.463143  -0.000000  -0.443029   0.000000  -0.000000
+   22  O  1 YY    0.525550  -0.000000  -0.465023   0.000000  -0.000000
+   23  O  1 ZZ   -0.062407  -0.000000   0.908053   0.000000  -0.000000
+   24  O  1 XY   -0.000000  -0.000000   0.000000   0.925060  -0.000000
+   25  O  1 XZ   -0.000000  -0.000000   0.000000   0.000000   0.971802
+   26  O  1 YZ   -0.000000   0.586463   0.000000   0.000000  -0.000000
+   27  H  2  S    0.510380  -0.315285   0.109241   0.000000  -0.000000
+   28  H  2  S   -0.595435   1.623763  -0.173467   0.000000  -0.000000
+   29  H  2  X   -0.000000  -0.000000   0.000000  -0.120278   0.088777
+   30  H  2  Y   -0.180581   0.134911   0.010453   0.000000  -0.000000
+   31  H  2  Z    0.069407  -0.142152   0.124125   0.000000  -0.000000
+   32  H  3  S    0.510380   0.315285   0.109241   0.000000  -0.000000
+   33  H  3  S   -0.595435  -1.623763  -0.173467   0.000000  -0.000000
+   34  H  3  X   -0.000000  -0.000000   0.000000   0.120278   0.088777
+   35  H  3  Y    0.180581   0.134911  -0.010453   0.000000  -0.000000
+   36  H  3  Z    0.069407   0.142152   0.124125   0.000000  -0.000000
 
                      16         17         18         19         20
                     1.5064     2.1466     2.3675     2.3859     2.6315
@@ -764,117 +859,117 @@ The dynamically linked libraries for this binary are
     3  O  1  S    0.037067  -0.012953   0.000000   0.000000   0.000000
     4  O  1  S   -1.437329  -1.254282   0.000000   0.000000   0.000000
     5  O  1  S    2.345341   2.334198   0.000000   0.000000   0.000000
-    6  O  1  X    0.000000   0.000000   0.000000   0.000000   0.000000
-    7  O  1  Y    0.000000   0.000000   0.034266   0.175032   0.000000
+    6  O  1  X   -0.000000  -0.000000   0.000000   0.000000   0.000000
+    7  O  1  Y   -0.000000  -0.000000   0.034266   0.175032   0.000000
     8  O  1  Z   -0.087452   0.095608   0.000000   0.000000   0.000000
-    9  O  1  X    0.000000   0.000000   0.000000   0.000000   0.000000
-   10  O  1  Y    0.000000   0.000000   0.261969   1.121982   0.000000
+    9  O  1  X   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   10  O  1  Y   -0.000000  -0.000000   0.261969   1.121982   0.000000
    11  O  1  Z    0.407503   0.901597   0.000000   0.000000   0.000000
-   12  O  1  X    0.000000   0.000000   0.000000   0.000000   0.000000
-   13  O  1  Y    0.000000   0.000000  -0.121375  -0.344338   0.000000
+   12  O  1  X   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   13  O  1  Y   -0.000000  -0.000000  -0.121375  -0.344338   0.000000
    14  O  1  Z    0.042111  -0.068545   0.000000   0.000000   0.000000
    15  O  1 XX   -0.048105   0.069780   0.000000   0.000000   0.000000
    16  O  1 YY    0.034925  -0.065346   0.000000   0.000000   0.000000
    17  O  1 ZZ    0.013179  -0.004434   0.000000   0.000000   0.000000
-   18  O  1 XY    0.000000   0.000000   0.000000   0.000000  -0.066764
-   19  O  1 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
-   20  O  1 YZ    0.000000   0.000000  -0.071917  -0.059091   0.000000
+   18  O  1 XY   -0.000000  -0.000000   0.000000   0.000000  -0.066764
+   19  O  1 XZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   20  O  1 YZ   -0.000000  -0.000000  -0.071917  -0.059091   0.000000
    21  O  1 XX    0.479663  -0.906912   0.000000   0.000000   0.000000
    22  O  1 YY   -0.278546   0.836074   0.000000   0.000000   0.000000
    23  O  1 ZZ   -0.201117   0.070838   0.000000   0.000000   0.000000
-   24  O  1 XY    0.000000   0.000000   0.000000   0.000000   0.858788
-   25  O  1 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
-   26  O  1 YZ    0.000000   0.000000   0.885374   0.967407   0.000000
+   24  O  1 XY   -0.000000  -0.000000   0.000000   0.000000   0.858788
+   25  O  1 XZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   26  O  1 YZ   -0.000000  -0.000000   0.885374   0.967407   0.000000
    27  H  2  S    0.161563  -0.983333   0.524866   0.794970   0.000000
    28  H  2  S   -0.768998  -0.331866  -0.025135   0.145939   0.000000
-   29  H  2  X    0.000000   0.000000   0.000000   0.000000   0.857727
+   29  H  2  X   -0.000000  -0.000000   0.000000   0.000000   0.857727
    30  H  2  Y   -0.145482   0.112961   0.311283  -0.497052   0.000000
    31  H  2  Z    0.126555  -0.042428   0.598296  -0.098978   0.000000
    32  H  3  S    0.161563  -0.983333  -0.524866  -0.794970   0.000000
    33  H  3  S   -0.768998  -0.331866   0.025135  -0.145939   0.000000
-   34  H  3  X    0.000000   0.000000   0.000000   0.000000  -0.857727
+   34  H  3  X   -0.000000  -0.000000   0.000000   0.000000  -0.857727
    35  H  3  Y    0.145482  -0.112961   0.311283  -0.497052   0.000000
    36  H  3  Z    0.126555  -0.042428  -0.598296   0.098978   0.000000
 
                      21         22         23         24         25
                     2.6645     3.0576     3.3020     3.3402     4.1831
                      B1         A1         B2         A1         B1  
-    1  O  1  S    0.000000  -0.009681   0.000000  -0.031326   0.000000
-    2  O  1  S    0.000000  -0.001132   0.000000  -0.003919   0.000000
-    3  O  1  S    0.000000  -0.005185   0.000000  -0.077916   0.000000
-    4  O  1  S    0.000000   0.169912   0.000000   0.149777   0.000000
-    5  O  1  S    0.000000  -0.153278   0.000000   1.936003   0.000000
-    6  O  1  X   -0.160930   0.000000   0.000000   0.000000  -1.228261
-    7  O  1  Y    0.000000   0.000000   0.486460   0.000000   0.000000
-    8  O  1  Z    0.000000  -0.185917   0.000000   0.425548   0.000000
-    9  O  1  X   -0.426767   0.000000   0.000000   0.000000  -0.490497
-   10  O  1  Y    0.000000   0.000000   1.336266   0.000000   0.000000
-   11  O  1  Z    0.000000  -0.485301   0.000000   0.611859   0.000000
-   12  O  1  X   -0.011866   0.000000   0.000000   0.000000   1.445036
-   13  O  1  Y    0.000000   0.000000   0.555869   0.000000   0.000000
-   14  O  1  Z    0.000000   0.136087   0.000000   0.409879   0.000000
-   15  O  1 XX    0.000000   0.017370   0.000000   0.166479   0.000000
-   16  O  1 YY    0.000000  -0.069994   0.000000  -0.165037   0.000000
-   17  O  1 ZZ    0.000000   0.052624   0.000000  -0.001442   0.000000
-   18  O  1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
-   19  O  1 XZ    0.047283   0.000000   0.000000   0.000000   0.035392
-   20  O  1 YZ    0.000000   0.000000  -0.206785   0.000000   0.000000
-   21  O  1 XX    0.000000  -0.005436   0.000000  -0.622490   0.000000
-   22  O  1 YY    0.000000   0.970729   0.000000   0.550037   0.000000
-   23  O  1 ZZ    0.000000  -0.965293   0.000000   0.072453   0.000000
-   24  O  1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
-   25  O  1 XZ   -0.651847   0.000000   0.000000   0.000000   0.088739
-   26  O  1 YZ    0.000000   0.000000   1.310749   0.000000   0.000000
-   27  H  2  S    0.000000  -0.053662   1.088199  -0.864673   0.000000
-   28  H  2  S    0.000000   0.076252   0.901156  -0.523650   0.000000
-   29  H  2  X    0.854079   0.000000   0.000000   0.000000  -0.181056
-   30  H  2  Y    0.000000   0.534447   0.734323  -0.791996   0.000000
-   31  H  2  Z    0.000000   0.840138  -0.616175   0.591336   0.000000
-   32  H  3  S    0.000000  -0.053662  -1.088199  -0.864673   0.000000
-   33  H  3  S    0.000000   0.076252  -0.901156  -0.523650   0.000000
-   34  H  3  X    0.854079   0.000000   0.000000   0.000000  -0.181056
-   35  H  3  Y    0.000000  -0.534447   0.734323   0.791996   0.000000
-   36  H  3  Z    0.000000   0.840138   0.616175   0.591336   0.000000
+    1  O  1  S   -0.000000  -0.009681   0.000000  -0.031326  -0.000000
+    2  O  1  S   -0.000000  -0.001132   0.000000  -0.003919  -0.000000
+    3  O  1  S   -0.000000  -0.005185   0.000000  -0.077916  -0.000000
+    4  O  1  S   -0.000000   0.169912   0.000000   0.149777  -0.000000
+    5  O  1  S   -0.000000  -0.153278   0.000000   1.936003  -0.000000
+    6  O  1  X   -0.160930  -0.000000   0.000000  -0.000000  -1.228261
+    7  O  1  Y   -0.000000  -0.000000   0.486460  -0.000000  -0.000000
+    8  O  1  Z   -0.000000  -0.185917   0.000000   0.425548  -0.000000
+    9  O  1  X   -0.426767  -0.000000   0.000000  -0.000000  -0.490497
+   10  O  1  Y   -0.000000  -0.000000   1.336266  -0.000000  -0.000000
+   11  O  1  Z   -0.000000  -0.485301   0.000000   0.611859  -0.000000
+   12  O  1  X   -0.011866  -0.000000   0.000000  -0.000000   1.445036
+   13  O  1  Y   -0.000000  -0.000000   0.555869  -0.000000  -0.000000
+   14  O  1  Z   -0.000000   0.136087   0.000000   0.409879  -0.000000
+   15  O  1 XX   -0.000000   0.017370   0.000000   0.166479  -0.000000
+   16  O  1 YY   -0.000000  -0.069994   0.000000  -0.165037  -0.000000
+   17  O  1 ZZ   -0.000000   0.052624   0.000000  -0.001442  -0.000000
+   18  O  1 XY   -0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   19  O  1 XZ    0.047283  -0.000000   0.000000  -0.000000   0.035392
+   20  O  1 YZ   -0.000000  -0.000000  -0.206785  -0.000000  -0.000000
+   21  O  1 XX   -0.000000  -0.005436   0.000000  -0.622490  -0.000000
+   22  O  1 YY   -0.000000   0.970729   0.000000   0.550037  -0.000000
+   23  O  1 ZZ   -0.000000  -0.965293   0.000000   0.072453  -0.000000
+   24  O  1 XY   -0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   25  O  1 XZ   -0.651847  -0.000000   0.000000  -0.000000   0.088739
+   26  O  1 YZ   -0.000000  -0.000000   1.310749  -0.000000  -0.000000
+   27  H  2  S   -0.000000  -0.053662   1.088199  -0.864673  -0.000000
+   28  H  2  S   -0.000000   0.076252   0.901156  -0.523650  -0.000000
+   29  H  2  X    0.854079  -0.000000   0.000000  -0.000000  -0.181056
+   30  H  2  Y   -0.000000   0.534447   0.734323  -0.791996  -0.000000
+   31  H  2  Z   -0.000000   0.840138  -0.616175   0.591336  -0.000000
+   32  H  3  S   -0.000000  -0.053662  -1.088199  -0.864673  -0.000000
+   33  H  3  S   -0.000000   0.076252  -0.901156  -0.523650  -0.000000
+   34  H  3  X    0.854079  -0.000000   0.000000  -0.000000  -0.181056
+   35  H  3  Y   -0.000000  -0.534447   0.734323   0.791996  -0.000000
+   36  H  3  Z   -0.000000   0.840138   0.616175   0.591336  -0.000000
 
                      26         27         28         29         30
                     4.4715     4.6865     4.6984     4.7036     4.7072
                      A1         A2         A1         B2         B1  
-    1  O  1  S   -0.008828   0.000000   0.001395   0.000000   0.000000
-    2  O  1  S   -0.001000   0.000000   0.000163   0.000000   0.000000
-    3  O  1  S   -0.028801   0.000000   0.007002   0.000000   0.000000
-    4  O  1  S   -0.034582   0.000000   0.023090   0.000000   0.000000
-    5  O  1  S    0.777834   0.000000  -0.211198   0.000000   0.000000
-    6  O  1  X    0.000000   0.000000   0.000000   0.000000   0.042720
-    7  O  1  Y    0.000000   0.000000   0.000000  -0.932468   0.000000
-    8  O  1  Z   -1.025948   0.000000   0.224149   0.000000   0.000000
-    9  O  1  X    0.000000   0.000000   0.000000   0.000000   0.011999
-   10  O  1  Y    0.000000   0.000000   0.000000   0.126081   0.000000
-   11  O  1  Z   -0.168699   0.000000   0.002109   0.000000   0.000000
-   12  O  1  X    0.000000   0.000000   0.000000   0.000000  -0.077059
-   13  O  1  Y    0.000000   0.000000   0.000000   1.444790   0.000000
-   14  O  1  Z    1.513936   0.000000  -0.370629   0.000000   0.000000
-   15  O  1 XX    0.413971   0.000000  -0.671181   0.000000   0.000000
-   16  O  1 YY   -0.639842   0.000000  -0.571493   0.000000   0.000000
-   17  O  1 ZZ    0.225871   0.000000   1.242674   0.000000   0.000000
-   18  O  1 XY    0.000000   1.259343   0.000000   0.000000   0.000000
-   19  O  1 XZ    0.000000   0.000000   0.000000   0.000000   1.256655
-   20  O  1 YZ    0.000000   0.000000   0.000000  -0.867990   0.000000
-   21  O  1 XX   -0.539472   0.000000   0.456411   0.000000   0.000000
-   22  O  1 YY    0.478188   0.000000   0.375576   0.000000   0.000000
-   23  O  1 ZZ    0.061284   0.000000  -0.831987   0.000000   0.000000
-   24  O  1 XY    0.000000  -0.752855   0.000000   0.000000   0.000000
-   25  O  1 XZ    0.000000   0.000000   0.000000   0.000000  -0.740362
-   26  O  1 YZ    0.000000   0.000000   0.000000   1.203663   0.000000
-   27  H  2  S   -0.570751   0.000000   0.140145   0.825616   0.000000
-   28  H  2  S   -0.074111   0.000000   0.026642   0.061463   0.000000
-   29  H  2  X    0.000000  -0.050296   0.000000   0.000000   0.048271
-   30  H  2  Y   -0.331493   0.000000   0.135025   0.091137   0.000000
-   31  H  2  Z    0.022368   0.000000   0.074026  -0.156071   0.000000
-   32  H  3  S   -0.570751   0.000000   0.140145  -0.825616   0.000000
-   33  H  3  S   -0.074111   0.000000   0.026642  -0.061463   0.000000
-   34  H  3  X    0.000000   0.050296   0.000000   0.000000   0.048271
-   35  H  3  Y    0.331493   0.000000  -0.135025   0.091137   0.000000
-   36  H  3  Z    0.022368   0.000000   0.074026   0.156071   0.000000
+    1  O  1  S   -0.008828  -0.000000   0.001395   0.000000   0.000000
+    2  O  1  S   -0.001000  -0.000000   0.000163   0.000000   0.000000
+    3  O  1  S   -0.028801  -0.000000   0.007002   0.000000   0.000000
+    4  O  1  S   -0.034582  -0.000000   0.023090   0.000000   0.000000
+    5  O  1  S    0.777834  -0.000000  -0.211198   0.000000   0.000000
+    6  O  1  X   -0.000000  -0.000000  -0.000000   0.000000   0.042720
+    7  O  1  Y   -0.000000  -0.000000  -0.000000  -0.932468   0.000000
+    8  O  1  Z   -1.025948  -0.000000   0.224149   0.000000   0.000000
+    9  O  1  X   -0.000000  -0.000000  -0.000000   0.000000   0.011999
+   10  O  1  Y   -0.000000  -0.000000  -0.000000   0.126081   0.000000
+   11  O  1  Z   -0.168699  -0.000000   0.002109   0.000000   0.000000
+   12  O  1  X   -0.000000  -0.000000  -0.000000   0.000000  -0.077059
+   13  O  1  Y   -0.000000  -0.000000  -0.000000   1.444790   0.000000
+   14  O  1  Z    1.513936  -0.000000  -0.370629   0.000000   0.000000
+   15  O  1 XX    0.413971  -0.000000  -0.671181   0.000000   0.000000
+   16  O  1 YY   -0.639842  -0.000000  -0.571493   0.000000   0.000000
+   17  O  1 ZZ    0.225871  -0.000000   1.242674   0.000000   0.000000
+   18  O  1 XY   -0.000000   1.259343  -0.000000   0.000000   0.000000
+   19  O  1 XZ   -0.000000  -0.000000  -0.000000   0.000000   1.256655
+   20  O  1 YZ   -0.000000  -0.000000  -0.000000  -0.867990   0.000000
+   21  O  1 XX   -0.539472  -0.000000   0.456411   0.000000   0.000000
+   22  O  1 YY    0.478188  -0.000000   0.375576   0.000000   0.000000
+   23  O  1 ZZ    0.061284  -0.000000  -0.831987   0.000000   0.000000
+   24  O  1 XY   -0.000000  -0.752855  -0.000000   0.000000   0.000000
+   25  O  1 XZ   -0.000000  -0.000000  -0.000000   0.000000  -0.740362
+   26  O  1 YZ   -0.000000  -0.000000  -0.000000   1.203663   0.000000
+   27  H  2  S   -0.570751  -0.000000   0.140145   0.825616   0.000000
+   28  H  2  S   -0.074111  -0.000000   0.026642   0.061463   0.000000
+   29  H  2  X   -0.000000  -0.050296  -0.000000   0.000000   0.048271
+   30  H  2  Y   -0.331493  -0.000000   0.135025   0.091137   0.000000
+   31  H  2  Z    0.022368  -0.000000   0.074026  -0.156071   0.000000
+   32  H  3  S   -0.570751  -0.000000   0.140145  -0.825616   0.000000
+   33  H  3  S   -0.074111  -0.000000   0.026642  -0.061463   0.000000
+   34  H  3  X   -0.000000   0.050296  -0.000000   0.000000   0.048271
+   35  H  3  Y    0.331493  -0.000000  -0.135025   0.091137   0.000000
+   36  H  3  Z    0.022368  -0.000000   0.074026   0.156071   0.000000
 
                      31         32         33         34
                     5.1051     5.7644    38.5697   498.9573
@@ -884,40 +979,40 @@ The dynamically linked libraries for this binary are
     3  O  1  S   -0.040120   0.000000   1.442601   0.555042
     4  O  1  S    0.191281   0.000000  -0.835059  -0.252090
     5  O  1  S    0.988321   0.000000   0.470404   0.143388
-    6  O  1  X    0.000000   0.000000   0.000000   0.000000
-    7  O  1  Y    0.000000  -0.789001   0.000000   0.000000
+    6  O  1  X   -0.000000   0.000000   0.000000   0.000000
+    7  O  1  Y   -0.000000  -0.789001   0.000000   0.000000
     8  O  1  Z   -0.547017   0.000000   0.031203   0.008453
-    9  O  1  X    0.000000   0.000000   0.000000   0.000000
-   10  O  1  Y    0.000000  -0.136422   0.000000   0.000000
+    9  O  1  X   -0.000000   0.000000   0.000000   0.000000
+   10  O  1  Y   -0.000000  -0.136422   0.000000   0.000000
    11  O  1  Z   -0.040815   0.000000   0.119456   0.036003
-   12  O  1  X    0.000000   0.000000   0.000000   0.000000
-   13  O  1  Y    0.000000   2.086379   0.000000   0.000000
+   12  O  1  X   -0.000000   0.000000   0.000000   0.000000
+   13  O  1  Y   -0.000000   2.086379   0.000000   0.000000
    14  O  1  Z    1.251703   0.000000  -0.151773  -0.042760
    15  O  1 XX   -1.022049   0.000000   0.045658   0.012558
    16  O  1 YY    0.964987   0.000000  -0.040610  -0.011138
    17  O  1 ZZ    0.057062   0.000000  -0.005048  -0.001421
-   18  O  1 XY    0.000000   0.000000   0.000000   0.000000
-   19  O  1 XZ    0.000000   0.000000   0.000000   0.000000
-   20  O  1 YZ    0.000000   1.105062   0.000000   0.000000
+   18  O  1 XY   -0.000000   0.000000   0.000000   0.000000
+   19  O  1 XZ   -0.000000   0.000000   0.000000   0.000000
+   20  O  1 YZ   -0.000000   1.105062   0.000000   0.000000
    21  O  1 XX    0.252046   0.000000  -0.010654  -0.003387
    22  O  1 YY   -0.389094   0.000000   0.009499   0.002904
    23  O  1 ZZ    0.137048   0.000000   0.001154   0.000484
-   24  O  1 XY    0.000000   0.000000   0.000000   0.000000
-   25  O  1 XZ    0.000000   0.000000   0.000000   0.000000
-   26  O  1 YZ    0.000000   0.231268   0.000000   0.000000
+   24  O  1 XY   -0.000000   0.000000   0.000000   0.000000
+   25  O  1 XZ   -0.000000   0.000000   0.000000   0.000000
+   26  O  1 YZ   -0.000000   0.231268   0.000000   0.000000
    27  H  2  S   -0.586617   1.024603   0.055683   0.014867
    28  H  2  S   -0.183732   0.032832  -0.106053  -0.032353
-   29  H  2  X    0.000000   0.000000   0.000000   0.000000
+   29  H  2  X   -0.000000   0.000000   0.000000   0.000000
    30  H  2  Y   -0.621366   0.692265   0.090899   0.025663
    31  H  2  Z    0.277651  -0.615672  -0.069702  -0.019834
    32  H  3  S   -0.586617  -1.024603   0.055683   0.014867
    33  H  3  S   -0.183732  -0.032832  -0.106053  -0.032353
-   34  H  3  X    0.000000   0.000000   0.000000   0.000000
+   34  H  3  X   -0.000000   0.000000   0.000000   0.000000
    35  H  3  Y    0.621366   0.692265  -0.090899  -0.025663
    36  H  3  Z    0.277651   0.615672  -0.069702  -0.019834
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.01 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    92.72%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    99.72%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -1053,15 +1148,15 @@ The dynamically linked libraries for this binary are
           ---------------------
 
  POINT   1           X           Y           Z (BOHR)    CHARGE
-                -0.000000    0.000000    0.122633        0.00 (A.U.)
+                -0.000000   -0.000000    0.122633       -0.00 (A.U.)
          DX          DY          DZ         /D/  (DEBYE)
      0.000000    0.000000    2.093292    2.093292
         QXX         QYY         QZZ         QXY         QXZ         QYZ  (BUCKINGHAMS)
-    -2.388660    2.495390   -0.106730    0.000000   -0.000000   -0.000000
+    -2.388660    2.495390   -0.106730    0.000000   -0.000000    0.000000
         OXXX        OXXY        OXXZ        OXYY        OYYY        OYYZ
      0.000000    0.000000   -0.890363   -0.000000   -0.000000    2.186855
         OXZZ        OYZZ        OZZZ        OXYZ  (X10**34 ESU-CM**3)
-    -0.000000   -0.000000   -1.296492    0.000000
+    -0.000000    0.000000   -1.296492    0.000000
 
           ----------------
           ELECTRON DENSITY
@@ -1109,7 +1204,7 @@ The dynamically linked libraries for this binary are
             EFX             EFY             EFZ            /EF/       (A.U.)
          0.000000        0.006572        0.001233        0.006686
            EFGXX           EFGYY           EFGZZ           EFGXY           EFGXZ           EFGYZ
-         0.301208       -0.258153       -0.043055       -0.000000        0.000000       -0.365168
+         0.301208       -0.258153       -0.043055        0.000000        0.000000       -0.365168
 
           ----------------------------
           CUMULATIVE ATOMIC MULTIPOLES
@@ -1125,15 +1220,15 @@ The dynamically linked libraries for this binary are
 
      DIPOLES           
    X             Y             Z             
- O  -9.189798E-18 -2.664535E-15 -4.382785E-02
- H  -1.908743E-17 -7.291251E-02  7.899334E-02
- H  -2.197171E-18  7.291251E-02  7.899334E-02
+ O   2.647787E-17 -4.662937E-15 -4.382785E-02
+ H  -2.479898E-17 -7.291251E-02  7.899334E-02
+ H  -4.142017E-18  7.291251E-02  7.899334E-02
 
      QUADRUPOLES       
    XX            XY            YY            XZ            YZ            
- O  -4.817527E+00 -3.761252E-17 -4.417880E+00  3.225806E-17 -4.329870E-15
- H  -3.255317E-01 -1.696119E-18 -1.833317E-01  4.794858E-18 -5.059945E-02
- H  -3.255317E-01  3.957657E-18 -1.833317E-01  1.719375E-19  5.059945E-02
+ O  -4.817527E+00 -3.869347E-17 -4.417880E+00  3.300020E-17 -6.994405E-15
+ H  -3.255317E-01 -7.100184E-18 -1.833317E-01  6.375725E-18 -5.059945E-02
+ H  -3.255317E-01  6.422796E-18 -1.833317E-01  1.338525E-19  5.059945E-02
    ZZ            
  O  -4.681392E+00
  H  -2.888747E-01
@@ -1141,55 +1236,45 @@ The dynamically linked libraries for this binary are
 
      OCTUPOLES         
    XXX           XXY           XYY           YYY           XXZ           
- O   4.057985E-17  1.154632E-14  3.410103E-17 -2.131628E-14 -1.816265E-02
- H  -4.212816E-17  1.933772E-02  9.858798E-18  3.977359E-01  6.112174E-03
- H  -2.987154E-18 -1.933772E-02 -9.752801E-18 -3.977359E-01  6.112174E-03
+ O   4.739602E-17 -2.664535E-15  4.771257E-17 -4.263256E-14 -1.816265E-02
+ H  -3.870285E-17  1.933772E-02  3.305940E-18  3.977359E-01  6.112174E-03
+ H  -1.768318E-17 -1.933772E-02 -1.547064E-17 -3.977359E-01  6.112174E-03
    XYZ           YYZ           XZZ           YZZ           ZZZ           
- O  -3.145782E-17 -5.213963E-01  2.026016E-17 -7.105427E-15 -3.479830E-01
- H  -7.218504E-18 -1.421137E-01 -5.140756E-18  1.197090E-01 -5.297630E-02
- H  -3.106984E-19 -1.421137E-01 -1.891197E-18 -1.197090E-01 -5.297630E-02
+ O  -3.124562E-17 -5.213963E-01  3.390689E-17  0.000000E+00 -3.479830E-01
+ H  -3.829449E-18 -1.421137E-01 -4.219156E-18  1.197090E-01 -5.297630E-02
+ H  -2.491971E-19 -1.421137E-01 -4.241914E-18 -1.197090E-01 -5.297630E-02
 
      HEXADECAPOLES     
    XXXX          XXXY          XXYY          XYYY          YYYY          
- O  -1.385435E+01 -4.727651E-17 -4.123862E+00 -1.003870E-16 -1.150123E+01
- H  -6.723852E-01  2.327959E-17 -8.163845E-02  6.105047E-17  7.996918E-01
- H  -6.723852E-01  6.795530E-18 -8.163845E-02  2.597297E-17  7.996918E-01
+ O  -1.385435E+01 -6.836544E-17 -4.123862E+00 -1.088007E-16 -1.150123E+01
+ H  -6.723852E-01 -1.283866E-17 -8.163845E-02  2.739602E-17  7.996918E-01
+ H  -6.723852E-01  2.532091E-17 -8.163845E-02  4.025507E-17  7.996918E-01
    XXXZ          XXYZ          XYYZ          YYYZ          XXZZ          
- O   3.848091E-17  1.776357E-14  5.023521E-17 -1.065814E-14 -4.433966E+00
- H  -5.960386E-18 -6.445459E-02 -2.092547E-17 -4.465879E-01 -1.745236E-01
- H   1.873220E-19  6.445459E-02  7.461944E-19  4.465879E-01 -1.745236E-01
+ O   5.432562E-17 -7.993606E-15  5.155583E-17 -9.592327E-14 -4.433966E+00
+ H   3.414937E-18 -6.445459E-02 -1.368627E-17 -4.465879E-01 -1.745236E-01
+ H   1.000832E-19  6.445459E-02  5.998126E-19  4.465879E-01 -1.745236E-01
    XYZZ          YYZZ          XZZZ          YZZZ          ZZZZ          
- O  -4.607724E-17 -4.356599E+00  7.450166E-17  1.065814E-14 -1.300077E+01
- H   1.815496E-17  1.377094E-01 -1.205162E-17 -3.122542E-01 -2.911919E-01
- H   3.126617E-18  1.377094E-01  2.190809E-19  3.122542E-01 -2.911919E-01
+ O  -4.833828E-17 -4.356599E+00  8.179718E-17  2.486900E-14 -1.300077E+01
+ H   8.467591E-18  1.377094E-01 -4.301849E-18 -3.122542E-01 -2.911919E-01
+ H   6.291138E-18  1.377094E-01  1.662451E-19  3.122542E-01 -2.911919E-01
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.01 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    93.24%
-                580000  WORDS OF DYNAMIC MEMORY USED
- EXECUTION OF GAMESS TERMINATED NORMALLY 13:06:23 15-MAR-2022    
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    98.47%
+               580000  WORDS OF DYNAMIC MEMORY USED
+ EXECUTION OF GAMESS TERMINATED NORMALLY 01:38:31 14-MAY-2025    
  DDI: 263640 bytes (0.3 MB / 0 MWords) used by master data server.
 
  ----------------------------------------
  CPU timing information for all processes
  ========================================
- 0: 0.28 + 0.25 = 0.53
- 1: 0.16 + 0.18 = 0.35
- 2: 0.15 + 0.18 = 0.33
+ 0: 0.21 + 0.03 = 0.25
  ----------------------------------------
  ddikick.x: exited gracefully.
 unset echo
 ----- accounting info -----
-Files used on the master node compute-1-1.local were:
--rw-rw-r-- 1 sarom sarom    2120 Mar 15 13:06 /tmp/373910/exam13.F05
--rw-rw-r-- 1 sarom sarom  180016 Mar 15 13:06 /tmp/373910/exam13.F08
--rw-rw-r-- 1 sarom sarom  360032 Mar 15 13:06 /tmp/373910/exam13.F08.001
--rw-rw-r-- 1 sarom sarom  360032 Mar 15 13:06 /tmp/373910/exam13.F08.002
--rw-rw-r-- 1 sarom sarom 1701440 Mar 15 13:06 /tmp/373910/exam13.F10
-/usr/bin/rm: cannot remove ‘/tmp/373910’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373910’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373910’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373910’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373910’: No such file or directory
-srun: error: compute-1-1: tasks 1-5: Exited with exit code 1
-Tue Mar 15 13:06:27 CDT 2022
-0.220u 0.094s 0:03.69 8.4%	0+0k 96+1776io 0pf+0w
+Files used on the parent node Mac were:
+-rw-r--r--@ 1 sarom  staff     2120 May 14 01:38 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F05
+-rw-r--r--@ 1 sarom  staff   720064 May 14 01:38 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F08
+-rw-r--r--@ 1 sarom  staff  2028640 May 14 01:38 /Users/sarom/GAMESS-Development/gamess/scratch/exam13/2025_05_14-01_38_31-1BD1AAA9/exam13.F10
+Wed May 14 01:38:32 EDT 2025
+0.084u 0.068s 0:01.17 11.9%	0+0k 0+0io 91pf+0w

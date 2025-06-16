@@ -5,9 +5,22 @@ import re
 import json
 import sys
 import os
+import atexit
+import resource
+import platform
 
 from checkgms_utils import *
 from checkgms_stable import *
+
+def print_rusage():
+    rusage = resource.getrusage(resource.RUSAGE_SELF)
+    print()
+    print("checkgms resource usage:")
+    print()
+    print("real     %12.3f sec" % (rusage.ru_utime + rusage.ru_stime,))
+    print("user     %12.3f sec" % (rusage.ru_utime,))
+    print("sys      %12.3f sec" % (rusage.ru_stime,))
+    print("maxrss   %12d KiByte" % (rusage.ru_maxrss,))
 
 """
 If --json_create flag is passed to trigger the creation of new *.json validation files then it will look or log
@@ -60,6 +73,9 @@ else:
         file_string_skip=run_arguments["skip_file"],
         test_path=run_arguments["test_path"])
 
+if run_arguments["print_resource_usage"] and "Windows" not in platform.system():
+    atexit.register(print_rusage)
+
 # Loop through the log_file_paths array and validate
 for filenum, log_file_path in enumerate(log_file_paths, start=1):
 
@@ -89,6 +105,9 @@ for filenum, log_file_path in enumerate(log_file_paths, start=1):
                 log_file_path.replace(
                     ".log",
                     run_arguments["fail_extension"]))
+    else:
+        if run_arguments["pass_delete"]:
+            os.remove(log_file_path)
 
     if "empty" in str(validation_result):
         print("Empty Log File",log_file_path)

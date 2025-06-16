@@ -660,8 +660,20 @@ def parse_arguments(checkgms=True):
             help='if validation fail, replaces ".log" with arg value',
             default="")
         parser.add_argument(
+            '--pass_delete',
+            help='delete logfile if validation passes',
+            action="store_true")
+        parser.add_argument(
             '--no_dump',
             help='suppress logfile output when exiting on failure',
+            action="store_true")
+        parser.add_argument(
+            '--supress',
+            help='limit output',
+            action="store_true")
+        parser.add_argument(
+            '--print_resource_usage',
+            help='on Linux systems print resource usage after validation',
             action="store_true")
     else:
         # Command-line arguments used by $GMS_DIR/tests/runtests.py
@@ -722,6 +734,9 @@ def parse_arguments(checkgms=True):
             '--threads',
             help='number of parallel GAMESS computing',
             default="1")
+        parser.add_argument(
+            '--no_timeout',
+            help='disable the timeout for the individual tests and the timeout for all tests combined', action="store_true")
         parser.add_argument('--mpi', help='use mpi', action="store_true")
         parser.add_argument('--hpe-cray-ex', help='use hpe-cray-ex', action="store_true")
         parser.add_argument('--hpe-cray-cs', help='use hpe-cray-cs', action="store_true")
@@ -781,6 +796,10 @@ def parse_arguments(checkgms=True):
             '--bwrap',
             help='execute tests in a bwrap sandbox to avoid leftover semaphores',
             action="store_true")
+        parser.add_argument(
+            '--supress',
+            help='limit output',
+            action="store_true")
 
     args = parser.parse_args()
 
@@ -794,6 +813,7 @@ def parse_arguments(checkgms=True):
     run_arguments["skip_folder"] = args.skip_folder
     run_arguments["test_type"] = args.test_type
     run_arguments["ncpus"] = args.ncpus
+    run_arguments["supress"] = args.supress
 
     # Used by $GMS_DIR/tests/runtests.py
     if not checkgms:
@@ -809,6 +829,7 @@ def parse_arguments(checkgms=True):
         run_arguments["sourcefile"] = args.sourcefile
         run_arguments["ncpus"] = args.ncpus
         run_arguments["threads"] = args.threads
+        run_arguments["no_timeout"] = args.no_timeout
         run_arguments["output_extension"] = args.output_extension
         run_arguments["mpi"] = args.mpi
         run_arguments["hpe-cray-ex"] = args.hpe_cray_ex
@@ -843,7 +864,9 @@ def parse_arguments(checkgms=True):
         run_arguments["fail_extension"] = args.fail_rename
     else:
         run_arguments["fail_rename"] = False
+    run_arguments["pass_delete"] = args.pass_delete
     run_arguments["no_dump"] = args.no_dump
+    run_arguments["print_resource_usage"] = args.print_resource_usage
 
     # Raise exception if certain flags are missing
     if run_arguments["mode"] == "regression" or run_arguments["mode"] == "both":
@@ -900,7 +923,7 @@ def get_log_file_paths(filepath_string_match="",folder_string_match="", file_str
         directory_files.sort()
         for file_name in directory_files:
             # Skip if it is not a log file
-            if ".log" not in file_name[-4:]:
+            if file_extension not in file_name[-4:]:
                 continue
             # Skip if filepath does not match when provided
             if len(filepath_string_match_array[0]) > 0:
@@ -947,11 +970,11 @@ def get_log_file_paths(filepath_string_match="",folder_string_match="", file_str
                     if skip:
                         continue
                 # Skip files not containing ".log"
-                if file_extension not in file_name:
+                if file_extension not in file_name[-4:]:
                     continue
             logFiles.append(directory_path + "/" + file_name)
 
-    return logFiles
+    return sorted(logFiles)
 
 # Returns an array containing file paths to input files as elements
 
@@ -973,13 +996,14 @@ def get_input_file_paths(filepath_string_match="",folder_string_match="", file_s
        	       	continue
             # Skip if filepath does not match when provided
             if len(filepath_string_match_array[0]) > 0:
-                skip = False
+                skip = True
                 file_path = os.path.join(directory_path,file_name)
                 for match_string in filepath_string_match_array:
                     if match_string[0] == ".":
                         match_string=match_string[1:]
-                    if match_string not in file_path:
-                        skip = True
+                    if match_string in file_path:
+                        skip = False
+                        break
                 if skip:
                     continue
             else:
@@ -992,13 +1016,15 @@ def get_input_file_paths(filepath_string_match="",folder_string_match="", file_s
                            #print(skip_string, directory_path, "skip")
                     if skip:
                         continue
-                # Skip files containing folder_string_skip
+                # Skip files containing file_string_skip
                 if len(file_string_skip_array[0]) > 0:
                     skip = False
                     for skip_string in file_string_skip_array:
                         if skip_string in file_name:
                             skip = True
                            #print(skip_string, file_name, "skip")
+                        if skip_string in os.path.join(directory_path,file_name):
+                            skip = True
                     if skip:
                         continue
                 # Skip folders not containing folder_string_match
@@ -1021,9 +1047,9 @@ def get_input_file_paths(filepath_string_match="",folder_string_match="", file_s
                 # Skip files not containing ".inp"
                 if '.inp' not in file_name:
                     continue
-            inputFiles.append(directory_path + "/" + file_name)
+            inputFiles.append(os.path.join(directory_path,file_name))
 
-    return inputFiles
+    return sorted(inputFiles)
 
 # Creates a JSON for a JSON for a validation value
 

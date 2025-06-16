@@ -1,19 +1,27 @@
-source /home/sarom/dir.git.dev/install.info
-setenv GMS_PATH /export/home/sarom/dir.git.dev
-setenv GMS_BUILD_DIR /export/home/sarom/dir.git.dev
+source /Users/sarom/GAMESS-Development/gamess/install.info
+setenv GMS_VERSION 00
+setenv GMS_PATH /Users/sarom/GAMESS-Development/gamess
+setenv GMS_BUILD_DIR /Users/sarom/GAMESS-Development/gamess
 setenv GMS_TARGET linux64
 setenv GMS_HPC_SYSTEM_TARGET generic
-setenv GMS_FORTRAN oneapi-ifort
-setenv GMS_IFORT_VERNO 20
-setenv GMS_MATHLIB mkl
-setenv GMS_MATHLIB_PATH /shared/compilers/intel/oneapi/mkl/2022.0.1/lib/intel64
-setenv GMS_MKL_VERNO oneapi
+setenv GMS_ARCH arm
+setenv GMS_FORTRAN gfortran
+setenv GMS_GFORTRAN_VERNO 14.1
+setenv GMS_MATHLIB none
+setenv GMS_THREADED_BLAS false
+setenv GMS_LAPACK_LINK_LINE 
 setenv GMS_DDI_COMM sockets
-setenv GMS_MSUCC false
-setenv GMS_LIBCCHEM false
+setenv GMS_MSUAUTO false
+setenv GMS_HPCCHEM false
+setenv GMS_HPCCHEM_PATH
+setenv GMS_HPCCHEM_USE_DATA_SERVERS false
 setenv GMS_PHI none
 setenv GMS_SHMTYPE sysv
 setenv GMS_OPENMP false
+setenv GMS_OPENMP_OFFLOAD false
+setenv GMS_USE_HIPFORT false
+setenv USE_CUBLAS false
+setenv USE_HIPBLAS false
 setenv GMS_LIBXC false
 setenv GMS_MDI false
 setenv GMS_VM2 false
@@ -22,220 +30,293 @@ setenv VB2000 false
 setenv XMVB false
 setenv NEO false
 setenv NBO false
-setenv GMS_FPE_FLAGS -fpe0
-setenv GMS_FPE_FLAGS 
+setenv RISM false
+setenv GMS_FPE_FLAGS -ffpe-trap=invalid,zero,overflow -finit-real=snan -finit-integer=-9223372036854775808
 unset echo
-SLURM has assigned the following compute nodes to this run:
-compute-0-6
-srun mkdir -p /tmp/373932
-unset echo
-Input file supplied : /export/home/sarom/dir.git.dev/tests/travis-ci/parallel/exam36-protect.inp
------ GAMESS execution script 'rungms-dev' -----
-This job is running on host compute-0-6.local
-under operating system Linux at Tue Mar 15 13:07:26 CDT 2022 with sockets communication mode
-Available scratch disk space (Kbyte units) at beginning of the job is
-Filesystem     1K-blocks    Used Available Use% Mounted on
-/dev/sda1       15995808 6172864   8987360  41% /
-GAMESS temporary binary files will be written to /tmp/373932
-GAMESS supplementary output files will be written to /export/home/sarom/restart
+TERM_PROGRAM=Apple_Terminal
+TERM=xterm-256color
+SHELL=/bin/bash
+TMPDIR=/var/folders/sd/9w2pshtj1cx7jvxnw95lstjr0000gp/T/
+HOMEBREW_REPOSITORY=/opt/homebrew
+TERM_PROGRAM_VERSION=455.1
+TERM_SESSION_ID=E3731169-BECF-4F18-9F46-17B6FDC36B77
+USER=sarom
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.yJPjuo0ExF/Listeners
+__CF_USER_TEXT_ENCODING=0x1F6:0x0:0x0
+PATH=/opt/homebrew/opt/gnu-sed/libexec/gnubin:/opt/homebrew/opt/make/libexec/gnubin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/krb5/bin:/usr/local/ossh/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+_=misc/automation/rungms
+__CFBundleIdentifier=com.apple.Terminal
+PWD=/Users/sarom/GAMESS-Development/gamess
+EDITOR=nano
+LANG=en_US.UTF-8
+XPC_FLAGS=0x0
+KRB5_CONFIG=/etc/krb5.conf
+XPC_SERVICE_NAME=0
+HOME=/Users/sarom
+SHLVL=3
+HOMEBREW_PREFIX=/opt/homebrew
+LOGNAME=sarom
+VISUAL=nano
+HOMEBREW_CELLAR=/opt/homebrew/Cellar
+INFOPATH=/opt/homebrew/share/info:
+HOSTTYPE=unknown
+VENDOR=apple
+OSTYPE=darwin
+MACHTYPE=unknown
+GROUP=staff
+HOST=Mac
+NO_STOP_MESSAGE=1
+GMS_VERSION=00
+GMS_PATH=/Users/sarom/GAMESS-Development/gamess
+GMS_BUILD_DIR=/Users/sarom/GAMESS-Development/gamess
+GMS_TARGET=linux64
+GMS_HPC_SYSTEM_TARGET=generic
+GMS_ARCH=arm
+GMS_FORTRAN=gfortran
+GMS_GFORTRAN_VERNO=14.1
+GMS_MATHLIB=none
+GMS_THREADED_BLAS=false
+GMS_LAPACK_LINK_LINE=
+GMS_DDI_COMM=sockets
+GMS_MSUAUTO=false
+GMS_HPCCHEM=false
+GMS_HPCCHEM_PATH=
+GMS_HPCCHEM_USE_DATA_SERVERS=false
+GMS_PHI=none
+GMS_SHMTYPE=sysv
+GMS_OPENMP=false
+GMS_OPENMP_OFFLOAD=false
+GMS_USE_HIPFORT=false
+USE_CUBLAS=false
+USE_HIPBLAS=false
+GMS_LIBXC=false
+GMS_MDI=false
+GMS_VM2=false
+TINKER=false
+VB2000=false
+XMVB=false
+NEO=false
+NBO=false
+RISM=false
+GMS_FPE_FLAGS=-ffpe-trap=invalid,zero,overflow -finit-real=snan -finit-integer=-9223372036854775808
+LD_LIBRARY_PATH=
 Copying input file exam36-protect.inp to your run's scratch directory...
-cp /export/home/sarom/dir.git.dev/tests/travis-ci/parallel/exam36-protect.inp /tmp/373932/exam36-protect.F05
+cp /Users/sarom/GAMESS-Development/gamess/tests/travis-ci/parallel/exam36-protect.inp /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F05
+unset echo
+----- GAMESS execution script 'rungms' -----
+This job is running on host Mac
+under operating system Darwin at Wed May 14 01:39:02 EDT 2025
+Available scratch disk space (Kbyte units) at beginning of the job is
+Filesystem   1024-blocks      Used Available Capacity iused     ifree %iused  Mounted on
+/dev/disk3s5   239362496 154791416  65510504    71% 1523287 655105040    0%   /System/Volumes/Data
+GAMESS temporary binary files will be written to /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00
+GAMESS supplementary output files will be written to /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00
+limit stacksize 32768
 unset echo
 setenv NO_STOP_MESSAGE 1
-setenv AUXDATA /home/sarom/dir.git.dev/auxdata
+setenv AUXDATA /Users/sarom/GAMESS-Development/gamess/auxdata
 setenv EXTBAS /dev/null
-setenv NUCBAS /dev/null
-setenv EXTCAB /home/sarom/dir.git.dev/auxdata/AUXBAS/auxdef21
-setenv POSBAS /dev/null
-setenv DFTBPAR /home/sarom/dir.git.dev/auxdata/DFTB
-setenv ERICFMT /home/sarom/dir.git.dev/auxdata/ericfmt.dat
-setenv MCPPATH /home/sarom/dir.git.dev/auxdata/MCP
-setenv BASPATH /home/sarom/dir.git.dev/auxdata/BASES
-setenv QUANPOL /home/sarom/dir.git.dev/auxdata/QUANPOL
-setenv MAKEFP /export/home/sarom/restart/exam36-protect.efp
-setenv GAMMA /export/home/sarom/restart/exam36-protect.gamma
-setenv TRAJECT /export/home/sarom/restart/exam36-protect.trj
-setenv RESTART /export/home/sarom/restart/exam36-protect.rst
-setenv QMWAVE /export/home/sarom/restart/exam36-protect.qmw
-setenv MDDIP /export/home/sarom/restart/exam36-protect.dip
-setenv OPTHES1 /export/home/sarom/restart/exam36-protect.hs1
-setenv OPTHES2 /export/home/sarom/restart/exam36-protect.hs2
-setenv FCIDUMP /export/home/sarom/restart/exam36-protect.FCIDUMP
-setenv XYZ /tmp/373932/exam36-protect.xyz
-setenv INPUT /tmp/373932/exam36-protect.F05
-setenv PUNCH /export/home/sarom/restart/exam36-protect.dat
-setenv AOINTS /tmp/373932/exam36-protect.F08
-setenv MOINTS /tmp/373932/exam36-protect.F09
-setenv DICTNRY /tmp/373932/exam36-protect.F10
-setenv DRTFILE /tmp/373932/exam36-protect.F11
-setenv CIVECTR /tmp/373932/exam36-protect.F12
-setenv CASINTS /tmp/373932/exam36-protect.F13
-setenv CIINTS /tmp/373932/exam36-protect.F14
-setenv WORK15 /tmp/373932/exam36-protect.F15
-setenv WORK16 /tmp/373932/exam36-protect.F16
-setenv CSFSAVE /tmp/373932/exam36-protect.F17
-setenv FOCKDER /tmp/373932/exam36-protect.F18
-setenv WORK19 /tmp/373932/exam36-protect.F19
-setenv DASORT /tmp/373932/exam36-protect.F20
-setenv DIABDAT /tmp/373932/exam36-protect.F21
-setenv DFTINTS /tmp/373932/exam36-protect.F21
-setenv DFTGRID /tmp/373932/exam36-protect.F22
-setenv JKFILE /tmp/373932/exam36-protect.F23
-setenv ORDINT /tmp/373932/exam36-protect.F24
-setenv EFPIND /tmp/373932/exam36-protect.F25
-setenv PCMDATA /tmp/373932/exam36-protect.F26
-setenv PCMINTS /tmp/373932/exam36-protect.F27
-setenv SVPWRK1 /tmp/373932/exam36-protect.F26
-setenv SVPWRK2 /tmp/373932/exam36-protect.F27
-setenv COSCAV /tmp/373932/exam36-protect.F26
-setenv COSDATA /export/home/sarom/restart/exam36-protect.cosmo
-setenv COSPOT /export/home/sarom/restart/exam36-protect.pot
-setenv MLTPL /tmp/373932/exam36-protect.F28
-setenv MLTPLT /tmp/373932/exam36-protect.F29
-setenv DAFL30 /tmp/373932/exam36-protect.F30
-setenv SOINTX /tmp/373932/exam36-protect.F31
-setenv SOINTY /tmp/373932/exam36-protect.F32
-setenv SOINTZ /tmp/373932/exam36-protect.F33
-setenv SORESC /tmp/373932/exam36-protect.F34
-setenv GCILIST /tmp/373932/exam36-protect.F37
-setenv HESSIAN /tmp/373932/exam36-protect.F38
-setenv QMMMTEI /tmp/373932/exam36-protect.F39
-setenv SOCCDAT /tmp/373932/exam36-protect.F40
-setenv AABB41 /tmp/373932/exam36-protect.F41
-setenv BBAA42 /tmp/373932/exam36-protect.F42
-setenv BBBB43 /tmp/373932/exam36-protect.F43
-setenv REMD /tmp/373932/exam36-protect.F44
-setenv UNV /tmp/373932/exam36-protect.F45
-setenv UNPV /tmp/373932/exam36-protect.F46
-setenv MCQD50 /tmp/373932/exam36-protect.F50
-setenv MCQD51 /tmp/373932/exam36-protect.F51
-setenv MCQD52 /tmp/373932/exam36-protect.F52
-setenv MCQD53 /tmp/373932/exam36-protect.F53
-setenv MCQD54 /tmp/373932/exam36-protect.F54
-setenv MCQD55 /tmp/373932/exam36-protect.F55
-setenv MCQD56 /tmp/373932/exam36-protect.F56
-setenv MCQD57 /tmp/373932/exam36-protect.F57
-setenv MCQD58 /tmp/373932/exam36-protect.F58
-setenv MCQD59 /tmp/373932/exam36-protect.F59
-setenv MCQD60 /tmp/373932/exam36-protect.F60
-setenv MCQD61 /tmp/373932/exam36-protect.F61
-setenv MCQD62 /tmp/373932/exam36-protect.F62
-setenv MCQD63 /tmp/373932/exam36-protect.F63
-setenv MCQD64 /tmp/373932/exam36-protect.F64
-setenv NMRINT1 /tmp/373932/exam36-protect.F61
-setenv NMRINT2 /tmp/373932/exam36-protect.F62
-setenv NMRINT3 /tmp/373932/exam36-protect.F63
-setenv NMRINT4 /tmp/373932/exam36-protect.F64
-setenv NMRINT5 /tmp/373932/exam36-protect.F65
-setenv NMRINT6 /tmp/373932/exam36-protect.F66
-setenv DCPHFH2 /tmp/373932/exam36-protect.F67
-setenv DCPHF21 /tmp/373932/exam36-protect.F68
-setenv ELNUINT /tmp/373932/exam36-protect.F67
-setenv NUNUINT /tmp/373932/exam36-protect.F68
-setenv GVVPT /tmp/373932/exam36-protect.F69
-setenv NUMOIN /tmp/373932/exam36-protect.F69
-setenv NUMOCAS /tmp/373932/exam36-protect.F70
-setenv NUELMO /tmp/373932/exam36-protect.F71
-setenv NUELCAS /tmp/373932/exam36-protect.F72
-setenv RIVMAT /tmp/373932/exam36-protect.F51
-setenv RIT2A /tmp/373932/exam36-protect.F52
-setenv RIT3A /tmp/373932/exam36-protect.F53
-setenv RIT2B /tmp/373932/exam36-protect.F54
-setenv RIT3B /tmp/373932/exam36-protect.F55
-setenv DEN2P1 /tmp/373932/exam36-protect.F70
-setenv DEN2P2 /tmp/373932/exam36-protect.F71
-setenv DEN2P3 /tmp/373932/exam36-protect.F72
-setenv DEN2P4 /tmp/373932/exam36-protect.F73
-setenv DEN2NM /tmp/373932/exam36-protect.F74
-setenv DEN2OPT /tmp/373932/exam36-protect.F75
-setenv GMCREF /tmp/373932/exam36-protect.F70
-setenv GMCO2R /tmp/373932/exam36-protect.F71
-setenv GMCROC /tmp/373932/exam36-protect.F72
-setenv GMCOOC /tmp/373932/exam36-protect.F73
-setenv GMCCC0 /tmp/373932/exam36-protect.F74
-setenv GMCHMA /tmp/373932/exam36-protect.F75
-setenv GMCEI1 /tmp/373932/exam36-protect.F76
-setenv GMCEI2 /tmp/373932/exam36-protect.F77
-setenv GMCEOB /tmp/373932/exam36-protect.F78
-setenv GMCEDT /tmp/373932/exam36-protect.F79
-setenv GMCERF /tmp/373932/exam36-protect.F80
-setenv GMCHCR /tmp/373932/exam36-protect.F81
-setenv GMCGJK /tmp/373932/exam36-protect.F82
-setenv GMCGAI /tmp/373932/exam36-protect.F83
-setenv GMCGEO /tmp/373932/exam36-protect.F84
-setenv GMCTE1 /tmp/373932/exam36-protect.F85
-setenv GMCTE2 /tmp/373932/exam36-protect.F86
-setenv GMCHEF /tmp/373932/exam36-protect.F87
-setenv GMCMOL /tmp/373932/exam36-protect.F88
-setenv GMCMOS /tmp/373932/exam36-protect.F89
-setenv GMCWGT /tmp/373932/exam36-protect.F90
-setenv GMCRM2 /tmp/373932/exam36-protect.F91
-setenv GMCRM1 /tmp/373932/exam36-protect.F92
-setenv GMCR00 /tmp/373932/exam36-protect.F93
-setenv GMCRP1 /tmp/373932/exam36-protect.F94
-setenv GMCRP2 /tmp/373932/exam36-protect.F95
-setenv GMCVEF /tmp/373932/exam36-protect.F96
-setenv GMCDIN /tmp/373932/exam36-protect.F97
-setenv GMC2SZ /tmp/373932/exam36-protect.F98
-setenv GMCCCS /tmp/373932/exam36-protect.F99
+setenv NUCBAS /Users/sarom/GAMESS-Development/gamess/tests/travis-ci/parallel/exam36-protect.nucbas
+setenv EXTCAB /Users/sarom/GAMESS-Development/gamess/auxdata/AUXBAS/auxdef21
+setenv POSBAS /Users/sarom/GAMESS-Development/gamess/tests/travis-ci/parallel/exam36-protect.posbas
+setenv DFTBPAR /Users/sarom/GAMESS-Development/gamess/auxdata/DFTB
+setenv ERICFMT /Users/sarom/GAMESS-Development/gamess/auxdata/ericfmt.dat
+setenv MCPPATH /Users/sarom/GAMESS-Development/gamess/auxdata/MCP
+setenv BASPATH /Users/sarom/GAMESS-Development/gamess/auxdata/BASES
+setenv QUANPOL /Users/sarom/GAMESS-Development/gamess/auxdata/QUANPOL
+setenv MAKEFP /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.efp
+setenv GAMMA /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.gamma
+setenv TRAJECT /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.trj
+setenv RESTART /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.rst
+setenv QMWAVE /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.qmw
+setenv MDDIP /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.dip
+setenv OPTHES1 /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.hs1
+setenv OPTHES2 /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.hs2
+setenv FCIDUMP /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.FCIDUMP
+setenv XYZ /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.xyz
+setenv IRCDATA /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F04
+setenv INPUT /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F05
+setenv PUNCH /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.dat
+setenv NAMDRST /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.namdrst
+setenv AOINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F08
+setenv MOINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F09
+setenv DICTNRY /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F10
+setenv DRTFILE /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F11
+setenv CIVECTR /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F12
+setenv CASINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F13
+setenv CIINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F14
+setenv WORK15 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F15
+setenv WORK16 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F16
+setenv CSFSAVE /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F17
+setenv FOCKDER /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F18
+setenv WORK19 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F19
+setenv DASORT /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F20
+setenv DIABDAT /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F21
+setenv DFTINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F21
+setenv DFTGRID /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F22
+setenv JKFILE /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F23
+setenv ORDINT /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F24
+setenv EFPIND /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F25
+setenv PCMDATA /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F26
+setenv PCMINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F27
+setenv SVPWRK1 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F26
+setenv SVPWRK2 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F27
+setenv COSCAV /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F26
+setenv COSDATA /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.cosmo
+setenv COSPOT /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.pot
+setenv MLTPL /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F28
+setenv MLTPLT /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F29
+setenv DAFL30 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F30
+setenv SOINTX /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F31
+setenv SOINTY /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F32
+setenv SOINTZ /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F33
+setenv SORESC /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F34
+setenv RISM01 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F26R
+setenv RISM02 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F27R
+setenv QOPWRF /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.wrf
+setenv GCILIST /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F37
+setenv HESSIAN /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F38
+setenv QMMMTEI /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F39
+setenv SOCCDAT /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F40
+setenv AABB41 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F41
+setenv BBAA42 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F42
+setenv BBBB43 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F43
+setenv REMD /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F44
+setenv UNV /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F45
+setenv UNPV /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F46
+setenv MCQD50 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F50
+setenv MCQD51 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F51
+setenv MCQD52 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F52
+setenv MCQD53 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F53
+setenv MCQD54 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F54
+setenv MCQD55 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F55
+setenv MCQD56 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F56
+setenv MCQD57 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F57
+setenv MCQD58 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F58
+setenv MCQD59 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F59
+setenv MCQD60 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F60
+setenv MCQD61 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F61
+setenv MCQD62 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F62
+setenv MCQD63 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F63
+setenv MCQD64 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F64
+setenv NMRINT1 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F61
+setenv NMRINT2 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F62
+setenv NMRINT3 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F63
+setenv NMRINT4 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F64
+setenv NMRINT5 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F65
+setenv NMRINT6 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F66
+setenv DCPHFH2 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F67
+setenv DCPHF21 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F68
+setenv ELNUINT /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F67
+setenv NUNUINT /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F68
+setenv GVVPT /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F69
+setenv NUMOIN /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F69
+setenv NUMOCAS /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F70
+setenv NUELMO /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F71
+setenv NUELCAS /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F72
+setenv EPOVRLP /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F73
+setenv RIVMAT /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F51
+setenv RIT2A /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F52
+setenv RIT3A /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F53
+setenv RIT2B /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F54
+setenv RIT3B /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F55
+setenv KI /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F47
+setenv BI /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F48
+setenv PRMERI /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F49
+setenv TRSERI /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F50
+setenv PVP /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F51
+setenv TPVPI /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F52
+setenv TPVPJ /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F53
+setenv PPVPP /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F54
+setenv TPPVPP /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F55
+setenv DEN2P1 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F70
+setenv DEN2P2 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F71
+setenv DEN2P3 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F72
+setenv DEN2P4 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F73
+setenv DEN2NM /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F74
+setenv DEN2OPT /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F75
+setenv GMCREF /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F70
+setenv GMCO2R /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F71
+setenv GMCROC /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F72
+setenv GMCOOC /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F73
+setenv GMCCC0 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F74
+setenv GMCHMA /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F75
+setenv GMCEI1 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F76
+setenv GMCEI2 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F77
+setenv GMCEOB /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F78
+setenv GMCEDT /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F79
+setenv GMCERF /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F80
+setenv GMCHCR /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F81
+setenv GMCGJK /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F82
+setenv GMCGAI /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F83
+setenv GMCGEO /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F84
+setenv GMCTE1 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F85
+setenv GMCTE2 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F86
+setenv GMCHEF /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F87
+setenv GMCMOL /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F88
+setenv GMCMOS /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F89
+setenv GMCWGT /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F90
+setenv GMCRM2 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F91
+setenv GMCRM1 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F92
+setenv GMCR00 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F93
+setenv GMCRP1 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F94
+setenv GMCRP2 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F95
+setenv GMCVEF /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F96
+setenv GMCDIN /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F97
+setenv GMC2SZ /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F98
+setenv GMCCCS /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F99
 unset echo
-rm: cannot remove ‘/export/home/sarom/restart/exam36-protect.casino’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam36-protect.dmn’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam36-protect.cim’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam36-protect.cosmo’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam36-protect.pot’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam36-protect.gamma’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam36-protect.efp’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam36-protect.dip’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam36-protect.hs1’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam36-protect.hs2’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam36-protect.dat’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam36-protect.qmw’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam36-protect.rst’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam36-protect.trj’: No such file or directory
- 
-Assuming a single but multicore node.
- 
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.casino: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.dmn: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.cim: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.cosmo: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.pot: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.gamma: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.efp: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.dip: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.hs1: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.hs2: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.dat: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.qmw: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.rst: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.trj: No such file or directory
 The generated host list is
-compute-0-6.local:cpus=3
+Mac
 -----debug-----
 the execution path is
-/opt/openmpi/bin /shared/compilers/aocc-compiler-3.2.0/share/opt-viewer /shared/compilers/aocc-compiler-3.2.0/bin /shared/git/2.9.5/bin /shared/compilers/gcc/5.5.0/bin /shared/cmake/3.12.0/bin /export/home/sarom/bin /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el7_4.x86_64/jre/bin/ /usr/lib64/qt-3.3/bin /usr/local/bin /usr/bin /usr/local/sbin /usr/sbin /opt/pdsh/bin /opt/rocks/bin /opt/rocks/sbin
+/opt/homebrew/opt/gnu-sed/libexec/gnubin /opt/homebrew/opt/make/libexec/gnubin /opt/homebrew/bin /opt/homebrew/sbin /usr/local/krb5/bin /usr/local/ossh/bin /usr/local/bin /System/Cryptexes/App/usr/bin /usr/bin /bin /usr/sbin /sbin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
 the library path is
-/opt/openmpi/lib:/shared/compilers/aocc-compiler-3.2.0/ompd:/shared/compilers/aocc-compiler-3.2.0/lib:/shared/compilers/aocc-compiler-3.2.0/lib32:/usr/lib64:/usr/lib:/shared/compilers/gcc/5.5.0/lib64:
-The dynamically linked libraries for this binary are
-/home/sarom/dir.git.dev/gamess.00.x :
 
-	linux-vdso.so.1 =>  (0x00007ffd3c1c7000)
-	libpthread.so.0 => /usr/lib64/libpthread.so.0 (0x00007f1aa0459000)
-	libm.so.6 => /usr/lib64/libm.so.6 (0x00007f1aa0156000)
-	libc.so.6 => /usr/lib64/libc.so.6 (0x00007f1a9fd93000)
-	/lib64/ld-linux-x86-64.so.2 (0x000055d5af365000)
-	libgcc_s.so.1 => /shared/compilers/gcc/5.5.0/lib64/libgcc_s.so.1 (0x00007f1a9fb7c000)
-	libdl.so.2 => /usr/lib64/libdl.so.2 (0x00007f1a9f977000)
+The dynamically linked libraries for this binary are
+/Users/sarom/GAMESS-Development/gamess/gamess.00.x :
+
+ldd: Command not found.
 --------------
-/home/sarom/dir.git.dev/ddikick.x /home/sarom/dir.git.dev/gamess.00.x exam36-protect -ddi 1 3 compute-0-6.local:cpus=3 -scr /tmp/373932
+/Users/sarom/GAMESS-Development/gamess/ddikick.x /Users/sarom/GAMESS-Development/gamess/gamess.00.x exam36-protect -ddi 1 1 Mac -scr /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00
 
  Distributed Data Interface kickoff program.
- Initiating 3 compute processes on 1 nodes to run the following command:
- /home/sarom/dir.git.dev/gamess.00.x exam36-protect 
+ Initiating 1 compute processes on 1 nodes to run the following command:
+ /Users/sarom/GAMESS-Development/gamess/gamess.00.x exam36-protect 
 
           *******************************************************
           *                                                     *
-          *      GAMESS VERSION = 30 SEP 2021 (R2 Patch 1)      *
+          *      GAMESS VERSION = 15 JUL 2024 (R2 Patch 1)          *
           *                                                     *
           *              doi.org/10.1063/5.0005188              *
           *                                                     *
-          **************** 64 BIT INTEL VERSION *****************
+          **************** 64 BIT LINUX VERSION *****************
+ 
+           git commit: bf99997cb9bae7c41d40f16e0cbc3a8d2532d8b0
+ 
 
   GAMESS HAS BEEN MADE POSSIBLE WITH IMPORTANT CONTRIBUTIONS FROM
   THE FOLLOWING INDIVIDUALS (IN ALPHABETICAL ORDER):
 
      IVANA ADAMOVIC, CHRISTINE AIKENS, TOMOKO AKAMA,
-     YURI ALEXEEV, YURIKO AOKI, POOJA ARORA, TOSHIO ASADA,
-     ANDREY ASADCHEV, KIM K. BALDRIDGE, PRADIPTA BANDYOPADHYAY,
-     TAYLOR A. BARNES, MARIA BARYSZ, ROB BELL,
-     JONATHAN BENTZ, COLLEEN BERTONI,
+     MELISA ALKAN, YURI ALEXEEV, YURIKO AOKI, POOJA ARORA,
+     TOSHIO ASADA, ANDREY ASADCHEV, KIM K. BALDRIDGE,
+     PRADIPTA BANDYOPADHYAY, TAYLOR A. BARNES, MARIA BARYSZ,
+     ROB BELL, JONATHAN BENTZ, COLLEEN BERTONI,
      JERRY A. BOATZ, BRETT BODE, KURT BRORSEN, KURT R. BRORSEN,
      LAIMUTIS BYTAUTAS, CALEB CARLIN, LAURA CARRINGTON,
      GALINA CHABAN, BENOIT CHAMPAGNE, WEI CHEN, MAHITO CHIBA,
@@ -243,20 +324,23 @@ The dynamically linked libraries for this binary are
      DIPAYAN DATTA, PAUL DAY, ALBERT DEFUSCO,
      NUWAN DESILVA, J. EMILIANO DEUSTUA,
      TIM DUDLEY, MICHEL DUPUIS, STEVEN T. ELBERT,
-     DMITRI FEDOROV, ALEX FINDLATER, GRAHAM FLETCHER,
-     MARK FREITAG, CHRISTIAN FRIEDL, DAVID GARMER,
-     IGOR S. GERASIMOV, KURT GLAESEMANN, MARK S. GORDON,
-     JEFFREY GOUR, FENG LONG GU, EMILIE B. GUIDEZ,
-     ANASTASIA GUNINA, SHARON HAMMES-SCHIFFER, MASATAKE HARUTA,
-     KIMIHIKO HIRAO, YASUHIRO IKABATA, TZVETELIN IORDANOV,
-     STEPHAN IRLE, KAZUYA ISHIMURA, JOE IVANIC, FRANK JENSEN,
-     JAN H. JENSEN, VISVALDAS KAIRYS, MUNEAKI KAMIYA,
-     MICHIO KATOUDA, NAOAKI KAWAKAMI, DAN KEMP, BERNARD KIRTMAN,
-     KAZUO KITAURA, MARIUSZ KLOBUKOWSKI, MASATO KOBAYASHI,
-     PRAKASHAN KORAMBATH, JACEK KORCHOWIEC, SHIRO KOSEKI,
-     KAROL KOWALSKI, JIMMY KROMANN, STANISLAW KUCHARSKI,
-     HENRY KURTZ, SAROM SOK LEANG, HUI LI, SHUHUA LI, WEI LI,
-     JESSE LUTZ, ALEKSANDR O. LYKHIN, MARCIN MAKOWSKI,
+     DMITRI FEDOROV, KATHERINE FERRERAS, MICHAEL FILATOV,
+     ALEX FINDLATER,GRAHAM FLETCHER, MARK FREITAG,
+     CHRISTIAN FRIEDL, DAVID GARMER, 
+     IGOR S. GERASIMOV, KURT GLAESEMANN,
+     MARK S. GORDON, JEFFREY R. GOUR, FENG LONG GU,
+     EMILIE B. GUIDEZ, ANASTASIA GUNINA, SHARON HAMMES-SCHIFFER,
+     MASATAKE HARUTA, KIMIHIKO HIRAO, YASUHIRO IKABATA,
+     TZVETELIN IORDANOV, STEPHAN IRLE, KAZUYA ISHIMURA,
+     JOE IVANIC, FRANK JENSEN, JAN H. JENSEN, VISVALDAS KAIRYS,
+     MUNEAKI KAMIYA, MICHIO KATOUDA, NAOAKI KAWAKAMI, DAN KEMP,
+     BERNARD KIRTMAN, KAZUO KITAURA, MARIUSZ KLOBUKOWSKI,
+     MASATO KOBAYASHI, KONSTANTIN KOMAROV, PRAKASHAN KORAMBATH,
+     JACEK KORCHOWIEC, SHIRO KOSEKI, KAROL KOWALSKI,
+     JIMMY KROMANN, STANISLAW A. KUCHARSKI, HENRY KURTZ,
+     SAROM SOK LEANG, SEUNGHOON LEE, HUI LI, SHUHUA LI, WEI LI,
+     JESSE J. LUTZ, ALEKSANDR O. LYKHIN,
+     ILIAS MAGOULAS, MARCIN MAKOWSKI,
      JOANI MATO, NIKITA MATSUNAGA, BENEDETTA MENNUCCI,
      GRANT MERRILL, NORIYUKI MINEZAWA, VLADIMIR MIRONOV,
      EISAKU MIYOSHI, JOHN A. MONTGOMERY JR., HIROTOSHI MORI,
@@ -270,13 +354,15 @@ The dynamically linked libraries for this binary are
      KLAUS RUEDENBERG, ANDREW SAND, TOSAPORN SATTASATHUCHANA,
      NOZOMI SAWADA, MICHAEL W. SCHMIDT, PATRICK E. SCHNEIDER,
      JUNJI SEINO, PRACHI SHARMA, JUN SHEN, JIM SHOEMAKER,
-     YINAN SHU, DEJUN SI, JONATHAN SKONE, LYUDMILA SLIPCHENKO,
-     TONY SMITH, JIE SONG, MARK SPACKMAN, CASPER STEINMANN,
-     WALT STEVENS, PEIFENG SU, SHUJUN SU, CHET SWALINA,
-     TETSUYA TAKETSUGU, ZHEN TAO, NANDUN THELLAMUREGE
-     SEIKEN TOKURA, JACOPO TOMASI, TSUGUKI TOUMA, TAKAO TSUNEDA,
-     HIROAKI UMEDA, JORGE LUIS GALVEZ VALLEJO, YALI WANG,
-     SIMON WEBB, AARON WEST, THERESA L. WINDUS, MARTA WLOCH,
+     GEORGE SCHOENDORFF, YINAN SHU, DEJUN SI, JONATHAN SKONE,
+     LYUDMILA SLIPCHENKO, TONY SMITH, JIE SONG, MARK SPACKMAN,
+     CASPER STEINMANN, WALT STEVENS, PEIFENG SU, SHUJUN SU,
+     CHET SWALINA, CHINAMI TAKASHIMA, TETSUYA TAKETSUGU,
+     ZHEN TAO, NANDUN THELLAMUREGE, ANANTA TIWARI,
+     SEIKEN TOKURA, JACOPO TOMASI,
+     TSUGUKI TOUMA, TAKAO TSUNEDA, HIROAKI UMEDA,
+     JORGE LUIS GALVEZ VALLEJO, YALI WANG, SIMON WEBB,
+     AARON WEST, THERESA L. WINDUS, MARTA WLOCH,
      PENG XU, KIYOSHI YAGI, SUSUMU YANAGISAWA, YANG YANG,
      SOOHAENG YOO, TAKESHI YOSHIKAWA, FEDERICO ZAHARIEV,
      TOBY ZENG
@@ -284,9 +370,11 @@ The dynamically linked libraries for this binary are
   WHO ARE SUPPORTED BY THEIR INSTITUTION/UNIVERSITY/COMPANY/GROUP
   (IN ALPHABETICAL ORDER):
 
-     EP ANALYTICS, FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX,
+     EP ANALYTICS,
+     FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX,
      INSTITUTE FOR MOLECULAR SCIENCE, IOWA STATE UNIVERSITY,
      JACKSON STATE UNIVERSITY, JOHANNES KEPLER UNIVERSITY LINZ,
+     KYUNGPOOK NATIONAL UNIVERSITY
      KYUSHU UNIVERSITY, MICHIGAN STATE UNIVERSITY,
      MIE UNIVERSITY, THE MOLECULAR SCIENCES SOFTWARE INSTITUTE,
      MOSCOW STATE UNIVERSITY,
@@ -303,7 +391,8 @@ The dynamically linked libraries for this binary are
      UNIVERSITY OF NEBRASKA, UNIVERSITY OF NEW ENGLAND,
      UNIVERSITY OF NOTRE DAME, UNIVERSITY OF PISA,
      UNIVERSITY OF SILESIA, UNIVERSITY OF TOKYO,
-     UNIVERSITY OF ZURICH, WASEDA UNIVERSITY, YALE UNIVERSITY
+     UNIVERSITY OF ZURICH, WASEDA UNIVERSITY,
+     YALE UNIVERSITY
 
   GAMESS SOFTWARE MANAGEMENT TEAM FOR THIS RELEASE:
      MARK S. GORDON (TEAM LEAD),
@@ -313,13 +402,10 @@ The dynamically linked libraries for this binary are
      KRISTOPHER KEIPERT (ADVISOR),
      SAROM S. LEANG (DEVELOPMENT LEAD),
      BUU PHAM,
-     JORGE LUIS GALVEZ VALLEJO (WEBSITE ADMINISTRATOR),
+     JACKSON HAYES (WEBSITE ADMINISTRATOR),
      PENG XU
 
-
- PARALLEL VERSION RUNNING ON        3 PROCESSORS IN        1 NODES.
-
- EXECUTION OF GAMESS BEGUN 13:07:26 15-MAR-2022    
+ EXECUTION OF GAMESS BEGUN 01:39:02 14-MAY-2025    
 
             ECHO OF THE FIRST FEW INPUT CARDS -
  INPUT CARD>! EXAM36                                                                        
@@ -372,7 +458,7 @@ The dynamically linked libraries for this binary are
  INPUT CARD> 2  1 7.04626928E-01 1.68971751E-02 0.00000000E+00 0.00000000E+00 6.24621988E-04
  INPUT CARD> 2  2-1.13094235E-02 0.00000000E+00 0.00000000E+00-1.50118272E-03-2.58737554E-04
  INPUT CARD> 2  3-2.58737554E-04 5.17475107E-04-1.25727334E-04 0.00000000E+00 0.00000000E+00
-    1000000 WORDS OF MEMORY AVAILABLE
+      1000000 WORDS OF MEMORY AVAILABLE
 
      BASIS OPTIONS
      -------------
@@ -482,10 +568,10 @@ The dynamically linked libraries for this binary are
      ---------------
   REPLICATED MEMORY=     1000000 WORDS (ON EVERY NODE).
  DISTRIBUTED MEMDDI=           5 MILLION WORDS IN AGGREGATE,
- MEMDDI DISTRIBUTED OVER   3 PROCESSORS IS     1666666 WORDS/PROCESSOR.
- TOTAL MEMORY REQUESTED ON EACH PROCESSOR=     2666666 WORDS.
+ MEMDDI DISTRIBUTED OVER   1 PROCESSORS IS     5000000 WORDS/PROCESSOR.
+ TOTAL MEMORY REQUESTED ON EACH PROCESSOR=     6000000 WORDS.
  TIMLIM=           2.00 MINUTES, OR       0.0 DAYS.
- PARALL= T  BALTYP=  DLB     KDIAG=    0  COREFL= F
+ PARALL= F  BALTYP=  DLB     KDIAG=    0  COREFL= F
  MXSEQ2=     300 MXSEQ3=     150  mem10=         0  mem22=         0
 
           ----------------
@@ -499,11 +585,18 @@ The dynamically linked libraries for this binary are
  IEMINT=       0   IEFINT=       0                     IEDINT=       0
                                                        MORB  =       0
 
+     ----------------------
+     TARGET OFFLOAD OPTIONS
+     ----------------------
+     RHF    =       F
+     CPHF    =       F
+     MAKEFP =       F
+
      -------------------------------
      INTEGRAL TRANSFORMATION OPTIONS
      -------------------------------
      NWORD  =            0
-     CUTOFF = 1.0E-09     MPTRAN =       0
+     CUTTRF = 1.0E-09     MPTRAN =       0
      DIRTRF =       F     AOINTS =DUP     
 
           ----------------------
@@ -537,8 +630,8 @@ The dynamically linked libraries for this binary are
  A1  =    9     B2  =    9     B1  =    1     A2  =    1     E   =    8
 
  ..... DONE SETTING UP THE RUN .....
- CPU     0: STEP CPU TIME=     0.02 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    95.37%
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    80.88%
 
      ---------------------------------
      HESSIAN MATRIX CONTROL PARAMETERS
@@ -564,8 +657,8 @@ The dynamically linked libraries for this binary are
           ********************
  TIME TO DO   DIPOLE INTEGRALS=      0.00
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    95.32%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    82.27%
 
           -------------
           GUESS OPTIONS
@@ -592,8 +685,8 @@ The dynamically linked libraries for this binary are
     29=E       30=E       31=A1      32=B2      33=A1      34=E       35=E   
     36=B2  
  ...... END OF INITIAL ORBITAL SELECTION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    95.61%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    81.43%
 
                     ----------------------
                     AO INTEGRAL TECHNOLOGY
@@ -636,8 +729,8 @@ The dynamically linked libraries for this binary are
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =              192848
          13 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- STEP CPU TIME =     0.03 TOTAL CPU TIME =          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    96.96%
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    90.44%
 
           -----------------
           MCSCF CALCULATION
@@ -685,15 +778,11 @@ The dynamically linked libraries for this binary are
  NUMBER OF OCCUPIED MOLECULAR ORBITALS =    10
  TOTAL NUMBER OF MOLECULAR ORBITALS    =    36
  TOTAL NUMBER OF ATOMIC ORBITALS       =    36
- MEMORY WHICH WOULD BE NEEDED FOR SINGLE PASS TRANSFORMATION =     183750
 
  ----- CHOOSING THREE STEPS TRANSFORMATION -----
- NUMBER OF WORDS USED      =     111132
+ NUMBER OF WORDS USED      =     183748
  NUMBER OF WORDS AVAILABLE =     999999
- NUMBER OF PASSES          =          3
- PASS #   1 COMPLETED IN         0.0 SECONDS.
- PASS #   2 IS ASSIGNED TO A DIFFERENT PROCESSOR.
- PASS #   3 IS ASSIGNED TO A DIFFERENT PROCESSOR.
+ NUMBER OF PASSES          =          1
 
  ----- NUCLEAR REPULSION ENERGY =     31.47622838
  ----- FROZEN CORE ENERGY       =   -104.40396781
@@ -705,8 +794,8 @@ The dynamically linked libraries for this binary are
  NUMBER OF (PQ|KL) INTEGRALS WRITTEN       4988
  NUMBER OF (IJ|KL) INTEGRALS WRITTEN         19
  ..... END OF CAS INTEGRAL TRANSFORMATION .....
- CPU     0: STEP CPU TIME=     0.01 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    97.01%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    91.29%
 
      --------------------------------------------------
           AMES LABORATORY DETERMINANTAL FULL CI
@@ -728,11 +817,11 @@ The dynamically linked libraries for this binary are
 
 ALPHA |BETA  | CI COEFFICIENT
 ------|------|---------------
- 1100 | 1100 |   0.7045211192
- 1010 | 1010 |  -0.7045211192
+ 1010 | 1010 |   0.7045211192
+ 1100 | 1100 |  -0.7045211192
  ..... DONE WITH DETERMINANT CI COMPUTATION .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    97.02%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    90.11%
 
      --------------------------------------------------
       ONE AND TWO PARTICLE DENSITY MATRIX COMPUTATION
@@ -745,8 +834,8 @@ ALPHA |BETA  | CI COEFFICIENT
  SIEVING THE A    SYMMETRY NONZERO DENSITY ELEMENTS IN GROUP C1      
          18 NONZERO DM2 ELEMENTS WRITTEN IN       1 RECORDS TO FILE 15
  ..... DONE WITH 1 AND 2 PARTICLE DENSITY MATRIX .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    96.93%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    90.16%
 
           --------------------------------------
           APPROXIMATE SECOND-ORDER MCSCF PROGRAM
@@ -760,27 +849,27 @@ ALPHA |BETA  | CI COEFFICIENT
  ----- ORBITAL SYMMETRY             ----- CPU TIME =      0.000
  ----- FOCK OPERATORS CONSTRUCTION  ----- CPU TIME =      0.001
      MICIT =   1 ASYMM =    0.009379 ROTMAX =    0.120020
- ----- EFFECTIVE FOCK + ROTATE ORBS ----- CPU TIME =      0.001
+ ----- EFFECTIVE FOCK + ROTATE ORBS ----- CPU TIME =      0.000
  ..... DONE WITH CASSCF ORBITAL UPDATE .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    96.64%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    90.54%
 
  ITER     TOTAL ENERGY      DEL(E)  LAGRANGIAN ASYMMETRY   SQCDF  MICIT   DAMP
    1      -77.963657707 -0.963657707  0.009379    7    6 1.200E-01  1   0.0000
        ----------START APPROXIMATE SECOND ORDER MCSCF----------
-   2      -77.965324778 -0.001667072  0.006556   34    8 2.142E-01  1   0.0000
-   3      -77.971010242 -0.005685464  0.006357   31    7 1.507E-01  1   0.0000
-   4      -77.972878285 -0.001868043  0.004446   24   10 9.430E-02  1   0.0000
-   5      -77.974608589 -0.001730304  0.007649   15    7 3.311E-02  1   0.0000
-   6      -77.975119706 -0.000511117  0.003862   33    7 9.905E-03  1   0.0000
-   7      -77.975253414 -0.000133709  0.001564    7    6 5.738E-03  1   0.0000
-   8      -77.975309094 -0.000055680  0.000921   15    7 1.401E-03  1   0.0000
-   9      -77.975353849 -0.000044755  0.000585   15    7 7.887E-05  1   0.0000
-  10      -77.975355986 -0.000002137  0.000181   15    7 1.287E-05  1   0.0000
-  11      -77.975356330 -0.000000344  0.000089   15    7 9.016E-07  1   0.0000
-  12      -77.975356374 -0.000000044  0.000035   11    7 1.402E-07  1   0.0000
-  13      -77.975356384 -0.000000010  0.000010   11    7 1.600E-08  1   0.0000
-  14      -77.975356384 -0.000000001  0.000005   15    7 2.198E-09  1   0.0000
+   2      -77.965328666 -0.001670959  0.006554   34    8 2.142E-01  1   0.0000
+   3      -77.971011082 -0.005682416  0.006356   31    7 1.506E-01  1   0.0000
+   4      -77.972878319 -0.001867237  0.004445   24   10 9.452E-02  1   0.0000
+   5      -77.974607345 -0.001729026  0.007664   15    7 3.315E-02  1   0.0000
+   6      -77.975119693 -0.000512349  0.003865   33    7 9.962E-03  1   0.0000
+   7      -77.975252454 -0.000132760  0.001570    7    6 5.739E-03  1   0.0000
+   8      -77.975309608 -0.000057155  0.000927   15    7 1.389E-03  1   0.0000
+   9      -77.975353823 -0.000044215  0.000585   15    7 7.966E-05  1   0.0000
+  10      -77.975355987 -0.000002164  0.000181   15    7 1.290E-05  1   0.0000
+  11      -77.975356330 -0.000000343  0.000089   15    7 8.994E-07  1   0.0000
+  12      -77.975356374 -0.000000044  0.000035   11    7 1.396E-07  1   0.0000
+  13      -77.975356384 -0.000000010  0.000010   11    7 1.620E-08  1   0.0000
+  14      -77.975356384 -0.000000001  0.000005   15    7 2.201E-09  1   0.0000
 
           --------------------
           LAGRANGIAN CONVERGED
@@ -805,21 +894,21 @@ ALPHA |BETA  | CI COEFFICIENT
 
 ALPHA |BETA  | CI COEFFICIENT
 ------|------|---------------
- 1010 | 1010 |   0.7014967927
- 1100 | 1100 |  -0.7014967927
- 0011 | 0011 |  -0.0590975094
- 0101 | 0101 |   0.0590975094
- 1001 | 0110 |  -0.0542201328
- 0110 | 1001 |  -0.0542201328
+ 1010 | 1010 |   0.7014967924
+ 1100 | 1100 |  -0.7014967924
+ 0101 | 0101 |   0.0590975127
+ 0011 | 0011 |  -0.0590975127
+ 1001 | 0110 |   0.0542201333
+ 0110 | 1001 |   0.0542201333
 
  DENSITY MATRIX OVER ACTIVE MO-S
 
              1           2           3           4
 
     1    1.9772105
-    2    0.0000000   1.0000000
+    2   -0.0000000   1.0000000
     3   -0.0000000  -0.0000000   1.0000000
-    4   -0.0000000  -0.0000000   0.0000000   0.0227895
+    4    0.0000000   0.0000000   0.0000000   0.0227895
 
  FORMING THE "STANDARD FOCK OPERATOR" USING INTEGRALS FROM DISK...
      6 FILLED,    4 ACTIVE, AND   26 VIRTUAL ORBITALS  WILL BE CANONICALIZED
@@ -831,34 +920,34 @@ ALPHA |BETA  | CI COEFFICIENT
                       1          2          3          4          5
                   -11.2165   -11.2160    -0.7989    -0.7919    -0.5765
                      B2         A1         B2         A1         E   
-    1  C  1  S    0.704434   0.705495  -0.124389   0.105511   0.000000
-    2  C  1  S    0.017299   0.014451   0.243071  -0.202802   0.000000
+    1  C  1  S    0.704434   0.705495  -0.124389   0.105511  -0.000000
+    2  C  1  S    0.017299   0.014451   0.243071  -0.202802  -0.000000
     3  C  1  X    0.000000   0.000000   0.000000   0.000000  -0.193351
     4  C  1  Y    0.000000   0.000000   0.000000   0.000000   0.246096
-    5  C  1  Z    0.000301  -0.003845  -0.151856   0.207913   0.000000
-    6  C  1  S   -0.011018  -0.009379   0.258235  -0.176637   0.000000
+    5  C  1  Z    0.000301  -0.003845  -0.151856   0.207913  -0.000000
+    6  C  1  S   -0.011018  -0.009379   0.258235  -0.176637  -0.000000
     7  C  1  X    0.000000   0.000000   0.000000   0.000000  -0.106957
     8  C  1  Y    0.000000   0.000000   0.000000   0.000000   0.106907
-    9  C  1  Z   -0.001604  -0.000537  -0.051891   0.108865   0.000000
-   10  C  1 XX   -0.000256   0.000233   0.003280  -0.001070   0.000000
-   11  C  1 YY   -0.000256   0.000233   0.003280  -0.001070   0.000000
-   12  C  1 ZZ    0.000511  -0.000467  -0.006561   0.002140   0.000000
-   13  C  1 XY   -0.000161  -0.000289  -0.019171   0.018283   0.000000
+    9  C  1  Z   -0.001604  -0.000537  -0.051891   0.108865  -0.000000
+   10  C  1 XX   -0.000256   0.000233   0.003280  -0.001070  -0.000000
+   11  C  1 YY   -0.000256   0.000233   0.003280  -0.001070  -0.000000
+   12  C  1 ZZ    0.000511  -0.000467  -0.006561   0.002140  -0.000000
+   13  C  1 XY   -0.000161  -0.000289  -0.019171   0.018283  -0.000000
    14  C  1 XZ    0.000000   0.000000   0.000000   0.000000   0.020672
    15  C  1 YZ    0.000000   0.000000   0.000000   0.000000  -0.011570
-   16  C  2  S   -0.704434   0.705495   0.124389   0.105511   0.000000
-   17  C  2  S   -0.017299   0.014451  -0.243071  -0.202802   0.000000
+   16  C  2  S   -0.704434   0.705495   0.124389   0.105511  -0.000000
+   17  C  2  S   -0.017299   0.014451  -0.243071  -0.202802  -0.000000
    18  C  2  X    0.000000   0.000000   0.000000   0.000000   0.193351
    19  C  2  Y    0.000000   0.000000   0.000000   0.000000   0.246096
-   20  C  2  Z    0.000301   0.003845  -0.151856  -0.207913   0.000000
-   21  C  2  S    0.011018  -0.009379  -0.258235  -0.176637   0.000000
+   20  C  2  Z    0.000301   0.003845  -0.151856  -0.207913  -0.000000
+   21  C  2  S    0.011018  -0.009379  -0.258235  -0.176637  -0.000000
    22  C  2  X    0.000000   0.000000   0.000000   0.000000   0.106957
    23  C  2  Y    0.000000   0.000000   0.000000   0.000000   0.106907
-   24  C  2  Z   -0.001604   0.000537  -0.051891  -0.108865   0.000000
-   25  C  2 XX    0.000256   0.000233  -0.003280  -0.001070   0.000000
-   26  C  2 YY    0.000256   0.000233  -0.003280  -0.001070   0.000000
-   27  C  2 ZZ   -0.000511  -0.000467   0.006561   0.002140   0.000000
-   28  C  2 XY   -0.000161   0.000289  -0.019171  -0.018283   0.000000
+   24  C  2  Z   -0.001604   0.000537  -0.051891  -0.108865  -0.000000
+   25  C  2 XX    0.000256   0.000233  -0.003280  -0.001070  -0.000000
+   26  C  2 YY    0.000256   0.000233  -0.003280  -0.001070  -0.000000
+   27  C  2 ZZ   -0.000511  -0.000467   0.006561   0.002140  -0.000000
+   28  C  2 XY   -0.000161   0.000289  -0.019171  -0.018283  -0.000000
    29  C  2 XZ    0.000000   0.000000   0.000000   0.000000   0.020672
    30  C  2 YZ    0.000000   0.000000   0.000000   0.000000   0.011570
    31  H  3  S    0.000100  -0.000123  -0.143488  -0.148649  -0.170376
@@ -873,36 +962,36 @@ ALPHA |BETA  | CI COEFFICIENT
                       6          7          8          9         10
                    -0.5765     1.9772     1.0000     1.0000     0.0228
                      E          A1         E          E          B2  
-    1  C  1  S    0.000000  -0.101129   0.000000   0.000000  -0.121388
-    2  C  1  S    0.000000   0.221553   0.000000   0.000000   0.506253
-    3  C  1  X    0.246096   0.000000   0.282565   0.320592   0.000000
-    4  C  1  Y   -0.193351   0.000000   0.320592   0.282565   0.000000
-    5  C  1  Z    0.000000   0.348565   0.000000   0.000000   0.673132
-    6  C  1  S    0.000000   0.177224   0.000000   0.000000   0.555312
-    7  C  1  X    0.106907   0.000000   0.244392   0.296324   0.000000
-    8  C  1  Y   -0.106957   0.000000   0.296324   0.244392   0.000000
-    9  C  1  Z    0.000000   0.134081   0.000000   0.000000   0.249013
-   10  C  1 XX    0.000000  -0.011098   0.000000   0.000000  -0.020992
-   11  C  1 YY    0.000000  -0.011098   0.000000   0.000000  -0.020992
-   12  C  1 ZZ    0.000000   0.022196   0.000000   0.000000   0.041985
-   13  C  1 XY    0.000000   0.003073   0.000000   0.000000   0.085107
-   14  C  1 XZ   -0.011570   0.000000   0.014904  -0.013030   0.000000
-   15  C  1 YZ    0.020672   0.000000  -0.013030   0.014904   0.000000
-   16  C  2  S    0.000000  -0.101129   0.000000   0.000000   0.121388
-   17  C  2  S    0.000000   0.221553   0.000000   0.000000  -0.506253
-   18  C  2  X    0.246096   0.000000   0.282565  -0.320592   0.000000
-   19  C  2  Y    0.193351   0.000000  -0.320592   0.282565   0.000000
-   20  C  2  Z    0.000000  -0.348565   0.000000   0.000000   0.673132
-   21  C  2  S    0.000000   0.177224   0.000000   0.000000  -0.555312
-   22  C  2  X    0.106907   0.000000   0.244392  -0.296324   0.000000
-   23  C  2  Y    0.106957   0.000000  -0.296324   0.244392   0.000000
-   24  C  2  Z    0.000000  -0.134081   0.000000   0.000000   0.249013
-   25  C  2 XX    0.000000  -0.011098   0.000000   0.000000   0.020992
-   26  C  2 YY    0.000000  -0.011098   0.000000   0.000000   0.020992
-   27  C  2 ZZ    0.000000   0.022196   0.000000   0.000000  -0.041985
-   28  C  2 XY    0.000000  -0.003073   0.000000   0.000000   0.085107
-   29  C  2 XZ    0.011570   0.000000  -0.014904  -0.013030   0.000000
-   30  C  2 YZ    0.020672   0.000000  -0.013030  -0.014904   0.000000
+    1  C  1  S   -0.000000  -0.101129  -0.000000  -0.000000  -0.121388
+    2  C  1  S   -0.000000   0.221553  -0.000000  -0.000000   0.506253
+    3  C  1  X    0.246096  -0.000000   0.282565   0.320592  -0.000000
+    4  C  1  Y   -0.193351  -0.000000   0.320592   0.282565  -0.000000
+    5  C  1  Z   -0.000000   0.348565  -0.000000  -0.000000   0.673132
+    6  C  1  S   -0.000000   0.177224  -0.000000  -0.000000   0.555312
+    7  C  1  X    0.106907  -0.000000   0.244392   0.296324  -0.000000
+    8  C  1  Y   -0.106957  -0.000000   0.296324   0.244392  -0.000000
+    9  C  1  Z   -0.000000   0.134081  -0.000000  -0.000000   0.249013
+   10  C  1 XX   -0.000000  -0.011098  -0.000000  -0.000000  -0.020992
+   11  C  1 YY   -0.000000  -0.011098  -0.000000  -0.000000  -0.020992
+   12  C  1 ZZ   -0.000000   0.022196  -0.000000  -0.000000   0.041985
+   13  C  1 XY   -0.000000   0.003073  -0.000000  -0.000000   0.085107
+   14  C  1 XZ   -0.011570  -0.000000   0.014904  -0.013030  -0.000000
+   15  C  1 YZ    0.020672  -0.000000  -0.013030   0.014904  -0.000000
+   16  C  2  S   -0.000000  -0.101129  -0.000000  -0.000000   0.121388
+   17  C  2  S   -0.000000   0.221553  -0.000000  -0.000000  -0.506253
+   18  C  2  X    0.246096  -0.000000   0.282565  -0.320592  -0.000000
+   19  C  2  Y    0.193351  -0.000000  -0.320592   0.282565  -0.000000
+   20  C  2  Z   -0.000000  -0.348565  -0.000000  -0.000000   0.673132
+   21  C  2  S   -0.000000   0.177224  -0.000000  -0.000000  -0.555312
+   22  C  2  X    0.106907  -0.000000   0.244392  -0.296324  -0.000000
+   23  C  2  Y    0.106957  -0.000000  -0.296324   0.244392  -0.000000
+   24  C  2  Z   -0.000000  -0.134081  -0.000000  -0.000000   0.249013
+   25  C  2 XX   -0.000000  -0.011098  -0.000000  -0.000000   0.020992
+   26  C  2 YY   -0.000000  -0.011098  -0.000000  -0.000000   0.020992
+   27  C  2 ZZ   -0.000000   0.022196  -0.000000  -0.000000  -0.041985
+   28  C  2 XY   -0.000000  -0.003073  -0.000000  -0.000000   0.085107
+   29  C  2 XZ    0.011570  -0.000000  -0.014904  -0.013030  -0.000000
+   30  C  2 YZ    0.020672  -0.000000  -0.013030  -0.014904  -0.000000
    31  H  3  S   -0.170376  -0.029506   0.049298   0.049298   0.059553
    32  H  3  S   -0.130324  -0.059683   0.071244   0.071244   0.104478
    33  H  4  S    0.170376  -0.029506  -0.049298   0.049298  -0.059553
@@ -919,34 +1008,34 @@ ALPHA |BETA  | CI COEFFICIENT
                       1          2          3          4          5
                   -11.2165   -11.2160    -0.7989    -0.7919    -0.5765
                      B2         A1         B2         A1         E   
-    1  C  1  S    0.704434   0.705495  -0.124389   0.105511   0.000000
-    2  C  1  S    0.017299   0.014451   0.243071  -0.202802   0.000000
+    1  C  1  S    0.704434   0.705495  -0.124389   0.105511  -0.000000
+    2  C  1  S    0.017299   0.014451   0.243071  -0.202802  -0.000000
     3  C  1  X    0.000000   0.000000   0.000000   0.000000  -0.193351
     4  C  1  Y    0.000000   0.000000   0.000000   0.000000   0.246096
-    5  C  1  Z    0.000301  -0.003845  -0.151856   0.207913   0.000000
-    6  C  1  S   -0.011018  -0.009379   0.258235  -0.176637   0.000000
+    5  C  1  Z    0.000301  -0.003845  -0.151856   0.207913  -0.000000
+    6  C  1  S   -0.011018  -0.009379   0.258235  -0.176637  -0.000000
     7  C  1  X    0.000000   0.000000   0.000000   0.000000  -0.106957
     8  C  1  Y    0.000000   0.000000   0.000000   0.000000   0.106907
-    9  C  1  Z   -0.001604  -0.000537  -0.051891   0.108865   0.000000
-   10  C  1 XX   -0.000256   0.000233   0.003280  -0.001070   0.000000
-   11  C  1 YY   -0.000256   0.000233   0.003280  -0.001070   0.000000
-   12  C  1 ZZ    0.000511  -0.000467  -0.006561   0.002140   0.000000
-   13  C  1 XY   -0.000161  -0.000289  -0.019171   0.018283   0.000000
+    9  C  1  Z   -0.001604  -0.000537  -0.051891   0.108865  -0.000000
+   10  C  1 XX   -0.000256   0.000233   0.003280  -0.001070  -0.000000
+   11  C  1 YY   -0.000256   0.000233   0.003280  -0.001070  -0.000000
+   12  C  1 ZZ    0.000511  -0.000467  -0.006561   0.002140  -0.000000
+   13  C  1 XY   -0.000161  -0.000289  -0.019171   0.018283  -0.000000
    14  C  1 XZ    0.000000   0.000000   0.000000   0.000000   0.020672
    15  C  1 YZ    0.000000   0.000000   0.000000   0.000000  -0.011570
-   16  C  2  S   -0.704434   0.705495   0.124389   0.105511   0.000000
-   17  C  2  S   -0.017299   0.014451  -0.243071  -0.202802   0.000000
+   16  C  2  S   -0.704434   0.705495   0.124389   0.105511  -0.000000
+   17  C  2  S   -0.017299   0.014451  -0.243071  -0.202802  -0.000000
    18  C  2  X    0.000000   0.000000   0.000000   0.000000   0.193351
    19  C  2  Y    0.000000   0.000000   0.000000   0.000000   0.246096
-   20  C  2  Z    0.000301   0.003845  -0.151856  -0.207913   0.000000
-   21  C  2  S    0.011018  -0.009379  -0.258235  -0.176637   0.000000
+   20  C  2  Z    0.000301   0.003845  -0.151856  -0.207913  -0.000000
+   21  C  2  S    0.011018  -0.009379  -0.258235  -0.176637  -0.000000
    22  C  2  X    0.000000   0.000000   0.000000   0.000000   0.106957
    23  C  2  Y    0.000000   0.000000   0.000000   0.000000   0.106907
-   24  C  2  Z   -0.001604   0.000537  -0.051891  -0.108865   0.000000
-   25  C  2 XX    0.000256   0.000233  -0.003280  -0.001070   0.000000
-   26  C  2 YY    0.000256   0.000233  -0.003280  -0.001070   0.000000
-   27  C  2 ZZ   -0.000511  -0.000467   0.006561   0.002140   0.000000
-   28  C  2 XY   -0.000161   0.000289  -0.019171  -0.018283   0.000000
+   24  C  2  Z   -0.001604   0.000537  -0.051891  -0.108865  -0.000000
+   25  C  2 XX    0.000256   0.000233  -0.003280  -0.001070  -0.000000
+   26  C  2 YY    0.000256   0.000233  -0.003280  -0.001070  -0.000000
+   27  C  2 ZZ   -0.000511  -0.000467   0.006561   0.002140  -0.000000
+   28  C  2 XY   -0.000161   0.000289  -0.019171  -0.018283  -0.000000
    29  C  2 XZ    0.000000   0.000000   0.000000   0.000000   0.020672
    30  C  2 YZ    0.000000   0.000000   0.000000   0.000000   0.011570
    31  H  3  S    0.000100  -0.000123  -0.143488  -0.148649  -0.170376
@@ -961,34 +1050,34 @@ ALPHA |BETA  | CI COEFFICIENT
                       6          7          8          9         10
                    -0.5765    -0.7254    -0.0900    -0.0900     0.6940
                      E          A1         E          E          B2  
-    1  C  1  S    0.000000  -0.101129   0.000000   0.000000  -0.121388
-    2  C  1  S    0.000000   0.221553   0.000000   0.000000   0.506253
+    1  C  1  S   -0.000000  -0.101129  -0.000000  -0.000000  -0.121388
+    2  C  1  S   -0.000000   0.221553  -0.000000  -0.000000   0.506253
     3  C  1  X    0.246096   0.000000   0.282565   0.320592   0.000000
     4  C  1  Y   -0.193351   0.000000   0.320592   0.282565   0.000000
-    5  C  1  Z    0.000000   0.348565   0.000000   0.000000   0.673132
-    6  C  1  S    0.000000   0.177224   0.000000   0.000000   0.555312
+    5  C  1  Z   -0.000000   0.348565  -0.000000  -0.000000   0.673132
+    6  C  1  S   -0.000000   0.177224  -0.000000  -0.000000   0.555312
     7  C  1  X    0.106907   0.000000   0.244392   0.296324   0.000000
     8  C  1  Y   -0.106957   0.000000   0.296324   0.244392   0.000000
-    9  C  1  Z    0.000000   0.134081   0.000000   0.000000   0.249013
-   10  C  1 XX    0.000000  -0.011098   0.000000   0.000000  -0.020992
-   11  C  1 YY    0.000000  -0.011098   0.000000   0.000000  -0.020992
-   12  C  1 ZZ    0.000000   0.022196   0.000000   0.000000   0.041985
-   13  C  1 XY    0.000000   0.003073   0.000000   0.000000   0.085107
+    9  C  1  Z   -0.000000   0.134081  -0.000000  -0.000000   0.249013
+   10  C  1 XX   -0.000000  -0.011098  -0.000000  -0.000000  -0.020992
+   11  C  1 YY   -0.000000  -0.011098  -0.000000  -0.000000  -0.020992
+   12  C  1 ZZ   -0.000000   0.022196  -0.000000  -0.000000   0.041985
+   13  C  1 XY   -0.000000   0.003073  -0.000000  -0.000000   0.085107
    14  C  1 XZ   -0.011570   0.000000   0.014904  -0.013030   0.000000
    15  C  1 YZ    0.020672   0.000000  -0.013030   0.014904   0.000000
-   16  C  2  S    0.000000  -0.101129   0.000000   0.000000   0.121388
-   17  C  2  S    0.000000   0.221553   0.000000   0.000000  -0.506253
+   16  C  2  S   -0.000000  -0.101129  -0.000000  -0.000000   0.121388
+   17  C  2  S   -0.000000   0.221553  -0.000000  -0.000000  -0.506253
    18  C  2  X    0.246096   0.000000   0.282565  -0.320592   0.000000
    19  C  2  Y    0.193351   0.000000  -0.320592   0.282565   0.000000
-   20  C  2  Z    0.000000  -0.348565   0.000000   0.000000   0.673132
-   21  C  2  S    0.000000   0.177224   0.000000   0.000000  -0.555312
+   20  C  2  Z   -0.000000  -0.348565  -0.000000  -0.000000   0.673132
+   21  C  2  S   -0.000000   0.177224  -0.000000  -0.000000  -0.555312
    22  C  2  X    0.106907   0.000000   0.244392  -0.296324   0.000000
    23  C  2  Y    0.106957   0.000000  -0.296324   0.244392   0.000000
-   24  C  2  Z    0.000000  -0.134081   0.000000   0.000000   0.249013
-   25  C  2 XX    0.000000  -0.011098   0.000000   0.000000   0.020992
-   26  C  2 YY    0.000000  -0.011098   0.000000   0.000000   0.020992
-   27  C  2 ZZ    0.000000   0.022196   0.000000   0.000000  -0.041985
-   28  C  2 XY    0.000000  -0.003073   0.000000   0.000000   0.085107
+   24  C  2  Z   -0.000000  -0.134081  -0.000000  -0.000000   0.249013
+   25  C  2 XX   -0.000000  -0.011098  -0.000000  -0.000000   0.020992
+   26  C  2 YY   -0.000000  -0.011098  -0.000000  -0.000000   0.020992
+   27  C  2 ZZ   -0.000000   0.022196  -0.000000  -0.000000  -0.041985
+   28  C  2 XY   -0.000000  -0.003073  -0.000000  -0.000000   0.085107
    29  C  2 XZ    0.011570   0.000000  -0.014904  -0.013030   0.000000
    30  C  2 YZ    0.020672   0.000000  -0.013030  -0.014904   0.000000
    31  H  3  S   -0.170376  -0.029506   0.049298   0.049298   0.059553
@@ -1003,36 +1092,36 @@ ALPHA |BETA  | CI COEFFICIENT
                      11         12         13         14         15
                     0.2930     0.3163     0.3514     0.3514     0.6515
                      A1         B2         E          E          B2  
-    1  C  1  S   -0.082059  -0.057675   0.000000   0.000000  -0.037004
-    2  C  1  S    0.107572   0.010099   0.000000   0.000000  -0.072587
-    3  C  1  X    0.000000   0.000000   0.180212  -0.184540   0.000000
-    4  C  1  Y    0.000000   0.000000  -0.184540   0.180212   0.000000
-    5  C  1  Z   -0.143978  -0.213106   0.000000   0.000000  -0.404354
-    6  C  1  S    1.512792   0.881264   0.000000   0.000000   1.964929
-    7  C  1  X    0.000000   0.000000   0.631393  -1.079080   0.000000
-    8  C  1  Y    0.000000   0.000000  -1.079080   0.631393   0.000000
-    9  C  1  Z   -0.621722  -1.059461   0.000000   0.000000   2.306092
-   10  C  1 XX   -0.004419  -0.004941   0.000000   0.000000  -0.023519
-   11  C  1 YY   -0.004419  -0.004941   0.000000   0.000000  -0.023519
-   12  C  1 ZZ    0.008837   0.009882   0.000000   0.000000   0.047038
-   13  C  1 XY   -0.005613   0.004107   0.000000   0.000000  -0.063460
-   14  C  1 XZ    0.000000   0.000000   0.009240   0.008595   0.000000
-   15  C  1 YZ    0.000000   0.000000   0.008595   0.009240   0.000000
-   16  C  2  S   -0.082059   0.057675   0.000000   0.000000   0.037004
-   17  C  2  S    0.107572  -0.010099   0.000000   0.000000   0.072587
-   18  C  2  X    0.000000   0.000000   0.180212   0.184540   0.000000
-   19  C  2  Y    0.000000   0.000000   0.184540   0.180212   0.000000
-   20  C  2  Z    0.143978  -0.213106   0.000000   0.000000  -0.404354
-   21  C  2  S    1.512792  -0.881264   0.000000   0.000000  -1.964929
-   22  C  2  X    0.000000   0.000000   0.631393   1.079080   0.000000
-   23  C  2  Y    0.000000   0.000000   1.079080   0.631393   0.000000
-   24  C  2  Z    0.621722  -1.059461   0.000000   0.000000   2.306092
-   25  C  2 XX   -0.004419   0.004941   0.000000   0.000000   0.023519
-   26  C  2 YY   -0.004419   0.004941   0.000000   0.000000   0.023519
-   27  C  2 ZZ    0.008837  -0.009882   0.000000   0.000000  -0.047038
-   28  C  2 XY    0.005613   0.004107   0.000000   0.000000  -0.063460
-   29  C  2 XZ    0.000000   0.000000  -0.009240   0.008595   0.000000
-   30  C  2 YZ    0.000000   0.000000   0.008595  -0.009240   0.000000
+    1  C  1  S   -0.082059  -0.057675  -0.000000  -0.000000  -0.037004
+    2  C  1  S    0.107572   0.010099  -0.000000  -0.000000  -0.072587
+    3  C  1  X    0.000000  -0.000000   0.180212  -0.184540  -0.000000
+    4  C  1  Y    0.000000  -0.000000  -0.184540   0.180212  -0.000000
+    5  C  1  Z   -0.143978  -0.213106  -0.000000  -0.000000  -0.404354
+    6  C  1  S    1.512792   0.881265  -0.000000  -0.000000   1.964929
+    7  C  1  X    0.000000  -0.000000   0.631393  -1.079080  -0.000000
+    8  C  1  Y    0.000000  -0.000000  -1.079080   0.631393  -0.000000
+    9  C  1  Z   -0.621722  -1.059461  -0.000000  -0.000000   2.306092
+   10  C  1 XX   -0.004419  -0.004941  -0.000000  -0.000000  -0.023519
+   11  C  1 YY   -0.004419  -0.004941  -0.000000  -0.000000  -0.023519
+   12  C  1 ZZ    0.008837   0.009882  -0.000000  -0.000000   0.047038
+   13  C  1 XY   -0.005613   0.004107  -0.000000  -0.000000  -0.063460
+   14  C  1 XZ    0.000000  -0.000000   0.009240   0.008595  -0.000000
+   15  C  1 YZ    0.000000  -0.000000   0.008595   0.009240  -0.000000
+   16  C  2  S   -0.082059   0.057675  -0.000000  -0.000000   0.037004
+   17  C  2  S    0.107572  -0.010099  -0.000000  -0.000000   0.072587
+   18  C  2  X    0.000000  -0.000000   0.180212   0.184540  -0.000000
+   19  C  2  Y    0.000000  -0.000000   0.184540   0.180212  -0.000000
+   20  C  2  Z    0.143978  -0.213106  -0.000000  -0.000000  -0.404354
+   21  C  2  S    1.512792  -0.881265  -0.000000  -0.000000  -1.964929
+   22  C  2  X    0.000000  -0.000000   0.631393   1.079080  -0.000000
+   23  C  2  Y    0.000000  -0.000000   1.079080   0.631393  -0.000000
+   24  C  2  Z    0.621722  -1.059461  -0.000000  -0.000000   2.306092
+   25  C  2 XX   -0.004419   0.004941  -0.000000  -0.000000   0.023519
+   26  C  2 YY   -0.004419   0.004941  -0.000000  -0.000000   0.023519
+   27  C  2 ZZ    0.008837  -0.009882  -0.000000  -0.000000  -0.047038
+   28  C  2 XY    0.005613   0.004107  -0.000000  -0.000000  -0.063460
+   29  C  2 XZ    0.000000  -0.000000  -0.009240   0.008595  -0.000000
+   30  C  2 YZ    0.000000  -0.000000   0.008595  -0.009240  -0.000000
    31  H  3  S   -0.000725   0.025352  -0.006995  -0.006995  -0.211679
    32  H  3  S   -1.089772   1.122752   1.299463   1.299463  -0.140589
    33  H  4  S   -0.000725  -0.025352   0.006995  -0.006995   0.211679
@@ -1045,36 +1134,36 @@ ALPHA |BETA  | CI COEFFICIENT
                      16         17         18         19         20
                     0.7294     0.8100     0.8100     0.8975     0.9079
                      A1         E          E          A1         E   
-    1  C  1  S   -0.008165   0.000000   0.000000  -0.031753   0.000000
-    2  C  1  S   -0.181475   0.000000   0.000000  -0.812203   0.000000
-    3  C  1  X    0.000000  -0.407969  -0.598110   0.000000   0.160513
-    4  C  1  Y    0.000000  -0.598110  -0.407969   0.000000  -0.503094
-    5  C  1  Z   -0.599263   0.000000   0.000000  -0.133619   0.000000
-    6  C  1  S   -0.335830   0.000000   0.000000   1.453089   0.000000
-    7  C  1  X    0.000000   0.197055   0.723825   0.000000  -0.572626
-    8  C  1  Y    0.000000   0.723825   0.197055   0.000000   1.600737
-    9  C  1  Z    0.999895   0.000000   0.000000  -0.319685   0.000000
-   10  C  1 XX    0.049088   0.000000   0.000000   0.021237   0.000000
-   11  C  1 YY    0.049088   0.000000   0.000000   0.021237   0.000000
-   12  C  1 ZZ   -0.098175   0.000000   0.000000  -0.042474   0.000000
-   13  C  1 XY   -0.023661   0.000000   0.000000   0.099156   0.000000
-   14  C  1 XZ    0.000000  -0.002400   0.006670   0.000000  -0.119409
-   15  C  1 YZ    0.000000   0.006670  -0.002400   0.000000   0.023603
-   16  C  2  S   -0.008165   0.000000   0.000000  -0.031753   0.000000
-   17  C  2  S   -0.181475   0.000000   0.000000  -0.812203   0.000000
-   18  C  2  X    0.000000   0.407969  -0.598110   0.000000   0.160513
-   19  C  2  Y    0.000000  -0.598110   0.407969   0.000000   0.503094
-   20  C  2  Z    0.599263   0.000000   0.000000   0.133619   0.000000
-   21  C  2  S   -0.335830   0.000000   0.000000   1.453089   0.000000
-   22  C  2  X    0.000000  -0.197055   0.723825   0.000000  -0.572626
-   23  C  2  Y    0.000000   0.723825  -0.197055   0.000000  -1.600737
-   24  C  2  Z   -0.999895   0.000000   0.000000   0.319685   0.000000
-   25  C  2 XX    0.049088   0.000000   0.000000   0.021237   0.000000
-   26  C  2 YY    0.049088   0.000000   0.000000   0.021237   0.000000
-   27  C  2 ZZ   -0.098175   0.000000   0.000000  -0.042474   0.000000
-   28  C  2 XY    0.023661   0.000000   0.000000  -0.099156   0.000000
-   29  C  2 XZ    0.000000  -0.002400  -0.006670   0.000000   0.119409
-   30  C  2 YZ    0.000000  -0.006670  -0.002400   0.000000   0.023603
+    1  C  1  S   -0.008165  -0.000000  -0.000000  -0.031753  -0.000000
+    2  C  1  S   -0.181475  -0.000000  -0.000000  -0.812203  -0.000000
+    3  C  1  X    0.000000  -0.407969  -0.598110  -0.000000   0.160513
+    4  C  1  Y    0.000000  -0.598110  -0.407969  -0.000000  -0.503094
+    5  C  1  Z   -0.599263  -0.000000  -0.000000  -0.133619  -0.000000
+    6  C  1  S   -0.335830  -0.000000  -0.000000   1.453089  -0.000000
+    7  C  1  X    0.000000   0.197055   0.723825  -0.000000  -0.572626
+    8  C  1  Y    0.000000   0.723825   0.197055  -0.000000   1.600737
+    9  C  1  Z    0.999895  -0.000000  -0.000000  -0.319685  -0.000000
+   10  C  1 XX    0.049088  -0.000000  -0.000000   0.021237  -0.000000
+   11  C  1 YY    0.049088  -0.000000  -0.000000   0.021237  -0.000000
+   12  C  1 ZZ   -0.098175  -0.000000  -0.000000  -0.042474  -0.000000
+   13  C  1 XY   -0.023661  -0.000000  -0.000000   0.099156  -0.000000
+   14  C  1 XZ    0.000000  -0.002400   0.006670  -0.000000  -0.119409
+   15  C  1 YZ    0.000000   0.006670  -0.002400  -0.000000   0.023603
+   16  C  2  S   -0.008165  -0.000000  -0.000000  -0.031753  -0.000000
+   17  C  2  S   -0.181475  -0.000000  -0.000000  -0.812203  -0.000000
+   18  C  2  X    0.000000   0.407969  -0.598110  -0.000000   0.160513
+   19  C  2  Y    0.000000  -0.598110   0.407969  -0.000000   0.503094
+   20  C  2  Z    0.599263  -0.000000  -0.000000   0.133619  -0.000000
+   21  C  2  S   -0.335830  -0.000000  -0.000000   1.453089  -0.000000
+   22  C  2  X    0.000000  -0.197055   0.723825  -0.000000  -0.572626
+   23  C  2  Y    0.000000   0.723825  -0.197055  -0.000000  -1.600737
+   24  C  2  Z   -0.999895  -0.000000  -0.000000   0.319685  -0.000000
+   25  C  2 XX    0.049088  -0.000000  -0.000000   0.021237  -0.000000
+   26  C  2 YY    0.049088  -0.000000  -0.000000   0.021237  -0.000000
+   27  C  2 ZZ   -0.098175  -0.000000  -0.000000  -0.042474  -0.000000
+   28  C  2 XY    0.023661  -0.000000  -0.000000  -0.099156  -0.000000
+   29  C  2 XZ    0.000000  -0.002400  -0.006670  -0.000000   0.119409
+   30  C  2 YZ    0.000000  -0.006670  -0.002400  -0.000000   0.023603
    31  H  3  S    0.129222   0.134196   0.134196  -0.442449  -0.320045
    32  H  3  S    0.110793   0.180525   0.180525  -0.240207  -0.429245
    33  H  4  S    0.129222   0.134196  -0.134196  -0.442449   0.320045
@@ -1087,120 +1176,120 @@ ALPHA |BETA  | CI COEFFICIENT
                      21         22         23         24         25
                     0.9079     1.1788     1.1856     1.1856     1.2157
                      E          B2         E          E          B2  
-    1  C  1  S    0.000000  -0.068261   0.000000   0.000000   0.010088
-    2  C  1  S    0.000000  -0.944478   0.000000   0.000000  -1.232926
-    3  C  1  X   -0.503094   0.000000   0.505780  -0.484056   0.000000
-    4  C  1  Y    0.160513   0.000000  -0.484056   0.505780   0.000000
-    5  C  1  Z    0.000000  -0.265342   0.000000   0.000000   0.430408
-    6  C  1  S    0.000000   3.375319   0.000000   0.000000   2.869874
-    7  C  1  X    1.600737   0.000000  -0.882529   0.701081   0.000000
-    8  C  1  Y   -0.572626   0.000000   0.701081  -0.882529   0.000000
-    9  C  1  Z    0.000000   1.701666   0.000000   0.000000   0.001574
-   10  C  1 XX    0.000000  -0.018534   0.000000   0.000000   0.014052
-   11  C  1 YY    0.000000  -0.018534   0.000000   0.000000   0.014052
-   12  C  1 ZZ    0.000000   0.037067   0.000000   0.000000  -0.028103
-   13  C  1 XY    0.000000   0.155305   0.000000   0.000000  -0.056725
-   14  C  1 XZ    0.023603   0.000000   0.048817  -0.172134   0.000000
-   15  C  1 YZ   -0.119409   0.000000  -0.172134   0.048817   0.000000
-   16  C  2  S    0.000000   0.068261   0.000000   0.000000  -0.010088
-   17  C  2  S    0.000000   0.944478   0.000000   0.000000   1.232926
-   18  C  2  X    0.503094   0.000000  -0.505780  -0.484056   0.000000
-   19  C  2  Y    0.160513   0.000000  -0.484056  -0.505780   0.000000
-   20  C  2  Z    0.000000  -0.265342   0.000000   0.000000   0.430408
-   21  C  2  S    0.000000  -3.375319   0.000000   0.000000  -2.869874
-   22  C  2  X   -1.600737   0.000000   0.882529   0.701081   0.000000
-   23  C  2  Y   -0.572626   0.000000   0.701081   0.882529   0.000000
-   24  C  2  Z    0.000000   1.701666   0.000000   0.000000   0.001574
-   25  C  2 XX    0.000000   0.018534   0.000000   0.000000  -0.014052
-   26  C  2 YY    0.000000   0.018534   0.000000   0.000000  -0.014052
-   27  C  2 ZZ    0.000000  -0.037067   0.000000   0.000000   0.028103
-   28  C  2 XY    0.000000   0.155305   0.000000   0.000000  -0.056725
-   29  C  2 XZ    0.023603   0.000000   0.048817   0.172134   0.000000
-   30  C  2 YZ    0.119409   0.000000   0.172134   0.048817   0.000000
-   31  H  3  S   -0.320045   0.455817  -0.452104  -0.452104  -0.330180
+    1  C  1  S   -0.000000  -0.068261  -0.000000  -0.000000   0.010088
+    2  C  1  S   -0.000000  -0.944478  -0.000000  -0.000000  -1.232926
+    3  C  1  X   -0.503094   0.000000   0.505780  -0.484056  -0.000000
+    4  C  1  Y    0.160513   0.000000  -0.484056   0.505780  -0.000000
+    5  C  1  Z   -0.000000  -0.265342  -0.000000  -0.000000   0.430408
+    6  C  1  S   -0.000000   3.375318  -0.000000  -0.000000   2.869875
+    7  C  1  X    1.600737   0.000000  -0.882529   0.701081  -0.000000
+    8  C  1  Y   -0.572626   0.000000   0.701081  -0.882529  -0.000000
+    9  C  1  Z   -0.000000   1.701666  -0.000000  -0.000000   0.001575
+   10  C  1 XX   -0.000000  -0.018534  -0.000000  -0.000000   0.014052
+   11  C  1 YY   -0.000000  -0.018534  -0.000000  -0.000000   0.014052
+   12  C  1 ZZ   -0.000000   0.037067  -0.000000  -0.000000  -0.028103
+   13  C  1 XY   -0.000000   0.155305  -0.000000  -0.000000  -0.056725
+   14  C  1 XZ    0.023603   0.000000   0.048817  -0.172134  -0.000000
+   15  C  1 YZ   -0.119409   0.000000  -0.172134   0.048817  -0.000000
+   16  C  2  S   -0.000000   0.068261  -0.000000  -0.000000  -0.010088
+   17  C  2  S   -0.000000   0.944478  -0.000000  -0.000000   1.232926
+   18  C  2  X    0.503094   0.000000  -0.505780  -0.484056  -0.000000
+   19  C  2  Y    0.160513   0.000000  -0.484056  -0.505780  -0.000000
+   20  C  2  Z   -0.000000  -0.265342  -0.000000  -0.000000   0.430408
+   21  C  2  S   -0.000000  -3.375318  -0.000000  -0.000000  -2.869875
+   22  C  2  X   -1.600737   0.000000   0.882529   0.701081  -0.000000
+   23  C  2  Y   -0.572626   0.000000   0.701081   0.882529  -0.000000
+   24  C  2  Z   -0.000000   1.701666  -0.000000  -0.000000   0.001575
+   25  C  2 XX   -0.000000   0.018534  -0.000000  -0.000000  -0.014052
+   26  C  2 YY   -0.000000   0.018534  -0.000000  -0.000000  -0.014052
+   27  C  2 ZZ   -0.000000  -0.037067  -0.000000  -0.000000   0.028103
+   28  C  2 XY   -0.000000   0.155305  -0.000000  -0.000000  -0.056725
+   29  C  2 XZ    0.023603   0.000000   0.048817   0.172134  -0.000000
+   30  C  2 YZ    0.119409   0.000000   0.172134   0.048817  -0.000000
+   31  H  3  S   -0.320045   0.455818  -0.452104  -0.452104  -0.330180
    32  H  3  S   -0.429245  -0.196992   1.015493   1.015493   0.875254
-   33  H  4  S   -0.320045  -0.455817  -0.452104   0.452104   0.330180
+   33  H  4  S   -0.320045  -0.455818  -0.452104   0.452104   0.330180
    34  H  4  S   -0.429245   0.196992   1.015493  -1.015493  -0.875254
-   35  H  5  S    0.320045  -0.455817   0.452104  -0.452104   0.330180
+   35  H  5  S    0.320045  -0.455818   0.452104  -0.452104   0.330180
    36  H  5  S    0.429245   0.196992  -1.015493   1.015493  -0.875254
-   37  H  6  S    0.320045   0.455817   0.452104   0.452104  -0.330180
+   37  H  6  S    0.320045   0.455818   0.452104   0.452104  -0.330180
    38  H  6  S    0.429245  -0.196992  -1.015493  -1.015493   0.875254
 
                      26         27         28         29         30
                     1.2446     1.8748     2.0682     2.0919     2.0919
                      A1         B1         A2         E          E   
-    1  C  1  S    0.027945   0.000000   0.000000   0.000000   0.000000
-    2  C  1  S   -1.151084   0.000000   0.000000   0.000000   0.000000
-    3  C  1  X    0.000000   0.000000   0.000000  -0.111830   0.002356
-    4  C  1  Y    0.000000   0.000000   0.000000   0.002356  -0.111830
-    5  C  1  Z    0.347401   0.000000   0.000000   0.000000   0.000000
-    6  C  1  S    2.044549   0.000000   0.000000   0.000000   0.000000
-    7  C  1  X    0.000000   0.000000   0.000000  -0.308553   0.711262
-    8  C  1  Y    0.000000   0.000000   0.000000   0.711262  -0.308553
-    9  C  1  Z   -0.594838   0.000000   0.000000   0.000000   0.000000
-   10  C  1 XX    0.036348   0.600293   0.625212   0.000000   0.000000
-   11  C  1 YY    0.036348  -0.600293  -0.625212   0.000000   0.000000
-   12  C  1 ZZ   -0.072695   0.000000   0.000000   0.000000   0.000000
-   13  C  1 XY   -0.093668   0.000000   0.000000   0.000000   0.000000
-   14  C  1 XZ    0.000000   0.000000   0.000000   0.633704   0.255375
-   15  C  1 YZ    0.000000   0.000000   0.000000   0.255375   0.633704
-   16  C  2  S    0.027945   0.000000   0.000000   0.000000   0.000000
-   17  C  2  S   -1.151084   0.000000   0.000000   0.000000   0.000000
-   18  C  2  X    0.000000   0.000000   0.000000  -0.111830  -0.002356
-   19  C  2  Y    0.000000   0.000000   0.000000  -0.002356  -0.111830
-   20  C  2  Z   -0.347401   0.000000   0.000000   0.000000   0.000000
-   21  C  2  S    2.044549   0.000000   0.000000   0.000000   0.000000
-   22  C  2  X    0.000000   0.000000   0.000000  -0.308553  -0.711262
-   23  C  2  Y    0.000000   0.000000   0.000000  -0.711262  -0.308553
-   24  C  2  Z    0.594838   0.000000   0.000000   0.000000   0.000000
-   25  C  2 XX    0.036348   0.600293  -0.625212   0.000000   0.000000
-   26  C  2 YY    0.036348  -0.600293   0.625212   0.000000   0.000000
-   27  C  2 ZZ   -0.072695   0.000000   0.000000   0.000000   0.000000
-   28  C  2 XY    0.093668   0.000000   0.000000   0.000000   0.000000
-   29  C  2 XZ    0.000000   0.000000   0.000000  -0.633704   0.255375
-   30  C  2 YZ    0.000000   0.000000   0.000000   0.255375  -0.633704
-   31  H  3  S    0.392470   0.000000   0.000000  -0.358602  -0.358602
-   32  H  3  S   -0.986257   0.000000   0.000000  -0.203425  -0.203425
-   33  H  4  S    0.392470   0.000000   0.000000   0.358602  -0.358602
-   34  H  4  S   -0.986257   0.000000   0.000000   0.203425  -0.203425
-   35  H  5  S    0.392470   0.000000   0.000000  -0.358602   0.358602
-   36  H  5  S   -0.986257   0.000000   0.000000  -0.203425   0.203425
-   37  H  6  S    0.392470   0.000000   0.000000   0.358602   0.358602
-   38  H  6  S   -0.986257   0.000000   0.000000   0.203425   0.203425
+    1  C  1  S    0.027945   0.000000  -0.000000  -0.000000  -0.000000
+    2  C  1  S   -1.151084   0.000000  -0.000000  -0.000000  -0.000000
+    3  C  1  X   -0.000000   0.000000  -0.000000  -0.111830   0.002356
+    4  C  1  Y   -0.000000   0.000000  -0.000000   0.002356  -0.111830
+    5  C  1  Z    0.347401   0.000000  -0.000000  -0.000000  -0.000000
+    6  C  1  S    2.044549   0.000000  -0.000000  -0.000000  -0.000000
+    7  C  1  X   -0.000000   0.000000  -0.000000  -0.308553   0.711262
+    8  C  1  Y   -0.000000   0.000000  -0.000000   0.711262  -0.308553
+    9  C  1  Z   -0.594838   0.000000  -0.000000  -0.000000  -0.000000
+   10  C  1 XX    0.036348   0.600293   0.625212  -0.000000  -0.000000
+   11  C  1 YY    0.036348  -0.600293  -0.625212  -0.000000  -0.000000
+   12  C  1 ZZ   -0.072695   0.000000  -0.000000  -0.000000  -0.000000
+   13  C  1 XY   -0.093668   0.000000  -0.000000  -0.000000  -0.000000
+   14  C  1 XZ   -0.000000   0.000000  -0.000000   0.633704   0.255375
+   15  C  1 YZ   -0.000000   0.000000  -0.000000   0.255375   0.633704
+   16  C  2  S    0.027945   0.000000  -0.000000  -0.000000  -0.000000
+   17  C  2  S   -1.151084   0.000000  -0.000000  -0.000000  -0.000000
+   18  C  2  X   -0.000000   0.000000  -0.000000  -0.111830  -0.002356
+   19  C  2  Y   -0.000000   0.000000  -0.000000  -0.002356  -0.111830
+   20  C  2  Z   -0.347401   0.000000  -0.000000  -0.000000  -0.000000
+   21  C  2  S    2.044549   0.000000  -0.000000  -0.000000  -0.000000
+   22  C  2  X   -0.000000   0.000000  -0.000000  -0.308553  -0.711262
+   23  C  2  Y   -0.000000   0.000000  -0.000000  -0.711262  -0.308553
+   24  C  2  Z    0.594838   0.000000  -0.000000  -0.000000  -0.000000
+   25  C  2 XX    0.036348   0.600293  -0.625212  -0.000000  -0.000000
+   26  C  2 YY    0.036348  -0.600293   0.625212  -0.000000  -0.000000
+   27  C  2 ZZ   -0.072695   0.000000  -0.000000  -0.000000  -0.000000
+   28  C  2 XY    0.093668   0.000000  -0.000000  -0.000000  -0.000000
+   29  C  2 XZ   -0.000000   0.000000  -0.000000  -0.633704   0.255375
+   30  C  2 YZ   -0.000000   0.000000  -0.000000   0.255375  -0.633704
+   31  H  3  S    0.392470   0.000000  -0.000000  -0.358602  -0.358602
+   32  H  3  S   -0.986257   0.000000  -0.000000  -0.203425  -0.203425
+   33  H  4  S    0.392470   0.000000  -0.000000   0.358602  -0.358602
+   34  H  4  S   -0.986257   0.000000  -0.000000   0.203425  -0.203425
+   35  H  5  S    0.392470   0.000000  -0.000000  -0.358602   0.358602
+   36  H  5  S   -0.986257   0.000000  -0.000000  -0.203425   0.203425
+   37  H  6  S    0.392470   0.000000  -0.000000   0.358602   0.358602
+   38  H  6  S   -0.986257   0.000000  -0.000000   0.203425   0.203425
 
                      31         32         33         34         35
                     2.1897     2.3019     2.5174     2.7537     2.7537
                      A1         B2         A1         E          E   
     1  C  1  S    0.007105  -0.049355   0.027085   0.000000   0.000000
     2  C  1  S   -0.461901  -0.232231  -0.043068   0.000000   0.000000
-    3  C  1  X    0.000000   0.000000   0.000000   0.109789  -0.028259
-    4  C  1  Y    0.000000   0.000000   0.000000  -0.028259   0.109789
+    3  C  1  X   -0.000000  -0.000000  -0.000000   0.109789  -0.028259
+    4  C  1  Y   -0.000000  -0.000000  -0.000000  -0.028259   0.109789
     5  C  1  Z   -0.311010  -0.017888  -0.006652   0.000000   0.000000
     6  C  1  S    0.295244   1.070088  -0.357567   0.000000   0.000000
-    7  C  1  X    0.000000   0.000000   0.000000   0.089809  -0.059683
-    8  C  1  Y    0.000000   0.000000   0.000000  -0.059683   0.089809
+    7  C  1  X   -0.000000  -0.000000  -0.000000   0.089809  -0.059683
+    8  C  1  Y   -0.000000  -0.000000  -0.000000  -0.059683   0.089809
     9  C  1  Z    0.289510   0.008726   0.288381   0.000000   0.000000
    10  C  1 XX   -0.323672   0.026109  -0.065588   0.000000   0.000000
    11  C  1 YY   -0.323672   0.026109  -0.065588   0.000000   0.000000
    12  C  1 ZZ    0.647345  -0.052219   0.131177   0.000000   0.000000
    13  C  1 XY   -0.133059  -0.738727   0.772627   0.000000   0.000000
-   14  C  1 XZ    0.000000   0.000000   0.000000  -0.260519   0.818536
-   15  C  1 YZ    0.000000   0.000000   0.000000   0.818536  -0.260519
+   14  C  1 XZ   -0.000000  -0.000000  -0.000000  -0.260519   0.818536
+   15  C  1 YZ   -0.000000  -0.000000  -0.000000   0.818536  -0.260519
    16  C  2  S    0.007105   0.049355   0.027085   0.000000   0.000000
    17  C  2  S   -0.461901   0.232231  -0.043068   0.000000   0.000000
-   18  C  2  X    0.000000   0.000000   0.000000   0.109789   0.028259
-   19  C  2  Y    0.000000   0.000000   0.000000   0.028259   0.109789
+   18  C  2  X   -0.000000  -0.000000  -0.000000   0.109789   0.028259
+   19  C  2  Y   -0.000000  -0.000000  -0.000000   0.028259   0.109789
    20  C  2  Z    0.311010  -0.017888   0.006652   0.000000   0.000000
    21  C  2  S    0.295244  -1.070088  -0.357567   0.000000   0.000000
-   22  C  2  X    0.000000   0.000000   0.000000   0.089809   0.059683
-   23  C  2  Y    0.000000   0.000000   0.000000   0.059683   0.089809
+   22  C  2  X   -0.000000  -0.000000  -0.000000   0.089809   0.059683
+   23  C  2  Y   -0.000000  -0.000000  -0.000000   0.059683   0.089809
    24  C  2  Z   -0.289510   0.008726  -0.288381   0.000000   0.000000
    25  C  2 XX   -0.323672  -0.026109  -0.065588   0.000000   0.000000
    26  C  2 YY   -0.323672  -0.026109  -0.065588   0.000000   0.000000
    27  C  2 ZZ    0.647345   0.052219   0.131177   0.000000   0.000000
    28  C  2 XY    0.133059  -0.738727  -0.772627   0.000000   0.000000
-   29  C  2 XZ    0.000000   0.000000   0.000000   0.260519   0.818536
-   30  C  2 YZ    0.000000   0.000000   0.000000   0.818536   0.260519
+   29  C  2 XZ   -0.000000  -0.000000  -0.000000   0.260519   0.818536
+   30  C  2 YZ   -0.000000  -0.000000  -0.000000   0.818536   0.260519
    31  H  3  S    0.012206   0.443898   0.414689   0.394558   0.394558
    32  H  3  S   -0.050575   0.094339   0.014221  -0.109783  -0.109783
    33  H  4  S    0.012206  -0.443898   0.414689  -0.394558   0.394558
@@ -1215,42 +1304,42 @@ ALPHA |BETA  | CI COEFFICIENT
                      B2  
     1  C  1  S   -0.061818
     2  C  1  S   -0.161616
-    3  C  1  X    0.000000
-    4  C  1  Y    0.000000
+    3  C  1  X   -0.000000
+    4  C  1  Y   -0.000000
     5  C  1  Z    0.348852
     6  C  1  S    1.839476
-    7  C  1  X    0.000000
-    8  C  1  Y    0.000000
+    7  C  1  X   -0.000000
+    8  C  1  Y   -0.000000
     9  C  1  Z    1.124805
    10  C  1 XX   -0.507306
    11  C  1 YY   -0.507306
    12  C  1 ZZ    1.014613
    13  C  1 XY   -0.036109
-   14  C  1 XZ    0.000000
-   15  C  1 YZ    0.000000
+   14  C  1 XZ   -0.000000
+   15  C  1 YZ   -0.000000
    16  C  2  S    0.061818
    17  C  2  S    0.161616
-   18  C  2  X    0.000000
-   19  C  2  Y    0.000000
+   18  C  2  X   -0.000000
+   19  C  2  Y   -0.000000
    20  C  2  Z    0.348852
    21  C  2  S   -1.839476
-   22  C  2  X    0.000000
-   23  C  2  Y    0.000000
+   22  C  2  X   -0.000000
+   23  C  2  Y   -0.000000
    24  C  2  Z    1.124805
    25  C  2 XX    0.507306
    26  C  2 YY    0.507306
    27  C  2 ZZ   -1.014613
    28  C  2 XY   -0.036109
-   29  C  2 XZ    0.000000
-   30  C  2 YZ    0.000000
+   29  C  2 XZ   -0.000000
+   30  C  2 YZ   -0.000000
    31  H  3  S   -0.004355
-   32  H  3  S   -0.032782
+   32  H  3  S   -0.032781
    33  H  4  S    0.004355
-   34  H  4  S    0.032782
+   34  H  4  S    0.032781
    35  H  5  S    0.004355
-   36  H  5  S    0.032782
+   36  H  5  S    0.032781
    37  H  6  S   -0.004355
-   38  H  6  S   -0.032782
+   38  H  6  S   -0.032781
 
  THIS RUN IS GOING TO SOLVE THE CP-MC-HF RESPONSE EQUATIONS,
  USING CANONICAL ACTIVE ORBITALS TO IMPROVE THEIR CONVERGENCE.
@@ -1258,34 +1347,33 @@ ALPHA |BETA  | CI COEFFICIENT
  THE 1 PARTICLE DENSITY, AND THE 2 PARTICLE DENSITY OVER THE NEW ACTIVE
  ORBITALS.  AWAY WE GO...
 
-     --------------------------------------------
-     PARTIAL TWO ELECTRON INTEGRAL TRANSFORMATION
-     --------------------------------------------
+          ------------------------------
+          CASSCF INTEGRAL TRANSFORMATION
+          ------------------------------
+ AO INTEGRALS WILL BE READ IN FROM DISK...
 
- NUMBER OF CORE MOLECULAR ORBITALS     =    6
- NUMBER OF OCCUPIED MOLECULAR ORBITALS =   10
- TOTAL NUMBER OF MOLECULAR ORBITALS    =   10
- TOTAL NUMBER OF ATOMIC ORBITALS       =   38
- THRESHOLD FOR KEEPING TRANSFORMED 2E- INTEGRALS = 1.000E-09
+ NUMBER OF CORE MOLECULAR ORBITALS     =     6
+ NUMBER OF OCCUPIED MOLECULAR ORBITALS =    10
+ TOTAL NUMBER OF MOLECULAR ORBITALS    =    36
+ TOTAL NUMBER OF ATOMIC ORBITALS       =    36
 
- -------------------------------     ------------------------------
- DISTRIBUTED DATA TRANSFORMATION     PROGRAM WRITTEN BY G. FLETCHER
- -------------------------------     ------------------------------
+ ----- CHOOSING THREE STEPS TRANSFORMATION -----
+ NUMBER OF WORDS USED      =     183748
+ NUMBER OF WORDS AVAILABLE =     960138
+ NUMBER OF PASSES          =          1
 
- THE DISTRIBUTED MEMORY REQUIRED FOR THIS STEP IS MEMDDI=         1 MWORDS
- CREATING DISTRIBUTED STORAGE FOR [OCC OCC|OCC OCC] INTEGRALS
- DDI: Creating Array [0] - 55 x 55 = 3025 words.
- CREATING WORKSPACE OF SIZE VVOO
- DDI: Creating Array [1] - 741 x 55 = 40755 words.
- FOR    3 PROCESSORS, THE REPLICATED MEMORY NEEDED IS       79244 WORDS.
- SCHWARZ INEQUALITY OVERHEAD:       741 INTEGRALS, T=        0.00
+ ----- NUCLEAR REPULSION ENERGY =     31.47622838
+ ----- FROZEN CORE ENERGY       =   -104.43629235
 
-      DIRECT 4-INDEX TRANSFORMATION 
-      SCHWARZ INEQUALITY TEST SKIPPED         65 INTEGRAL BLOCKS
- ----- FROZEN CORE ENERGY =      -104.4362922046
- ... END OF INTEGRAL TRANSFORMATION ...
- CPU     0: STEP CPU TIME=     0.13 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    95.11%
+ ... SYMMETRY ...           CPU =    0.00
+ ... (PQ|RS) -> (PQ|KL) ... CPU =    0.00
+ ... (PQ|KL) -> (IJ|KL) ... CPU =    0.00
+
+ NUMBER OF (PQ|KL) INTEGRALS WRITTEN       4988
+ NUMBER OF (IJ|KL) INTEGRALS WRITTEN         19
+ ..... END OF CAS INTEGRAL TRANSFORMATION .....
+ STEP CPU TIME =     0.05 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    96.16%
 
      --------------------------------------------------
           AMES LABORATORY DETERMINANTAL FULL CI
@@ -1297,7 +1385,7 @@ ALPHA |BETA  | CI COEFFICIENT
  WHICH INCLUDES             20 CSFS WITH S=  0.0
  WHICH INCLUDES             15 CSFS WITH S=  1.0
  WHICH INCLUDES              1 CSFS WITH S=  2.0
- THE DETERMINANT FULL CI REQUIRES          142066 WORDS
+ THE DETERMINANT FULL CI REQUIRES          172011 WORDS
  SMALL CI MATRIX, JUST USING INCORE DIAGONALIZATION...
 
  CI EIGENVECTORS WILL BE LABELED IN GROUP=C1      
@@ -1307,15 +1395,15 @@ ALPHA |BETA  | CI COEFFICIENT
 
 ALPHA |BETA  | CI COEFFICIENT
 ------|------|---------------
- 1100 | 1100 |   0.7014969257
- 1010 | 1010 |  -0.7014969257
- 0101 | 0101 |  -0.0590971314
- 0011 | 0011 |   0.0590971314
- 1001 | 0110 |   0.0542192607
- 0110 | 1001 |   0.0542192607
+ 1100 | 1100 |   0.7014969261
+ 1010 | 1010 |  -0.7014969261
+ 0101 | 0101 |  -0.0590971323
+ 0011 | 0011 |   0.0590971323
+ 0110 | 1001 |   0.0542192565
+ 1001 | 0110 |   0.0542192565
  ..... DONE WITH DETERMINANT CI COMPUTATION .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    95.12%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    96.16%
 
      --------------------------------------------------
       ONE AND TWO PARTICLE DENSITY MATRIX COMPUTATION
@@ -1328,12 +1416,11 @@ ALPHA |BETA  | CI COEFFICIENT
  SIEVING THE A    SYMMETRY NONZERO DENSITY ELEMENTS IN GROUP C1      
          18 NONZERO DM2 ELEMENTS WRITTEN IN       1 RECORDS TO FILE 15
  ..... DONE WITH 1 AND 2 PARTICLE DENSITY MATRIX .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    95.09%
- FREEING DISTRIBUTED STORAGE FOR [OCC OCC|OCC OCC] INTEGRALS
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    96.17%
  .....DONE WITH MCSCF ITERATIONS.....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    95.08%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    96.17%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE MCSCF SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -1345,19 +1432,19 @@ ALPHA |BETA  | CI COEFFICIENT
 
          WAVEFUNCTION NORMALIZATION =       1.0000000000
 
-                ONE ELECTRON ENERGY =    -166.3028122212
-                TWO ELECTRON ENERGY =      56.8512274526
+                ONE ELECTRON ENERGY =    -166.3028122001
+                TWO ELECTRON ENERGY =      56.8512274315
            NUCLEAR REPULSION ENERGY =      31.4762283844
                                       ------------------
                        TOTAL ENERGY =     -77.9753563843
 
- ELECTRON-ELECTRON POTENTIAL ENERGY =      56.8512274526
-  NUCLEUS-ELECTRON POTENTIAL ENERGY =    -244.3653926937
+ ELECTRON-ELECTRON POTENTIAL ENERGY =      56.8512274315
+  NUCLEUS-ELECTRON POTENTIAL ENERGY =    -244.3653926255
    NUCLEUS-NUCLEUS POTENTIAL ENERGY =      31.4762283844
                                       ------------------
-             TOTAL POTENTIAL ENERGY =    -156.0379368568
-               TOTAL KINETIC ENERGY =      78.0625804725
-                 VIRIAL RATIO (V/T) =       1.9988826389
+             TOTAL POTENTIAL ENERGY =    -156.0379368097
+               TOTAL KINETIC ENERGY =      78.0625804254
+                 VIRIAL RATIO (V/T) =       1.9988826395
 
           ---------------------------------------
           MULLIKEN AND LOWDIN POPULATION ANALYSES
@@ -1472,10 +1559,10 @@ ALPHA |BETA  | CI COEFFICIENT
  POINT   1           X           Y           Z (BOHR)    CHARGE
                  0.000000    0.000000    0.000000        0.00 (A.U.)
          DX          DY          DZ         /D/  (DEBYE)
-    -0.000000    0.000000   -0.000000    0.000000
+     0.000000    0.000000    0.000000    0.000000
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    95.12%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    96.08%
 
      --------------------------------------------
      PARTIAL TWO ELECTRON INTEGRAL TRANSFORMATION
@@ -1493,28 +1580,24 @@ ALPHA |BETA  | CI COEFFICIENT
 
  THE DISTRIBUTED MEMORY REQUIRED FOR THIS STEP IS MEMDDI=         1 MWORDS
  CREATING DISTRIBUTED STORAGE FOR [VIR OCC|VIR OCC] INTEGRALS
- DDI: Creating Array [0] - 1444 x 55 = 79420 words.
  CREATING DISTRIBUTED STORAGE FOR [VIR OCC|OCC OCC] INTEGRALS
- DDI: Creating Array [1] - 26 x 550 = 14300 words.
  CREATING DISTRIBUTED STORAGE FOR [OCC OCC|OCC OCC] INTEGRALS
- DDI: Creating Array [2] - 55 x 55 = 3025 words.
  CREATING DISTRIBUTED STORAGE FOR [VIR VIR|OCC OCC] INTEGRALS
- DDI: Creating Array [3] - 741 x 55 = 40755 words.
- FOR    3 PROCESSORS, THE REPLICATED MEMORY NEEDED IS       81748 WORDS.
+ FOR    1 PROCESSORS, THE REPLICATED MEMORY NEEDED IS       92980 WORDS.
  SCHWARZ INEQUALITY OVERHEAD:       741 INTEGRALS, T=        0.00
 
       DIRECT 4-INDEX TRANSFORMATION 
       SCHWARZ INEQUALITY TEST SKIPPED         65 INTEGRAL BLOCKS
  ... END OF INTEGRAL TRANSFORMATION ...
- CPU     0: STEP CPU TIME=     0.03 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    95.59%
+ CPU     0: STEP CPU TIME=     0.03 TOTAL CPU TIME=          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    97.15%
 
      ---------------------------------------------
      1ST AND 2ND INTEGRAL DERIVATIVE CONTRIBUTIONS
      ---------------------------------------------
  ...... END OF 1-ELECTRON GRAD+HESS+FOCKDER ......
- CPU     0: STEP CPU TIME=     0.01 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    95.59%
+ CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    97.26%
 
      ----------------------------------------------
      TWO ELECTRON INTEGRAL DERIVATIVE CONTRIBUTIONS
@@ -1523,22 +1606,18 @@ ALPHA |BETA  | CI COEFFICIENT
      137339 WORDS REQUIRED,    999999 WORDS AVAILABLE
  THE COARSE/FINE SCHWARZ SCREENINGS SKIPPED          0/         9 BLOCKS.
  THE NUMBER OF DERIVATIVE INTEGRAL BLOCKS COMPUTED WAS      9173
- CPU     0: STEP CPU TIME=     0.39 TOTAL CPU TIME=          0.6 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.6 SECONDS, CPU UTILIZATION IS    98.24%
+ CPU     0: STEP CPU TIME=     0.31 TOTAL CPU TIME=          0.4 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.4 SECONDS, CPU UTILIZATION IS    99.25%
  ...... END OF 2-ELECTRON GRAD+HESS+LAGDER ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.6 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.6 SECONDS, CPU UTILIZATION IS    98.24%
- DDI: Creating Array [4] - 1 x 3 = 3 words.
- DDI: Creating Array [5] - 1 x 3 = 3 words.
- DDI: Creating Array [6] - 1 x 3 = 3 words.
- DDI: Creating Array [7] - 1 x 3 = 3 words.
+ CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.4 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.4 SECONDS, CPU UTILIZATION IS    99.25%
 
      -------------------------------------------------
      COUPLED-PERTURBED MULTICONFIGURATION HARTREE-FOCK
      -------------------------------------------------
 
  SETTING UP RIGHT-HAND SIDE OF CPMCHF EQUATIONS.
- # OF WORDS REQUIRED  =     117782
+ # OF WORDS REQUIRED  =     118262
  # OF WORDS AVAILABLE =     999999
  NOTE THAT THE CP-MCHF DISTRIBUTED MEMORY REQUIREMENTS ARE JUST THE
  MEMORY NEEDED TO STORE TRANSFORMED INTEGRAL CLASSES (ALLOCATED ABOVE).
@@ -1550,76 +1629,76 @@ ALPHA |BETA  | CI COEFFICIENT
  MASTER NODE HAS FINISHED WITH (VO|VO) INTEGRALS, T=    0.0
 
  FINISHED SETTING UP RIGHT-HAND SIDE.
- CPU     0: STEP CPU TIME=     0.01 TOTAL CPU TIME=          0.6 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.6 SECONDS, CPU UTILIZATION IS    98.21%
+ CPU     0: STEP CPU TIME=     0.01 TOTAL CPU TIME=          0.4 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.4 SECONDS, CPU UTILIZATION IS    99.05%
 
  CALCULATING MCSCF ELECTRONIC HESSIAN ON THE FLY.
  # OF ORBITAL ROTATIONS   =        284
  LENGTH OF DET. EXPANSION =         36
 
  SOLVING CPMCHF EQUATIONS - ESSENTIAL MEMORY.
- # OF WORDS REQUIRED  =      87928
+ # OF WORDS REQUIRED  =      88672
  # OF WORDS AVAILABLE =     999999
 
  SOLVING FOR    6 NUCLEAR RESPONSES AND 0 ELECTRIC FIELD RESPONSES
 
  SOLVING CPMCHF EQUATIONS - EXTRA SOLVER MEMORY.
- # OF WORDS REQUIRED  =       1788
- # OF WORDS AVAILABLE =     912071
+ # OF WORDS REQUIRED  =       1932
+ # OF WORDS AVAILABLE =     911327
 
  PRECONDITIONED CONJUGATE GRADIENT SOLVER    CONV. TOLERANCE=1.00E-07
  ITER   RESPONSE ERROR    IMPROVED     ORB-ORB     CI-ORB
    1      1.05671E+00         6            0.0        0.0
  DUE TO LARGE RES. NORM, GUESS SET TO 0 VECTOR.
    1      1.66667E-01         6            0.0        0.0
-   2      1.66649E-01         6            0.0        0.0
-   3      7.86511E-01         6            0.0        0.0
-   4      1.81135E-01         6            0.0        0.0
-   5      1.39696E-01         6            0.0        0.0
-   6      8.15299E-02         6            0.0        0.0
-   7      2.59897E-02         6            0.0        0.0
-   8      1.22182E-02         6            0.0        0.0
-   9      2.47564E-03         6            0.0        0.0
-  10      9.47413E-04         6            0.0        0.0
-  11      4.63962E-04         6            0.0        0.0
-  12      1.11639E-04         6            0.0        0.0
-  13      3.11552E-05         6            0.0        0.0
-  14      1.12906E-05         6            0.0        0.0
-  15      5.35560E-06         4            0.0        0.0
-  16      2.17559E-06         3            0.0        0.0
-  17      9.12400E-07         3            0.0        0.0
-  18      5.05466E-07         3            0.0        0.0
-  19      2.16645E-07         1            0.0        0.0
-  20      2.65705E-07         1            0.0        0.0
-  21      3.96138E-07         1            0.0        0.0
-  22      2.70764E-07         1            0.0        0.0
-  23      1.32566E-07         1            0.0        0.0
-  24      4.14040E-08         0            0.0        0.0
+   2      1.66645E-01         6            0.0        0.0
+   3      7.86506E-01         6            0.0        0.0
+   4      1.81127E-01         6            0.0        0.0
+   5      1.39690E-01         6            0.0        0.0
+   6      8.15279E-02         6            0.0        0.0
+   7      2.59896E-02         6            0.0        0.0
+   8      1.22180E-02         6            0.0        0.0
+   9      2.47571E-03         6            0.0        0.0
+  10      9.47402E-04         6            0.0        0.0
+  11      4.11154E-04         6            0.0        0.0
+  12      1.17473E-04         6            0.0        0.0
+  13      3.13031E-05         6            0.0        0.0
+  14      1.12916E-05         6            0.0        0.0
+  15      5.35528E-06         4            0.0        0.0
+  16      2.15937E-06         3            0.0        0.0
+  17      8.77474E-07         3            0.0        0.0
+  18      5.02738E-07         3            0.0        0.0
+  19      2.07253E-07         1            0.0        0.0
+  20      2.48312E-07         1            0.0        0.0
+  21      3.76929E-07         1            0.0        0.0
+  22      2.66939E-07         1            0.0        0.0
+  23      1.32211E-07         1            0.0        0.0
+  24      4.13898E-08         0            0.0        0.0
  RESET PDIRX AND RESIDUAL.
-  25      8.80545E-08         0            0.0        0.0
+  25      9.23816E-08         0            0.0        0.0
  THE CPMCHF HAS CONVERGED AFTER  25 ITERATIONS.
  FREEING DISTRIBUTED STORAGE FOR [VIR VIR|OCC OCC] INTEGRALS
  FREEING DISTRIBUTED STORAGE FOR [OCC OCC|OCC OCC] INTEGRALS
  FREEING DISTRIBUTED STORAGE FOR [VIR OCC|OCC OCC] INTEGRALS
  FREEING DISTRIBUTED STORAGE FOR [VIR OCC|VIR OCC] INTEGRALS
 
- TOTAL REPLICATED MEMORY USED FOR MCSCF RESPONSES=       119570 WORDS.
+ TOTAL REPLICATED MEMORY USED FOR MCSCF RESPONSES=       120194 WORDS.
 
  ...... DONE WITH CPMCHF EQUATIONS ......
- CPU     0: STEP CPU TIME=     0.11 TOTAL CPU TIME=          0.7 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.8 SECONDS, CPU UTILIZATION IS    97.41%
+ CPU     0: STEP CPU TIME=     0.06 TOTAL CPU TIME=          0.5 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.5 SECONDS, CPU UTILIZATION IS    99.09%
 
           ---------------
           ENERGY GRADIENT
           ---------------
 
  UNITS ARE HARTREE/BOHR    E'X               E'Y               E'Z 
-    1 C               -0.000000000       0.000000000       0.000015163
-    2 C               -0.000000000      -0.000000000      -0.000015163
-    3 H                0.000000660       0.000000660       0.000000651
-    4 H               -0.000000660       0.000000660      -0.000000651
-    5 H                0.000000660      -0.000000660      -0.000000651
-    6 H               -0.000000660      -0.000000660       0.000000651
+    1 C               -0.000000000       0.000000000       0.000017162
+    2 C               -0.000000000      -0.000000000      -0.000017162
+    3 H                0.000000578       0.000000578       0.000000727
+    4 H               -0.000000578       0.000000578      -0.000000727
+    5 H                0.000000578      -0.000000578      -0.000000727
+    6 H               -0.000000578      -0.000000578       0.000000727
 
           -------------------------------
           CARTESIAN FORCE CONSTANT MATRIX
@@ -1628,12 +1707,12 @@ ALPHA |BETA  | CI COEFFICIENT
                                    1                          2
                                C                          C         
                           X        Y        Z        X        Y        Z
-  1   C            X 0.339198-0.297661 0.000000-0.047678-0.000000-0.000000
-                   Y-0.297661 0.339198 0.000000-0.000000-0.047678-0.000000
-                   Z 0.000000 0.000000 0.569640-0.000000-0.000000-0.252421
-  2   C            X-0.047678 0.000000-0.000000 0.339198 0.297661 0.000000
-                   Y 0.000000-0.047678-0.000000 0.297661 0.339198 0.000000
-                   Z-0.000000-0.000000-0.252421 0.000000 0.000000 0.569640
+  1   C            X 0.339197-0.297661 0.000000-0.047677 0.000000 0.000000
+                   Y-0.297661 0.339197 0.000000 0.000000-0.047677 0.000000
+                   Z 0.000000 0.000000 0.569642 0.000000 0.000000-0.252422
+  2   C            X-0.047677 0.000000 0.000000 0.339197 0.297661 0.000000
+                   Y-0.000000-0.047677 0.000000 0.297661 0.339197 0.000000
+                   Z 0.000000 0.000000-0.252422 0.000000 0.000000 0.569642
   3   H            X 0.004590 0.002631-0.000941-0.150350-0.146200 0.095807
                    Y 0.002631 0.004590-0.000941-0.146200-0.150350 0.095807
                    Z 0.014267 0.014267-0.012870 0.102814 0.102814-0.145740
@@ -1656,11 +1735,11 @@ ALPHA |BETA  | CI COEFFICIENT
   4   H            X 0.016056-0.016064 0.000217 0.138795-0.169820-0.106190
                    Y 0.016064-0.016893 0.000146-0.169820 0.138795 0.106190
                    Z 0.000217-0.000146-0.002077-0.106190 0.106190 0.148750
-  5   H            X-0.016893 0.016064 0.000146 0.007802 0.026250-0.011254
-                   Y-0.016064 0.016056 0.000217 0.026250 0.007802 0.011254
+  5   H            X-0.016893 0.016064 0.000146 0.007802 0.026251-0.011254
+                   Y-0.016064 0.016056 0.000217 0.026251 0.007802 0.011254
                    Z-0.000146 0.000217-0.002077 0.011254-0.011254 0.014013
-  6   H            X 0.007802-0.026250-0.011254-0.016893-0.016064 0.000146
-                   Y-0.026250 0.007802-0.011254 0.016064 0.016056-0.000217
+  6   H            X 0.007802-0.026251-0.011254-0.016893-0.016064 0.000146
+                   Y-0.026251 0.007802-0.011254 0.016064 0.016056-0.000217
                    Z 0.011254 0.011254 0.014013-0.000146-0.000217-0.002077
 
                                    5                          6
@@ -1678,24 +1757,24 @@ ALPHA |BETA  | CI COEFFICIENT
           ------------------------          ----------------
 
         ATOM                 MU-X           MU-Y           MU-Z
-     C          D/DX    -0.278086823   -1.506153046    0.000000000
-                D/DY    -1.506153994   -0.278086803    0.000000000
-                D/DZ     0.000000000    0.000000000    0.626377409
-     C          D/DX    -0.278086823    1.506153046    0.000000000
-                D/DY     1.506153994   -0.278086803    0.000000000
-                D/DZ     0.000000000    0.000000000    0.626377409
-     H          D/DX     0.139043395   -0.518105764    0.207343419
-                D/DY    -0.518106303    0.139043021    0.207343905
-                D/DZ     0.173761545    0.173761583   -0.313188828
-     H          D/DX     0.139043395    0.518105764    0.207343419
-                D/DY     0.518106303    0.139043021   -0.207343905
-                D/DZ     0.173761545   -0.173761583   -0.313188828
-     H          D/DX     0.139043395    0.518105764   -0.207343419
-                D/DY     0.518106303    0.139043021    0.207343905
-                D/DZ    -0.173761545    0.173761583   -0.313188828
-     H          D/DX     0.139043395   -0.518105764   -0.207343419
-                D/DY    -0.518106303    0.139043021   -0.207343905
-                D/DZ    -0.173761545   -0.173761583   -0.313188828
+     C          D/DX    -0.278092988   -1.506142469    0.000000000
+                D/DY    -1.506142484   -0.278092995    0.000000000
+                D/DZ     0.000000000    0.000000000    0.626375903
+     C          D/DX    -0.278092988    1.506142469    0.000000000
+                D/DY     1.506142484   -0.278092995    0.000000000
+                D/DZ     0.000000000    0.000000000    0.626375903
+     H          D/DX     0.139046344   -0.518102995    0.207343233
+                D/DY    -0.518103069    0.139046251    0.207343236
+                D/DZ     0.173758271    0.173758274   -0.313188045
+     H          D/DX     0.139046344    0.518102995    0.207343233
+                D/DY     0.518103069    0.139046251   -0.207343236
+                D/DZ     0.173758271   -0.173758274   -0.313188045
+     H          D/DX     0.139046344    0.518102995   -0.207343233
+                D/DY     0.518103069    0.139046251    0.207343236
+                D/DZ    -0.173758271    0.173758274   -0.313188045
+     H          D/DX     0.139046344   -0.518102995   -0.207343233
+                D/DY    -0.518103069    0.139046251   -0.207343236
+                D/DZ    -0.173758271   -0.173758274   -0.313188045
 
           --------------------------------------------------------
           NORMAL COORDINATE ANALYSIS IN THE HARMONIC APPROXIMATION
@@ -1728,144 +1807,144 @@ ALPHA |BETA  | CI COEFFICIENT
      REDUCED MASSES IN AMU.
 
                             1           2           3           4           5
-       FREQUENCY:      1847.32 I      4.42        4.42        2.32        0.03  
+       FREQUENCY:      1847.32 I      4.64        4.64        1.91        0.03  
         SYMMETRY:         B1          E           E           A2          B2  
-    REDUCED MASS:      1.00783     2.28707     2.28707     1.00782     4.67188
+    REDUCED MASS:      1.00782     2.28711     2.28711     1.00783     4.67188
     IR INTENSITY:      0.00000     0.00000     0.00000     0.00000     0.00000
 
-  1   C            X  0.00000000 -0.14345834  0.06973008  0.00000000  0.00000000
-                   Y  0.00000000  0.06904386  0.14378987  0.00000000  0.00000000
-                   Z  0.00000000 -0.00000000  0.00000000  0.00000000  0.18887670
-  2   C            X -0.00000000  0.14378987 -0.06904386  0.00000000  0.00000000
-                   Y  0.00000000 -0.06973008 -0.14345834  0.00000000  0.00000000
-                   Z  0.00000000 -0.00000000  0.00000000  0.00000000  0.18887670
-  3   H            X -0.35217818  0.25064684 -0.12075695  0.35217818  0.00000000
-                   Y  0.35217818 -0.12129904 -0.25038495 -0.35217818  0.00000000
-                   Z -0.00000000  0.06446085 -0.18495963  0.00000000  0.18887670
-  4   H            X  0.35217818 -0.25038495  0.12129904  0.35217818  0.00000000
-                   Y  0.35217818  0.12075695  0.25064684  0.35217818  0.00000000
-                   Z  0.00000000 -0.18495963 -0.06446085  0.00000000  0.18887670
-  5   H            X -0.35217818 -0.25038495  0.12129904 -0.35217818 -0.00000000
-                   Y -0.35217818  0.12075695  0.25064684 -0.35217818  0.00000000
-                   Z -0.00000000  0.18495963  0.06446085  0.00000000  0.18887670
-  6   H            X  0.35217818  0.25064684 -0.12075695 -0.35217818 -0.00000000
-                   Y -0.35217818 -0.12129904 -0.25038495  0.35217818  0.00000000
-                   Z -0.00000000 -0.06446085  0.18495963 -0.00000000  0.18887670
+  1   C            X  0.00000000  0.07615851 -0.14015273  0.00000000 -0.00000001
+                   Y  0.00000000  0.14047476  0.07556287  0.00000000 -0.00000000
+                   Z  0.00000000  0.00000000  0.00000000 -0.00000000  0.18887670
+  2   C            X -0.00000000 -0.07556287  0.14047476  0.00000000 -0.00000001
+                   Y -0.00000000 -0.14015273 -0.07615851 -0.00000000 -0.00000000
+                   Z  0.00000000  0.00000000  0.00000000 -0.00000000  0.18887670
+  3   H            X -0.35217818 -0.13209363  0.24485808 -0.35217818 -0.00000001
+                   Y  0.35217818 -0.24461627 -0.13254089  0.35217818 -0.00000000
+                   Z -0.00000000 -0.18770475  0.05596474 -0.00000000  0.18887670
+  4   H            X  0.35217818  0.13254089 -0.24461627 -0.35217818 -0.00000001
+                   Y  0.35217818  0.24485808  0.13209363 -0.35217818 -0.00000000
+                   Z -0.00000000 -0.05596474 -0.18770475 -0.00000000  0.18887670
+  5   H            X -0.35217818  0.13254089 -0.24461627  0.35217818 -0.00000001
+                   Y -0.35217818  0.24485808  0.13209363  0.35217818 -0.00000000
+                   Z  0.00000000  0.05596474  0.18770475 -0.00000000  0.18887670
+  6   H            X  0.35217818 -0.13209363  0.24485808  0.35217818 -0.00000001
+                   Y -0.35217818 -0.24461627 -0.13254089 -0.35217818 -0.00000001
+                   Z -0.00000000  0.18770475 -0.05596474 -0.00000000  0.18887670
 
- TRANS. SAYVETZ    X  0.00000000  0.00450615  0.00932728  0.00000000  0.00000001
-                   Y  0.00000000 -0.00932728  0.00450615  0.00000000  0.00000006
-                   Z  0.00000000 -0.00000000  0.00000000  0.00000000  5.29445937
-               TOTAL  0.00000000  0.01035874  0.01035874  0.00000000  5.29445937
+ TRANS. SAYVETZ    X  0.00000000  0.00804923  0.00435182  0.00000000 -0.00000030
+                   Y -0.00000000  0.00435182 -0.00804923  0.00000000 -0.00000012
+                   Z  0.00000000  0.00000000  0.00000000 -0.00000000  5.29445937
+               TOTAL  0.00000000  0.00915033  0.00915033  0.00000000  5.29445937
 
-   ROT. SAYVETZ    X -0.00000000  3.85885888  7.98745338 -0.00000000 -0.00000000
-                   Y -0.00000000  7.98745338 -3.85885888  0.00000000  0.00000000
-                   Z -0.00000000 -0.00000000  0.00000000  3.48830946 -0.00000000
-               TOTAL  0.00000000  8.87074988  8.87074988  3.48830946  0.00000000
+   ROT. SAYVETZ    X  0.00000000  7.80330095  4.21885807  0.00000000  0.00000000
+                   Y  0.00000000 -4.21885807  7.80330095  0.00000000 -0.00000000
+                   Z  0.00000000  0.00000000  0.00000000 -3.48830946 -0.00000000
+               TOTAL  0.00000000  8.87075359  8.87075359  3.48830946  0.00000000
 
                             6           7           8           9          10
-       FREQUENCY:         0.10        0.10      319.86      319.86     1005.72  
+       FREQUENCY:         0.09        0.09      319.87      319.87     1005.72  
         SYMMETRY:         E           E           E           E           E   
     REDUCED MASS:      4.67187     4.67187     1.23043     1.23043     1.27473
     IR INTENSITY:      0.00000     0.00000     1.09748     1.09748     0.03816
 
-  1   C            X  0.14697055  0.11863402 -0.01268703 -0.08982462  0.09372334
-                   Y -0.11911899  0.14657776 -0.02838874 -0.08615975 -0.06096263
-                   Z  0.00000000 -0.00000000  0.00000000  0.00000000  0.00000000
-  2   C            X  0.14657776  0.11911899 -0.08615975  0.02838874 -0.07620837
-                   Y -0.11863402  0.14697055  0.08982462 -0.01268703  0.02720465
-                   Z  0.00000000 -0.00000000  0.00000000  0.00000000 -0.00000000
-  3   H            X  0.14643138  0.11929957  0.43801009 -0.04844291  0.05960378
-                   Y -0.11845331  0.14711679 -0.41419704  0.15046715  0.04251216
-                   Z  0.00004002  0.00038105  0.02242350  0.09607090  0.17227108
-  4   H            X  0.14711679  0.11845331  0.15046715  0.41419704 -0.16387771
-                   Y -0.11929957  0.14643138  0.04844291  0.43801009  0.15846317
-                   Z  0.00038105 -0.00004002  0.09607090 -0.02242350 -0.54379376
-  5   H            X  0.14711679  0.11845331  0.15046715  0.41419704 -0.16387771
-                   Y -0.11929957  0.14643138  0.04844291  0.43801009  0.15846317
-                   Z -0.00038105  0.00004001 -0.09607090  0.02242350  0.54379376
-  6   H            X  0.14643138  0.11929957  0.43801009 -0.04844291  0.05960378
-                   Y -0.11845331  0.14711679 -0.41419704  0.15046715  0.04251216
-                   Z -0.00004002 -0.00038105 -0.02242350 -0.09607090 -0.17227108
+  1   C            X  0.16171416 -0.09758541 -0.01087945 -0.09006008  0.08984602
+                   Y  0.09711300  0.16199829 -0.02664929 -0.08671215 -0.06955062
+                   Z  0.00000001 -0.00000000 -0.00000000 -0.00000000 -0.00000000
+  2   C            X  0.16199829 -0.09711300 -0.08671215  0.02664929 -0.06846001
+                   Y  0.09758541  0.16171416  0.09006008 -0.01087945  0.03810191
+                   Z  0.00000001 -0.00000000 -0.00000000 -0.00000000 -0.00000000
+  3   H            X  0.16210406 -0.09693698  0.43889721 -0.03962967  0.04043714
+                   Y  0.09776134  0.16160824 -0.41714121  0.14210729  0.02282473
+                   Z  0.00032844  0.00008173  0.02048686  0.09649960  0.10672352
+  4   H            X  0.16160824 -0.09776134  0.14210729  0.41714121 -0.16775694
+                   Y  0.09693698  0.16210406  0.03962967  0.43889721  0.16440255
+                   Z  0.00008174 -0.00032843  0.09649960 -0.02048686 -0.56035690
+  5   H            X  0.16160824 -0.09776134  0.14210729  0.41714121 -0.16775694
+                   Y  0.09693698  0.16210406  0.03962967  0.43889721  0.16440255
+                   Z -0.00008172  0.00032842 -0.09649960  0.02048686  0.56035690
+  6   H            X  0.16210406 -0.09693698  0.43889721 -0.03962967  0.04043714
+                   Y  0.09776134  0.16160824 -0.41714121  0.14210729  0.02282473
+                   Z -0.00032841 -0.00008174 -0.02048686 -0.09649960 -0.10672352
 
- TRANS. SAYVETZ    X  4.11427008  3.33226266  0.00000274  0.00000170 -0.00000009
-                   Y -3.33226266  4.11427008 -0.00000170  0.00000274  0.00000018
-                   Z  0.00000003 -0.00000005  0.00000000  0.00000000 -0.00000000
-               TOTAL  5.29444923  5.29444923  0.00000323  0.00000323  0.00000020
+ TRANS. SAYVETZ    X  4.53704004 -2.72882464  0.00000252  0.00000164 -0.00000010
+                   Y  2.72882464  4.53704004 -0.00000164  0.00000252  0.00000014
+                   Z  0.00000032 -0.00000005 -0.00000000 -0.00000000 -0.00000000
+               TOTAL  5.29445146  5.29445146  0.00000301  0.00000301  0.00000017
 
-   ROT. SAYVETZ    X -0.01348710 -0.01092358  0.00150236  0.00093375  0.00001684
-                   Y -0.01092358  0.01348710  0.00093375 -0.00150236  0.00003247
-                   Z -0.00000000 -0.00000000  0.00000000 -0.00000000  0.00000000
-               TOTAL  0.01735588  0.01735588  0.00176889  0.00176889  0.00003658
+   ROT. SAYVETZ    X -0.01313796  0.00790189  0.00156847  0.00101912  0.00003408
+                   Y  0.00790189  0.01313796  0.00101912 -0.00156847  0.00005012
+                   Z  0.00000000 -0.00000000 -0.00000000 -0.00000000 -0.00000000
+               TOTAL  0.01533120  0.01533120  0.00187049  0.00187049  0.00006061
 
                            11          12          13          14          15
-       FREQUENCY:      1005.72     1082.29     1578.13     1605.68     3311.13  
+       FREQUENCY:      1005.72     1082.30     1578.13     1605.68     3311.13  
         SYMMETRY:         E           A1          B2          A1          B2  
-    REDUCED MASS:      1.27473     3.96822     1.11354     1.15690     1.04633
-    IR INTENSITY:      0.03816     0.00000     0.06954     0.00000     0.72642
+    REDUCED MASS:      1.27473     3.96819     1.11354     1.15690     1.04633
+    IR INTENSITY:      0.03816     0.00000     0.06954     0.00000     0.72641
 
-  1   C            X  0.02720465 -0.00000000 -0.00000000  0.00000000  0.00000000
-                   Y  0.07620837  0.00000000 -0.00000000 -0.00000000  0.00000000
-                   Z -0.00000000  0.18421291 -0.06571536 -0.07655838  0.04091150
-  2   C            X -0.06096263  0.00000000  0.00000000  0.00000000  0.00000000
-                   Y -0.09372334 -0.00000000  0.00000000  0.00000000  0.00000000
-                   Z  0.00000000 -0.18421291 -0.06571536  0.07655838  0.04091150
-  3   H            X  0.15846317 -0.00897204  0.18612836 -0.18930406  0.29897442
-                   Y  0.16387771 -0.00897204  0.18612836 -0.18930406  0.29897442
-                   Z  0.54379376 -0.21417848  0.39123079 -0.37615531 -0.24356313
-  4   H            X  0.04251216  0.00897204  0.18612836  0.18930406  0.29897442
-                   Y -0.05960378 -0.00897204 -0.18612836 -0.18930406 -0.29897442
-                   Z  0.17227108  0.21417848  0.39123079  0.37615531 -0.24356313
-  5   H            X  0.04251216 -0.00897204 -0.18612836 -0.18930406 -0.29897442
-                   Y -0.05960378  0.00897204  0.18612836  0.18930406  0.29897442
-                   Z -0.17227108  0.21417848  0.39123079  0.37615531 -0.24356313
-  6   H            X  0.15846317  0.00897204 -0.18612836  0.18930406 -0.29897442
-                   Y  0.16387771  0.00897204 -0.18612836  0.18930406 -0.29897442
-                   Z -0.54379376 -0.21417848  0.39123079 -0.37615531 -0.24356313
+  1   C            X  0.03810191 -0.00000000 -0.00000000  0.00000000  0.00000000
+                   Y  0.06846001 -0.00000000  0.00000000 -0.00000000 -0.00000000
+                   Z -0.00000000 -0.18421274 -0.06571537  0.07655878  0.04091149
+  2   C            X -0.06955062  0.00000000  0.00000000 -0.00000000 -0.00000000
+                   Y -0.08984602  0.00000000  0.00000000 -0.00000000 -0.00000000
+                   Z  0.00000000  0.18421274 -0.06571537 -0.07655878  0.04091149
+  3   H            X  0.16440255  0.00897239  0.18612832  0.18930395  0.29897444
+                   Y  0.16775694  0.00897239  0.18612832  0.18930395  0.29897444
+                   Z  0.56035690  0.21417930  0.39123083  0.37615493 -0.24356308
+  4   H            X  0.02282473 -0.00897239  0.18612832 -0.18930395  0.29897444
+                   Y -0.04043714  0.00897239 -0.18612832  0.18930395 -0.29897444
+                   Z  0.10672352 -0.21417930  0.39123083 -0.37615493 -0.24356308
+  5   H            X  0.02282473  0.00897239 -0.18612832  0.18930395 -0.29897444
+                   Y -0.04043714 -0.00897239  0.18612832 -0.18930395  0.29897444
+                   Z -0.10672352 -0.21417930  0.39123083 -0.37615493 -0.24356308
+  6   H            X  0.16440255 -0.00897239 -0.18612832 -0.18930395 -0.29897444
+                   Y  0.16775694 -0.00897239 -0.18612832 -0.18930395 -0.29897444
+                   Z -0.56035690  0.21417930  0.39123083  0.37615493 -0.24356308
 
- TRANS. SAYVETZ    X  0.00000018  0.00000000  0.00000000  0.00000000  0.00000000
-                   Y  0.00000009  0.00000000 -0.00000000 -0.00000000 -0.00000000
-                   Z -0.00000000 -0.00000000 -0.00000000  0.00000000 -0.00000001
-               TOTAL  0.00000020  0.00000000  0.00000000  0.00000000  0.00000001
+ TRANS. SAYVETZ    X  0.00000014 -0.00000000  0.00000000 -0.00000000 -0.00000000
+                   Y  0.00000010 -0.00000000  0.00000000 -0.00000000  0.00000000
+                   Z  0.00000000  0.00000000 -0.00000001  0.00000000 -0.00000001
+               TOTAL  0.00000017  0.00000000  0.00000001  0.00000000  0.00000001
 
-   ROT. SAYVETZ    X -0.00003247 -0.00000000 -0.00000000 -0.00000000  0.00000000
-                   Y  0.00001684 -0.00000000 -0.00000000 -0.00000000 -0.00000000
-                   Z  0.00000000  0.00000000 -0.00000000 -0.00000000  0.00000000
-               TOTAL  0.00003658  0.00000000  0.00000000  0.00000000  0.00000000
+   ROT. SAYVETZ    X -0.00005012  0.00000000 -0.00000000  0.00000000  0.00000000
+                   Y  0.00003408  0.00000000  0.00000000 -0.00000000  0.00000000
+                   Z  0.00000000  0.00000000 -0.00000000  0.00000000 -0.00000000
+               TOTAL  0.00006061  0.00000000  0.00000000  0.00000000  0.00000000
 
                            16          17          18
        FREQUENCY:      3315.27     3405.91     3405.91  
         SYMMETRY:         A1          E           E   
     REDUCED MASS:      1.05106     1.11746     1.11746
-    IR INTENSITY:      0.00000     0.51730     0.51730
+    IR INTENSITY:      0.00000     0.51728     0.51728
 
-  1   C            X -0.00000000  0.01705023  0.06459171
-                   Y  0.00000000 -0.01742593 -0.06449136
-                   Z -0.04325604  0.00000000 -0.00000000
-  2   C            X -0.00000000 -0.06449136  0.01742593
-                   Y -0.00000000 -0.06459171  0.01705023
-                   Z  0.04325604  0.00000000  0.00000000
-  3   H            X  0.29683825  0.38700977 -0.10197037
-                   Y  0.29683825  0.38631464 -0.10457304
-                   Z -0.24636092 -0.33832781  0.09036231
-  4   H            X -0.29683825 -0.10457304 -0.38631464
-                   Y  0.29683825  0.10197037  0.38700977
-                   Z  0.24636092  0.09036231  0.33832781
-  5   H            X  0.29683825 -0.10457304 -0.38631464
-                   Y -0.29683825  0.10197037  0.38700977
-                   Z  0.24636092 -0.09036231 -0.33832781
-  6   H            X -0.29683825  0.38700977 -0.10197037
-                   Y -0.29683825  0.38631464 -0.10457304
-                   Z -0.24636092  0.33832781 -0.09036231
+  1   C            X  0.00000000  0.03838397  0.05467607
+                   Y -0.00000000 -0.03870157 -0.05445173
+                   Z  0.04325605 -0.00000000 -0.00000000
+  2   C            X  0.00000000 -0.05445173  0.03870157
+                   Y  0.00000000 -0.05467607  0.03838397
+                   Z -0.04325605 -0.00000000  0.00000000
+  3   H            X -0.29683830  0.32766414 -0.22980588
+                   Y -0.29683830  0.32610992 -0.23200616
+                   Z  0.24636078 -0.28602469  0.20204173
+  4   H            X  0.29683830 -0.23200616 -0.32610992
+                   Y -0.29683830  0.22980588  0.32766414
+                   Z -0.24636078  0.20204173  0.28602469
+  5   H            X -0.29683830 -0.23200616 -0.32610992
+                   Y  0.29683830  0.22980588  0.32766414
+                   Z -0.24636078 -0.20204173 -0.28602469
+  6   H            X  0.29683830  0.32766414 -0.22980588
+                   Y  0.29683830  0.32610992 -0.23200616
+                   Z  0.24636078  0.28602469 -0.20204173
 
- TRANS. SAYVETZ    X -0.00000000 -0.00000001  0.00000002
-                   Y  0.00000000 -0.00000002 -0.00000001
-                   Z -0.00000000  0.00000000  0.00000000
-               TOTAL  0.00000000  0.00000002  0.00000002
+ TRANS. SAYVETZ    X  0.00000000 -0.00000000  0.00000002
+                   Y  0.00000000 -0.00000002 -0.00000000
+                   Z -0.00000000  0.00000000 -0.00000000
+               TOTAL  0.00000000  0.00000003  0.00000003
 
-   ROT. SAYVETZ    X  0.00000000 -0.00000143  0.00000246
-                   Y  0.00000000  0.00000246  0.00000143
-                   Z -0.00000000  0.00000000  0.00000000
-               TOTAL  0.00000000  0.00000285  0.00000285
+   ROT. SAYVETZ    X  0.00000000 -0.00000038  0.00000218
+                   Y  0.00000000  0.00000218  0.00000038
+                   Z -0.00000000 -0.00000000  0.00000000
+               TOTAL  0.00000000  0.00000222  0.00000222
 
  REFERENCE ON SAYVETZ CONDITIONS - A. SAYVETZ, J.CHEM.PHYS., 7, 383-389(1939).
 
@@ -1873,24 +1952,24 @@ ALPHA |BETA  | CI COEFFICIENT
  SUM ON I   M(I) * (X(I,J)*X(I,K) + Y(I,J)*Y(I,K) + Z(I,J)*Z(I,K)) = DELTA(J,K)
 
   MODE FREQ(CM**-1)  SYMMETRY  RED. MASS  IR INTENS.
-     1    1847.320    B1       1.007825    0.000000
-     2       4.420    E        2.287073    0.000000
-     3       4.420    E        2.287073    0.000000
-     4       2.322    A2       1.007825    0.000000
-     5       0.030    B2       4.671883    0.000000
-     6       0.102    E        4.671867    0.000000
-     7       0.102    E        4.671867    0.000000
-     8     319.864    E        1.230433    1.097482
-     9     319.864    E        1.230433    1.097481
-    10    1005.716    E        1.274731    0.038158
-    11    1005.716    E        1.274731    0.038158
-    12    1082.293    A1       3.968215    0.000000
+     1    1847.319    B1       1.007825    0.000000
+     2       4.635    E        2.287111    0.000000
+     3       4.635    E        2.287111    0.000000
+     4       1.915    A2       1.007825    0.000000
+     5       0.031    B2       4.671883    0.000000
+     6       0.092    E        4.671871    0.000000
+     7       0.092    E        4.671871    0.000000
+     8     319.866    E        1.230425    1.097480
+     9     319.866    E        1.230425    1.097480
+    10    1005.716    E        1.274728    0.038158
+    11    1005.716    E        1.274728    0.038158
+    12    1082.296    A1       3.968194    0.000000
     13    1578.131    B2       1.113544    0.069538
-    14    1605.682    A1       1.156896    0.000000
-    15    3311.134    B2       1.046326    0.726416
-    16    3315.267    A1       1.051060    0.000000
-    17    3405.910    E        1.117461    0.517297
-    18    3405.910    E        1.117461    0.517297
+    14    1605.683    A1       1.156898    0.000000
+    15    3311.134    B2       1.046326    0.726413
+    16    3315.266    A1       1.051060    0.000000
+    17    3405.909    E        1.117461    0.517280
+    18    3405.909    E        1.117461    0.517280
 
      -------------------------------
      THERMOCHEMISTRY AT T=  298.15 K
@@ -1909,15 +1988,15 @@ ALPHA |BETA  | CI COEFFICIENT
      FROM THE FOLLOWING THERMOCHEMICAL ANALYSIS.
       8 -     18 VIBRATIONAL MODES ARE USED IN THERMOCHEMISTRY.
  THE HARMONIC ZERO POINT ENERGY IS (SCALED BY   1.000)
-        0.046373 HARTREE/MOLECULE    10177.743411 CM**-1/MOLECULE 
-       29.099658 KCAL/MOL              121.752968 KJ/MOL
+        0.046373 HARTREE/MOLECULE    10177.746815 CM**-1/MOLECULE 
+       29.099668 KCAL/MOL              121.753009 KJ/MOL
 
                Q               LN Q
  ELEC.     1.00000E+00       0.000000
  TRANS.    5.83336E+06      15.579103
  ROT.      7.76817E+02       6.655205
- VIB.      1.65305E+00       0.502620
- TOT.      7.49070E+09      22.736929
+ VIB.      1.65304E+00       0.502613
+ TOT.      7.49065E+09      22.736921
 
               E         H         G         CV        CP        S
            KJ/MOL    KJ/MOL    KJ/MOL   J/MOL-K   J/MOL-K   J/MOL-K
@@ -1925,8 +2004,8 @@ ALPHA |BETA  | CI COEFFICIENT
  TRANS.     3.718     6.197   -38.620    12.472    20.786   150.317
  ROT.       3.718     3.718   -16.498    12.472    12.472    67.806
  VIB.     124.109   124.109   120.507    18.481    18.481    12.081
- TOTAL    131.546   134.025    65.389    43.424    51.739   230.203
- VIB. THERMAL CORRECTION E(T)-E(0) = H(T)-H(0) =      2355.879 J/MOL
+ TOTAL    131.546   134.025    65.390    43.424    51.739   230.203
+ VIB. THERMAL CORRECTION E(T)-E(0) = H(T)-H(0) =      2355.861 J/MOL
 
               E         H         G         CV        CP        S
          KCAL/MOL  KCAL/MOL  KCAL/MOL CAL/MOL-K CAL/MOL-K CAL/MOL-K
@@ -1935,48 +2014,32 @@ ALPHA |BETA  | CI COEFFICIENT
  ROT.       0.889     0.889    -3.943     2.981     2.981    16.206
  VIB.      29.663    29.663    28.802     4.417     4.417     2.887
  TOTAL     31.440    32.033    15.628    10.379    12.366    55.020
- VIB. THERMAL CORRECTION E(T)-E(0) = H(T)-H(0) =       563.069 CAL/MOL
+ VIB. THERMAL CORRECTION E(T)-E(0) = H(T)-H(0) =       563.064 CAL/MOL
  ......END OF NORMAL COORDINATE ANALYSIS......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.7 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.8 SECONDS, CPU UTILIZATION IS    97.42%
-                580000  WORDS OF DYNAMIC MEMORY USED
- EXECUTION OF GAMESS TERMINATED NORMALLY 13:07:27 15-MAR-2022    
- DDI: 642424 bytes (0.6 MB / 0 MWords) used by master data server.
+ CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.5 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.5 SECONDS, CPU UTILIZATION IS    99.09%
+               580000  WORDS OF DYNAMIC MEMORY USED
+ EXECUTION OF GAMESS TERMINATED NORMALLY 01:39:03 14-MAY-2025    
+ DDI: 1363672 bytes (1.3 MB / 0 MWords) used by master data server.
 
  ----------------------------------------
  CPU timing information for all processes
  ========================================
- 0: 0.689 + 0.49 = 0.738
- 1: 0.624 + 0.62 = 0.686
- 2: 0.649 + 0.40 = 0.689
+ 0: 0.477 + 0.23 = 0.501
  ----------------------------------------
  ddikick.x: exited gracefully.
 unset echo
 ----- accounting info -----
-Files used on the master node compute-0-6.local were:
--rw-rw-r-- 1 sarom sarom   23701 Mar 15 13:07 /tmp/373932/exam36-protect.F05
--rw-rw-r-- 1 sarom sarom 2340208 Mar 15 13:07 /tmp/373932/exam36-protect.F08
--rw-rw-r-- 1 sarom sarom 2340208 Mar 15 13:07 /tmp/373932/exam36-protect.F08.001
--rw-rw-r-- 1 sarom sarom 2340208 Mar 15 13:07 /tmp/373932/exam36-protect.F08.002
--rw-rw-r-- 1 sarom sarom    5336 Mar 15 13:07 /tmp/373932/exam36-protect.F09
--rw-rw-r-- 1 sarom sarom  180016 Mar 15 13:07 /tmp/373932/exam36-protect.F09.001
--rw-rw-r-- 1 sarom sarom  180016 Mar 15 13:07 /tmp/373932/exam36-protect.F09.002
--rw-rw-r-- 1 sarom sarom 2421280 Mar 15 13:07 /tmp/373932/exam36-protect.F10
--rw-rw-r-- 1 sarom sarom     320 Mar 15 13:07 /tmp/373932/exam36-protect.F12
--rw-rw-r-- 1 sarom sarom   50688 Mar 15 13:07 /tmp/373932/exam36-protect.F13
--rw-rw-r-- 1 sarom sarom   50688 Mar 15 13:07 /tmp/373932/exam36-protect.F13.001
--rw-rw-r-- 1 sarom sarom   50688 Mar 15 13:07 /tmp/373932/exam36-protect.F13.002
--rw-rw-r-- 1 sarom sarom  180464 Mar 15 13:07 /tmp/373932/exam36-protect.F15
--rw-rw-r-- 1 sarom sarom  208080 Mar 15 13:07 /tmp/373932/exam36-protect.F18
--rw-rw-r-- 1 sarom sarom    1872 Mar 15 13:07 /tmp/373932/exam36-protect.F19
--rw-rw-r-- 1 sarom sarom    1872 Mar 15 13:07 /tmp/373932/exam36-protect.F19.001
--rw-rw-r-- 1 sarom sarom    1872 Mar 15 13:07 /tmp/373932/exam36-protect.F19.002
--rw-rw-r-- 1 sarom sarom   82080 Mar 15 13:07 /tmp/373932/exam36-protect.F23
-/usr/bin/rm: cannot remove ‘/tmp/373932’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373932’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373932’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373932’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373932’: No such file or directory
-srun: error: compute-0-6: tasks 0-1,3-5: Exited with exit code 1
-Tue Mar 15 13:07:30 CDT 2022
-0.248u 0.101s 0:04.42 7.6%	0+0k 88+1824io 0pf+0w
+Files used on the parent node Mac were:
+-rw-r--r--@ 1 sarom  staff    23701 May 14 01:39 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F05
+-rw-r--r--@ 1 sarom  staff  2340208 May 14 01:39 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F08
+-rw-r--r--@ 1 sarom  staff     5336 May 14 01:39 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F09
+-rw-r--r--@ 1 sarom  staff  2421280 May 14 01:39 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F10
+-rw-r--r--@ 1 sarom  staff      320 May 14 01:39 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F12
+-rw-r--r--@ 1 sarom  staff    50256 May 14 01:39 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F13
+-rw-r--r--@ 1 sarom  staff   180464 May 14 01:39 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F15
+-rw-r--r--@ 1 sarom  staff   208080 May 14 01:39 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F18
+-rw-r--r--@ 1 sarom  staff     5328 May 14 01:39 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F19
+-rw-r--r--@ 1 sarom  staff    82080 May 14 01:39 /Users/sarom/GAMESS-Development/gamess/scratch/exam36-protect/2025_05_14-01_39_02-E6E9CF00/exam36-protect.F23
+Wed May 14 01:39:04 EDT 2025
+0.556u 0.108s 0:01.70 38.2%	0+0k 0+0io 190pf+0w

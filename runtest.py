@@ -10,6 +10,8 @@ import subprocess
 import mmap
 import datetime
 import platform
+import faulthandler
+import signal
 
 from checkgms_utils import *
 from checkgms_stable import *
@@ -24,7 +26,6 @@ codecoverage = []
 
 def run_test(input_file):
     global first
-    global rungms_path
     global codecoverage
 
     filenum = input_file[0]
@@ -32,131 +33,153 @@ def run_test(input_file):
     input_file_path = re.sub("(\*|\?| |!|\$|#|&|\"|\'|\(|\)|\||<|>|\\\|;)", r"\\\1", input_file_path)
     short_input_file_path = input_file_path.split("/tests/", 1)[-1]
 
-    try:
-        rungms_path_tmp = run_arguments["path"]
-        if rungms_path_tmp == "":
-            rungms_path_tmp = rungms_path
+    rungms_path_tmp = run_arguments["path"]
+    if rungms_path_tmp == "":
+        rungms_path_tmp = rungms_path
 
-        if run_arguments["bwrap"] and "Windows" not in platform.system():
-            rungms_path_tmp = "bwrap --dev-bind / / --unshare-ipc " + rungms_path_tmp
+    if run_arguments["bwrap"] and "Windows" not in platform.system():
+        rungms_path_tmp = 'bwrap --setenv LD_LIBRARY_PATH "${LD_LIBRARY_PATH}" --dev-bind / / --unshare-ipc ' + \
+            rungms_path_tmp
 
+    run_command = rungms_path_tmp + " " + input_file_path + " " + run_arguments["version"] + " " + \
+        run_arguments["ncpus"]
+
+    if "Windows" in platform.system():
+        run_command = run_command + " > " + input_file_path.replace(".inp", ".log") + " 2>&1"
+    else:
+        run_command = run_command + " " + run_arguments["ncpus"] + \
+        " > " + input_file_path.replace(".inp", ".log") + " 2>&1"
+
+    if run_arguments["print_to_stdout"]:
         run_command = rungms_path_tmp + " " + input_file_path + " " + run_arguments["version"] + " " + \
             run_arguments["ncpus"]
 
-        if "Windows" in platform.system():
-            run_command = run_command + " > " + input_file_path.replace(".inp", ".log") + " 2>&1"
-        else:
-            run_command = run_command + " " + run_arguments["ncpus"] + \
-            " > " + input_file_path.replace(".inp", ".log") + " 2>&1"
+        if "Windows" not in platform.system():
+            run_command = run_command + " " + run_arguments["ncpus"]
 
-        if run_arguments["print_to_stdout"]:
-            run_command = rungms_path_tmp + " " + input_file_path + " " + run_arguments["version"] + " " + \
-                run_arguments["ncpus"]
+    if run_arguments["pre"]:
+        run_command = run_arguments["pre"] + " " + input_file_path + " && " + run_command
 
-            if "Windows" not in platform.system():
-                run_command = run_command + " " + run_arguments["ncpus"]
+    if run_arguments["post"]:
+        run_command = run_command + " && " + run_arguments["post"] + " " + input_file_path
 
-        if run_arguments["pre"]:
-            run_command = run_arguments["pre"] + " && " + run_command
+    # TODO: Use Python 3's pathlib to juggle Windows / Unix paths
+    if "Windows" in platform.system():
+        run_command=run_command.replace("/","\\")
 
-        if run_arguments["post"]:
-            run_command = run_command + " && " + run_arguments["post"]
-
-        # TODO: Use Python 3's pathlib to juggle Windows / Unix paths
-        if "Windows" in platform.system():
-            run_command=run_command.replace("/","\\")
-
-        if not run_arguments["coverage"]:
-            if not run_arguments["no_counter"]:
-                print(
-                    c_box_small(
-                        datetime.datetime.now().time()),
-                    l_box_small("Running input file"),
-                    file_progress(
-                        filenum,
-                        len(input_file_paths)),
-                    short_input_file_path)
-
-        if run_arguments["stderr"]:
-            sys.stderr.write(
-                l_box_small("Running input file") +
-                " " +
+    if not run_arguments["coverage"]:
+        if not run_arguments["no_counter"]:
+            sys.stdout.write(
+                c_box_small(
+                    datetime.datetime.now().time()) + " " +
+                l_box_small("Running input file") + " " +
                 file_progress(
                     filenum,
-                    len(input_file_paths)) +
-                " " +
-                short_input_file_path +
-                "\n")
-            sys.stderr.flush()
+                    len(input_file_paths)) + " " +
+                short_input_file_path + "\n")
 
-        if run_arguments["debug"] or run_arguments["dryrun"]:
-            print(run_command)
+    if run_arguments["stderr"]:
+        sys.stderr.write(
+            l_box_small("Running input file") +
+            " " +
+            file_progress(
+                filenum,
+                len(input_file_paths)) +
+            " " +
+            short_input_file_path +
+            "\n")
+        sys.stderr.flush()
 
-        if not run_arguments["dryrun"]:
-            os.system(run_command)
-            time.sleep(2)
+    if run_arguments["debug"] or run_arguments["dryrun"]:
+        sys.stdout.write(run_command + "\n")
 
-        if run_arguments["coverage"]:
+    if not run_arguments["dryrun"]:
+        if "Windows" in platform.system():
+            p=subprocess.Popen([run_command], shell=True, stdout=sys.stdout)
+            try:
+                if run_arguments["no_timeout"]:
+                    p.wait()
+                else:
+                    p.wait(timeout=7200)
+            except subprocess.TimeoutExpired:
+                sys.stdout.write("Timeout expired for " + short_input_file_path + "\n")
+                sys.stdout.flush()
+                p.terminate()
+                return
+            except KeyboardInterrupt:
+                sys.exit(1)
+        else:
+            p=subprocess.Popen([run_command], shell=True, stdout=sys.stdout, start_new_session=True)
+            try:
+                p.wait(timeout=7200)
+            except subprocess.TimeoutExpired:
+                sys.stdout.write("Timeout expired for " + short_input_file_path + "\n")
+                sys.stdout.flush()
+                os.killpg(os.getpgid(p.pid), signal.SIGTERM)
+                return
+            except KeyboardInterrupt:
+                sys.exit(1)
+
+    if run_arguments["coverage"]:
+        try:
             result = subprocess.run(
                 ["tests/coverage"],
                 stdout=subprocess.PIPE).stdout.decode('utf-8')
+        except KeyboardInterrupt:
+            sys.exit(1)
 
-            lines = result.splitlines()
+        lines = result.splitlines()
 
-            if first:
-                print(c_large("Test Input"), c_small("% Total Coverage"))
-                print(seperator(columns=83))
-                codecoverage.append(["Source Files"])
-                codecoverage.append(["Lines of Code"])
+        if first:
+            sys.stdout.write(c_large("Test Input") + " " + c_small("% Total Coverage") + "\n")
+            sys.stdout.write(seperator(columns=83) + "\n")
+            codecoverage.append(["Source Files"])
+            codecoverage.append(["Lines of Code"])
 
-            codecoverage.append([short_input_file_path])
+        codecoverage.append([short_input_file_path])
 
-            for line in range(len(lines)):
-                if "File" in lines[line]:
-                    sourcefile = lines[line].split("'")[-2]
-                    coverage = lines[line + 1].split(":")[-1].split("%")[0]
-                    linesofcode = lines[line + 1].split(" ")[-1]
+        for line in range(len(lines)):
+            if "File" in lines[line]:
+                sourcefile = lines[line].split("'")[-2]
+                coverage = lines[line + 1].split(":")[-1].split("%")[0]
+                linesofcode = lines[line + 1].split(" ")[-1]
 
-                    if "No executable lines" in lines[line + 1]:
-                        coverage = "0.00"
-                        linesofcode = 0
+                if "No executable lines" in lines[line + 1]:
+                    coverage = "0.00"
+                    linesofcode = 0
 
-                    if first:
-                        codecoverage[0].append(sourcefile)
-                        codecoverage[1].append(linesofcode)
+                if first:
+                    codecoverage[0].append(sourcefile)
+                    codecoverage[1].append(linesofcode)
 
-                    codecoverage[-1].append(coverage)
+                codecoverage[-1].append(coverage)
 
-            if first:
-                codecoverage[0].append("Total")
-                loc_sum = 0
-                for loc in codecoverage[1][1:-1]:
-                    loc_sum = loc_sum + int(loc)
-                codecoverage[1].append(loc_sum)
+        if first:
+            codecoverage[0].append("Total")
+            loc_sum = 0
+            for loc in codecoverage[1][1:-1]:
+                loc_sum = loc_sum + int(loc)
+            codecoverage[1].append(loc_sum)
 
-            codecoverage[-1].append(lines[-1].split(":")[-1].split("%")[0])
+        codecoverage[-1].append(lines[-1].split(":")[-1].split("%")[0])
 
-            if first:
-                first = False
+        if first:
+            first = False
 
-            if float(codecoverage[-1][-1]) > float(codecoverage[-2][-1]):
-                print(l_box_large(codecoverage[-1][0]),
-                      r_small(codecoverage[-1][-1]))
+        if float(codecoverage[-1][-1]) > float(codecoverage[-2][-1]):
+            sys.stdout.write(l_box_large(
+                codecoverage[-1][0]) + " " +
+                r_small(codecoverage[-1][-1])+ "\n")
+        else:
+            if float(codecoverage[-2][-1]) < 100.0:
+                sys.stdout.write(l_box_large(
+                    codecoverage[-1][0]) + " " +
+                    r_small(codecoverage[-1][-1]) + " " +
+                    c_small("X") + "\n")
             else:
-                if float(codecoverage[-2][-1]) < 100.0:
-                    print(l_box_large(
-                        codecoverage[-1][0]), r_small(codecoverage[-1][-1]), c_small("X"))
-                else:
-                    print(l_box_large(
-                        codecoverage[-1][0]), r_small(codecoverage[-1][-1]))
-
-        # To permit a keyboard interrupt
-
-    except KeyboardInterrupt:
-        sys.exit(1)
-    except BaseException:
-        sys.exit(1)
-
+                sys.stdout.write(l_box_large(
+                    codecoverage[-1][0]) + " " +
+                    r_small(codecoverage[-1][-1]) + "\n")
 
 if __name__ == '__main__':
     input_files = []
@@ -166,8 +189,12 @@ if __name__ == '__main__':
 
     run_arguments = parse_arguments(checkgms=False)
 
-    print(c_box("Run parameters"))
-    print(json.dumps(run_arguments, indent=2))
+    if not run_arguments["no_timeout"]:
+        faulthandler.dump_traceback_later(12*3600, exit=True)
+
+    if run_arguments["supress"]== False:
+        print(c_box("Run parameters"))
+        print(json.dumps(run_arguments, indent=2))
 
     script_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -185,7 +212,7 @@ if __name__ == '__main__':
 
     if threads_num > 1:
         try:
-            import multiprocessing as mp
+            import concurrent.futures as cf
         except ImportError:
             print("Parallelization is not available with this python version!")
             sys.exit(1)
@@ -282,8 +309,12 @@ if __name__ == '__main__':
         for input_file in input_files:
             run_test(input_file)
     else:
-        pool = mp.Pool(processes=threads_num)
-        pool.map(run_test, input_files, chunksize=1)
+        with cf.ThreadPoolExecutor(max_workers=threads_num) as executor:
+            try:
+                for _ in executor.map(run_test, input_files, chunksize=1):
+                    pass
+            except KeyboardInterrupt:
+                sys.exit(1)
 
     if run_arguments["coverage"]:
         with open("tests/coverage.dat", "w") as coverage_file:

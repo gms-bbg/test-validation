@@ -1,19 +1,27 @@
-source /home/sarom/dir.git.dev/install.info
-setenv GMS_PATH /export/home/sarom/dir.git.dev
-setenv GMS_BUILD_DIR /export/home/sarom/dir.git.dev
+source /Users/sarom/GAMESS-Development/gamess/install.info
+setenv GMS_VERSION 00
+setenv GMS_PATH /Users/sarom/GAMESS-Development/gamess
+setenv GMS_BUILD_DIR /Users/sarom/GAMESS-Development/gamess
 setenv GMS_TARGET linux64
 setenv GMS_HPC_SYSTEM_TARGET generic
-setenv GMS_FORTRAN oneapi-ifort
-setenv GMS_IFORT_VERNO 20
-setenv GMS_MATHLIB mkl
-setenv GMS_MATHLIB_PATH /shared/compilers/intel/oneapi/mkl/2022.0.1/lib/intel64
-setenv GMS_MKL_VERNO oneapi
+setenv GMS_ARCH arm
+setenv GMS_FORTRAN gfortran
+setenv GMS_GFORTRAN_VERNO 14.1
+setenv GMS_MATHLIB none
+setenv GMS_THREADED_BLAS false
+setenv GMS_LAPACK_LINK_LINE 
 setenv GMS_DDI_COMM sockets
-setenv GMS_MSUCC false
-setenv GMS_LIBCCHEM false
+setenv GMS_MSUAUTO false
+setenv GMS_HPCCHEM false
+setenv GMS_HPCCHEM_PATH
+setenv GMS_HPCCHEM_USE_DATA_SERVERS false
 setenv GMS_PHI none
 setenv GMS_SHMTYPE sysv
 setenv GMS_OPENMP false
+setenv GMS_OPENMP_OFFLOAD false
+setenv GMS_USE_HIPFORT false
+setenv USE_CUBLAS false
+setenv USE_HIPBLAS false
 setenv GMS_LIBXC false
 setenv GMS_MDI false
 setenv GMS_VM2 false
@@ -22,220 +30,293 @@ setenv VB2000 false
 setenv XMVB false
 setenv NEO false
 setenv NBO false
-setenv GMS_FPE_FLAGS -fpe0
-setenv GMS_FPE_FLAGS 
+setenv RISM false
+setenv GMS_FPE_FLAGS -ffpe-trap=invalid,zero,overflow -finit-real=snan -finit-integer=-9223372036854775808
 unset echo
-SLURM has assigned the following compute nodes to this run:
-compute-1-0
-srun mkdir -p /tmp/373913
-unset echo
-Input file supplied : /export/home/sarom/dir.git.dev/tests/travis-ci/parallel/exam16.inp
------ GAMESS execution script 'rungms-dev' -----
-This job is running on host compute-1-0.local
-under operating system Linux at Tue Mar 15 13:06:32 CDT 2022 with sockets communication mode
-Available scratch disk space (Kbyte units) at beginning of the job is
-Filesystem     1K-blocks    Used Available Use% Mounted on
-/dev/sda1       15995808 6128260   9031964  41% /
-GAMESS temporary binary files will be written to /tmp/373913
-GAMESS supplementary output files will be written to /export/home/sarom/restart
+TERM_PROGRAM=Apple_Terminal
+TERM=xterm-256color
+SHELL=/bin/bash
+TMPDIR=/var/folders/sd/9w2pshtj1cx7jvxnw95lstjr0000gp/T/
+HOMEBREW_REPOSITORY=/opt/homebrew
+TERM_PROGRAM_VERSION=455.1
+TERM_SESSION_ID=E3731169-BECF-4F18-9F46-17B6FDC36B77
+USER=sarom
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.yJPjuo0ExF/Listeners
+__CF_USER_TEXT_ENCODING=0x1F6:0x0:0x0
+PATH=/opt/homebrew/opt/gnu-sed/libexec/gnubin:/opt/homebrew/opt/make/libexec/gnubin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/krb5/bin:/usr/local/ossh/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+_=misc/automation/rungms
+__CFBundleIdentifier=com.apple.Terminal
+PWD=/Users/sarom/GAMESS-Development/gamess
+EDITOR=nano
+LANG=en_US.UTF-8
+XPC_FLAGS=0x0
+KRB5_CONFIG=/etc/krb5.conf
+XPC_SERVICE_NAME=0
+HOME=/Users/sarom
+SHLVL=3
+HOMEBREW_PREFIX=/opt/homebrew
+LOGNAME=sarom
+VISUAL=nano
+HOMEBREW_CELLAR=/opt/homebrew/Cellar
+INFOPATH=/opt/homebrew/share/info:
+HOSTTYPE=unknown
+VENDOR=apple
+OSTYPE=darwin
+MACHTYPE=unknown
+GROUP=staff
+HOST=Mac
+NO_STOP_MESSAGE=1
+GMS_VERSION=00
+GMS_PATH=/Users/sarom/GAMESS-Development/gamess
+GMS_BUILD_DIR=/Users/sarom/GAMESS-Development/gamess
+GMS_TARGET=linux64
+GMS_HPC_SYSTEM_TARGET=generic
+GMS_ARCH=arm
+GMS_FORTRAN=gfortran
+GMS_GFORTRAN_VERNO=14.1
+GMS_MATHLIB=none
+GMS_THREADED_BLAS=false
+GMS_LAPACK_LINK_LINE=
+GMS_DDI_COMM=sockets
+GMS_MSUAUTO=false
+GMS_HPCCHEM=false
+GMS_HPCCHEM_PATH=
+GMS_HPCCHEM_USE_DATA_SERVERS=false
+GMS_PHI=none
+GMS_SHMTYPE=sysv
+GMS_OPENMP=false
+GMS_OPENMP_OFFLOAD=false
+GMS_USE_HIPFORT=false
+USE_CUBLAS=false
+USE_HIPBLAS=false
+GMS_LIBXC=false
+GMS_MDI=false
+GMS_VM2=false
+TINKER=false
+VB2000=false
+XMVB=false
+NEO=false
+NBO=false
+RISM=false
+GMS_FPE_FLAGS=-ffpe-trap=invalid,zero,overflow -finit-real=snan -finit-integer=-9223372036854775808
+LD_LIBRARY_PATH=
 Copying input file exam16.inp to your run's scratch directory...
-cp /export/home/sarom/dir.git.dev/tests/travis-ci/parallel/exam16.inp /tmp/373913/exam16.F05
+cp /Users/sarom/GAMESS-Development/gamess/tests/travis-ci/parallel/exam16.inp /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F05
+unset echo
+----- GAMESS execution script 'rungms' -----
+This job is running on host Mac
+under operating system Darwin at Wed May 14 01:38:35 EDT 2025
+Available scratch disk space (Kbyte units) at beginning of the job is
+Filesystem   1024-blocks      Used Available Capacity iused     ifree %iused  Mounted on
+/dev/disk3s5   239362496 154658404  65643516    71% 1523148 656435160    0%   /System/Volumes/Data
+GAMESS temporary binary files will be written to /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93
+GAMESS supplementary output files will be written to /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93
+limit stacksize 32768
 unset echo
 setenv NO_STOP_MESSAGE 1
-setenv AUXDATA /home/sarom/dir.git.dev/auxdata
+setenv AUXDATA /Users/sarom/GAMESS-Development/gamess/auxdata
 setenv EXTBAS /dev/null
-setenv NUCBAS /dev/null
-setenv EXTCAB /home/sarom/dir.git.dev/auxdata/AUXBAS/auxdef21
-setenv POSBAS /dev/null
-setenv DFTBPAR /home/sarom/dir.git.dev/auxdata/DFTB
-setenv ERICFMT /home/sarom/dir.git.dev/auxdata/ericfmt.dat
-setenv MCPPATH /home/sarom/dir.git.dev/auxdata/MCP
-setenv BASPATH /home/sarom/dir.git.dev/auxdata/BASES
-setenv QUANPOL /home/sarom/dir.git.dev/auxdata/QUANPOL
-setenv MAKEFP /export/home/sarom/restart/exam16.efp
-setenv GAMMA /export/home/sarom/restart/exam16.gamma
-setenv TRAJECT /export/home/sarom/restart/exam16.trj
-setenv RESTART /export/home/sarom/restart/exam16.rst
-setenv QMWAVE /export/home/sarom/restart/exam16.qmw
-setenv MDDIP /export/home/sarom/restart/exam16.dip
-setenv OPTHES1 /export/home/sarom/restart/exam16.hs1
-setenv OPTHES2 /export/home/sarom/restart/exam16.hs2
-setenv FCIDUMP /export/home/sarom/restart/exam16.FCIDUMP
-setenv XYZ /tmp/373913/exam16.xyz
-setenv INPUT /tmp/373913/exam16.F05
-setenv PUNCH /export/home/sarom/restart/exam16.dat
-setenv AOINTS /tmp/373913/exam16.F08
-setenv MOINTS /tmp/373913/exam16.F09
-setenv DICTNRY /tmp/373913/exam16.F10
-setenv DRTFILE /tmp/373913/exam16.F11
-setenv CIVECTR /tmp/373913/exam16.F12
-setenv CASINTS /tmp/373913/exam16.F13
-setenv CIINTS /tmp/373913/exam16.F14
-setenv WORK15 /tmp/373913/exam16.F15
-setenv WORK16 /tmp/373913/exam16.F16
-setenv CSFSAVE /tmp/373913/exam16.F17
-setenv FOCKDER /tmp/373913/exam16.F18
-setenv WORK19 /tmp/373913/exam16.F19
-setenv DASORT /tmp/373913/exam16.F20
-setenv DIABDAT /tmp/373913/exam16.F21
-setenv DFTINTS /tmp/373913/exam16.F21
-setenv DFTGRID /tmp/373913/exam16.F22
-setenv JKFILE /tmp/373913/exam16.F23
-setenv ORDINT /tmp/373913/exam16.F24
-setenv EFPIND /tmp/373913/exam16.F25
-setenv PCMDATA /tmp/373913/exam16.F26
-setenv PCMINTS /tmp/373913/exam16.F27
-setenv SVPWRK1 /tmp/373913/exam16.F26
-setenv SVPWRK2 /tmp/373913/exam16.F27
-setenv COSCAV /tmp/373913/exam16.F26
-setenv COSDATA /export/home/sarom/restart/exam16.cosmo
-setenv COSPOT /export/home/sarom/restart/exam16.pot
-setenv MLTPL /tmp/373913/exam16.F28
-setenv MLTPLT /tmp/373913/exam16.F29
-setenv DAFL30 /tmp/373913/exam16.F30
-setenv SOINTX /tmp/373913/exam16.F31
-setenv SOINTY /tmp/373913/exam16.F32
-setenv SOINTZ /tmp/373913/exam16.F33
-setenv SORESC /tmp/373913/exam16.F34
-setenv GCILIST /tmp/373913/exam16.F37
-setenv HESSIAN /tmp/373913/exam16.F38
-setenv QMMMTEI /tmp/373913/exam16.F39
-setenv SOCCDAT /tmp/373913/exam16.F40
-setenv AABB41 /tmp/373913/exam16.F41
-setenv BBAA42 /tmp/373913/exam16.F42
-setenv BBBB43 /tmp/373913/exam16.F43
-setenv REMD /tmp/373913/exam16.F44
-setenv UNV /tmp/373913/exam16.F45
-setenv UNPV /tmp/373913/exam16.F46
-setenv MCQD50 /tmp/373913/exam16.F50
-setenv MCQD51 /tmp/373913/exam16.F51
-setenv MCQD52 /tmp/373913/exam16.F52
-setenv MCQD53 /tmp/373913/exam16.F53
-setenv MCQD54 /tmp/373913/exam16.F54
-setenv MCQD55 /tmp/373913/exam16.F55
-setenv MCQD56 /tmp/373913/exam16.F56
-setenv MCQD57 /tmp/373913/exam16.F57
-setenv MCQD58 /tmp/373913/exam16.F58
-setenv MCQD59 /tmp/373913/exam16.F59
-setenv MCQD60 /tmp/373913/exam16.F60
-setenv MCQD61 /tmp/373913/exam16.F61
-setenv MCQD62 /tmp/373913/exam16.F62
-setenv MCQD63 /tmp/373913/exam16.F63
-setenv MCQD64 /tmp/373913/exam16.F64
-setenv NMRINT1 /tmp/373913/exam16.F61
-setenv NMRINT2 /tmp/373913/exam16.F62
-setenv NMRINT3 /tmp/373913/exam16.F63
-setenv NMRINT4 /tmp/373913/exam16.F64
-setenv NMRINT5 /tmp/373913/exam16.F65
-setenv NMRINT6 /tmp/373913/exam16.F66
-setenv DCPHFH2 /tmp/373913/exam16.F67
-setenv DCPHF21 /tmp/373913/exam16.F68
-setenv ELNUINT /tmp/373913/exam16.F67
-setenv NUNUINT /tmp/373913/exam16.F68
-setenv GVVPT /tmp/373913/exam16.F69
-setenv NUMOIN /tmp/373913/exam16.F69
-setenv NUMOCAS /tmp/373913/exam16.F70
-setenv NUELMO /tmp/373913/exam16.F71
-setenv NUELCAS /tmp/373913/exam16.F72
-setenv RIVMAT /tmp/373913/exam16.F51
-setenv RIT2A /tmp/373913/exam16.F52
-setenv RIT3A /tmp/373913/exam16.F53
-setenv RIT2B /tmp/373913/exam16.F54
-setenv RIT3B /tmp/373913/exam16.F55
-setenv DEN2P1 /tmp/373913/exam16.F70
-setenv DEN2P2 /tmp/373913/exam16.F71
-setenv DEN2P3 /tmp/373913/exam16.F72
-setenv DEN2P4 /tmp/373913/exam16.F73
-setenv DEN2NM /tmp/373913/exam16.F74
-setenv DEN2OPT /tmp/373913/exam16.F75
-setenv GMCREF /tmp/373913/exam16.F70
-setenv GMCO2R /tmp/373913/exam16.F71
-setenv GMCROC /tmp/373913/exam16.F72
-setenv GMCOOC /tmp/373913/exam16.F73
-setenv GMCCC0 /tmp/373913/exam16.F74
-setenv GMCHMA /tmp/373913/exam16.F75
-setenv GMCEI1 /tmp/373913/exam16.F76
-setenv GMCEI2 /tmp/373913/exam16.F77
-setenv GMCEOB /tmp/373913/exam16.F78
-setenv GMCEDT /tmp/373913/exam16.F79
-setenv GMCERF /tmp/373913/exam16.F80
-setenv GMCHCR /tmp/373913/exam16.F81
-setenv GMCGJK /tmp/373913/exam16.F82
-setenv GMCGAI /tmp/373913/exam16.F83
-setenv GMCGEO /tmp/373913/exam16.F84
-setenv GMCTE1 /tmp/373913/exam16.F85
-setenv GMCTE2 /tmp/373913/exam16.F86
-setenv GMCHEF /tmp/373913/exam16.F87
-setenv GMCMOL /tmp/373913/exam16.F88
-setenv GMCMOS /tmp/373913/exam16.F89
-setenv GMCWGT /tmp/373913/exam16.F90
-setenv GMCRM2 /tmp/373913/exam16.F91
-setenv GMCRM1 /tmp/373913/exam16.F92
-setenv GMCR00 /tmp/373913/exam16.F93
-setenv GMCRP1 /tmp/373913/exam16.F94
-setenv GMCRP2 /tmp/373913/exam16.F95
-setenv GMCVEF /tmp/373913/exam16.F96
-setenv GMCDIN /tmp/373913/exam16.F97
-setenv GMC2SZ /tmp/373913/exam16.F98
-setenv GMCCCS /tmp/373913/exam16.F99
+setenv NUCBAS /Users/sarom/GAMESS-Development/gamess/tests/travis-ci/parallel/exam16.nucbas
+setenv EXTCAB /Users/sarom/GAMESS-Development/gamess/auxdata/AUXBAS/auxdef21
+setenv POSBAS /Users/sarom/GAMESS-Development/gamess/tests/travis-ci/parallel/exam16.posbas
+setenv DFTBPAR /Users/sarom/GAMESS-Development/gamess/auxdata/DFTB
+setenv ERICFMT /Users/sarom/GAMESS-Development/gamess/auxdata/ericfmt.dat
+setenv MCPPATH /Users/sarom/GAMESS-Development/gamess/auxdata/MCP
+setenv BASPATH /Users/sarom/GAMESS-Development/gamess/auxdata/BASES
+setenv QUANPOL /Users/sarom/GAMESS-Development/gamess/auxdata/QUANPOL
+setenv MAKEFP /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.efp
+setenv GAMMA /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.gamma
+setenv TRAJECT /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.trj
+setenv RESTART /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.rst
+setenv QMWAVE /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.qmw
+setenv MDDIP /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.dip
+setenv OPTHES1 /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.hs1
+setenv OPTHES2 /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.hs2
+setenv FCIDUMP /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.FCIDUMP
+setenv XYZ /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.xyz
+setenv IRCDATA /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F04
+setenv INPUT /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F05
+setenv PUNCH /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.dat
+setenv NAMDRST /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.namdrst
+setenv AOINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F08
+setenv MOINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F09
+setenv DICTNRY /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F10
+setenv DRTFILE /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F11
+setenv CIVECTR /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F12
+setenv CASINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F13
+setenv CIINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F14
+setenv WORK15 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F15
+setenv WORK16 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F16
+setenv CSFSAVE /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F17
+setenv FOCKDER /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F18
+setenv WORK19 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F19
+setenv DASORT /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F20
+setenv DIABDAT /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F21
+setenv DFTINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F21
+setenv DFTGRID /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F22
+setenv JKFILE /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F23
+setenv ORDINT /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F24
+setenv EFPIND /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F25
+setenv PCMDATA /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F26
+setenv PCMINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F27
+setenv SVPWRK1 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F26
+setenv SVPWRK2 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F27
+setenv COSCAV /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F26
+setenv COSDATA /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.cosmo
+setenv COSPOT /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.pot
+setenv MLTPL /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F28
+setenv MLTPLT /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F29
+setenv DAFL30 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F30
+setenv SOINTX /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F31
+setenv SOINTY /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F32
+setenv SOINTZ /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F33
+setenv SORESC /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F34
+setenv RISM01 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F26R
+setenv RISM02 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F27R
+setenv QOPWRF /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.wrf
+setenv GCILIST /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F37
+setenv HESSIAN /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F38
+setenv QMMMTEI /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F39
+setenv SOCCDAT /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F40
+setenv AABB41 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F41
+setenv BBAA42 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F42
+setenv BBBB43 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F43
+setenv REMD /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F44
+setenv UNV /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F45
+setenv UNPV /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F46
+setenv MCQD50 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F50
+setenv MCQD51 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F51
+setenv MCQD52 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F52
+setenv MCQD53 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F53
+setenv MCQD54 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F54
+setenv MCQD55 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F55
+setenv MCQD56 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F56
+setenv MCQD57 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F57
+setenv MCQD58 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F58
+setenv MCQD59 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F59
+setenv MCQD60 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F60
+setenv MCQD61 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F61
+setenv MCQD62 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F62
+setenv MCQD63 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F63
+setenv MCQD64 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F64
+setenv NMRINT1 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F61
+setenv NMRINT2 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F62
+setenv NMRINT3 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F63
+setenv NMRINT4 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F64
+setenv NMRINT5 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F65
+setenv NMRINT6 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F66
+setenv DCPHFH2 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F67
+setenv DCPHF21 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F68
+setenv ELNUINT /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F67
+setenv NUNUINT /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F68
+setenv GVVPT /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F69
+setenv NUMOIN /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F69
+setenv NUMOCAS /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F70
+setenv NUELMO /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F71
+setenv NUELCAS /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F72
+setenv EPOVRLP /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F73
+setenv RIVMAT /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F51
+setenv RIT2A /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F52
+setenv RIT3A /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F53
+setenv RIT2B /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F54
+setenv RIT3B /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F55
+setenv KI /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F47
+setenv BI /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F48
+setenv PRMERI /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F49
+setenv TRSERI /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F50
+setenv PVP /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F51
+setenv TPVPI /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F52
+setenv TPVPJ /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F53
+setenv PPVPP /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F54
+setenv TPPVPP /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F55
+setenv DEN2P1 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F70
+setenv DEN2P2 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F71
+setenv DEN2P3 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F72
+setenv DEN2P4 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F73
+setenv DEN2NM /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F74
+setenv DEN2OPT /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F75
+setenv GMCREF /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F70
+setenv GMCO2R /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F71
+setenv GMCROC /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F72
+setenv GMCOOC /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F73
+setenv GMCCC0 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F74
+setenv GMCHMA /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F75
+setenv GMCEI1 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F76
+setenv GMCEI2 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F77
+setenv GMCEOB /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F78
+setenv GMCEDT /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F79
+setenv GMCERF /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F80
+setenv GMCHCR /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F81
+setenv GMCGJK /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F82
+setenv GMCGAI /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F83
+setenv GMCGEO /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F84
+setenv GMCTE1 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F85
+setenv GMCTE2 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F86
+setenv GMCHEF /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F87
+setenv GMCMOL /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F88
+setenv GMCMOS /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F89
+setenv GMCWGT /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F90
+setenv GMCRM2 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F91
+setenv GMCRM1 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F92
+setenv GMCR00 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F93
+setenv GMCRP1 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F94
+setenv GMCRP2 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F95
+setenv GMCVEF /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F96
+setenv GMCDIN /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F97
+setenv GMC2SZ /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F98
+setenv GMCCCS /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F99
 unset echo
-rm: cannot remove ‘/export/home/sarom/restart/exam16.casino’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam16.dmn’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam16.cim’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam16.cosmo’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam16.pot’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam16.gamma’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam16.efp’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam16.dip’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam16.hs1’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam16.hs2’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam16.dat’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam16.qmw’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam16.rst’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam16.trj’: No such file or directory
- 
-Assuming a single but multicore node.
- 
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.casino: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.dmn: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.cim: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.cosmo: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.pot: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.gamma: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.efp: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.dip: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.hs1: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.hs2: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.dat: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.qmw: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.rst: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam16/2025_05_14-01_38_35-BD694D93/exam16.trj: No such file or directory
 The generated host list is
-compute-1-0.local:cpus=3
+Mac
 -----debug-----
 the execution path is
-/opt/openmpi/bin /shared/compilers/aocc-compiler-3.2.0/share/opt-viewer /shared/compilers/aocc-compiler-3.2.0/bin /shared/git/2.9.5/bin /shared/compilers/gcc/5.5.0/bin /shared/cmake/3.12.0/bin /export/home/sarom/bin /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el7_4.x86_64/jre/bin/ /usr/lib64/qt-3.3/bin /usr/local/bin /usr/bin /usr/local/sbin /usr/sbin /opt/pdsh/bin /opt/rocks/bin /opt/rocks/sbin
+/opt/homebrew/opt/gnu-sed/libexec/gnubin /opt/homebrew/opt/make/libexec/gnubin /opt/homebrew/bin /opt/homebrew/sbin /usr/local/krb5/bin /usr/local/ossh/bin /usr/local/bin /System/Cryptexes/App/usr/bin /usr/bin /bin /usr/sbin /sbin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
 the library path is
-/opt/openmpi/lib:/shared/compilers/aocc-compiler-3.2.0/ompd:/shared/compilers/aocc-compiler-3.2.0/lib:/shared/compilers/aocc-compiler-3.2.0/lib32:/usr/lib64:/usr/lib:/shared/compilers/gcc/5.5.0/lib64:
-The dynamically linked libraries for this binary are
-/home/sarom/dir.git.dev/gamess.00.x :
 
-	linux-vdso.so.1 =>  (0x00007ffcbb7f6000)
-	libpthread.so.0 => /usr/lib64/libpthread.so.0 (0x00007fb02ce9d000)
-	libm.so.6 => /usr/lib64/libm.so.6 (0x00007fb02cb9a000)
-	libc.so.6 => /usr/lib64/libc.so.6 (0x00007fb02c7d7000)
-	/lib64/ld-linux-x86-64.so.2 (0x000055f2ef2bc000)
-	libgcc_s.so.1 => /shared/compilers/gcc/5.5.0/lib64/libgcc_s.so.1 (0x00007fb02c5c0000)
-	libdl.so.2 => /usr/lib64/libdl.so.2 (0x00007fb02c3bb000)
+The dynamically linked libraries for this binary are
+/Users/sarom/GAMESS-Development/gamess/gamess.00.x :
+
+ldd: Command not found.
 --------------
-/home/sarom/dir.git.dev/ddikick.x /home/sarom/dir.git.dev/gamess.00.x exam16 -ddi 1 3 compute-1-0.local:cpus=3 -scr /tmp/373913
+/Users/sarom/GAMESS-Development/gamess/ddikick.x /Users/sarom/GAMESS-Development/gamess/gamess.00.x exam16 -ddi 1 1 Mac -scr /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93
 
  Distributed Data Interface kickoff program.
- Initiating 3 compute processes on 1 nodes to run the following command:
- /home/sarom/dir.git.dev/gamess.00.x exam16 
+ Initiating 1 compute processes on 1 nodes to run the following command:
+ /Users/sarom/GAMESS-Development/gamess/gamess.00.x exam16 
 
           *******************************************************
           *                                                     *
-          *      GAMESS VERSION = 30 SEP 2021 (R2 Patch 1)      *
+          *      GAMESS VERSION = 15 JUL 2024 (R2 Patch 1)          *
           *                                                     *
           *              doi.org/10.1063/5.0005188              *
           *                                                     *
-          **************** 64 BIT INTEL VERSION *****************
+          **************** 64 BIT LINUX VERSION *****************
+ 
+           git commit: bf99997cb9bae7c41d40f16e0cbc3a8d2532d8b0
+ 
 
   GAMESS HAS BEEN MADE POSSIBLE WITH IMPORTANT CONTRIBUTIONS FROM
   THE FOLLOWING INDIVIDUALS (IN ALPHABETICAL ORDER):
 
      IVANA ADAMOVIC, CHRISTINE AIKENS, TOMOKO AKAMA,
-     YURI ALEXEEV, YURIKO AOKI, POOJA ARORA, TOSHIO ASADA,
-     ANDREY ASADCHEV, KIM K. BALDRIDGE, PRADIPTA BANDYOPADHYAY,
-     TAYLOR A. BARNES, MARIA BARYSZ, ROB BELL,
-     JONATHAN BENTZ, COLLEEN BERTONI,
+     MELISA ALKAN, YURI ALEXEEV, YURIKO AOKI, POOJA ARORA,
+     TOSHIO ASADA, ANDREY ASADCHEV, KIM K. BALDRIDGE,
+     PRADIPTA BANDYOPADHYAY, TAYLOR A. BARNES, MARIA BARYSZ,
+     ROB BELL, JONATHAN BENTZ, COLLEEN BERTONI,
      JERRY A. BOATZ, BRETT BODE, KURT BRORSEN, KURT R. BRORSEN,
      LAIMUTIS BYTAUTAS, CALEB CARLIN, LAURA CARRINGTON,
      GALINA CHABAN, BENOIT CHAMPAGNE, WEI CHEN, MAHITO CHIBA,
@@ -243,20 +324,23 @@ The dynamically linked libraries for this binary are
      DIPAYAN DATTA, PAUL DAY, ALBERT DEFUSCO,
      NUWAN DESILVA, J. EMILIANO DEUSTUA,
      TIM DUDLEY, MICHEL DUPUIS, STEVEN T. ELBERT,
-     DMITRI FEDOROV, ALEX FINDLATER, GRAHAM FLETCHER,
-     MARK FREITAG, CHRISTIAN FRIEDL, DAVID GARMER,
-     IGOR S. GERASIMOV, KURT GLAESEMANN, MARK S. GORDON,
-     JEFFREY GOUR, FENG LONG GU, EMILIE B. GUIDEZ,
-     ANASTASIA GUNINA, SHARON HAMMES-SCHIFFER, MASATAKE HARUTA,
-     KIMIHIKO HIRAO, YASUHIRO IKABATA, TZVETELIN IORDANOV,
-     STEPHAN IRLE, KAZUYA ISHIMURA, JOE IVANIC, FRANK JENSEN,
-     JAN H. JENSEN, VISVALDAS KAIRYS, MUNEAKI KAMIYA,
-     MICHIO KATOUDA, NAOAKI KAWAKAMI, DAN KEMP, BERNARD KIRTMAN,
-     KAZUO KITAURA, MARIUSZ KLOBUKOWSKI, MASATO KOBAYASHI,
-     PRAKASHAN KORAMBATH, JACEK KORCHOWIEC, SHIRO KOSEKI,
-     KAROL KOWALSKI, JIMMY KROMANN, STANISLAW KUCHARSKI,
-     HENRY KURTZ, SAROM SOK LEANG, HUI LI, SHUHUA LI, WEI LI,
-     JESSE LUTZ, ALEKSANDR O. LYKHIN, MARCIN MAKOWSKI,
+     DMITRI FEDOROV, KATHERINE FERRERAS, MICHAEL FILATOV,
+     ALEX FINDLATER,GRAHAM FLETCHER, MARK FREITAG,
+     CHRISTIAN FRIEDL, DAVID GARMER, 
+     IGOR S. GERASIMOV, KURT GLAESEMANN,
+     MARK S. GORDON, JEFFREY R. GOUR, FENG LONG GU,
+     EMILIE B. GUIDEZ, ANASTASIA GUNINA, SHARON HAMMES-SCHIFFER,
+     MASATAKE HARUTA, KIMIHIKO HIRAO, YASUHIRO IKABATA,
+     TZVETELIN IORDANOV, STEPHAN IRLE, KAZUYA ISHIMURA,
+     JOE IVANIC, FRANK JENSEN, JAN H. JENSEN, VISVALDAS KAIRYS,
+     MUNEAKI KAMIYA, MICHIO KATOUDA, NAOAKI KAWAKAMI, DAN KEMP,
+     BERNARD KIRTMAN, KAZUO KITAURA, MARIUSZ KLOBUKOWSKI,
+     MASATO KOBAYASHI, KONSTANTIN KOMAROV, PRAKASHAN KORAMBATH,
+     JACEK KORCHOWIEC, SHIRO KOSEKI, KAROL KOWALSKI,
+     JIMMY KROMANN, STANISLAW A. KUCHARSKI, HENRY KURTZ,
+     SAROM SOK LEANG, SEUNGHOON LEE, HUI LI, SHUHUA LI, WEI LI,
+     JESSE J. LUTZ, ALEKSANDR O. LYKHIN,
+     ILIAS MAGOULAS, MARCIN MAKOWSKI,
      JOANI MATO, NIKITA MATSUNAGA, BENEDETTA MENNUCCI,
      GRANT MERRILL, NORIYUKI MINEZAWA, VLADIMIR MIRONOV,
      EISAKU MIYOSHI, JOHN A. MONTGOMERY JR., HIROTOSHI MORI,
@@ -270,13 +354,15 @@ The dynamically linked libraries for this binary are
      KLAUS RUEDENBERG, ANDREW SAND, TOSAPORN SATTASATHUCHANA,
      NOZOMI SAWADA, MICHAEL W. SCHMIDT, PATRICK E. SCHNEIDER,
      JUNJI SEINO, PRACHI SHARMA, JUN SHEN, JIM SHOEMAKER,
-     YINAN SHU, DEJUN SI, JONATHAN SKONE, LYUDMILA SLIPCHENKO,
-     TONY SMITH, JIE SONG, MARK SPACKMAN, CASPER STEINMANN,
-     WALT STEVENS, PEIFENG SU, SHUJUN SU, CHET SWALINA,
-     TETSUYA TAKETSUGU, ZHEN TAO, NANDUN THELLAMUREGE
-     SEIKEN TOKURA, JACOPO TOMASI, TSUGUKI TOUMA, TAKAO TSUNEDA,
-     HIROAKI UMEDA, JORGE LUIS GALVEZ VALLEJO, YALI WANG,
-     SIMON WEBB, AARON WEST, THERESA L. WINDUS, MARTA WLOCH,
+     GEORGE SCHOENDORFF, YINAN SHU, DEJUN SI, JONATHAN SKONE,
+     LYUDMILA SLIPCHENKO, TONY SMITH, JIE SONG, MARK SPACKMAN,
+     CASPER STEINMANN, WALT STEVENS, PEIFENG SU, SHUJUN SU,
+     CHET SWALINA, CHINAMI TAKASHIMA, TETSUYA TAKETSUGU,
+     ZHEN TAO, NANDUN THELLAMUREGE, ANANTA TIWARI,
+     SEIKEN TOKURA, JACOPO TOMASI,
+     TSUGUKI TOUMA, TAKAO TSUNEDA, HIROAKI UMEDA,
+     JORGE LUIS GALVEZ VALLEJO, YALI WANG, SIMON WEBB,
+     AARON WEST, THERESA L. WINDUS, MARTA WLOCH,
      PENG XU, KIYOSHI YAGI, SUSUMU YANAGISAWA, YANG YANG,
      SOOHAENG YOO, TAKESHI YOSHIKAWA, FEDERICO ZAHARIEV,
      TOBY ZENG
@@ -284,9 +370,11 @@ The dynamically linked libraries for this binary are
   WHO ARE SUPPORTED BY THEIR INSTITUTION/UNIVERSITY/COMPANY/GROUP
   (IN ALPHABETICAL ORDER):
 
-     EP ANALYTICS, FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX,
+     EP ANALYTICS,
+     FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX,
      INSTITUTE FOR MOLECULAR SCIENCE, IOWA STATE UNIVERSITY,
      JACKSON STATE UNIVERSITY, JOHANNES KEPLER UNIVERSITY LINZ,
+     KYUNGPOOK NATIONAL UNIVERSITY
      KYUSHU UNIVERSITY, MICHIGAN STATE UNIVERSITY,
      MIE UNIVERSITY, THE MOLECULAR SCIENCES SOFTWARE INSTITUTE,
      MOSCOW STATE UNIVERSITY,
@@ -303,7 +391,8 @@ The dynamically linked libraries for this binary are
      UNIVERSITY OF NEBRASKA, UNIVERSITY OF NEW ENGLAND,
      UNIVERSITY OF NOTRE DAME, UNIVERSITY OF PISA,
      UNIVERSITY OF SILESIA, UNIVERSITY OF TOKYO,
-     UNIVERSITY OF ZURICH, WASEDA UNIVERSITY, YALE UNIVERSITY
+     UNIVERSITY OF ZURICH, WASEDA UNIVERSITY,
+     YALE UNIVERSITY
 
   GAMESS SOFTWARE MANAGEMENT TEAM FOR THIS RELEASE:
      MARK S. GORDON (TEAM LEAD),
@@ -313,13 +402,10 @@ The dynamically linked libraries for this binary are
      KRISTOPHER KEIPERT (ADVISOR),
      SAROM S. LEANG (DEVELOPMENT LEAD),
      BUU PHAM,
-     JORGE LUIS GALVEZ VALLEJO (WEBSITE ADMINISTRATOR),
+     JACKSON HAYES (WEBSITE ADMINISTRATOR),
      PENG XU
 
-
- PARALLEL VERSION RUNNING ON        3 PROCESSORS IN        1 NODES.
-
- EXECUTION OF GAMESS BEGUN 13:06:32 15-MAR-2022    
+ EXECUTION OF GAMESS BEGUN 01:38:35 14-MAY-2025    
 
             ECHO OF THE FIRST FEW INPUT CARDS -
  INPUT CARD>! EXAM 16.                                                                      
@@ -355,7 +441,7 @@ The dynamically linked libraries for this binary are
  INPUT CARD>         ALPHA(1)=2.0,  0.66666666666667,  0.16666666666667                     
  INPUT CARD>         BETA(1)=-1.0, -0.33333333333333, -0.16666666666667                     
  INPUT CARD> $END                                                                           
-    1000000 WORDS OF MEMORY AVAILABLE
+      1000000 WORDS OF MEMORY AVAILABLE
 
      BASIS OPTIONS
      -------------
@@ -444,10 +530,10 @@ The dynamically linked libraries for this binary are
      ---------------
   REPLICATED MEMORY=     1000000 WORDS (ON EVERY NODE).
  DISTRIBUTED MEMDDI=           0 MILLION WORDS IN AGGREGATE,
- MEMDDI DISTRIBUTED OVER   3 PROCESSORS IS           0 WORDS/PROCESSOR.
+ MEMDDI DISTRIBUTED OVER   1 PROCESSORS IS           0 WORDS/PROCESSOR.
  TOTAL MEMORY REQUESTED ON EACH PROCESSOR=     1000000 WORDS.
  TIMLIM=           1.00 MINUTES, OR       0.0 DAYS.
- PARALL= T  BALTYP=  DLB     KDIAG=    3  COREFL= F
+ PARALL= F  BALTYP=  DLB     KDIAG=    3  COREFL= F
  MXSEQ2=     300 MXSEQ3=     150  mem10=         0  mem22=         0
 
           ----------------
@@ -494,11 +580,18 @@ The dynamically linked libraries for this binary are
     1   -1.0000000
     2   -0.3333333  -0.1666667
 
+     ----------------------
+     TARGET OFFLOAD OPTIONS
+     ----------------------
+     RHF    =       F
+     CPHF    =       F
+     MAKEFP =       F
+
      -------------------------------
      INTEGRAL TRANSFORMATION OPTIONS
      -------------------------------
      NWORD  =            0
-     CUTOFF = 1.0E-09     MPTRAN =       0
+     CUTTRF = 1.0E-09     MPTRAN =       0
      DIRTRF =       F     AOINTS =DUP     
 
           ----------------------
@@ -515,15 +608,15 @@ The dynamically linked libraries for this binary are
  B1U =    3     B2U =    3     B2G =    0
 
  ..... DONE SETTING UP THE RUN .....
- CPU     0: STEP CPU TIME=     0.02 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    95.00%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    98.75%
 
           ********************
           1 ELECTRON INTEGRALS
           ********************
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    94.78%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    98.86%
 
           -------------
           GUESS OPTIONS
@@ -541,8 +634,8 @@ The dynamically linked libraries for this binary are
      6=AG       7=B3U      8=B2U      9=B1U     10=AG      11=B3U     12=B1U 
     13=B2U 
  ...... END OF INITIAL ORBITAL SELECTION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    95.01%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    98.95%
 
                     ----------------------
                     AO INTEGRAL TECHNOLOGY
@@ -566,13 +659,13 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89366 WORDS OF MEMORY.
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
  II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    2
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   56
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =  214
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                 775
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.01 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    93.99%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    99.48%
 
           ------------------------
           ROHF-GVB SCF CALCULATION
@@ -622,13 +715,13 @@ The dynamically linked libraries for this binary are
  MO     4 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
  MO     5 (    3) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
  MO     6 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
- MO     7 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     7 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
  MO     8 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
- MO     9 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
  MO    10 (    6) HAS LZ(WEIGHT)= 0.00(100.0%) 
  MO    11 (    7) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
- MO    12 (    7) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
- MO    13 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    12 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    13 (    7) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
 
           ------------
           EIGENVECTORS
@@ -636,58 +729,58 @@ The dynamically linked libraries for this binary are
 
                       1          2          3          4          5
                   -68.8017    -6.1550    -4.2545    -4.2545    -4.2545
-                     AG         AG         B1U        B2U        B3U 
-    1  SI 1  S    0.997214  -0.268194   0.000000   0.000000   0.000000
-    2  SI 1  S    0.010841   1.030564   0.000000   0.000000   0.000000
-    3  SI 1  X    0.000000   0.000000   0.000000   0.000000   0.995025
-    4  SI 1  Y    0.000000   0.000000   0.000000   0.995025   0.000000
-    5  SI 1  Z    0.000000   0.000000   0.995025   0.000000   0.000000
-    6  SI 1  S   -0.002920   0.008952   0.000000   0.000000   0.000000
-    7  SI 1  X    0.000000   0.000000   0.000000   0.000000   0.018916
-    8  SI 1  Y    0.000000   0.000000   0.000000   0.018916   0.000000
-    9  SI 1  Z    0.000000   0.000000   0.018916   0.000000   0.000000
-   10  SI 1  S    0.001472  -0.001813   0.000000   0.000000   0.000000
-   11  SI 1  X    0.000000   0.000000   0.000000   0.000000  -0.004514
-   12  SI 1  Y    0.000000   0.000000   0.000000  -0.004514   0.000000
-   13  SI 1  Z    0.000000   0.000000  -0.004514   0.000000   0.000000
+                     AG         AG         B1U        B3U        B2U 
+    1  SI 1  S    0.997214  -0.268194  -0.000000  -0.000000  -0.000000
+    2  SI 1  S    0.010841   1.030564  -0.000000  -0.000000  -0.000000
+    3  SI 1  X    0.000000  -0.000000  -0.000000   0.995025  -0.000000
+    4  SI 1  Y    0.000000  -0.000000  -0.000000  -0.000000   0.995025
+    5  SI 1  Z    0.000000  -0.000000   0.995025  -0.000000  -0.000000
+    6  SI 1  S   -0.002920   0.008952  -0.000000  -0.000000  -0.000000
+    7  SI 1  X    0.000000  -0.000000  -0.000000   0.018916  -0.000000
+    8  SI 1  Y    0.000000  -0.000000  -0.000000  -0.000000   0.018916
+    9  SI 1  Z    0.000000  -0.000000   0.018916  -0.000000  -0.000000
+   10  SI 1  S    0.001472  -0.001813  -0.000000  -0.000000  -0.000000
+   11  SI 1  X    0.000000  -0.000000  -0.000000  -0.004514  -0.000000
+   12  SI 1  Y    0.000000  -0.000000  -0.000000  -0.000000  -0.004514
+   13  SI 1  Z    0.000000  -0.000000  -0.004514  -0.000000  -0.000000
 
                       6          7          8          9         10
                    -0.5389    -0.0989    -0.0989    -0.0989     0.2747
-                     AG         B3U        B2U        B1U        AG  
-    1  SI 1  S    0.065258   0.000000   0.000000   0.000000  -0.061652
-    2  SI 1  S   -0.315702   0.000000   0.000000   0.000000   0.095196
-    3  SI 1  X    0.000000  -0.225545   0.000000   0.000000   0.000000
-    4  SI 1  Y    0.000000   0.000000  -0.225545   0.000000   0.000000
-    5  SI 1  Z    0.000000   0.000000   0.000000  -0.225545   0.000000
-    6  SI 1  S    0.735628   0.000000   0.000000   0.000000  -1.699706
-    7  SI 1  X    0.000000   0.673730   0.000000   0.000000   0.000000
-    8  SI 1  Y    0.000000   0.000000   0.673730   0.000000   0.000000
-    9  SI 1  Z    0.000000   0.000000   0.000000   0.673730   0.000000
-   10  SI 1  S    0.347891   0.000000   0.000000   0.000000   1.785493
-   11  SI 1  X    0.000000   0.444250   0.000000   0.000000   0.000000
-   12  SI 1  Y    0.000000   0.000000   0.444250   0.000000   0.000000
-   13  SI 1  Z    0.000000   0.000000   0.000000   0.444250   0.000000
+                     AG         B1U        B3U        B2U        AG  
+    1  SI 1  S    0.065258  -0.000000  -0.000000  -0.000000  -0.061652
+    2  SI 1  S   -0.315702  -0.000000  -0.000000  -0.000000   0.095196
+    3  SI 1  X    0.000000  -0.000000  -0.225545  -0.000000   0.000000
+    4  SI 1  Y    0.000000  -0.000000  -0.000000  -0.225545   0.000000
+    5  SI 1  Z    0.000000  -0.225545  -0.000000  -0.000000   0.000000
+    6  SI 1  S    0.735628  -0.000000  -0.000000  -0.000000  -1.699706
+    7  SI 1  X    0.000000  -0.000000   0.673730  -0.000000   0.000000
+    8  SI 1  Y    0.000000  -0.000000  -0.000000   0.673730   0.000000
+    9  SI 1  Z    0.000000   0.673730  -0.000000  -0.000000   0.000000
+   10  SI 1  S    0.347891  -0.000000  -0.000000  -0.000000   1.785493
+   11  SI 1  X    0.000000  -0.000000   0.444250  -0.000000   0.000000
+   12  SI 1  Y    0.000000  -0.000000  -0.000000   0.444250   0.000000
+   13  SI 1  Z    0.000000   0.444250  -0.000000  -0.000000   0.000000
 
                      11         12         13
                     0.3586     0.3586     0.3586
-                     B2U        B3U        B1U 
-    1  SI 1  S    0.000000   0.000000   0.000000
-    2  SI 1  S    0.000000   0.000000   0.000000
-    3  SI 1  X    0.000000   0.257597   0.000000
-    4  SI 1  Y    0.257597   0.000000   0.000000
-    5  SI 1  Z    0.000000   0.000000   0.257597
-    6  SI 1  S    0.000000   0.000000   0.000000
-    7  SI 1  X    0.000000  -1.219963   0.000000
-    8  SI 1  Y   -1.219963   0.000000   0.000000
-    9  SI 1  Z    0.000000   0.000000  -1.219963
-   10  SI 1  S    0.000000   0.000000   0.000000
-   11  SI 1  X    0.000000   1.268451   0.000000
-   12  SI 1  Y    1.268451   0.000000   0.000000
-   13  SI 1  Z    0.000000   0.000000   1.268451
+                     B3U        B1U        B2U 
+    1  SI 1  S   -0.000000  -0.000000  -0.000000
+    2  SI 1  S   -0.000000  -0.000000  -0.000000
+    3  SI 1  X    0.257597  -0.000000  -0.000000
+    4  SI 1  Y   -0.000000  -0.000000   0.257597
+    5  SI 1  Z   -0.000000   0.257597  -0.000000
+    6  SI 1  S   -0.000000  -0.000000  -0.000000
+    7  SI 1  X   -1.219963  -0.000000  -0.000000
+    8  SI 1  Y   -0.000000  -0.000000  -1.219963
+    9  SI 1  Z   -0.000000  -1.219963  -0.000000
+   10  SI 1  S   -0.000000  -0.000000  -0.000000
+   11  SI 1  X    1.268451  -0.000000  -0.000000
+   12  SI 1  Y   -0.000000  -0.000000   1.268451
+   13  SI 1  Z   -0.000000   1.268451  -0.000000
 
  ... END OF ROHF-GVB SCF CALCULATION ...
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    92.90%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    99.57%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE GVB   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -756,7 +849,7 @@ The dynamically linked libraries for this binary are
 
           TOTAL MULLIKEN AND LOWDIN ATOMIC POPULATIONS
        ATOM         MULL.POP.    CHARGE          LOW.POP.     CHARGE
-    1 SILICON      14.000000    0.000000        14.000000    0.000000
+    1 SILICON      14.000000    0.000000        14.000000   -0.000000
 
           ---------------------
           ELECTROSTATIC MOMENTS
@@ -767,37 +860,25 @@ The dynamically linked libraries for this binary are
          DX          DY          DZ         /D/  (DEBYE)
      0.000000    0.000000    0.000000    0.000000
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    93.14%
-                580000  WORDS OF DYNAMIC MEMORY USED
- EXECUTION OF GAMESS TERMINATED NORMALLY 13:06:32 15-MAR-2022    
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    99.60%
+               580000  WORDS OF DYNAMIC MEMORY USED
+ EXECUTION OF GAMESS TERMINATED NORMALLY 01:38:35 14-MAY-2025    
  DDI: 263640 bytes (0.3 MB / 0 MWords) used by master data server.
 
  ----------------------------------------
  CPU timing information for all processes
  ========================================
- 0: 0.18 + 0.18 = 0.37
- 1: 0.07 + 0.15 = 0.22
- 2: 0.08 + 0.12 = 0.21
+ 0: 0.07 + 0.02 = 0.10
  ----------------------------------------
  ddikick.x: exited gracefully.
 unset echo
 ----- accounting info -----
-Files used on the master node compute-1-0.local were:
--rw-rw-r-- 1 sarom sarom    1166 Mar 15 13:06 /tmp/373913/exam16.F05
--rw-rw-r-- 1 sarom sarom  180016 Mar 15 13:06 /tmp/373913/exam16.F08
--rw-rw-r-- 1 sarom sarom  180016 Mar 15 13:06 /tmp/373913/exam16.F08.001
--rw-rw-r-- 1 sarom sarom  180016 Mar 15 13:06 /tmp/373913/exam16.F08.002
--rw-rw-r-- 1 sarom sarom 1734160 Mar 15 13:06 /tmp/373913/exam16.F10
--rw-rw-r-- 1 sarom sarom    6600 Mar 15 13:06 /tmp/373913/exam16.F15
--rw-rw-r-- 1 sarom sarom    3680 Mar 15 13:06 /tmp/373913/exam16.F23
--rw-rw-r-- 1 sarom sarom    3680 Mar 15 13:06 /tmp/373913/exam16.F23.001
--rw-rw-r-- 1 sarom sarom    3680 Mar 15 13:06 /tmp/373913/exam16.F23.002
-/usr/bin/rm: cannot remove ‘/tmp/373913’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373913’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373913’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373913’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373913’: No such file or directory
-srun: error: compute-1-0: tasks 0-1,3-5: Exited with exit code 1
-Tue Mar 15 13:06:36 CDT 2022
-0.228u 0.091s 0:03.67 8.4%	0+0k 96+1784io 0pf+0w
+Files used on the parent node Mac were:
+-rw-r--r--@ 1 sarom  staff     1166 May 14 01:38 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F05
+-rw-r--r--@ 1 sarom  staff   180016 May 14 01:38 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F08
+-rw-r--r--@ 1 sarom  staff  1734160 May 14 01:38 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F10
+-rw-r--r--@ 1 sarom  staff     6600 May 14 01:38 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F15
+-rw-r--r--@ 1 sarom  staff     3680 May 14 01:38 /Users/sarom/GAMESS-Development/gamess/scratch/exam16/2025_05_14-01_38_35-BD694D93/exam16.F23
+Wed May 14 01:38:36 EDT 2025
+0.073u 0.072s 0:01.19 11.7%	0+0k 0+0io 111pf+0w

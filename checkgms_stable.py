@@ -358,8 +358,9 @@ def validate(validation_json=None, parsed_json=None, mode=None, run_arguments=No
                     parsed_json["result"] = "validation"
 
         else:
-            print(lr_box("Number of validations does not match!"), len(
-                validation_json["validation"]), 'vs.', len(parsed_json["validation"]))
+            if (run_arguments["supress"] == False):
+                print(lr_box("Number of validations does not match!"), len(
+                    validation_json["validation"]), 'vs.', len(parsed_json["validation"]))
             validation_headers = []
             parsed_headers = []
             if run_arguments["verbose_validation"]:

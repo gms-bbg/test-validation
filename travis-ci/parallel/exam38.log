@@ -1,19 +1,27 @@
-source /home/sarom/dir.git.dev/install.info
-setenv GMS_PATH /export/home/sarom/dir.git.dev
-setenv GMS_BUILD_DIR /export/home/sarom/dir.git.dev
+source /Users/sarom/GAMESS-Development/gamess/install.info
+setenv GMS_VERSION 00
+setenv GMS_PATH /Users/sarom/GAMESS-Development/gamess
+setenv GMS_BUILD_DIR /Users/sarom/GAMESS-Development/gamess
 setenv GMS_TARGET linux64
 setenv GMS_HPC_SYSTEM_TARGET generic
-setenv GMS_FORTRAN oneapi-ifort
-setenv GMS_IFORT_VERNO 20
-setenv GMS_MATHLIB mkl
-setenv GMS_MATHLIB_PATH /shared/compilers/intel/oneapi/mkl/2022.0.1/lib/intel64
-setenv GMS_MKL_VERNO oneapi
+setenv GMS_ARCH arm
+setenv GMS_FORTRAN gfortran
+setenv GMS_GFORTRAN_VERNO 14.1
+setenv GMS_MATHLIB none
+setenv GMS_THREADED_BLAS false
+setenv GMS_LAPACK_LINK_LINE 
 setenv GMS_DDI_COMM sockets
-setenv GMS_MSUCC false
-setenv GMS_LIBCCHEM false
+setenv GMS_MSUAUTO false
+setenv GMS_HPCCHEM false
+setenv GMS_HPCCHEM_PATH
+setenv GMS_HPCCHEM_USE_DATA_SERVERS false
 setenv GMS_PHI none
 setenv GMS_SHMTYPE sysv
 setenv GMS_OPENMP false
+setenv GMS_OPENMP_OFFLOAD false
+setenv GMS_USE_HIPFORT false
+setenv USE_CUBLAS false
+setenv USE_HIPBLAS false
 setenv GMS_LIBXC false
 setenv GMS_MDI false
 setenv GMS_VM2 false
@@ -22,220 +30,293 @@ setenv VB2000 false
 setenv XMVB false
 setenv NEO false
 setenv NBO false
-setenv GMS_FPE_FLAGS -fpe0
-setenv GMS_FPE_FLAGS 
+setenv RISM false
+setenv GMS_FPE_FLAGS -ffpe-trap=invalid,zero,overflow -finit-real=snan -finit-integer=-9223372036854775808
 unset echo
-SLURM has assigned the following compute nodes to this run:
-compute-1-1
-srun mkdir -p /tmp/373934
-unset echo
-Input file supplied : /export/home/sarom/dir.git.dev/tests/travis-ci/parallel/exam38.inp
------ GAMESS execution script 'rungms-dev' -----
-This job is running on host compute-1-1.local
-under operating system Linux at Tue Mar 15 13:07:29 CDT 2022 with sockets communication mode
-Available scratch disk space (Kbyte units) at beginning of the job is
-Filesystem     1K-blocks    Used Available Use% Mounted on
-/dev/sda1       15995808 6128224   9032000  41% /
-GAMESS temporary binary files will be written to /tmp/373934
-GAMESS supplementary output files will be written to /export/home/sarom/restart
+TERM_PROGRAM=Apple_Terminal
+TERM=xterm-256color
+SHELL=/bin/bash
+TMPDIR=/var/folders/sd/9w2pshtj1cx7jvxnw95lstjr0000gp/T/
+HOMEBREW_REPOSITORY=/opt/homebrew
+TERM_PROGRAM_VERSION=455.1
+TERM_SESSION_ID=E3731169-BECF-4F18-9F46-17B6FDC36B77
+USER=sarom
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.yJPjuo0ExF/Listeners
+__CF_USER_TEXT_ENCODING=0x1F6:0x0:0x0
+PATH=/opt/homebrew/opt/gnu-sed/libexec/gnubin:/opt/homebrew/opt/make/libexec/gnubin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/krb5/bin:/usr/local/ossh/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+_=misc/automation/rungms
+__CFBundleIdentifier=com.apple.Terminal
+PWD=/Users/sarom/GAMESS-Development/gamess
+EDITOR=nano
+LANG=en_US.UTF-8
+XPC_FLAGS=0x0
+KRB5_CONFIG=/etc/krb5.conf
+XPC_SERVICE_NAME=0
+HOME=/Users/sarom
+SHLVL=3
+HOMEBREW_PREFIX=/opt/homebrew
+LOGNAME=sarom
+VISUAL=nano
+HOMEBREW_CELLAR=/opt/homebrew/Cellar
+INFOPATH=/opt/homebrew/share/info:
+HOSTTYPE=unknown
+VENDOR=apple
+OSTYPE=darwin
+MACHTYPE=unknown
+GROUP=staff
+HOST=Mac
+NO_STOP_MESSAGE=1
+GMS_VERSION=00
+GMS_PATH=/Users/sarom/GAMESS-Development/gamess
+GMS_BUILD_DIR=/Users/sarom/GAMESS-Development/gamess
+GMS_TARGET=linux64
+GMS_HPC_SYSTEM_TARGET=generic
+GMS_ARCH=arm
+GMS_FORTRAN=gfortran
+GMS_GFORTRAN_VERNO=14.1
+GMS_MATHLIB=none
+GMS_THREADED_BLAS=false
+GMS_LAPACK_LINK_LINE=
+GMS_DDI_COMM=sockets
+GMS_MSUAUTO=false
+GMS_HPCCHEM=false
+GMS_HPCCHEM_PATH=
+GMS_HPCCHEM_USE_DATA_SERVERS=false
+GMS_PHI=none
+GMS_SHMTYPE=sysv
+GMS_OPENMP=false
+GMS_OPENMP_OFFLOAD=false
+GMS_USE_HIPFORT=false
+USE_CUBLAS=false
+USE_HIPBLAS=false
+GMS_LIBXC=false
+GMS_MDI=false
+GMS_VM2=false
+TINKER=false
+VB2000=false
+XMVB=false
+NEO=false
+NBO=false
+RISM=false
+GMS_FPE_FLAGS=-ffpe-trap=invalid,zero,overflow -finit-real=snan -finit-integer=-9223372036854775808
+LD_LIBRARY_PATH=
 Copying input file exam38.inp to your run's scratch directory...
-cp /export/home/sarom/dir.git.dev/tests/travis-ci/parallel/exam38.inp /tmp/373934/exam38.F05
+cp /Users/sarom/GAMESS-Development/gamess/tests/travis-ci/parallel/exam38.inp /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F05
+unset echo
+----- GAMESS execution script 'rungms' -----
+This job is running on host Mac
+under operating system Darwin at Wed May 14 01:39:05 EDT 2025
+Available scratch disk space (Kbyte units) at beginning of the job is
+Filesystem   1024-blocks      Used Available Capacity iused     ifree %iused  Mounted on
+/dev/disk3s5   239362496 154809852  65492068    71% 1523288 654920680    0%   /System/Volumes/Data
+GAMESS temporary binary files will be written to /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8
+GAMESS supplementary output files will be written to /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8
+limit stacksize 32768
 unset echo
 setenv NO_STOP_MESSAGE 1
-setenv AUXDATA /home/sarom/dir.git.dev/auxdata
+setenv AUXDATA /Users/sarom/GAMESS-Development/gamess/auxdata
 setenv EXTBAS /dev/null
-setenv NUCBAS /dev/null
-setenv EXTCAB /home/sarom/dir.git.dev/auxdata/AUXBAS/auxdef21
-setenv POSBAS /dev/null
-setenv DFTBPAR /home/sarom/dir.git.dev/auxdata/DFTB
-setenv ERICFMT /home/sarom/dir.git.dev/auxdata/ericfmt.dat
-setenv MCPPATH /home/sarom/dir.git.dev/auxdata/MCP
-setenv BASPATH /home/sarom/dir.git.dev/auxdata/BASES
-setenv QUANPOL /home/sarom/dir.git.dev/auxdata/QUANPOL
-setenv MAKEFP /export/home/sarom/restart/exam38.efp
-setenv GAMMA /export/home/sarom/restart/exam38.gamma
-setenv TRAJECT /export/home/sarom/restart/exam38.trj
-setenv RESTART /export/home/sarom/restart/exam38.rst
-setenv QMWAVE /export/home/sarom/restart/exam38.qmw
-setenv MDDIP /export/home/sarom/restart/exam38.dip
-setenv OPTHES1 /export/home/sarom/restart/exam38.hs1
-setenv OPTHES2 /export/home/sarom/restart/exam38.hs2
-setenv FCIDUMP /export/home/sarom/restart/exam38.FCIDUMP
-setenv XYZ /tmp/373934/exam38.xyz
-setenv INPUT /tmp/373934/exam38.F05
-setenv PUNCH /export/home/sarom/restart/exam38.dat
-setenv AOINTS /tmp/373934/exam38.F08
-setenv MOINTS /tmp/373934/exam38.F09
-setenv DICTNRY /tmp/373934/exam38.F10
-setenv DRTFILE /tmp/373934/exam38.F11
-setenv CIVECTR /tmp/373934/exam38.F12
-setenv CASINTS /tmp/373934/exam38.F13
-setenv CIINTS /tmp/373934/exam38.F14
-setenv WORK15 /tmp/373934/exam38.F15
-setenv WORK16 /tmp/373934/exam38.F16
-setenv CSFSAVE /tmp/373934/exam38.F17
-setenv FOCKDER /tmp/373934/exam38.F18
-setenv WORK19 /tmp/373934/exam38.F19
-setenv DASORT /tmp/373934/exam38.F20
-setenv DIABDAT /tmp/373934/exam38.F21
-setenv DFTINTS /tmp/373934/exam38.F21
-setenv DFTGRID /tmp/373934/exam38.F22
-setenv JKFILE /tmp/373934/exam38.F23
-setenv ORDINT /tmp/373934/exam38.F24
-setenv EFPIND /tmp/373934/exam38.F25
-setenv PCMDATA /tmp/373934/exam38.F26
-setenv PCMINTS /tmp/373934/exam38.F27
-setenv SVPWRK1 /tmp/373934/exam38.F26
-setenv SVPWRK2 /tmp/373934/exam38.F27
-setenv COSCAV /tmp/373934/exam38.F26
-setenv COSDATA /export/home/sarom/restart/exam38.cosmo
-setenv COSPOT /export/home/sarom/restart/exam38.pot
-setenv MLTPL /tmp/373934/exam38.F28
-setenv MLTPLT /tmp/373934/exam38.F29
-setenv DAFL30 /tmp/373934/exam38.F30
-setenv SOINTX /tmp/373934/exam38.F31
-setenv SOINTY /tmp/373934/exam38.F32
-setenv SOINTZ /tmp/373934/exam38.F33
-setenv SORESC /tmp/373934/exam38.F34
-setenv GCILIST /tmp/373934/exam38.F37
-setenv HESSIAN /tmp/373934/exam38.F38
-setenv QMMMTEI /tmp/373934/exam38.F39
-setenv SOCCDAT /tmp/373934/exam38.F40
-setenv AABB41 /tmp/373934/exam38.F41
-setenv BBAA42 /tmp/373934/exam38.F42
-setenv BBBB43 /tmp/373934/exam38.F43
-setenv REMD /tmp/373934/exam38.F44
-setenv UNV /tmp/373934/exam38.F45
-setenv UNPV /tmp/373934/exam38.F46
-setenv MCQD50 /tmp/373934/exam38.F50
-setenv MCQD51 /tmp/373934/exam38.F51
-setenv MCQD52 /tmp/373934/exam38.F52
-setenv MCQD53 /tmp/373934/exam38.F53
-setenv MCQD54 /tmp/373934/exam38.F54
-setenv MCQD55 /tmp/373934/exam38.F55
-setenv MCQD56 /tmp/373934/exam38.F56
-setenv MCQD57 /tmp/373934/exam38.F57
-setenv MCQD58 /tmp/373934/exam38.F58
-setenv MCQD59 /tmp/373934/exam38.F59
-setenv MCQD60 /tmp/373934/exam38.F60
-setenv MCQD61 /tmp/373934/exam38.F61
-setenv MCQD62 /tmp/373934/exam38.F62
-setenv MCQD63 /tmp/373934/exam38.F63
-setenv MCQD64 /tmp/373934/exam38.F64
-setenv NMRINT1 /tmp/373934/exam38.F61
-setenv NMRINT2 /tmp/373934/exam38.F62
-setenv NMRINT3 /tmp/373934/exam38.F63
-setenv NMRINT4 /tmp/373934/exam38.F64
-setenv NMRINT5 /tmp/373934/exam38.F65
-setenv NMRINT6 /tmp/373934/exam38.F66
-setenv DCPHFH2 /tmp/373934/exam38.F67
-setenv DCPHF21 /tmp/373934/exam38.F68
-setenv ELNUINT /tmp/373934/exam38.F67
-setenv NUNUINT /tmp/373934/exam38.F68
-setenv GVVPT /tmp/373934/exam38.F69
-setenv NUMOIN /tmp/373934/exam38.F69
-setenv NUMOCAS /tmp/373934/exam38.F70
-setenv NUELMO /tmp/373934/exam38.F71
-setenv NUELCAS /tmp/373934/exam38.F72
-setenv RIVMAT /tmp/373934/exam38.F51
-setenv RIT2A /tmp/373934/exam38.F52
-setenv RIT3A /tmp/373934/exam38.F53
-setenv RIT2B /tmp/373934/exam38.F54
-setenv RIT3B /tmp/373934/exam38.F55
-setenv DEN2P1 /tmp/373934/exam38.F70
-setenv DEN2P2 /tmp/373934/exam38.F71
-setenv DEN2P3 /tmp/373934/exam38.F72
-setenv DEN2P4 /tmp/373934/exam38.F73
-setenv DEN2NM /tmp/373934/exam38.F74
-setenv DEN2OPT /tmp/373934/exam38.F75
-setenv GMCREF /tmp/373934/exam38.F70
-setenv GMCO2R /tmp/373934/exam38.F71
-setenv GMCROC /tmp/373934/exam38.F72
-setenv GMCOOC /tmp/373934/exam38.F73
-setenv GMCCC0 /tmp/373934/exam38.F74
-setenv GMCHMA /tmp/373934/exam38.F75
-setenv GMCEI1 /tmp/373934/exam38.F76
-setenv GMCEI2 /tmp/373934/exam38.F77
-setenv GMCEOB /tmp/373934/exam38.F78
-setenv GMCEDT /tmp/373934/exam38.F79
-setenv GMCERF /tmp/373934/exam38.F80
-setenv GMCHCR /tmp/373934/exam38.F81
-setenv GMCGJK /tmp/373934/exam38.F82
-setenv GMCGAI /tmp/373934/exam38.F83
-setenv GMCGEO /tmp/373934/exam38.F84
-setenv GMCTE1 /tmp/373934/exam38.F85
-setenv GMCTE2 /tmp/373934/exam38.F86
-setenv GMCHEF /tmp/373934/exam38.F87
-setenv GMCMOL /tmp/373934/exam38.F88
-setenv GMCMOS /tmp/373934/exam38.F89
-setenv GMCWGT /tmp/373934/exam38.F90
-setenv GMCRM2 /tmp/373934/exam38.F91
-setenv GMCRM1 /tmp/373934/exam38.F92
-setenv GMCR00 /tmp/373934/exam38.F93
-setenv GMCRP1 /tmp/373934/exam38.F94
-setenv GMCRP2 /tmp/373934/exam38.F95
-setenv GMCVEF /tmp/373934/exam38.F96
-setenv GMCDIN /tmp/373934/exam38.F97
-setenv GMC2SZ /tmp/373934/exam38.F98
-setenv GMCCCS /tmp/373934/exam38.F99
+setenv NUCBAS /Users/sarom/GAMESS-Development/gamess/tests/travis-ci/parallel/exam38.nucbas
+setenv EXTCAB /Users/sarom/GAMESS-Development/gamess/auxdata/AUXBAS/auxdef21
+setenv POSBAS /Users/sarom/GAMESS-Development/gamess/tests/travis-ci/parallel/exam38.posbas
+setenv DFTBPAR /Users/sarom/GAMESS-Development/gamess/auxdata/DFTB
+setenv ERICFMT /Users/sarom/GAMESS-Development/gamess/auxdata/ericfmt.dat
+setenv MCPPATH /Users/sarom/GAMESS-Development/gamess/auxdata/MCP
+setenv BASPATH /Users/sarom/GAMESS-Development/gamess/auxdata/BASES
+setenv QUANPOL /Users/sarom/GAMESS-Development/gamess/auxdata/QUANPOL
+setenv MAKEFP /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.efp
+setenv GAMMA /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.gamma
+setenv TRAJECT /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.trj
+setenv RESTART /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.rst
+setenv QMWAVE /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.qmw
+setenv MDDIP /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.dip
+setenv OPTHES1 /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.hs1
+setenv OPTHES2 /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.hs2
+setenv FCIDUMP /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.FCIDUMP
+setenv XYZ /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.xyz
+setenv IRCDATA /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F04
+setenv INPUT /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F05
+setenv PUNCH /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.dat
+setenv NAMDRST /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.namdrst
+setenv AOINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F08
+setenv MOINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F09
+setenv DICTNRY /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F10
+setenv DRTFILE /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F11
+setenv CIVECTR /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F12
+setenv CASINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F13
+setenv CIINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F14
+setenv WORK15 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F15
+setenv WORK16 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F16
+setenv CSFSAVE /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F17
+setenv FOCKDER /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F18
+setenv WORK19 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F19
+setenv DASORT /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F20
+setenv DIABDAT /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F21
+setenv DFTINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F21
+setenv DFTGRID /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F22
+setenv JKFILE /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F23
+setenv ORDINT /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F24
+setenv EFPIND /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F25
+setenv PCMDATA /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F26
+setenv PCMINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F27
+setenv SVPWRK1 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F26
+setenv SVPWRK2 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F27
+setenv COSCAV /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F26
+setenv COSDATA /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.cosmo
+setenv COSPOT /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.pot
+setenv MLTPL /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F28
+setenv MLTPLT /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F29
+setenv DAFL30 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F30
+setenv SOINTX /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F31
+setenv SOINTY /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F32
+setenv SOINTZ /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F33
+setenv SORESC /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F34
+setenv RISM01 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F26R
+setenv RISM02 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F27R
+setenv QOPWRF /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.wrf
+setenv GCILIST /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F37
+setenv HESSIAN /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F38
+setenv QMMMTEI /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F39
+setenv SOCCDAT /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F40
+setenv AABB41 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F41
+setenv BBAA42 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F42
+setenv BBBB43 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F43
+setenv REMD /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F44
+setenv UNV /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F45
+setenv UNPV /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F46
+setenv MCQD50 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F50
+setenv MCQD51 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F51
+setenv MCQD52 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F52
+setenv MCQD53 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F53
+setenv MCQD54 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F54
+setenv MCQD55 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F55
+setenv MCQD56 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F56
+setenv MCQD57 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F57
+setenv MCQD58 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F58
+setenv MCQD59 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F59
+setenv MCQD60 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F60
+setenv MCQD61 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F61
+setenv MCQD62 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F62
+setenv MCQD63 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F63
+setenv MCQD64 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F64
+setenv NMRINT1 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F61
+setenv NMRINT2 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F62
+setenv NMRINT3 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F63
+setenv NMRINT4 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F64
+setenv NMRINT5 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F65
+setenv NMRINT6 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F66
+setenv DCPHFH2 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F67
+setenv DCPHF21 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F68
+setenv ELNUINT /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F67
+setenv NUNUINT /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F68
+setenv GVVPT /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F69
+setenv NUMOIN /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F69
+setenv NUMOCAS /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F70
+setenv NUELMO /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F71
+setenv NUELCAS /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F72
+setenv EPOVRLP /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F73
+setenv RIVMAT /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F51
+setenv RIT2A /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F52
+setenv RIT3A /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F53
+setenv RIT2B /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F54
+setenv RIT3B /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F55
+setenv KI /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F47
+setenv BI /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F48
+setenv PRMERI /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F49
+setenv TRSERI /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F50
+setenv PVP /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F51
+setenv TPVPI /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F52
+setenv TPVPJ /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F53
+setenv PPVPP /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F54
+setenv TPPVPP /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F55
+setenv DEN2P1 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F70
+setenv DEN2P2 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F71
+setenv DEN2P3 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F72
+setenv DEN2P4 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F73
+setenv DEN2NM /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F74
+setenv DEN2OPT /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F75
+setenv GMCREF /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F70
+setenv GMCO2R /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F71
+setenv GMCROC /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F72
+setenv GMCOOC /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F73
+setenv GMCCC0 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F74
+setenv GMCHMA /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F75
+setenv GMCEI1 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F76
+setenv GMCEI2 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F77
+setenv GMCEOB /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F78
+setenv GMCEDT /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F79
+setenv GMCERF /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F80
+setenv GMCHCR /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F81
+setenv GMCGJK /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F82
+setenv GMCGAI /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F83
+setenv GMCGEO /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F84
+setenv GMCTE1 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F85
+setenv GMCTE2 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F86
+setenv GMCHEF /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F87
+setenv GMCMOL /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F88
+setenv GMCMOS /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F89
+setenv GMCWGT /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F90
+setenv GMCRM2 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F91
+setenv GMCRM1 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F92
+setenv GMCR00 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F93
+setenv GMCRP1 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F94
+setenv GMCRP2 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F95
+setenv GMCVEF /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F96
+setenv GMCDIN /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F97
+setenv GMC2SZ /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F98
+setenv GMCCCS /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F99
 unset echo
-rm: cannot remove ‘/export/home/sarom/restart/exam38.casino’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam38.dmn’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam38.cim’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam38.cosmo’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam38.pot’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam38.gamma’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam38.efp’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam38.dip’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam38.hs1’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam38.hs2’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam38.dat’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam38.qmw’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam38.rst’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam38.trj’: No such file or directory
- 
-Assuming a single but multicore node.
- 
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.casino: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.dmn: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.cim: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.cosmo: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.pot: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.gamma: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.efp: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.dip: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.hs1: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.hs2: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.dat: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.qmw: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.rst: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.trj: No such file or directory
 The generated host list is
-compute-1-1.local:cpus=3
+Mac
 -----debug-----
 the execution path is
-/opt/openmpi/bin /shared/compilers/aocc-compiler-3.2.0/share/opt-viewer /shared/compilers/aocc-compiler-3.2.0/bin /shared/git/2.9.5/bin /shared/compilers/gcc/5.5.0/bin /shared/cmake/3.12.0/bin /export/home/sarom/bin /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el7_4.x86_64/jre/bin/ /usr/lib64/qt-3.3/bin /usr/local/bin /usr/bin /usr/local/sbin /usr/sbin /opt/pdsh/bin /opt/rocks/bin /opt/rocks/sbin
+/opt/homebrew/opt/gnu-sed/libexec/gnubin /opt/homebrew/opt/make/libexec/gnubin /opt/homebrew/bin /opt/homebrew/sbin /usr/local/krb5/bin /usr/local/ossh/bin /usr/local/bin /System/Cryptexes/App/usr/bin /usr/bin /bin /usr/sbin /sbin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
 the library path is
-/opt/openmpi/lib:/shared/compilers/aocc-compiler-3.2.0/ompd:/shared/compilers/aocc-compiler-3.2.0/lib:/shared/compilers/aocc-compiler-3.2.0/lib32:/usr/lib64:/usr/lib:/shared/compilers/gcc/5.5.0/lib64:
-The dynamically linked libraries for this binary are
-/home/sarom/dir.git.dev/gamess.00.x :
 
-	linux-vdso.so.1 =>  (0x00007f5b53b90000)
-	libpthread.so.0 => /usr/lib64/libpthread.so.0 (0x00007f5b53973000)
-	libm.so.6 => /usr/lib64/libm.so.6 (0x00007f5b53670000)
-	libc.so.6 => /usr/lib64/libc.so.6 (0x00007f5b532ad000)
-	/lib64/ld-linux-x86-64.so.2 (0x000056201d212000)
-	libgcc_s.so.1 => /shared/compilers/gcc/5.5.0/lib64/libgcc_s.so.1 (0x00007f5b53096000)
-	libdl.so.2 => /usr/lib64/libdl.so.2 (0x00007f5b52e91000)
+The dynamically linked libraries for this binary are
+/Users/sarom/GAMESS-Development/gamess/gamess.00.x :
+
+ldd: Command not found.
 --------------
-/home/sarom/dir.git.dev/ddikick.x /home/sarom/dir.git.dev/gamess.00.x exam38 -ddi 1 3 compute-1-1.local:cpus=3 -scr /tmp/373934
+/Users/sarom/GAMESS-Development/gamess/ddikick.x /Users/sarom/GAMESS-Development/gamess/gamess.00.x exam38 -ddi 1 1 Mac -scr /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8
 
  Distributed Data Interface kickoff program.
- Initiating 3 compute processes on 1 nodes to run the following command:
- /home/sarom/dir.git.dev/gamess.00.x exam38 
+ Initiating 1 compute processes on 1 nodes to run the following command:
+ /Users/sarom/GAMESS-Development/gamess/gamess.00.x exam38 
 
           *******************************************************
           *                                                     *
-          *      GAMESS VERSION = 30 SEP 2021 (R2 Patch 1)      *
+          *      GAMESS VERSION = 15 JUL 2024 (R2 Patch 1)          *
           *                                                     *
           *              doi.org/10.1063/5.0005188              *
           *                                                     *
-          **************** 64 BIT INTEL VERSION *****************
+          **************** 64 BIT LINUX VERSION *****************
+ 
+           git commit: bf99997cb9bae7c41d40f16e0cbc3a8d2532d8b0
+ 
 
   GAMESS HAS BEEN MADE POSSIBLE WITH IMPORTANT CONTRIBUTIONS FROM
   THE FOLLOWING INDIVIDUALS (IN ALPHABETICAL ORDER):
 
      IVANA ADAMOVIC, CHRISTINE AIKENS, TOMOKO AKAMA,
-     YURI ALEXEEV, YURIKO AOKI, POOJA ARORA, TOSHIO ASADA,
-     ANDREY ASADCHEV, KIM K. BALDRIDGE, PRADIPTA BANDYOPADHYAY,
-     TAYLOR A. BARNES, MARIA BARYSZ, ROB BELL,
-     JONATHAN BENTZ, COLLEEN BERTONI,
+     MELISA ALKAN, YURI ALEXEEV, YURIKO AOKI, POOJA ARORA,
+     TOSHIO ASADA, ANDREY ASADCHEV, KIM K. BALDRIDGE,
+     PRADIPTA BANDYOPADHYAY, TAYLOR A. BARNES, MARIA BARYSZ,
+     ROB BELL, JONATHAN BENTZ, COLLEEN BERTONI,
      JERRY A. BOATZ, BRETT BODE, KURT BRORSEN, KURT R. BRORSEN,
      LAIMUTIS BYTAUTAS, CALEB CARLIN, LAURA CARRINGTON,
      GALINA CHABAN, BENOIT CHAMPAGNE, WEI CHEN, MAHITO CHIBA,
@@ -243,20 +324,23 @@ The dynamically linked libraries for this binary are
      DIPAYAN DATTA, PAUL DAY, ALBERT DEFUSCO,
      NUWAN DESILVA, J. EMILIANO DEUSTUA,
      TIM DUDLEY, MICHEL DUPUIS, STEVEN T. ELBERT,
-     DMITRI FEDOROV, ALEX FINDLATER, GRAHAM FLETCHER,
-     MARK FREITAG, CHRISTIAN FRIEDL, DAVID GARMER,
-     IGOR S. GERASIMOV, KURT GLAESEMANN, MARK S. GORDON,
-     JEFFREY GOUR, FENG LONG GU, EMILIE B. GUIDEZ,
-     ANASTASIA GUNINA, SHARON HAMMES-SCHIFFER, MASATAKE HARUTA,
-     KIMIHIKO HIRAO, YASUHIRO IKABATA, TZVETELIN IORDANOV,
-     STEPHAN IRLE, KAZUYA ISHIMURA, JOE IVANIC, FRANK JENSEN,
-     JAN H. JENSEN, VISVALDAS KAIRYS, MUNEAKI KAMIYA,
-     MICHIO KATOUDA, NAOAKI KAWAKAMI, DAN KEMP, BERNARD KIRTMAN,
-     KAZUO KITAURA, MARIUSZ KLOBUKOWSKI, MASATO KOBAYASHI,
-     PRAKASHAN KORAMBATH, JACEK KORCHOWIEC, SHIRO KOSEKI,
-     KAROL KOWALSKI, JIMMY KROMANN, STANISLAW KUCHARSKI,
-     HENRY KURTZ, SAROM SOK LEANG, HUI LI, SHUHUA LI, WEI LI,
-     JESSE LUTZ, ALEKSANDR O. LYKHIN, MARCIN MAKOWSKI,
+     DMITRI FEDOROV, KATHERINE FERRERAS, MICHAEL FILATOV,
+     ALEX FINDLATER,GRAHAM FLETCHER, MARK FREITAG,
+     CHRISTIAN FRIEDL, DAVID GARMER, 
+     IGOR S. GERASIMOV, KURT GLAESEMANN,
+     MARK S. GORDON, JEFFREY R. GOUR, FENG LONG GU,
+     EMILIE B. GUIDEZ, ANASTASIA GUNINA, SHARON HAMMES-SCHIFFER,
+     MASATAKE HARUTA, KIMIHIKO HIRAO, YASUHIRO IKABATA,
+     TZVETELIN IORDANOV, STEPHAN IRLE, KAZUYA ISHIMURA,
+     JOE IVANIC, FRANK JENSEN, JAN H. JENSEN, VISVALDAS KAIRYS,
+     MUNEAKI KAMIYA, MICHIO KATOUDA, NAOAKI KAWAKAMI, DAN KEMP,
+     BERNARD KIRTMAN, KAZUO KITAURA, MARIUSZ KLOBUKOWSKI,
+     MASATO KOBAYASHI, KONSTANTIN KOMAROV, PRAKASHAN KORAMBATH,
+     JACEK KORCHOWIEC, SHIRO KOSEKI, KAROL KOWALSKI,
+     JIMMY KROMANN, STANISLAW A. KUCHARSKI, HENRY KURTZ,
+     SAROM SOK LEANG, SEUNGHOON LEE, HUI LI, SHUHUA LI, WEI LI,
+     JESSE J. LUTZ, ALEKSANDR O. LYKHIN,
+     ILIAS MAGOULAS, MARCIN MAKOWSKI,
      JOANI MATO, NIKITA MATSUNAGA, BENEDETTA MENNUCCI,
      GRANT MERRILL, NORIYUKI MINEZAWA, VLADIMIR MIRONOV,
      EISAKU MIYOSHI, JOHN A. MONTGOMERY JR., HIROTOSHI MORI,
@@ -270,13 +354,15 @@ The dynamically linked libraries for this binary are
      KLAUS RUEDENBERG, ANDREW SAND, TOSAPORN SATTASATHUCHANA,
      NOZOMI SAWADA, MICHAEL W. SCHMIDT, PATRICK E. SCHNEIDER,
      JUNJI SEINO, PRACHI SHARMA, JUN SHEN, JIM SHOEMAKER,
-     YINAN SHU, DEJUN SI, JONATHAN SKONE, LYUDMILA SLIPCHENKO,
-     TONY SMITH, JIE SONG, MARK SPACKMAN, CASPER STEINMANN,
-     WALT STEVENS, PEIFENG SU, SHUJUN SU, CHET SWALINA,
-     TETSUYA TAKETSUGU, ZHEN TAO, NANDUN THELLAMUREGE
-     SEIKEN TOKURA, JACOPO TOMASI, TSUGUKI TOUMA, TAKAO TSUNEDA,
-     HIROAKI UMEDA, JORGE LUIS GALVEZ VALLEJO, YALI WANG,
-     SIMON WEBB, AARON WEST, THERESA L. WINDUS, MARTA WLOCH,
+     GEORGE SCHOENDORFF, YINAN SHU, DEJUN SI, JONATHAN SKONE,
+     LYUDMILA SLIPCHENKO, TONY SMITH, JIE SONG, MARK SPACKMAN,
+     CASPER STEINMANN, WALT STEVENS, PEIFENG SU, SHUJUN SU,
+     CHET SWALINA, CHINAMI TAKASHIMA, TETSUYA TAKETSUGU,
+     ZHEN TAO, NANDUN THELLAMUREGE, ANANTA TIWARI,
+     SEIKEN TOKURA, JACOPO TOMASI,
+     TSUGUKI TOUMA, TAKAO TSUNEDA, HIROAKI UMEDA,
+     JORGE LUIS GALVEZ VALLEJO, YALI WANG, SIMON WEBB,
+     AARON WEST, THERESA L. WINDUS, MARTA WLOCH,
      PENG XU, KIYOSHI YAGI, SUSUMU YANAGISAWA, YANG YANG,
      SOOHAENG YOO, TAKESHI YOSHIKAWA, FEDERICO ZAHARIEV,
      TOBY ZENG
@@ -284,9 +370,11 @@ The dynamically linked libraries for this binary are
   WHO ARE SUPPORTED BY THEIR INSTITUTION/UNIVERSITY/COMPANY/GROUP
   (IN ALPHABETICAL ORDER):
 
-     EP ANALYTICS, FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX,
+     EP ANALYTICS,
+     FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX,
      INSTITUTE FOR MOLECULAR SCIENCE, IOWA STATE UNIVERSITY,
      JACKSON STATE UNIVERSITY, JOHANNES KEPLER UNIVERSITY LINZ,
+     KYUNGPOOK NATIONAL UNIVERSITY
      KYUSHU UNIVERSITY, MICHIGAN STATE UNIVERSITY,
      MIE UNIVERSITY, THE MOLECULAR SCIENCES SOFTWARE INSTITUTE,
      MOSCOW STATE UNIVERSITY,
@@ -303,7 +391,8 @@ The dynamically linked libraries for this binary are
      UNIVERSITY OF NEBRASKA, UNIVERSITY OF NEW ENGLAND,
      UNIVERSITY OF NOTRE DAME, UNIVERSITY OF PISA,
      UNIVERSITY OF SILESIA, UNIVERSITY OF TOKYO,
-     UNIVERSITY OF ZURICH, WASEDA UNIVERSITY, YALE UNIVERSITY
+     UNIVERSITY OF ZURICH, WASEDA UNIVERSITY,
+     YALE UNIVERSITY
 
   GAMESS SOFTWARE MANAGEMENT TEAM FOR THIS RELEASE:
      MARK S. GORDON (TEAM LEAD),
@@ -313,13 +402,10 @@ The dynamically linked libraries for this binary are
      KRISTOPHER KEIPERT (ADVISOR),
      SAROM S. LEANG (DEVELOPMENT LEAD),
      BUU PHAM,
-     JORGE LUIS GALVEZ VALLEJO (WEBSITE ADMINISTRATOR),
+     JACKSON HAYES (WEBSITE ADMINISTRATOR),
      PENG XU
 
-
- PARALLEL VERSION RUNNING ON        3 PROCESSORS IN        1 NODES.
-
- EXECUTION OF GAMESS BEGUN 13:07:30 15-MAR-2022    
+ EXECUTION OF GAMESS BEGUN 01:39:05 14-MAY-2025    
 
             ECHO OF THE FIRST FEW INPUT CARDS -
  INPUT CARD>! EXAM 38.                                                                      
@@ -340,7 +426,7 @@ The dynamically linked libraries for this binary are
  INPUT CARD>!                                                                               
  INPUT CARD> $contrl scftyp=rhf runtyp=optimize pp=mcp ispher=1                             
  INPUT CARD>         coord=zmt nzvar=6 $end                                                 
- INPUT CARD> $system timlim=5 mwords=2 $end                                                 
+ INPUT CARD> $system mwords=2 $end                                                          
  INPUT CARD> $basis  gbasis=mcp-dzp $end                                                    
  INPUT CARD> $statpt opttol=1.0d-5 $end                                                     
  INPUT CARD> $data                                                                          
@@ -355,7 +441,7 @@ The dynamically linked libraries for this binary are
  INPUT CARD>rBiCl=2.48                                                                      
  INPUT CARD>aClBiCl=99.0                                                                    
  INPUT CARD> $end                                                                           
-    2000000 WORDS OF MEMORY AVAILABLE
+      2000000 WORDS OF MEMORY AVAILABLE
 
      $BASIS REQUESTS READING THE "MCP-DZP " BASIS SET FROM AN EXTERNAL FILE
 
@@ -377,7 +463,7 @@ The dynamically linked libraries for this binary are
  IXX=   347.108   IYY=   347.108   IZZ=   497.434
 
  THE EXTERNAL BASIS SET FILE BEING READ IS
-     "/home/sarom/dir.git.dev/auxdata/MCP/MCP-DZP"
+     "/Users/sarom/GAMESS-Development/gamess/auxdata/MCP/MCP-DZP"
  *** WARNING! ATOM   1 SHELL    1 TYPE S HAS NORMALIZATION   1.31210905
  *** WARNING! ATOM   1 SHELL    3 TYPE S HAS NORMALIZATION   1.26026823
  *** WARNING! ATOM   1 SHELL    4 TYPE P HAS NORMALIZATION   2.92283493
@@ -499,10 +585,10 @@ The dynamically linked libraries for this binary are
      ---------------
   REPLICATED MEMORY=     2000000 WORDS (ON EVERY NODE).
  DISTRIBUTED MEMDDI=           0 MILLION WORDS IN AGGREGATE,
- MEMDDI DISTRIBUTED OVER   3 PROCESSORS IS           0 WORDS/PROCESSOR.
+ MEMDDI DISTRIBUTED OVER   1 PROCESSORS IS           0 WORDS/PROCESSOR.
  TOTAL MEMORY REQUESTED ON EACH PROCESSOR=     2000000 WORDS.
- TIMLIM=           5.00 MINUTES, OR       0.0 DAYS.
- PARALL= T  BALTYP=  DLB     KDIAG=    0  COREFL= F
+ TIMLIM=      525600.00 MINUTES, OR     365.0 DAYS.
+ PARALL= F  BALTYP=  DLB     KDIAG=    0  COREFL= F
  MXSEQ2=     300 MXSEQ3=     150  mem10=         0  mem22=         0
 
           ----------------
@@ -875,11 +961,18 @@ The dynamically linked libraries for this binary are
           DIIS IN EFFECT
  ORBITAL PRINTING OPTION: NPREO=     1    66     2     1
 
+     ----------------------
+     TARGET OFFLOAD OPTIONS
+     ----------------------
+     RHF    =       F
+     CPHF    =       F
+     MAKEFP =       F
+
      -------------------------------
      INTEGRAL TRANSFORMATION OPTIONS
      -------------------------------
      NWORD  =            0
-     CUTOFF = 1.0E-09     MPTRAN =       0
+     CUTTRF = 1.0E-09     MPTRAN =       0
      DIRTRF =       F     AOINTS =DUP     
 
           ----------------------
@@ -930,8 +1023,8 @@ The dynamically linked libraries for this binary are
  A1  =   17     A2  =    4     E   =   20
 
  ..... DONE SETTING UP THE RUN .....
- CPU     0: STEP CPU TIME=     0.07 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    72.91%
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    73.49%
 
 
           -----------------------------
@@ -998,10 +1091,10 @@ The dynamically linked libraries for this binary are
           1 ELECTRON INTEGRALS
           ********************
  TIME TO DO ORDINARY INTEGRALS=      0.00
- TIME TO DO      MCP INTEGRALS=      0.01
+ TIME TO DO      MCP INTEGRALS=      0.00
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.01 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    76.07%
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    75.88%
 
           -------------
           GUESS OPTIONS
@@ -1027,8 +1120,8 @@ The dynamically linked libraries for this binary are
     20=?E      21=?A1     22=?A1     23=A1      24=?A1     25=A1      26=A1  
     27=A1      28=A1  
  ...... END OF INITIAL ORBITAL SELECTION ......
- CPU     0: STEP CPU TIME=     0.03 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    80.42%
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    79.07%
 
                     ----------------------
                     AO INTEGRAL TECHNOLOGY
@@ -1053,31 +1146,31 @@ The dynamically linked libraries for this binary are
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
  II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
  II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    7
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =    8
- II,JST,KST,LST =  5  1  1  1 NREC =         1 INTLOC =    8
- II,JST,KST,LST =  6  1  1  1 NREC =         1 INTLOC =   68
- II,JST,KST,LST =  7  1  1  1 NREC =         1 INTLOC =  128
- II,JST,KST,LST =  8  1  1  1 NREC =         1 INTLOC =  224
- II,JST,KST,LST =  9  1  1  1 NREC =         1 INTLOC = 2510
- II,JST,KST,LST = 10  1  1  1 NREC =         1 INTLOC = 2510
- II,JST,KST,LST = 11  1  1  1 NREC =         1 INTLOC = 2510
- II,JST,KST,LST = 12  1  1  1 NREC =         1 INTLOC = 2510
- II,JST,KST,LST = 13  1  1  1 NREC =         1 INTLOC = 2510
- II,JST,KST,LST = 14  1  1  1 NREC =         1 INTLOC = 2510
- II,JST,KST,LST = 15  1  1  1 NREC =         1 INTLOC = 2510
- II,JST,KST,LST = 16  1  1  1 NREC =         1 INTLOC = 2510
- II,JST,KST,LST = 17  1  1  1 NREC =         1 INTLOC = 2510
- II,JST,KST,LST = 18  1  1  1 NREC =         1 INTLOC = 2510
- II,JST,KST,LST = 19  1  1  1 NREC =         1 INTLOC = 2510
- II,JST,KST,LST = 20  1  1  1 NREC =         1 INTLOC = 5307
- II,JST,KST,LST = 21  1  1  1 NREC =         1 INTLOC = 7809
- II,JST,KST,LST = 22  1  1  1 NREC =         1 INTLOC =13926
- II,JST,KST,LST = 23  1  1  1 NREC =         3 INTLOC =  588
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   22
+ II,JST,KST,LST =  5  1  1  1 NREC =         1 INTLOC =   67
+ II,JST,KST,LST =  6  1  1  1 NREC =         1 INTLOC =  214
+ II,JST,KST,LST =  7  1  1  1 NREC =         1 INTLOC =  571
+ II,JST,KST,LST =  8  1  1  1 NREC =         1 INTLOC = 2257
+ II,JST,KST,LST =  9  1  1  1 NREC =         1 INTLOC = 6628
+ II,JST,KST,LST = 10  1  1  1 NREC =         1 INTLOC = 6628
+ II,JST,KST,LST = 11  1  1  1 NREC =         1 INTLOC = 6628
+ II,JST,KST,LST = 12  1  1  1 NREC =         1 INTLOC = 6628
+ II,JST,KST,LST = 13  1  1  1 NREC =         1 INTLOC = 6628
+ II,JST,KST,LST = 14  1  1  1 NREC =         1 INTLOC = 6628
+ II,JST,KST,LST = 15  1  1  1 NREC =         1 INTLOC = 6628
+ II,JST,KST,LST = 16  1  1  1 NREC =         1 INTLOC = 6628
+ II,JST,KST,LST = 17  1  1  1 NREC =         1 INTLOC = 6628
+ II,JST,KST,LST = 18  1  1  1 NREC =         1 INTLOC = 6628
+ II,JST,KST,LST = 19  1  1  1 NREC =         1 INTLOC = 6628
+ II,JST,KST,LST = 20  1  1  1 NREC =         1 INTLOC =11632
+ II,JST,KST,LST = 21  1  1  1 NREC =         2 INTLOC = 3468
+ II,JST,KST,LST = 22  1  1  1 NREC =         4 INTLOC = 8102
+ II,JST,KST,LST = 23  1  1  1 NREC =         8 INTLOC =13351
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =              397628
-         28 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+         27 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.04 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    81.85%
+ STEP CPU TIME =     0.04 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    70.93%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -1111,6 +1204,8 @@ The dynamically linked libraries for this binary are
 
  FINAL RHF ENERGY IS     -116.3966190315 AFTER  11 ITERATIONS
 
+ Alpha HOMO=   -11.324664 eV, LUMO=    0.361616 eV, gap=   11.686280 eV
+
           ------------
           EIGENVECTORS
           ------------
@@ -1118,30 +1213,30 @@ The dynamically linked libraries for this binary are
                       1          2          3          4          5
                    -1.4526    -1.4526    -1.4455    -1.4455    -1.4433
                      E          E          E          E          A1  
-    1  BI 1  S    0.000000   0.000000   0.000000   0.000000  -0.006847
-    2  BI 1  S    0.000000   0.000000   0.000000   0.000000  -0.008112
-    3  BI 1  S    0.000000   0.000000   0.000000   0.000000  -0.000296
-    4  BI 1  X   -0.001262   0.000000   0.000560   0.000000   0.000000
-    5  BI 1  Y    0.000000   0.001262   0.000000   0.000560   0.000000
-    6  BI 1  Z    0.000000   0.000000   0.000000   0.000000   0.001592
-    7  BI 1  X   -0.001588   0.000000  -0.002584   0.000000   0.000000
-    8  BI 1  Y    0.000000   0.001588   0.000000  -0.002584   0.000000
-    9  BI 1  Z    0.000000   0.000000   0.000000   0.000000  -0.004360
-   10  BI 1  X   -0.000956   0.000000   0.001683   0.000000   0.000000
-   11  BI 1  Y    0.000000   0.000956   0.000000   0.001683   0.000000
-   12  BI 1  Z    0.000000   0.000000   0.000000   0.000000   0.003938
+    1  BI 1  S   -0.000000   0.000000   0.000000   0.000000  -0.006847
+    2  BI 1  S   -0.000000   0.000000   0.000000   0.000000  -0.008112
+    3  BI 1  S   -0.000000   0.000000   0.000000   0.000000  -0.000296
+    4  BI 1  X   -0.001262   0.000000   0.000560   0.000000  -0.000000
+    5  BI 1  Y   -0.000000   0.001262   0.000000   0.000560  -0.000000
+    6  BI 1  Z   -0.000000   0.000000   0.000000   0.000000   0.001592
+    7  BI 1  X   -0.001588   0.000000  -0.002584   0.000000  -0.000000
+    8  BI 1  Y   -0.000000   0.001588   0.000000  -0.002584  -0.000000
+    9  BI 1  Z   -0.000000   0.000000   0.000000   0.000000  -0.004360
+   10  BI 1  X   -0.000956   0.000000   0.001683   0.000000  -0.000000
+   11  BI 1  Y   -0.000000   0.000956   0.000000   0.001683  -0.000000
+   12  BI 1  Z   -0.000000   0.000000   0.000000   0.000000   0.003938
    13  BI 1 XX    0.722629   0.000000  -0.473956   0.000000  -0.500638
    14  BI 1 YY   -0.722629   0.000000   0.473956   0.000000  -0.500638
-   15  BI 1 ZZ    0.000000   0.000000   0.000000   0.000000   1.001277
-   16  BI 1 XY    0.000000   0.834420   0.000000   0.547278   0.000000
-   17  BI 1 XZ    0.538671   0.000000   0.838254   0.000000   0.000000
-   18  BI 1 YZ    0.000000  -0.538671   0.000000   0.838254   0.000000
+   15  BI 1 ZZ   -0.000000   0.000000   0.000000   0.000000   1.001277
+   16  BI 1 XY   -0.000000   0.834420   0.000000   0.547278  -0.000000
+   17  BI 1 XZ    0.538671   0.000000   0.838254   0.000000  -0.000000
+   18  BI 1 YZ   -0.000000  -0.538671   0.000000   0.838254  -0.000000
    19  BI 1 XX   -0.001996   0.000000   0.003800   0.000000   0.002689
    20  BI 1 YY    0.001996   0.000000  -0.003800   0.000000   0.002689
-   21  BI 1 ZZ    0.000000   0.000000   0.000000   0.000000  -0.005378
-   22  BI 1 XY    0.000000  -0.002305   0.000000  -0.004388   0.000000
-   23  BI 1 XZ    0.000731   0.000000  -0.003386   0.000000   0.000000
-   24  BI 1 YZ    0.000000  -0.000731   0.000000  -0.003386   0.000000
+   21  BI 1 ZZ   -0.000000   0.000000   0.000000   0.000000  -0.005378
+   22  BI 1 XY   -0.000000  -0.002305   0.000000  -0.004388  -0.000000
+   23  BI 1 XZ    0.000731   0.000000  -0.003386   0.000000  -0.000000
+   24  BI 1 YZ   -0.000000  -0.000731   0.000000  -0.003386  -0.000000
    25  CL 2  S   -0.020002  -0.034645  -0.005561   0.009632  -0.006758
    26  CL 2  S   -0.008493  -0.014710  -0.002460   0.004261  -0.002801
    27  CL 2  X    0.005501   0.006012  -0.001845  -0.004663   0.000374
@@ -1173,45 +1268,45 @@ The dynamically linked libraries for this binary are
    53  CL 4  S    0.040005   0.000000   0.011122   0.000000  -0.006758
    54  CL 4  S    0.016985   0.000000   0.004920   0.000000  -0.002801
    55  CL 4  X    0.015914   0.000000   0.006232   0.000000  -0.000749
-   56  CL 4  Y    0.000000  -0.002030   0.000000  -0.004537   0.000000
+   56  CL 4  Y   -0.000000  -0.002030   0.000000  -0.004537  -0.000000
    57  CL 4  Z    0.009262   0.000000  -0.000343   0.000000  -0.004479
    58  CL 4  X    0.006508   0.000000   0.002760   0.000000   0.000053
-   59  CL 4  Y    0.000000  -0.001830   0.000000  -0.003234   0.000000
+   59  CL 4  Y   -0.000000  -0.001830   0.000000  -0.003234  -0.000000
    60  CL 4  Z    0.003737   0.000000  -0.001102   0.000000  -0.003294
    61  CL 4 XX    0.003858   0.000000   0.002210   0.000000   0.000753
    62  CL 4 YY   -0.003084   0.000000  -0.000402   0.000000   0.000317
    63  CL 4 ZZ   -0.000774   0.000000  -0.001807   0.000000  -0.001070
-   64  CL 4 XY    0.000000  -0.000976   0.000000  -0.002218   0.000000
+   64  CL 4 XY   -0.000000  -0.000976   0.000000  -0.002218  -0.000000
    65  CL 4 XZ    0.004299   0.000000   0.000194   0.000000  -0.002182
-   66  CL 4 YZ    0.000000  -0.000895   0.000000  -0.000972   0.000000
+   66  CL 4 YZ   -0.000000  -0.000895   0.000000  -0.000972  -0.000000
 
                       6          7          8          9         10
                    -1.1184    -1.0879    -1.0879    -0.7916    -0.5235
                      A1         E          E          A1         E   
-    1  BI 1  S    0.216734   0.000000   0.000000   0.685742   0.000000
-    2  BI 1  S    0.162398   0.000000   0.000000   0.506507   0.000000
-    3  BI 1  S    0.159447   0.000000   0.000000   0.613043   0.000000
-    4  BI 1  X    0.000000  -0.046098   0.000000   0.000000  -0.177085
-    5  BI 1  Y    0.000000   0.000000   0.046098   0.000000   0.000000
-    6  BI 1  Z   -0.032963   0.000000   0.000000   0.006838   0.000000
-    7  BI 1  X    0.000000  -0.056562   0.000000   0.000000  -0.251281
-    8  BI 1  Y    0.000000   0.000000   0.056562   0.000000   0.000000
-    9  BI 1  Z   -0.041808   0.000000   0.000000   0.015412   0.000000
-   10  BI 1  X    0.000000  -0.033783   0.000000   0.000000  -0.148315
-   11  BI 1  Y    0.000000   0.000000   0.033783   0.000000   0.000000
-   12  BI 1  Z   -0.013366   0.000000   0.000000   0.016745   0.000000
+    1  BI 1  S    0.216734  -0.000000   0.000000   0.685742  -0.000000
+    2  BI 1  S    0.162398  -0.000000   0.000000   0.506507  -0.000000
+    3  BI 1  S    0.159447  -0.000000   0.000000   0.613043  -0.000000
+    4  BI 1  X   -0.000000  -0.046098   0.000000  -0.000000  -0.177085
+    5  BI 1  Y   -0.000000  -0.000000   0.046098  -0.000000  -0.000000
+    6  BI 1  Z   -0.032963  -0.000000   0.000000   0.006838  -0.000000
+    7  BI 1  X   -0.000000  -0.056562   0.000000  -0.000000  -0.251281
+    8  BI 1  Y   -0.000000  -0.000000   0.056562  -0.000000  -0.000000
+    9  BI 1  Z   -0.041808  -0.000000   0.000000   0.015412  -0.000000
+   10  BI 1  X   -0.000000  -0.033783   0.000000  -0.000000  -0.148315
+   11  BI 1  Y   -0.000000  -0.000000   0.033783  -0.000000  -0.000000
+   12  BI 1  Z   -0.013366  -0.000000   0.000000   0.016745  -0.000000
    13  BI 1 XX   -0.014866  -0.072854   0.000000  -0.001859  -0.037842
    14  BI 1 YY   -0.014866   0.072854   0.000000  -0.001859   0.037842
-   15  BI 1 ZZ    0.029733   0.000000   0.000000   0.003718   0.000000
-   16  BI 1 XY    0.000000   0.000000  -0.084124   0.000000   0.000000
-   17  BI 1 XZ    0.000000  -0.094541   0.000000   0.000000  -0.076527
-   18  BI 1 YZ    0.000000   0.000000   0.094541   0.000000   0.000000
+   15  BI 1 ZZ    0.029733  -0.000000   0.000000   0.003718  -0.000000
+   16  BI 1 XY   -0.000000  -0.000000  -0.084124  -0.000000  -0.000000
+   17  BI 1 XZ   -0.000000  -0.094541   0.000000  -0.000000  -0.076527
+   18  BI 1 YZ   -0.000000  -0.000000   0.094541  -0.000000  -0.000000
    19  BI 1 XX    0.001926   0.019453   0.000000  -0.001391   0.024525
    20  BI 1 YY    0.001926  -0.019453   0.000000  -0.001391  -0.024525
-   21  BI 1 ZZ   -0.003852   0.000000   0.000000   0.002781   0.000000
-   22  BI 1 XY    0.000000   0.000000   0.022463   0.000000   0.000000
-   23  BI 1 XZ    0.000000   0.026667   0.000000   0.000000   0.054567
-   24  BI 1 YZ    0.000000   0.000000  -0.026667   0.000000   0.000000
+   21  BI 1 ZZ   -0.003852  -0.000000   0.000000   0.002781  -0.000000
+   22  BI 1 XY   -0.000000  -0.000000   0.022463  -0.000000  -0.000000
+   23  BI 1 XZ   -0.000000   0.026667   0.000000  -0.000000   0.054567
+   24  BI 1 YZ   -0.000000  -0.000000  -0.026667  -0.000000  -0.000000
    25  CL 2  S    0.362983  -0.275217  -0.476689  -0.157190   0.042703
    26  CL 2  S    0.188307  -0.141666  -0.245372  -0.116328   0.043671
    27  CL 2  X   -0.013201   0.001062   0.007971  -0.053283  -0.076701
@@ -1243,45 +1338,45 @@ The dynamically linked libraries for this binary are
    53  CL 4  S    0.362983   0.550433   0.000000  -0.157190  -0.085407
    54  CL 4  S    0.188307   0.283332   0.000000  -0.116328  -0.087342
    55  CL 4  X    0.026403   0.014869   0.000000   0.106565   0.279810
-   56  CL 4  Y    0.000000   0.000000   0.003540   0.000000   0.000000
+   56  CL 4  Y   -0.000000  -0.000000   0.003540  -0.000000  -0.000000
    57  CL 4  Z    0.012820   0.011220   0.000000   0.056970   0.237772
    58  CL 4  X    0.015938   0.008124   0.000000   0.061319   0.215226
-   59  CL 4  Y    0.000000   0.000000  -0.001971   0.000000   0.000000
+   59  CL 4  Y   -0.000000  -0.000000  -0.001971  -0.000000  -0.000000
    60  CL 4  Z    0.010635   0.006078   0.000000   0.032500   0.183427
    61  CL 4 XX    0.008286   0.006226   0.000000   0.014226   0.019081
    62  CL 4 YY   -0.006244  -0.004942   0.000000  -0.010787  -0.018001
    63  CL 4 ZZ   -0.002042  -0.001284   0.000000  -0.003439  -0.001080
-   64  CL 4 XY    0.000000   0.000000  -0.000113   0.000000   0.000000
+   64  CL 4 XY   -0.000000  -0.000000  -0.000113  -0.000000  -0.000000
    65  CL 4 XZ    0.008961   0.007367   0.000000   0.015670   0.029870
-   66  CL 4 YZ    0.000000   0.000000   0.000376   0.000000   0.000000
+   66  CL 4 YZ   -0.000000  -0.000000   0.000376  -0.000000  -0.000000
 
                      11         12         13         14         15
                    -0.5235    -0.5004    -0.4720    -0.4720    -0.4534
                      E          A1         E          E          A2  
-    1  BI 1  S    0.000000  -0.116174   0.000000   0.000000   0.000000
-    2  BI 1  S    0.000000  -0.069350   0.000000   0.000000   0.000000
-    3  BI 1  S    0.000000  -0.169765   0.000000   0.000000   0.000000
-    4  BI 1  X    0.000000   0.000000  -0.026406   0.000000   0.000000
-    5  BI 1  Y    0.177085   0.000000   0.000000  -0.026406   0.000000
-    6  BI 1  Z    0.000000  -0.141442   0.000000   0.000000   0.000000
-    7  BI 1  X    0.000000   0.000000  -0.040961   0.000000   0.000000
-    8  BI 1  Y    0.251281   0.000000   0.000000  -0.040961   0.000000
-    9  BI 1  Z    0.000000  -0.200052   0.000000   0.000000   0.000000
-   10  BI 1  X    0.000000   0.000000  -0.004898   0.000000   0.000000
-   11  BI 1  Y    0.148315   0.000000   0.000000  -0.004898   0.000000
-   12  BI 1  Z    0.000000  -0.156316   0.000000   0.000000   0.000000
-   13  BI 1 XX    0.000000   0.023011  -0.068167   0.000000   0.000000
-   14  BI 1 YY    0.000000   0.023011   0.068167   0.000000   0.000000
-   15  BI 1 ZZ    0.000000  -0.046022   0.000000   0.000000   0.000000
-   16  BI 1 XY   -0.043696   0.000000   0.000000   0.078713   0.000000
-   17  BI 1 XZ    0.000000   0.000000   0.020590   0.000000   0.000000
-   18  BI 1 YZ    0.076527   0.000000   0.000000   0.020590   0.000000
-   19  BI 1 XX    0.000000  -0.017424   0.050662   0.000000   0.000000
-   20  BI 1 YY    0.000000  -0.017424  -0.050662   0.000000   0.000000
-   21  BI 1 ZZ    0.000000   0.034848   0.000000   0.000000   0.000000
-   22  BI 1 XY    0.028319   0.000000   0.000000  -0.058499   0.000000
-   23  BI 1 XZ    0.000000   0.000000  -0.020118   0.000000   0.000000
-   24  BI 1 YZ   -0.054567   0.000000   0.000000  -0.020118   0.000000
+    1  BI 1  S    0.000000  -0.116174  -0.000000  -0.000000   0.000000
+    2  BI 1  S    0.000000  -0.069350  -0.000000  -0.000000   0.000000
+    3  BI 1  S    0.000000  -0.169765  -0.000000  -0.000000   0.000000
+    4  BI 1  X    0.000000  -0.000000  -0.026406  -0.000000   0.000000
+    5  BI 1  Y    0.177085  -0.000000  -0.000000  -0.026406   0.000000
+    6  BI 1  Z    0.000000  -0.141442  -0.000000  -0.000000   0.000000
+    7  BI 1  X    0.000000  -0.000000  -0.040961  -0.000000   0.000000
+    8  BI 1  Y    0.251281  -0.000000  -0.000000  -0.040961   0.000000
+    9  BI 1  Z    0.000000  -0.200052  -0.000000  -0.000000   0.000000
+   10  BI 1  X    0.000000  -0.000000  -0.004898  -0.000000   0.000000
+   11  BI 1  Y    0.148315  -0.000000  -0.000000  -0.004898   0.000000
+   12  BI 1  Z    0.000000  -0.156316  -0.000000  -0.000000   0.000000
+   13  BI 1 XX    0.000000   0.023011  -0.068167  -0.000000   0.000000
+   14  BI 1 YY    0.000000   0.023011   0.068167  -0.000000   0.000000
+   15  BI 1 ZZ    0.000000  -0.046022  -0.000000  -0.000000   0.000000
+   16  BI 1 XY   -0.043696  -0.000000  -0.000000   0.078713   0.000000
+   17  BI 1 XZ    0.000000  -0.000000   0.020590  -0.000000   0.000000
+   18  BI 1 YZ    0.076527  -0.000000  -0.000000   0.020590   0.000000
+   19  BI 1 XX    0.000000  -0.017424   0.050662  -0.000000   0.000000
+   20  BI 1 YY    0.000000  -0.017424  -0.050662  -0.000000   0.000000
+   21  BI 1 ZZ    0.000000   0.034848  -0.000000  -0.000000   0.000000
+   22  BI 1 XY    0.028319  -0.000000  -0.000000  -0.058499   0.000000
+   23  BI 1 XZ    0.000000  -0.000000  -0.020118  -0.000000   0.000000
+   24  BI 1 YZ   -0.054567  -0.000000  -0.000000  -0.020118   0.000000
    25  CL 2  S    0.073965  -0.017994   0.006983  -0.012096   0.000000
    26  CL 2  S    0.075641  -0.019972   0.004010  -0.006946   0.000000
    27  CL 2  X    0.205832  -0.111052   0.248913   0.170847  -0.303596
@@ -1310,20 +1405,20 @@ The dynamically linked libraries for this binary are
    50  CL 3 XY    0.019534   0.012936  -0.006988   0.003298  -0.006444
    51  CL 3 XZ   -0.016677   0.001282   0.010011   0.002867   0.009305
    52  CL 3 YZ   -0.020242   0.002221   0.002867   0.013322  -0.005372
-   53  CL 4  S    0.000000  -0.017994  -0.013967   0.000000   0.000000
-   54  CL 4  S    0.000000  -0.019972  -0.008021   0.000000   0.000000
-   55  CL 4  X    0.000000   0.222104  -0.047002   0.000000   0.000000
-   56  CL 4  Y    0.195538   0.000000   0.000000   0.347552   0.350563
-   57  CL 4  Z    0.000000  -0.204004   0.325905   0.000000   0.000000
-   58  CL 4  X    0.000000   0.181171  -0.041587   0.000000   0.000000
-   59  CL 4  Y    0.152302   0.000000   0.000000   0.298480   0.304254
-   60  CL 4  Z    0.000000  -0.165755   0.278752   0.000000   0.000000
-   61  CL 4 XX    0.000000   0.021089  -0.005173   0.000000   0.000000
-   62  CL 4 YY    0.000000  -0.004784  -0.006449   0.000000   0.000000
-   63  CL 4 ZZ    0.000000  -0.016306   0.011622   0.000000   0.000000
-   64  CL 4 XY    0.013908   0.000000   0.000000   0.015402   0.012888
-   65  CL 4 XZ    0.000000  -0.002565   0.014977   0.000000   0.000000
-   66  CL 4 YZ    0.008643   0.000000   0.000000   0.008355   0.010744
+   53  CL 4  S    0.000000  -0.017994  -0.013967  -0.000000   0.000000
+   54  CL 4  S    0.000000  -0.019972  -0.008021  -0.000000   0.000000
+   55  CL 4  X    0.000000   0.222104  -0.047002  -0.000000   0.000000
+   56  CL 4  Y    0.195538  -0.000000  -0.000000   0.347552   0.350563
+   57  CL 4  Z    0.000000  -0.204004   0.325905  -0.000000   0.000000
+   58  CL 4  X    0.000000   0.181171  -0.041587  -0.000000   0.000000
+   59  CL 4  Y    0.152302  -0.000000  -0.000000   0.298480   0.304254
+   60  CL 4  Z    0.000000  -0.165755   0.278752  -0.000000   0.000000
+   61  CL 4 XX    0.000000   0.021089  -0.005173  -0.000000   0.000000
+   62  CL 4 YY    0.000000  -0.004784  -0.006449  -0.000000   0.000000
+   63  CL 4 ZZ    0.000000  -0.016306   0.011622  -0.000000   0.000000
+   64  CL 4 XY    0.013908  -0.000000  -0.000000   0.015402   0.012888
+   65  CL 4 XZ    0.000000  -0.002565   0.014977  -0.000000   0.000000
+   66  CL 4 YZ    0.008643  -0.000000  -0.000000   0.008355   0.010744
 
                      16         17         18         19         20
                    -0.4529    -0.4529    -0.4162     0.0133     0.0187
@@ -1331,27 +1426,27 @@ The dynamically linked libraries for this binary are
     1  BI 1  S    0.000000   0.000000   0.292171  -0.314425   0.000000
     2  BI 1  S    0.000000   0.000000   0.156354  -0.152802   0.000000
     3  BI 1  S    0.000000   0.000000   0.478163  -0.599296   0.000000
-    4  BI 1  X   -0.039711   0.000000   0.000000   0.000000   0.280086
-    5  BI 1  Y    0.000000  -0.039711   0.000000   0.000000   0.000000
+    4  BI 1  X   -0.039711   0.000000  -0.000000   0.000000   0.280086
+    5  BI 1  Y    0.000000  -0.039711  -0.000000   0.000000   0.000000
     6  BI 1  Z    0.000000   0.000000   0.176243   0.257203   0.000000
-    7  BI 1  X   -0.072047   0.000000   0.000000   0.000000   0.324708
-    8  BI 1  Y    0.000000  -0.072047   0.000000   0.000000   0.000000
+    7  BI 1  X   -0.072047   0.000000  -0.000000   0.000000   0.324708
+    8  BI 1  Y    0.000000  -0.072047  -0.000000   0.000000   0.000000
     9  BI 1  Z    0.000000   0.000000   0.266962   0.302589   0.000000
-   10  BI 1  X    0.023455   0.000000   0.000000   0.000000   0.965042
-   11  BI 1  Y    0.000000   0.023455   0.000000   0.000000   0.000000
+   10  BI 1  X    0.023455   0.000000  -0.000000   0.000000   0.965042
+   11  BI 1  Y    0.000000   0.023455  -0.000000   0.000000   0.000000
    12  BI 1  Z    0.000000   0.000000   0.158389   0.878805   0.000000
    13  BI 1 XX   -0.040786   0.000000   0.028328  -0.002160  -0.062423
    14  BI 1 YY    0.040786   0.000000   0.028328  -0.002160   0.062423
    15  BI 1 ZZ    0.000000   0.000000  -0.056656   0.004321   0.000000
-   16  BI 1 XY    0.000000   0.047096   0.000000   0.000000   0.000000
-   17  BI 1 XZ   -0.052173   0.000000   0.000000   0.000000  -0.101205
-   18  BI 1 YZ    0.000000  -0.052173   0.000000   0.000000   0.000000
+   16  BI 1 XY    0.000000   0.047096  -0.000000   0.000000   0.000000
+   17  BI 1 XZ   -0.052173   0.000000  -0.000000   0.000000  -0.101205
+   18  BI 1 YZ    0.000000  -0.052173  -0.000000   0.000000   0.000000
    19  BI 1 XX    0.025457   0.000000  -0.022327  -0.005749   0.040866
    20  BI 1 YY   -0.025457   0.000000  -0.022327  -0.005749  -0.040866
    21  BI 1 ZZ    0.000000   0.000000   0.044654   0.011498   0.000000
-   22  BI 1 XY    0.000000  -0.029395   0.000000   0.000000   0.000000
-   23  BI 1 XZ    0.032201   0.000000   0.000000   0.000000   0.078549
-   24  BI 1 YZ    0.000000   0.032201   0.000000   0.000000   0.000000
+   22  BI 1 XY    0.000000  -0.029395  -0.000000   0.000000   0.000000
+   23  BI 1 XZ    0.032201   0.000000  -0.000000   0.000000   0.078549
+   24  BI 1 YZ    0.000000   0.032201  -0.000000   0.000000   0.000000
    25  CL 2  S    0.006225  -0.010782   0.005668   0.085966  -0.056607
    26  CL 2  S    0.002000  -0.003464  -0.012584   0.211455  -0.143451
    27  CL 2  X    0.280307  -0.039247   0.065075  -0.101366  -0.040949
@@ -1383,45 +1478,45 @@ The dynamically linked libraries for this binary are
    53  CL 4  S   -0.012450   0.000000   0.005668   0.085966   0.113215
    54  CL 4  S   -0.004000   0.000000  -0.012584   0.211455   0.286903
    55  CL 4  X    0.348285   0.000000  -0.130151   0.202733   0.157095
-   56  CL 4  Y    0.000000   0.257647   0.000000   0.000000   0.000000
+   56  CL 4  Y    0.000000   0.257647  -0.000000   0.000000   0.000000
    57  CL 4  Z   -0.231540   0.000000  -0.267797   0.019165   0.158305
    58  CL 4  X    0.303930   0.000000  -0.125131   0.351190   0.286751
-   59  CL 4  Y    0.000000   0.220605   0.000000   0.000000   0.000000
+   59  CL 4  Y    0.000000   0.220605  -0.000000   0.000000   0.000000
    60  CL 4  Z   -0.198958   0.000000  -0.250256   0.037528   0.251665
    61  CL 4 XX    0.025804   0.000000  -0.011365  -0.033050   0.000431
    62  CL 4 YY   -0.009971   0.000000   0.009303   0.012003   0.010179
    63  CL 4 ZZ   -0.015833   0.000000   0.002063   0.021047  -0.010610
-   64  CL 4 XY    0.000000   0.008031   0.000000   0.000000   0.000000
+   64  CL 4 XY    0.000000   0.008031  -0.000000   0.000000   0.000000
    65  CL 4 XZ    0.006952   0.000000  -0.014099  -0.003476  -0.024541
-   66  CL 4 YZ    0.000000   0.007117   0.000000   0.000000   0.000000
+   66  CL 4 YZ    0.000000   0.007117  -0.000000   0.000000   0.000000
 
                      21         22         23         24         25
                     0.0187     0.3630     0.3630     0.3686     0.4149
                      E          E          E          A1         E   
-    1  BI 1  S    0.000000   0.000000   0.000000  -0.110501   0.000000
-    2  BI 1  S    0.000000   0.000000   0.000000  -0.053234   0.000000
-    3  BI 1  S    0.000000   0.000000   0.000000  -0.241646   0.000000
-    4  BI 1  X    0.000000  -0.426850   0.000000   0.000000  -0.133185
-    5  BI 1  Y    0.280086   0.000000  -0.426850   0.000000   0.000000
-    6  BI 1  Z    0.000000   0.000000   0.000000  -0.395974   0.000000
-    7  BI 1  X    0.000000  -1.417511   0.000000   0.000000  -0.440078
-    8  BI 1  Y    0.324708   0.000000  -1.417511   0.000000   0.000000
-    9  BI 1  Z    0.000000   0.000000   0.000000  -1.332928   0.000000
-   10  BI 1  X    0.000000   1.441503   0.000000   0.000000   0.418946
-   11  BI 1  Y    0.965042   0.000000   1.441503   0.000000   0.000000
-   12  BI 1  Z    0.000000   0.000000   0.000000   1.417828   0.000000
+    1  BI 1  S    0.000000   0.000000   0.000000  -0.110501  -0.000000
+    2  BI 1  S    0.000000   0.000000   0.000000  -0.053234  -0.000000
+    3  BI 1  S    0.000000   0.000000   0.000000  -0.241646  -0.000000
+    4  BI 1  X    0.000000  -0.426850   0.000000  -0.000000  -0.133185
+    5  BI 1  Y    0.280086   0.000000  -0.426850  -0.000000  -0.000000
+    6  BI 1  Z    0.000000   0.000000   0.000000  -0.395974  -0.000000
+    7  BI 1  X    0.000000  -1.417511   0.000000  -0.000000  -0.440078
+    8  BI 1  Y    0.324708   0.000000  -1.417511  -0.000000  -0.000000
+    9  BI 1  Z    0.000000   0.000000   0.000000  -1.332928  -0.000000
+   10  BI 1  X    0.000000   1.441503   0.000000  -0.000000   0.418946
+   11  BI 1  Y    0.965042   0.000000   1.441503  -0.000000  -0.000000
+   12  BI 1  Z    0.000000   0.000000   0.000000   1.417828  -0.000000
    13  BI 1 XX    0.000000   0.033234   0.000000   0.116452  -0.279535
    14  BI 1 YY    0.000000  -0.033234   0.000000   0.116452   0.279535
-   15  BI 1 ZZ    0.000000   0.000000   0.000000  -0.232904   0.000000
-   16  BI 1 XY    0.072080   0.000000  -0.038375   0.000000   0.000000
-   17  BI 1 XZ    0.000000  -0.155103   0.000000   0.000000   0.223171
-   18  BI 1 YZ   -0.101205   0.000000  -0.155103   0.000000   0.000000
+   15  BI 1 ZZ    0.000000   0.000000   0.000000  -0.232904  -0.000000
+   16  BI 1 XY    0.072080   0.000000  -0.038375  -0.000000  -0.000000
+   17  BI 1 XZ    0.000000  -0.155103   0.000000  -0.000000   0.223171
+   18  BI 1 YZ   -0.101205   0.000000  -0.155103  -0.000000  -0.000000
    19  BI 1 XX    0.000000  -0.116618   0.000000  -0.273472   0.646060
    20  BI 1 YY    0.000000   0.116618   0.000000  -0.273472  -0.646060
-   21  BI 1 ZZ    0.000000   0.000000   0.000000   0.546944   0.000000
-   22  BI 1 XY   -0.047188   0.000000   0.134659   0.000000   0.000000
-   23  BI 1 XZ    0.000000   0.296601   0.000000   0.000000  -0.534255
-   24  BI 1 YZ    0.078549   0.000000   0.296601   0.000000   0.000000
+   21  BI 1 ZZ    0.000000   0.000000   0.000000   0.546944  -0.000000
+   22  BI 1 XY   -0.047188   0.000000   0.134659  -0.000000  -0.000000
+   23  BI 1 XZ    0.000000   0.296601   0.000000  -0.000000  -0.534255
+   24  BI 1 YZ    0.078549   0.000000   0.296601  -0.000000  -0.000000
    25  CL 2  S    0.098047   0.000525  -0.000909   0.017863   0.002445
    26  CL 2  S    0.248465  -0.138536   0.239951   0.211344  -0.028692
    27  CL 2  X   -0.114341  -0.040533   0.068386   0.040808  -0.150924
@@ -1453,45 +1548,45 @@ The dynamically linked libraries for this binary are
    53  CL 4  S    0.000000  -0.001050   0.000000   0.017863  -0.004890
    54  CL 4  S    0.000000   0.277071   0.000000   0.211344   0.057384
    55  CL 4  X    0.000000  -0.158982   0.000000  -0.081615   0.021427
-   56  CL 4  Y   -0.106964   0.000000  -0.001050   0.000000   0.000000
+   56  CL 4  Y   -0.106964   0.000000  -0.001050  -0.000000  -0.000000
    57  CL 4  Z    0.000000   0.002642   0.000000  -0.003174  -0.113842
    58  CL 4  X    0.000000   0.008649   0.000000   0.142706  -0.004824
-   59  CL 4  Y   -0.169074   0.000000  -0.083389   0.000000   0.000000
+   59  CL 4  Y   -0.169074   0.000000  -0.083389  -0.000000  -0.000000
    60  CL 4  Z    0.000000   0.080414   0.000000   0.010281  -0.037539
    61  CL 4 XX    0.000000   0.158774   0.000000   0.115947  -0.039213
    62  CL 4 YY    0.000000  -0.089128   0.000000  -0.057292  -0.089404
    63  CL 4 ZZ    0.000000  -0.069646   0.000000  -0.058655   0.128617
-   64  CL 4 XY    0.025699   0.000000  -0.065013   0.000000   0.000000
+   64  CL 4 XY    0.025699   0.000000  -0.065013  -0.000000  -0.000000
    65  CL 4 XZ    0.000000   0.133021   0.000000  -0.004545   0.118007
-   66  CL 4 YZ    0.020722   0.000000  -0.012865   0.000000   0.000000
+   66  CL 4 YZ    0.020722   0.000000  -0.012865  -0.000000  -0.000000
 
                      26         27         28         29         30
                     0.4149     0.4269     0.5800     0.5800     0.7157
                      E          A1         E          E          A1  
-    1  BI 1  S    0.000000  -0.022204   0.000000   0.000000  -0.014674
-    2  BI 1  S    0.000000  -0.082985   0.000000   0.000000   0.111766
-    3  BI 1  S    0.000000   0.097908   0.000000   0.000000  -0.466469
-    4  BI 1  X    0.000000   0.000000  -0.125552   0.000000   0.000000
-    5  BI 1  Y    0.133185   0.000000   0.000000  -0.125552   0.000000
-    6  BI 1  Z    0.000000   0.254151   0.000000   0.000000  -0.074968
-    7  BI 1  X    0.000000   0.000000  -0.536193   0.000000   0.000000
-    8  BI 1  Y    0.440078   0.000000   0.000000  -0.536193   0.000000
-    9  BI 1  Z    0.000000   0.845791   0.000000   0.000000  -0.166097
-   10  BI 1  X    0.000000   0.000000   1.198354   0.000000   0.000000
-   11  BI 1  Y   -0.418946   0.000000   0.000000   1.198354   0.000000
-   12  BI 1  Z    0.000000  -0.810930   0.000000   0.000000   0.331672
-   13  BI 1 XX    0.000000   0.173562   0.208977   0.000000  -0.021301
-   14  BI 1 YY    0.000000   0.173562  -0.208977   0.000000  -0.021301
-   15  BI 1 ZZ    0.000000  -0.347123   0.000000   0.000000   0.042603
-   16  BI 1 XY   -0.322779   0.000000   0.000000  -0.241306   0.000000
-   17  BI 1 XZ    0.000000   0.000000   0.288903   0.000000   0.000000
-   18  BI 1 YZ   -0.223171   0.000000   0.000000   0.288903   0.000000
-   19  BI 1 XX    0.000000  -0.408541  -0.656063   0.000000   0.053815
-   20  BI 1 YY    0.000000  -0.408541   0.656063   0.000000   0.053815
-   21  BI 1 ZZ    0.000000   0.817082   0.000000   0.000000  -0.107631
-   22  BI 1 XY    0.746006   0.000000   0.000000   0.757556   0.000000
-   23  BI 1 XZ    0.000000   0.000000  -0.884864   0.000000   0.000000
-   24  BI 1 YZ    0.534255   0.000000   0.000000  -0.884864   0.000000
+    1  BI 1  S    0.000000  -0.022204  -0.000000  -0.000000  -0.014674
+    2  BI 1  S    0.000000  -0.082985  -0.000000  -0.000000   0.111766
+    3  BI 1  S    0.000000   0.097908  -0.000000  -0.000000  -0.466469
+    4  BI 1  X    0.000000  -0.000000  -0.125552  -0.000000  -0.000000
+    5  BI 1  Y    0.133185  -0.000000  -0.000000  -0.125552  -0.000000
+    6  BI 1  Z    0.000000   0.254151  -0.000000  -0.000000  -0.074968
+    7  BI 1  X    0.000000  -0.000000  -0.536193  -0.000000  -0.000000
+    8  BI 1  Y    0.440078  -0.000000  -0.000000  -0.536193  -0.000000
+    9  BI 1  Z    0.000000   0.845791  -0.000000  -0.000000  -0.166097
+   10  BI 1  X    0.000000  -0.000000   1.198354  -0.000000  -0.000000
+   11  BI 1  Y   -0.418946  -0.000000  -0.000000   1.198354  -0.000000
+   12  BI 1  Z    0.000000  -0.810930  -0.000000  -0.000000   0.331672
+   13  BI 1 XX    0.000000   0.173562   0.208977  -0.000000  -0.021301
+   14  BI 1 YY    0.000000   0.173562  -0.208977  -0.000000  -0.021301
+   15  BI 1 ZZ    0.000000  -0.347123  -0.000000  -0.000000   0.042603
+   16  BI 1 XY   -0.322779  -0.000000  -0.000000  -0.241306  -0.000000
+   17  BI 1 XZ    0.000000  -0.000000   0.288903  -0.000000  -0.000000
+   18  BI 1 YZ   -0.223171  -0.000000  -0.000000   0.288903  -0.000000
+   19  BI 1 XX    0.000000  -0.408541  -0.656063  -0.000000   0.053815
+   20  BI 1 YY    0.000000  -0.408541   0.656063  -0.000000   0.053815
+   21  BI 1 ZZ    0.000000   0.817082  -0.000000  -0.000000  -0.107631
+   22  BI 1 XY    0.746006  -0.000000  -0.000000   0.757556  -0.000000
+   23  BI 1 XZ    0.000000  -0.000000  -0.884864  -0.000000  -0.000000
+   24  BI 1 YZ    0.534255  -0.000000  -0.000000  -0.884864  -0.000000
    25  CL 2  S    0.004235   0.001183  -0.128313   0.222244   0.006628
    26  CL 2  S   -0.049696  -0.062882  -0.233955   0.405222   0.081632
    27  CL 2  X    0.099507   0.022391  -0.116232   0.064771   0.248154
@@ -1520,258 +1615,258 @@ The dynamically linked libraries for this binary are
    50  CL 3 XY   -0.026469   0.022497   0.042464   0.130643  -0.247981
    51  CL 3 XZ   -0.009830   0.083370  -0.129068   0.007345   0.078603
    52  CL 3 YZ   -0.112331   0.144401   0.007345  -0.120587   0.136144
-   53  CL 4  S    0.000000   0.001183   0.256625   0.000000   0.006628
-   54  CL 4  S    0.000000  -0.062882   0.467911   0.000000   0.081632
-   55  CL 4  X    0.000000  -0.044782  -0.228418   0.000000  -0.496308
-   56  CL 4  Y    0.208374   0.000000   0.000000  -0.078836   0.000000
-   57  CL 4  Z    0.000000   0.157396  -0.106840   0.000000  -0.113896
-   58  CL 4  X    0.000000  -0.021188   0.747389   0.000000   0.590444
-   59  CL 4  Y    0.085680   0.000000   0.000000  -0.002995   0.000000
-   60  CL 4  Z    0.000000   0.075502   0.419727   0.000000   0.119701
-   61  CL 4 XX    0.000000   0.052423  -0.161641   0.000000  -0.268190
-   62  CL 4 YY    0.000000   0.007429   0.107102   0.000000   0.227771
-   63  CL 4 ZZ    0.000000  -0.059852   0.054539   0.000000   0.040419
-   64  CL 4 XY   -0.192808   0.000000   0.000000   0.057093   0.000000
-   65  CL 4 XZ    0.000000  -0.166739  -0.116346   0.000000  -0.157206
-   66  CL 4 YZ   -0.095306   0.000000   0.000000  -0.133309   0.000000
+   53  CL 4  S    0.000000   0.001183   0.256625  -0.000000   0.006628
+   54  CL 4  S    0.000000  -0.062882   0.467911  -0.000000   0.081632
+   55  CL 4  X    0.000000  -0.044782  -0.228418  -0.000000  -0.496308
+   56  CL 4  Y    0.208374  -0.000000  -0.000000  -0.078836  -0.000000
+   57  CL 4  Z    0.000000   0.157396  -0.106840  -0.000000  -0.113896
+   58  CL 4  X    0.000000  -0.021188   0.747389  -0.000000   0.590444
+   59  CL 4  Y    0.085680  -0.000000  -0.000000  -0.002995  -0.000000
+   60  CL 4  Z    0.000000   0.075502   0.419727  -0.000000   0.119701
+   61  CL 4 XX    0.000000   0.052423  -0.161641  -0.000000  -0.268190
+   62  CL 4 YY    0.000000   0.007429   0.107102  -0.000000   0.227771
+   63  CL 4 ZZ    0.000000  -0.059852   0.054539  -0.000000   0.040419
+   64  CL 4 XY   -0.192808  -0.000000  -0.000000   0.057093  -0.000000
+   65  CL 4 XZ    0.000000  -0.166739  -0.116346  -0.000000  -0.157206
+   66  CL 4 YZ   -0.095306  -0.000000  -0.000000  -0.133309  -0.000000
 
                      31         32         33         34         35
                     0.7311     0.7311     0.7420     0.7446     0.7471
                      E          E          A2         A1         E   
-    1  BI 1  S    0.000000   0.000000   0.000000   0.045282   0.000000
-    2  BI 1  S    0.000000   0.000000   0.000000   0.075376   0.000000
-    3  BI 1  S    0.000000   0.000000   0.000000  -0.050743   0.000000
-    4  BI 1  X    0.027621   0.000000   0.000000   0.000000   0.028629
-    5  BI 1  Y    0.000000   0.027621   0.000000   0.000000   0.000000
-    6  BI 1  Z    0.000000   0.000000   0.000000   0.014717   0.000000
-    7  BI 1  X    0.068837   0.000000   0.000000   0.000000   0.069823
-    8  BI 1  Y    0.000000   0.068837   0.000000   0.000000   0.000000
-    9  BI 1  Z    0.000000   0.000000   0.000000   0.083282   0.000000
-   10  BI 1  X   -0.218907   0.000000   0.000000   0.000000  -0.105370
-   11  BI 1  Y    0.000000  -0.218907   0.000000   0.000000   0.000000
-   12  BI 1  Z    0.000000   0.000000   0.000000  -0.209147   0.000000
-   13  BI 1 XX    0.025797   0.000000   0.000000  -0.006289  -0.009440
-   14  BI 1 YY   -0.025797   0.000000   0.000000  -0.006289   0.009440
-   15  BI 1 ZZ    0.000000   0.000000   0.000000   0.012578   0.000000
-   16  BI 1 XY    0.000000  -0.029787   0.000000   0.000000   0.000000
-   17  BI 1 XZ    0.000125   0.000000   0.000000   0.000000  -0.022774
-   18  BI 1 YZ    0.000000   0.000125   0.000000   0.000000   0.000000
-   19  BI 1 XX   -0.083659   0.000000   0.000000  -0.008720   0.032676
-   20  BI 1 YY    0.083659   0.000000   0.000000  -0.008720  -0.032676
-   21  BI 1 ZZ    0.000000   0.000000   0.000000   0.017440   0.000000
-   22  BI 1 XY    0.000000   0.096601   0.000000   0.000000   0.000000
-   23  BI 1 XZ    0.074915   0.000000   0.000000   0.000000   0.089034
-   24  BI 1 YZ    0.000000   0.074915   0.000000   0.000000   0.000000
-   25  CL 2  S    0.009345  -0.016185   0.000000   0.002045   0.002042
-   26  CL 2  S    0.021627  -0.037458   0.000000  -0.023726   0.022334
+    1  BI 1  S   -0.000000  -0.000000  -0.000000   0.045282  -0.000000
+    2  BI 1  S   -0.000000  -0.000000  -0.000000   0.075376  -0.000000
+    3  BI 1  S   -0.000000  -0.000000  -0.000000  -0.050743  -0.000000
+    4  BI 1  X    0.027621  -0.000000  -0.000000   0.000000   0.028629
+    5  BI 1  Y   -0.000000   0.027621  -0.000000   0.000000  -0.000000
+    6  BI 1  Z   -0.000000  -0.000000  -0.000000   0.014717  -0.000000
+    7  BI 1  X    0.068837  -0.000000  -0.000000   0.000000   0.069823
+    8  BI 1  Y   -0.000000   0.068837  -0.000000   0.000000  -0.000000
+    9  BI 1  Z   -0.000000  -0.000000  -0.000000   0.083282  -0.000000
+   10  BI 1  X   -0.218907  -0.000000  -0.000000   0.000000  -0.105370
+   11  BI 1  Y   -0.000000  -0.218907  -0.000000   0.000000  -0.000000
+   12  BI 1  Z   -0.000000  -0.000000  -0.000000  -0.209147  -0.000000
+   13  BI 1 XX    0.025797  -0.000000  -0.000000  -0.006289  -0.009440
+   14  BI 1 YY   -0.025797  -0.000000  -0.000000  -0.006289   0.009440
+   15  BI 1 ZZ   -0.000000  -0.000000  -0.000000   0.012578  -0.000000
+   16  BI 1 XY   -0.000000  -0.029787  -0.000000   0.000000  -0.000000
+   17  BI 1 XZ    0.000125  -0.000000  -0.000000   0.000000  -0.022774
+   18  BI 1 YZ   -0.000000   0.000125  -0.000000   0.000000  -0.000000
+   19  BI 1 XX   -0.083659  -0.000000  -0.000000  -0.008720   0.032676
+   20  BI 1 YY    0.083659  -0.000000  -0.000000  -0.008720  -0.032676
+   21  BI 1 ZZ   -0.000000  -0.000000  -0.000000   0.017440  -0.000000
+   22  BI 1 XY   -0.000000   0.096601  -0.000000   0.000000  -0.000000
+   23  BI 1 XZ    0.074915  -0.000000  -0.000000   0.000000   0.089034
+   24  BI 1 YZ   -0.000000   0.074915  -0.000000   0.000000  -0.000000
+   25  CL 2  S    0.009345  -0.016185  -0.000000   0.002045   0.002042
+   26  CL 2  S    0.021627  -0.037458  -0.000000  -0.023726   0.022334
    27  CL 2  X   -0.310061  -0.406214  -0.182192  -0.085454  -0.270216
    28  CL 2  Y   -0.406214   0.158994  -0.105188   0.148010  -0.096722
-   29  CL 2  Z    0.088058  -0.152520   0.000000  -0.466950  -0.123553
+   29  CL 2  Z    0.088058  -0.152520  -0.000000  -0.466950  -0.123553
    30  CL 2  X    0.341397   0.451794   0.207189   0.094611   0.293720
    31  CL 2  Y    0.451794  -0.180290   0.119621  -0.163871   0.116276
-   32  CL 2  Z   -0.084871   0.147002   0.000000   0.506175   0.144002
+   32  CL 2  Z   -0.084871   0.147002  -0.000000   0.506175   0.144002
    33  CL 2 XX    0.028595  -0.008613   0.367285   0.151179   0.351664
    34  CL 2 YY   -0.087200   0.110120  -0.367285   0.131250  -0.138375
-   35  CL 2 ZZ    0.058605  -0.101507   0.000000  -0.282429  -0.213288
+   35  CL 2 ZZ    0.058605  -0.101507  -0.000000  -0.282429  -0.213288
    36  CL 2 XY    0.068551  -0.146010  -0.244856   0.019929  -0.301863
    37  CL 2 XZ   -0.345098  -0.172628  -0.196500   0.101240   0.035810
    38  CL 2 YZ   -0.172628  -0.145764  -0.113450  -0.175353  -0.117089
-   39  CL 3  S    0.009345   0.016185   0.000000   0.002045   0.002042
-   40  CL 3  S    0.021627   0.037458   0.000000  -0.023726   0.022334
+   39  CL 3  S    0.009345   0.016185  -0.000000   0.002045   0.002042
+   40  CL 3  S    0.021627   0.037458  -0.000000  -0.023726   0.022334
    41  CL 3  X   -0.310061   0.406214   0.182192  -0.085454  -0.270216
    42  CL 3  Y    0.406214   0.158994  -0.105188  -0.148010   0.096722
-   43  CL 3  Z    0.088058   0.152520   0.000000  -0.466950  -0.123553
+   43  CL 3  Z    0.088058   0.152520  -0.000000  -0.466950  -0.123553
    44  CL 3  X    0.341397  -0.451794  -0.207189   0.094611   0.293720
    45  CL 3  Y   -0.451794  -0.180290   0.119621   0.163871  -0.116276
-   46  CL 3  Z   -0.084871  -0.147002   0.000000   0.506175   0.144002
+   46  CL 3  Z   -0.084871  -0.147002  -0.000000   0.506175   0.144002
    47  CL 3 XX    0.028595   0.008613  -0.367285   0.151179   0.351664
    48  CL 3 YY   -0.087200  -0.110120   0.367285   0.131250  -0.138375
-   49  CL 3 ZZ    0.058605   0.101507   0.000000  -0.282429  -0.213288
+   49  CL 3 ZZ    0.058605   0.101507  -0.000000  -0.282429  -0.213288
    50  CL 3 XY   -0.068551  -0.146010  -0.244856  -0.019929   0.301863
    51  CL 3 XZ   -0.345098   0.172628   0.196500   0.101240   0.035810
    52  CL 3 YZ    0.172628  -0.145764  -0.113450   0.175353   0.117089
-   53  CL 4  S   -0.018689   0.000000   0.000000   0.002045  -0.004084
-   54  CL 4  S   -0.043253   0.000000   0.000000  -0.023726  -0.044669
-   55  CL 4  X    0.393521   0.000000   0.000000   0.170908  -0.102688
-   56  CL 4  Y    0.000000  -0.544589   0.210377   0.000000   0.000000
-   57  CL 4  Z   -0.176115   0.000000   0.000000  -0.466950   0.247106
-   58  CL 4  X   -0.441133   0.000000   0.000000  -0.189222   0.092324
-   59  CL 4  Y    0.000000   0.602240  -0.239242   0.000000   0.000000
-   60  CL 4  Z    0.169743   0.000000   0.000000   0.506175  -0.288004
-   61  CL 4 XX    0.219329   0.000000   0.000000   0.121286  -0.421063
-   62  CL 4 YY   -0.102119   0.000000   0.000000   0.161143  -0.005514
-   63  CL 4 ZZ   -0.117210   0.000000   0.000000  -0.282429   0.426576
-   64  CL 4 XY    0.000000  -0.027277   0.489713   0.000000   0.000000
-   65  CL 4 XZ   -0.046097   0.000000   0.000000  -0.202480   0.238614
-   66  CL 4 YZ    0.000000  -0.444765   0.226899   0.000000   0.000000
+   53  CL 4  S   -0.018689  -0.000000  -0.000000   0.002045  -0.004084
+   54  CL 4  S   -0.043253  -0.000000  -0.000000  -0.023726  -0.044669
+   55  CL 4  X    0.393521  -0.000000  -0.000000   0.170908  -0.102688
+   56  CL 4  Y   -0.000000  -0.544589   0.210377   0.000000  -0.000000
+   57  CL 4  Z   -0.176115  -0.000000  -0.000000  -0.466950   0.247106
+   58  CL 4  X   -0.441133  -0.000000  -0.000000  -0.189222   0.092324
+   59  CL 4  Y   -0.000000   0.602240  -0.239242   0.000000  -0.000000
+   60  CL 4  Z    0.169743  -0.000000  -0.000000   0.506175  -0.288004
+   61  CL 4 XX    0.219329  -0.000000  -0.000000   0.121286  -0.421063
+   62  CL 4 YY   -0.102119  -0.000000  -0.000000   0.161143  -0.005514
+   63  CL 4 ZZ   -0.117210  -0.000000  -0.000000  -0.282429   0.426576
+   64  CL 4 XY   -0.000000  -0.027277   0.489713   0.000000  -0.000000
+   65  CL 4 XZ   -0.046097  -0.000000  -0.000000  -0.202480   0.238614
+   66  CL 4 YZ   -0.000000  -0.444765   0.226899   0.000000  -0.000000
 
                      36         37         38         39         40
                     0.7471     0.7582     0.7582     0.7626     0.7654
                      E          E          E          A2         A1  
-    1  BI 1  S    0.000000   0.000000   0.000000   0.000000  -0.065299
-    2  BI 1  S    0.000000   0.000000   0.000000   0.000000  -0.164730
-    3  BI 1  S    0.000000   0.000000   0.000000   0.000000   0.178592
-    4  BI 1  X    0.000000   0.023274   0.000000   0.000000   0.000000
-    5  BI 1  Y   -0.028629   0.000000  -0.023274   0.000000   0.000000
-    6  BI 1  Z    0.000000   0.000000   0.000000   0.000000   0.009358
-    7  BI 1  X    0.000000   0.015128   0.000000   0.000000   0.000000
-    8  BI 1  Y   -0.069823   0.000000  -0.015128   0.000000   0.000000
-    9  BI 1  Z    0.000000   0.000000   0.000000   0.000000  -0.017513
-   10  BI 1  X    0.000000  -0.018052   0.000000   0.000000   0.000000
-   11  BI 1  Y    0.105370   0.000000   0.018052   0.000000   0.000000
-   12  BI 1  Z    0.000000   0.000000   0.000000   0.000000   0.086025
-   13  BI 1 XX    0.000000   0.031048   0.000000   0.000000   0.011005
-   14  BI 1 YY    0.000000  -0.031048   0.000000   0.000000   0.011005
-   15  BI 1 ZZ    0.000000   0.000000   0.000000   0.000000  -0.022010
-   16  BI 1 XY   -0.010901   0.000000   0.035851   0.000000   0.000000
-   17  BI 1 XZ    0.000000   0.015402   0.000000   0.000000   0.000000
-   18  BI 1 YZ    0.022774   0.000000  -0.015402   0.000000   0.000000
-   19  BI 1 XX    0.000000  -0.053786   0.000000   0.000000  -0.010620
-   20  BI 1 YY    0.000000   0.053786   0.000000   0.000000  -0.010620
-   21  BI 1 ZZ    0.000000   0.000000   0.000000   0.000000   0.021239
-   22  BI 1 XY    0.037731   0.000000  -0.062107   0.000000   0.000000
-   23  BI 1 XZ    0.000000  -0.032331   0.000000   0.000000   0.000000
-   24  BI 1 YZ   -0.089034   0.000000   0.032331   0.000000   0.000000
-   25  CL 2  S    0.003537  -0.002404  -0.004164   0.000000  -0.011658
-   26  CL 2  S    0.038684  -0.002956  -0.005120   0.000000   0.009474
+    1  BI 1  S    0.000000  -0.000000   0.000000  -0.000000  -0.065299
+    2  BI 1  S    0.000000  -0.000000   0.000000  -0.000000  -0.164730
+    3  BI 1  S    0.000000  -0.000000   0.000000  -0.000000   0.178592
+    4  BI 1  X    0.000000   0.023274   0.000000  -0.000000   0.000000
+    5  BI 1  Y   -0.028629  -0.000000  -0.023274  -0.000000   0.000000
+    6  BI 1  Z    0.000000  -0.000000   0.000000  -0.000000   0.009358
+    7  BI 1  X    0.000000   0.015128   0.000000  -0.000000   0.000000
+    8  BI 1  Y   -0.069823  -0.000000  -0.015128  -0.000000   0.000000
+    9  BI 1  Z    0.000000  -0.000000   0.000000  -0.000000  -0.017513
+   10  BI 1  X    0.000000  -0.018052   0.000000  -0.000000   0.000000
+   11  BI 1  Y    0.105370  -0.000000   0.018052  -0.000000   0.000000
+   12  BI 1  Z    0.000000  -0.000000   0.000000  -0.000000   0.086025
+   13  BI 1 XX    0.000000   0.031048   0.000000  -0.000000   0.011005
+   14  BI 1 YY    0.000000  -0.031048   0.000000  -0.000000   0.011005
+   15  BI 1 ZZ    0.000000  -0.000000   0.000000  -0.000000  -0.022010
+   16  BI 1 XY   -0.010901  -0.000000   0.035851  -0.000000   0.000000
+   17  BI 1 XZ    0.000000   0.015402   0.000000  -0.000000   0.000000
+   18  BI 1 YZ    0.022774  -0.000000  -0.015402  -0.000000   0.000000
+   19  BI 1 XX    0.000000  -0.053786   0.000000  -0.000000  -0.010620
+   20  BI 1 YY    0.000000   0.053786   0.000000  -0.000000  -0.010620
+   21  BI 1 ZZ    0.000000  -0.000000   0.000000  -0.000000   0.021239
+   22  BI 1 XY    0.037731  -0.000000  -0.062107  -0.000000   0.000000
+   23  BI 1 XZ    0.000000  -0.032331   0.000000  -0.000000   0.000000
+   24  BI 1 YZ   -0.089034  -0.000000   0.032331  -0.000000   0.000000
+   25  CL 2  S    0.003537  -0.002404  -0.004164  -0.000000  -0.011658
+   26  CL 2  S    0.038684  -0.002956  -0.005120  -0.000000   0.009474
    27  CL 2  X    0.096722   0.164516  -0.026579   0.159978  -0.004184
    28  CL 2  Y    0.158531   0.026579  -0.133825   0.092363   0.007247
-   29  CL 2  Z   -0.214000  -0.177983  -0.308276   0.000000   0.185718
+   29  CL 2  Z   -0.214000  -0.177983  -0.308276  -0.000000   0.185718
    30  CL 2  X   -0.116276  -0.163682   0.028913  -0.166233   0.007901
    31  CL 2  Y   -0.159456  -0.028913   0.130296  -0.095975  -0.013685
-   32  CL 2  Z    0.249419   0.184741   0.319981   0.000000  -0.201980
+   32  CL 2  Z    0.249419   0.184741   0.319981  -0.000000  -0.201980
    33  CL 2 XX   -0.076708  -0.297067  -0.017274  -0.130139   0.322358
    34  CL 2 YY    0.446134   0.246951  -0.069530   0.130139   0.087556
-   35  CL 2 ZZ   -0.369426   0.050116   0.086803   0.000000  -0.409914
+   35  CL 2 ZZ   -0.369426   0.050116   0.086803  -0.000000  -0.409914
    36  CL 2 XY   -0.065637   0.030170  -0.279251   0.086760   0.234802
    37  CL 2 XZ    0.117089  -0.164028   0.351561  -0.454832  -0.125578
    38  CL 2 YZ   -0.171013  -0.351561  -0.241920  -0.262598   0.217507
-   39  CL 3  S   -0.003537  -0.002404   0.004164   0.000000  -0.011658
-   40  CL 3  S   -0.038684  -0.002956   0.005120   0.000000   0.009474
+   39  CL 3  S   -0.003537  -0.002404   0.004164  -0.000000  -0.011658
+   40  CL 3  S   -0.038684  -0.002956   0.005120  -0.000000   0.009474
    41  CL 3  X   -0.096722   0.164516   0.026579  -0.159978  -0.004184
    42  CL 3  Y    0.158531  -0.026579  -0.133825   0.092363  -0.007247
-   43  CL 3  Z    0.214000  -0.177983   0.308276   0.000000   0.185718
+   43  CL 3  Z    0.214000  -0.177983   0.308276  -0.000000   0.185718
    44  CL 3  X    0.116276  -0.163682  -0.028913   0.166233   0.007901
    45  CL 3  Y   -0.159456   0.028913   0.130296  -0.095975   0.013685
-   46  CL 3  Z   -0.249419   0.184741  -0.319981   0.000000  -0.201980
+   46  CL 3  Z   -0.249419   0.184741  -0.319981  -0.000000  -0.201980
    47  CL 3 XX    0.076708  -0.297067   0.017274   0.130139   0.322358
    48  CL 3 YY   -0.446134   0.246951   0.069530  -0.130139   0.087556
-   49  CL 3 ZZ    0.369426   0.050116  -0.086803   0.000000  -0.409914
+   49  CL 3 ZZ    0.369426   0.050116  -0.086803  -0.000000  -0.409914
    50  CL 3 XY   -0.065637  -0.030170  -0.279251   0.086760  -0.234802
    51  CL 3 XZ   -0.117089  -0.164028  -0.351561   0.454832  -0.125578
    52  CL 3 YZ   -0.171013   0.351561  -0.241920  -0.262598  -0.217507
-   53  CL 4  S    0.000000   0.004809   0.000000   0.000000  -0.011658
-   54  CL 4  S    0.000000   0.005912   0.000000   0.000000   0.009474
-   55  CL 4  X    0.000000   0.118480   0.000000   0.000000   0.008368
-   56  CL 4  Y    0.326059   0.000000  -0.179861  -0.184726   0.000000
-   57  CL 4  Z    0.000000   0.355967   0.000000   0.000000   0.185718
-   58  CL 4  X    0.000000  -0.113604   0.000000   0.000000  -0.015802
-   59  CL 4  Y   -0.360852   0.000000   0.180375   0.191949   0.000000
-   60  CL 4  Z    0.000000  -0.369482   0.000000   0.000000  -0.201980
-   61  CL 4 XX    0.000000  -0.176638   0.000000   0.000000  -0.029845
-   62  CL 4 YY    0.000000   0.276870   0.000000   0.000000   0.439759
-   63  CL 4 ZZ    0.000000  -0.100232   0.000000   0.000000  -0.409914
-   64  CL 4 XY    0.457205   0.000000  -0.331507  -0.173519   0.000000
-   65  CL 4 XZ    0.000000   0.444894   0.000000   0.000000   0.251155
-   66  CL 4 YZ    0.031791   0.000000   0.367002   0.525195   0.000000
+   53  CL 4  S    0.000000   0.004809   0.000000  -0.000000  -0.011658
+   54  CL 4  S    0.000000   0.005912   0.000000  -0.000000   0.009474
+   55  CL 4  X    0.000000   0.118480   0.000000  -0.000000   0.008368
+   56  CL 4  Y    0.326059  -0.000000  -0.179861  -0.184726   0.000000
+   57  CL 4  Z    0.000000   0.355967   0.000000  -0.000000   0.185718
+   58  CL 4  X    0.000000  -0.113604   0.000000  -0.000000  -0.015802
+   59  CL 4  Y   -0.360852  -0.000000   0.180375   0.191949   0.000000
+   60  CL 4  Z    0.000000  -0.369482   0.000000  -0.000000  -0.201980
+   61  CL 4 XX    0.000000  -0.176638   0.000000  -0.000000  -0.029845
+   62  CL 4 YY    0.000000   0.276870   0.000000  -0.000000   0.439759
+   63  CL 4 ZZ    0.000000  -0.100232   0.000000  -0.000000  -0.409914
+   64  CL 4 XY    0.457205  -0.000000  -0.331507  -0.173519   0.000000
+   65  CL 4 XZ    0.000000   0.444894   0.000000  -0.000000   0.251155
+   66  CL 4 YZ    0.031791  -0.000000   0.367002   0.525195   0.000000
 
                      41         42         43         44         45
                     0.7709     0.7709     0.8281     0.8281     0.8412
                      E          E          E          E          A2  
-    1  BI 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
-    2  BI 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
-    3  BI 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
-    4  BI 1  X   -0.009701   0.000000   0.028573   0.000000   0.000000
-    5  BI 1  Y    0.000000   0.009701   0.000000  -0.028573   0.000000
-    6  BI 1  Z    0.000000   0.000000   0.000000   0.000000   0.000000
-    7  BI 1  X    0.002438   0.000000   0.112773   0.000000   0.000000
-    8  BI 1  Y    0.000000  -0.002438   0.000000  -0.112773   0.000000
-    9  BI 1  Z    0.000000   0.000000   0.000000   0.000000   0.000000
-   10  BI 1  X   -0.032179   0.000000   0.143769   0.000000   0.000000
-   11  BI 1  Y    0.000000   0.032179   0.000000  -0.143769   0.000000
-   12  BI 1  Z    0.000000   0.000000   0.000000   0.000000   0.000000
-   13  BI 1 XX   -0.018038   0.000000  -0.089913   0.000000   0.000000
-   14  BI 1 YY    0.018038   0.000000   0.089913   0.000000   0.000000
-   15  BI 1 ZZ    0.000000   0.000000   0.000000   0.000000   0.000000
-   16  BI 1 XY    0.000000  -0.020829   0.000000  -0.103823   0.000000
-   17  BI 1 XZ   -0.003712   0.000000  -0.151741   0.000000   0.000000
-   18  BI 1 YZ    0.000000   0.003712   0.000000   0.151741   0.000000
-   19  BI 1 XX    0.016465   0.000000   0.196070   0.000000   0.000000
-   20  BI 1 YY   -0.016465   0.000000  -0.196070   0.000000   0.000000
-   21  BI 1 ZZ    0.000000   0.000000   0.000000   0.000000   0.000000
-   22  BI 1 XY    0.000000   0.019012   0.000000   0.226402   0.000000
-   23  BI 1 XZ    0.031240   0.000000   0.364556   0.000000   0.000000
-   24  BI 1 YZ    0.000000  -0.031240   0.000000  -0.364556   0.000000
-   25  CL 2  S    0.004505   0.007802  -0.005066  -0.008774   0.000000
-   26  CL 2  S    0.004842   0.008387   0.039583   0.068560   0.000000
+    1  BI 1  S    0.000000  -0.000000   0.000000  -0.000000  -0.000000
+    2  BI 1  S    0.000000  -0.000000   0.000000  -0.000000  -0.000000
+    3  BI 1  S    0.000000  -0.000000   0.000000  -0.000000  -0.000000
+    4  BI 1  X   -0.009701  -0.000000   0.028573  -0.000000  -0.000000
+    5  BI 1  Y    0.000000   0.009701   0.000000  -0.028573  -0.000000
+    6  BI 1  Z    0.000000  -0.000000   0.000000  -0.000000  -0.000000
+    7  BI 1  X    0.002438  -0.000000   0.112773  -0.000000  -0.000000
+    8  BI 1  Y    0.000000  -0.002438   0.000000  -0.112773  -0.000000
+    9  BI 1  Z    0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   10  BI 1  X   -0.032179  -0.000000   0.143769  -0.000000  -0.000000
+   11  BI 1  Y    0.000000   0.032179   0.000000  -0.143769  -0.000000
+   12  BI 1  Z    0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   13  BI 1 XX   -0.018038  -0.000000  -0.089913  -0.000000  -0.000000
+   14  BI 1 YY    0.018038  -0.000000   0.089913  -0.000000  -0.000000
+   15  BI 1 ZZ    0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   16  BI 1 XY    0.000000  -0.020829   0.000000  -0.103823  -0.000000
+   17  BI 1 XZ   -0.003712  -0.000000  -0.151741  -0.000000  -0.000000
+   18  BI 1 YZ    0.000000   0.003712   0.000000   0.151741  -0.000000
+   19  BI 1 XX    0.016465  -0.000000   0.196070  -0.000000  -0.000000
+   20  BI 1 YY   -0.016465  -0.000000  -0.196070  -0.000000  -0.000000
+   21  BI 1 ZZ    0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   22  BI 1 XY    0.000000   0.019012   0.000000   0.226402  -0.000000
+   23  BI 1 XZ    0.031240  -0.000000   0.364556  -0.000000  -0.000000
+   24  BI 1 YZ    0.000000  -0.031240   0.000000  -0.364556  -0.000000
+   25  CL 2  S    0.004505   0.007802  -0.005066  -0.008774  -0.000000
+   26  CL 2  S    0.004842   0.008387   0.039583   0.068560  -0.000000
    27  CL 2  X   -0.149273   0.101825   0.161015  -0.194480   0.503342
    28  CL 2  Y   -0.101825   0.031696   0.194480   0.063551   0.290605
-   29  CL 2  Z    0.140927   0.244093   0.333688   0.577964   0.000000
+   29  CL 2  Z    0.140927   0.244093   0.333688   0.577964  -0.000000
    30  CL 2  X    0.153002  -0.111812  -0.208728   0.180984  -0.550668
    31  CL 2  Y    0.111812  -0.023893  -0.180984  -0.000255  -0.317928
-   32  CL 2  Z   -0.144681  -0.250596  -0.351685  -0.609136   0.000000
+   32  CL 2  Z   -0.144681  -0.250596  -0.351685  -0.609136  -0.000000
    33  CL 2 XX   -0.123746  -0.433742   0.042789   0.040370   0.192710
    34  CL 2 YY   -0.121163   0.009547   0.082592   0.176796  -0.192710
-   35  CL 2 ZZ    0.244909   0.424195  -0.125381  -0.217166   0.000000
+   35  CL 2 ZZ    0.244909   0.424195  -0.125381  -0.217166  -0.000000
    36  CL 2 XY   -0.255933  -0.297018  -0.078766  -0.113931  -0.128474
    37  CL 2 XZ    0.243882  -0.024603  -0.209292   0.188407   0.067821
    38  CL 2 YZ    0.024603  -0.215473  -0.188407  -0.008261   0.039157
-   39  CL 3  S    0.004505  -0.007802  -0.005066   0.008774   0.000000
-   40  CL 3  S    0.004842  -0.008387   0.039583  -0.068560   0.000000
+   39  CL 3  S    0.004505  -0.007802  -0.005066   0.008774  -0.000000
+   40  CL 3  S    0.004842  -0.008387   0.039583  -0.068560  -0.000000
    41  CL 3  X   -0.149273  -0.101825   0.161015   0.194480  -0.503342
    42  CL 3  Y    0.101825   0.031696  -0.194480   0.063551   0.290605
-   43  CL 3  Z    0.140927  -0.244093   0.333688  -0.577964   0.000000
+   43  CL 3  Z    0.140927  -0.244093   0.333688  -0.577964  -0.000000
    44  CL 3  X    0.153002   0.111812  -0.208728  -0.180984   0.550668
    45  CL 3  Y   -0.111812  -0.023893   0.180984  -0.000255  -0.317928
-   46  CL 3  Z   -0.144681   0.250596  -0.351685   0.609136   0.000000
+   46  CL 3  Z   -0.144681   0.250596  -0.351685   0.609136  -0.000000
    47  CL 3 XX   -0.123746   0.433742   0.042789  -0.040370  -0.192710
    48  CL 3 YY   -0.121163  -0.009547   0.082592  -0.176796   0.192710
-   49  CL 3 ZZ    0.244909  -0.424195  -0.125381   0.217166   0.000000
+   49  CL 3 ZZ    0.244909  -0.424195  -0.125381   0.217166  -0.000000
    50  CL 3 XY    0.255933  -0.297018   0.078766  -0.113931  -0.128474
    51  CL 3 XZ    0.243882   0.024603  -0.209292  -0.188407  -0.067821
    52  CL 3 YZ   -0.024603  -0.215473   0.188407  -0.008261   0.039157
-   53  CL 4  S   -0.009009   0.000000   0.010132   0.000000   0.000000
-   54  CL 4  S   -0.009684   0.000000  -0.079167   0.000000   0.000000
-   55  CL 4  X    0.027093   0.000000  -0.175834   0.000000   0.000000
+   53  CL 4  S   -0.009009  -0.000000   0.010132  -0.000000  -0.000000
+   54  CL 4  S   -0.009684  -0.000000  -0.079167  -0.000000  -0.000000
+   55  CL 4  X    0.027093  -0.000000  -0.175834  -0.000000  -0.000000
    56  CL 4  Y    0.000000   0.208062   0.000000  -0.273298  -0.581210
-   57  CL 4  Z   -0.281855   0.000000  -0.667376   0.000000   0.000000
-   58  CL 4  X   -0.040662   0.000000   0.104746   0.000000   0.000000
+   57  CL 4  Z   -0.281855  -0.000000  -0.667376  -0.000000  -0.000000
+   58  CL 4  X   -0.040662  -0.000000   0.104746  -0.000000  -0.000000
    59  CL 4  Y    0.000000  -0.217557   0.000000   0.313219   0.635857
-   60  CL 4  Z    0.289363   0.000000   0.703370   0.000000   0.000000
-   61  CL 4 XX   -0.140282   0.000000  -0.263431   0.000000   0.000000
-   62  CL 4 YY    0.630101   0.000000   0.012669   0.000000   0.000000
-   63  CL 4 ZZ   -0.489819   0.000000   0.250762   0.000000   0.000000
+   60  CL 4  Z    0.289363  -0.000000   0.703370  -0.000000  -0.000000
+   61  CL 4 XX   -0.140282  -0.000000  -0.263431  -0.000000  -0.000000
+   62  CL 4 YY    0.630101  -0.000000   0.012669  -0.000000  -0.000000
+   63  CL 4 ZZ   -0.489819  -0.000000   0.250762  -0.000000  -0.000000
    64  CL 4 XY    0.000000   0.146272   0.000000   0.022495   0.256947
-   65  CL 4 XZ    0.201268   0.000000   0.117038   0.000000   0.000000
+   65  CL 4 XZ    0.201268  -0.000000   0.117038  -0.000000  -0.000000
    66  CL 4 YZ    0.000000  -0.258086   0.000000   0.318069  -0.078313
 
                      46         47         48         49         50
                     0.8658     0.8952     0.8952     0.9286     0.9286
                      A1         E          E          E          E   
-    1  BI 1  S   -0.384173   0.000000   0.000000   0.000000   0.000000
-    2  BI 1  S   -1.315255   0.000000   0.000000   0.000000   0.000000
-    3  BI 1  S    1.633310   0.000000   0.000000   0.000000   0.000000
-    4  BI 1  X    0.000000  -0.010174   0.000000   0.226610   0.000000
-    5  BI 1  Y    0.000000   0.000000  -0.010174   0.000000   0.226610
-    6  BI 1  Z   -0.154428   0.000000   0.000000   0.000000   0.000000
-    7  BI 1  X    0.000000  -0.231729   0.000000   0.711752   0.000000
-    8  BI 1  Y    0.000000   0.000000  -0.231729   0.000000   0.711752
-    9  BI 1  Z   -0.477991   0.000000   0.000000   0.000000   0.000000
-   10  BI 1  X    0.000000   0.537870   0.000000  -0.212282   0.000000
-   11  BI 1  Y    0.000000   0.000000   0.537870   0.000000  -0.212282
-   12  BI 1  Z    0.021453   0.000000   0.000000   0.000000   0.000000
-   13  BI 1 XX   -0.004280   0.181551   0.000000  -0.014739   0.000000
-   14  BI 1 YY   -0.004280  -0.181551   0.000000   0.014739   0.000000
-   15  BI 1 ZZ    0.008560   0.000000   0.000000   0.000000   0.000000
-   16  BI 1 XY    0.000000   0.000000  -0.209637   0.000000   0.017019
-   17  BI 1 XZ    0.000000   0.102753   0.000000   0.086658   0.000000
-   18  BI 1 YZ    0.000000   0.000000   0.102753   0.000000   0.086658
-   19  BI 1 XX    0.042713  -0.504318   0.000000  -0.098146   0.000000
-   20  BI 1 YY    0.042713   0.504318   0.000000   0.098146   0.000000
-   21  BI 1 ZZ   -0.085426   0.000000   0.000000   0.000000   0.000000
-   22  BI 1 XY    0.000000   0.000000   0.582336   0.000000   0.113329
-   23  BI 1 XZ    0.000000  -0.245072   0.000000  -0.447772   0.000000
-   24  BI 1 YZ    0.000000   0.000000  -0.245072   0.000000  -0.447772
+    1  BI 1  S   -0.384173   0.000000   0.000000  -0.000000  -0.000000
+    2  BI 1  S   -1.315255   0.000000   0.000000  -0.000000  -0.000000
+    3  BI 1  S    1.633310   0.000000   0.000000  -0.000000  -0.000000
+    4  BI 1  X   -0.000000  -0.010174   0.000000   0.226610  -0.000000
+    5  BI 1  Y   -0.000000   0.000000  -0.010174  -0.000000   0.226610
+    6  BI 1  Z   -0.154428   0.000000   0.000000  -0.000000  -0.000000
+    7  BI 1  X   -0.000000  -0.231729   0.000000   0.711752  -0.000000
+    8  BI 1  Y   -0.000000   0.000000  -0.231729  -0.000000   0.711752
+    9  BI 1  Z   -0.477991   0.000000   0.000000  -0.000000  -0.000000
+   10  BI 1  X   -0.000000   0.537870   0.000000  -0.212282  -0.000000
+   11  BI 1  Y   -0.000000   0.000000   0.537870  -0.000000  -0.212282
+   12  BI 1  Z    0.021453   0.000000   0.000000  -0.000000  -0.000000
+   13  BI 1 XX   -0.004280   0.181551   0.000000  -0.014739  -0.000000
+   14  BI 1 YY   -0.004280  -0.181551   0.000000   0.014739  -0.000000
+   15  BI 1 ZZ    0.008560   0.000000   0.000000  -0.000000  -0.000000
+   16  BI 1 XY   -0.000000   0.000000  -0.209637  -0.000000   0.017019
+   17  BI 1 XZ   -0.000000   0.102753   0.000000   0.086658  -0.000000
+   18  BI 1 YZ   -0.000000   0.000000   0.102753  -0.000000   0.086658
+   19  BI 1 XX    0.042713  -0.504318   0.000000  -0.098146  -0.000000
+   20  BI 1 YY    0.042713   0.504318   0.000000   0.098146  -0.000000
+   21  BI 1 ZZ   -0.085426   0.000000   0.000000  -0.000000  -0.000000
+   22  BI 1 XY   -0.000000   0.000000   0.582336  -0.000000   0.113329
+   23  BI 1 XZ   -0.000000  -0.245072   0.000000  -0.447772  -0.000000
+   24  BI 1 YZ   -0.000000   0.000000  -0.245072  -0.000000  -0.447772
    25  CL 2  S   -0.363043  -0.072188   0.125034  -0.196499   0.340346
    26  CL 2  S    0.189738  -0.084799   0.146877   0.136375  -0.236208
    27  CL 2  X   -0.137254   0.311384  -0.192564  -0.059300   0.150838
@@ -1800,48 +1895,48 @@ The dynamically linked libraries for this binary are
    50  CL 3 XY   -0.239430  -0.014608  -0.072805  -0.129835  -0.413980
    51  CL 3 XZ    0.131820   0.280339   0.002953   0.097373   0.205508
    52  CL 3 YZ    0.228319   0.002953   0.283748   0.205508   0.334673
-   53  CL 4  S   -0.363043   0.144377   0.000000   0.392998   0.000000
-   54  CL 4  S    0.189738   0.169598   0.000000  -0.272749   0.000000
-   55  CL 4  X    0.274508   0.644914   0.000000  -0.320560   0.000000
-   56  CL 4  Y    0.000000   0.000000   0.200208   0.000000   0.027786
-   57  CL 4  Z    0.151512  -0.191974   0.000000  -0.060273   0.000000
-   58  CL 4  X   -0.485980  -0.509483   0.000000   0.577715   0.000000
-   59  CL 4  Y    0.000000   0.000000  -0.218618   0.000000  -0.040913
-   60  CL 4  Z   -0.275999   0.384365   0.000000   0.143634   0.000000
-   61  CL 4 XX   -0.292405  -0.054554   0.000000   0.529730   0.000000
-   62  CL 4 YY    0.186456  -0.195263   0.000000  -0.317139   0.000000
-   63  CL 4 ZZ    0.105949   0.249817   0.000000  -0.212591   0.000000
-   64  CL 4 XY    0.000000   0.000000  -0.047503   0.000000  -0.189100
-   65  CL 4 XZ   -0.263640   0.285453   0.000000   0.453322   0.000000
-   66  CL 4 YZ    0.000000   0.000000   0.278634   0.000000  -0.021277
+   53  CL 4  S   -0.363043   0.144377   0.000000   0.392998  -0.000000
+   54  CL 4  S    0.189738   0.169598   0.000000  -0.272749  -0.000000
+   55  CL 4  X    0.274508   0.644914   0.000000  -0.320560  -0.000000
+   56  CL 4  Y   -0.000000   0.000000   0.200208  -0.000000   0.027786
+   57  CL 4  Z    0.151512  -0.191974   0.000000  -0.060273  -0.000000
+   58  CL 4  X   -0.485980  -0.509483   0.000000   0.577715  -0.000000
+   59  CL 4  Y   -0.000000   0.000000  -0.218618  -0.000000  -0.040913
+   60  CL 4  Z   -0.275999   0.384365   0.000000   0.143634  -0.000000
+   61  CL 4 XX   -0.292405  -0.054554   0.000000   0.529730  -0.000000
+   62  CL 4 YY    0.186456  -0.195263   0.000000  -0.317139  -0.000000
+   63  CL 4 ZZ    0.105949   0.249817   0.000000  -0.212591  -0.000000
+   64  CL 4 XY   -0.000000   0.000000  -0.047503  -0.000000  -0.189100
+   65  CL 4 XZ   -0.263640   0.285453   0.000000   0.453322  -0.000000
+   66  CL 4 YZ   -0.000000   0.000000   0.278634  -0.000000  -0.021277
 
                      51         52         53         54         55
                     0.9737     0.9918     0.9918     1.0851     1.7004
                      A1         E          E          A1         E   
-    1  BI 1  S    0.505120   0.000000   0.000000   0.937333   0.000000
-    2  BI 1  S    1.126116   0.000000   0.000000   2.013812   0.000000
-    3  BI 1  S   -0.770465   0.000000   0.000000  -1.229263   0.000000
+    1  BI 1  S    0.505120  -0.000000   0.000000   0.937333  -0.000000
+    2  BI 1  S    1.126116  -0.000000   0.000000   2.013812  -0.000000
+    3  BI 1  S   -0.770465  -0.000000   0.000000  -1.229263  -0.000000
     4  BI 1  X    0.000000  -0.088132   0.000000   0.000000   0.094263
-    5  BI 1  Y    0.000000   0.000000   0.088132   0.000000   0.000000
-    6  BI 1  Z   -0.029437   0.000000   0.000000  -0.125441   0.000000
+    5  BI 1  Y    0.000000  -0.000000   0.088132   0.000000  -0.000000
+    6  BI 1  Z   -0.029437  -0.000000   0.000000  -0.125441  -0.000000
     7  BI 1  X    0.000000  -0.468460   0.000000   0.000000   0.078988
-    8  BI 1  Y    0.000000   0.000000   0.468460   0.000000   0.000000
-    9  BI 1  Z    0.030256   0.000000   0.000000  -0.553995   0.000000
+    8  BI 1  Y    0.000000  -0.000000   0.468460   0.000000  -0.000000
+    9  BI 1  Z    0.030256  -0.000000   0.000000  -0.553995  -0.000000
    10  BI 1  X    0.000000   0.700748   0.000000   0.000000   1.244648
-   11  BI 1  Y    0.000000   0.000000  -0.700748   0.000000   0.000000
-   12  BI 1  Z   -0.396553   0.000000   0.000000   0.632036   0.000000
+   11  BI 1  Y    0.000000  -0.000000  -0.700748   0.000000  -0.000000
+   12  BI 1  Z   -0.396553  -0.000000   0.000000   0.632036  -0.000000
    13  BI 1 XX    0.119798  -0.133511   0.000000  -0.046169   0.079652
    14  BI 1 YY    0.119798   0.133511   0.000000  -0.046169  -0.079652
-   15  BI 1 ZZ   -0.239596   0.000000   0.000000   0.092338   0.000000
-   16  BI 1 XY    0.000000   0.000000  -0.154165   0.000000   0.000000
+   15  BI 1 ZZ   -0.239596  -0.000000   0.000000   0.092338  -0.000000
+   16  BI 1 XY    0.000000  -0.000000  -0.154165   0.000000  -0.000000
    17  BI 1 XZ    0.000000   0.207376   0.000000   0.000000   0.148879
-   18  BI 1 YZ    0.000000   0.000000  -0.207376   0.000000   0.000000
+   18  BI 1 YZ    0.000000  -0.000000  -0.207376   0.000000  -0.000000
    19  BI 1 XX   -0.368474   0.488661   0.000000   0.172371  -0.504519
    20  BI 1 YY   -0.368474  -0.488661   0.000000   0.172371   0.504519
-   21  BI 1 ZZ    0.736948   0.000000   0.000000  -0.344742   0.000000
-   22  BI 1 XY    0.000000   0.000000   0.564257   0.000000   0.000000
+   21  BI 1 ZZ    0.736948  -0.000000   0.000000  -0.344742  -0.000000
+   22  BI 1 XY    0.000000  -0.000000   0.564257   0.000000  -0.000000
    23  BI 1 XZ    0.000000  -0.565942   0.000000   0.000000  -0.795331
-   24  BI 1 YZ    0.000000   0.000000   0.565942   0.000000   0.000000
+   24  BI 1 YZ    0.000000  -0.000000   0.565942   0.000000  -0.000000
    25  CL 2  S    0.092856  -0.011237  -0.019463   0.305971   0.541416
    26  CL 2  S   -0.060898  -0.079575  -0.137828  -0.161234  -0.987069
    27  CL 2  X   -0.096425   0.387566  -0.083548  -0.062866   0.001685
@@ -1873,45 +1968,45 @@ The dynamically linked libraries for this binary are
    53  CL 4  S    0.092856   0.022474   0.000000   0.305971  -1.082832
    54  CL 4  S   -0.060898   0.159150   0.000000  -0.161234   1.974138
    55  CL 4  X    0.192850   0.242856   0.000000   0.125732  -0.177070
-   56  CL 4  Y    0.000000   0.000000  -0.435802   0.000000   0.000000
+   56  CL 4  Y    0.000000  -0.000000  -0.435802   0.000000  -0.000000
    57  CL 4  Z   -0.203584   0.129092   0.000000   0.269432  -0.128698
    58  CL 4  X   -0.233743  -0.181720   0.000000  -0.014578   0.783294
-   59  CL 4  Y    0.000000   0.000000   0.707354   0.000000   0.000000
+   59  CL 4  Y    0.000000  -0.000000   0.707354   0.000000  -0.000000
    60  CL 4  Z    0.377683  -0.160054   0.000000  -0.357215   0.508112
    61  CL 4 XX   -0.404421   0.058769   0.000000  -0.021173   0.221090
    62  CL 4 YY    0.137910   0.151562   0.000000   0.097883  -0.177995
    63  CL 4 ZZ    0.266511  -0.210331   0.000000  -0.076710  -0.043095
-   64  CL 4 XY    0.000000   0.000000   0.532348   0.000000   0.000000
+   64  CL 4 XY    0.000000  -0.000000   0.532348   0.000000  -0.000000
    65  CL 4 XZ    0.223880  -0.187809   0.000000  -0.295817   0.269506
-   66  CL 4 YZ    0.000000   0.000000   0.275186   0.000000   0.000000
+   66  CL 4 YZ    0.000000  -0.000000   0.275186   0.000000  -0.000000
 
                      56         57         58         59         60
                     1.7004     1.8913     5.9919     5.9919     5.9942
                      E          A1         E          E          A1  
-    1  BI 1  S    0.000000  -0.899363   0.000000   0.000000  -0.003017
-    2  BI 1  S    0.000000  -3.046574   0.000000   0.000000  -0.009559
-    3  BI 1  S    0.000000   3.674607   0.000000   0.000000   0.019906
-    4  BI 1  X    0.000000   0.000000   0.954729   0.000000   0.000000
-    5  BI 1  Y   -0.094263   0.000000   0.000000   0.954729   0.000000
-    6  BI 1  Z    0.000000  -0.051883   0.000000   0.000000   0.955951
-    7  BI 1  X    0.000000   0.000000  -0.127554   0.000000   0.000000
-    8  BI 1  Y   -0.078988   0.000000   0.000000  -0.127554   0.000000
-    9  BI 1  Z    0.000000   0.032295   0.000000   0.000000  -0.123673
-   10  BI 1  X    0.000000   0.000000   0.052884   0.000000   0.000000
-   11  BI 1  Y   -1.244648   0.000000   0.000000   0.052884   0.000000
-   12  BI 1  Z    0.000000  -1.093056   0.000000   0.000000   0.056171
-   13  BI 1 XX    0.000000   0.003634  -0.000915   0.000000   0.001087
-   14  BI 1 YY    0.000000   0.003634   0.000915   0.000000   0.001087
-   15  BI 1 ZZ    0.000000  -0.007269   0.000000   0.000000  -0.002174
-   16  BI 1 XY    0.091974   0.000000   0.000000   0.001057   0.000000
-   17  BI 1 XZ    0.000000   0.000000  -0.003281   0.000000   0.000000
-   18  BI 1 YZ   -0.148879   0.000000   0.000000  -0.003281   0.000000
-   19  BI 1 XX    0.000000   0.031194   0.007645   0.000000   0.001817
-   20  BI 1 YY    0.000000   0.031194  -0.007645   0.000000   0.001817
-   21  BI 1 ZZ    0.000000  -0.062389   0.000000   0.000000  -0.003634
-   22  BI 1 XY   -0.582568   0.000000   0.000000  -0.008828   0.000000
-   23  BI 1 XZ    0.000000   0.000000   0.008430   0.000000   0.000000
-   24  BI 1 YZ    0.795331   0.000000   0.000000   0.008430   0.000000
+    1  BI 1  S    0.000000  -0.899363  -0.000000  -0.000000  -0.003017
+    2  BI 1  S    0.000000  -3.046574  -0.000000  -0.000000  -0.009559
+    3  BI 1  S    0.000000   3.674607  -0.000000  -0.000000   0.019906
+    4  BI 1  X    0.000000  -0.000000   0.954729  -0.000000  -0.000000
+    5  BI 1  Y   -0.094263  -0.000000  -0.000000   0.954729  -0.000000
+    6  BI 1  Z    0.000000  -0.051883  -0.000000  -0.000000   0.955951
+    7  BI 1  X    0.000000  -0.000000  -0.127554  -0.000000  -0.000000
+    8  BI 1  Y   -0.078988  -0.000000  -0.000000  -0.127554  -0.000000
+    9  BI 1  Z    0.000000   0.032295  -0.000000  -0.000000  -0.123673
+   10  BI 1  X    0.000000  -0.000000   0.052884  -0.000000  -0.000000
+   11  BI 1  Y   -1.244648  -0.000000  -0.000000   0.052884  -0.000000
+   12  BI 1  Z    0.000000  -1.093056  -0.000000  -0.000000   0.056171
+   13  BI 1 XX    0.000000   0.003634  -0.000915  -0.000000   0.001087
+   14  BI 1 YY    0.000000   0.003634   0.000915  -0.000000   0.001087
+   15  BI 1 ZZ    0.000000  -0.007269  -0.000000  -0.000000  -0.002174
+   16  BI 1 XY    0.091974  -0.000000  -0.000000   0.001057  -0.000000
+   17  BI 1 XZ    0.000000  -0.000000  -0.003281  -0.000000  -0.000000
+   18  BI 1 YZ   -0.148879  -0.000000  -0.000000  -0.003281  -0.000000
+   19  BI 1 XX    0.000000   0.031194   0.007645  -0.000000   0.001817
+   20  BI 1 YY    0.000000   0.031194  -0.007645  -0.000000   0.001817
+   21  BI 1 ZZ    0.000000  -0.062389  -0.000000  -0.000000  -0.003634
+   22  BI 1 XY   -0.582568  -0.000000  -0.000000  -0.008828  -0.000000
+   23  BI 1 XZ    0.000000  -0.000000   0.008430  -0.000000  -0.000000
+   24  BI 1 YZ    0.795331  -0.000000  -0.000000   0.008430  -0.000000
    25  CL 2  S    0.937760   0.684607  -0.001902   0.003294   0.002040
    26  CL 2  S   -1.709654  -1.340216   0.002240  -0.003879  -0.001641
    27  CL 2  X   -0.103204  -0.072446   0.002130  -0.000816  -0.000570
@@ -1940,20 +2035,20 @@ The dynamically linked libraries for this binary are
    50  CL 3 XY    0.197463  -0.136229   0.003358   0.007102  -0.004495
    51  CL 3 XZ   -0.123766   0.045985  -0.002377  -0.004728   0.002386
    52  CL 3 YZ   -0.198050   0.079649  -0.004728  -0.007836   0.004133
-   53  CL 4  S    0.000000   0.684607   0.003803   0.000000   0.002040
-   54  CL 4  S    0.000000  -1.340216  -0.004480   0.000000  -0.001641
-   55  CL 4  X    0.000000   0.144893   0.003544   0.000000   0.001139
-   56  CL 4  Y   -0.061271   0.000000   0.000000   0.001659   0.000000
-   57  CL 4  Z    0.000000   0.020024   0.000912   0.000000   0.002223
-   58  CL 4  X    0.000000  -0.678100  -0.017949   0.000000  -0.006217
-   59  CL 4  Y    0.193546   0.000000   0.000000  -0.005646   0.000000
-   60  CL 4  Z    0.000000  -0.183175  -0.006618   0.000000  -0.009176
-   61  CL 4 XX    0.000000  -0.177890  -0.008644   0.000000  -0.005440
-   62  CL 4 YY    0.000000   0.094567   0.007016   0.000000   0.003550
-   63  CL 4 ZZ    0.000000   0.083323   0.001627   0.000000   0.001890
-   64  CL 4 XY    0.098618   0.000000   0.000000   0.001285   0.000000
-   65  CL 4 XZ    0.000000  -0.091971  -0.010565   0.000000  -0.004772
-   66  CL 4 YZ    0.016319   0.000000   0.000000   0.000353   0.000000
+   53  CL 4  S    0.000000   0.684607   0.003803  -0.000000   0.002040
+   54  CL 4  S    0.000000  -1.340216  -0.004480  -0.000000  -0.001641
+   55  CL 4  X    0.000000   0.144893   0.003544  -0.000000   0.001139
+   56  CL 4  Y   -0.061271  -0.000000  -0.000000   0.001659  -0.000000
+   57  CL 4  Z    0.000000   0.020024   0.000912  -0.000000   0.002223
+   58  CL 4  X    0.000000  -0.678100  -0.017949  -0.000000  -0.006217
+   59  CL 4  Y    0.193546  -0.000000  -0.000000  -0.005646  -0.000000
+   60  CL 4  Z    0.000000  -0.183175  -0.006618  -0.000000  -0.009176
+   61  CL 4 XX    0.000000  -0.177890  -0.008644  -0.000000  -0.005440
+   62  CL 4 YY    0.000000   0.094567   0.007016  -0.000000   0.003550
+   63  CL 4 ZZ    0.000000   0.083323   0.001627  -0.000000   0.001890
+   64  CL 4 XY    0.098618  -0.000000  -0.000000   0.001285  -0.000000
+   65  CL 4 XZ    0.000000  -0.091971  -0.010565  -0.000000  -0.004772
+   66  CL 4 YZ    0.016319  -0.000000  -0.000000   0.000353  -0.000000
 
                      61
                    15.1382
@@ -1961,27 +2056,27 @@ The dynamically linked libraries for this binary are
     1  BI 1  S    0.768330
     2  BI 1  S   -0.698578
     3  BI 1  S    0.703017
-    4  BI 1  X    0.000000
-    5  BI 1  Y    0.000000
+    4  BI 1  X   -0.000000
+    5  BI 1  Y   -0.000000
     6  BI 1  Z    0.000881
-    7  BI 1  X    0.000000
-    8  BI 1  Y    0.000000
+    7  BI 1  X   -0.000000
+    8  BI 1  Y   -0.000000
     9  BI 1  Z    0.027048
-   10  BI 1  X    0.000000
-   11  BI 1  Y    0.000000
+   10  BI 1  X   -0.000000
+   11  BI 1  Y   -0.000000
    12  BI 1  Z   -0.170772
    13  BI 1 XX   -0.000495
    14  BI 1 YY   -0.000495
    15  BI 1 ZZ    0.000991
-   16  BI 1 XY    0.000000
-   17  BI 1 XZ    0.000000
-   18  BI 1 YZ    0.000000
+   16  BI 1 XY   -0.000000
+   17  BI 1 XZ   -0.000000
+   18  BI 1 YZ   -0.000000
    19  BI 1 XX    0.006352
    20  BI 1 YY    0.006352
    21  BI 1 ZZ   -0.012705
-   22  BI 1 XY    0.000000
-   23  BI 1 XZ    0.000000
-   24  BI 1 YZ    0.000000
+   22  BI 1 XY   -0.000000
+   23  BI 1 XZ   -0.000000
+   24  BI 1 YZ   -0.000000
    25  CL 2  S    0.039004
    26  CL 2  S   -0.144054
    27  CL 2  X   -0.005263
@@ -2013,20 +2108,20 @@ The dynamically linked libraries for this binary are
    53  CL 4  S    0.039004
    54  CL 4  S   -0.144054
    55  CL 4  X    0.010525
-   56  CL 4  Y    0.000000
+   56  CL 4  Y   -0.000000
    57  CL 4  Z   -0.001853
    58  CL 4  X   -0.094610
-   59  CL 4  Y    0.000000
+   59  CL 4  Y   -0.000000
    60  CL 4  Z   -0.024344
    61  CL 4 XX   -0.015963
    62  CL 4 YY    0.007934
    63  CL 4 ZZ    0.008029
-   64  CL 4 XY    0.000000
+   64  CL 4 XY   -0.000000
    65  CL 4 XZ   -0.007518
-   66  CL 4 YZ    0.000000
+   66  CL 4 YZ   -0.000000
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.04 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    83.01%
+ STEP CPU TIME =     0.03 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    77.86%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -2207,19 +2302,19 @@ The dynamically linked libraries for this binary are
           ---------------------
 
  POINT   1           X           Y           Z (BOHR)    CHARGE
-                 0.000000   -0.000000    0.000000       -0.00 (A.U.)
+                 0.000000   -0.000000    0.000000        0.00 (A.U.)
          DX          DY          DZ         /D/  (DEBYE)
-     0.000000    0.000000    4.692745    4.692745
+    -0.000000   -0.000000    4.692745    4.692745
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    83.34%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    78.05%
 
  BEGINNING ONE ELECTRON GRADIENT...
- TIME TO DO ORDINARY GRADIENT INTEGRALS=      0.01
- TIME TO DO      MCP GRADIENT INTEGRALS=      0.29
+ TIME TO DO ORDINARY GRADIENT INTEGRALS=      0.00
+ TIME TO DO      MCP GRADIENT INTEGRALS=      0.11
  ..... END OF 1-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.30 TOTAL CPU TIME=          0.5 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.5 SECONDS, CPU UTILIZATION IS    91.29%
+ STEP CPU TIME =     0.12 TOTAL CPU TIME =          0.2 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    87.54%
 
           ----------------------
           GRADIENT OF THE ENERGY
@@ -2230,8 +2325,8 @@ The dynamically linked libraries for this binary are
  THE COARSE/FINE SCHWARZ SCREENINGS SKIPPED            0/           0 BLOCKS.
  THE NUMBER OF GRADIENT INTEGRAL BLOCKS COMPUTED WAS      8180
  ...... END OF 2-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.15 TOTAL CPU TIME=          0.6 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.7 SECONDS, CPU UTILIZATION IS    93.18%
+ STEP CPU TIME =     0.28 TOTAL CPU TIME =          0.5 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.5 SECONDS, CPU UTILIZATION IS    94.09%
 
           NSERCH=  0     ENERGY=    -116.3966190
 
@@ -2345,13 +2440,13 @@ The dynamically linked libraries for this binary are
   * ... LESS THAN  3.000
 
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.01 TOTAL CPU TIME=          0.7 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.7 SECONDS, CPU UTILIZATION IS    93.29%
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =          0.5 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.5 SECONDS, CPU UTILIZATION IS    94.16%
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =              398046
-         28 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+         27 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.03 TOTAL CPU TIME=          0.7 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.7 SECONDS, CPU UTILIZATION IS    92.86%
+ STEP CPU TIME =     0.04 TOTAL CPU TIME =          0.5 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.6 SECONDS, CPU UTILIZATION IS    94.51%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -2375,16 +2470,18 @@ The dynamically linked libraries for this binary are
      TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
 
  FINAL RHF ENERGY IS     -116.3972798614 AFTER   7 ITERATIONS
+
+ Alpha HOMO=   -11.324659 eV, LUMO=    0.525731 eV, gap=   11.850390 eV
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.02 TOTAL CPU TIME=          0.7 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.8 SECONDS, CPU UTILIZATION IS    92.98%
- TIME TO DO      MCP GRADIENT INTEGRALS=      0.27
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =          0.6 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.6 SECONDS, CPU UTILIZATION IS    94.62%
+ TIME TO DO      MCP GRADIENT INTEGRALS=      0.11
  ..... END OF 1-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.28 TOTAL CPU TIME=          1.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          1.0 SECONDS, CPU UTILIZATION IS    94.39%
+ STEP CPU TIME =     0.12 TOTAL CPU TIME =          0.7 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.7 SECONDS, CPU UTILIZATION IS    95.47%
  ...... END OF 2-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.12 TOTAL CPU TIME=          1.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          1.2 SECONDS, CPU UTILIZATION IS    92.32%
+ STEP CPU TIME =     0.29 TOTAL CPU TIME =          1.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          1.0 SECONDS, CPU UTILIZATION IS    96.67%
 
           NSERCH=  1     ENERGY=    -116.3972799
 
@@ -2459,14 +2556,14 @@ The dynamically linked libraries for this binary are
    ATOM   CHARGE       X              Y              Z
  ------------------------------------------------------------
  BI         83.0   0.0000000000  -0.0000000000   0.4050462911
- CL         17.0  -2.1327540360   0.0000000000  -0.8068775108
+ CL         17.0  -2.1327540359  -0.0000000000  -0.8068775108
  COORDINATES OF ALL ATOMS ARE (ANGS)
    ATOM   CHARGE       X              Y              Z
  ------------------------------------------------------------
  BI         83.0   0.0000000000  -0.0000000000   0.4050462911
- CL         17.0   1.0663770180  -1.8470191752  -0.8068775108
- CL         17.0   1.0663770180   1.8470191752  -0.8068775108
- CL         17.0  -2.1327540360   0.0000000000  -0.8068775108
+ CL         17.0   1.0663770180  -1.8470191751  -0.8068775108
+ CL         17.0   1.0663770180   1.8470191751  -0.8068775108
+ CL         17.0  -2.1327540359  -0.0000000000  -0.8068775108
 
 
                      --------------------
@@ -2502,13 +2599,13 @@ The dynamically linked libraries for this binary are
   * ... LESS THAN  3.000
 
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.01 TOTAL CPU TIME=          1.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          1.2 SECONDS, CPU UTILIZATION IS    92.39%
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =          1.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          1.0 SECONDS, CPU UTILIZATION IS    96.67%
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =              398436
-         28 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+         27 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.03 TOTAL CPU TIME=          1.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          1.2 SECONDS, CPU UTILIZATION IS    92.17%
+ STEP CPU TIME =     0.04 TOTAL CPU TIME =          1.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          1.0 SECONDS, CPU UTILIZATION IS    96.77%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -2524,7 +2621,7 @@ The dynamically linked libraries for this binary are
    5  4  0     -116.3976422382    -0.0000003527   0.000117497   0.000047268
    6  5  0     -116.3976422693    -0.0000000311   0.000025811   0.000014493
    7  6  0     -116.3976422729    -0.0000000036   0.000008914   0.000003309
-   8  7  0     -116.3976422731    -0.0000000002   0.000002819   0.000000663
+   8  7  0     -116.3976422730    -0.0000000002   0.000002819   0.000000663
 
           -----------------
           DENSITY CONVERGED
@@ -2532,17 +2629,19 @@ The dynamically linked libraries for this binary are
      TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
      TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
 
- FINAL RHF ENERGY IS     -116.3976422731 AFTER   8 ITERATIONS
+ FINAL RHF ENERGY IS     -116.3976422730 AFTER   8 ITERATIONS
+
+ Alpha HOMO=   -11.314770 eV, LUMO=    0.628282 eV, gap=   11.943052 eV
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.02 TOTAL CPU TIME=          1.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          1.3 SECONDS, CPU UTILIZATION IS    92.26%
- TIME TO DO      MCP GRADIENT INTEGRALS=      0.27
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =          1.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          1.1 SECONDS, CPU UTILIZATION IS    96.81%
+ TIME TO DO      MCP GRADIENT INTEGRALS=      0.12
  ..... END OF 1-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.28 TOTAL CPU TIME=          1.4 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          1.5 SECONDS, CPU UTILIZATION IS    93.34%
+ STEP CPU TIME =     0.12 TOTAL CPU TIME =          1.2 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          1.2 SECONDS, CPU UTILIZATION IS    97.12%
  ...... END OF 2-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.12 TOTAL CPU TIME=          1.6 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          1.7 SECONDS, CPU UTILIZATION IS    91.99%
+ STEP CPU TIME =     0.30 TOTAL CPU TIME =          1.5 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          1.5 SECONDS, CPU UTILIZATION IS    97.56%
 
           NSERCH=  2     ENERGY=    -116.3976423
 
@@ -2576,7 +2675,7 @@ The dynamically linked libraries for this binary are
 
           MAXIMUM GRADIENT = 0.0031918    RMS GRADIENT = 0.0014247
 
- NSERCH:   2  E=     -116.3976422731  GRAD. MAX=  0.0031918  R.M.S.=  0.0014247
+ NSERCH:   2  E=     -116.3976422730  GRAD. MAX=  0.0031918  R.M.S.=  0.0014247
 
           HESSIAN UPDATED USING THE BFGS FORMULA
              ACTUAL ENERGY CHANGE WAS  -0.0003624117
@@ -2608,15 +2707,15 @@ The dynamically linked libraries for this binary are
  COORDINATES OF SYMMETRY UNIQUE ATOMS (ANGS)
    ATOM   CHARGE       X              Y              Z
  ------------------------------------------------------------
- BI         83.0   0.0000000000  -0.0000000000   0.4050879953
- CL         17.0  -2.1238796186   0.0000000000  -0.8069605882
+ BI         83.0   0.0000000000   0.0000000000   0.4050879953
+ CL         17.0  -2.1238796186  -0.0000000000  -0.8069605882
  COORDINATES OF ALL ATOMS ARE (ANGS)
    ATOM   CHARGE       X              Y              Z
  ------------------------------------------------------------
- BI         83.0   0.0000000000  -0.0000000000   0.4050879953
+ BI         83.0   0.0000000000   0.0000000000   0.4050879953
  CL         17.0   1.0619398093  -1.8393337043  -0.8069605882
  CL         17.0   1.0619398093   1.8393337043  -0.8069605882
- CL         17.0  -2.1238796186   0.0000000000  -0.8069605882
+ CL         17.0  -2.1238796186  -0.0000000000  -0.8069605882
 
 
                      --------------------
@@ -2652,13 +2751,13 @@ The dynamically linked libraries for this binary are
   * ... LESS THAN  3.000
 
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.01 TOTAL CPU TIME=          1.6 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          1.7 SECONDS, CPU UTILIZATION IS    92.05%
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =          1.5 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          1.5 SECONDS, CPU UTILIZATION IS    97.57%
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =              398606
-         28 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+         27 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.03 TOTAL CPU TIME=          1.6 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          1.7 SECONDS, CPU UTILIZATION IS    91.91%
+ STEP CPU TIME =     0.04 TOTAL CPU TIME =          1.5 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          1.5 SECONDS, CPU UTILIZATION IS    97.54%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -2682,16 +2781,18 @@ The dynamically linked libraries for this binary are
      TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
 
  FINAL RHF ENERGY IS     -116.3976891702 AFTER   7 ITERATIONS
+
+ Alpha HOMO=   -11.304178 eV, LUMO=    0.671579 eV, gap=   11.975758 eV
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.02 TOTAL CPU TIME=          1.6 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          1.8 SECONDS, CPU UTILIZATION IS    91.87%
- TIME TO DO      MCP GRADIENT INTEGRALS=      0.27
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =          1.5 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          1.6 SECONDS, CPU UTILIZATION IS    97.56%
+ TIME TO DO      MCP GRADIENT INTEGRALS=      0.12
  ..... END OF 1-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.28 TOTAL CPU TIME=          1.9 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          2.1 SECONDS, CPU UTILIZATION IS    92.64%
+ STEP CPU TIME =     0.12 TOTAL CPU TIME =          1.6 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          1.7 SECONDS, CPU UTILIZATION IS    97.71%
  ...... END OF 2-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.15 TOTAL CPU TIME=          2.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          2.2 SECONDS, CPU UTILIZATION IS    93.14%
+ STEP CPU TIME =     0.29 TOTAL CPU TIME =          1.9 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          2.0 SECONDS, CPU UTILIZATION IS    98.02%
 
           NSERCH=  3     ENERGY=    -116.3976892
 
@@ -2757,15 +2858,15 @@ The dynamically linked libraries for this binary are
  COORDINATES OF SYMMETRY UNIQUE ATOMS (ANGS)
    ATOM   CHARGE       X              Y              Z
  ------------------------------------------------------------
- BI         83.0   0.0000000000  -0.0000000000   0.4044698091
- CL         17.0  -2.1249137649   0.0000000000  -0.8057291226
+ BI         83.0   0.0000000000   0.0000000000   0.4044698090
+ CL         17.0  -2.1249137649  -0.0000000000  -0.8057291225
  COORDINATES OF ALL ATOMS ARE (ANGS)
    ATOM   CHARGE       X              Y              Z
  ------------------------------------------------------------
- BI         83.0   0.0000000000  -0.0000000000   0.4044698091
- CL         17.0   1.0624568825  -1.8402293013  -0.8057291226
- CL         17.0   1.0624568825   1.8402293013  -0.8057291226
- CL         17.0  -2.1249137649   0.0000000000  -0.8057291226
+ BI         83.0   0.0000000000   0.0000000000   0.4044698090
+ CL         17.0   1.0624568825  -1.8402293013  -0.8057291225
+ CL         17.0   1.0624568825   1.8402293013  -0.8057291225
+ CL         17.0  -2.1249137649  -0.0000000000  -0.8057291225
 
 
                      --------------------
@@ -2801,13 +2902,13 @@ The dynamically linked libraries for this binary are
   * ... LESS THAN  3.000
 
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.01 TOTAL CPU TIME=          2.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          2.2 SECONDS, CPU UTILIZATION IS    93.18%
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =          1.9 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          2.0 SECONDS, CPU UTILIZATION IS    98.02%
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =              398585
-         28 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+         27 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.03 TOTAL CPU TIME=          2.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          2.3 SECONDS, CPU UTILIZATION IS    93.06%
+ STEP CPU TIME =     0.04 TOTAL CPU TIME =          2.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          2.0 SECONDS, CPU UTILIZATION IS    98.06%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -2830,16 +2931,18 @@ The dynamically linked libraries for this binary are
      TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
 
  FINAL RHF ENERGY IS     -116.3976900826 AFTER   6 ITERATIONS
+
+ Alpha HOMO=   -11.302066 eV, LUMO=    0.674492 eV, gap=   11.976558 eV
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.02 TOTAL CPU TIME=          2.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          2.3 SECONDS, CPU UTILIZATION IS    93.09%
- TIME TO DO      MCP GRADIENT INTEGRALS=      0.27
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =          2.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          2.0 SECONDS, CPU UTILIZATION IS    98.06%
+ TIME TO DO      MCP GRADIENT INTEGRALS=      0.12
  ..... END OF 1-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.28 TOTAL CPU TIME=          2.4 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          2.6 SECONDS, CPU UTILIZATION IS    93.65%
+ STEP CPU TIME =     0.12 TOTAL CPU TIME =          2.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          2.2 SECONDS, CPU UTILIZATION IS    97.09%
  ...... END OF 2-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.12 TOTAL CPU TIME=          2.5 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          2.7 SECONDS, CPU UTILIZATION IS    92.76%
+ STEP CPU TIME =     0.30 TOTAL CPU TIME =          2.4 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          2.5 SECONDS, CPU UTILIZATION IS    97.27%
 
           NSERCH=  4     ENERGY=    -116.3976901
 
@@ -2905,15 +3008,15 @@ The dynamically linked libraries for this binary are
  COORDINATES OF SYMMETRY UNIQUE ATOMS (ANGS)
    ATOM   CHARGE       X              Y              Z
  ------------------------------------------------------------
- BI         83.0   0.0000000000   0.0000000000   0.4040818958
- CL         17.0  -2.1254887719   0.0000000000  -0.8049563752
+ BI         83.0   0.0000000000   0.0000000000   0.4040818959
+ CL         17.0  -2.1254887718  -0.0000000000  -0.8049563753
  COORDINATES OF ALL ATOMS ARE (ANGS)
    ATOM   CHARGE       X              Y              Z
  ------------------------------------------------------------
- BI         83.0   0.0000000000   0.0000000000   0.4040818958
- CL         17.0   1.0627443859  -1.8407272719  -0.8049563752
- CL         17.0   1.0627443859   1.8407272719  -0.8049563752
- CL         17.0  -2.1254887719   0.0000000000  -0.8049563752
+ BI         83.0   0.0000000000   0.0000000000   0.4040818959
+ CL         17.0   1.0627443859  -1.8407272718  -0.8049563753
+ CL         17.0   1.0627443859   1.8407272718  -0.8049563753
+ CL         17.0  -2.1254887718  -0.0000000000  -0.8049563753
 
 
                      --------------------
@@ -2949,13 +3052,13 @@ The dynamically linked libraries for this binary are
   * ... LESS THAN  3.000
 
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.01 TOTAL CPU TIME=          2.5 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          2.7 SECONDS, CPU UTILIZATION IS    92.79%
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =          2.4 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          2.5 SECONDS, CPU UTILIZATION IS    97.27%
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =              398574
-         28 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+         27 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.04 TOTAL CPU TIME=          2.6 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          2.8 SECONDS, CPU UTILIZATION IS    92.88%
+ STEP CPU TIME =     0.04 TOTAL CPU TIME =          2.5 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          2.5 SECONDS, CPU UTILIZATION IS    97.31%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -2978,16 +3081,18 @@ The dynamically linked libraries for this binary are
      TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
 
  FINAL RHF ENERGY IS     -116.3976902409 AFTER   6 ITERATIONS
+
+ Alpha HOMO=   -11.300657 eV, LUMO=    0.676680 eV, gap=   11.977338 eV
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.02 TOTAL CPU TIME=          2.6 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          2.8 SECONDS, CPU UTILIZATION IS    92.92%
- TIME TO DO      MCP GRADIENT INTEGRALS=      0.27
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =          2.5 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          2.5 SECONDS, CPU UTILIZATION IS    97.31%
+ TIME TO DO      MCP GRADIENT INTEGRALS=      0.12
  ..... END OF 1-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.28 TOTAL CPU TIME=          2.9 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          3.1 SECONDS, CPU UTILIZATION IS    93.39%
+ STEP CPU TIME =     0.12 TOTAL CPU TIME =          2.6 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          2.7 SECONDS, CPU UTILIZATION IS    97.43%
  ...... END OF 2-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.12 TOTAL CPU TIME=          3.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          3.2 SECONDS, CPU UTILIZATION IS    92.66%
+ STEP CPU TIME =     0.30 TOTAL CPU TIME =          2.9 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          3.0 SECONDS, CPU UTILIZATION IS    97.66%
 
           NSERCH=  5     ENERGY=    -116.3976902
 
@@ -3028,15 +3133,15 @@ The dynamically linked libraries for this binary are
  COORDINATES OF SYMMETRY UNIQUE ATOMS (ANGS)
    ATOM   CHARGE       X              Y              Z
  ------------------------------------------------------------
- BI         83.0   0.0000000000   0.0000000000   0.4040818958
- CL         17.0  -2.1254887719   0.0000000000  -0.8049563752
+ BI         83.0   0.0000000000   0.0000000000   0.4040818959
+ CL         17.0  -2.1254887718  -0.0000000000  -0.8049563753
  COORDINATES OF ALL ATOMS ARE (ANGS)
    ATOM   CHARGE       X              Y              Z
  ------------------------------------------------------------
- BI         83.0   0.0000000000   0.0000000000   0.4040818958
- CL         17.0   1.0627443859  -1.8407272719  -0.8049563752
- CL         17.0   1.0627443859   1.8407272719  -0.8049563752
- CL         17.0  -2.1254887719   0.0000000000  -0.8049563752
+ BI         83.0   0.0000000000   0.0000000000   0.4040818959
+ CL         17.0   1.0627443859  -1.8407272718  -0.8049563753
+ CL         17.0   1.0627443859   1.8407272718  -0.8049563753
+ CL         17.0  -2.1254887718  -0.0000000000  -0.8049563753
 
 
                      --------------------
@@ -3072,8 +3177,8 @@ The dynamically linked libraries for this binary are
   * ... LESS THAN  3.000
 
 
-          NUCLEAR ENERGY    =       89.2979158203
-          ELECTRONIC ENERGY =     -205.6956060613
+          NUCLEAR ENERGY    =       89.2979158208
+          ELECTRONIC ENERGY =     -205.6956060618
           TOTAL ENERGY      =     -116.3976902409
 
           ------------------
@@ -3510,18 +3615,18 @@ The dynamically linked libraries for this binary are
 
          WAVEFUNCTION NORMALIZATION =       1.0000000000
 
-                ONE ELECTRON ENERGY =    -380.2182414606
-                TWO ELECTRON ENERGY =     174.5226353993
-           NUCLEAR REPULSION ENERGY =      89.2979158203
+                ONE ELECTRON ENERGY =    -380.2182414616
+                TWO ELECTRON ENERGY =     174.5226353999
+           NUCLEAR REPULSION ENERGY =      89.2979158208
                                       ------------------
                        TOTAL ENERGY =    -116.3976902409
 
- ELECTRON-ELECTRON POTENTIAL ENERGY =     174.5226353993
-  NUCLEUS-ELECTRON POTENTIAL ENERGY =    -586.3576188024
-   NUCLEUS-NUCLEUS POTENTIAL ENERGY =      89.2979158203
+ ELECTRON-ELECTRON POTENTIAL ENERGY =     174.5226353999
+  NUCLEUS-ELECTRON POTENTIAL ENERGY =    -586.3576188033
+   NUCLEUS-NUCLEUS POTENTIAL ENERGY =      89.2979158208
                                       ------------------
-             TOTAL POTENTIAL ENERGY =    -322.5370675827
-               TOTAL KINETIC ENERGY =     206.1393773418
+             TOTAL POTENTIAL ENERGY =    -322.5370675826
+               TOTAL KINETIC ENERGY =     206.1393773417
                  VIRIAL RATIO (V/T) =       1.5646552917
 
           ---------------------------------------
@@ -3683,42 +3788,33 @@ The dynamically linked libraries for this binary are
          DX          DY          DZ         /D/  (DEBYE)
      0.000000   -0.000000    4.622346    4.622346
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.01 TOTAL CPU TIME=          3.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          3.2 SECONDS, CPU UTILIZATION IS    92.68%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          2.9 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          3.0 SECONDS, CPU UTILIZATION IS    97.65%
   $VIB   
           IVIB=   0 IATOM=   0 ICOORD=   0 E=     -116.3976902409
-  2.646977960E-23-4.925003384E-23-7.012236446E-08-7.340645987E-08 1.271437181E-07
-  2.337412149E-08-7.340645987E-08-1.271437181E-07 2.337412149E-08 1.468129197E-07
- -1.323488980E-23 2.337412149E-08
-  3.612066735E-14-6.613583368E-15 4.622346280E+00
+  1.289279669E-23-6.568089452E-18-7.009576339E-08-7.340629795E-08 1.271434377E-07
+  2.336525447E-08-7.340629796E-08-1.271434377E-07 2.336525446E-08 1.468125959E-07
+  6.894544725E-18 2.336525446E-08
+  2.438145046E-13-6.507651451E-15 4.622346281E+00
  ......END OF GEOMETRY SEARCH......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          3.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          3.2 SECONDS, CPU UTILIZATION IS    92.68%
-               1074666  WORDS OF DYNAMIC MEMORY USED
- EXECUTION OF GAMESS TERMINATED NORMALLY 13:07:33 15-MAR-2022    
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          2.9 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          3.0 SECONDS, CPU UTILIZATION IS    97.65%
+              1074666  WORDS OF DYNAMIC MEMORY USED
+ EXECUTION OF GAMESS TERMINATED NORMALLY 01:39:08 14-MAY-2025    
  DDI: 263640 bytes (0.3 MB / 0 MWords) used by master data server.
 
  ----------------------------------------
  CPU timing information for all processes
  ========================================
- 0: 2.905 + 0.81 = 2.987
- 1: 2.932 + 0.80 = 3.12
- 2: 2.883 + 0.61 = 2.944
+ 0: 2.848 + 0.47 = 2.896
  ----------------------------------------
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG
  ddikick.x: exited gracefully.
 unset echo
 ----- accounting info -----
-Files used on the master node compute-1-1.local were:
--rw-rw-r-- 1 sarom sarom     942 Mar 15 13:07 /tmp/373934/exam38.F05
--rw-rw-r-- 1 sarom sarom 1800160 Mar 15 13:07 /tmp/373934/exam38.F08
--rw-rw-r-- 1 sarom sarom 1620144 Mar 15 13:07 /tmp/373934/exam38.F08.001
--rw-rw-r-- 1 sarom sarom 1620144 Mar 15 13:07 /tmp/373934/exam38.F08.002
--rw-rw-r-- 1 sarom sarom 2094080 Mar 15 13:07 /tmp/373934/exam38.F10
-/usr/bin/rm: cannot remove ‘/tmp/373934’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373934’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373934’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373934’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373934’: No such file or directory
-srun: error: compute-1-1: tasks 0,2-5: Exited with exit code 1
-Tue Mar 15 13:07:36 CDT 2022
-0.214u 0.089s 0:06.84 4.2%	0+0k 96+1784io 0pf+0w
+Files used on the parent node Mac were:
+-rw-r--r--@ 1 sarom  staff      933 May 14 01:39 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F05
+-rw-r--r--@ 1 sarom  staff  4860432 May 14 01:39 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F08
+-rw-r--r--@ 1 sarom  staff  2094080 May 14 01:39 /Users/sarom/GAMESS-Development/gamess/scratch/exam38/2025_05_14-01_39_05-DE5BD5C8/exam38.F10
+Wed May 14 01:39:09 EDT 2025
+2.913u 0.123s 0:04.13 73.3%	0+0k 0+0io 193pf+0w

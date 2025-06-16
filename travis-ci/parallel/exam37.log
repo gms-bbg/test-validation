@@ -1,19 +1,27 @@
-source /home/sarom/dir.git.dev/install.info
-setenv GMS_PATH /export/home/sarom/dir.git.dev
-setenv GMS_BUILD_DIR /export/home/sarom/dir.git.dev
+source /Users/sarom/GAMESS-Development/gamess/install.info
+setenv GMS_VERSION 00
+setenv GMS_PATH /Users/sarom/GAMESS-Development/gamess
+setenv GMS_BUILD_DIR /Users/sarom/GAMESS-Development/gamess
 setenv GMS_TARGET linux64
 setenv GMS_HPC_SYSTEM_TARGET generic
-setenv GMS_FORTRAN oneapi-ifort
-setenv GMS_IFORT_VERNO 20
-setenv GMS_MATHLIB mkl
-setenv GMS_MATHLIB_PATH /shared/compilers/intel/oneapi/mkl/2022.0.1/lib/intel64
-setenv GMS_MKL_VERNO oneapi
+setenv GMS_ARCH arm
+setenv GMS_FORTRAN gfortran
+setenv GMS_GFORTRAN_VERNO 14.1
+setenv GMS_MATHLIB none
+setenv GMS_THREADED_BLAS false
+setenv GMS_LAPACK_LINK_LINE 
 setenv GMS_DDI_COMM sockets
-setenv GMS_MSUCC false
-setenv GMS_LIBCCHEM false
+setenv GMS_MSUAUTO false
+setenv GMS_HPCCHEM false
+setenv GMS_HPCCHEM_PATH
+setenv GMS_HPCCHEM_USE_DATA_SERVERS false
 setenv GMS_PHI none
 setenv GMS_SHMTYPE sysv
 setenv GMS_OPENMP false
+setenv GMS_OPENMP_OFFLOAD false
+setenv GMS_USE_HIPFORT false
+setenv USE_CUBLAS false
+setenv USE_HIPBLAS false
 setenv GMS_LIBXC false
 setenv GMS_MDI false
 setenv GMS_VM2 false
@@ -22,220 +30,293 @@ setenv VB2000 false
 setenv XMVB false
 setenv NEO false
 setenv NBO false
-setenv GMS_FPE_FLAGS -fpe0
-setenv GMS_FPE_FLAGS 
+setenv RISM false
+setenv GMS_FPE_FLAGS -ffpe-trap=invalid,zero,overflow -finit-real=snan -finit-integer=-9223372036854775808
 unset echo
-SLURM has assigned the following compute nodes to this run:
-compute-1-0
-srun mkdir -p /tmp/373933
-unset echo
-Input file supplied : /export/home/sarom/dir.git.dev/tests/travis-ci/parallel/exam37.inp
------ GAMESS execution script 'rungms-dev' -----
-This job is running on host compute-1-0.local
-under operating system Linux at Tue Mar 15 13:07:26 CDT 2022 with sockets communication mode
-Available scratch disk space (Kbyte units) at beginning of the job is
-Filesystem     1K-blocks    Used Available Use% Mounted on
-/dev/sda1       15995808 6128260   9031964  41% /
-GAMESS temporary binary files will be written to /tmp/373933
-GAMESS supplementary output files will be written to /export/home/sarom/restart
+TERM_PROGRAM=Apple_Terminal
+TERM=xterm-256color
+SHELL=/bin/bash
+TMPDIR=/var/folders/sd/9w2pshtj1cx7jvxnw95lstjr0000gp/T/
+HOMEBREW_REPOSITORY=/opt/homebrew
+TERM_PROGRAM_VERSION=455.1
+TERM_SESSION_ID=E3731169-BECF-4F18-9F46-17B6FDC36B77
+USER=sarom
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.yJPjuo0ExF/Listeners
+__CF_USER_TEXT_ENCODING=0x1F6:0x0:0x0
+PATH=/opt/homebrew/opt/gnu-sed/libexec/gnubin:/opt/homebrew/opt/make/libexec/gnubin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/krb5/bin:/usr/local/ossh/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+_=misc/automation/rungms
+__CFBundleIdentifier=com.apple.Terminal
+PWD=/Users/sarom/GAMESS-Development/gamess
+EDITOR=nano
+LANG=en_US.UTF-8
+XPC_FLAGS=0x0
+KRB5_CONFIG=/etc/krb5.conf
+XPC_SERVICE_NAME=0
+HOME=/Users/sarom
+SHLVL=3
+HOMEBREW_PREFIX=/opt/homebrew
+LOGNAME=sarom
+VISUAL=nano
+HOMEBREW_CELLAR=/opt/homebrew/Cellar
+INFOPATH=/opt/homebrew/share/info:
+HOSTTYPE=unknown
+VENDOR=apple
+OSTYPE=darwin
+MACHTYPE=unknown
+GROUP=staff
+HOST=Mac
+NO_STOP_MESSAGE=1
+GMS_VERSION=00
+GMS_PATH=/Users/sarom/GAMESS-Development/gamess
+GMS_BUILD_DIR=/Users/sarom/GAMESS-Development/gamess
+GMS_TARGET=linux64
+GMS_HPC_SYSTEM_TARGET=generic
+GMS_ARCH=arm
+GMS_FORTRAN=gfortran
+GMS_GFORTRAN_VERNO=14.1
+GMS_MATHLIB=none
+GMS_THREADED_BLAS=false
+GMS_LAPACK_LINK_LINE=
+GMS_DDI_COMM=sockets
+GMS_MSUAUTO=false
+GMS_HPCCHEM=false
+GMS_HPCCHEM_PATH=
+GMS_HPCCHEM_USE_DATA_SERVERS=false
+GMS_PHI=none
+GMS_SHMTYPE=sysv
+GMS_OPENMP=false
+GMS_OPENMP_OFFLOAD=false
+GMS_USE_HIPFORT=false
+USE_CUBLAS=false
+USE_HIPBLAS=false
+GMS_LIBXC=false
+GMS_MDI=false
+GMS_VM2=false
+TINKER=false
+VB2000=false
+XMVB=false
+NEO=false
+NBO=false
+RISM=false
+GMS_FPE_FLAGS=-ffpe-trap=invalid,zero,overflow -finit-real=snan -finit-integer=-9223372036854775808
+LD_LIBRARY_PATH=
 Copying input file exam37.inp to your run's scratch directory...
-cp /export/home/sarom/dir.git.dev/tests/travis-ci/parallel/exam37.inp /tmp/373933/exam37.F05
+cp /Users/sarom/GAMESS-Development/gamess/tests/travis-ci/parallel/exam37.inp /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F05
+unset echo
+----- GAMESS execution script 'rungms' -----
+This job is running on host Mac
+under operating system Darwin at Wed May 14 01:39:04 EDT 2025
+Available scratch disk space (Kbyte units) at beginning of the job is
+Filesystem   1024-blocks      Used Available Capacity iused     ifree %iused  Mounted on
+/dev/disk3s5   239362496 154808396  65493524    71% 1523283 654935240    0%   /System/Volumes/Data
+GAMESS temporary binary files will be written to /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5
+GAMESS supplementary output files will be written to /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5
+limit stacksize 32768
 unset echo
 setenv NO_STOP_MESSAGE 1
-setenv AUXDATA /home/sarom/dir.git.dev/auxdata
+setenv AUXDATA /Users/sarom/GAMESS-Development/gamess/auxdata
 setenv EXTBAS /dev/null
-setenv NUCBAS /dev/null
-setenv EXTCAB /home/sarom/dir.git.dev/auxdata/AUXBAS/auxdef21
-setenv POSBAS /dev/null
-setenv DFTBPAR /home/sarom/dir.git.dev/auxdata/DFTB
-setenv ERICFMT /home/sarom/dir.git.dev/auxdata/ericfmt.dat
-setenv MCPPATH /home/sarom/dir.git.dev/auxdata/MCP
-setenv BASPATH /home/sarom/dir.git.dev/auxdata/BASES
-setenv QUANPOL /home/sarom/dir.git.dev/auxdata/QUANPOL
-setenv MAKEFP /export/home/sarom/restart/exam37.efp
-setenv GAMMA /export/home/sarom/restart/exam37.gamma
-setenv TRAJECT /export/home/sarom/restart/exam37.trj
-setenv RESTART /export/home/sarom/restart/exam37.rst
-setenv QMWAVE /export/home/sarom/restart/exam37.qmw
-setenv MDDIP /export/home/sarom/restart/exam37.dip
-setenv OPTHES1 /export/home/sarom/restart/exam37.hs1
-setenv OPTHES2 /export/home/sarom/restart/exam37.hs2
-setenv FCIDUMP /export/home/sarom/restart/exam37.FCIDUMP
-setenv XYZ /tmp/373933/exam37.xyz
-setenv INPUT /tmp/373933/exam37.F05
-setenv PUNCH /export/home/sarom/restart/exam37.dat
-setenv AOINTS /tmp/373933/exam37.F08
-setenv MOINTS /tmp/373933/exam37.F09
-setenv DICTNRY /tmp/373933/exam37.F10
-setenv DRTFILE /tmp/373933/exam37.F11
-setenv CIVECTR /tmp/373933/exam37.F12
-setenv CASINTS /tmp/373933/exam37.F13
-setenv CIINTS /tmp/373933/exam37.F14
-setenv WORK15 /tmp/373933/exam37.F15
-setenv WORK16 /tmp/373933/exam37.F16
-setenv CSFSAVE /tmp/373933/exam37.F17
-setenv FOCKDER /tmp/373933/exam37.F18
-setenv WORK19 /tmp/373933/exam37.F19
-setenv DASORT /tmp/373933/exam37.F20
-setenv DIABDAT /tmp/373933/exam37.F21
-setenv DFTINTS /tmp/373933/exam37.F21
-setenv DFTGRID /tmp/373933/exam37.F22
-setenv JKFILE /tmp/373933/exam37.F23
-setenv ORDINT /tmp/373933/exam37.F24
-setenv EFPIND /tmp/373933/exam37.F25
-setenv PCMDATA /tmp/373933/exam37.F26
-setenv PCMINTS /tmp/373933/exam37.F27
-setenv SVPWRK1 /tmp/373933/exam37.F26
-setenv SVPWRK2 /tmp/373933/exam37.F27
-setenv COSCAV /tmp/373933/exam37.F26
-setenv COSDATA /export/home/sarom/restart/exam37.cosmo
-setenv COSPOT /export/home/sarom/restart/exam37.pot
-setenv MLTPL /tmp/373933/exam37.F28
-setenv MLTPLT /tmp/373933/exam37.F29
-setenv DAFL30 /tmp/373933/exam37.F30
-setenv SOINTX /tmp/373933/exam37.F31
-setenv SOINTY /tmp/373933/exam37.F32
-setenv SOINTZ /tmp/373933/exam37.F33
-setenv SORESC /tmp/373933/exam37.F34
-setenv GCILIST /tmp/373933/exam37.F37
-setenv HESSIAN /tmp/373933/exam37.F38
-setenv QMMMTEI /tmp/373933/exam37.F39
-setenv SOCCDAT /tmp/373933/exam37.F40
-setenv AABB41 /tmp/373933/exam37.F41
-setenv BBAA42 /tmp/373933/exam37.F42
-setenv BBBB43 /tmp/373933/exam37.F43
-setenv REMD /tmp/373933/exam37.F44
-setenv UNV /tmp/373933/exam37.F45
-setenv UNPV /tmp/373933/exam37.F46
-setenv MCQD50 /tmp/373933/exam37.F50
-setenv MCQD51 /tmp/373933/exam37.F51
-setenv MCQD52 /tmp/373933/exam37.F52
-setenv MCQD53 /tmp/373933/exam37.F53
-setenv MCQD54 /tmp/373933/exam37.F54
-setenv MCQD55 /tmp/373933/exam37.F55
-setenv MCQD56 /tmp/373933/exam37.F56
-setenv MCQD57 /tmp/373933/exam37.F57
-setenv MCQD58 /tmp/373933/exam37.F58
-setenv MCQD59 /tmp/373933/exam37.F59
-setenv MCQD60 /tmp/373933/exam37.F60
-setenv MCQD61 /tmp/373933/exam37.F61
-setenv MCQD62 /tmp/373933/exam37.F62
-setenv MCQD63 /tmp/373933/exam37.F63
-setenv MCQD64 /tmp/373933/exam37.F64
-setenv NMRINT1 /tmp/373933/exam37.F61
-setenv NMRINT2 /tmp/373933/exam37.F62
-setenv NMRINT3 /tmp/373933/exam37.F63
-setenv NMRINT4 /tmp/373933/exam37.F64
-setenv NMRINT5 /tmp/373933/exam37.F65
-setenv NMRINT6 /tmp/373933/exam37.F66
-setenv DCPHFH2 /tmp/373933/exam37.F67
-setenv DCPHF21 /tmp/373933/exam37.F68
-setenv ELNUINT /tmp/373933/exam37.F67
-setenv NUNUINT /tmp/373933/exam37.F68
-setenv GVVPT /tmp/373933/exam37.F69
-setenv NUMOIN /tmp/373933/exam37.F69
-setenv NUMOCAS /tmp/373933/exam37.F70
-setenv NUELMO /tmp/373933/exam37.F71
-setenv NUELCAS /tmp/373933/exam37.F72
-setenv RIVMAT /tmp/373933/exam37.F51
-setenv RIT2A /tmp/373933/exam37.F52
-setenv RIT3A /tmp/373933/exam37.F53
-setenv RIT2B /tmp/373933/exam37.F54
-setenv RIT3B /tmp/373933/exam37.F55
-setenv DEN2P1 /tmp/373933/exam37.F70
-setenv DEN2P2 /tmp/373933/exam37.F71
-setenv DEN2P3 /tmp/373933/exam37.F72
-setenv DEN2P4 /tmp/373933/exam37.F73
-setenv DEN2NM /tmp/373933/exam37.F74
-setenv DEN2OPT /tmp/373933/exam37.F75
-setenv GMCREF /tmp/373933/exam37.F70
-setenv GMCO2R /tmp/373933/exam37.F71
-setenv GMCROC /tmp/373933/exam37.F72
-setenv GMCOOC /tmp/373933/exam37.F73
-setenv GMCCC0 /tmp/373933/exam37.F74
-setenv GMCHMA /tmp/373933/exam37.F75
-setenv GMCEI1 /tmp/373933/exam37.F76
-setenv GMCEI2 /tmp/373933/exam37.F77
-setenv GMCEOB /tmp/373933/exam37.F78
-setenv GMCEDT /tmp/373933/exam37.F79
-setenv GMCERF /tmp/373933/exam37.F80
-setenv GMCHCR /tmp/373933/exam37.F81
-setenv GMCGJK /tmp/373933/exam37.F82
-setenv GMCGAI /tmp/373933/exam37.F83
-setenv GMCGEO /tmp/373933/exam37.F84
-setenv GMCTE1 /tmp/373933/exam37.F85
-setenv GMCTE2 /tmp/373933/exam37.F86
-setenv GMCHEF /tmp/373933/exam37.F87
-setenv GMCMOL /tmp/373933/exam37.F88
-setenv GMCMOS /tmp/373933/exam37.F89
-setenv GMCWGT /tmp/373933/exam37.F90
-setenv GMCRM2 /tmp/373933/exam37.F91
-setenv GMCRM1 /tmp/373933/exam37.F92
-setenv GMCR00 /tmp/373933/exam37.F93
-setenv GMCRP1 /tmp/373933/exam37.F94
-setenv GMCRP2 /tmp/373933/exam37.F95
-setenv GMCVEF /tmp/373933/exam37.F96
-setenv GMCDIN /tmp/373933/exam37.F97
-setenv GMC2SZ /tmp/373933/exam37.F98
-setenv GMCCCS /tmp/373933/exam37.F99
+setenv NUCBAS /Users/sarom/GAMESS-Development/gamess/tests/travis-ci/parallel/exam37.nucbas
+setenv EXTCAB /Users/sarom/GAMESS-Development/gamess/auxdata/AUXBAS/auxdef21
+setenv POSBAS /Users/sarom/GAMESS-Development/gamess/tests/travis-ci/parallel/exam37.posbas
+setenv DFTBPAR /Users/sarom/GAMESS-Development/gamess/auxdata/DFTB
+setenv ERICFMT /Users/sarom/GAMESS-Development/gamess/auxdata/ericfmt.dat
+setenv MCPPATH /Users/sarom/GAMESS-Development/gamess/auxdata/MCP
+setenv BASPATH /Users/sarom/GAMESS-Development/gamess/auxdata/BASES
+setenv QUANPOL /Users/sarom/GAMESS-Development/gamess/auxdata/QUANPOL
+setenv MAKEFP /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.efp
+setenv GAMMA /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.gamma
+setenv TRAJECT /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.trj
+setenv RESTART /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.rst
+setenv QMWAVE /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.qmw
+setenv MDDIP /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.dip
+setenv OPTHES1 /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.hs1
+setenv OPTHES2 /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.hs2
+setenv FCIDUMP /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.FCIDUMP
+setenv XYZ /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.xyz
+setenv IRCDATA /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F04
+setenv INPUT /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F05
+setenv PUNCH /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.dat
+setenv NAMDRST /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.namdrst
+setenv AOINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F08
+setenv MOINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F09
+setenv DICTNRY /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F10
+setenv DRTFILE /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F11
+setenv CIVECTR /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F12
+setenv CASINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F13
+setenv CIINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F14
+setenv WORK15 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F15
+setenv WORK16 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F16
+setenv CSFSAVE /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F17
+setenv FOCKDER /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F18
+setenv WORK19 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F19
+setenv DASORT /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F20
+setenv DIABDAT /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F21
+setenv DFTINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F21
+setenv DFTGRID /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F22
+setenv JKFILE /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F23
+setenv ORDINT /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F24
+setenv EFPIND /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F25
+setenv PCMDATA /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F26
+setenv PCMINTS /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F27
+setenv SVPWRK1 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F26
+setenv SVPWRK2 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F27
+setenv COSCAV /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F26
+setenv COSDATA /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.cosmo
+setenv COSPOT /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.pot
+setenv MLTPL /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F28
+setenv MLTPLT /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F29
+setenv DAFL30 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F30
+setenv SOINTX /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F31
+setenv SOINTY /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F32
+setenv SOINTZ /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F33
+setenv SORESC /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F34
+setenv RISM01 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F26R
+setenv RISM02 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F27R
+setenv QOPWRF /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.wrf
+setenv GCILIST /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F37
+setenv HESSIAN /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F38
+setenv QMMMTEI /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F39
+setenv SOCCDAT /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F40
+setenv AABB41 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F41
+setenv BBAA42 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F42
+setenv BBBB43 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F43
+setenv REMD /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F44
+setenv UNV /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F45
+setenv UNPV /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F46
+setenv MCQD50 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F50
+setenv MCQD51 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F51
+setenv MCQD52 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F52
+setenv MCQD53 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F53
+setenv MCQD54 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F54
+setenv MCQD55 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F55
+setenv MCQD56 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F56
+setenv MCQD57 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F57
+setenv MCQD58 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F58
+setenv MCQD59 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F59
+setenv MCQD60 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F60
+setenv MCQD61 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F61
+setenv MCQD62 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F62
+setenv MCQD63 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F63
+setenv MCQD64 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F64
+setenv NMRINT1 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F61
+setenv NMRINT2 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F62
+setenv NMRINT3 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F63
+setenv NMRINT4 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F64
+setenv NMRINT5 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F65
+setenv NMRINT6 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F66
+setenv DCPHFH2 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F67
+setenv DCPHF21 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F68
+setenv ELNUINT /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F67
+setenv NUNUINT /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F68
+setenv GVVPT /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F69
+setenv NUMOIN /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F69
+setenv NUMOCAS /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F70
+setenv NUELMO /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F71
+setenv NUELCAS /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F72
+setenv EPOVRLP /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F73
+setenv RIVMAT /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F51
+setenv RIT2A /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F52
+setenv RIT3A /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F53
+setenv RIT2B /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F54
+setenv RIT3B /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F55
+setenv KI /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F47
+setenv BI /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F48
+setenv PRMERI /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F49
+setenv TRSERI /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F50
+setenv PVP /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F51
+setenv TPVPI /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F52
+setenv TPVPJ /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F53
+setenv PPVPP /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F54
+setenv TPPVPP /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F55
+setenv DEN2P1 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F70
+setenv DEN2P2 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F71
+setenv DEN2P3 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F72
+setenv DEN2P4 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F73
+setenv DEN2NM /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F74
+setenv DEN2OPT /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F75
+setenv GMCREF /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F70
+setenv GMCO2R /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F71
+setenv GMCROC /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F72
+setenv GMCOOC /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F73
+setenv GMCCC0 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F74
+setenv GMCHMA /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F75
+setenv GMCEI1 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F76
+setenv GMCEI2 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F77
+setenv GMCEOB /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F78
+setenv GMCEDT /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F79
+setenv GMCERF /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F80
+setenv GMCHCR /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F81
+setenv GMCGJK /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F82
+setenv GMCGAI /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F83
+setenv GMCGEO /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F84
+setenv GMCTE1 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F85
+setenv GMCTE2 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F86
+setenv GMCHEF /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F87
+setenv GMCMOL /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F88
+setenv GMCMOS /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F89
+setenv GMCWGT /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F90
+setenv GMCRM2 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F91
+setenv GMCRM1 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F92
+setenv GMCR00 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F93
+setenv GMCRP1 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F94
+setenv GMCRP2 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F95
+setenv GMCVEF /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F96
+setenv GMCDIN /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F97
+setenv GMC2SZ /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F98
+setenv GMCCCS /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F99
 unset echo
-rm: cannot remove ‘/export/home/sarom/restart/exam37.casino’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam37.dmn’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam37.cim’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam37.cosmo’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam37.pot’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam37.gamma’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam37.efp’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam37.dip’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam37.hs1’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam37.hs2’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam37.dat’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam37.qmw’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam37.rst’: No such file or directory
-rm: cannot remove ‘/export/home/sarom/restart/exam37.trj’: No such file or directory
- 
-Assuming a single but multicore node.
- 
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.casino: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.dmn: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.cim: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.cosmo: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.pot: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.gamma: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.efp: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.dip: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.hs1: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.hs2: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.dat: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.qmw: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.rst: No such file or directory
+rm: /Users/sarom/GAMESS-Development/gamess/restart/exam37/2025_05_14-01_39_04-82453CE5/exam37.trj: No such file or directory
 The generated host list is
-compute-1-0.local:cpus=3
+Mac
 -----debug-----
 the execution path is
-/opt/openmpi/bin /shared/compilers/aocc-compiler-3.2.0/share/opt-viewer /shared/compilers/aocc-compiler-3.2.0/bin /shared/git/2.9.5/bin /shared/compilers/gcc/5.5.0/bin /shared/cmake/3.12.0/bin /export/home/sarom/bin /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el7_4.x86_64/jre/bin/ /usr/lib64/qt-3.3/bin /usr/local/bin /usr/bin /usr/local/sbin /usr/sbin /opt/pdsh/bin /opt/rocks/bin /opt/rocks/sbin
+/opt/homebrew/opt/gnu-sed/libexec/gnubin /opt/homebrew/opt/make/libexec/gnubin /opt/homebrew/bin /opt/homebrew/sbin /usr/local/krb5/bin /usr/local/ossh/bin /usr/local/bin /System/Cryptexes/App/usr/bin /usr/bin /bin /usr/sbin /sbin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
 the library path is
-/opt/openmpi/lib:/shared/compilers/aocc-compiler-3.2.0/ompd:/shared/compilers/aocc-compiler-3.2.0/lib:/shared/compilers/aocc-compiler-3.2.0/lib32:/usr/lib64:/usr/lib:/shared/compilers/gcc/5.5.0/lib64:
-The dynamically linked libraries for this binary are
-/home/sarom/dir.git.dev/gamess.00.x :
 
-	linux-vdso.so.1 =>  (0x00007ffc5d6f0000)
-	libpthread.so.0 => /usr/lib64/libpthread.so.0 (0x00007f0a2a0a3000)
-	libm.so.6 => /usr/lib64/libm.so.6 (0x00007f0a29da0000)
-	libc.so.6 => /usr/lib64/libc.so.6 (0x00007f0a299dd000)
-	/lib64/ld-linux-x86-64.so.2 (0x0000557ea51d2000)
-	libgcc_s.so.1 => /shared/compilers/gcc/5.5.0/lib64/libgcc_s.so.1 (0x00007f0a297c6000)
-	libdl.so.2 => /usr/lib64/libdl.so.2 (0x00007f0a295c1000)
+The dynamically linked libraries for this binary are
+/Users/sarom/GAMESS-Development/gamess/gamess.00.x :
+
+ldd: Command not found.
 --------------
-/home/sarom/dir.git.dev/ddikick.x /home/sarom/dir.git.dev/gamess.00.x exam37 -ddi 1 3 compute-1-0.local:cpus=3 -scr /tmp/373933
+/Users/sarom/GAMESS-Development/gamess/ddikick.x /Users/sarom/GAMESS-Development/gamess/gamess.00.x exam37 -ddi 1 1 Mac -scr /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5
 
  Distributed Data Interface kickoff program.
- Initiating 3 compute processes on 1 nodes to run the following command:
- /home/sarom/dir.git.dev/gamess.00.x exam37 
+ Initiating 1 compute processes on 1 nodes to run the following command:
+ /Users/sarom/GAMESS-Development/gamess/gamess.00.x exam37 
 
           *******************************************************
           *                                                     *
-          *      GAMESS VERSION = 30 SEP 2021 (R2 Patch 1)      *
+          *      GAMESS VERSION = 15 JUL 2024 (R2 Patch 1)          *
           *                                                     *
           *              doi.org/10.1063/5.0005188              *
           *                                                     *
-          **************** 64 BIT INTEL VERSION *****************
+          **************** 64 BIT LINUX VERSION *****************
+ 
+           git commit: bf99997cb9bae7c41d40f16e0cbc3a8d2532d8b0
+ 
 
   GAMESS HAS BEEN MADE POSSIBLE WITH IMPORTANT CONTRIBUTIONS FROM
   THE FOLLOWING INDIVIDUALS (IN ALPHABETICAL ORDER):
 
      IVANA ADAMOVIC, CHRISTINE AIKENS, TOMOKO AKAMA,
-     YURI ALEXEEV, YURIKO AOKI, POOJA ARORA, TOSHIO ASADA,
-     ANDREY ASADCHEV, KIM K. BALDRIDGE, PRADIPTA BANDYOPADHYAY,
-     TAYLOR A. BARNES, MARIA BARYSZ, ROB BELL,
-     JONATHAN BENTZ, COLLEEN BERTONI,
+     MELISA ALKAN, YURI ALEXEEV, YURIKO AOKI, POOJA ARORA,
+     TOSHIO ASADA, ANDREY ASADCHEV, KIM K. BALDRIDGE,
+     PRADIPTA BANDYOPADHYAY, TAYLOR A. BARNES, MARIA BARYSZ,
+     ROB BELL, JONATHAN BENTZ, COLLEEN BERTONI,
      JERRY A. BOATZ, BRETT BODE, KURT BRORSEN, KURT R. BRORSEN,
      LAIMUTIS BYTAUTAS, CALEB CARLIN, LAURA CARRINGTON,
      GALINA CHABAN, BENOIT CHAMPAGNE, WEI CHEN, MAHITO CHIBA,
@@ -243,20 +324,23 @@ The dynamically linked libraries for this binary are
      DIPAYAN DATTA, PAUL DAY, ALBERT DEFUSCO,
      NUWAN DESILVA, J. EMILIANO DEUSTUA,
      TIM DUDLEY, MICHEL DUPUIS, STEVEN T. ELBERT,
-     DMITRI FEDOROV, ALEX FINDLATER, GRAHAM FLETCHER,
-     MARK FREITAG, CHRISTIAN FRIEDL, DAVID GARMER,
-     IGOR S. GERASIMOV, KURT GLAESEMANN, MARK S. GORDON,
-     JEFFREY GOUR, FENG LONG GU, EMILIE B. GUIDEZ,
-     ANASTASIA GUNINA, SHARON HAMMES-SCHIFFER, MASATAKE HARUTA,
-     KIMIHIKO HIRAO, YASUHIRO IKABATA, TZVETELIN IORDANOV,
-     STEPHAN IRLE, KAZUYA ISHIMURA, JOE IVANIC, FRANK JENSEN,
-     JAN H. JENSEN, VISVALDAS KAIRYS, MUNEAKI KAMIYA,
-     MICHIO KATOUDA, NAOAKI KAWAKAMI, DAN KEMP, BERNARD KIRTMAN,
-     KAZUO KITAURA, MARIUSZ KLOBUKOWSKI, MASATO KOBAYASHI,
-     PRAKASHAN KORAMBATH, JACEK KORCHOWIEC, SHIRO KOSEKI,
-     KAROL KOWALSKI, JIMMY KROMANN, STANISLAW KUCHARSKI,
-     HENRY KURTZ, SAROM SOK LEANG, HUI LI, SHUHUA LI, WEI LI,
-     JESSE LUTZ, ALEKSANDR O. LYKHIN, MARCIN MAKOWSKI,
+     DMITRI FEDOROV, KATHERINE FERRERAS, MICHAEL FILATOV,
+     ALEX FINDLATER,GRAHAM FLETCHER, MARK FREITAG,
+     CHRISTIAN FRIEDL, DAVID GARMER, 
+     IGOR S. GERASIMOV, KURT GLAESEMANN,
+     MARK S. GORDON, JEFFREY R. GOUR, FENG LONG GU,
+     EMILIE B. GUIDEZ, ANASTASIA GUNINA, SHARON HAMMES-SCHIFFER,
+     MASATAKE HARUTA, KIMIHIKO HIRAO, YASUHIRO IKABATA,
+     TZVETELIN IORDANOV, STEPHAN IRLE, KAZUYA ISHIMURA,
+     JOE IVANIC, FRANK JENSEN, JAN H. JENSEN, VISVALDAS KAIRYS,
+     MUNEAKI KAMIYA, MICHIO KATOUDA, NAOAKI KAWAKAMI, DAN KEMP,
+     BERNARD KIRTMAN, KAZUO KITAURA, MARIUSZ KLOBUKOWSKI,
+     MASATO KOBAYASHI, KONSTANTIN KOMAROV, PRAKASHAN KORAMBATH,
+     JACEK KORCHOWIEC, SHIRO KOSEKI, KAROL KOWALSKI,
+     JIMMY KROMANN, STANISLAW A. KUCHARSKI, HENRY KURTZ,
+     SAROM SOK LEANG, SEUNGHOON LEE, HUI LI, SHUHUA LI, WEI LI,
+     JESSE J. LUTZ, ALEKSANDR O. LYKHIN,
+     ILIAS MAGOULAS, MARCIN MAKOWSKI,
      JOANI MATO, NIKITA MATSUNAGA, BENEDETTA MENNUCCI,
      GRANT MERRILL, NORIYUKI MINEZAWA, VLADIMIR MIRONOV,
      EISAKU MIYOSHI, JOHN A. MONTGOMERY JR., HIROTOSHI MORI,
@@ -270,13 +354,15 @@ The dynamically linked libraries for this binary are
      KLAUS RUEDENBERG, ANDREW SAND, TOSAPORN SATTASATHUCHANA,
      NOZOMI SAWADA, MICHAEL W. SCHMIDT, PATRICK E. SCHNEIDER,
      JUNJI SEINO, PRACHI SHARMA, JUN SHEN, JIM SHOEMAKER,
-     YINAN SHU, DEJUN SI, JONATHAN SKONE, LYUDMILA SLIPCHENKO,
-     TONY SMITH, JIE SONG, MARK SPACKMAN, CASPER STEINMANN,
-     WALT STEVENS, PEIFENG SU, SHUJUN SU, CHET SWALINA,
-     TETSUYA TAKETSUGU, ZHEN TAO, NANDUN THELLAMUREGE
-     SEIKEN TOKURA, JACOPO TOMASI, TSUGUKI TOUMA, TAKAO TSUNEDA,
-     HIROAKI UMEDA, JORGE LUIS GALVEZ VALLEJO, YALI WANG,
-     SIMON WEBB, AARON WEST, THERESA L. WINDUS, MARTA WLOCH,
+     GEORGE SCHOENDORFF, YINAN SHU, DEJUN SI, JONATHAN SKONE,
+     LYUDMILA SLIPCHENKO, TONY SMITH, JIE SONG, MARK SPACKMAN,
+     CASPER STEINMANN, WALT STEVENS, PEIFENG SU, SHUJUN SU,
+     CHET SWALINA, CHINAMI TAKASHIMA, TETSUYA TAKETSUGU,
+     ZHEN TAO, NANDUN THELLAMUREGE, ANANTA TIWARI,
+     SEIKEN TOKURA, JACOPO TOMASI,
+     TSUGUKI TOUMA, TAKAO TSUNEDA, HIROAKI UMEDA,
+     JORGE LUIS GALVEZ VALLEJO, YALI WANG, SIMON WEBB,
+     AARON WEST, THERESA L. WINDUS, MARTA WLOCH,
      PENG XU, KIYOSHI YAGI, SUSUMU YANAGISAWA, YANG YANG,
      SOOHAENG YOO, TAKESHI YOSHIKAWA, FEDERICO ZAHARIEV,
      TOBY ZENG
@@ -284,9 +370,11 @@ The dynamically linked libraries for this binary are
   WHO ARE SUPPORTED BY THEIR INSTITUTION/UNIVERSITY/COMPANY/GROUP
   (IN ALPHABETICAL ORDER):
 
-     EP ANALYTICS, FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX,
+     EP ANALYTICS,
+     FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX,
      INSTITUTE FOR MOLECULAR SCIENCE, IOWA STATE UNIVERSITY,
      JACKSON STATE UNIVERSITY, JOHANNES KEPLER UNIVERSITY LINZ,
+     KYUNGPOOK NATIONAL UNIVERSITY
      KYUSHU UNIVERSITY, MICHIGAN STATE UNIVERSITY,
      MIE UNIVERSITY, THE MOLECULAR SCIENCES SOFTWARE INSTITUTE,
      MOSCOW STATE UNIVERSITY,
@@ -303,7 +391,8 @@ The dynamically linked libraries for this binary are
      UNIVERSITY OF NEBRASKA, UNIVERSITY OF NEW ENGLAND,
      UNIVERSITY OF NOTRE DAME, UNIVERSITY OF PISA,
      UNIVERSITY OF SILESIA, UNIVERSITY OF TOKYO,
-     UNIVERSITY OF ZURICH, WASEDA UNIVERSITY, YALE UNIVERSITY
+     UNIVERSITY OF ZURICH, WASEDA UNIVERSITY,
+     YALE UNIVERSITY
 
   GAMESS SOFTWARE MANAGEMENT TEAM FOR THIS RELEASE:
      MARK S. GORDON (TEAM LEAD),
@@ -313,13 +402,10 @@ The dynamically linked libraries for this binary are
      KRISTOPHER KEIPERT (ADVISOR),
      SAROM S. LEANG (DEVELOPMENT LEAD),
      BUU PHAM,
-     JORGE LUIS GALVEZ VALLEJO (WEBSITE ADMINISTRATOR),
+     JACKSON HAYES (WEBSITE ADMINISTRATOR),
      PENG XU
 
-
- PARALLEL VERSION RUNNING ON        3 PROCESSORS IN        1 NODES.
-
- EXECUTION OF GAMESS BEGUN 13:07:27 15-MAR-2022    
+ EXECUTION OF GAMESS BEGUN 01:39:04 14-MAY-2025    
 
             ECHO OF THE FIRST FEW INPUT CARDS -
  INPUT CARD>! EXAM 37.                                                                      
@@ -367,7 +453,7 @@ The dynamically linked libraries for this binary are
  INPUT CARD>n-1 7                                                                           
  INPUT CARD>o-1 8                                                                           
  INPUT CARD> $end                                                                           
-    1000000 WORDS OF MEMORY AVAILABLE
+      1000000 WORDS OF MEMORY AVAILABLE
 
      BASIS OPTIONS
      -------------
@@ -458,10 +544,10 @@ The dynamically linked libraries for this binary are
      ---------------
   REPLICATED MEMORY=     1000000 WORDS (ON EVERY NODE).
  DISTRIBUTED MEMDDI=           0 MILLION WORDS IN AGGREGATE,
- MEMDDI DISTRIBUTED OVER   3 PROCESSORS IS           0 WORDS/PROCESSOR.
+ MEMDDI DISTRIBUTED OVER   1 PROCESSORS IS           0 WORDS/PROCESSOR.
  TOTAL MEMORY REQUESTED ON EACH PROCESSOR=     1000000 WORDS.
  TIMLIM=           3.00 MINUTES, OR       0.0 DAYS.
- PARALL= T  BALTYP=  DLB     KDIAG=    0  COREFL= F
+ PARALL= F  BALTYP=  DLB     KDIAG=    0  COREFL= F
  MXSEQ2=     300 MXSEQ3=     150  mem10=         0  mem22=         0
 
      High-tech $SYSTEM options in MODIO:       1
@@ -492,11 +578,18 @@ The dynamically linked libraries for this binary are
           SOSCF IN EFFECT
  ORBITAL PRINTING OPTION: NPREO=     1 32767     2     1
 
+     ----------------------
+     TARGET OFFLOAD OPTIONS
+     ----------------------
+     RHF    =       F
+     CPHF    =       F
+     MAKEFP =       F
+
      -------------------------------
      INTEGRAL TRANSFORMATION OPTIONS
      -------------------------------
      NWORD  =            0
-     CUTOFF = 1.0E-10     MPTRAN =       0
+     CUTTRF = 1.0E-10     MPTRAN =       0
      DIRTRF =       F     AOINTS =DUP     
 
           ----------------------
@@ -505,10 +598,10 @@ The dynamically linked libraries for this binary are
  NOPK  =       1 NORDER=       0 SCHWRZ=       T
 
  ..... DONE SETTING UP THE RUN .....
- CPU     0: STEP CPU TIME=     0.02 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    95.14%
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    95.06%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    91.45%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    88.42%
 
                     ----------------------
                     AO INTEGRAL TECHNOLOGY
@@ -522,15 +615,15 @@ The dynamically linked libraries for this binary are
         SUPERCOMPUTING DIVISION, AMES RESEARCH CENTER).
      S,P,D,F,G,L SHELL GENERAL RYS QUADRATURE PROGRAMMED BY
         MICHEL DUPUIS (PACIFIC NORTHWEST NATIONAL LABORATORY).
- CPU     0: STEP CPU TIME=     0.01 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    94.66%
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    94.65%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    80.69%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    80.71%
  Initialising fragments
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    94.71%
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    94.71%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    80.01%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    80.01%
  OPENING FILE SOCCDAT WITH      13 LOGICAL RECORDS OF      28 WORDS
  WITH A MAXIMUM OF          13 PHYSICAL RECORDS OF    2048 WORDS
 
@@ -544,7 +637,7 @@ The dynamically linked libraries for this binary are
           D. G. Fedorov, K. Kitaura, J. Chem. Phys. 120, 6832 (2004).
  -----------------------------------------------------------------------
 
- Used memory (words):         5608
+ Used memory (words):         6402
  Number of fragments:      3
  Number of layers:         1
  N-body FMO method:        2
@@ -620,8 +713,8 @@ The dynamically linked libraries for this binary are
           1 ELECTRON INTEGRALS
           ********************
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    94.78%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    76.73%
 
           -------------
           GUESS OPTIONS
@@ -638,8 +731,8 @@ The dynamically linked libraries for this binary are
      5 ORBITALS ARE OCCUPIED (    1 CORE ORBITALS).
      2=A        3=A        4=A        5=A        6=A        7=A   
  ...... END OF INITIAL ORBITAL SELECTION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    94.90%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    77.16%
 
  Running initial guess for monomer       2
 
@@ -647,8 +740,8 @@ The dynamically linked libraries for this binary are
           1 ELECTRON INTEGRALS
           ********************
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    94.90%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    76.72%
 
           -------------
           GUESS OPTIONS
@@ -665,8 +758,8 @@ The dynamically linked libraries for this binary are
      5 ORBITALS ARE OCCUPIED (    1 CORE ORBITALS).
      2=A        3=A        4=A        5=A        6=A        7=A   
  ...... END OF INITIAL ORBITAL SELECTION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    94.99%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    77.04%
 
  Running initial guess for monomer       1
 
@@ -674,8 +767,8 @@ The dynamically linked libraries for this binary are
           1 ELECTRON INTEGRALS
           ********************
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    95.09%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    76.58%
 
           -------------
           GUESS OPTIONS
@@ -692,23 +785,23 @@ The dynamically linked libraries for this binary are
      5 ORBITALS ARE OCCUPIED (    1 CORE ORBITALS).
      2=A        3=A        4=A        5=A        6=A        7=A   
  ...... END OF INITIAL ORBITAL SELECTION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    95.17%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    76.85%
 
  There are           0 separated and       3 SCF (       0 correlated) dimers.
  Estimate of max dimer size:   14 AOs,   10 occ. MOs
 
  Fragment statistics
 
-      I  NAME     Q NAT0 NATB NA  NAO LAY MUL SCFTYP        NOP     MOL    CONV
- ==============================================================================
-      1 FRAG01    0    3   0    5    7 1  1 G RHF             0      -1      -1
-      2 FRAG02    0    3   0    5    7 1  1 G RHF             0      -1      -1
-      3 FRAG03    0    3   0    5    7 1  1 G RHF             0      -1      -1
+      I  NAME     Q NAT0 NGA   NA  NAO  NMO L  MUL SCFTYP      NOP   MOL    CONV
+ ===============================================================================
+      1 FRAG01    0    3   0    5    7    7 1  1 G RHF           0    -1      -1
+      2 FRAG02    0    3   0    5    7    7 1  1 G RHF           0    -1      -1
+      3 FRAG03    0    3   0    5    7    7 1  1 G RHF           0    -1      -1
  locfmo:
- nactfmo:                     0
- nmdfrg1:                     2                     2                     2
- nmdfrg2:                     0                     0                     0
+ nactfmo:                    0
+ nmdfrg1:                    2                    2                    2
+ nmdfrg2:                    0                    0                    0
 
  Close fragment pairs, distance relative to vdW radii
 
@@ -729,8 +822,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    95.25%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    71.77%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    1: NZ         784 skipped         0 blocks.
 
@@ -740,8 +833,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    95.09%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    72.10%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    3: NZ         784 skipped         0 blocks.
 
@@ -751,11 +844,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    94.92%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    72.33%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    94.93%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    72.37%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -766,15 +859,15 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89366 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:        28 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   37
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =  145
  SCHWARZ INEQUALITY TEST SKIPPED           0 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                 319
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    94.63%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    68.59%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -835,8 +928,8 @@ The dynamically linked libraries for this binary are
     6  H  2  S   -0.763125   0.878950
     7  H  3  S   -0.833521  -0.802788
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    93.85%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    69.58%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -924,8 +1017,8 @@ The dynamically linked libraries for this binary are
          DX          DY          DZ         /D/  (DEBYE)
     -0.266662    0.709343   -1.639925    1.806552
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    94.00%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    70.68%
 
  Iter=  1 iFrag=      2 EFMO=   -74.962554231, DD= 0.862976034, DE=************
 
@@ -945,8 +1038,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    94.11%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    64.58%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    1: NZ         784 skipped         0 blocks.
 
@@ -956,8 +1049,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    94.01%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    64.80%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    2: NZ         784 skipped         0 blocks.
 
@@ -967,11 +1060,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    93.90%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    64.99%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    93.91%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    65.02%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -982,15 +1075,15 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89366 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:        28 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   37
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =  145
  SCHWARZ INEQUALITY TEST SKIPPED           0 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                 319
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.0 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    93.72%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    65.24%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -1015,7 +1108,7 @@ The dynamically linked libraries for this binary are
    8  7  0      -75.0141934971    -0.0000000000   0.000001567   0.000000744
    9  8  0      -75.0141934971    -0.0000000000   0.000000260   0.000000137
   10  9  0      -75.0141934971    -0.0000000000   0.000000070   0.000000027
-  11 10  0      -75.0141934971    -0.0000000000   0.000000000   0.000000007
+  11 10  0      -75.0141934971     0.0000000000   0.000000000   0.000000007
 
           -----------------
           DENSITY CONVERGED
@@ -1051,8 +1144,8 @@ The dynamically linked libraries for this binary are
     6  H  2  S   -0.766086   0.875903
     7  H  3  S   -0.830704  -0.805868
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    93.16%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    66.02%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -1136,12 +1229,12 @@ The dynamically linked libraries for this binary are
           ---------------------
 
  POINT   1           X           Y           Z (BOHR)    CHARGE
-                 1.699923    2.103735   -1.583280       -0.00 (A.U.)
+                 1.699923    2.103735   -1.583280        0.00 (A.U.)
          DX          DY          DZ         /D/  (DEBYE)
     -1.356774   -1.147838   -0.307477    1.803582
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    93.27%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    66.99%
 
  Iter=  1 iFrag=      3 EFMO=   -74.962589000, DD= 0.863302298, DE=************
 
@@ -1161,8 +1254,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    93.38%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    66.96%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    2: NZ         784 skipped         0 blocks.
 
@@ -1172,8 +1265,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    93.30%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    67.17%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    3: NZ         784 skipped         0 blocks.
 
@@ -1183,11 +1276,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    93.20%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    67.32%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    93.21%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    67.34%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -1198,15 +1291,15 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89366 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:        28 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   21
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   84
  SCHWARZ INEQUALITY TEST SKIPPED           0 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                 206
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    93.08%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    67.51%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -1230,7 +1323,7 @@ The dynamically linked libraries for this binary are
    7  6  0      -75.0073184634    -0.0000000002   0.000006275   0.000002268
    8  7  0      -75.0073184634    -0.0000000000   0.000001886   0.000000767
    9  8  0      -75.0073184634    -0.0000000000   0.000000200   0.000000140
-  10  9  0      -75.0073184634    -0.0000000000   0.000000056   0.000000027
+  10  9  0      -75.0073184634     0.0000000000   0.000000056   0.000000027
 
           -----------------
           DENSITY CONVERGED
@@ -1266,8 +1359,8 @@ The dynamically linked libraries for this binary are
     6  H  2  S   -0.828566  -0.809292
     7  H  3  S   -0.768970   0.873397
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    92.69%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    68.13%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -1306,7 +1399,7 @@ The dynamically linked libraries for this binary are
                (K,V1,2)=     69.5719195386   -177.1405139871     31.2237322892
            PI PART(1+2)=     -7.8574199392
                (K,V1,2)=      5.0574576687    -19.9903417299      7.0754641221
-  SIGMA SKELETON, ERROR=    -67.1498954067     -0.0000000000
+  SIGMA SKELETON, ERROR=    -67.1498954067      0.0000000000
              MIXED PART=-3.12610E-06 0.00000E+00-2.16074E-06-9.65369E-07
  ...... END OF PI ENERGY ANALYSIS ......
 
@@ -1360,7 +1453,7 @@ The dynamically linked libraries for this binary are
                        TOTAL       BONDED        FREE
       ATOM            VALENCE     VALENCE     VALENCE
     1 O                 1.898       1.898       0.000
-    2 H                 0.966       0.966       0.000
+    2 H                 0.966       0.966      -0.000
     3 H                 0.956       0.956       0.000
 
           ---------------------
@@ -1372,12 +1465,12 @@ The dynamically linked libraries for this binary are
          DX          DY          DZ         /D/  (DEBYE)
      1.479244   -0.000516    1.048005    1.812864
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    92.80%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    68.74%
 
  Iter=  1 iFrag=      1 EFMO=   -74.962560851, DD= 0.861174890, DE=************
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    92.80%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    68.76%
 
   Monomer SCF synchronisation on iteration   1.1 took     0.0 s.
 
@@ -1402,8 +1495,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    92.91%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    68.56%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    1: NZ         784 skipped         0 blocks.
 
@@ -1413,8 +1506,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    92.83%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    68.71%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    3: NZ         784 skipped         0 blocks.
 
@@ -1424,11 +1517,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    92.76%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    68.84%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    92.76%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    68.86%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -1439,15 +1532,15 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89366 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:        28 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   37
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =  145
  SCHWARZ INEQUALITY TEST SKIPPED           0 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                 319
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    92.65%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    69.00%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -1469,7 +1562,7 @@ The dynamically linked libraries for this binary are
    5  4  0      -75.0285327834    -0.0000000001   0.000005578   0.000001676
    6  5  0      -75.0285327834    -0.0000000000   0.000000222   0.000000139
    7  6  0      -75.0285327834    -0.0000000000   0.000000068   0.000000031
-   8  7  0      -75.0285327834     0.0000000000   0.000000000   0.000000003
+   8  7  0      -75.0285327834    -0.0000000000   0.000000000   0.000000003
 
           -----------------
           DENSITY CONVERGED
@@ -1505,8 +1598,8 @@ The dynamically linked libraries for this binary are
     6  H  2  S   -0.767366   0.874375
     7  H  3  S   -0.829391  -0.807267
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    92.39%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    69.48%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -1581,7 +1674,7 @@ The dynamically linked libraries for this binary are
 
                        TOTAL       BONDED        FREE
       ATOM            VALENCE     VALENCE     VALENCE
-    1 O                 1.899       1.899       0.000
+    1 O                 1.899       1.899      -0.000
     2 H                 0.957       0.957       0.000
     3 H                 0.967       0.967       0.000
 
@@ -1590,12 +1683,12 @@ The dynamically linked libraries for this binary are
           ---------------------
 
  POINT   1           X           Y           Z (BOHR)    CHARGE
-                 1.699923    2.103735   -1.583280        0.00 (A.U.)
+                 1.699923    2.103735   -1.583280       -0.00 (A.U.)
          DX          DY          DZ         /D/  (DEBYE)
     -0.258597    0.699298   -1.638599    1.800249
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    92.48%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    69.95%
 
  Iter=  2 iFrag=      2 EFMO=   -74.962619134, DD= 0.003062080, DE=-0.000064903
 
@@ -1615,8 +1708,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    92.56%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    69.83%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    1: NZ         784 skipped         0 blocks.
 
@@ -1626,8 +1719,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    92.30%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    69.97%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    2: NZ         784 skipped         0 blocks.
 
@@ -1637,11 +1730,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    92.24%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    70.08%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    92.25%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    70.10%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -1652,15 +1745,15 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89366 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:        28 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   37
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =  145
  SCHWARZ INEQUALITY TEST SKIPPED           0 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                 319
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    92.12%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    70.23%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -1682,7 +1775,7 @@ The dynamically linked libraries for this binary are
    5  4  0      -75.0216215469    -0.0000000001   0.000003536   0.000001156
    6  5  0      -75.0216215469    -0.0000000000   0.000000250   0.000000097
    7  6  0      -75.0216215469    -0.0000000000   0.000000145   0.000000031
-   8  7  0      -75.0216215469    -0.0000000000   0.000000000   0.000000006
+   8  7  0      -75.0216215469     0.0000000000   0.000000000   0.000000006
 
           -----------------
           DENSITY CONVERGED
@@ -1718,8 +1811,8 @@ The dynamically linked libraries for this binary are
     6  H  2  S   -0.768256   0.873451
     7  H  3  S   -0.828511  -0.808180
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.92%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    70.59%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -1796,7 +1889,7 @@ The dynamically linked libraries for this binary are
       ATOM            VALENCE     VALENCE     VALENCE
     1 O                 1.899       1.899      -0.000
     2 H                 0.957       0.957      -0.000
-    3 H                 0.967       0.967      -0.000
+    3 H                 0.967       0.967       0.000
 
           ---------------------
           ELECTROSTATIC MOMENTS
@@ -1807,8 +1900,8 @@ The dynamically linked libraries for this binary are
          DX          DY          DZ         /D/  (DEBYE)
     -1.354368   -1.142232   -0.312447    1.799063
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    92.01%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    71.03%
 
  Iter=  2 iFrag=      3 EFMO=   -74.962629497, DD= 0.001918385, DE=-0.000040496
 
@@ -1828,8 +1921,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    92.13%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    70.80%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    2: NZ         784 skipped         0 blocks.
 
@@ -1839,8 +1932,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    92.09%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    70.92%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    3: NZ         784 skipped         0 blocks.
 
@@ -1850,11 +1943,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    92.04%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    71.02%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    92.05%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    71.04%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -1865,15 +1958,15 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89366 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:        28 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   21
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   84
  SCHWARZ INEQUALITY TEST SKIPPED           0 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                 206
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.98%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    71.15%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -1931,8 +2024,8 @@ The dynamically linked libraries for this binary are
     6  H  2  S   -0.826491  -0.811029
     7  H  3  S   -0.770776   0.871186
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.79%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    71.48%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -2025,8 +2118,8 @@ The dynamically linked libraries for this binary are
                        TOTAL       BONDED        FREE
       ATOM            VALENCE     VALENCE     VALENCE
     1 O                 1.899       1.899       0.000
-    2 H                 0.966       0.966       0.000
-    3 H                 0.957       0.957      -0.000
+    2 H                 0.966       0.966      -0.000
+    3 H                 0.957       0.957       0.000
 
           ---------------------
           ELECTROSTATIC MOMENTS
@@ -2037,12 +2130,12 @@ The dynamically linked libraries for this binary are
          DX          DY          DZ         /D/  (DEBYE)
      1.471057   -0.000613    1.044970    1.804431
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.88%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    71.89%
 
  Iter=  2 iFrag=      1 EFMO=   -74.962617865, DD= 0.002187151, DE=-0.000057014
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.88%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    71.90%
 
   Monomer SCF synchronisation on iteration   2.1 took     0.0 s.
 
@@ -2067,8 +2160,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.98%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    71.54%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    1: NZ         784 skipped         0 blocks.
 
@@ -2078,8 +2171,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.95%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    71.65%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    3: NZ         784 skipped         0 blocks.
 
@@ -2089,11 +2182,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.91%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    71.74%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.92%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    71.76%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -2104,15 +2197,15 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89366 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:        28 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   37
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =  145
  SCHWARZ INEQUALITY TEST SKIPPED           0 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                 319
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.84%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    71.86%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -2168,8 +2261,8 @@ The dynamically linked libraries for this binary are
     6  H  2  S   -0.767421   0.874302
     7  H  3  S   -0.829323  -0.807319
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.73%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    72.13%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -2244,7 +2337,7 @@ The dynamically linked libraries for this binary are
 
                        TOTAL       BONDED        FREE
       ATOM            VALENCE     VALENCE     VALENCE
-    1 O                 1.899       1.899       0.000
+    1 O                 1.899       1.899      -0.000
     2 H                 0.957       0.957       0.000
     3 H                 0.967       0.967       0.000
 
@@ -2253,12 +2346,12 @@ The dynamically linked libraries for this binary are
           ---------------------
 
  POINT   1           X           Y           Z (BOHR)    CHARGE
-                 1.699923    2.103735   -1.583280       -0.00 (A.U.)
+                 1.699923    2.103735   -1.583280        0.00 (A.U.)
          DX          DY          DZ         /D/  (DEBYE)
     -0.258512    0.699119   -1.638314    1.799908
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.81%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    72.50%
 
  Iter=  3 iFrag=      2 EFMO=   -74.962621230, DD= 0.000085134, DE=-0.000002097
 
@@ -2278,8 +2371,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.88%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    71.45%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    1: NZ         784 skipped         0 blocks.
 
@@ -2289,8 +2382,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.84%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    71.56%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    2: NZ         784 skipped         0 blocks.
 
@@ -2300,11 +2393,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.80%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    71.64%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.81%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    71.65%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -2315,15 +2408,15 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89366 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:        28 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   37
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =  145
  SCHWARZ INEQUALITY TEST SKIPPED           0 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                 319
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.74%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    71.75%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -2344,7 +2437,7 @@ The dynamically linked libraries for this binary are
    4  3  0      -75.0198723045    -0.0000000000   0.000001030   0.000000368
    5  4  0      -75.0198723045    -0.0000000000   0.000000288   0.000000160
    6  5  0      -75.0198723045    -0.0000000000   0.000000042   0.000000014
-   7  6  0      -75.0198723045    -0.0000000000   0.000000000   0.000000004
+   7  6  0      -75.0198723045     0.0000000000   0.000000000   0.000000004
 
           -----------------
           DENSITY CONVERGED
@@ -2380,8 +2473,8 @@ The dynamically linked libraries for this binary are
     6  H  2  S   -0.768356   0.873324
     7  H  3  S   -0.828393  -0.808275
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.62%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    72.01%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -2469,8 +2562,8 @@ The dynamically linked libraries for this binary are
          DX          DY          DZ         /D/  (DEBYE)
     -1.353978   -1.141847   -0.312459    1.798528
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.70%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    72.37%
 
  Iter=  3 iFrag=      3 EFMO=   -74.962632772, DD= 0.000136293, DE=-0.000003275
 
@@ -2490,8 +2583,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.79%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    72.17%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    2: NZ         784 skipped         0 blocks.
 
@@ -2501,8 +2594,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.75%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    72.27%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    3: NZ         784 skipped         0 blocks.
 
@@ -2512,11 +2605,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.71%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    72.35%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.72%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    72.36%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -2527,15 +2620,15 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89366 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:        28 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   21
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   84
  SCHWARZ INEQUALITY TEST SKIPPED           0 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                 206
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.66%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    72.45%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -2555,7 +2648,7 @@ The dynamically linked libraries for this binary are
    3  2  0      -75.0174902893    -0.0000000001   0.000005474   0.000001365
    4  3  0      -75.0174902894    -0.0000000000   0.000000845   0.000000283
    5  4  0      -75.0174902894    -0.0000000000   0.000000280   0.000000109
-   6  5  0      -75.0174902894    -0.0000000000   0.000000031   0.000000011
+   6  5  0      -75.0174902894     0.0000000000   0.000000031   0.000000011
    7  6  0      -75.0174902894     0.0000000000   0.000000000   0.000000003
 
           -----------------
@@ -2592,8 +2685,8 @@ The dynamically linked libraries for this binary are
     6  H  2  S   -0.826413  -0.811093
     7  H  3  S   -0.770841   0.871102
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.55%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    72.69%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -2686,7 +2779,7 @@ The dynamically linked libraries for this binary are
                        TOTAL       BONDED        FREE
       ATOM            VALENCE     VALENCE     VALENCE
     1 O                 1.899       1.899      -0.000
-    2 H                 0.966       0.966       0.000
+    2 H                 0.966       0.966      -0.000
     3 H                 0.957       0.957      -0.000
 
           ---------------------
@@ -2698,12 +2791,12 @@ The dynamically linked libraries for this binary are
          DX          DY          DZ         /D/  (DEBYE)
      1.470724   -0.000604    1.044858    1.804094
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.62%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    73.03%
 
  Iter=  3 iFrag=      1 EFMO=   -74.962620115, DD= 0.000090247, DE=-0.000002250
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.62%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    73.04%
 
   Monomer SCF synchronisation on iteration   3.1 took     0.0 s.
 
@@ -2728,8 +2821,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.71%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    64.44%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    1: NZ         784 skipped         0 blocks.
 
@@ -2739,8 +2832,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.67%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    64.54%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    3: NZ         784 skipped         0 blocks.
 
@@ -2750,11 +2843,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.64%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    64.63%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.64%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    64.64%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -2765,15 +2858,15 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89366 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:        28 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   37
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =  145
  SCHWARZ INEQUALITY TEST SKIPPED           0 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                 319
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.59%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    64.73%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -2828,8 +2921,8 @@ The dynamically linked libraries for this binary are
     6  H  2  S   -0.767431   0.874291
     7  H  3  S   -0.829313  -0.807330
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.52%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    64.96%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -2904,7 +2997,7 @@ The dynamically linked libraries for this binary are
 
                        TOTAL       BONDED        FREE
       ATOM            VALENCE     VALENCE     VALENCE
-    1 O                 1.899       1.899       0.000
+    1 O                 1.899       1.899      -0.000
     2 H                 0.957       0.957       0.000
     3 H                 0.967       0.967       0.000
 
@@ -2913,12 +3006,12 @@ The dynamically linked libraries for this binary are
           ---------------------
 
  POINT   1           X           Y           Z (BOHR)    CHARGE
-                 1.699923    2.103735   -1.583280        0.00 (A.U.)
+                 1.699923    2.103735   -1.583280       -0.00 (A.U.)
          DX          DY          DZ         /D/  (DEBYE)
     -0.258494    0.699094   -1.638304    1.799886
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.59%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    65.31%
 
  Iter=  4 iFrag=      2 EFMO=   -74.962621408, DD= 0.000008361, DE=-0.000000178
 
@@ -2938,8 +3031,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.67%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    65.28%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    1: NZ         784 skipped         0 blocks.
 
@@ -2949,8 +3042,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.64%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    65.37%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    2: NZ         784 skipped         0 blocks.
 
@@ -2960,11 +3053,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.61%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    65.45%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.61%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    65.46%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -2975,15 +3068,15 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89366 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:        28 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   37
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =  145
  SCHWARZ INEQUALITY TEST SKIPPED           0 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                 319
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.56%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    65.55%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -3037,8 +3130,8 @@ The dynamically linked libraries for this binary are
     6  H  2  S   -0.768362   0.873317
     7  H  3  S   -0.828386  -0.808281
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.52%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    65.72%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -3126,8 +3219,8 @@ The dynamically linked libraries for this binary are
          DX          DY          DZ         /D/  (DEBYE)
     -1.353968   -1.141831   -0.312469    1.798511
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.58%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    66.06%
 
  Iter=  4 iFrag=      3 EFMO=   -74.962632897, DD= 0.000005810, DE=-0.000000125
 
@@ -3147,8 +3240,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.65%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    61.31%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    2: NZ         784 skipped         0 blocks.
 
@@ -3158,8 +3251,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.62%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    61.40%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    3: NZ         784 skipped         0 blocks.
 
@@ -3169,11 +3262,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.59%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    61.48%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.59%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    61.49%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -3184,15 +3277,15 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89366 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:        28 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   21
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   84
  SCHWARZ INEQUALITY TEST SKIPPED           0 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                 206
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.52%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    61.58%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -3211,7 +3304,7 @@ The dynamically linked libraries for this binary are
    2  1  0      -75.0174403124    -0.0000000000   0.000000849   0.000000428
    3  2  0      -75.0174403124    -0.0000000000   0.000000371   0.000000085
    4  3  0      -75.0174403124    -0.0000000000   0.000000038   0.000000014
-   5  4  0      -75.0174403124     0.0000000000   0.000000000   0.000000005
+   5  4  0      -75.0174403124    -0.0000000000   0.000000000   0.000000005
 
           -----------------
           DENSITY CONVERGED
@@ -3247,8 +3340,8 @@ The dynamically linked libraries for this binary are
     6  H  2  S   -0.826406  -0.811099
     7  H  3  S   -0.770848   0.871095
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.46%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    61.79%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -3340,9 +3433,9 @@ The dynamically linked libraries for this binary are
 
                        TOTAL       BONDED        FREE
       ATOM            VALENCE     VALENCE     VALENCE
-    1 O                 1.899       1.899      -0.000
-    2 H                 0.966       0.966       0.000
-    3 H                 0.957       0.957       0.000
+    1 O                 1.899       1.899       0.000
+    2 H                 0.966       0.966      -0.000
+    3 H                 0.957       0.957      -0.000
 
           ---------------------
           ELECTROSTATIC MOMENTS
@@ -3353,12 +3446,12 @@ The dynamically linked libraries for this binary are
          DX          DY          DZ         /D/  (DEBYE)
      1.470697   -0.000604    1.044856    1.804072
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.53%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    62.15%
 
  Iter=  4 iFrag=      1 EFMO=   -74.962620278, DD= 0.000007027, DE=-0.000000163
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.53%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    62.15%
 
   Monomer SCF synchronisation on iteration   4.1 took     0.0 s.
 
@@ -3383,8 +3476,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.60%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    62.21%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    1: NZ         784 skipped         0 blocks.
 
@@ -3394,8 +3487,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.58%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    62.33%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    3: NZ         784 skipped         0 blocks.
 
@@ -3405,11 +3498,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.55%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    62.41%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.55%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    62.42%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -3420,15 +3513,15 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89366 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:        28 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   37
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =  145
  SCHWARZ INEQUALITY TEST SKIPPED           0 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                 319
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.50%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    62.51%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -3481,8 +3574,8 @@ The dynamically linked libraries for this binary are
     6  H  2  S   -0.767432   0.874291
     7  H  3  S   -0.829312  -0.807330
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.48%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    62.70%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -3557,8 +3650,8 @@ The dynamically linked libraries for this binary are
 
                        TOTAL       BONDED        FREE
       ATOM            VALENCE     VALENCE     VALENCE
-    1 O                 1.899       1.899       0.000
-    2 H                 0.957       0.957       0.000
+    1 O                 1.899       1.899      -0.000
+    2 H                 0.957       0.957      -0.000
     3 H                 0.967       0.967       0.000
 
           ---------------------
@@ -3566,12 +3659,12 @@ The dynamically linked libraries for this binary are
           ---------------------
 
  POINT   1           X           Y           Z (BOHR)    CHARGE
-                 1.699923    2.103735   -1.583280        0.00 (A.U.)
+                 1.699923    2.103735   -1.583280       -0.00 (A.U.)
          DX          DY          DZ         /D/  (DEBYE)
     -0.258493    0.699093   -1.638303    1.799885
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.53%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    63.02%
 
  Iter=  5 iFrag=      2 EFMO=   -74.962621415, DD= 0.000000312, DE=-0.000000007
 
@@ -3591,8 +3684,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.60%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.02%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    1: NZ         784 skipped         0 blocks.
 
@@ -3602,8 +3695,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.58%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.11%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    2: NZ         784 skipped         0 blocks.
 
@@ -3613,11 +3706,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.55%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.18%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.55%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.19%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -3628,15 +3721,15 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89366 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:        28 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   37
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =  145
  SCHWARZ INEQUALITY TEST SKIPPED           0 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                 319
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.49%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.27%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -3650,10 +3743,10 @@ The dynamically linked libraries for this binary are
      MEMORY REQUIRED FOR RHF ITERS=     30481 WORDS.
 
  ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
-   1  0  0      -75.0198425083   -75.0198425083   0.000000371   0.000000000
+   1  0  0      -75.0198425082   -75.0198425082   0.000000371   0.000000000
           ---------------START SECOND ORDER SCF---------------
    2  1  0      -75.0198425083    -0.0000000000   0.000000059   0.000000028
-   3  2  0      -75.0198425083     0.0000000000   0.000000000   0.000000006
+   3  2  0      -75.0198425083    -0.0000000000   0.000000000   0.000000006
 
           -----------------
           DENSITY CONVERGED
@@ -3689,8 +3782,8 @@ The dynamically linked libraries for this binary are
     6  H  2  S   -0.768363   0.873317
     7  H  3  S   -0.828386  -0.808282
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.46%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.44%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -3766,20 +3859,20 @@ The dynamically linked libraries for this binary are
                        TOTAL       BONDED        FREE
       ATOM            VALENCE     VALENCE     VALENCE
     1 O                 1.899       1.899      -0.000
-    2 H                 0.957       0.957      -0.000
-    3 H                 0.967       0.967      -0.000
+    2 H                 0.957       0.957       0.000
+    3 H                 0.967       0.967       0.000
 
           ---------------------
           ELECTROSTATIC MOMENTS
           ---------------------
 
  POINT   1           X           Y           Z (BOHR)    CHARGE
-                 1.699923    2.103735   -1.583280       -0.00 (A.U.)
+                 1.699923    2.103735   -1.583280        0.00 (A.U.)
          DX          DY          DZ         /D/  (DEBYE)
     -1.353967   -1.141830   -0.312469    1.798510
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.52%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.73%
 
  Iter=  5 iFrag=      3 EFMO=   -74.962632906, DD= 0.000000387, DE=-0.000000009
 
@@ -3799,8 +3892,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.58%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.78%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    2: NZ         784 skipped         0 blocks.
 
@@ -3810,8 +3903,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.55%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.86%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    3: NZ         784 skipped         0 blocks.
 
@@ -3821,11 +3914,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.52%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.93%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.53%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.93%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -3836,15 +3929,15 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89366 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:        28 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   21
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   84
  SCHWARZ INEQUALITY TEST SKIPPED           0 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                 206
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.47%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    60.01%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -3860,7 +3953,7 @@ The dynamically linked libraries for this binary are
  ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
    1  0  0      -75.0174368988   -75.0174368988   0.000000306   0.000000000
           ---------------START SECOND ORDER SCF---------------
-   2  1  0      -75.0174368988    -0.0000000000   0.000000040   0.000000020
+   2  1  0      -75.0174368988     0.0000000000   0.000000040   0.000000020
    3  2  0      -75.0174368988     0.0000000000   0.000000000   0.000000004
 
           -----------------
@@ -3897,8 +3990,8 @@ The dynamically linked libraries for this binary are
     6  H  2  S   -0.826406  -0.811099
     7  H  3  S   -0.770848   0.871094
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.45%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    60.15%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -3937,7 +4030,7 @@ The dynamically linked libraries for this binary are
                (K,V1,2)=     69.5684682041   -177.1372905361     31.2164035555
            PI PART(1+2)=     -7.8599814166
                (K,V1,2)=      5.0574570926    -19.9920304794      7.0745919701
-  SIGMA SKELETON, ERROR=    -67.1574520239     -0.0000000000
+  SIGMA SKELETON, ERROR=    -67.1574520239      0.0000000000
              MIXED PART=-3.45406E-06 0.00000E+00-2.39008E-06-1.06398E-06
  ...... END OF PI ENERGY ANALYSIS ......
 
@@ -3990,8 +4083,8 @@ The dynamically linked libraries for this binary are
 
                        TOTAL       BONDED        FREE
       ATOM            VALENCE     VALENCE     VALENCE
-    1 O                 1.899       1.899       0.000
-    2 H                 0.966       0.966       0.000
+    1 O                 1.899       1.899      -0.000
+    2 H                 0.966       0.966      -0.000
     3 H                 0.957       0.957       0.000
 
           ---------------------
@@ -4003,12 +4096,12 @@ The dynamically linked libraries for this binary are
          DX          DY          DZ         /D/  (DEBYE)
      1.470696   -0.000604    1.044856    1.804070
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.51%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    60.45%
 
  Iter=  5 iFrag=      1 EFMO=   -74.962620286, DD= 0.000000325, DE=-0.000000008
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.51%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    60.45%
 
   Monomer SCF synchronisation on iteration   5.1 took     0.0 s.
 
@@ -4035,8 +4128,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.58%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    56.98%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    1: NZ         784 skipped         0 blocks.
 
@@ -4046,8 +4139,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.55%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    57.06%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    3: NZ         784 skipped         0 blocks.
 
@@ -4057,11 +4150,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.52%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    57.13%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.52%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    57.13%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -4072,15 +4165,15 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89366 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:        28 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   37
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =  145
  SCHWARZ INEQUALITY TEST SKIPPED           0 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                 319
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.49%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    57.21%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -4095,7 +4188,7 @@ The dynamically linked libraries for this binary are
 
  ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
    1  0  0      -75.0273001195   -75.0273001195   0.000000023   0.000000000
-   2  1  0      -75.0273001195     0.0000000000   0.000000000   0.000000002
+   2  1  0      -75.0273001195    -0.0000000000   0.000000000   0.000000002
 
           -----------------
           DENSITY CONVERGED
@@ -4104,6 +4197,8 @@ The dynamically linked libraries for this binary are
      TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
 
  FINAL RHF ENERGY IS      -75.0273001195 AFTER   2 ITERATIONS
+
+ a n-mer:      2      0      0 HOMO=  -10.711251 LUMO=  16.669962 gap=  27.381213
 
           ------------
           EIGENVECTORS
@@ -4131,8 +4226,8 @@ The dynamically linked libraries for this binary are
     6  H  2  S   -0.767432   0.874291
     7  H  3  S   -0.829312  -0.807330
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.49%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    57.35%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -4207,7 +4302,7 @@ The dynamically linked libraries for this binary are
 
                        TOTAL       BONDED        FREE
       ATOM            VALENCE     VALENCE     VALENCE
-    1 O                 1.899       1.899       0.000
+    1 O                 1.899       1.899      -0.000
     2 H                 0.957       0.957       0.000
     3 H                 0.967       0.967       0.000
 
@@ -4216,17 +4311,17 @@ The dynamically linked libraries for this binary are
           ---------------------
 
  POINT   1           X           Y           Z (BOHR)    CHARGE
-                 1.699923    2.103735   -1.583280        0.00 (A.U.)
+                 1.699923    2.103735   -1.583280       -0.00 (A.U.)
          DX          DY          DZ         /D/  (DEBYE)
     -0.258493    0.699093   -1.638303    1.799885
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.54%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    57.63%
 
  BEGINNING ONE ELECTRON GRADIENT...
  ..... END OF 1-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.51%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    57.70%
 
           ----------------------
           GRADIENT OF THE ENERGY
@@ -4234,8 +4329,8 @@ The dynamically linked libraries for this binary are
  THE COARSE/FINE SCHWARZ SCREENINGS SKIPPED            0/           0 BLOCKS.
  THE NUMBER OF GRADIENT INTEGRAL BLOCKS COMPUTED WAS        47
  ...... END OF 2-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.49%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    57.81%
 
                          ----------------------
                          GRADIENT OF THE ENERGY
@@ -4250,13 +4345,13 @@ The dynamically linked libraries for this binary are
                        RMS GRADIENT =    0.025394113
 
 ..... END OF SINGLE POINT GRADIENT .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.49%
- Redoing 1e ESP:                     -1
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.50%
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.48%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    57.82%
+ Redoing 1e ESP:                    -1
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    57.84%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    57.85%
 
  Iter=  6 iFrag=      2 EFMOu=   -74.962621416
 
@@ -4276,8 +4371,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.55%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    57.93%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    1: NZ         784 skipped         0 blocks.
 
@@ -4287,8 +4382,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.53%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.02%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    2: NZ         784 skipped         0 blocks.
 
@@ -4298,11 +4393,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.51%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.08%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.51%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.09%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -4313,15 +4408,15 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89366 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:        28 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   37
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =  145
  SCHWARZ INEQUALITY TEST SKIPPED           0 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                 319
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.47%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.16%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -4336,7 +4431,7 @@ The dynamically linked libraries for this binary are
 
  ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE     ORB. GRAD
    1  0  0      -75.0198423863   -75.0198423863   0.000000019   0.000000000
-   2  1  0      -75.0198423863    -0.0000000000   0.000000000   0.000000001
+   2  1  0      -75.0198423863     0.0000000000   0.000000000   0.000000001
 
           -----------------
           DENSITY CONVERGED
@@ -4345,6 +4440,8 @@ The dynamically linked libraries for this binary are
      TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
 
  FINAL RHF ENERGY IS      -75.0198423863 AFTER   2 ITERATIONS
+
+ a n-mer:      3      0      0 HOMO=  -10.695492 LUMO=  16.684376 gap=  27.379868
 
           ------------
           EIGENVECTORS
@@ -4372,8 +4469,8 @@ The dynamically linked libraries for this binary are
     6  H  2  S   -0.768363   0.873317
     7  H  3  S   -0.828386  -0.808282
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    91.46%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.29%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -4448,7 +4545,7 @@ The dynamically linked libraries for this binary are
 
                        TOTAL       BONDED        FREE
       ATOM            VALENCE     VALENCE     VALENCE
-    1 O                 1.899       1.899      -0.000
+    1 O                 1.899       1.899       0.000
     2 H                 0.957       0.957       0.000
     3 H                 0.967       0.967       0.000
 
@@ -4461,13 +4558,13 @@ The dynamically linked libraries for this binary are
          DX          DY          DZ         /D/  (DEBYE)
     -1.353966   -1.141829   -0.312469    1.798510
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.52%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.56%
 
  BEGINNING ONE ELECTRON GRADIENT...
  ..... END OF 1-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.49%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.61%
 
           ----------------------
           GRADIENT OF THE ENERGY
@@ -4475,8 +4572,8 @@ The dynamically linked libraries for this binary are
  THE COARSE/FINE SCHWARZ SCREENINGS SKIPPED            0/           0 BLOCKS.
  THE NUMBER OF GRADIENT INTEGRAL BLOCKS COMPUTED WAS        47
  ...... END OF 2-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.46%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.70%
 
                          ----------------------
                          GRADIENT OF THE ENERGY
@@ -4491,13 +4588,13 @@ The dynamically linked libraries for this binary are
                        RMS GRADIENT =    0.025442758
 
 ..... END OF SINGLE POINT GRADIENT .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.46%
- Redoing 1e ESP:                     -1
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.47%
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.45%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.70%
+ Redoing 1e ESP:                    -1
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.71%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.72%
 
  Iter=  6 iFrag=      3 EFMOu=   -74.962632906
 
@@ -4517,8 +4614,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.52%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    56.15%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    2: NZ         784 skipped         0 blocks.
 
@@ -4528,8 +4625,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.49%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    56.23%
  SCHWARZ INEQUALITY OVERHEAD:        56 INTEGRALS, T=        0.00
  ESP lfg=    3: NZ         784 skipped         0 blocks.
 
@@ -4539,11 +4636,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.47%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    56.29%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.47%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    56.30%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -4554,15 +4651,15 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89366 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:        28 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   21
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   84
  SCHWARZ INEQUALITY TEST SKIPPED           0 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                 206
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.43%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    56.37%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -4586,6 +4683,8 @@ The dynamically linked libraries for this binary are
      TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
 
  FINAL RHF ENERGY IS      -75.0174367477 AFTER   2 ITERATIONS
+
+ a n-mer:      1      0      0 HOMO=  -10.681518 LUMO=  16.722851 gap=  27.404369
 
           ------------
           EIGENVECTORS
@@ -4613,8 +4712,8 @@ The dynamically linked libraries for this binary are
     6  H  2  S   -0.826406  -0.811099
     7  H  3  S   -0.770848   0.871094
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.43%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    56.49%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -4653,7 +4752,7 @@ The dynamically linked libraries for this binary are
                (K,V1,2)=     69.5684681736   -177.1372903232     31.2164034891
            PI PART(1+2)=     -7.8599813880
                (K,V1,2)=      5.0574570926    -19.9920304421      7.0745919615
-  SIGMA SKELETON, ERROR=    -67.1574519079     -0.0000000000
+  SIGMA SKELETON, ERROR=    -67.1574519079      0.0000000000
              MIXED PART=-3.45403E-06 0.00000E+00-2.39007E-06-1.06397E-06
  ...... END OF PI ENERGY ANALYSIS ......
 
@@ -4706,7 +4805,7 @@ The dynamically linked libraries for this binary are
 
                        TOTAL       BONDED        FREE
       ATOM            VALENCE     VALENCE     VALENCE
-    1 O                 1.899       1.899      -0.000
+    1 O                 1.899       1.899       0.000
     2 H                 0.966       0.966      -0.000
     3 H                 0.957       0.957       0.000
 
@@ -4719,13 +4818,13 @@ The dynamically linked libraries for this binary are
          DX          DY          DZ         /D/  (DEBYE)
      1.470696   -0.000604    1.044856    1.804070
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.48%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    56.76%
 
  BEGINNING ONE ELECTRON GRADIENT...
  ..... END OF 1-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.46%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    56.80%
 
           ----------------------
           GRADIENT OF THE ENERGY
@@ -4733,8 +4832,8 @@ The dynamically linked libraries for this binary are
  THE COARSE/FINE SCHWARZ SCREENINGS SKIPPED            0/           0 BLOCKS.
  THE NUMBER OF GRADIENT INTEGRAL BLOCKS COMPUTED WAS        47
  ...... END OF 2-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.43%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    56.87%
 
                          ----------------------
                          GRADIENT OF THE ENERGY
@@ -4749,23 +4848,23 @@ The dynamically linked libraries for this binary are
                        RMS GRADIENT =    0.025225473
 
 ..... END OF SINGLE POINT GRADIENT .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.43%
- Redoing 1e ESP:                     -1
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.43%
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.42%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    56.88%
+ Redoing 1e ESP:                    -1
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    56.89%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    56.90%
 
  Iter=  6 iFrag=      1 EFMOu=   -74.962620286
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.42%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    56.90%
 
   Monomer SCF synchronisation on iteration   6.1 took     0.0 s.
 
  ------------Monomer SCF for layer 1 converged in  6 iterations!------------
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.42%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    56.91%
 
  RHF      dimer      3      1 corr= NONE       , LL1=    14 ID=             1
 
@@ -4782,8 +4881,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.49%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    57.02%
  SCHWARZ INEQUALITY OVERHEAD:       132 INTEGRALS, T=        0.00
  ESP lfg=    2: NZ        2912 skipped        10 blocks.
 
@@ -4793,11 +4892,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.46%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    57.22%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.46%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    57.22%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -4808,19 +4907,19 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89392 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:       104 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   37
- II,JST,KST,LST =  5  1  1  1 NREC =         1 INTLOC =   37
- II,JST,KST,LST =  6  1  1  1 NREC =         1 INTLOC =  160
- II,JST,KST,LST =  7  1  1  1 NREC =         1 INTLOC = 1533
- II,JST,KST,LST =  8  1  1  1 NREC =         1 INTLOC = 1533
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =  145
+ II,JST,KST,LST =  5  1  1  1 NREC =         1 INTLOC =  320
+ II,JST,KST,LST =  6  1  1  1 NREC =         1 INTLOC =  544
+ II,JST,KST,LST =  7  1  1  1 NREC =         1 INTLOC = 2825
+ II,JST,KST,LST =  8  1  1  1 NREC =         1 INTLOC = 3856
  SCHWARZ INEQUALITY TEST SKIPPED          36 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                5168
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.1 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.47%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    57.60%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -4853,6 +4952,8 @@ The dynamically linked libraries for this binary are
      TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
 
  FINAL RHF ENERGY IS     -149.9817168104 AFTER  10 ITERATIONS
+
+ a n-mer:      3      1      0 HOMO=  -10.398101 LUMO=  16.058351 gap=  26.456452
 
           ------------
           EIGENVECTORS
@@ -4912,8 +5013,8 @@ The dynamically linked libraries for this binary are
    13  H  5  S   -0.703493  -0.428425  -0.788719  -0.209975
    14  H  6  S   -0.631810  -0.402608   0.891378  -0.085458
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.39%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.02%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -5020,29 +5121,29 @@ The dynamically linked libraries for this binary are
 
                        TOTAL       BONDED        FREE
       ATOM            VALENCE     VALENCE     VALENCE
-    1 O                 1.893       1.893      -0.000
+    1 O                 1.893       1.893       0.000
     2 H                 0.956       0.956       0.000
     3 H                 0.969       0.969       0.000
-    4 O                 1.934       1.934       0.000
+    4 O                 1.934       1.934      -0.000
     5 H                 0.964       0.964      -0.000
-    6 H                 0.954       0.954       0.000
+    6 H                 0.954       0.954      -0.000
 
           ---------------------
           ELECTROSTATIC MOMENTS
           ---------------------
 
  POINT   1           X           Y           Z (BOHR)    CHARGE
-                 1.699923    2.103735   -1.583280       -0.00 (A.U.)
+                 1.699923    2.103735   -1.583280        0.00 (A.U.)
          DX          DY          DZ         /D/  (DEBYE)
      0.138690   -1.361987    0.908455    1.643026
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.44%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.34%
 
  BEGINNING ONE ELECTRON GRADIENT...
  ..... END OF 1-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.42%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.54%
 
           ----------------------
           GRADIENT OF THE ENERGY
@@ -5050,8 +5151,8 @@ The dynamically linked libraries for this binary are
  THE COARSE/FINE SCHWARZ SCREENINGS SKIPPED           39/           8 BLOCKS.
  THE NUMBER OF GRADIENT INTEGRAL BLOCKS COMPUTED WAS       603
  ...... END OF 2-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.41%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.22%
 
                          ----------------------
                          GRADIENT OF THE ENERGY
@@ -5069,17 +5170,17 @@ The dynamically linked libraries for this binary are
                        RMS GRADIENT =    0.025977388
 
 ..... END OF SINGLE POINT GRADIENT .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.41%
- Redoing 1e ESP:                     -1
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.41%
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.39%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.23%
+ Redoing 1e ESP:                    -1
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.24%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.25%
 
   iFrag=      3 jFrag=      1 EFMOu=  -149.932666261 Tr=-0.000539933
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.40%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.89%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -5087,8 +5188,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.35%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.17%
  SCHWARZ INEQUALITY OVERHEAD:       132 INTEGRALS, T=        0.00
 
  ESD LFG=    2: NZ        2912 SKIPPED        10 BLOCKS.
@@ -5099,8 +5200,8 @@ The dynamically linked libraries for this binary are
  THE COARSE/FINE SCHWARZ SCREENINGS SKIPPED         10/         0 BLOCKS.
  THE NUMBER OF GRADIENT INTEGRAL BLOCKS COMPUTED WAS       350
  ...... END OF 2-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.26%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.73%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -5108,11 +5209,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.26%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.73%
  DONE FMOESD
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.26%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.73%
 
  RHF      dimer      3      2 corr= NONE       , LL1=    14 ID=             2
 
@@ -5129,8 +5230,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.32%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.83%
  SCHWARZ INEQUALITY OVERHEAD:       132 INTEGRALS, T=        0.00
  ESP lfg=    1: NZ        2912 skipped        10 blocks.
 
@@ -5140,11 +5241,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.29%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.99%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.29%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.00%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -5155,19 +5256,19 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89392 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:       104 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   37
- II,JST,KST,LST =  5  1  1  1 NREC =         1 INTLOC =   37
- II,JST,KST,LST =  6  1  1  1 NREC =         1 INTLOC =  160
- II,JST,KST,LST =  7  1  1  1 NREC =         1 INTLOC = 1533
- II,JST,KST,LST =  8  1  1  1 NREC =         1 INTLOC = 1533
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =  145
+ II,JST,KST,LST =  5  1  1  1 NREC =         1 INTLOC =  320
+ II,JST,KST,LST =  6  1  1  1 NREC =         1 INTLOC =  544
+ II,JST,KST,LST =  7  1  1  1 NREC =         1 INTLOC = 2827
+ II,JST,KST,LST =  8  1  1  1 NREC =         1 INTLOC = 3919
  SCHWARZ INEQUALITY TEST SKIPPED          36 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                5283
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.30%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.33%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -5191,7 +5292,7 @@ The dynamically linked libraries for this binary are
    7  6  0     -149.9990770961    -0.0000000003   0.000005365   0.000001534
    8  7  0     -149.9990770961    -0.0000000000   0.000000396   0.000000177
    9  8  0     -149.9990770961    -0.0000000000   0.000000169   0.000000046
-  10  9  0     -149.9990770961    -0.0000000000   0.000000032   0.000000010
+  10  9  0     -149.9990770961     0.0000000000   0.000000032   0.000000010
 
           -----------------
           DENSITY CONVERGED
@@ -5200,6 +5301,8 @@ The dynamically linked libraries for this binary are
      TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
 
  FINAL RHF ENERGY IS     -149.9990770961 AFTER  10 ITERATIONS
+
+ a n-mer:      3      2      0 HOMO=  -10.438460 LUMO=  15.989862 gap=  26.428322
 
           ------------
           EIGENVECTORS
@@ -5259,8 +5362,8 @@ The dynamically linked libraries for this binary are
    13  H  5  S   -0.465336   0.495699  -0.146691   0.953427
    14  H  6  S   -0.384028   0.842020   0.104060  -0.684698
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.23%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.78%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -5383,13 +5486,13 @@ The dynamically linked libraries for this binary are
          DX          DY          DZ         /D/  (DEBYE)
     -1.828425   -0.321885   -1.971534    2.708079
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.28%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    60.06%
 
  BEGINNING ONE ELECTRON GRADIENT...
  ..... END OF 1-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.26%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    60.24%
 
           ----------------------
           GRADIENT OF THE ENERGY
@@ -5397,8 +5500,8 @@ The dynamically linked libraries for this binary are
  THE COARSE/FINE SCHWARZ SCREENINGS SKIPPED           41/           9 BLOCKS.
  THE NUMBER OF GRADIENT INTEGRAL BLOCKS COMPUTED WAS       600
  ...... END OF 2-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.29%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    60.85%
 
                          ----------------------
                          GRADIENT OF THE ENERGY
@@ -5416,17 +5519,17 @@ The dynamically linked libraries for this binary are
                        RMS GRADIENT =    0.025872659
 
 ..... END OF SINGLE POINT GRADIENT .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.30%
- Redoing 1e ESP:                     -1
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.30%
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.28%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    60.86%
+ Redoing 1e ESP:                    -1
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    60.86%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    60.88%
 
   iFrag=      3 jFrag=      2 EFMOu=  -149.931644922 Tr=-0.000455736
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.29%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    60.88%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -5434,8 +5537,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.22%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    61.08%
  SCHWARZ INEQUALITY OVERHEAD:       132 INTEGRALS, T=        0.00
 
  ESD LFG=    1: NZ        2912 SKIPPED        10 BLOCKS.
@@ -5446,8 +5549,8 @@ The dynamically linked libraries for this binary are
  THE COARSE/FINE SCHWARZ SCREENINGS SKIPPED         10/         0 BLOCKS.
  THE NUMBER OF GRADIENT INTEGRAL BLOCKS COMPUTED WAS       350
  ...... END OF 2-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.14%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    61.58%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -5455,11 +5558,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.14%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    61.58%
  DONE FMOESD
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.14%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    61.58%
 
  RHF      dimer      2      1 corr= NONE       , LL1=    14 ID=             3
 
@@ -5476,8 +5579,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.19%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.97%
  SCHWARZ INEQUALITY OVERHEAD:       132 INTEGRALS, T=        0.00
  ESP lfg=    3: NZ        2912 skipped        10 blocks.
 
@@ -5487,11 +5590,11 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.17%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.12%
  ...... END OF ONE-ELECTRON INTEGRALS ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.17%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.13%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -5502,19 +5605,19 @@ The dynamically linked libraries for this binary are
  TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89392 WORDS OF MEMORY.
  SCHWARZ INEQUALITY OVERHEAD:       104 INTEGRALS, T=        0.00
  II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    1
- II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   37
- II,JST,KST,LST =  5  1  1  1 NREC =         1 INTLOC =   37
- II,JST,KST,LST =  6  1  1  1 NREC =         1 INTLOC =  160
- II,JST,KST,LST =  7  1  1  1 NREC =         1 INTLOC = 1533
- II,JST,KST,LST =  8  1  1  1 NREC =         1 INTLOC = 1533
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =  145
+ II,JST,KST,LST =  5  1  1  1 NREC =         1 INTLOC =  320
+ II,JST,KST,LST =  6  1  1  1 NREC =         1 INTLOC =  544
+ II,JST,KST,LST =  7  1  1  1 NREC =         1 INTLOC = 2830
+ II,JST,KST,LST =  8  1  1  1 NREC =         1 INTLOC = 3861
  SCHWARZ INEQUALITY TEST SKIPPED          36 INTEGRAL BLOCKS.
  TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                5173
-          3 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.18%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.42%
 
           --------------------------
                  RHF SCF CALCULATION
@@ -5538,7 +5641,7 @@ The dynamically linked libraries for this binary are
    7  6  0     -149.9943977171    -0.0000000004   0.000005922   0.000001731
    8  7  0     -149.9943977172    -0.0000000000   0.000000565   0.000000210
    9  8  0     -149.9943977172    -0.0000000000   0.000000173   0.000000050
-  10  9  0     -149.9943977172    -0.0000000000   0.000000031   0.000000011
+  10  9  0     -149.9943977172     0.0000000000   0.000000031   0.000000011
 
           -----------------
           DENSITY CONVERGED
@@ -5547,6 +5650,8 @@ The dynamically linked libraries for this binary are
      TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
 
  FINAL RHF ENERGY IS     -149.9943977172 AFTER  10 ITERATIONS
+
+ a n-mer:      2      1      0 HOMO=  -10.390284 LUMO=  16.008738 gap=  26.399022
 
           ------------
           EIGENVECTORS
@@ -5606,8 +5711,8 @@ The dynamically linked libraries for this binary are
    13  H  5  S   -0.355749   0.855486   0.074647  -0.687784
    14  H  6  S   -0.439324   0.515745  -0.108142   0.961900
  ...... END OF RHF CALCULATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.12%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.76%
 
      ----------------------------------------------------------------
      PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
@@ -5730,13 +5835,13 @@ The dynamically linked libraries for this binary are
          DX          DY          DZ         /D/  (DEBYE)
      1.434839    0.783393   -0.737347    1.793362
  ...... END OF PROPERTY EVALUATION ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.16%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    59.99%
 
  BEGINNING ONE ELECTRON GRADIENT...
  ..... END OF 1-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.15%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    60.14%
 
           ----------------------
           GRADIENT OF THE ENERGY
@@ -5744,8 +5849,8 @@ The dynamically linked libraries for this binary are
  THE COARSE/FINE SCHWARZ SCREENINGS SKIPPED           41/           8 BLOCKS.
  THE NUMBER OF GRADIENT INTEGRAL BLOCKS COMPUTED WAS       601
  ...... END OF 2-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.15%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    60.64%
 
                          ----------------------
                          GRADIENT OF THE ENERGY
@@ -5763,17 +5868,17 @@ The dynamically linked libraries for this binary are
                        RMS GRADIENT =    0.025978930
 
 ..... END OF SINGLE POINT GRADIENT .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.15%
- Redoing 1e ESP:                     -1
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.15%
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.14%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    60.65%
+ Redoing 1e ESP:                    -1
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    60.66%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    60.67%
 
   iFrag=      2 jFrag=      1 EFMOu=  -149.932672519 Tr=-0.000507645
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.14%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    60.67%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -5781,8 +5886,8 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.09%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    60.83%
  SCHWARZ INEQUALITY OVERHEAD:       132 INTEGRALS, T=        0.00
 
  ESD LFG=    3: NZ        2912 SKIPPED        10 BLOCKS.
@@ -5793,8 +5898,8 @@ The dynamically linked libraries for this binary are
  THE COARSE/FINE SCHWARZ SCREENINGS SKIPPED         10/         0 BLOCKS.
  THE NUMBER OF GRADIENT INTEGRAL BLOCKS COMPUTED WAS       350
  ...... END OF 2-ELECTRON GRADIENT ......
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.02%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    61.25%
 
           --------------------
           2 ELECTRON INTEGRALS
@@ -5802,22 +5907,24 @@ The dynamically linked libraries for this binary are
 
  DIRECT SCF METHOD SKIPS INTEGRAL STORAGE ON DISK.
   ...... END OF TWO-ELECTRON INTEGRALS .....
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.02%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    61.25%
  DONE FMOESD
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.02%
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.02%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    61.25%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    61.25%
 
  Dimer synchronisation for layer 1 took     0.0 s.
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.02%
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.11%
- Tim:  IJ     0.04 lump  0.00 DFTBg  0.00 PCM 0.00 SCZV   0.00 total      0.05
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.11%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    61.25%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    61.30%
+ Tim2:  IJ     0.03 lump  0.00 DFTBg  0.00 PCM 0.00 SCZV   0.00 total      0.03
+
+ Gradient translational error=    0.0000000000    0.0000000000    0.0000000000
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    61.31%
 
 
          FMO properties
@@ -5859,6 +5966,8 @@ The dynamically linked libraries for this binary are
      1   10.681518   16.722851  -13.702184   -6.041332   -0.165526    -15.538779
      2   10.711251   16.669962  -13.690607   -5.958710   -0.167822    -15.727624
      3   10.695492   16.684376  -13.689934   -5.988884   -0.166976    -15.646845
+
+ Stability measures, global=   27.3515 averaged=   27.3885 eV
 
  Total energy of the molecule: Euncorr(1)=     -224.887874608
  Dipole moment D(xyz),DA(1)=   -0.1417639   -0.4433400   -0.9059165    1.0184950
@@ -5927,66 +6036,48 @@ The dynamically linked libraries for this binary are
                TOTAL KINETIC ENERGY =          223.8848291956
                  VIRIAL RATIO (V/T) =            2.0045817451
 
+ The best FMO energy is            -224.910612407
+
  Done with FMO properties.
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.12%
- CPU     0: STEP CPU TIME=     0.00 TOTAL CPU TIME=          0.2 (      0.0 MIN)
- TOTAL WALL CLOCK TIME=          0.2 SECONDS, CPU UTILIZATION IS    91.13%
- Tim: PCM ini  0.01 in mon    0.13 in dim    0.05 in prp    0.00 total     0.19
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.86%
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.1 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    58.25%
+ Tim: ini  0.01 mon    0.07 dim    0.03 trim    0.00 prp    0.00 total     0.11
 
  Total timing statistics in pairs (CPU,wall) for each rank, sec
 
     Rank   total     SCF    corr     DFT    CPHF     EFP    solv     ESP    geom
  -------------------------------------------------------------------------------
-       1       0.2      0.1      0.0      0.0    0.0   0.0    0.0     0.0    0.0
-       1       0.2      0.1      0.0      0.0    0.0   0.0    0.0     0.0    0.0
-       2       0.1      0.0      0.0      0.0    0.0   0.0    0.0     0.0    0.0
-       2       0.2      0.1      0.0      0.0    0.0   0.0    0.0     0.0    0.0
-       3       0.1      0.0      0.0      0.0    0.0   0.0    0.0     0.0    0.0
-       3       0.2      0.1      0.0      0.0    0.0   0.0    0.0     0.0    0.0
+       1       0.1      0.0      0.0      0.0    0.0   0.0    0.0     0.0    0.0
+       1       0.1      0.0      0.0      0.0    0.0   0.0    0.0     0.0    0.0
 averaged       0.1      0.0      0.0      0.0    0.0   0.0    0.0     0.0    0.0
-averaged       0.2      0.1      0.0      0.0    0.0   0.0    0.0     0.0    0.0
+averaged       0.1      0.0      0.0      0.0    0.0   0.0    0.0     0.0    0.0
 
   FMO  timing statistics in pairs (CPU,wall) for each rank, sec
 
     Rank  FMOini FMOscf1  FMOdm1 FMOsyn1 FMOscf2  FMOes2 FMOsyn2 FMOscf3 FMOsyn3
  -------------------------------------------------------------------------------
-       1    0.0       0.1    0.0    0.0       0.0       0.0    0.0    0.0    0.0
-       1    0.0       0.1    0.0    0.0       0.0       0.0    0.0    0.0    0.0
-       2    0.0       0.1    0.0    0.0       0.0       0.0    0.0    0.0    0.0
-       2    0.0       0.1    0.0    0.0       0.0       0.0    0.0    0.0    0.0
-       3    0.0       0.0    0.0    0.0       0.0       0.0    0.0    0.0    0.0
-       3    0.0       0.1    0.0    0.0       0.0       0.0    0.0    0.0    0.0
-averaged    0.0       0.1    0.0    0.0       0.0       0.0    0.0    0.0    0.0
-averaged    0.0       0.1    0.0    0.0       0.0       0.0    0.0    0.0    0.0
-                580000  WORDS OF DYNAMIC MEMORY USED
- EXECUTION OF GAMESS TERMINATED NORMALLY 13:07:27 15-MAR-2022    
+       1   0.0       0.0   0.0    0.0       0.0      0.0    0.0       0.0    0.0
+       1   0.0       0.1   0.0    0.0       0.0      0.0    0.0       0.0    0.0
+averaged   0.0       0.0   0.0    0.0       0.0      0.0    0.0       0.0    0.0
+averaged   0.0       0.1   0.0    0.0       0.0      0.0    0.0       0.0    0.0
+               580000  WORDS OF DYNAMIC MEMORY USED
+ EXECUTION OF GAMESS TERMINATED NORMALLY 01:39:04 14-MAY-2025    
  DDI: 263640 bytes (0.3 MB / 0 MWords) used by master data server.
 
  ----------------------------------------
  CPU timing information for all processes
  ========================================
- 0: 0.78 + 0.113 = 0.191
- 1: 0.42 + 0.66 = 0.109
- 2: 0.44 + 0.49 = 0.94
+ 0: 0.41 + 0.24 = 0.66
  ----------------------------------------
  ddikick.x: exited gracefully.
 unset echo
 ----- accounting info -----
-Files used on the master node compute-1-0.local were:
--rw-rw-r-- 1 sarom sarom   1387 Mar 15 13:07 /tmp/373933/exam37.F05
--rw-rw-r-- 1 sarom sarom 180016 Mar 15 13:07 /tmp/373933/exam37.F08
--rw-rw-r-- 1 sarom sarom 180016 Mar 15 13:07 /tmp/373933/exam37.F08.001
--rw-rw-r-- 1 sarom sarom 180016 Mar 15 13:07 /tmp/373933/exam37.F08.002
--rw-rw-r-- 1 sarom sarom  65440 Mar 15 13:07 /tmp/373933/exam37.F10
--rw-rw-r-- 1 sarom sarom 114688 Mar 15 13:07 /tmp/373933/exam37.F40
--rw-rw-r-- 1 sarom sarom 114688 Mar 15 13:07 /tmp/373933/exam37.F40.001
--rw-rw-r-- 1 sarom sarom 114688 Mar 15 13:07 /tmp/373933/exam37.F40.002
-/usr/bin/rm: cannot remove ‘/tmp/373933’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373933’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373933’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373933’: No such file or directory
-/usr/bin/rm: cannot remove ‘/tmp/373933’: No such file or directory
-srun: error: compute-1-0: tasks 0-1,3-5: Exited with exit code 1
-Tue Mar 15 13:07:30 CDT 2022
-0.215u 0.099s 0:03.84 7.8%	0+0k 96+1776io 0pf+0w
+Files used on the parent node Mac were:
+-rw-r--r--@ 1 sarom  staff    1387 May 14 01:39 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F05
+-rw-r--r--@ 1 sarom  staff  180016 May 14 01:39 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F08
+-rw-r--r--@ 1 sarom  staff   65440 May 14 01:39 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F10
+-rw-r--r--@ 1 sarom  staff  114688 May 14 01:39 /Users/sarom/GAMESS-Development/gamess/scratch/exam37/2025_05_14-01_39_04-82453CE5/exam37.F40
+Wed May 14 01:39:05 EDT 2025
+0.109u 0.105s 0:01.28 15.6%	0+0k 0+0io 182pf+0w
